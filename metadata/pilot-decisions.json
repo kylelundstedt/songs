@@ -1,0 +1,313 @@
+{
+  "decisions": [
+    {
+      "id": "1979",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Smashing Pumpkins",
+        "reference_title": "1979",
+        "reference_artist": "The Smashing Pumpkins",
+        "reference_album": "Mellon Collie and the Infinite Sadness (30th anniversary edition)",
+        "reference_duration_seconds": 263.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36976623",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36976623",
+        "metadata_confidence": 0.9738,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are The Smashing Pumpkins' 1979, and E is supported by the matching Notion lead sheet. Use the supplied standard-length LRCLIB candidate and clear recording identifiers inherited from a different outtake/instrumental match."
+    },
+    {
+      "id": "billie-jean",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Michael Jackson",
+        "reference_title": "Billie Jean",
+        "reference_artist": "Michael Jackson",
+        "reference_album": "The Essential Michael Jackson",
+        "reference_duration_seconds": 258.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36999831",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36999831",
+        "metadata_confidence": 0.9198,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Michael Jackson's Billie Jean, with F#m supported by the Notion title. Replace the Jamie Lancaster lounge cover and clear all cover-derived identifiers and BPM."
+    },
+    {
+      "id": "brown-eyed-girl",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric and supplied candidate identify Van Morrison's Brown Eyed Girl. The proposed LRCLIB tuple is present and usable; no performance key is supplied."
+    },
+    {
+      "id": "crash",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Dave Matthews Band",
+        "performance_key": "E",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Dave Matthews Band's Crash Into Me, and the matching local Notion lead sheet supplies E. Every proposed LRCLIB candidate is the unrelated Murderdolls song Crash Crash, so accept only the artist/key and suppress all external reference and wrong-recording fields."
+    },
+    {
+      "id": "crazy",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Gnarls Barkley",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Gnarls Barkley's Crazy, and the Notion suffix supports Cm. No supplied LRCLIB candidate is this song, so retain the key but suppress the unrelated Crazy Crazy reference."
+    },
+    {
+      "id": "feels-sheriff",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Calvin Harris feat. Pharrell Williams, Katy Perry & Big Sean / Bob Marley & The Wailers",
+        "performance_key": "Em, Gm",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "This is a manual mashup of Calvin Harris's Feels and Bob Marley & The Wailers' I Shot the Sheriff. Preserve multi-artist attribution and the matching Notion keys Em and Gm; there is no single valid LRCLIB reference recording."
+    },
+    {
+      "id": "home-live",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Phillip Phillips",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The 'Hold on to me as we go' lyric identifies Phillip Phillips' Home. None of the supplied LRCLIB candidates is that song, so accept the artist only and remove the Nicole Henry/Michael Bublé reference fields."
+    },
+    {
+      "id": "home",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Daughtry",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The 'I'm staring out into the night' lyric identifies Daughtry's Home. None of the supplied LRCLIB candidates is that song, so accept the artist only and remove the unrelated reference fields."
+    },
+    {
+      "id": "i-shot-the-sheriff",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bob Marley & The Wailers",
+        "recording_mbid": null
+      },
+      "review_note": "The canonical ad-libs, parenthetical responses, verse order, and even transcription quirks closely match supplied LRCLIB candidate 37471372. Retain that exact Bob Marley/Songs Of Freedom tuple, normalize only the canonical artist field to Bob Marley & The Wailers, and clear the independently mismatched MusicBrainz recording."
+    },
+    {
+      "id": "jolene",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Dolly Parton",
+        "reference_title": "Jolene",
+        "reference_artist": "Dolly Parton",
+        "reference_album": "Dolly Parton Gold: Greatest Hits",
+        "reference_duration_seconds": 157.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36984434",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36984434",
+        "metadata_confidence": 0.984,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body explicitly identifies Dolly Parton and Greatest Hits. Use the supplied normal-length Greatest Hits LRCLIB candidate rather than the anomalous 216-second entry, and clear identifiers not tied to the replacement."
+    },
+    {
+      "id": "juice",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The lyrics exactly identify Lizzo's Juice, and the proposed 195-second Lizzo LRCLIB candidate and independently matched identifiers are consistent."
+    },
+    {
+      "id": "love-shack",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The B-52's",
+        "reference_title": "Love Shack",
+        "reference_artist": "The B-52's",
+        "reference_album": "Party Like It's 1989",
+        "reference_duration_seconds": 321.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37464738",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37464738",
+        "metadata_confidence": 0.9154,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are The B-52's Love Shack, with C supported by Notion. Replace the 390-second live proposal with the supplied 321-second candidate, preserving its exact tuple, and clear the live MusicBrainz identifier."
+    },
+    {
+      "id": "melt-with-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Modern English",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is Modern English's original I Melt with You lyric, including the 'Dream of better lives' verse. Every supplied LRCLIB candidate carries the same re-recorded/live lyric that omits that verse and adds stage patter, so accept the artist but suppress all reference and variant-derived identifier fields."
+    },
+    {
+      "id": "redemption-song-live",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Ziggy Marley & Lauryn Hill",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The explicit Ziggy/Lauryn labels and L. Boogie rap identify the Ziggy Marley and Lauryn Hill rendition, not Bob Marley's standard recording. No supplied LRCLIB candidate contains that version, so accept the performance artists and clear all standard-version references and identifiers."
+    },
+    {
+      "id": "ring-of-fire",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The repeated second verse, extended choruses, 'One more time' cue, and wording closely match the supplied Social Distortion Live at The Roxy lyric rather than Johnny Cash's compact original. Retain the suggested live-cover tuple and its tied identifiers."
+    },
+    {
+      "id": "song-2",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Blur",
+        "reference_title": "Song 2",
+        "reference_artist": "Blur",
+        "reference_album": "Contact, Volume 4: Overtime!",
+        "reference_duration_seconds": 123.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37002844",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37002844",
+        "metadata_confidence": 0.9686,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Blur's Song 2, not DJ Krush's unrelated same-title track. Use the supplied Blur candidate and clear the wrong DJ Krush recording identifiers and BPM."
+    },
+    {
+      "id": "superstition-single-version",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stevie Wonder",
+        "reference_title": "Superstition",
+        "reference_artist": "Stevie Wonder",
+        "reference_album": "Motown 40 Forever - Disc Two",
+        "reference_duration_seconds": 240.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37517292",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37517292",
+        "metadata_confidence": 0.8958,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Stevie Wonder's Superstition, E is supported by Notion, and the canonical filename specifies the single version. Use the supplied 240-second Stevie Wonder candidate rather than UB40 or an album-length entry, and clear the cover identifier."
+    },
+    {
+      "id": "walk",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The lyrics exactly identify Foo Fighters' Walk. Retain supplied candidate 21823172 and its literal LRCLIB tuple, including the duplicated reference title Walk;Walk; its track identifiers and BPM are independently consistent."
+    },
+    {
+      "id": "white-wedding",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Billy Idol",
+        "reference_title": "White Wedding",
+        "reference_artist": "Billy Idol",
+        "reference_album": "Greatest Hits 2001",
+        "reference_duration_seconds": 249.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36955987",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36955987",
+        "metadata_confidence": 0.7978,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The extended arrangement and lyric identify Billy Idol's White Wedding, with Bm supported by Notion. Replace the Code 69 cover candidate and clear all cover-derived identifiers."
+    },
+    {
+      "id": "you-oughta-know",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The lyric and supplied LRCLIB candidate identify Alanis Morissette's You Oughta Know, and F#m is supported by Notion. Retain the matching studio reference, BPM, and Deezer track, but clear the MusicBrainz identifier sourced from an unrelated live release."
+    }
+  ]
+}

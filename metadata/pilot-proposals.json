@@ -1,0 +1,2567 @@
+{
+  "song_count": 20,
+  "songs": [
+    {
+      "id": "1979",
+      "path": "songs/1979.md",
+      "title": "1979",
+      "body_sha256": "44db340ee64a9481c0a1cd2db2a52dd1f9d91ee627d2395cf9904adaa1531b92",
+      "existing_metadata": {},
+      "notion": {
+        "title": "1979 (E)",
+        "source_id": "024e870d-3faf-44cf-b87a-6fde5b8999d9",
+        "candidate_path": "1979-e--024e870d3faf44cfb87a6fde5b8999d9.md",
+        "performance_key_candidate": "E"
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=1979",
+      "lrclib_candidates": [
+        {
+          "id": 36880859,
+          "title": "1979",
+          "artist": "Smashing Pumpkins",
+          "album": "Mellon Collie, Disk 2",
+          "duration_seconds": 355.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0c53f1f57a9203053b247980373728a2e2af5b01ebd55270718eca7ad970dd3f"
+        },
+        {
+          "id": 36976623,
+          "title": "1979",
+          "artist": "The Smashing Pumpkins",
+          "album": "Mellon Collie and the Infinite Sadness (30th anniversary edition)",
+          "duration_seconds": 263.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0ecf095d0a531b610916f738b81b304071ebed299e53ae593c8f1020dafc3155"
+        },
+        {
+          "id": 37007011,
+          "title": "1979",
+          "artist": "Smashing Pumpkins",
+          "album": "Acousticollie & The Infinite Outtakes",
+          "duration_seconds": 261.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0c53f1f57a9203053b247980373728a2e2af5b01ebd55270718eca7ad970dd3f"
+        },
+        {
+          "id": 37468327,
+          "title": "1979",
+          "artist": "The Smashing Pumpkins",
+          "album": "Do the Riot Thing",
+          "duration_seconds": 265.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0ecf095d0a531b610916f738b81b304071ebed299e53ae593c8f1020dafc3155"
+        },
+        {
+          "id": 37502016,
+          "title": "1979",
+          "artist": "Smashing Pumpkins",
+          "album": "Back To The 90S Greatest Hits",
+          "duration_seconds": 267.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0c53f1f57a9203053b247980373728a2e2af5b01ebd55270718eca7ad970dd3f"
+        },
+        {
+          "id": 37480094,
+          "title": "1979",
+          "artist": "The Smashing Pumpkins",
+          "album": "Greatest Hits",
+          "duration_seconds": 270.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0ecf095d0a531b610916f738b81b304071ebed299e53ae593c8f1020dafc3155"
+        },
+        {
+          "id": 37513887,
+          "title": "1979",
+          "artist": "The Smashing Pumpkins",
+          "album": "Promo Only: Modern Rock Radio, December 1995",
+          "duration_seconds": 248.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0ecf095d0a531b610916f738b81b304071ebed299e53ae593c8f1020dafc3155"
+        },
+        {
+          "id": 37515079,
+          "title": "1979",
+          "artist": "Smashing Pumpkins - 2001 - Rotten Apples: Greatest Hits Disc 1",
+          "album": "Greatest Hits (Part I)",
+          "duration_seconds": 264.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9626,
+          "score": 0.9738,
+          "lyrics_sha256": "0c53f1f57a9203053b247980373728a2e2af5b01ebd55270718eca7ad970dd3f"
+        }
+      ],
+      "suggested": {
+        "artist": "Smashing Pumpkins",
+        "reference_title": "1979",
+        "reference_artist": "Smashing Pumpkins",
+        "reference_album": "Mellon Collie, Disk 2",
+        "reference_duration_seconds": 355.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36880859",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36880859",
+        "metadata_confidence": 0.9738,
+        "performance_key": "E",
+        "recording_mbid": "96e5f54c-504f-4457-b495-c744940a105e"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "96e5f54c-504f-4457-b495-c744940a105e",
+        "title": "1979",
+        "artist": "Smashing Pumpkins",
+        "duration_seconds": null,
+        "release": "Acousticollie & The Infinite Outtakes",
+        "score": 1.0
+      },
+      "deezer": {
+        "track_id": 661497672,
+        "title": "1979 (Instrumental)",
+        "artist": "The Smashing Pumpkins",
+        "duration_seconds": 317,
+        "isrc": "USVI29501073",
+        "score": 0.9024,
+        "bpm": 0
+      }
+    },
+    {
+      "id": "billie-jean",
+      "path": "songs/Billie-Jean.md",
+      "title": "Billie Jean",
+      "body_sha256": "d875028475a7dfa29b273f241caaf6b109cfb43d6034414754d2c8252fb71953",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Billie Jean (F#m)",
+        "source_id": "f0c54dac-d2dd-47df-bf7a-f4bbf46ebf79",
+        "candidate_path": "billie-jean-f-m--f0c54dacd2dd47dfbf7af4bbf46ebf79.md",
+        "performance_key_candidate": "F#m"
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Billie+Jean",
+      "lrclib_candidates": [
+        {
+          "id": 37496075,
+          "title": "Billie Jean",
+          "artist": "Jamie Lancaster",
+          "album": "Keep Calm and Ultra Lounge 2",
+          "duration_seconds": 214.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9319,
+          "score": 0.9523,
+          "lyrics_sha256": "e3e50594d6f365eb73aeeab9b80a802e39b082ce039748e6977398358b932490"
+        },
+        {
+          "id": 37497641,
+          "title": "Billie Jean",
+          "artist": "Various Artists",
+          "album": "German Top 100 Jahrescharts 1995",
+          "duration_seconds": 261.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9099,
+          "score": 0.9369,
+          "lyrics_sha256": "1dc7936d443076a6385d3533fa8422faf5cf3e83a02b5fce0a93b3f23568c794"
+        },
+        {
+          "id": 36973034,
+          "title": "Billie Jean",
+          "artist": "Michael Jackson",
+          "album": "Thriller [25th Anniversary Edition Alternate Cover]",
+          "duration_seconds": 294.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8854,
+          "score": 0.9198,
+          "lyrics_sha256": "8c508ad9908c18a09e2d32364758d4ba2d36828e8a60a28f3a11e67c5993d6cf"
+        },
+        {
+          "id": 36973213,
+          "title": "Billie Jean",
+          "artist": "Michael Jackson",
+          "album": "Kenwood Demo CD vol.9",
+          "duration_seconds": 432.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8854,
+          "score": 0.9198,
+          "lyrics_sha256": "8c508ad9908c18a09e2d32364758d4ba2d36828e8a60a28f3a11e67c5993d6cf"
+        },
+        {
+          "id": 36980315,
+          "title": "Billie Jean",
+          "artist": "Michael Jackson",
+          "album": "Cb5010-03",
+          "duration_seconds": 321.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8854,
+          "score": 0.9198,
+          "lyrics_sha256": "8c508ad9908c18a09e2d32364758d4ba2d36828e8a60a28f3a11e67c5993d6cf"
+        },
+        {
+          "id": 36952025,
+          "title": "Billie Jean",
+          "artist": "Michael Jackson",
+          "album": "Michael Jackson Vol.1",
+          "duration_seconds": 416.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8854,
+          "score": 0.9198,
+          "lyrics_sha256": "8c508ad9908c18a09e2d32364758d4ba2d36828e8a60a28f3a11e67c5993d6cf"
+        },
+        {
+          "id": 36953864,
+          "title": "Billie Jean",
+          "artist": "Michael Jackson",
+          "album": "Mundial 2026: Copa de F\u00fatbol del Mundo 2026",
+          "duration_seconds": 294.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8854,
+          "score": 0.9198,
+          "lyrics_sha256": "8c508ad9908c18a09e2d32364758d4ba2d36828e8a60a28f3a11e67c5993d6cf"
+        },
+        {
+          "id": 36999831,
+          "title": "Billie Jean",
+          "artist": "Michael Jackson",
+          "album": "The Essential Michael Jackson",
+          "duration_seconds": 258.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8854,
+          "score": 0.9198,
+          "lyrics_sha256": "8c508ad9908c18a09e2d32364758d4ba2d36828e8a60a28f3a11e67c5993d6cf"
+        }
+      ],
+      "suggested": {
+        "artist": "Jamie Lancaster",
+        "reference_title": "Billie Jean",
+        "reference_artist": "Jamie Lancaster",
+        "reference_album": "Keep Calm and Ultra Lounge 2",
+        "reference_duration_seconds": 214.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37496075",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37496075",
+        "metadata_confidence": 0.9523,
+        "performance_key": "F#m",
+        "recording_mbid": "9b1aa59d-f63b-4c72-88b0-081351978d27",
+        "original_bpm": "119.8",
+        "deezer_track_id": "1676938"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "9b1aa59d-f63b-4c72-88b0-081351978d27",
+        "title": "Billie Jean",
+        "artist": "Jamie LancasterKaren Souza",
+        "duration_seconds": 214,
+        "release": "Vintage Caf\u00e9: Lounge & Jazz Blends (Special Selection), Pt. 4",
+        "score": 0.8947
+      },
+      "deezer": {
+        "track_id": 1676938,
+        "title": "Billie Jean",
+        "artist": "Jamie Lancaster",
+        "duration_seconds": 214,
+        "isrc": "ARF410701468",
+        "score": 1.0,
+        "bpm": 119.8
+      }
+    },
+    {
+      "id": "brown-eyed-girl",
+      "path": "songs/Brown-Eyed-Girl.md",
+      "title": "Brown Eyed Girl",
+      "body_sha256": "ef860b31df7b82db328c6f534f8da85b1a4824dde993b260952172f4483dfd56",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Brown Eyed Girl",
+        "source_id": "cd90c4c4-cc98-4674-9c13-19c13339ea42",
+        "candidate_path": "brown-eyed-girl--cd90c4c4cc9846749c1319c13339ea42.md",
+        "performance_key_candidate": null
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Brown+Eyed+Girl",
+      "lrclib_candidates": [
+        {
+          "id": 37014578,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "The Best of Van Morrison (Polydor)",
+          "duration_seconds": 186.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        },
+        {
+          "id": 37015997,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "Veronica Top 1000 Allertijden",
+          "duration_seconds": 182.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        },
+        {
+          "id": 37016087,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "Pure... Guitar Heroes Disc 3",
+          "duration_seconds": 181.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        },
+        {
+          "id": 37016551,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "Mega Slows",
+          "duration_seconds": 183.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        },
+        {
+          "id": 36960528,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "The World\u2019s Greatest",
+          "duration_seconds": 184.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        },
+        {
+          "id": 37456906,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "Time 100: The Music of Our Lives 1960-1980",
+          "duration_seconds": 182.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        },
+        {
+          "id": 37464517,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "GoldDisc 548 (red)",
+          "duration_seconds": 186.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        },
+        {
+          "id": 37474068,
+          "title": "Brown Eyed Girl",
+          "artist": "Van Morrison",
+          "album": "Pure\u2026 Guitar Heroes",
+          "duration_seconds": 182.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "3520b2bda967138ae4fc1048dd20d5645f519a204c639a98f7c3e27fa2b204cd"
+        }
+      ],
+      "suggested": {
+        "artist": "Van Morrison",
+        "reference_title": "Brown Eyed Girl",
+        "reference_artist": "Van Morrison",
+        "reference_album": "The Best of Van Morrison (Polydor)",
+        "reference_duration_seconds": 186.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37014578",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37014578",
+        "metadata_confidence": 0.8913,
+        "recording_mbid": "3d956b3b-a62b-4e53-9c7c-e7bf958739bf",
+        "original_bpm": "149.8",
+        "deezer_track_id": "71647249"
+      },
+      "tier": "A",
+      "reasons": [
+        "strong title and lyric match with no close cross-artist candidate"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "3d956b3b-a62b-4e53-9c7c-e7bf958739bf",
+        "title": "Brown Eyed Girl",
+        "artist": "Van Morrison",
+        "duration_seconds": null,
+        "release": "The Best Irish Album in the World\u2026 Ever!",
+        "score": 1.0
+      },
+      "deezer": {
+        "track_id": 71647249,
+        "title": "Brown-Eyed Girl",
+        "artist": "Van Morrison",
+        "duration_seconds": 183,
+        "isrc": "NLHR50999854",
+        "score": 0.995,
+        "bpm": 149.8
+      }
+    },
+    {
+      "id": "crash",
+      "path": "songs/Crash.md",
+      "title": "Crash",
+      "body_sha256": "4784fa66b6f4bc35e8f09945287fd2609436bd8a0bf8d6695a2a0e29f1ae275d",
+      "existing_metadata": {},
+      "notion": null,
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Crash",
+      "lrclib_candidates": [
+        {
+          "id": 21152552,
+          "title": "Crash Crash",
+          "artist": "Murderdolls",
+          "album": "Dead In Hollywood (Single)",
+          "duration_seconds": 193.3925,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2328,
+          "score": 0.363,
+          "lyrics_sha256": "2d4faf9382af87e4ae7fa0513cfe6158e4629db5854c16662ae9a729c704b22c"
+        },
+        {
+          "id": 24508910,
+          "title": "Crash Crash",
+          "artist": "Murderdolls",
+          "album": "Beyond The Valley Of The Murderdolls [Bonus Tracks]",
+          "duration_seconds": 192.261224,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2328,
+          "score": 0.363,
+          "lyrics_sha256": "2d4faf9382af87e4ae7fa0513cfe6158e4629db5854c16662ae9a729c704b22c"
+        },
+        {
+          "id": 22844288,
+          "title": "Crash Crash [*]",
+          "artist": "Murderdolls",
+          "album": "Beyond the Valley of the Murderdolls [Bonus DVD] Disc 1",
+          "duration_seconds": 192.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2328,
+          "score": 0.363,
+          "lyrics_sha256": "2d4faf9382af87e4ae7fa0513cfe6158e4629db5854c16662ae9a729c704b22c"
+        },
+        {
+          "id": 518873,
+          "title": "Crash Crash",
+          "artist": "Murderdolls",
+          "album": "The Complete Albums",
+          "duration_seconds": 192.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2328,
+          "score": 0.363,
+          "lyrics_sha256": "2d4faf9382af87e4ae7fa0513cfe6158e4629db5854c16662ae9a729c704b22c"
+        },
+        {
+          "id": 3843928,
+          "title": "Crash Crash",
+          "artist": "Murderdolls",
+          "album": "Beyond The Valley Of The Murderdolls",
+          "duration_seconds": 192.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2328,
+          "score": 0.363,
+          "lyrics_sha256": "2d4faf9382af87e4ae7fa0513cfe6158e4629db5854c16662ae9a729c704b22c"
+        },
+        {
+          "id": 37414656,
+          "title": "Crash Crash",
+          "artist": "Murderdolls",
+          "album": "Beyond the Valley of the Murderdolls",
+          "duration_seconds": 180.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2145,
+          "score": 0.3501,
+          "lyrics_sha256": "767f63582801f94e75d7e4a87c59d3a8d4442caf1d50c3d90390c2fe03e8a86a"
+        },
+        {
+          "id": 27946908,
+          "title": "Crash Crash",
+          "artist": "Murderdolls",
+          "album": "Dead In Hollywood CDS",
+          "duration_seconds": 193.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2145,
+          "score": 0.3501,
+          "lyrics_sha256": "767f63582801f94e75d7e4a87c59d3a8d4442caf1d50c3d90390c2fe03e8a86a"
+        },
+        {
+          "id": 29987640,
+          "title": "Crash Crash",
+          "artist": "Murderdolls",
+          "album": "Dead in Hollywood",
+          "duration_seconds": 193.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2145,
+          "score": 0.3501,
+          "lyrics_sha256": "767f63582801f94e75d7e4a87c59d3a8d4442caf1d50c3d90390c2fe03e8a86a"
+        }
+      ],
+      "suggested": {
+        "artist": "Murderdolls",
+        "reference_title": "Crash Crash",
+        "reference_artist": "Murderdolls",
+        "reference_album": "Dead In Hollywood (Single)",
+        "reference_duration_seconds": 193.3925,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "21152552",
+        "lyrics_reference_url": "https://lrclib.net/api/get/21152552",
+        "metadata_confidence": 0.363,
+        "recording_mbid": "de2c269a-b04d-47d2-9032-b77f3283cca7",
+        "original_bpm": "196.9",
+        "deezer_track_id": "2693279"
+      },
+      "tier": "C",
+      "reasons": [
+        "weak or incomplete deterministic match"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "de2c269a-b04d-47d2-9032-b77f3283cca7",
+        "title": "Crash Crash",
+        "artist": "Murderdolls",
+        "duration_seconds": 192,
+        "release": "Beyond The Valley Of The Murderdolls [Special Edition]",
+        "score": 0.9971
+      },
+      "deezer": {
+        "track_id": 2693279,
+        "title": "Crash Crash",
+        "artist": "Murderdolls",
+        "duration_seconds": 191,
+        "isrc": "NLA320219883",
+        "score": 0.996,
+        "bpm": 196.9
+      }
+    },
+    {
+      "id": "crazy",
+      "path": "songs/Crazy.md",
+      "title": "Crazy",
+      "body_sha256": "9d80b718bcddbaa5afd736c1a3c659ef1811bd06f0ead9dc0175174c9aa2c484",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Crazy (Cm)",
+        "source_id": "ff5de605-aa26-4517-a63d-a11a269d1eb6",
+        "candidate_path": "crazy-cm--ff5de605aa264517a63da11a269d1eb6.md",
+        "performance_key_candidate": "Cm"
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Crazy",
+      "lrclib_candidates": [
+        {
+          "id": 33950055,
+          "title": "Crazy Crazy",
+          "artist": "Yasutaka Nakata, Charli xcx & Kyary Pamyu Pamyu",
+          "album": "Crazy Crazy [Single]",
+          "duration_seconds": 226.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2746,
+          "score": 0.3922,
+          "lyrics_sha256": "563b402e1b4833d321a49197b6c634324a4d303362cd2c21bcfa6ef2cffabad8"
+        },
+        {
+          "id": 36097664,
+          "title": "Crazy Crazy",
+          "artist": "Yasutaka Nakata",
+          "album": "Crazy Crazy",
+          "duration_seconds": 225.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2651,
+          "score": 0.3856,
+          "lyrics_sha256": "c063f3a158acc5d1d49a46ef0db8bdeccc60caf96614f9f7a8dbeb03360eefa0"
+        },
+        {
+          "id": 18757102,
+          "title": "Crazy Crazy",
+          "artist": "Guinevere",
+          "album": "Nu Music Traxx Vol. 321 December 2011",
+          "duration_seconds": 200.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2625,
+          "score": 0.3837,
+          "lyrics_sha256": "e12879df99b10411c838a5a897801602a769c61de2882628d47248a8fea00e4b"
+        },
+        {
+          "id": 35328777,
+          "title": "Crazy, Crazy, Crazy",
+          "artist": "The 5 Royales",
+          "album": "Soul & Swagger: The Complete 5 Royales (Disc 1)",
+          "duration_seconds": 161.0,
+          "title_score": 0.5,
+          "lyrics_score": 0.3264,
+          "score": 0.3785,
+          "lyrics_sha256": "b4983960360d9b36edc2639e4a466fa79806db9de86c99e16f23767fbe93bb1d"
+        },
+        {
+          "id": 34026245,
+          "title": "Crazy, Crazy, Crazy",
+          "artist": "The 5 Royales",
+          "album": "Relic 8015-The 5 Royales Sing \"Baby Don't Do It\"",
+          "duration_seconds": 162.0,
+          "title_score": 0.5,
+          "lyrics_score": 0.3264,
+          "score": 0.3785,
+          "lyrics_sha256": "b4983960360d9b36edc2639e4a466fa79806db9de86c99e16f23767fbe93bb1d"
+        },
+        {
+          "id": 33841951,
+          "title": "Crazy, crazy, crazy",
+          "artist": "Michael Franti and Spearhead",
+          "album": "Everyone Deserves Music",
+          "duration_seconds": 209.0,
+          "title_score": 0.5,
+          "lyrics_score": 0.2698,
+          "score": 0.3389,
+          "lyrics_sha256": "66e336859c538525901825dd0831e9593cc52a5381c125cb2cd8e472c7604c6a"
+        },
+        {
+          "id": 1137057,
+          "title": "Crazy, Crazy, Crazy",
+          "artist": "Michael Franti & Spearhead",
+          "album": "Everyone Deserves Music",
+          "duration_seconds": 208.0,
+          "title_score": 0.5,
+          "lyrics_score": 0.2699,
+          "score": 0.3389,
+          "lyrics_sha256": "31e6b56faca246738c37c1e5bf59ae041e18175304e870502d408206c612b531"
+        },
+        {
+          "id": 27658179,
+          "title": "Crazy, Crazy, Crazy",
+          "artist": "Michael Franti & Spearhead",
+          "album": "Everyone Deserves Music",
+          "duration_seconds": 216.0,
+          "title_score": 0.5,
+          "lyrics_score": 0.2699,
+          "score": 0.3389,
+          "lyrics_sha256": "31e6b56faca246738c37c1e5bf59ae041e18175304e870502d408206c612b531"
+        }
+      ],
+      "suggested": {
+        "artist": "Yasutaka Nakata, Charli xcx & Kyary Pamyu Pamyu",
+        "reference_title": "Crazy Crazy",
+        "reference_artist": "Yasutaka Nakata, Charli xcx & Kyary Pamyu Pamyu",
+        "reference_album": "Crazy Crazy [Single]",
+        "reference_duration_seconds": 226.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "33950055",
+        "lyrics_reference_url": "https://lrclib.net/api/get/33950055",
+        "metadata_confidence": 0.3922,
+        "performance_key": "Cm"
+      },
+      "tier": "C",
+      "reasons": [
+        "weak or incomplete deterministic match",
+        "close candidate from a different artist"
+      ]
+    },
+    {
+      "id": "feels-sheriff",
+      "path": "songs/Feels-Sheriff.md",
+      "title": "Feels-Sheriff",
+      "body_sha256": "b52c84fc4b1305a74d5df468b5772179815d6c5cd4e4f120fc5edae4d961c1fe",
+      "existing_metadata": {},
+      "notion": null,
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Feels-Sheriff",
+      "lrclib_candidates": [],
+      "suggested": {},
+      "tier": "C",
+      "reasons": [
+        "no LRCLIB candidate"
+      ]
+    },
+    {
+      "id": "home-live",
+      "path": "songs/Home-Live.md",
+      "title": "Home Live",
+      "body_sha256": "f45958ab3a4dec6c3ae9cf390dbbe5f7731b86e58c54f0e9010647f9da961cd5",
+      "existing_metadata": {},
+      "notion": null,
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Home+Live",
+      "lrclib_candidates": [
+        {
+          "id": 34859782,
+          "title": "Home (Live)",
+          "artist": "Nicole Henry",
+          "album": "So Good, So Right: Nicole Henry Live",
+          "duration_seconds": 233.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.389,
+          "score": 0.5723,
+          "lyrics_sha256": "bf0608fe1b4f0655371a3f4a8b50375d4cb196b3e2e2d4295d6fe59d7f9ffe20"
+        },
+        {
+          "id": 36644102,
+          "title": "Home (live)",
+          "artist": "Michael Bubl\u00e9",
+          "album": "LIVE! Caught in the Act",
+          "duration_seconds": 232.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3331,
+          "score": 0.5332,
+          "lyrics_sha256": "0541c83911d862f88a313506eaf140b9ae47c919d8596a20bca567cde54fa629"
+        },
+        {
+          "id": 34957144,
+          "title": "Home - Live",
+          "artist": "Michael Bubl\u00e9, Blake Shelton",
+          "album": "You're The Inspiration: The Music Of David Foster And Friends (Int'l DMD)",
+          "duration_seconds": 244.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3092,
+          "score": 0.5164,
+          "lyrics_sha256": "a8c534922320a308a02f26a5bc00b678d42018ae69ca9e02c81a549dcf052e7f"
+        },
+        {
+          "id": 34957151,
+          "title": "Home - Live",
+          "artist": "Michael Bubl\u00e9, Blake Shelton",
+          "album": "You're The Inspiration: The Music Of David Foster And Friends (Int'l DMD)",
+          "duration_seconds": 252.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3092,
+          "score": 0.5164,
+          "lyrics_sha256": "a8c534922320a308a02f26a5bc00b678d42018ae69ca9e02c81a549dcf052e7f"
+        },
+        {
+          "id": 34957146,
+          "title": "Home - Live",
+          "artist": "Michael Bubl\u00e9, Blake Shelton",
+          "album": "You're The Inspiration: The Music Of David Foster And Friends (Int'l DMD)",
+          "duration_seconds": 250.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3092,
+          "score": 0.5164,
+          "lyrics_sha256": "a8c534922320a308a02f26a5bc00b678d42018ae69ca9e02c81a549dcf052e7f"
+        },
+        {
+          "id": 34957140,
+          "title": "Home - Live",
+          "artist": "Michael Bubl\u00e9, Blake Shelton",
+          "album": "You're The Inspiration: The Music Of David Foster And Friends (Int'l DMD)",
+          "duration_seconds": 249.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3092,
+          "score": 0.5164,
+          "lyrics_sha256": "a8c534922320a308a02f26a5bc00b678d42018ae69ca9e02c81a549dcf052e7f"
+        },
+        {
+          "id": 34957148,
+          "title": "Home - Live",
+          "artist": "Michael Bubl\u00e9, Blake Shelton",
+          "album": "You're The Inspiration: The Music Of David Foster And Friends (Int'l DMD)",
+          "duration_seconds": 243.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3092,
+          "score": 0.5164,
+          "lyrics_sha256": "a8c534922320a308a02f26a5bc00b678d42018ae69ca9e02c81a549dcf052e7f"
+        },
+        {
+          "id": 34957136,
+          "title": "Home - Live",
+          "artist": "Michael Bubl\u00e9, Blake Shelton",
+          "album": "You're The Inspiration: The Music Of David Foster And Friends (Int'l DMD)",
+          "duration_seconds": 246.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3092,
+          "score": 0.5164,
+          "lyrics_sha256": "a8c534922320a308a02f26a5bc00b678d42018ae69ca9e02c81a549dcf052e7f"
+        }
+      ],
+      "suggested": {
+        "artist": "Nicole Henry",
+        "reference_title": "Home (Live)",
+        "reference_artist": "Nicole Henry",
+        "reference_album": "So Good, So Right: Nicole Henry Live",
+        "reference_duration_seconds": 233.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34859782",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34859782",
+        "metadata_confidence": 0.5723
+      },
+      "tier": "C",
+      "reasons": [
+        "weak or incomplete deterministic match",
+        "close candidate from a different artist"
+      ],
+      "deezer": {
+        "track_id": 1252531162,
+        "title": "Home (Live)",
+        "artist": "Nicole Henry",
+        "duration_seconds": 233,
+        "isrc": "US3CR1200763",
+        "score": 1.0,
+        "bpm": 0
+      }
+    },
+    {
+      "id": "home",
+      "path": "songs/Home.md",
+      "title": "Home",
+      "body_sha256": "48baab5b5135b89d20e89a9a9ae4b93f42fc52f8a23cbcbb7e0033fec008844c",
+      "existing_metadata": {},
+      "notion": null,
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Home",
+      "lrclib_candidates": [
+        {
+          "id": 17945980,
+          "title": "Home-Home",
+          "artist": "\u9648\u6d01\u4eea",
+          "album": "\u60f3\u50cf\u7a7a\u95f4",
+          "duration_seconds": 380.773333,
+          "title_score": 0.6667,
+          "lyrics_score": 0.3036,
+          "score": 0.4125,
+          "lyrics_sha256": "4412995370313d2d72fd7f611e3e07dba1f83acd080bf3cbfec0233bedbda1c6"
+        },
+        {
+          "id": 16429164,
+          "title": "Home/Home",
+          "artist": "\u9648\u6d01\u4eea",
+          "album": "\u60f3\u8c61\u7a7a\u95f4LIVE   CD2 [\u9999\u6e2f\u9996\u7248]",
+          "duration_seconds": 380.773333,
+          "title_score": 0.6667,
+          "lyrics_score": 0.3036,
+          "score": 0.4125,
+          "lyrics_sha256": "4412995370313d2d72fd7f611e3e07dba1f83acd080bf3cbfec0233bedbda1c6"
+        },
+        {
+          "id": 17963317,
+          "title": "Home;Home",
+          "artist": "Edward Sharpe & The Magnetic Zeros",
+          "album": "Up From Below;Up From Below",
+          "duration_seconds": 306.32,
+          "title_score": 0.6667,
+          "lyrics_score": 0.286,
+          "score": 0.4002,
+          "lyrics_sha256": "d0423951c743d99c622b2a544d099d1ca66a8c42e6b2289c8d8c448e33fc88dd"
+        },
+        {
+          "id": 37460141,
+          "title": "Home Sweet Home",
+          "artist": "Kano",
+          "album": "LOVE METAL \ud83d\udd25",
+          "duration_seconds": 240.0,
+          "title_score": 0.4706,
+          "lyrics_score": 0.3681,
+          "score": 0.3988,
+          "lyrics_sha256": "615cd72677ae89181b1b92872712d4046824b0006c640637178c3a4cc3cb3744"
+        },
+        {
+          "id": 30639220,
+          "title": "HOME HOME",
+          "artist": "JUSTHIS",
+          "album": "LIT",
+          "duration_seconds": 294.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2825,
+          "score": 0.3977,
+          "lyrics_sha256": "840b1196318937f8037b8e620eaae96e39f88e9bc93e2d5619d79d1410dfa970"
+        },
+        {
+          "id": 32522507,
+          "title": "Home Home Home",
+          "artist": "Ken Boothe & Stranger",
+          "album": "Skatalites & Friends at Randy's",
+          "duration_seconds": 149.0,
+          "title_score": 0.5,
+          "lyrics_score": 0.3399,
+          "score": 0.3879,
+          "lyrics_sha256": "97e75619fc480cd311fb0b953c7e7fb8962ef39fb92ba7d32920e224b1b15324"
+        },
+        {
+          "id": 37537163,
+          "title": "Home Ain't Home",
+          "artist": "YoungBoy Never Broke Again, Rod Wave",
+          "album": "The Last Slimeto",
+          "duration_seconds": 141.0,
+          "title_score": 0.5,
+          "lyrics_score": 0.296,
+          "score": 0.3572,
+          "lyrics_sha256": "02d3b4fc9e611c4ca3774fcbfff196cb0b56fdf800311e7a7c41cba846a30996"
+        },
+        {
+          "id": 37474108,
+          "title": "Home Sweet Home",
+          "artist": "Andreas Gabalier",
+          "album": "Home Sweet Home Disc 1",
+          "duration_seconds": 288.0,
+          "title_score": 0.4706,
+          "lyrics_score": 0.3082,
+          "score": 0.3569,
+          "lyrics_sha256": "3202b40df74f7b63d2e9beebfa4443afa32db3019b842edbd5c2a66d01c8f873"
+        }
+      ],
+      "suggested": {
+        "artist": "\u9648\u6d01\u4eea",
+        "reference_title": "Home-Home",
+        "reference_artist": "\u9648\u6d01\u4eea",
+        "reference_album": "\u60f3\u50cf\u7a7a\u95f4",
+        "reference_duration_seconds": 380.773333,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "17945980",
+        "lyrics_reference_url": "https://lrclib.net/api/get/17945980",
+        "metadata_confidence": 0.4125
+      },
+      "tier": "C",
+      "reasons": [
+        "weak or incomplete deterministic match",
+        "close candidate from a different artist"
+      ]
+    },
+    {
+      "id": "i-shot-the-sheriff",
+      "path": "songs/I-Shot-The-Sheriff.md",
+      "title": "I Shot The Sheriff",
+      "body_sha256": "9cb8c1eb93139fc38d6271dcb54a5e3a5a16766f3f67a38fb957c97f83a79575",
+      "existing_metadata": {},
+      "notion": {
+        "title": "I Shot the Sheriff",
+        "source_id": "9b701b7a-15c8-4702-96a0-b9e2a6bc780a",
+        "candidate_path": "i-shot-the-sheriff--9b701b7a15c8470296a0b9e2a6bc780a.md",
+        "performance_key_candidate": null
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=I+Shot+The+Sheriff",
+      "lrclib_candidates": [
+        {
+          "id": 37471372,
+          "title": "I Shot The Sheriff",
+          "artist": "Bob Marley",
+          "album": "Songs Of Freedom Cd2",
+          "duration_seconds": 327.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9302,
+          "score": 0.9511,
+          "lyrics_sha256": "663ed6d4bb3dee3d8f5d27d93679164e2e5fad79daf8cc512eeca2f482c59f40"
+        },
+        {
+          "id": 36966848,
+          "title": "I Shot the Sheriff",
+          "artist": "Bob Marley & The Wailers",
+          "album": "[standalone recordings]",
+          "duration_seconds": 282.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9016,
+          "score": 0.9311,
+          "lyrics_sha256": "f77b16014516949e66fe37718247a785eff65bf5c2a2e753e11f9c1300e309b3"
+        },
+        {
+          "id": 37114405,
+          "title": "I Shot The Sheriff",
+          "artist": "Bob Marley & The Wailers",
+          "album": "Legend - The Best Of Bob Marley & The Wailers [846 210-9] - Reissue",
+          "duration_seconds": 282.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9016,
+          "score": 0.9311,
+          "lyrics_sha256": "f77b16014516949e66fe37718247a785eff65bf5c2a2e753e11f9c1300e309b3"
+        },
+        {
+          "id": 37138395,
+          "title": "I Shot The Sheriff",
+          "artist": "The Wailers",
+          "album": "Live!",
+          "duration_seconds": 316.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.886,
+          "score": 0.9202,
+          "lyrics_sha256": "1706000c563f3345d3046f3190fa9d2fd34a6ab3bdf987f2cc29490d2db2e430"
+        },
+        {
+          "id": 37019925,
+          "title": "I SHOT THE SHERIFF",
+          "artist": "ERIC CLAPTON",
+          "album": "CHARTS 1974",
+          "duration_seconds": 265.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8252,
+          "score": 0.8776,
+          "lyrics_sha256": "f227fc9d98cf4eedf2289046ab872ad86e6294b7f3c4248c1488c9d13afd300f"
+        },
+        {
+          "id": 36994497,
+          "title": "I Shot The Sheriff",
+          "artist": "Eric Clapton",
+          "album": "50 years of Country, Rock and Bluegrass",
+          "duration_seconds": 260.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8252,
+          "score": 0.8776,
+          "lyrics_sha256": "f227fc9d98cf4eedf2289046ab872ad86e6294b7f3c4248c1488c9d13afd300f"
+        },
+        {
+          "id": 37004649,
+          "title": "I Shot The Sheriff",
+          "artist": "Eric Clapton",
+          "album": "Time Pieces (The Very Best Of)",
+          "duration_seconds": 264.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8252,
+          "score": 0.8776,
+          "lyrics_sha256": "f227fc9d98cf4eedf2289046ab872ad86e6294b7f3c4248c1488c9d13afd300f"
+        },
+        {
+          "id": 37463920,
+          "title": "I Shot The Sheriff",
+          "artist": "Eric Clapton",
+          "album": "Complete Clapton (Greatest Hits)",
+          "duration_seconds": 263.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8252,
+          "score": 0.8776,
+          "lyrics_sha256": "f227fc9d98cf4eedf2289046ab872ad86e6294b7f3c4248c1488c9d13afd300f"
+        }
+      ],
+      "suggested": {
+        "artist": "Bob Marley",
+        "reference_title": "I Shot The Sheriff",
+        "reference_artist": "Bob Marley",
+        "reference_album": "Songs Of Freedom Cd2",
+        "reference_duration_seconds": 327.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37471372",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37471372",
+        "metadata_confidence": 0.9511,
+        "recording_mbid": "da1f51a1-d8a4-47fd-bbd3-d9f47cd40778"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "da1f51a1-d8a4-47fd-bbd3-d9f47cd40778",
+        "title": "I Shot the Sheriff",
+        "artist": "Bob Marley",
+        "duration_seconds": 267,
+        "release": "Bob Marley",
+        "score": 0.9
+      },
+      "deezer": {
+        "track_id": 975413432,
+        "title": "I Shot The Sheriff (Live At The Rainbow Theatre, London / 1977)",
+        "artist": "Bob Marley & The Wailers",
+        "duration_seconds": 323,
+        "isrc": "GBUM72001885",
+        "score": 0.8256,
+        "bpm": 0
+      }
+    },
+    {
+      "id": "jolene",
+      "path": "songs/Jolene.md",
+      "title": "Jolene",
+      "body_sha256": "05aacb20020884ee69048dbc79ddbf32464ca2c8d5684495c75acf439fc0022f",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Jolene",
+        "source_id": "7ebc2add-2670-43b6-b98a-1db6bc34cc7a",
+        "candidate_path": "jolene--7ebc2add267043b6b98a1db6bc34cc7a.md",
+        "performance_key_candidate": null
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Jolene",
+      "lrclib_candidates": [
+        {
+          "id": 36840137,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "Jolene",
+          "duration_seconds": 216.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        },
+        {
+          "id": 37019381,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "Veronica - Top 1000 Allertijden Cd3",
+          "duration_seconds": 160.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        },
+        {
+          "id": 36978604,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "Legendary",
+          "duration_seconds": 158.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        },
+        {
+          "id": 36984434,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "Dolly Parton Gold: Greatest Hits",
+          "duration_seconds": 157.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        },
+        {
+          "id": 36994728,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "The Love Album",
+          "duration_seconds": 156.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        },
+        {
+          "id": 36996938,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "FluxBlog's Survey Mixes (1973)",
+          "duration_seconds": 162.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        },
+        {
+          "id": 37461991,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "Now That's What I Call 70s [Disc 3]",
+          "duration_seconds": 162.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        },
+        {
+          "id": 37474028,
+          "title": "Jolene",
+          "artist": "Dolly Parton",
+          "album": "Mastermix Classic Cuts 36: Country",
+          "duration_seconds": 158.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9771,
+          "score": 0.984,
+          "lyrics_sha256": "3e3d3a3d0d951e4f0caceb0950b0f9a7703ffa9fe1fcd7ce7d74cd9b825e1ad2"
+        }
+      ],
+      "suggested": {
+        "artist": "Dolly Parton",
+        "reference_title": "Jolene",
+        "reference_artist": "Dolly Parton",
+        "reference_album": "Jolene",
+        "reference_duration_seconds": 216.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36840137",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36840137",
+        "metadata_confidence": 0.984,
+        "recording_mbid": "2fa6cb0a-3b58-4cf7-90c5-b2c6a05e31d5",
+        "original_bpm": "102.1",
+        "deezer_track_id": "1015887"
+      },
+      "tier": "A",
+      "reasons": [
+        "strong title and lyric match with no close cross-artist candidate"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "2fa6cb0a-3b58-4cf7-90c5-b2c6a05e31d5",
+        "title": "Jolene",
+        "artist": "Dolly Parton",
+        "duration_seconds": null,
+        "release": "Musikladen Oldies Musikvideos 80er",
+        "score": 1.0
+      },
+      "deezer": {
+        "track_id": 1015887,
+        "title": "Jolene",
+        "artist": "Dolly Parton",
+        "duration_seconds": 222,
+        "isrc": "USSM19503724",
+        "score": 0.99,
+        "bpm": 102.1
+      }
+    },
+    {
+      "id": "juice",
+      "path": "songs/Juice.md",
+      "title": "Juice",
+      "body_sha256": "57efede2fe7bc8795c7a8d0140cd43a662807c38b4eb1063e70f251da9743697",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Juice",
+        "source_id": "2cacba6f-312d-41a3-94af-83b26508b22e",
+        "candidate_path": "juice--2cacba6f312d41a394af83b26508b22e.md",
+        "performance_key_candidate": null
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Juice",
+      "lrclib_candidates": [
+        {
+          "id": 37051892,
+          "title": "Juice",
+          "artist": "Lizzo",
+          "album": "The Soulful Harmonies",
+          "duration_seconds": 195.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8622,
+          "score": 0.9035,
+          "lyrics_sha256": "46bad7faf1335bf145edacf23c1cb455a156af331eb88ff365ef29cf377f4630"
+        },
+        {
+          "id": 36877596,
+          "title": "Juice",
+          "artist": "Lizzo",
+          "album": "Lizzo Videos",
+          "duration_seconds": 201.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8622,
+          "score": 0.9035,
+          "lyrics_sha256": "46bad7faf1335bf145edacf23c1cb455a156af331eb88ff365ef29cf377f4630"
+        },
+        {
+          "id": 34501391,
+          "title": "Juice",
+          "artist": "Lizzo",
+          "album": "Juice (Breakbot Mix)",
+          "duration_seconds": 173.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8622,
+          "score": 0.9035,
+          "lyrics_sha256": "46bad7faf1335bf145edacf23c1cb455a156af331eb88ff365ef29cf377f4630"
+        },
+        {
+          "id": 34501816,
+          "title": "Juice",
+          "artist": "Lizzo",
+          "album": "Juice (Breakbot Mix)",
+          "duration_seconds": 172.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8622,
+          "score": 0.9035,
+          "lyrics_sha256": "46bad7faf1335bf145edacf23c1cb455a156af331eb88ff365ef29cf377f4630"
+        },
+        {
+          "id": 34797526,
+          "title": "juice",
+          "artist": "brb.",
+          "album": "juice",
+          "duration_seconds": 199.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3097,
+          "score": 0.5168,
+          "lyrics_sha256": "c1d75aa4c489b48cacf76de3948cceeee059db9ae8b89759ece5df25ebfe1e3b"
+        },
+        {
+          "id": 34402971,
+          "title": "Juice",
+          "artist": "Chromeo",
+          "album": "Juice",
+          "duration_seconds": 197.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3004,
+          "score": 0.5103,
+          "lyrics_sha256": "9e318aae60d7e277305428d6706bed786ffca0f6d6ff2fe12262026fac36dad8"
+        },
+        {
+          "id": 34456646,
+          "title": "Juice",
+          "artist": "Chromeo",
+          "album": "Juice",
+          "duration_seconds": 196.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.3004,
+          "score": 0.5103,
+          "lyrics_sha256": "9e318aae60d7e277305428d6706bed786ffca0f6d6ff2fe12262026fac36dad8"
+        },
+        {
+          "id": 36934263,
+          "title": "Juice",
+          "artist": "Choi Seo Hyun",
+          "album": "SignHere episode1",
+          "duration_seconds": 240.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.297,
+          "score": 0.5079,
+          "lyrics_sha256": "c3dbfd8057a54e7552a57c6b6091b5477b2916115d539318f892128e999eb5d9"
+        }
+      ],
+      "suggested": {
+        "artist": "Lizzo",
+        "reference_title": "Juice",
+        "reference_artist": "Lizzo",
+        "reference_album": "The Soulful Harmonies",
+        "reference_duration_seconds": 195.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37051892",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37051892",
+        "metadata_confidence": 0.9035,
+        "recording_mbid": "f1be604c-d753-47d1-9faa-6c5d8fe0a832",
+        "original_bpm": "119.84",
+        "deezer_track_id": "666286232"
+      },
+      "tier": "A",
+      "reasons": [
+        "strong title and lyric match with no close cross-artist candidate"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "f1be604c-d753-47d1-9faa-6c5d8fe0a832",
+        "title": "Juice",
+        "artist": "Lizzo",
+        "duration_seconds": 195,
+        "release": "Hit\u2019s Spring!",
+        "score": 1.0
+      },
+      "deezer": {
+        "track_id": 666286232,
+        "title": "Juice",
+        "artist": "Lizzo",
+        "duration_seconds": 195,
+        "isrc": "USAT21813044",
+        "score": 1.0,
+        "bpm": 119.84
+      }
+    },
+    {
+      "id": "love-shack",
+      "path": "songs/Love-Shack.md",
+      "title": "Love Shack",
+      "body_sha256": "cccc517a764920e6b92bf4f40a3a415bcb4fafcdcebdbf5b970463951684c585",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Love Shack (C)",
+        "source_id": "3a89ac7d-495e-471e-9fbd-785ef439fd22",
+        "candidate_path": "love-shack-c--3a89ac7d495e471e9fbd785ef439fd22.md",
+        "performance_key_candidate": "C"
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Love+Shack",
+      "lrclib_candidates": [
+        {
+          "id": 36957636,
+          "title": "Love Shack",
+          "artist": "The B-52's",
+          "album": "With The Wild Crowd! Live Athens",
+          "duration_seconds": 390.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "ce77420d943fc3042a77727df52169a6cedec6f4482fd4a5057e9cb1a860758e"
+        },
+        {
+          "id": 36970942,
+          "title": "Love Shack",
+          "artist": "B 52's",
+          "album": "Greatest Hits of the 80's",
+          "duration_seconds": 261.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "9647e53abed5630b826f7285a9db5e0b5b7e7c56030a1bd553960b825f45e8cd"
+        },
+        {
+          "id": 37464738,
+          "title": "Love Shack",
+          "artist": "The B-52's",
+          "album": "Party Like It's 1989",
+          "duration_seconds": 321.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "ce77420d943fc3042a77727df52169a6cedec6f4482fd4a5057e9cb1a860758e"
+        },
+        {
+          "id": 37499777,
+          "title": "Love Shack",
+          "artist": "The B-52s",
+          "album": "Top 500 Songs RS",
+          "duration_seconds": 322.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "ce77420d943fc3042a77727df52169a6cedec6f4482fd4a5057e9cb1a860758e"
+        },
+        {
+          "id": 37478427,
+          "title": "Love Shack",
+          "artist": "The B-52's",
+          "album": "Top Of The Pops - 1990-1994 - Disc - 03",
+          "duration_seconds": 321.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "ce77420d943fc3042a77727df52169a6cedec6f4482fd4a5057e9cb1a860758e"
+        },
+        {
+          "id": 37479236,
+          "title": "Love Shack",
+          "artist": "The B-52's",
+          "album": "Driven By 80s Anthems [Disc-5]",
+          "duration_seconds": 257.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "ce77420d943fc3042a77727df52169a6cedec6f4482fd4a5057e9cb1a860758e"
+        },
+        {
+          "id": 37513736,
+          "title": "Love Shack",
+          "artist": "The B-52's",
+          "album": "Big Shiny 80s (Disc 2)",
+          "duration_seconds": 323.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "ce77420d943fc3042a77727df52169a6cedec6f4482fd4a5057e9cb1a860758e"
+        },
+        {
+          "id": 37542606,
+          "title": "Love Shack",
+          "artist": "The B-52's",
+          "album": "80s Complete Edition (800 Tracks from 80s)",
+          "duration_seconds": 321.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8791,
+          "score": 0.9154,
+          "lyrics_sha256": "ce77420d943fc3042a77727df52169a6cedec6f4482fd4a5057e9cb1a860758e"
+        }
+      ],
+      "suggested": {
+        "artist": "The B-52's",
+        "reference_title": "Love Shack",
+        "reference_artist": "The B-52's",
+        "reference_album": "With The Wild Crowd! Live Athens",
+        "reference_duration_seconds": 390.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36957636",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36957636",
+        "metadata_confidence": 0.9154,
+        "performance_key": "C",
+        "recording_mbid": "f7a4e293-cdaa-4263-bf2a-dbce5a7ab7c5"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "f7a4e293-cdaa-4263-bf2a-dbce5a7ab7c5",
+        "title": "Love Shack",
+        "artist": "The B\u201052\u2019s",
+        "duration_seconds": null,
+        "release": "2004-07-24: From Beaches to Casinos, Atlantic City, NJ, USA",
+        "score": 1.0
+      },
+      "deezer": {
+        "track_id": 3552771701,
+        "title": "Love Shack (12\" Mix)",
+        "artist": "The B-52's",
+        "duration_seconds": 369,
+        "isrc": "USWB12503229",
+        "score": 0.965,
+        "bpm": 0
+      }
+    },
+    {
+      "id": "melt-with-you",
+      "path": "songs/Melt-With-You.md",
+      "title": "Melt With You",
+      "body_sha256": "6b684a07a15d8b41f4b13e764231a6359aab3582e3b2c4d07de4f27780e3b4ed",
+      "existing_metadata": {},
+      "notion": null,
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Melt+With+You",
+      "lrclib_candidates": [
+        {
+          "id": 36031563,
+          "title": "Melt with You",
+          "artist": "Modern English",
+          "album": "Smash Hits of The '80s & '90s (Re-Recorded)",
+          "duration_seconds": 280.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        },
+        {
+          "id": 36708045,
+          "title": "Melt with You",
+          "artist": "Modern English",
+          "album": "The World's Greatest Love Collection",
+          "duration_seconds": 280.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        },
+        {
+          "id": 35508214,
+          "title": "Melt With You",
+          "artist": "Modern English",
+          "album": "New Wave Diary 1  (Compilation)",
+          "duration_seconds": 347.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        },
+        {
+          "id": 18775485,
+          "title": "Melt with You",
+          "artist": "Modern English",
+          "album": "One Hit Wonders (Re-Recorded Versions)",
+          "duration_seconds": 278.04,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        },
+        {
+          "id": 20537159,
+          "title": "Melt With You",
+          "artist": "Modern English",
+          "album": "Kroq's Greatest Hits",
+          "duration_seconds": 156.16,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        },
+        {
+          "id": 20450425,
+          "title": "Melt with you",
+          "artist": "Modern English",
+          "album": "After the fire",
+          "duration_seconds": 250.9535,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        },
+        {
+          "id": 18216961,
+          "title": "Melt With You",
+          "artist": "Modern English",
+          "album": "Top 100 Pop Love Songs",
+          "duration_seconds": 233.067675,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        },
+        {
+          "id": 18217597,
+          "title": "Melt With You",
+          "artist": "Modern English",
+          "album": "VH1 100  Greatest One Hit Wonders Of The 80's",
+          "duration_seconds": 233.06449,
+          "title_score": 1.0,
+          "lyrics_score": 0.8012,
+          "score": 0.8608,
+          "lyrics_sha256": "45128c9c00eba06ba8845b604d9379540b17ccf262c0cfdea360e0bea52078ff"
+        }
+      ],
+      "suggested": {
+        "artist": "Modern English",
+        "reference_title": "Melt with You",
+        "reference_artist": "Modern English",
+        "reference_album": "Smash Hits of The '80s & '90s (Re-Recorded)",
+        "reference_duration_seconds": 280.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36031563",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36031563",
+        "metadata_confidence": 0.8608,
+        "recording_mbid": "69329608-3e58-4c1e-a914-5abe92405cc7",
+        "original_bpm": "153.1",
+        "deezer_track_id": "1634989"
+      },
+      "tier": "A",
+      "reasons": [
+        "strong title and lyric match with no close cross-artist candidate"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "69329608-3e58-4c1e-a914-5abe92405cc7",
+        "title": "I Melt With You",
+        "artist": "Modern English",
+        "duration_seconds": 277,
+        "release": "Monster: New Wave Hits",
+        "score": 0.975
+      },
+      "deezer": {
+        "track_id": 1634989,
+        "title": "I Melt With You",
+        "artist": "Modern English",
+        "duration_seconds": 277,
+        "isrc": "USA560739164",
+        "score": 0.9754,
+        "bpm": 153.1
+      }
+    },
+    {
+      "id": "redemption-song-live",
+      "path": "songs/Redemption-Song-Live.md",
+      "title": "Redemption Song",
+      "body_sha256": "8095a95e6d070e468616d10be901a137277a82aa4aa28f6c551170f60327bac2",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Redemption Song",
+        "source_id": "0fac65ac-bd06-4c07-a712-27091de2ca93",
+        "candidate_path": "redemption-song--0fac65acbd064c07a71227091de2ca93.md",
+        "performance_key_candidate": null
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Redemption+Song",
+      "lrclib_candidates": [
+        {
+          "id": 36975082,
+          "title": "Redemption Song",
+          "artist": "Bob Marley",
+          "album": "Sounds Of The Eighties - The Rolling Stone Collection, 1980-1981",
+          "duration_seconds": 227.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "1698bb44fa386ba6f6a0b479bcaf5eedbbe8a2bdcea1604ce635063471fda22b"
+        },
+        {
+          "id": 36980735,
+          "title": "Redemption Song",
+          "artist": "Stevie Wonder",
+          "album": "Song Review - A Greatest Hits Collection CD-2",
+          "duration_seconds": 227.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "a1a245ada6a349716d2202d6c0f5feaaf81160f3ba2f72fc38625aa0e144daea"
+        },
+        {
+          "id": 36958234,
+          "title": "Redemption Song",
+          "artist": "Bob Marley and The Wailers",
+          "album": "Legend",
+          "duration_seconds": 234.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "1698bb44fa386ba6f6a0b479bcaf5eedbbe8a2bdcea1604ce635063471fda22b"
+        },
+        {
+          "id": 36945666,
+          "title": "Redemption Song",
+          "artist": "Bob Marley & The Wailers",
+          "album": "1980! Songs of the Year",
+          "duration_seconds": 234.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "1698bb44fa386ba6f6a0b479bcaf5eedbbe8a2bdcea1604ce635063471fda22b"
+        },
+        {
+          "id": 36945675,
+          "title": "Redemption Song",
+          "artist": "Bob Marley & The Wailers",
+          "album": "Rolling Stone- Best Songs of All Time",
+          "duration_seconds": 234.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "1698bb44fa386ba6f6a0b479bcaf5eedbbe8a2bdcea1604ce635063471fda22b"
+        },
+        {
+          "id": 36945680,
+          "title": "Redemption Song",
+          "artist": "Bob Marley & The Wailers",
+          "album": "Reggae Classics",
+          "duration_seconds": 234.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "1698bb44fa386ba6f6a0b479bcaf5eedbbe8a2bdcea1604ce635063471fda22b"
+        },
+        {
+          "id": 37483664,
+          "title": "Redemption Song",
+          "artist": "Stevie Wonder",
+          "album": "499 Cover Collection",
+          "duration_seconds": 227.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "a1a245ada6a349716d2202d6c0f5feaaf81160f3ba2f72fc38625aa0e144daea"
+        },
+        {
+          "id": 37108645,
+          "title": "Redemption Song",
+          "artist": "Stevie Wonder",
+          "album": "Stevie Wonder Song Review (A Greatest Hits Collction)",
+          "duration_seconds": 229.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8349,
+          "score": 0.8844,
+          "lyrics_sha256": "a1a245ada6a349716d2202d6c0f5feaaf81160f3ba2f72fc38625aa0e144daea"
+        }
+      ],
+      "suggested": {
+        "artist": "Bob Marley",
+        "reference_title": "Redemption Song",
+        "reference_artist": "Bob Marley",
+        "reference_album": "Sounds Of The Eighties - The Rolling Stone Collection, 1980-1981",
+        "reference_duration_seconds": 227.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36975082",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36975082",
+        "metadata_confidence": 0.8844,
+        "recording_mbid": "7d58f864-f550-4743-8e40-ae0348b46ac1",
+        "original_bpm": "114.84",
+        "deezer_track_id": "2542705"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "7d58f864-f550-4743-8e40-ae0348b46ac1",
+        "title": "Redemption Song",
+        "artist": "Bob Marley",
+        "duration_seconds": 229,
+        "release": "Acoustic Nights",
+        "score": 0.9967
+      },
+      "deezer": {
+        "track_id": 2542705,
+        "title": "Redemption Song",
+        "artist": "Bob Marley & The Wailers",
+        "duration_seconds": 227,
+        "isrc": "USIR28000018",
+        "score": 0.8323,
+        "bpm": 114.84
+      }
+    },
+    {
+      "id": "ring-of-fire",
+      "path": "songs/Ring-Of-Fire.md",
+      "title": "Ring Of Fire",
+      "body_sha256": "737a7ab9b3eaff73f1e06c33a67f1fbcf836ca619ab3da0150afa66636cef70f",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Ring of Fire",
+        "source_id": "f58817f4-2f59-45a0-bdb5-702a87b45316",
+        "candidate_path": "ring-of-fire--f58817f42f5945a0bdb5702a87b45316.md",
+        "performance_key_candidate": null
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Ring+Of+Fire",
+      "lrclib_candidates": [
+        {
+          "id": 37500806,
+          "title": "Ring of Fire",
+          "artist": "Social Distortion",
+          "album": "Live at The Roxy",
+          "duration_seconds": 495.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.877,
+          "score": 0.9139,
+          "lyrics_sha256": "ea11c111d5b93420aa0f9780be87628819de0b24723751fb6a9167539655e6ab"
+        },
+        {
+          "id": 36930429,
+          "title": "Ring of Fire",
+          "artist": "Bob Dylan & Johnny Cash",
+          "album": "The Dylan/Cash Sessions",
+          "duration_seconds": 150.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8598,
+          "score": 0.9019,
+          "lyrics_sha256": "3851f881be71c8a299a2f9480a36586890c40da68039a72dbabb7a7d65aeabf0"
+        },
+        {
+          "id": 36952377,
+          "title": "Ring Of Fire",
+          "artist": "Bob Dylan & Johnny Cash",
+          "album": "The Dylan/Cash Sessions",
+          "duration_seconds": 146.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8598,
+          "score": 0.9019,
+          "lyrics_sha256": "3851f881be71c8a299a2f9480a36586890c40da68039a72dbabb7a7d65aeabf0"
+        },
+        {
+          "id": 36947236,
+          "title": "Ring of Fire",
+          "artist": "Alan Jackson",
+          "album": "34 Number Ones (2010)",
+          "duration_seconds": 192.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8525,
+          "score": 0.8967,
+          "lyrics_sha256": "4a16e70814b694ce525f2fc16ea273bbc9c9cbcaa999067076bdeeb280e02fb1"
+        },
+        {
+          "id": 37535411,
+          "title": "Ring Of Fire",
+          "artist": "Various Artists",
+          "album": "Die Hit-Giganten - Best Of 60s",
+          "duration_seconds": 156.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8495,
+          "score": 0.8946,
+          "lyrics_sha256": "6cb96851c1f0b662ceb36c0a60874e6c2ce3ecc6f23e5f294892500a46250c89"
+        },
+        {
+          "id": 36947257,
+          "title": "Ring of Fire",
+          "artist": "Johnny Cash",
+          "album": "The Legend (2005)",
+          "duration_seconds": 156.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.849,
+          "score": 0.8943,
+          "lyrics_sha256": "7c5ac06165d17f53c2f9df8d51fa0fdcd9428d4c9d9bec185e67b03d258cef15"
+        },
+        {
+          "id": 36947252,
+          "title": "Ring of Fire",
+          "artist": "Johnny Cash",
+          "album": "The Essential Johnny Cash (2002)",
+          "duration_seconds": 156.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.849,
+          "score": 0.8943,
+          "lyrics_sha256": "7c5ac06165d17f53c2f9df8d51fa0fdcd9428d4c9d9bec185e67b03d258cef15"
+        },
+        {
+          "id": 36947264,
+          "title": "Ring of Fire",
+          "artist": "Johnny Cash",
+          "album": "1963! Songs of the Year",
+          "duration_seconds": 158.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.849,
+          "score": 0.8943,
+          "lyrics_sha256": "7c5ac06165d17f53c2f9df8d51fa0fdcd9428d4c9d9bec185e67b03d258cef15"
+        }
+      ],
+      "suggested": {
+        "artist": "Social Distortion",
+        "reference_title": "Ring of Fire",
+        "reference_artist": "Social Distortion",
+        "reference_album": "Live at The Roxy",
+        "reference_duration_seconds": 495.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37500806",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37500806",
+        "metadata_confidence": 0.9139,
+        "recording_mbid": "b03116bb-8188-40ff-be63-dc20639127a2",
+        "original_bpm": "179.8",
+        "deezer_track_id": "97334360"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "b03116bb-8188-40ff-be63-dc20639127a2",
+        "title": "Ring of Fire",
+        "artist": "Social Distortion",
+        "duration_seconds": 412,
+        "release": "Live at The Roxy",
+        "score": 0.8609
+      },
+      "deezer": {
+        "track_id": 97334360,
+        "title": "Ring Of Fire (Live)",
+        "artist": "Social Distortion",
+        "duration_seconds": 411,
+        "isrc": "USTB30400066",
+        "score": 0.86,
+        "bpm": 179.8
+      }
+    },
+    {
+      "id": "song-2",
+      "path": "songs/Song-2.md",
+      "title": "Song 2",
+      "body_sha256": "a9caf51dab9fb16db9fea3698705f71e3d186fd34f86eca97580c592dcba365e",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Song 2",
+        "source_id": "fe84b543-37de-4c25-a68e-1835ea1b7c3b",
+        "candidate_path": "song-2--fe84b54337de4c25a68e1835ea1b7c3b.md",
+        "performance_key_candidate": null
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Song+2",
+      "lrclib_candidates": [
+        {
+          "id": 37143650,
+          "title": "Song 2",
+          "artist": "DJ Krush",
+          "album": "Sensei's Lost Castle",
+          "duration_seconds": 299.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9589,
+          "score": 0.9712,
+          "lyrics_sha256": "cb705901098f30ade8f997d40e2d47df3ea9928f5d0198c0e1cde6767bcd6b1b"
+        },
+        {
+          "id": 34756922,
+          "title": "Song 2",
+          "artist": "DJ Krush",
+          "album": "LittleBigPlanet Soundtrack",
+          "duration_seconds": 297.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9589,
+          "score": 0.9712,
+          "lyrics_sha256": "cb705901098f30ade8f997d40e2d47df3ea9928f5d0198c0e1cde6767bcd6b1b"
+        },
+        {
+          "id": 37002844,
+          "title": "Song 2",
+          "artist": "Blur",
+          "album": "Contact, Volume 4: Overtime!",
+          "duration_seconds": 123.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9551,
+          "score": 0.9686,
+          "lyrics_sha256": "5f0c19b3aa1c0152aa7992c58998a91c80be135bae7ff526c9ba3c8e9c7f892d"
+        },
+        {
+          "id": 37474286,
+          "title": "Song 2",
+          "artist": "Blur",
+          "album": "ST. Pauli Underground",
+          "duration_seconds": 121.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9551,
+          "score": 0.9686,
+          "lyrics_sha256": "5f0c19b3aa1c0152aa7992c58998a91c80be135bae7ff526c9ba3c8e9c7f892d"
+        },
+        {
+          "id": 37169935,
+          "title": "Song 2",
+          "artist": "Blur",
+          "album": "Star Profile",
+          "duration_seconds": 121.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9551,
+          "score": 0.9686,
+          "lyrics_sha256": "5f0c19b3aa1c0152aa7992c58998a91c80be135bae7ff526c9ba3c8e9c7f892d"
+        },
+        {
+          "id": 37028199,
+          "title": "Song 2",
+          "artist": "Blur",
+          "album": "The Album 06",
+          "duration_seconds": 121.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9551,
+          "score": 0.9686,
+          "lyrics_sha256": "5f0c19b3aa1c0152aa7992c58998a91c80be135bae7ff526c9ba3c8e9c7f892d"
+        },
+        {
+          "id": 37093373,
+          "title": "Song 2",
+          "artist": "Blur",
+          "album": "Bob Spotify - My Playlist #2 (90s)",
+          "duration_seconds": 121.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9551,
+          "score": 0.9686,
+          "lyrics_sha256": "5f0c19b3aa1c0152aa7992c58998a91c80be135bae7ff526c9ba3c8e9c7f892d"
+        },
+        {
+          "id": 37314430,
+          "title": "Song 2",
+          "artist": "blur",
+          "album": "17 Song 2",
+          "duration_seconds": 122.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9551,
+          "score": 0.9686,
+          "lyrics_sha256": "5f0c19b3aa1c0152aa7992c58998a91c80be135bae7ff526c9ba3c8e9c7f892d"
+        }
+      ],
+      "suggested": {
+        "artist": "DJ Krush",
+        "reference_title": "Song 2",
+        "reference_artist": "DJ Krush",
+        "reference_album": "Sensei's Lost Castle",
+        "reference_duration_seconds": 299.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37143650",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37143650",
+        "metadata_confidence": 0.9712,
+        "recording_mbid": "168ed917-203a-4c8c-b897-02541400be0f",
+        "original_bpm": "90.3",
+        "deezer_track_id": "587242"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "168ed917-203a-4c8c-b897-02541400be0f",
+        "title": "Song 2",
+        "artist": "DJ Krush",
+        "duration_seconds": 299,
+        "release": "Jaku",
+        "score": 0.9996
+      },
+      "deezer": {
+        "track_id": 587242,
+        "title": "Song 2 (Album Version)",
+        "artist": "DJ Krush",
+        "duration_seconds": 299,
+        "isrc": "JPX400400135",
+        "score": 1.0,
+        "bpm": 90.3
+      }
+    },
+    {
+      "id": "superstition-single-version",
+      "path": "songs/Superstition-Single-Version.md",
+      "title": "Superstition",
+      "body_sha256": "090c03d42a184fcc59bf8df7fe90fc41897110a6601d0d61fc1f10bf55cf8a71",
+      "existing_metadata": {},
+      "notion": {
+        "title": "Superstition (E)",
+        "source_id": "52bb8c7f-7159-41ab-89f0-5aabeb179c00",
+        "candidate_path": "superstition-e--52bb8c7f715941ab89f05aabeb179c00.md",
+        "performance_key_candidate": "E"
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Superstition",
+      "lrclib_candidates": [
+        {
+          "id": 37438720,
+          "title": "Superstition",
+          "artist": "Ub40",
+          "album": "The Best Of UB40 - Volume One",
+          "duration_seconds": 320.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.888,
+          "score": 0.9216,
+          "lyrics_sha256": "bd060e84b6b59e5b68f3656afce64995c5c566ee5b1e840ec19829d018775781"
+        },
+        {
+          "id": 36968804,
+          "title": "Superstition",
+          "artist": "Yesterdays New Quintet (Madlib)",
+          "album": "Stevie: Instrumental Tribute to Stevie Wonder",
+          "duration_seconds": 187.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8657,
+          "score": 0.906,
+          "lyrics_sha256": "a19762c19c450e8acd4bd6425fca574bff0c4404e9ad0c4033e0243e7373bcbd"
+        },
+        {
+          "id": 36915378,
+          "title": "Superstition",
+          "artist": "Bernard \u201cPretty\u201d Purdie",
+          "album": "Soul to Jazz",
+          "duration_seconds": 372.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8657,
+          "score": 0.906,
+          "lyrics_sha256": "a19762c19c450e8acd4bd6425fca574bff0c4404e9ad0c4033e0243e7373bcbd"
+        },
+        {
+          "id": 36950707,
+          "title": "Superstition",
+          "artist": "Stevie Wonder",
+          "album": "At the Close of the Century",
+          "duration_seconds": 266.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8512,
+          "score": 0.8958,
+          "lyrics_sha256": "3f90cd88e0e7b27fc264578ab936d7cf0e5e73e9bcfd714fd5d2f90f9bd19fd6"
+        },
+        {
+          "id": 36990057,
+          "title": "Superstition",
+          "artist": "Stevie Wonder",
+          "album": "Rolling Stone- Best Songs of All Time",
+          "duration_seconds": 266.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8512,
+          "score": 0.8958,
+          "lyrics_sha256": "3f90cd88e0e7b27fc264578ab936d7cf0e5e73e9bcfd714fd5d2f90f9bd19fd6"
+        },
+        {
+          "id": 37517292,
+          "title": "Superstition",
+          "artist": "Stevie Wonder",
+          "album": "Motown 40 Forever - Disc Two",
+          "duration_seconds": 240.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8512,
+          "score": 0.8958,
+          "lyrics_sha256": "3f90cd88e0e7b27fc264578ab936d7cf0e5e73e9bcfd714fd5d2f90f9bd19fd6"
+        },
+        {
+          "id": 37173098,
+          "title": "Superstition",
+          "artist": "Stevie Wonder",
+          "album": "500 Greatest Songs - Rolling Stone Magazines 2010",
+          "duration_seconds": 269.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8512,
+          "score": 0.8958,
+          "lyrics_sha256": "3f90cd88e0e7b27fc264578ab936d7cf0e5e73e9bcfd714fd5d2f90f9bd19fd6"
+        },
+        {
+          "id": 37135212,
+          "title": "Superstition",
+          "artist": "Stevie Wonder",
+          "album": "Song Review: A Greatest Hits Collection Disc 1",
+          "duration_seconds": 245.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8512,
+          "score": 0.8958,
+          "lyrics_sha256": "3f90cd88e0e7b27fc264578ab936d7cf0e5e73e9bcfd714fd5d2f90f9bd19fd6"
+        }
+      ],
+      "suggested": {
+        "artist": "Ub40",
+        "reference_title": "Superstition",
+        "reference_artist": "Ub40",
+        "reference_album": "The Best Of UB40 - Volume One",
+        "reference_duration_seconds": 320.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37438720",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37438720",
+        "metadata_confidence": 0.9216,
+        "performance_key": "E",
+        "recording_mbid": "6a535d46-43e0-4454-89d0-3e8ccab335bf"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "6a535d46-43e0-4454-89d0-3e8ccab335bf",
+        "title": "Superstition",
+        "artist": "UB40",
+        "duration_seconds": 319,
+        "release": "The Best of UB40 Volumes 1 & 2",
+        "score": 0.9983
+      }
+    },
+    {
+      "id": "walk",
+      "path": "songs/Walk.md",
+      "title": "Walk",
+      "body_sha256": "e94917979e44d8c858da8537af97249af30965a27b092f58baac8757e2b1d19e",
+      "existing_metadata": {},
+      "notion": null,
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=Walk",
+      "lrclib_candidates": [
+        {
+          "id": 21823172,
+          "title": "Walk;Walk",
+          "artist": "Foo Fighters",
+          "album": "Arrow Rock 500 Editie 2015",
+          "duration_seconds": 255.96,
+          "title_score": 0.6667,
+          "lyrics_score": 0.9708,
+          "score": 0.8796,
+          "lyrics_sha256": "b91282214259347033a6b6df7b97ae21c4ecd195b8d3147793976be4a15ad585"
+        },
+        {
+          "id": 24048343,
+          "title": "WALK WALK",
+          "artist": "4MIX",
+          "album": "WALK WALK",
+          "duration_seconds": 141.89886213151928,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2851,
+          "score": 0.3996,
+          "lyrics_sha256": "530a57b617c5ca705e48edceee55717bcf50d4ce1b03387689ce74ba74110359"
+        },
+        {
+          "id": 10510308,
+          "title": "WALK WALK",
+          "artist": "4MIX",
+          "album": "WALK WALK",
+          "duration_seconds": 183.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2851,
+          "score": 0.3996,
+          "lyrics_sha256": "530a57b617c5ca705e48edceee55717bcf50d4ce1b03387689ce74ba74110359"
+        },
+        {
+          "id": 17825786,
+          "title": "Walk Walk",
+          "artist": "Sylvie Kreusch",
+          "album": "VRT Top 1000 [2023]",
+          "duration_seconds": 291.8399999,
+          "title_score": 0.6667,
+          "lyrics_score": 0.239,
+          "score": 0.3673,
+          "lyrics_sha256": "ce82407898eadf332172be54c4421f1f8f82044ac3097a0f4dbca8e9ef8b15b6"
+        },
+        {
+          "id": 2567318,
+          "title": "Walk Walk",
+          "artist": "Sylvie Kreusch",
+          "album": "Montbray",
+          "duration_seconds": 292.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.239,
+          "score": 0.3673,
+          "lyrics_sha256": "ce82407898eadf332172be54c4421f1f8f82044ac3097a0f4dbca8e9ef8b15b6"
+        },
+        {
+          "id": 37028343,
+          "title": "Walk Walk",
+          "artist": "The Call",
+          "album": "Reconciled & Into The Woods (Deluxe Double)",
+          "duration_seconds": 322.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2356,
+          "score": 0.3649,
+          "lyrics_sha256": "4adafab5625d32a5629a851ea5ab31afea310aaad0221f86749a9ac7eff5b406"
+        },
+        {
+          "id": 17429513,
+          "title": "Walk Walk",
+          "artist": "The Call",
+          "album": "Collected CD2",
+          "duration_seconds": 299.807347,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2356,
+          "score": 0.3649,
+          "lyrics_sha256": "4adafab5625d32a5629a851ea5ab31afea310aaad0221f86749a9ac7eff5b406"
+        },
+        {
+          "id": 8031800,
+          "title": "Walk Walk",
+          "artist": "The Call",
+          "album": "Into the Woods",
+          "duration_seconds": 299.0,
+          "title_score": 0.6667,
+          "lyrics_score": 0.2356,
+          "score": 0.3649,
+          "lyrics_sha256": "4adafab5625d32a5629a851ea5ab31afea310aaad0221f86749a9ac7eff5b406"
+        }
+      ],
+      "suggested": {
+        "artist": "Foo Fighters",
+        "reference_title": "Walk;Walk",
+        "reference_artist": "Foo Fighters",
+        "reference_album": "Arrow Rock 500 Editie 2015",
+        "reference_duration_seconds": 255.96,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "21823172",
+        "lyrics_reference_url": "https://lrclib.net/api/get/21823172",
+        "metadata_confidence": 0.8796,
+        "original_bpm": "140.1",
+        "deezer_track_id": "10287076"
+      },
+      "tier": "C",
+      "reasons": [
+        "weak or incomplete deterministic match"
+      ],
+      "deezer": {
+        "track_id": 10287076,
+        "title": "Walk",
+        "artist": "Foo Fighters",
+        "duration_seconds": 256,
+        "isrc": "USRW31100002",
+        "score": 0.8499,
+        "bpm": 140.1
+      }
+    },
+    {
+      "id": "white-wedding",
+      "path": "songs/White-Wedding.md",
+      "title": "White Wedding",
+      "body_sha256": "9c5bddf977a6c52d8cbc1bf9be74f23cf497a43508dfc79160329f61ee093b0e",
+      "existing_metadata": {},
+      "notion": {
+        "title": "White Wedding (Bm)",
+        "source_id": "bdf27ce8-7616-4c16-a810-da5ce2f7d06d",
+        "candidate_path": "white-wedding-bm--bdf27ce876164c16a810da5ce2f7d06d.md",
+        "performance_key_candidate": "Bm"
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=White+Wedding",
+      "lrclib_candidates": [
+        {
+          "id": 37498750,
+          "title": "White Wedding",
+          "artist": "Code 69",
+          "album": "Replay Dance Mania 2",
+          "duration_seconds": 192.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8447,
+          "score": 0.8913,
+          "lyrics_sha256": "7ff6d5b2c20d7a62b096fa7cc7790201c77de2c634b009344cdc515a68c0e122"
+        },
+        {
+          "id": 37523590,
+          "title": "White Wedding",
+          "artist": "Various Artists",
+          "album": "Punk Rock Jukebox, Vol. 2",
+          "duration_seconds": 277.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8148,
+          "score": 0.8704,
+          "lyrics_sha256": "35f74d63d9abacb2a693fd9fd9b87d958bfed56cdef472e050786243bfa38566"
+        },
+        {
+          "id": 36907654,
+          "title": "White Wedding",
+          "artist": "Various Artists",
+          "album": "100% Rock, Volume 3",
+          "duration_seconds": 251.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8148,
+          "score": 0.8704,
+          "lyrics_sha256": "35f74d63d9abacb2a693fd9fd9b87d958bfed56cdef472e050786243bfa38566"
+        },
+        {
+          "id": 37174516,
+          "title": "White Wedding",
+          "artist": "Rowland S. Howard",
+          "album": "Sunglasses at Night",
+          "duration_seconds": 251.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.8135,
+          "score": 0.8695,
+          "lyrics_sha256": "59c261be6db2a5fa9e981791f7d24dd4254045197c783c009f99d540aaa6abb0"
+        },
+        {
+          "id": 37015979,
+          "title": "White wedding",
+          "artist": "Billy Idol",
+          "album": "Best of Billy Idol",
+          "duration_seconds": 218.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.7111,
+          "score": 0.7978,
+          "lyrics_sha256": "601a766425984d853c5e3f6124d0443b443c9a14c01e03dad81d419c1fa1e06d"
+        },
+        {
+          "id": 36955987,
+          "title": "White Wedding",
+          "artist": "Billy Idol",
+          "album": "Greatest Hits 2001",
+          "duration_seconds": 249.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.7111,
+          "score": 0.7978,
+          "lyrics_sha256": "601a766425984d853c5e3f6124d0443b443c9a14c01e03dad81d419c1fa1e06d"
+        },
+        {
+          "id": 36968430,
+          "title": "White Wedding",
+          "artist": "Billy Idol",
+          "album": "This Is 80's New Wave",
+          "duration_seconds": 253.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.7111,
+          "score": 0.7978,
+          "lyrics_sha256": "601a766425984d853c5e3f6124d0443b443c9a14c01e03dad81d419c1fa1e06d"
+        },
+        {
+          "id": 37481035,
+          "title": "White Wedding",
+          "artist": "Billy Idol",
+          "album": "Covers",
+          "duration_seconds": 252.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.7111,
+          "score": 0.7978,
+          "lyrics_sha256": "601a766425984d853c5e3f6124d0443b443c9a14c01e03dad81d419c1fa1e06d"
+        }
+      ],
+      "suggested": {
+        "artist": "Code 69",
+        "reference_title": "White Wedding",
+        "reference_artist": "Code 69",
+        "reference_album": "Replay Dance Mania 2",
+        "reference_duration_seconds": 192.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37498750",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37498750",
+        "metadata_confidence": 0.8913,
+        "performance_key": "Bm",
+        "recording_mbid": "6031af7d-b332-475a-8f2a-c8ca6c5448ff"
+      },
+      "tier": "B",
+      "reasons": [
+        "plausible match requiring recording/artist review",
+        "close candidate from a different artist"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "6031af7d-b332-475a-8f2a-c8ca6c5448ff",
+        "title": "White Wedding",
+        "artist": "Code 69",
+        "duration_seconds": 192,
+        "release": "re:play Dance Mania 2",
+        "score": 0.9999
+      }
+    },
+    {
+      "id": "you-oughta-know",
+      "path": "songs/You-Oughta-Know.md",
+      "title": "You Oughta Know",
+      "body_sha256": "574363d9897f9a1d0770dbca344c4129e9ee14472b5ed1fce97a101d4454ad2a",
+      "existing_metadata": {},
+      "notion": {
+        "title": "You Oughta Know (F#m)",
+        "source_id": "791c675d-594b-4cf7-a852-dd289ff3cf2a",
+        "candidate_path": "you-oughta-know-f-m--791c675d594b4cf7a852dd289ff3cf2a.md",
+        "performance_key_candidate": "F#m"
+      },
+      "lrclib_search_url": "https://lrclib.net/api/search?track_name=You+Oughta+Know",
+      "lrclib_candidates": [
+        {
+          "id": 37016114,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "Oh What a Feeling",
+          "duration_seconds": 250.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        },
+        {
+          "id": 37001799,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "MTV & Rolling Stone's 100 Greatest Pop Songs",
+          "duration_seconds": 249.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        },
+        {
+          "id": 37135482,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "MTV Unplegged",
+          "duration_seconds": 302.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        },
+        {
+          "id": 37191924,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "Best Of The 90'S",
+          "duration_seconds": 249.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        },
+        {
+          "id": 37021888,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "MTV Unplugged",
+          "duration_seconds": 239.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        },
+        {
+          "id": 37071223,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "MTV Unplug",
+          "duration_seconds": 301.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        },
+        {
+          "id": 37310259,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "Fluxblog's Survey Mixes (1995)",
+          "duration_seconds": 250.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        },
+        {
+          "id": 37364175,
+          "title": "You Oughta Know",
+          "artist": "Alanis Morissette",
+          "album": "The Hands Of Love",
+          "duration_seconds": 331.0,
+          "title_score": 1.0,
+          "lyrics_score": 0.9796,
+          "score": 0.9857,
+          "lyrics_sha256": "1758e1abdda5b9934031c31dfb931c40bd8188acce0162b153aaa7047b024f8e"
+        }
+      ],
+      "suggested": {
+        "artist": "Alanis Morissette",
+        "reference_title": "You Oughta Know",
+        "reference_artist": "Alanis Morissette",
+        "reference_album": "Oh What a Feeling",
+        "reference_duration_seconds": 250.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37016114",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37016114",
+        "metadata_confidence": 0.9857,
+        "performance_key": "F#m",
+        "recording_mbid": "4b0512bb-22ad-47f8-bf70-7e1404606cf0",
+        "original_bpm": "105.2",
+        "deezer_track_id": "109843288"
+      },
+      "tier": "A",
+      "reasons": [
+        "strong title and lyric match with no close cross-artist candidate"
+      ],
+      "musicbrainz": {
+        "recording_mbid": "4b0512bb-22ad-47f8-bf70-7e1404606cf0",
+        "title": "You Oughta Know",
+        "artist": "Alanis Morissette",
+        "duration_seconds": null,
+        "release": "2001-06-01: Rock am Ring, Eifel, Germany",
+        "score": 1.0
+      },
+      "deezer": {
+        "track_id": 109843288,
+        "title": "You Oughta Know (2015 Remaster)",
+        "artist": "Alanis Morissette",
+        "duration_seconds": 249,
+        "isrc": "USMV21500002",
+        "score": 0.9983,
+        "bpm": 105.2
+      }
+    }
+  ]
+}

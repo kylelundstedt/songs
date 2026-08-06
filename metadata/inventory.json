@@ -1,0 +1,2561 @@
+{
+  "song_count": 284,
+  "songs": [
+    {
+      "id": "1979",
+      "path": "songs/1979.md",
+      "title": "1979",
+      "body_sha256": "44db340ee64a9481c0a1cd2db2a52dd1f9d91ee627d2395cf9904adaa1531b92",
+      "metadata": {},
+      "notion_title": "1979 (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "6th-avenue-heartache",
+      "path": "songs/6th-Avenue-Heartache.md",
+      "title": "6th Avenue Heartache",
+      "body_sha256": "1b2bc5d6bd54d054783c489702376cfa1b7c6fc2fc573a3ac5d6159fc302c47d",
+      "metadata": {},
+      "notion_title": "6th Avenue Heartache",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "8675309",
+      "path": "songs/8675309.md",
+      "title": "867-5309",
+      "body_sha256": "327aa5e7fc1fc9f9c35217b01faa28d786fab11bcfaaf59a73d68a546d9b71d5",
+      "metadata": {},
+      "notion_title": "8675309 (F#m)",
+      "notion_performance_key_candidate": "F#m"
+    },
+    {
+      "id": "across-the-universe",
+      "path": "songs/Across-The-Universe.md",
+      "title": "Across The Universe",
+      "body_sha256": "237900f1ddb5d0f649bf42313e315d117f27f5cdc3285341a54606163bea8f86",
+      "metadata": {},
+      "notion_title": "Across The Universe",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "all-about-that-bass",
+      "path": "songs/All-About-That-Bass.md",
+      "title": "All About That Bass",
+      "body_sha256": "f99547e4526d0af624550ed36ec415f98d4861f7ee473fa5f958720442b787a6",
+      "metadata": {},
+      "notion_title": "All About That Bass (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "all-summer-long",
+      "path": "songs/All-Summer-Long.md",
+      "title": "All Summer Long",
+      "body_sha256": "69307fe60081a9fd274147a3bcb8e034a4685e17b03e31e5bd60e6960e40cb74",
+      "metadata": {},
+      "notion_title": "All Summer Long (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "all-these-things-that-i-ve-done",
+      "path": "songs/All-These-Things-That-I-ve-Done.md",
+      "title": "All These Things That I've Done {short=\"All These Things\"}",
+      "body_sha256": "dbedac5294695d6db644522c13e4dbcc6efe75ba1c1156942af47ba75b749d1d",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "allison",
+      "path": "songs/Allison.md",
+      "title": "Allison",
+      "body_sha256": "9e1c4e5e485207227b44a3ee223d24325baa28ed9ef44a2ecb04ae5fee057e29",
+      "metadata": {},
+      "notion_title": "Allison (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "always-on-the-run",
+      "path": "songs/Always-On-The-Run.md",
+      "title": "Always On The Run",
+      "body_sha256": "51221fd951557946295316e083545eea69be5a4e1010800e22b2c43730ef19e9",
+      "metadata": {},
+      "notion_title": "Always On The Run (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "amber",
+      "path": "songs/Amber.md",
+      "title": "Amber",
+      "body_sha256": "c368d9979e365a5a284617405d06cafa99f456781852494a6d3441c8d8ed95bb",
+      "metadata": {},
+      "notion_title": "Amber (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "american-idiot",
+      "path": "songs/American-Idiot.md",
+      "title": "American Idiot",
+      "body_sha256": "078c6811d7a72b6430feed3c62da2c3402598bc4f35702fb08ec38e528a26609",
+      "metadata": {},
+      "notion_title": "American Idiot",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "angel-from-montgomery",
+      "path": "songs/Angel-From-Montgomery.md",
+      "title": "Angel from Montgomery {short=\"Angel ... Montgomery\"}",
+      "body_sha256": "d9ca7745075710ea4caf52247f6e77becd0cea0e297badc3de433e41fbbed131",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "animal",
+      "path": "songs/Animal.md",
+      "title": "Animal",
+      "body_sha256": "724e37a647bac347858990c5325a900e2b695ac3ef2f6756e3abebcac6ff6173",
+      "metadata": {},
+      "notion_title": "Animal",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "any-way-you-want-it",
+      "path": "songs/Any-Way-You-Want-It.md",
+      "title": "Any Way You Want It",
+      "body_sha256": "8872adb2ced110576aa347489a7bc6a2f75839ea8b3fad943bd5757851005010",
+      "metadata": {},
+      "notion_title": "Any Way You Want It",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "are-you-gonna-be-my-girl",
+      "path": "songs/Are-You-Gonna-Be-My-Girl.md",
+      "title": "Are You Gonna Be My Girl {short=\"Are U Be My Girl\"}",
+      "body_sha256": "e9b847675973681d740b4bae9e6352d59248ef9b362226a60442c879daa63f9d",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "are-you-gonna-go-my-way",
+      "path": "songs/Are-You-Gonna-Go-My-Way.md",
+      "title": "Are You Gonna Go My Way {short=\"Are U ... Go My Way\"}",
+      "body_sha256": "4a5a0e5fe73b5d08b4bf7e8a8ccb0fbd930c7756cf0ce631f1605bbd1d8c2c05",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "baby-i-love-you",
+      "path": "songs/Baby-I-Love-You.md",
+      "title": "Baby I Love You",
+      "body_sha256": "35384a9c3aa3a3354fbe98d977e156cb0f13c37f08c37129fac7ad9b3d526962",
+      "metadata": {},
+      "notion_title": "Baby I Love You (G)",
+      "notion_performance_key_candidate": "G"
+    },
+    {
+      "id": "back-in-black",
+      "path": "songs/Back-In-Black.md",
+      "title": "Back In Black",
+      "body_sha256": "86f75aa52b8579fd5f387202d8b06af1f54d859ff1456dc1a8d9a7fead0f815a",
+      "metadata": {},
+      "notion_title": "Back In Black (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "bad-romance",
+      "path": "songs/Bad-Romance.md",
+      "title": "Bad Romance",
+      "body_sha256": "4a7cf405db19dba46d73ed06f6018de23b9e52de1631a084123aa2fa9c006b4c",
+      "metadata": {},
+      "notion_title": "Bad Romance (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "bad-things",
+      "path": "songs/Bad-Things.md",
+      "title": "Bad Things",
+      "body_sha256": "f27e4fc70ee5657369313d96736db14c4e0ddb5d3eed8dcebb2c7f59be8e5edd",
+      "metadata": {},
+      "notion_title": "Bad Things (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "badfish",
+      "path": "songs/Badfish.md",
+      "title": "Badfish",
+      "body_sha256": "9b3d36849d161e1f00f0ff48738f5e3dc57e178fc132fb155a0a140c26cba39a",
+      "metadata": {},
+      "notion_title": "Badfish (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "bang-a-gong-get-it-on",
+      "path": "songs/Bang-a-Gong-Get-It-On.md",
+      "title": "Bang a Gong Get It On {short=\"Bang a Gong\"}",
+      "body_sha256": "a53d196f7987da26bc36747d048958861ba3f3cd6e406b8c2723a0b8d625f509",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "beer-drinkers-n-hell-raisers",
+      "path": "songs/Beer-Drinkers-n-Hell-Raisers.md",
+      "title": "Beer Drinkers n Hell Raisers {short=\"Beer Drinkers\"}",
+      "body_sha256": "c9a297a0a5b34e7d5c0c44825cdb3c6a4347d1a19f01d5d623a0804dd5ebd301",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "behind-blue-eyes",
+      "path": "songs/Behind-Blue-Eyes.md",
+      "title": "Behind Blue Eyes",
+      "body_sha256": "366ce50a9538f1700f4021ec215fac148903c2830063c65e2775909dae231c52",
+      "metadata": {},
+      "notion_title": "Behind Blue Eyes (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "bent",
+      "path": "songs/Bent.md",
+      "title": "Bent",
+      "body_sha256": "5c2151641697439b81d930bb9287fb65b7055af5564bf3e283cd1d7d4e0ca19b",
+      "metadata": {},
+      "notion_title": "Bent",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "betterman",
+      "path": "songs/Betterman.md",
+      "title": "Betterman",
+      "body_sha256": "97feef0acdcc229e3ea64202eff191c2a0157b1304507c1ad1352440ba5c7597",
+      "metadata": {},
+      "notion_title": "Betterman",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "billie-jean",
+      "path": "songs/Billie-Jean.md",
+      "title": "Billie Jean",
+      "body_sha256": "d875028475a7dfa29b273f241caaf6b109cfb43d6034414754d2c8252fb71953",
+      "metadata": {},
+      "notion_title": "Billie Jean (F#m)",
+      "notion_performance_key_candidate": "F#m"
+    },
+    {
+      "id": "black-hole-sun",
+      "path": "songs/Black-Hole-Sun.md",
+      "title": "Black Hole Sun",
+      "body_sha256": "5fe2a083b1af804d016a49db6efb0a149271ce0ddb6f81fab750f44c04dcfb5d",
+      "metadata": {},
+      "notion_title": "Black Hole Sun (G)",
+      "notion_performance_key_candidate": "G"
+    },
+    {
+      "id": "black",
+      "path": "songs/Black.md",
+      "title": "Black",
+      "body_sha256": "e03746a28713630beac57992b4dccc338e3915846fa1aa1ee8f70cf954fffa99",
+      "metadata": {},
+      "notion_title": "Black (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "blister-in-the-sun",
+      "path": "songs/Blister-In-The-Sun.md",
+      "title": "Blister In The Sun",
+      "body_sha256": "f4202671d66b7d63b336d89f0cf9fdd06fe10622170d8fef6bd998f06b37b2bd",
+      "metadata": {},
+      "notion_title": "Blister In the Sun",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "blue-monday",
+      "path": "songs/Blue-Monday.md",
+      "title": "Blue Monday",
+      "body_sha256": "6aaed27edf3ce2428d70f8d8dfaecef391eba7a96c65707888d132e97568d944",
+      "metadata": {},
+      "notion_title": "Blue Monday",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "born-to-run",
+      "path": "songs/Born-To-Run.md",
+      "title": "Born To Run",
+      "body_sha256": "264968c0b96734d7c1fc8904b53f22e48fbb7caf11f7e0dcba665188f137d383",
+      "metadata": {},
+      "notion_title": "Born To Run (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "boys-don-t-cry",
+      "path": "songs/Boys-Don-t-Cry.md",
+      "title": "Boys Don t Cry",
+      "body_sha256": "98f0c7c675c6af6fa94057d188993640e3548d1246a45f21324e21432517e2c0",
+      "metadata": {},
+      "notion_title": "Boys Don\u2019t Cry (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "breakdown",
+      "path": "songs/Breakdown.md",
+      "title": "Breakdown",
+      "body_sha256": "80fedeb23163f604a8f774efd0fab1881af8885e9f90d7122fd72bbfeade59cc",
+      "metadata": {},
+      "notion_title": "Breakdown (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "brick-house",
+      "path": "songs/Brick-House.md",
+      "title": "Brick House",
+      "body_sha256": "d97efa254ef12721ee298e535e02edbe9022b4e549c77fb1a178a089f1be39f4",
+      "metadata": {},
+      "notion_title": "Brick House",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "brown-eyed-girl",
+      "path": "songs/Brown-Eyed-Girl.md",
+      "title": "Brown Eyed Girl",
+      "body_sha256": "ef860b31df7b82db328c6f534f8da85b1a4824dde993b260952172f4483dfd56",
+      "metadata": {},
+      "notion_title": "Brown Eyed Girl",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "budapest",
+      "path": "songs/Budapest.md",
+      "title": "Budapest",
+      "body_sha256": "a1d0bae4aa18350bece17e5947892099dea5f7088dbdba482d0c34f78dfa71d3",
+      "metadata": {},
+      "notion_title": "Budapest",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "californication",
+      "path": "songs/Californication.md",
+      "title": "Californication",
+      "body_sha256": "d0351e9dbf25d5a287ffed0c9675795449590a7e9ebbf027c7d33c13268a6c4e",
+      "metadata": {},
+      "notion_title": "Californication (Am)",
+      "notion_performance_key_candidate": "Am"
+    },
+    {
+      "id": "can-t-stop",
+      "path": "songs/Can-t-Stop.md",
+      "title": "Can't Stop",
+      "body_sha256": "23dc70883993905ba447eb5f048e8a26b9f4ce233993c7750088536ec789f79e",
+      "metadata": {},
+      "notion_title": "Can\u2019t Stop",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "can-t-you-see",
+      "path": "songs/Can-t-You-See.md",
+      "title": "Can't You See",
+      "body_sha256": "de972bfcb61bb90fd9b88320586b78726c8a9baecde6c9de7f344bc36993fc13",
+      "metadata": {},
+      "notion_title": "Can't You See (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "chasing-cars",
+      "path": "songs/Chasing-Cars.md",
+      "title": "Chasing Cars",
+      "body_sha256": "ff694ecdd0a7be32d0c749f2bc7b683bc752449b8e6e7420e08cdea84da0aba4",
+      "metadata": {},
+      "notion_title": "Chasing Cars",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "cheap-sunglasses",
+      "path": "songs/Cheap-Sunglasses.md",
+      "title": "Cheap Sunglasses",
+      "body_sha256": "3ba70f41c37ce07ddab6f04b46f1de6e9471be95bda9e13edc6e6b1e70b90b56",
+      "metadata": {},
+      "notion_title": "Cheap Sunglasses (Gm)",
+      "notion_performance_key_candidate": "Gm"
+    },
+    {
+      "id": "closer-to-fine",
+      "path": "songs/Closer-To-Fine.md",
+      "title": "Closer To Fine",
+      "body_sha256": "2eef2eb92451ed926eabbe52967f45c671b981fc74ff46c9c09826a42581a58d",
+      "metadata": {},
+      "notion_title": "Closer To Fine",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "closing-time",
+      "path": "songs/Closing-Time.md",
+      "title": "Closing Time",
+      "body_sha256": "b550f8596a800b5a1aecb242bdaa8a15777eb7604ff0e6ef6d8ec6a576ada0e2",
+      "metadata": {},
+      "notion_title": "Closing Time",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "cold-hard-bitch",
+      "path": "songs/Cold-Hard-Bitch.md",
+      "title": "Cold Hard Bitch",
+      "body_sha256": "9fe5406ffc2bb672ed79eb785e444a9c31886768724126ff95c12e3c8dce8035",
+      "metadata": {},
+      "notion_title": "Cold Hard Bitch",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "come-as-you-are",
+      "path": "songs/Come-As-You-Are.md",
+      "title": "Come As You Are",
+      "body_sha256": "39fc43dd019e44c344aea06b45d55798783fc3d62684bc70b12dd2437922986d",
+      "metadata": {},
+      "notion_title": "Come As You Are",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "come-together",
+      "path": "songs/Come-Together.md",
+      "title": "Come Together",
+      "body_sha256": "99c0da509a254d0df8bbf4326c165673dcb3d6206641fbaecacebd0f442b6ea7",
+      "metadata": {},
+      "notion_title": "Come Together (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "counting-blue-cars",
+      "path": "songs/Counting-Blue-Cars.md",
+      "title": "Counting Blue Cars",
+      "body_sha256": "e7dacab88f2ef824b21859d70cf1bb5278a3156b96699c534830438c247db69e",
+      "metadata": {},
+      "notion_title": "Counting Blue Cars",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "crash",
+      "path": "songs/Crash.md",
+      "title": "Crash",
+      "body_sha256": "4784fa66b6f4bc35e8f09945287fd2609436bd8a0bf8d6695a2a0e29f1ae275d",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "crawling-back-to-you",
+      "path": "songs/Crawling-Back-To-You.md",
+      "title": "Crawling Back To You",
+      "body_sha256": "98eb8f09060aa0e20f0e32772679d063f5e09bbb8a4335880672c5a23d3e5e9a",
+      "metadata": {},
+      "notion_title": "Crawling Back To You",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "crazy-bitch",
+      "path": "songs/Crazy-Bitch.md",
+      "title": "Crazy Bitch",
+      "body_sha256": "d822522f61db10ded3e4a21238698115ff6930453bf1e1b594bc38d2fc441137",
+      "metadata": {},
+      "notion_title": "Crazy Bitch",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "crazy",
+      "path": "songs/Crazy.md",
+      "title": "Crazy",
+      "body_sha256": "9d80b718bcddbaa5afd736c1a3c659ef1811bd06f0ead9dc0175174c9aa2c484",
+      "metadata": {},
+      "notion_title": "Crazy (Cm)",
+      "notion_performance_key_candidate": "Cm"
+    },
+    {
+      "id": "creep",
+      "path": "songs/Creep.md",
+      "title": "Creep",
+      "body_sha256": "44374f3d1270c07988990c41bbd07237f6d36a5f3ed3e337ec5e0389ce4043a1",
+      "metadata": {},
+      "notion_title": "Creep (G)",
+      "notion_performance_key_candidate": "G"
+    },
+    {
+      "id": "criminal",
+      "path": "songs/Criminal.md",
+      "title": "Criminal",
+      "body_sha256": "5d398f0a2cec867ee22bb18901ec7078108c14ff51e65e020593dff5720588d4",
+      "metadata": {},
+      "notion_title": "Criminal",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "cumbersome",
+      "path": "songs/Cumbersome.md",
+      "title": "Cumbersome",
+      "body_sha256": "d99dbf7a2613587d14228928dc4b051f66804a7284436d0a6f09d9d98a02091b",
+      "metadata": {},
+      "notion_title": "Cumbersome (F#)",
+      "notion_performance_key_candidate": "F#"
+    },
+    {
+      "id": "dancing-with-myself",
+      "path": "songs/Dancing-With-Myself.md",
+      "title": "Dancing With Myself",
+      "body_sha256": "6afc2a3c489dc6887413d76f8090d1545dbb4577c229cb13bca55bc3115c266c",
+      "metadata": {},
+      "notion_title": "Dancing With Myself (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "dani-california",
+      "path": "songs/Dani-California.md",
+      "title": "Dani California",
+      "body_sha256": "45b64c326d757b5a27fb867768bb33b576ebb949b5b344f60046e319f58b09fa",
+      "metadata": {},
+      "notion_title": "Dani California",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "dark-necessities",
+      "path": "songs/Dark-Necessities.md",
+      "title": "Dark Necessities",
+      "body_sha256": "2a5865510d37c99a128d9900c894da4cfd441051bc4232574bdaae3086e09fbd",
+      "metadata": {},
+      "notion_title": "Dark Necessities",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "darling-nikki",
+      "path": "songs/Darling-Nikki.md",
+      "title": "Darling Nikki",
+      "body_sha256": "5d1ed98d3c9529ce4ea89da3b8746c942cb4368afed56fb6c233fc3450dcbed8",
+      "metadata": {},
+      "notion_title": "Darling Nikki",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "daughter",
+      "path": "songs/Daughter.md",
+      "title": "Daughter",
+      "body_sha256": "7fc95f37d81d5b05de133914b5d5482e6d0bd48f858591cace049f74004059d5",
+      "metadata": {},
+      "notion_title": "Daughter",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "demons",
+      "path": "songs/Demons.md",
+      "title": "Demons",
+      "body_sha256": "4880ac5e9d811a2ee00e07150af49384b600fc24d0b6ac1b4e379ac71d71375e",
+      "metadata": {},
+      "notion_title": "Demons",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "dock-of-the-bay",
+      "path": "songs/Dock-Of-The-Bay.md",
+      "title": "Dock of the Bay",
+      "body_sha256": "33a71a58bede358be653f6bc1e965ee97a5e374fa01a14ea34e3a41e1598a731",
+      "metadata": {},
+      "notion_title": "Dock of the Bay",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "doin-time",
+      "path": "songs/Doin-Time.md",
+      "title": "Doin Time",
+      "body_sha256": "d1e61bb120cca3b93929d8d2f3e7e9e8cc589915b6e7ef1893353bca15f15d4c",
+      "metadata": {},
+      "notion_title": "Doin' Time (Gm)",
+      "notion_performance_key_candidate": "Gm"
+    },
+    {
+      "id": "don-t-go-back-to-rockville",
+      "path": "songs/Don-t-Go-Back-To-Rockville.md",
+      "title": "Don't Go Back To Rockville {short=\"Back to Rockville\"}",
+      "body_sha256": "3fac0db111b5da169b5c03cc39e7192e7f8ecdb4669b0ec883074140a419b0ed",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "drive",
+      "path": "songs/Drive.md",
+      "title": "Drive",
+      "body_sha256": "aa64a13654614cde5841008bebe99d3373c37cdae9b9df56e9f817eb5918df27",
+      "metadata": {},
+      "notion_title": "Drive",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "elderly-woman",
+      "path": "songs/Elderly-Woman.md",
+      "title": "Elderly Woman",
+      "body_sha256": "4c1b2162bd1a2890e5c544f982137b42a9a3009933a45143a694e7f89a349bd3",
+      "metadata": {},
+      "notion_title": "Elderly Woman (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "enter-sandman",
+      "path": "songs/Enter-Sandman.md",
+      "title": "Enter Sandman",
+      "body_sha256": "ac762be1ff5479d4f272d547581832949c8b156c2a64c747e48ef7843371fa4e",
+      "metadata": {},
+      "notion_title": "Enter Sandman",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "even-flow",
+      "path": "songs/Even-Flow.md",
+      "title": "Even Flow",
+      "body_sha256": "7835ccdb04fdaab2805d78f7d172ffa08040102b3f0d8960244edb3a3b91dc70",
+      "metadata": {},
+      "notion_title": "Even Flow",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "everlong",
+      "path": "songs/Everlong.md",
+      "title": "Everlong",
+      "body_sha256": "0b82054e792404e1af0a619be3b02c786bf7676eaf61deceb0ca2998749cfedc",
+      "metadata": {},
+      "notion_title": "Everlong (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "every-mother-s-son",
+      "path": "songs/Every-Mother-s-Son.md",
+      "title": "Every Mother s Son",
+      "body_sha256": "79893c65f33d4d1d545e8a8b4cc73a7c0005cc66721bb85738bad7e759f80427",
+      "metadata": {},
+      "notion_title": "Every Mother's Son",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "exs-and-ohs",
+      "path": "songs/Exs-And-Ohs.md",
+      "title": "Exs And Ohs",
+      "body_sha256": "68fab20e309ea8fe4ec440999ece2b4f032c33a8aea66c7c8897eb56287ed9df",
+      "metadata": {},
+      "notion_title": "Ex's And Oh's (Em)",
+      "notion_performance_key_candidate": "Em"
+    },
+    {
+      "id": "face-in-the-crowd",
+      "path": "songs/Face-In-The-Crowd.md",
+      "title": "Face In The Crowd",
+      "body_sha256": "a2be4dd7fc126fff18d9b5d5e623c7c9760fe417b9484550668909c2aaaea3a1",
+      "metadata": {},
+      "notion_title": "Face In The Crowd",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "faith",
+      "path": "songs/Faith.md",
+      "title": "Faith",
+      "body_sha256": "6fa5376a937b652a403b4b6f02c9b70e7891cf72d1e604db4aada21c3393dabc",
+      "metadata": {},
+      "notion_title": "Faith",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "fast-as-you",
+      "path": "songs/Fast-As-You.md",
+      "title": "Fast As You",
+      "body_sha256": "5862e4b88b83460f8b72e6d67c9b1fa4a7e9d8e789a977969ac8799e92f5e6d1",
+      "metadata": {},
+      "notion_title": "Fast As You",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "feeling-alright",
+      "path": "songs/Feeling-Alright.md",
+      "title": "Feeling Alright",
+      "body_sha256": "c26667abba7ae4c2bae07dcaf48b18c97a4d653754bda98acf68f46a4c27b186",
+      "metadata": {},
+      "notion_title": "Feeling Alright",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "feels-sheriff",
+      "path": "songs/Feels-Sheriff.md",
+      "title": "Feels-Sheriff",
+      "body_sha256": "b52c84fc4b1305a74d5df468b5772179815d6c5cd4e4f120fc5edae4d961c1fe",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "feels",
+      "path": "songs/Feels.md",
+      "title": "Feels",
+      "body_sha256": "61a7f2898765a548fac910cfe40a3490173cf393cb78e0d807666fa5fca12730",
+      "metadata": {},
+      "notion_title": "Feels",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "find-yourself",
+      "path": "songs/Find-Yourself.md",
+      "title": "Find Yourself",
+      "body_sha256": "f79aa0b65bd31f60ee6a817d6511eb17f24dde60b9927a470c4b486b2f4fa736",
+      "metadata": {},
+      "notion_title": "Find Yourself (G)",
+      "notion_performance_key_candidate": "G"
+    },
+    {
+      "id": "fire-on-the-mountain",
+      "path": "songs/Fire-On-The-Mountain.md",
+      "title": "Fire On The Mountain",
+      "body_sha256": "9128f8f277830c078e7bf6787558de25f8e2e32167675fbb45faf0c585317d3b",
+      "metadata": {},
+      "notion_title": "Fire on the Mountain",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "fly-away",
+      "path": "songs/Fly-Away.md",
+      "title": "Fly Away",
+      "body_sha256": "15af199b649ee25a1856b4d6cf62a4e231978cd8884364474bce6bac47b32b4d",
+      "metadata": {},
+      "notion_title": "Fly Away",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "follow-me",
+      "path": "songs/Follow-Me.md",
+      "title": "Follow Me",
+      "body_sha256": "a7c81b72060ddb82903a9934af44e0f63714d8407d072bb657ad0ae7939c6f22",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "folsom-prison-blues",
+      "path": "songs/Folsom-Prison-Blues.md",
+      "title": "Folsom Prison Blues",
+      "body_sha256": "c91d90c9f46b597d1aa84b6ec23ae10abcada9983665c1598eee31b08275304d",
+      "metadata": {},
+      "notion_title": "Folsom Prison Blues (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "free-fallin",
+      "path": "songs/Free-Fallin.md",
+      "title": "Free Fallin",
+      "body_sha256": "6ff8e5c130c7ec6839bff4bea073ba51124b59a3a1efe34d35a0946f9dbc9e2b",
+      "metadata": {},
+      "notion_title": "Free Fallin'",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "fuck-you",
+      "path": "songs/Fuck-You.md",
+      "title": "Fuck You",
+      "body_sha256": "9967dc1e2c281dfd60a2f82890da78582f6f2c6b67ce68e18f47e44212dcf819",
+      "metadata": {},
+      "notion_title": "Fuck You (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "get-lucky",
+      "path": "songs/Get-Lucky.md",
+      "title": "Get Lucky",
+      "body_sha256": "b2db72171c4a416685f258a2b3adc2716ae16e8666b509c5745308e498b47599",
+      "metadata": {},
+      "notion_title": "Get Lucky",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "gimme-all-your-lovin",
+      "path": "songs/Gimme-All-Your-Lovin.md",
+      "title": "Gimme All Your Lovin",
+      "body_sha256": "7b259bf6dce8dbebe0ff4e31523c0f04e8a95dca26a91610c54bbad768c3f3eb",
+      "metadata": {},
+      "notion_title": "Gimme All Your Lovin' (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "gimme-shelter",
+      "path": "songs/Gimme-Shelter.md",
+      "title": "Gimme Shelter",
+      "body_sha256": "81ec90f18fa7b3d4c5034a976b8d3dfafa9d28b3b4ad5c4b6995c1d46d4296ac",
+      "metadata": {},
+      "notion_title": "Gimme Shelter",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "gimme-three-steps",
+      "path": "songs/Gimme-Three-Steps.md",
+      "title": "Gimme Three Steps",
+      "body_sha256": "181dcf40a83f78b191633a217d4b16607427a87dbb66c4bc95bca85780f5600e",
+      "metadata": {},
+      "notion_title": "Gimme Three Steps",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "give-me-one-reason",
+      "path": "songs/Give-Me-One-Reason.md",
+      "title": "Give Me One Reason",
+      "body_sha256": "6553592f10c00588b77a310ea2d9ef5ac0d7bf2df9ae47f232f77d2eeeb73e22",
+      "metadata": {},
+      "notion_title": "Give Me One Reason",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "givin-the-dog-a-bone",
+      "path": "songs/Givin-The-Dog-A-Bone.md",
+      "title": "Givin The Dog A Bone",
+      "body_sha256": "ede25b5cf445f029110ff019f5339115f1255165d39da09062534f695b989545",
+      "metadata": {},
+      "notion_title": "Givin' The Dog A Bone",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "glycerine",
+      "path": "songs/Glycerine.md",
+      "title": "Glycerine",
+      "body_sha256": "8675d0b469a61babd1cb15faac505c82d1c144875947a7e41a8cc0a270a7e00a",
+      "metadata": {},
+      "notion_title": "Glycerine",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "god-of-wine",
+      "path": "songs/God-Of-Wine.md",
+      "title": "God of Wine",
+      "body_sha256": "a22ee1d657c155d9383b9a6b9930519ac7a1bd8c91751699cc3b5fe1040cd63c",
+      "metadata": {},
+      "notion_title": "God of Wine",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "going-down-the-road-feeling-bad",
+      "path": "songs/Going-Down-The-Road-Feeling-Bad.md",
+      "title": "Going Down The Road Feeling Bad {short=\"Going Down The Road\"}",
+      "body_sha256": "50e7efa8a812409e3a924042d5bb7548d2c996fc83ecb67fbf1a0a324f2adb0f",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "gone-gone-gone",
+      "path": "songs/Gone-Gone-Gone.md",
+      "title": "Gone Gone Gone",
+      "body_sha256": "3e54e4265c726498dd8efdb40b6f0cf66fef35a8a26314eed937ed911d0239b2",
+      "metadata": {},
+      "notion_title": "Gone Gone Gone",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "gone-shootin",
+      "path": "songs/Gone-Shootin.md",
+      "title": "Gone Shootin",
+      "body_sha256": "f6b3ee429207aa4839bad88e6b45bf6c52bbae6e289da8b91ab4746179aa0da7",
+      "metadata": {},
+      "notion_title": "Gone Shootin'",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "good-times-bad-times",
+      "path": "songs/Good-Times-Bad-Times.md",
+      "title": "Good Times Bad Times",
+      "body_sha256": "7014bfdf15bf34ddcb071aa627076710752e6ac4a93c89713305005c48f6fe5f",
+      "metadata": {},
+      "notion_title": "Good Times, Bad Times",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "gravity",
+      "path": "songs/Gravity.md",
+      "title": "Gravity",
+      "body_sha256": "6a6c89138a3c0ee20a584ca58afaa6a7b99634d07c9a3d70f01066988b379fe8",
+      "metadata": {},
+      "notion_title": "Gravity",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "guitars-and-cadillacs",
+      "path": "songs/Guitars-and-Cadillacs.md",
+      "title": "Guitars and Cadillacs",
+      "body_sha256": "2776dfc52cf15c80154af63ad23f6e3fcb14a7b1a2e2ef92ef0bd0fc3168491c",
+      "metadata": {},
+      "notion_title": "Guitars and Cadillacs (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "hang-you-from-the-heavens",
+      "path": "songs/Hang-You-From-The-Heavens.md",
+      "title": "Hang You From The Heavens {short=\"Hang You ... Heavens\"}",
+      "body_sha256": "59dbba2a8918e86c3ce0d07685e284d3b7bce4878f65e7f388372a9af333c615",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "happy",
+      "path": "songs/Happy.md",
+      "title": "Happy",
+      "body_sha256": "d2d773d335a58068575f59738d5f4afdfe7867af8e3f44365ecca409d175e7e7",
+      "metadata": {},
+      "notion_title": "Happy",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "hard-to-handle",
+      "path": "songs/Hard-To-Handle.md",
+      "title": "Hard To Handle",
+      "body_sha256": "fcf254ecf8d354d0be8e318a0aca0d8169ed1af193a74a9bcda90fbcbd4e5484",
+      "metadata": {},
+      "notion_title": "Hard To Handle (B)",
+      "notion_performance_key_candidate": "B"
+    },
+    {
+      "id": "hash-pipe",
+      "path": "songs/Hash-Pipe.md",
+      "title": "Hash Pipe",
+      "body_sha256": "0102647ed1a4480e8c865dade0ffec5f7246d0b4648c79cf528119a9854c905a",
+      "metadata": {},
+      "notion_title": "Hash Pipe",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "have-a-drink-on-me",
+      "path": "songs/Have-A-Drink-On-Me.md",
+      "title": "Have A Drink On",
+      "body_sha256": "618a5e2575463d9c80b8da93795bddcf91201e9f71197146bb4699f398d6c4af",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "heard-it-in-a-love-song",
+      "path": "songs/Heard-It-In-A-Love-Song.md",
+      "title": "Heard It In A Love Song {short=\"Heard It ... Love Song\"}",
+      "body_sha256": "17373e28ff933038f4903ea7425e0f87b7bb3aaf53c28cbbaafb9bb3111adac0",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "heart-shaped-box",
+      "path": "songs/Heart-Shaped-Box.md",
+      "title": "Heart Shaped Box",
+      "body_sha256": "6fadb890eeff8e454576a3c395bf8814ff18cc47807855f9b3cc5e04ff799bbe",
+      "metadata": {},
+      "notion_title": "Heart Shaped Box",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "higher-ground",
+      "path": "songs/Higher-Ground.md",
+      "title": "Higher Ground",
+      "body_sha256": "06eee836c5c1a607c673954bf52140e283150833d09112977dd37372fec64bab",
+      "metadata": {},
+      "notion_title": "Higher Ground (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "higher",
+      "path": "songs/Higher.md",
+      "title": "Higher",
+      "body_sha256": "3022f69945b4be2fe1cbe1f52590ef942c73543a4c2278c62c487e53007b0c29",
+      "metadata": {},
+      "notion_title": "Higher",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "highway-to-hell",
+      "path": "songs/Highway-To-Hell.md",
+      "title": "Highway To Hell",
+      "body_sha256": "8ff2bf948ba6d92ed09fae4e573ff05e1e3dc2d06b3589cbb97b63d36f760c02",
+      "metadata": {},
+      "notion_title": "Highway to Hell",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "hit-me-with-your-best-shot",
+      "path": "songs/Hit-Me-With-Your-Best-Shot.md",
+      "title": "Hit Me With Your Best Shot {short=\"Hit Me ... Best Shot\"}",
+      "body_sha256": "56305cec49d54364bca84b563e2318fe0f4e8e4c2f17a9f12a83be1f412ad27a",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "hold-my-hand",
+      "path": "songs/Hold-My-Hand.md",
+      "title": "Hold My Hand",
+      "body_sha256": "07bf1298fecdba407792ce6f823f8567bcd7c39d2bccc81b36803a1c828e60a0",
+      "metadata": {},
+      "notion_title": "Hold My Hand",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "home-live",
+      "path": "songs/Home-Live.md",
+      "title": "Home Live",
+      "body_sha256": "f45958ab3a4dec6c3ae9cf390dbbe5f7731b86e58c54f0e9010647f9da961cd5",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "home",
+      "path": "songs/Home.md",
+      "title": "Home",
+      "body_sha256": "48baab5b5135b89d20e89a9a9ae4b93f42fc52f8a23cbcbb7e0033fec008844c",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "hunger-strike",
+      "path": "songs/Hunger-Strike.md",
+      "title": "Hunger Strike",
+      "body_sha256": "1a586af94ac7ab2b2ca58e4a87dd829848ec1af377c3049f22a6f40c9bc27139",
+      "metadata": {},
+      "notion_title": "Hunger Strike",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "i-don-t-wanna-be",
+      "path": "songs/I-Don-t-Wanna-Be.md",
+      "title": "I Don t Wanna Be",
+      "body_sha256": "36f0b49aa1730c36edb0f15da81fb94b0eb4b9a19fc92662935d950f75c2b1a0",
+      "metadata": {},
+      "notion_title": "I Don\u2019t Wanna Be",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "i-kissed-a-girl",
+      "path": "songs/I-Kissed-a-Girl.md",
+      "title": "I Kissed a Girl",
+      "body_sha256": "4de43e1a302b0a03c4f5ecfdc141b8b0ee7806de321b42f94d9fd783c47389e8",
+      "metadata": {},
+      "notion_title": "I Kissed a Girl (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "i-shot-the-sheriff",
+      "path": "songs/I-Shot-The-Sheriff.md",
+      "title": "I Shot The Sheriff",
+      "body_sha256": "9cb8c1eb93139fc38d6271dcb54a5e3a5a16766f3f67a38fb957c97f83a79575",
+      "metadata": {},
+      "notion_title": "I Shot the Sheriff",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "i-want-you-back",
+      "path": "songs/I-Want-You-Back.md",
+      "title": "I Want You Back",
+      "body_sha256": "05f48d61f860f3a769989dd5c64a513fd964c94d826ab9ded04cedb266e69ebd",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "i-want-you-to",
+      "path": "songs/I-Want-You-To.md",
+      "title": "I Want You To",
+      "body_sha256": "a772500f428d76d64a8903e363f202afba64abffbbb2c886a32dcae41e8875b1",
+      "metadata": {},
+      "notion_title": "I Want You To (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "i-will-survive",
+      "path": "songs/I-Will-Survive.md",
+      "title": "I Will Survive",
+      "body_sha256": "cb3a05ea7f65b041514405674132f32853b096982e06da1a7fd5ba3b0dcecd56",
+      "metadata": {},
+      "notion_title": "I Will Survive (Am)",
+      "notion_performance_key_candidate": "Am"
+    },
+    {
+      "id": "i-wish",
+      "path": "songs/I-Wish.md",
+      "title": "I Wish",
+      "body_sha256": "de7e61af1b8f40581c2054c031a9532d3aba1f35b4bd637d6ae03f45ba4a851c",
+      "metadata": {},
+      "notion_title": "I Wish (Eb)",
+      "notion_performance_key_candidate": "Eb"
+    },
+    {
+      "id": "i-m-bad-i-m-nationwide",
+      "path": "songs/I-m-Bad-I-m-Nationwide.md",
+      "title": "I'm Bad I'm Nationwide {short=\"I'm Nationwide\"}",
+      "body_sha256": "6906038f7a65f1de4fe2fa25d35a9546d06dc0c818b0db7fbeda32cd97da5556",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "in-the-midnight-hour",
+      "path": "songs/In-The-Midnight-Hour.md",
+      "title": "In The Midnight Hour",
+      "body_sha256": "e42ed73cc2ecfe556a9648d389392e5fadb58c1e625213611d5e4c23f3b5236f",
+      "metadata": {},
+      "notion_title": "In The Midnight Hour",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "in-your-eyes",
+      "path": "songs/In-Your-Eyes.md",
+      "title": "In Your Eyes",
+      "body_sha256": "e20774d2c7cba9a16a69f35f574409d1562266cd3a2f262ce21e2deadd390fc3",
+      "metadata": {},
+      "notion_title": "In Your Eyes",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "inside-out",
+      "path": "songs/Inside-Out.md",
+      "title": "Inside Out",
+      "body_sha256": "ba20f3af218f66352ecf434fc6f50d027b147e7abce8f02377820e4bcd8ee1ba",
+      "metadata": {},
+      "notion_title": "Inside Out (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "interstate-love-song",
+      "path": "songs/Interstate-Love-Song.md",
+      "title": "Interstate Love Song",
+      "body_sha256": "eec7875c92d81f51a6ab0ff7aaa2f13f741a31d42a5585f449102fdf03433cdb",
+      "metadata": {},
+      "notion_title": "Interstate Love Song (C#m)",
+      "notion_performance_key_candidate": "C#m"
+    },
+    {
+      "id": "jailbreak",
+      "path": "songs/Jailbreak.md",
+      "title": "Jailbreak",
+      "body_sha256": "447f97236bc688e5857ccb9ca0ea68c672804de584cf4023a1b398b211c51854",
+      "metadata": {},
+      "notion_title": "Jailbreak",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "jesus-left-chicago",
+      "path": "songs/Jesus-Left-Chicago.md",
+      "title": "Jesus Left Chicago",
+      "body_sha256": "2d490fee3633b9b1651b33537087bd33330f9a059ec2a828c9d0d8e1bfeb7e86",
+      "metadata": {},
+      "notion_title": "Jesus Left Chicago",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "jolene",
+      "path": "songs/Jolene.md",
+      "title": "Jolene",
+      "body_sha256": "05aacb20020884ee69048dbc79ddbf32464ca2c8d5684495c75acf439fc0022f",
+      "metadata": {},
+      "notion_title": "Jolene",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "juice-dance",
+      "path": "songs/Juice-Dance.md",
+      "title": "Juice-Dance",
+      "body_sha256": "50215e796a7e0f2968f66ea6631c6635d1af0935a1160c7cfed8b2d798ab890f",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "juice",
+      "path": "songs/Juice.md",
+      "title": "Juice",
+      "body_sha256": "57efede2fe7bc8795c7a8d0140cd43a662807c38b4eb1063e70f251da9743697",
+      "metadata": {},
+      "notion_title": "Juice",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "juicebox",
+      "path": "songs/Juicebox.md",
+      "title": "Juicebox",
+      "body_sha256": "aad36ac1260f4d54bd83dca10695e3ee7e554b47ee81cea581001966ad4055c2",
+      "metadata": {},
+      "notion_title": "Juicebox",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "jump-jive-wail",
+      "path": "songs/Jump-Jive-Wail.md",
+      "title": "Jump Jive Wail",
+      "body_sha256": "0667c461b3870c7c75d6fda87586cef7a8856723ff1156d7ac89b4055bdc1c04",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "jump",
+      "path": "songs/Jump.md",
+      "title": "Jump",
+      "body_sha256": "ee91bd521bcf23836ec341c4f03b8ad5d521ce78583a52fa427c5c50a12ebc81",
+      "metadata": {},
+      "notion_title": "Jump (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "just-a-girl",
+      "path": "songs/Just-A-Girl.md",
+      "title": "Just A Girl",
+      "body_sha256": "9c471601ab8447aa8ffdd9a48436409707ced94fa434b3c1230c677a7bca18de",
+      "metadata": {},
+      "notion_title": "Just A Girl",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "just-got-paid",
+      "path": "songs/Just-Got-Paid.md",
+      "title": "Just Got Paid",
+      "body_sha256": "a5d24dbccf72eefe55d363225b96dd83e305ecd5a8963cc6beffc5f69c290d0d",
+      "metadata": {},
+      "notion_title": "Just Got Paid",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "just-like-heaven",
+      "path": "songs/Just-Like-Heaven.md",
+      "title": "Just Like Heaven",
+      "body_sha256": "7e5ce5ba5450efe3ad89a450217fda3d2c05148ce3a53b3ad8df54a58291d2fa",
+      "metadata": {},
+      "notion_title": "Just Like Heaven",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "just-what-i-needed",
+      "path": "songs/Just-What-I-Needed.md",
+      "title": "Just What I Needed",
+      "body_sha256": "66ced4a7ee8d20a9f7418cc265bbeed1c2a5e3de4aefa09aedcab9593f71902e",
+      "metadata": {},
+      "notion_title": "Just What I Needed",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "killing-in-the-name",
+      "path": "songs/Killing-In-The-Name.md",
+      "title": "Killing In The Name",
+      "body_sha256": "b9608d1d22cc97198055a79c1f9223105445c7b651d6cdd682282d9af320a057",
+      "metadata": {},
+      "notion_title": "Killing in The Name",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "kiss",
+      "path": "songs/Kiss.md",
+      "title": "Kiss",
+      "body_sha256": "804539cccb9f89bf3d69537336211d849e2a45c97d39ffc1a54f457775541602",
+      "metadata": {},
+      "notion_title": "Kiss (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "kryptonite",
+      "path": "songs/Kryptonite.md",
+      "title": "Kryptonite",
+      "body_sha256": "cc827213731f3957f9b74c0bf5b9e71ddfa74f58cee822f27137e1806928440b",
+      "metadata": {},
+      "notion_title": "Kryptonite (Bm)",
+      "notion_performance_key_candidate": "Bm"
+    },
+    {
+      "id": "la-grange",
+      "path": "songs/La-Grange.md",
+      "title": "La Grange",
+      "body_sha256": "c197a424e39aec1b3ba2a31f344603a987aee83fb5fe5d8e157c626ab747c023",
+      "metadata": {},
+      "notion_title": "La Grange (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "last-nite",
+      "path": "songs/Last-Nite.md",
+      "title": "Last Nite",
+      "body_sha256": "030f46aae16f377d6767bc6c0328cdb333ad15fdd38506ed7af2f89d8d5ef5be",
+      "metadata": {},
+      "notion_title": "Last Nite",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "let-me-put-my-love-into-you",
+      "path": "songs/Let-Me-Put-My-Love-Into-You.md",
+      "title": "Let Me Put My Love Into You  {short=\"Let Me Put ... You\"}",
+      "body_sha256": "e0b161d0cf13521bd624b90378c992a5b8e27464ffcb5255e10d59f8e39088c1",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "let-s-get-it-on",
+      "path": "songs/Let-s-Get-It-On.md",
+      "title": "Let's Get It On",
+      "body_sha256": "378e2414ad6f7d3e16f974a59c3265c156f0efa6899bbc88c3c8e5e03ea02d47",
+      "metadata": {},
+      "notion_title": "Let's Get It On (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "let-s-go-crazy",
+      "path": "songs/Let-s-Go-Crazy.md",
+      "title": "Let's Go Crazy",
+      "body_sha256": "6506e9bbdf81c6dccfd503483fe15549d61503325acffc77338f0e0e6d1d3406",
+      "metadata": {},
+      "notion_title": "Let's Go Crazy (F#)",
+      "notion_performance_key_candidate": "F#"
+    },
+    {
+      "id": "lets-dance",
+      "path": "songs/Lets-Dance.md",
+      "title": "Lets Dance",
+      "body_sha256": "f43e4f127a64bb9cb4542d3686f63b1bbc7ef8e1d645b9174f52cfd45ea09c16",
+      "metadata": {},
+      "notion_title": "Let's Dance",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "life-during-wartime",
+      "path": "songs/Life-During-Wartime.md",
+      "title": "Life During Wartime",
+      "body_sha256": "df6b2fbad6153ceee5d5e89a84330710c0a6441ed9d47ae5f47fcfd55d848633",
+      "metadata": {},
+      "notion_title": "Life During Wartime",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "lightning-crashes",
+      "path": "songs/Lightning-Crashes.md",
+      "title": "Lightning Crashes",
+      "body_sha256": "dcbc35361e428e297c2e461ff0ff89400eda89c1645172ca58878fea2b24108b",
+      "metadata": {},
+      "notion_title": "Lightning Crashes",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "like-a-stone",
+      "path": "songs/Like-A-Stone.md",
+      "title": "Like A Stone",
+      "body_sha256": "6602661b2e6f86767d13fd4ad08c71d8899a4119a1348a3bba4c7d790405ea0b",
+      "metadata": {},
+      "notion_title": "Like A Stone",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "little-less-conversation",
+      "path": "songs/Little-Less-Conversation.md",
+      "title": "Little Less Conversation {short=\"Lil' Less Conversation\"}",
+      "body_sha256": "029b7f60c748830627627c339a678c4428689391d52f7a2aa3d87310d5e23c88",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "little-lover",
+      "path": "songs/Little-Lover.md",
+      "title": "Little Lover",
+      "body_sha256": "678fab3b247f90c98820dc586482063074811d93f5980a8f6d8b42a438fb19f3",
+      "metadata": {},
+      "notion_title": "Little Lover",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "little-sister",
+      "path": "songs/Little-Sister.md",
+      "title": "Little Sister",
+      "body_sha256": "4c620ca4430012af937dec94627d0d7a54c35355a660990c2ca9660da6f87659",
+      "metadata": {},
+      "notion_title": "Little Sister (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "livin-after-midnight",
+      "path": "songs/Livin-After-Midnight.md",
+      "title": "Livin After Midnight",
+      "body_sha256": "d418d4aa02ad9ec14cd3433a9e195d12c449c76036ea701e0acaa32e924ee0e9",
+      "metadata": {},
+      "notion_title": "Livin' After Midnight",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "locked-out-of-heaven",
+      "path": "songs/Locked-Out-Of-Heaven.md",
+      "title": "Locked Out Of Heaven",
+      "body_sha256": "b0efd0faceffd738bb98b86e16637c2ccb06ba95937140004c3ccea807fa9ea0",
+      "metadata": {},
+      "notion_title": "Locked Out of Heaven (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "lonely-is-the-night",
+      "path": "songs/Lonely-Is-the-Night.md",
+      "title": "Lonely Is the Night",
+      "body_sha256": "e038626801a740178975999eebf080780bf3d32f42a2287e0fbe9aafb5e977f6",
+      "metadata": {},
+      "notion_title": "Lonely Is the Night (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "long-train-runnin",
+      "path": "songs/Long-Train-Runnin.md",
+      "title": "Long Train Runnin",
+      "body_sha256": "3fffdadc9f8ba9220efccc70669953072ed7a703634e9ef76b68d4ef9946233f",
+      "metadata": {},
+      "notion_title": "Long Train Runnin\u2019",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "love-rollercoaster",
+      "path": "songs/Love-Rollercoaster.md",
+      "title": "Love Rollercoaster",
+      "body_sha256": "dde660c5cc14e3b199348c3f70260112a04ae51b5005775513f11881bb384e91",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "love-shack",
+      "path": "songs/Love-Shack.md",
+      "title": "Love Shack",
+      "body_sha256": "cccc517a764920e6b92bf4f40a3a415bcb4fafcdcebdbf5b970463951684c585",
+      "metadata": {},
+      "notion_title": "Love Shack (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "love-train",
+      "path": "songs/Love-Train.md",
+      "title": "Love Train",
+      "body_sha256": "917e4525062533bb12bc081ada1aa7e6ecf4cd223a0d6f941a023cf93e870d66",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "lovesong",
+      "path": "songs/Lovesong.md",
+      "title": "Lovesong",
+      "body_sha256": "7ec2faedf483938c55c8669e3f9734c94e88af9bf3213085985cb7e2799fc8fe",
+      "metadata": {},
+      "notion_title": "Lovesong",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "low",
+      "path": "songs/Low.md",
+      "title": "Low",
+      "body_sha256": "1bf6c09a6f9356b6deb34aa5160d3e9fd864434498322c7ecef27aa5c459a18c",
+      "metadata": {},
+      "notion_title": "Low",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "major-tom",
+      "path": "songs/Major-Tom.md",
+      "title": "Major Tom",
+      "body_sha256": "5d27c73c34a26696498fa3e5e07f544fbb479c21aacd3a825256d7ddde8a508a",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "man-in-the-box",
+      "path": "songs/Man-In-The-Box.md",
+      "title": "Man In The Box",
+      "body_sha256": "1275948ab511c1aa4764ec47eb891e49b7945e988b106c774d18a062d464f064",
+      "metadata": {},
+      "notion_title": "Man In The Box",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "margaritaville",
+      "path": "songs/Margaritaville.md",
+      "title": "Margaritaville",
+      "body_sha256": "041d9f9ff37d0f1adda615d1b8dde093e9a70bcdf17bf0ad0a09cddf3f3c8501",
+      "metadata": {},
+      "notion_title": "Margaritaville",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "mary-had-a-little-lamb",
+      "path": "songs/Mary-Had-A-Little-Lamb.md",
+      "title": "Mary Had A Little Lamb {short=\"Mary Had A ... Lamb\"}",
+      "body_sha256": "2b41134101a01ffff35b456094bfe44366581827d2308ac066f24ea5237a03c8",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "mary-jane-s-last-dance",
+      "path": "songs/Mary-Jane-s-Last-Dance.md",
+      "title": "Mary Jane's Last Dance",
+      "body_sha256": "f64cf8145419d5b6aa3b51a3424509d5a3f3f463a1b113c13bca730ad1aabcaf",
+      "metadata": {},
+      "notion_title": "Mary Jane's Last Dance (Am)",
+      "notion_performance_key_candidate": "Am"
+    },
+    {
+      "id": "melissa",
+      "path": "songs/Melissa.md",
+      "title": "Melissa",
+      "body_sha256": "9a263658e7cf86abf807a65c7af853bd4d8a23f9bf5e8c0fb8c934a87747d7c2",
+      "metadata": {},
+      "notion_title": "Melissa",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "melt-with-you",
+      "path": "songs/Melt-With-You.md",
+      "title": "Melt With You",
+      "body_sha256": "6b684a07a15d8b41f4b13e764231a6359aab3582e3b2c4d07de4f27780e3b4ed",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "mercy",
+      "path": "songs/Mercy.md",
+      "title": "Mercy",
+      "body_sha256": "2318e23f2bc0df5dbd88b59147aaeb08c5c9a02a3a693be005309001d14b781b",
+      "metadata": {},
+      "notion_title": "Mercy (G)",
+      "notion_performance_key_candidate": "G"
+    },
+    {
+      "id": "miss-you",
+      "path": "songs/Miss-You.md",
+      "title": "Miss You",
+      "body_sha256": "74e45c1caa5cfe976fe681426c8f1f3b69efcf2ba003cb66fa73f0dd74a9eced",
+      "metadata": {},
+      "notion_title": "Miss You (Am)",
+      "notion_performance_key_candidate": "Am"
+    },
+    {
+      "id": "moves-like-jagger",
+      "path": "songs/Moves-Like-Jagger.md",
+      "title": "Moves Like Jagger",
+      "body_sha256": "040d5a56e85e73d2a3a3613181fa100d2547d8d0415fed7a1b705e1bb28e8906",
+      "metadata": {},
+      "notion_title": "Moves Like Jagger",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "mustang-sally",
+      "path": "songs/Mustang-Sally.md",
+      "title": "Mustang Sally",
+      "body_sha256": "06679c0e00d818dc4e5b80506655c9fc9ebf00999a51a34d54549ff3040e16fb",
+      "metadata": {},
+      "notion_title": "Mustang Sally",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "my-hero",
+      "path": "songs/My-Hero.md",
+      "title": "My Hero",
+      "body_sha256": "1ceca8f49af78b80dabf5dedfa2e02b548f2a576c8bdad1f5682e6dc1bc6b290",
+      "metadata": {},
+      "notion_title": "My Hero",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "my-own-worst-enemy",
+      "path": "songs/My-Own-Worst-Enemy.md",
+      "title": "My Own Worst Enemy {short=\"Own Worst Enemy\"}",
+      "body_sha256": "0fe42aa8dab819075753371ca014d3d0182227f7b02f767c382f17b0b52beccd",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "mysterious-ways",
+      "path": "songs/Mysterious-Ways.md",
+      "title": "Mysterious Ways",
+      "body_sha256": "c7093fe70c2a135822eb3d6b6b7fc233cd408aa61e6a84aa9ec309326daf292d",
+      "metadata": {},
+      "notion_title": "Mysterious Ways",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "never-let-you-go",
+      "path": "songs/Never-Let-You-Go.md",
+      "title": "Never Let You Go",
+      "body_sha256": "cbd0b6c3720411600f5c05741e853a25482e2638ff19016a92b6a3bd102bb579",
+      "metadata": {},
+      "notion_title": "Never Let You Go",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "new-year-s-day",
+      "path": "songs/New-Year-s-Day.md",
+      "title": "New Year's Day",
+      "body_sha256": "28247ce58c8711a7cb2b1549df1a575c59c82dc4bd7b86aba26aa5ee2bdaa3d9",
+      "metadata": {},
+      "notion_title": "New Year's Day",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "no-one-knows",
+      "path": "songs/No-One-Knows.md",
+      "title": "No One Knows",
+      "body_sha256": "d5e20ecb2a8f94d5e1f9a2a307d64c8b4031c4a86927fc8e018bb1a3b7b4c7f0",
+      "metadata": {},
+      "notion_title": "No One Knows",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "no-rain",
+      "path": "songs/No-Rain.md",
+      "title": "No Rain",
+      "body_sha256": "b39181b44abd99f836e197667494fc122bfd508258e2d41368d554452d88b410",
+      "metadata": {},
+      "notion_title": "No Rain",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "no-woman-no-cry",
+      "path": "songs/No-Woman-No-Cry.md",
+      "title": "No, Woman, No Cry",
+      "body_sha256": "ec083e432e13d23f19b37554eb0b4e5e1fc53bcded2e7f0db77836f41103bb7b",
+      "metadata": {},
+      "notion_title": "No Woman, No Cry",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "nothing-compares-2-u",
+      "path": "songs/Nothing-Compares-2-U.md",
+      "title": "Nothing Compares 2 U",
+      "body_sha256": "ae4f45576e75b8b3d2c4a15f2d446bd5a60cb3a33bcbd1d3ed7496079a62c1d3",
+      "metadata": {},
+      "notion_title": "Nothing Compares 2 U (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "numb",
+      "path": "songs/Numb.md",
+      "title": "Numb",
+      "body_sha256": "69a717aad30ad3e161db013db8564a810e476792255bb87f82446717b70bede1",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "one",
+      "path": "songs/One.md",
+      "title": "One",
+      "body_sha256": "6e7a0151d4b3ee34826a0a19a1a03d7598e4c60be0d1a21f1d9f38440bdd0e2b",
+      "metadata": {},
+      "notion_title": "One",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "outshined",
+      "path": "songs/Outshined.md",
+      "title": "Outshined",
+      "body_sha256": "33ea52f29ff75128ddae5a6a1e9c51fce245aa876b24832ae2929d85f6b84115",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "outside",
+      "path": "songs/Outside.md",
+      "title": "Outside",
+      "body_sha256": "90fc0ac581810cef9710e642ef9f0ec2e57ecf2a3040ebdbc45c3277859de469",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "overkill",
+      "path": "songs/Overkill.md",
+      "title": "Overkill",
+      "body_sha256": "62b1dd656b693cb79f35115586418e4a4e86176a2d7398675b85268192f85e78",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "panama",
+      "path": "songs/Panama.md",
+      "title": "Panama",
+      "body_sha256": "6824ad9c197f5787fbb653ec069a4af20bfe84c662251ae25f5dede5e4086b02",
+      "metadata": {},
+      "notion_title": "Panama",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "paradise-city",
+      "path": "songs/Paradise-City.md",
+      "title": "Paradise City",
+      "body_sha256": "e4be1a3fcbb6badb1b468d5adf9600dbdd88936daef6c1f54d43a4f78433b5ab",
+      "metadata": {},
+      "notion_title": "Paradise City",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "paralyzer",
+      "path": "songs/Paralyzer.md",
+      "title": "Paralyzer",
+      "body_sha256": "fd49ef40b7513430e25648ac3f238e740438b0db3bfaaba4c6e0817e277ad218",
+      "metadata": {},
+      "notion_title": "Paralyzer",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "patience",
+      "path": "songs/Patience.md",
+      "title": "Patience",
+      "body_sha256": "21c3b0f91da1d6ef1c11bcb9814899e658c7d6009ce97faabf7859177ec0aa2a",
+      "metadata": {},
+      "notion_title": "Patience",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "peaceful-easy-feelin",
+      "path": "songs/Peaceful-Easy-Feelin.md",
+      "title": "Peaceful Easy Feelin",
+      "body_sha256": "823325d9b349beb21486ec5a8d4bca9f8d03031d33fc7eaa0490287c3752e90e",
+      "metadata": {},
+      "notion_title": "Peaceful Easy Feelin'",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "play-that-funky-music",
+      "path": "songs/Play-That-Funky-Music.md",
+      "title": "Play That Funky Music {short=\"Play That Funky\"}",
+      "body_sha256": "f9ddda49a774796789172cf29cee9077ef8c7fb9eeca7e0af92cce6da56df61c",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "plush",
+      "path": "songs/Plush.md",
+      "title": "Plush",
+      "body_sha256": "d7f095255526758457d0771b5117cb418b193a6bc50697f515edb1c5b56d8073",
+      "metadata": {},
+      "notion_title": "Plush (G)",
+      "notion_performance_key_candidate": "G"
+    },
+    {
+      "id": "pompeii",
+      "path": "songs/Pompeii.md",
+      "title": "Pompeii",
+      "body_sha256": "eafb5dacb58d33aa63e66cf92b4b8a3533561433240ca51a4b7204ad26d8d5d3",
+      "metadata": {},
+      "notion_title": "Pompeii",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "possum-kingdom",
+      "path": "songs/Possum-Kingdom.md",
+      "title": "Possum Kingdom",
+      "body_sha256": "444e828a88c02ea406f364b9dc10789b444bb8ab80d7b92868a87adadb5bae48",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "pride",
+      "path": "songs/Pride.md",
+      "title": "Pride",
+      "body_sha256": "06b97f1bfd48ebb28d905fde7f143fe4e572d6d85e57d264f0b1a851d36b6995",
+      "metadata": {},
+      "notion_title": "Pride",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "psycho-killer",
+      "path": "songs/Psycho-Killer.md",
+      "title": "Psycho Killer",
+      "body_sha256": "006b933d62a42d6e8c64f2e856f785b187adcbb0d51c194a8e8f2a97c633da82",
+      "metadata": {},
+      "notion_title": "Psycho Killer",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "purple-rain",
+      "path": "songs/Purple-Rain.md",
+      "title": "Purple Rain",
+      "body_sha256": "bec3a37ad4fbb5e00b3b5262f79aef501b804f367c18762fb4c9a5c4a853883d",
+      "metadata": {},
+      "notion_title": "Purple Rain (Bb)",
+      "notion_performance_key_candidate": "Bb"
+    },
+    {
+      "id": "radioactive",
+      "path": "songs/Radioactive.md",
+      "title": "Radioactive",
+      "body_sha256": "59425ecf8de9956d944c4ed9756ffd48cd2c0d9aff1e6502bb5dcfcfdb74d909",
+      "metadata": {},
+      "notion_title": "Radioactive",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "ramble-on",
+      "path": "songs/Ramble-On.md",
+      "title": "Ramble On",
+      "body_sha256": "73c94ad82fbe5ae8a834c4ce47718df509047d97ec8e08d56c92e845c8ac8b5b",
+      "metadata": {},
+      "notion_title": "Ramble On (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "rebel-yell",
+      "path": "songs/Rebel-Yell.md",
+      "title": "Rebel Yell",
+      "body_sha256": "4c9d6d0fb79f75e67199de11df1afce1cf602ff053f92493c26e67b056f70b77",
+      "metadata": {},
+      "notion_title": "Rebel Yell (Bm)",
+      "notion_performance_key_candidate": "Bm"
+    },
+    {
+      "id": "redemption-song-live",
+      "path": "songs/Redemption-Song-Live.md",
+      "title": "Redemption Song",
+      "body_sha256": "8095a95e6d070e468616d10be901a137277a82aa4aa28f6c551170f60327bac2",
+      "metadata": {},
+      "notion_title": "Redemption Song",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "ride-on",
+      "path": "songs/Ride-On.md",
+      "title": "Ride On",
+      "body_sha256": "ea66b64b37c0207c4c530398927788ba8379b426ca4e58c9c9a113cdd18ad36c",
+      "metadata": {},
+      "notion_title": "Ride On",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "ring-of-fire",
+      "path": "songs/Ring-Of-Fire.md",
+      "title": "Ring Of Fire",
+      "body_sha256": "737a7ab9b3eaff73f1e06c33a67f1fbcf836ca619ab3da0150afa66636cef70f",
+      "metadata": {},
+      "notion_title": "Ring of Fire",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "roadhouse-blues",
+      "path": "songs/Roadhouse-Blues.md",
+      "title": "Roadhouse Blues",
+      "body_sha256": "d084688fb058ec01cf476d1c875b08564a6c63b2541a88df95929906de35ee2f",
+      "metadata": {},
+      "notion_title": "Roadhouse Blues",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "rock-and-roll-ain-t-noise-pollution",
+      "path": "songs/Rock-and-Roll-Ain-t-Noise-Pollution.md",
+      "title": "Rock n Roll Ain t Noise Pollution {short=\"Rock ... Pollution\"}",
+      "body_sha256": "1929753d02b542d2daef7eb32dd41f61274d419ef8c305684d8605ab1129a086",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "rock-n-roll",
+      "path": "songs/Rock-n-Roll.md",
+      "title": "Rock n Roll",
+      "body_sha256": "863d6d4b273bbad5c1feaeda1779ef1070495aae579e39ccee6beb7aee4acb2a",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "rooster",
+      "path": "songs/Rooster.md",
+      "title": "Rooster",
+      "body_sha256": "c538d765af66c8221bbc35de8ea76530bf654466f6cf27f557e8469c2f6a2f91",
+      "metadata": {},
+      "notion_title": "Rooster",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "runnin-with-the-devil",
+      "path": "songs/Runnin-With-The-Devil.md",
+      "title": "Runnin With The Devil",
+      "body_sha256": "271751afc095461c87a0d037cfeb26147cc508245777c6bed35c2790908fcd34",
+      "metadata": {},
+      "notion_title": "Runnin\u2019 with the Devil",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "santeria",
+      "path": "songs/Santeria.md",
+      "title": "Santeria",
+      "body_sha256": "d03b87180b318f7cdf1c8d94abf54f4ae4bc930dd0faa3f6d8b382c67e4b8111",
+      "metadata": {},
+      "notion_title": "Santeria (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "say-it-ain-t-so",
+      "path": "songs/Say-It-Ain-t-So.md",
+      "title": "Say It Ain t So",
+      "body_sha256": "6c81f524ab72810025803f162741a2c84484186ad32885f1127c38b7f5614ad4",
+      "metadata": {},
+      "notion_title": "Say It Ain't So",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "seven-nation-army",
+      "path": "songs/Seven-Nation-Army.md",
+      "title": "Seven Nation Army",
+      "body_sha256": "358da609a858397fb791b9cf4c6578d1f23b8de42158b263283d500d487e4163",
+      "metadata": {},
+      "notion_title": "Seven Nation Army (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "sex-and-candy",
+      "path": "songs/Sex-And-Candy.md",
+      "title": "Sex and Candy",
+      "body_sha256": "e53002897cf24cb6fa34a28040d1edf851f51c7dcc5600c7d523792a9e74b436",
+      "metadata": {},
+      "notion_title": "Sex and Candy",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "sex-on-fire",
+      "path": "songs/Sex-on-Fire.md",
+      "title": "Sex on Fire",
+      "body_sha256": "7bb922fee945ac0e0b9bc9b181696a701fdb8383f13dfd8b72c7d7cc83275060",
+      "metadata": {},
+      "notion_title": "Sex on Fire",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "shake-shake-shake",
+      "path": "songs/Shake-Shake-Shake.md",
+      "title": "Shake Shake Shake",
+      "body_sha256": "8676b059b611105724968b5251da5619840e7b6a755181e37251a7bf65a01d4c",
+      "metadata": {},
+      "notion_title": "Shake Shake Shake",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "sharp-dressed-man",
+      "path": "songs/Sharp-Dressed-Man.md",
+      "title": "Sharp Dressed Man",
+      "body_sha256": "e9e24423824a85e5f19d74f11fe8d10da820b117820dbde2e977cad51880bc51",
+      "metadata": {},
+      "notion_title": "Sharp Dressed Man (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "she-sells-sanctuary",
+      "path": "songs/She-Sells-Sanctuary.md",
+      "title": "She Sells Sanctuary",
+      "body_sha256": "e1f032b68ec3fb250e8bcf8dfb2edca07c4f5deff6fb3bbc116a77178ff2d9d8",
+      "metadata": {},
+      "notion_title": "She Sells Sanctuary",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "shine",
+      "path": "songs/Shine.md",
+      "title": "Shine",
+      "body_sha256": "35fbf678bcbfaf76c08f9992b30d26b14ce297d606ed8024ee164742b696822f",
+      "metadata": {},
+      "notion_title": "Shine (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "shining-star",
+      "path": "songs/Shining-Star.md",
+      "title": "Shining Star",
+      "body_sha256": "4a0a4491485cfd9bfc0d787523822d28d2abca2ab2e2339655961b3fc1a990b2",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "short-skirt",
+      "path": "songs/Short-Skirt.md",
+      "title": "Short Skirt",
+      "body_sha256": "e450000afb48933db25dc2507e70863c64e5ea3e5efdace3e45d4c09364a3bc6",
+      "metadata": {},
+      "notion_title": "Short Skirt (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "simple-man",
+      "path": "songs/Simple-Man.md",
+      "title": "Simple Man",
+      "body_sha256": "ee54aa69e41b4a1e563c35a813268960c5c6c065a89c8e8e7b5ae2e77b320e5c",
+      "metadata": {},
+      "notion_title": "Simple Man",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "sittin-on-the-dock-of-the-bay",
+      "path": "songs/Sittin-On-The-Dock-Of-The-Bay.md",
+      "title": "Sittin On The Dock Of The Bay {short=\"Sittin On The Dock\"}",
+      "body_sha256": "bc014525681d99e09b61a86c324b1a3806c1c9b907c07ace44c91d1270f7f9f2",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "smells-like-teen-spirit",
+      "path": "songs/Smells-Like-Teen-Spirit.md",
+      "title": "Smells Like Teen Spirit",
+      "body_sha256": "9652f07e33ee86b5c64da18cd6ead133286d89bf587ed0e66134f665c3b2ef24",
+      "metadata": {},
+      "notion_title": "Smells Like Teen Spirit",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "so-lonely",
+      "path": "songs/So-Lonely.md",
+      "title": "So Lonely",
+      "body_sha256": "feca55ef9d76720abe614efeb2573c49af1d6192679b9c77aa9fdd1e3a0253fb",
+      "metadata": {},
+      "notion_title": "So Lonely",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "some-kind-of-wonderful",
+      "path": "songs/Some-Kind-Of-Wonderful.md",
+      "title": "Some Kind Of Wonderful",
+      "body_sha256": "3ca713a9f1b73a665fb3da8ab18f58ee329da60782fed7d29f30245ed22dbddb",
+      "metadata": {},
+      "notion_title": "Some Kind of Wonderful (C)",
+      "notion_performance_key_candidate": "C"
+    },
+    {
+      "id": "song-2",
+      "path": "songs/Song-2.md",
+      "title": "Song 2",
+      "body_sha256": "a9caf51dab9fb16db9fea3698705f71e3d186fd34f86eca97580c592dcba365e",
+      "metadata": {},
+      "notion_title": "Song 2",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "soulshine",
+      "path": "songs/Soulshine.md",
+      "title": "Soulshine",
+      "body_sha256": "4df87873e204e89c8eec4443fa5f0b923220ea50b28abe6eb7f8d278a4d9278e",
+      "metadata": {},
+      "notion_title": "Soulshine",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "stayin-alive",
+      "path": "songs/Stayin-Alive.md",
+      "title": "Stayin Alive",
+      "body_sha256": "6a9feca73d603677f8e30eeec72bd3acf28cdea5c993ac4e32f063be56a52f0e",
+      "metadata": {},
+      "notion_title": "Stayin' Alive",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "steady-as-she-goes",
+      "path": "songs/Steady-As-She-Goes.md",
+      "title": "Steady As She Goes",
+      "body_sha256": "ac9399343d641de6bae6d22c2297c5d025f4dc8b7ff229dffb34646d7902f9fe",
+      "metadata": {},
+      "notion_title": "Steady As She Goes",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "sullivan-street",
+      "path": "songs/Sullivan-Street.md",
+      "title": "Sullivan Street",
+      "body_sha256": "d1f0a1c3b392ec6ab4f450278e23479144799df1e492957595e2915a88cd5725",
+      "metadata": {},
+      "notion_title": "Sullivan Street",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "superstition-single-version",
+      "path": "songs/Superstition-Single-Version.md",
+      "title": "Superstition",
+      "body_sha256": "090c03d42a184fcc59bf8df7fe90fc41897110a6601d0d61fc1f10bf55cf8a71",
+      "metadata": {},
+      "notion_title": "Superstition (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "sweet-emotion",
+      "path": "songs/Sweet-Emotion.md",
+      "title": "Sweet Emotion",
+      "body_sha256": "51a660f6ddd95acf09bda2f88819ebb504e2b13c2d9963b8447ae746d00ee4fc",
+      "metadata": {},
+      "notion_title": "Sweet Emotion",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "sweet-home-alabama",
+      "path": "songs/Sweet-Home-Alabama.md",
+      "title": "Sweet Home Alabama",
+      "body_sha256": "6319ffe89c89070d7944b9ff20516c5691a11308d1c3ce72574819d6b58ce235",
+      "metadata": {},
+      "notion_title": "Sweet Home Alabama",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "tnt",
+      "path": "songs/TNT.md",
+      "title": "TNT",
+      "body_sha256": "be79d8af3c95105eb7096c189c1c5980d6802119573540111f2fe590f927345b",
+      "metadata": {},
+      "notion_title": "TNT",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "take-me-out",
+      "path": "songs/Take-Me-Out.md",
+      "title": "Take Me Out",
+      "body_sha256": "11678dc825811f1de2707f2e376569f956041bb8a823c1954fba7fcdd35716bf",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "tennessee-whiskey",
+      "path": "songs/Tennessee-Whiskey.md",
+      "title": "Tennessee Whiskey",
+      "body_sha256": "c2d81a0a583bfeeed340c8bbd5018b599d0c4ecbdff28c82c2186926e53eaebe",
+      "metadata": {},
+      "notion_title": "Tennessee Whiskey",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "thank-you-falettinme-be-mice-elf-agin",
+      "path": "songs/Thank-You-Falettinme-Be-Mice-Elf-Agin.md",
+      "title": "Thank You Falettinme",
+      "body_sha256": "44c3d57205e98fecda3d97a0cf76afa72e488b87deca8327e8f1756593fba324",
+      "metadata": {},
+      "notion_title": "Thank You Falettinme",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "thank-you",
+      "path": "songs/Thank-You.md",
+      "title": "Thank You",
+      "body_sha256": "88fbe2020d9f905707b7085547449b76ad3a479ce30ceb907d8ee546f5d50114",
+      "metadata": {},
+      "notion_title": "Thank You (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "that-s-the-way-i-like-it",
+      "path": "songs/That-s-The-Way-I-Like-It.md",
+      "title": "That's The Way I Like It {short=\"That's The Way\"}",
+      "body_sha256": "dd11d5192b17be7c34bd895bdb65d6fb807a6e42af2f12a636066d6e8dce226c",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "the-big-bang",
+      "path": "songs/The-Big-Bang.md",
+      "title": "The Big Bang",
+      "body_sha256": "ee19113dc1ddf6c643e01c00f70c0d46b4907a377b533a6ea0add22482741424",
+      "metadata": {},
+      "notion_title": "The Big Bang",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "the-distance",
+      "path": "songs/The-Distance.md",
+      "title": "The Distance",
+      "body_sha256": "b5181d98b55cdbed6f92ea6de2ac031fe7230894e2660c2d64f6693955408b60",
+      "metadata": {},
+      "notion_title": "The Distance",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "the-middle",
+      "path": "songs/The-Middle.md",
+      "title": "The Middle",
+      "body_sha256": "c1f69b50dd1c0f204a0086c1a8021ba8f6e31e97aa62ec71cbf647bc23d94f71",
+      "metadata": {},
+      "notion_title": "The Middle (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "the-scientist",
+      "path": "songs/The-Scientist.md",
+      "title": "The Scientist",
+      "body_sha256": "03c6455824d185ef8a08ec20e50074270bc380115070a906a94ab846e6ed8a02",
+      "metadata": {},
+      "notion_title": "The Scientist",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "thinking-out-loud",
+      "path": "songs/Thinking-Out-Loud.md",
+      "title": "Thinking Out Loud",
+      "body_sha256": "7470472207d99101867d27645179547445ce2cfc3222dde5f37ec19afeb9f5d6",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "this-is-how-you-remind-me",
+      "path": "songs/This-Is-How-You-Remind-Me.md",
+      "title": "This Is How You Remind Me {short=\"This ... Remind Me\"}",
+      "body_sha256": "b3206a782698c8d9a5129b6eff567f8c87e556076ed17c7d050af55ee169f12d",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "times-like-these",
+      "path": "songs/Times-Like-These.md",
+      "title": "Times Like These",
+      "body_sha256": "0a65ac4b81f107ca2894ac4a97d8392fa77f478969a0cd7e0837765e727fd49a",
+      "metadata": {},
+      "notion_title": "Times Like These (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "tom-sawyer",
+      "path": "songs/Tom-Sawyer.md",
+      "title": "Tom Sawyer",
+      "body_sha256": "1d9cc0fd469bcfd1a8f7c26e4f55556a6f742a8bc2b0afca0637f474dbbab32d",
+      "metadata": {},
+      "notion_title": "Tom Sawyer",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "touch-too-much",
+      "path": "songs/Touch-Too-Much.md",
+      "title": "Touch Too Much",
+      "body_sha256": "3952c564fb5d848e0341c8b1dd332eeedfd4ab9fe880737f07e772c209d4e444",
+      "metadata": {},
+      "notion_title": "Touch Too Much",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "troublemaker",
+      "path": "songs/TroubleMaker.md",
+      "title": "TroubleMaker",
+      "body_sha256": "d492bf23f646d8b06c6d0cbbeeddce86ee8a90d6d9dad652c2653aafac38b30b",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "turn-the-page",
+      "path": "songs/Turn-The-Page.md",
+      "title": "Turn The Page",
+      "body_sha256": "693b97a90bc9ef34eeb59bb8171a9546c05a24985e9180c41c77b4d8012063e2",
+      "metadata": {},
+      "notion_title": "Turn The Page (Em)",
+      "notion_performance_key_candidate": "Em"
+    },
+    {
+      "id": "tush",
+      "path": "songs/Tush.md",
+      "title": "Tush",
+      "body_sha256": "3d48e2a86e1a31661970b1e461fc404ffed5ed352ab1e759b7635cc37407ea3c",
+      "metadata": {},
+      "notion_title": "Tush (G)",
+      "notion_performance_key_candidate": "G"
+    },
+    {
+      "id": "under-the-bridge",
+      "path": "songs/Under-The-Bridge.md",
+      "title": "Under The Bridge",
+      "body_sha256": "b2c499888fbba827fc0b2db193a70a0f939b2205d21846f9047d7f579ddb2812",
+      "metadata": {},
+      "notion_title": "Under The Bridge (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "uptown-funk",
+      "path": "songs/Uptown-Funk.md",
+      "title": "Uptown Funk",
+      "body_sha256": "422f418ff515b9d33acc82b9a9c270d11375f8bc54df06a9645cf5aa7f9f085b",
+      "metadata": {},
+      "notion_title": "Uptown Funk (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "use-me",
+      "path": "songs/Use-Me.md",
+      "title": "Use Me",
+      "body_sha256": "1ad67a1d26f6cfda7c4d851a943241670c9584621a31794c88913c3c6c8bdbd9",
+      "metadata": {},
+      "notion_title": "Use Me (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "use-somebody",
+      "path": "songs/Use-Somebody.md",
+      "title": "Use Somebody",
+      "body_sha256": "6704906d6e6e666b792606b38a1739ac7072f8a64c3fc30b000cabfa5d08e05a",
+      "metadata": {},
+      "notion_title": "Use Somebody",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "valerie",
+      "path": "songs/Valerie.md",
+      "title": "Valerie",
+      "body_sha256": "c0676f696d0e1a8f3fdca89f0a8d2519b85c89a1a7f2c189c1ee216ee3f83491",
+      "metadata": {},
+      "notion_title": "Valerie (E)",
+      "notion_performance_key_candidate": "E"
+    },
+    {
+      "id": "vasoline",
+      "path": "songs/Vasoline.md",
+      "title": "Vasoline",
+      "body_sha256": "4a372e2c1e23c7b40f1e2a146ae55d87061c832bbc8cb3ffb826f967b2abb451",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "vertigo",
+      "path": "songs/Vertigo.md",
+      "title": "Vertigo",
+      "body_sha256": "ff67c529e15406bd843217cba04182d74dad6c5bf3e9ade4c1f27b8e6907f99b",
+      "metadata": {},
+      "notion_title": "Vertigo",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "wagon-wheel",
+      "path": "songs/Wagon-Wheel.md",
+      "title": "Wagon Wheel",
+      "body_sha256": "7476d48fe651255dd8b069e1a4a495ecea85d053b12bf302b180a257d03009f3",
+      "metadata": {},
+      "notion_title": "Wagon Wheel",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "waitin-for-the-bus",
+      "path": "songs/Waitin-for-the-Bus.md",
+      "title": "Waitin for the Bus",
+      "body_sha256": "71eff86745973e24ff67176575b390d9cdbdd496e75da89eb26b8a0c76259668",
+      "metadata": {},
+      "notion_title": "Waitin' for the Bus",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "walk-this-way",
+      "path": "songs/Walk-This-Way.md",
+      "title": "Walk This Way",
+      "body_sha256": "2befea00dc7de53c7edb21d776caaac2a5c549fdd71d97085b06c6d100c0bd6d",
+      "metadata": {},
+      "notion_title": "Walk this Way",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "walk",
+      "path": "songs/Walk.md",
+      "title": "Walk",
+      "body_sha256": "e94917979e44d8c858da8537af97249af30965a27b092f58baac8757e2b1d19e",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "wanted-dead-or-alive",
+      "path": "songs/Wanted-Dead-Or-Alive.md",
+      "title": "Wanted Dead Or Alive",
+      "body_sha256": "8c4568fbef493e756794f3b730dc8cbc37ce265ed5aa50f547394d11c075c0c1",
+      "metadata": {},
+      "notion_title": "Wanted Dead or Alive",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "welcome-to-the-jungle",
+      "path": "songs/Welcome-To-The-Jungle.md",
+      "title": "Welcome To The Jungle {short=\"Welcome 2 Jungle\"}",
+      "body_sha256": "5a42a8f829faa502f97b41f847b87d5ec5e9a25ad6a072c5fe2c3c49748f1cf7",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "what-i-got",
+      "path": "songs/What-I-Got.md",
+      "title": "What I Got",
+      "body_sha256": "8838ca0dc7a1762456863d9ecf7213ac46d1679bb8323be2e75c5f3bb4c74a4d",
+      "metadata": {},
+      "notion_title": "What I Got (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "wheels",
+      "path": "songs/Wheels.md",
+      "title": "Wheels",
+      "body_sha256": "feeacd9c4230c2d7176f64fee8dabfc4fc3e746b0dbddc852b821e5db084be51",
+      "metadata": {},
+      "notion_title": "Wheels",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "when-i-come-around",
+      "path": "songs/When-I-Come-Around.md",
+      "title": "When I Come Around",
+      "body_sha256": "81d3b2251cb4ba8965d5e15160853a359a739d3a877e98604389769bf23f4070",
+      "metadata": {},
+      "notion_title": "When I Come Around",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "when-i-m-gone",
+      "path": "songs/When-I-m-Gone.md",
+      "title": "When I'm Gone",
+      "body_sha256": "780bcd0e6f48480ee68440a715bc802d335469403ff9f6721f2e1b7547a9e52a",
+      "metadata": {},
+      "notion_title": "When I'm Gone",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "whenever-you-come-around",
+      "path": "songs/Whenever-You-Come-Around.md",
+      "title": "Whenever You Come Around {short=\"Whenever ... Around\"}",
+      "body_sha256": "d2e3147d477bc4c7cd93355276636651fe953747d69a10575e7d698df368de16",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "where-the-streets-have-no-names",
+      "path": "songs/Where-the-Streets-Have-No-Names.md",
+      "title": "Where the Streets Have No Names {short=\"Where the Streets\"}",
+      "body_sha256": "8317153a96acf738bcfa4e0c60a5f7e2a840a98223f4a6c5dcbf50565393e748",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "white-wedding",
+      "path": "songs/White-Wedding.md",
+      "title": "White Wedding",
+      "body_sha256": "9c5bddf977a6c52d8cbc1bf9be74f23cf497a43508dfc79160329f61ee093b0e",
+      "metadata": {},
+      "notion_title": "White Wedding (Bm)",
+      "notion_performance_key_candidate": "Bm"
+    },
+    {
+      "id": "wicked-game",
+      "path": "songs/Wicked-Game.md",
+      "title": "Wicked Game",
+      "body_sha256": "d603da23a1e90cb4b440e6c4e3c6d766d985dac92cf1428f103cdedc26b94a9f",
+      "metadata": {},
+      "notion_title": "Wicked Game (Bm)",
+      "notion_performance_key_candidate": "Bm"
+    },
+    {
+      "id": "wicked-garden",
+      "path": "songs/Wicked-Garden.md",
+      "title": "Wicked Garden",
+      "body_sha256": "298847599da942ea1b73f402c73b46edfe1c124bce6b7eee5240f7862a5b5f48",
+      "metadata": {},
+      "notion_title": "Wicked Garden (A)",
+      "notion_performance_key_candidate": "A"
+    },
+    {
+      "id": "wine-wine-wine",
+      "path": "songs/Wine-Wine-Wine.md",
+      "title": "Wine Wine Wine",
+      "body_sha256": "fe0667516f8466c6700ed75faf8be5118f901310350318fe506da6b297c863f3",
+      "metadata": {},
+      "notion_title": "Wine Wine Wine",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "with-arms-wide-open",
+      "path": "songs/With-Arms-Wide-Open.md",
+      "title": "With Arms Wide Open",
+      "body_sha256": "c299ddc45fc10ecb46342ad8c4c2503b8062f6c0140539b631852d410dfe0009",
+      "metadata": {},
+      "notion_title": "With Arms Wide Open",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "with-or-without-you",
+      "path": "songs/With-Or-Without-You.md",
+      "title": "With Or Without You",
+      "body_sha256": "06f63b656314b15602425b02bf9c8c3e63542bb841510ab485abbfa523694073",
+      "metadata": {},
+      "notion_title": "With or Without You (D)",
+      "notion_performance_key_candidate": "D"
+    },
+    {
+      "id": "woman",
+      "path": "songs/Woman.md",
+      "title": "Woman",
+      "body_sha256": "3790bdb2cd3aaedc7801a1540af775f1139a37cc2dbce261fd6dc819f09982a3",
+      "metadata": {},
+      "notion_title": "Woman",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "wonderwall",
+      "path": "songs/Wonderwall.md",
+      "title": "Wonderwall",
+      "body_sha256": "6fc0f908e3ffe2f32751b19360bebfa60f1a91ac66428fe3d0fb638416aa90d8",
+      "metadata": {},
+      "notion_title": "Wonderwall",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "word-up",
+      "path": "songs/Word-Up.md",
+      "title": "Word Up",
+      "body_sha256": "cbc0809cb2e8cf5714d74d1d7b2294a159a323a6628251cf84b49cffd1b48e0e",
+      "metadata": {},
+      "notion_title": "Word Up (F#)",
+      "notion_performance_key_candidate": "F#"
+    },
+    {
+      "id": "yellow-ledbetter",
+      "path": "songs/Yellow-Ledbetter.md",
+      "title": "Yellow Ledbetter",
+      "body_sha256": "7e456176b9a79055369e37fcb35b8c4fd973b8da2386566c74898c22cdc838ea",
+      "metadata": {},
+      "notion_title": "Yellow Ledbetter",
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "you-found-me",
+      "path": "songs/You-Found-Me.md",
+      "title": "You Found Me",
+      "body_sha256": "6de6d756683f6d5fb9e435e944ac41d08457be06b330d94ef40fac1411b5e7c7",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "you-oughta-know",
+      "path": "songs/You-Oughta-Know.md",
+      "title": "You Oughta Know",
+      "body_sha256": "574363d9897f9a1d0770dbca344c4129e9ee14472b5ed1fce97a101d4454ad2a",
+      "metadata": {},
+      "notion_title": "You Oughta Know (F#m)",
+      "notion_performance_key_candidate": "F#m"
+    },
+    {
+      "id": "you-shook-me-all-night-long",
+      "path": "songs/You-Shook-Me-All-Night-Long.md",
+      "title": "You Shook Me All Night Long {short=\"You Shook Me\"}",
+      "body_sha256": "0c6e2021c2a90c2bd638b3ca12f09c79054cf2b63e43701218fc7e578c25499e",
+      "metadata": {},
+      "notion_title": null,
+      "notion_performance_key_candidate": null
+    },
+    {
+      "id": "you-wreck-me",
+      "path": "songs/You-Wreck-Me.md",
+      "title": "You Wreck Me",
+      "body_sha256": "48ac4962aa5b46c05bcc420455f003ae3a1ae56d8d7df1dd38aed01a573bb8ee",
+      "metadata": {},
+      "notion_title": "You Wreck Me (D)",
+      "notion_performance_key_candidate": "D"
+    }
+  ]
+}
