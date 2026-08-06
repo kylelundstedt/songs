@@ -2,7 +2,10 @@
   'use strict';
   const MIN_PX = 16;
   const PREFERRED_PX = 21;
+  const MANUAL_MIN_PX = 12;
+  const MANUAL_MAX_PX = 32;
   let refitTimer;
+  let activeLivePanel = null;
 
   function detectFormFactor() {
     const ua = navigator.userAgent;
@@ -98,6 +101,28 @@
     panel.style.setProperty('--sheet-line', String(line));
   }
 
+  function songIDForPanel(panel) {
+    return panel?.dataset.songId || panel?.closest('[data-live-panel][data-song-id]')?.dataset.songId || '';
+  }
+
+  function storedFontSize(panel) {
+    const id = songIDForPanel(panel);
+    const value = id ? Number(localStorage.getItem(`songs-font-size:${id}`)) : NaN;
+    return Number.isFinite(value) && value >= MANUAL_MIN_PX && value <= MANUAL_MAX_PX ? value : 0;
+  }
+
+  function finalizeTypography(panel, autoPx, line) {
+    panel.dataset.autoBodyPx = String(autoPx);
+    panel.dataset.lineHeight = String(line);
+    const manualPx = storedFontSize(panel);
+    const px = manualPx || autoPx;
+    applyTypography(panel, px, line);
+    panel.dataset.bodyPx = String(px);
+    if (manualPx) panel.dataset.manualFont = 'true'; else delete panel.dataset.manualFont;
+    refreshFontControls();
+    if (manualPx) updateManualFitStatus(panel);
+  }
+
   function measureSections(sections, width, panel, px, line) {
     const host = document.createElement('div');
     host.className = 'measure-host live-columns';
@@ -154,7 +179,8 @@
       const [col] = renderColumns(container, sections, 1, sections.length);
       const safe = horizontalSafe(col) && horizontalSafe(container);
       panel.dataset.fitStatus = safe ? 'scrollable' : 'needs-editing';
-      panel.dataset.columnCount = '1'; panel.dataset.bodyPx = '20';
+      panel.dataset.columnCount = '1';
+      finalizeTypography(panel,20,1.24);
       return;
     }
 
@@ -172,7 +198,8 @@
         const columns = renderColumns(container,sections,2,split);
         const fits = leftHeight <= height+1 && rightHeight <= height+1 && columns.every(horizontalSafe) && horizontalSafe(container);
         if (fits) {
-          panel.dataset.fitStatus='fit'; panel.dataset.columnCount='2'; panel.dataset.bodyPx=String(px); panel.dataset.lineHeight=String(line);
+          panel.dataset.fitStatus='fit'; panel.dataset.columnCount='2';
+          finalizeTypography(panel,px,line);
           return;
         }
         const overflow=Math.max(0,leftHeight-height,rightHeight-height);
@@ -181,11 +208,12 @@
     }
     const fail=bestFailure || {px:MIN_PX,line:1.12,split:Math.ceil(sections.length/2),overflow:0};
     applyTypography(panel,MIN_PX,1.12); renderColumns(container,sections,2,fail.split);
-    panel.dataset.fitStatus='needs-editing'; panel.dataset.columnCount='2'; panel.dataset.bodyPx=String(MIN_PX); panel.dataset.lineHeight='1.12';
+    panel.dataset.fitStatus='needs-editing'; panel.dataset.columnCount='2';
+    finalizeTypography(panel,MIN_PX,1.12);
   }
 
-  async function fitAll() { for (const panel of document.querySelectorAll('[data-lead-sheet]')) await fitSheet(panel); }
-  function scheduleFit() { clearTimeout(refitTimer); refitTimer=setTimeout(fitAll,100); }
+  async function fitAll() { for (const panel of document.querySelectorAll('[data-lead-sheet]')) await fitSheet(panel); refreshFontControls(); }
+  function scheduleFit() { clearTimeout(refitTimer); refitTimer=setTimeout(()=>fitAll(),100); }
 
   function setupTheme() {
     const media = matchMedia('(prefers-color-scheme: light)');
@@ -244,14 +272,79 @@
     update();
   }
 
-  function currentVisibleSongID() {
+  function currentVisibleLeadSheet() {
     const direct = document.querySelector('.lead-sheet-panel[data-song-id]');
-    if (direct) return direct.dataset.songId || '';
+    if (direct) return direct;
+    if (activeLivePanel?.isConnected) return activeLivePanel.querySelector('[data-lead-sheet]');
     const panels = [...document.querySelectorAll('[data-live-panel][data-song-id]')];
-    if (!panels.length) return '';
+    if (!panels.length) return null;
     const middle = innerHeight / 2;
     panels.sort((a,b)=>Math.abs(a.getBoundingClientRect().top+a.offsetHeight/2-middle)-Math.abs(b.getBoundingClientRect().top+b.offsetHeight/2-middle));
-    return panels[0].dataset.songId || '';
+    return panels[0].querySelector('[data-lead-sheet]');
+  }
+
+  function currentVisibleSongID() {
+    return songIDForPanel(currentVisibleLeadSheet());
+  }
+
+  function updateManualFitStatus(panel) {
+    requestAnimationFrame(()=>{
+      const container=panel?.querySelector('[data-live-columns]');
+      const viewport=panel?.querySelector('[data-sheet-viewport]');
+      if (!container || !viewport) return;
+      const columns=[...container.querySelectorAll('.live-column')];
+      const horizontal=columns.every(horizontalSafe) && horizontalSafe(container);
+      if ((document.documentElement.dataset.formFactor || detectFormFactor()) === 'phone') {
+        panel.dataset.fitStatus=horizontal?'scrollable':'needs-editing';
+      } else {
+        const vertical=columns.every(column=>column.scrollHeight<=viewport.clientHeight+1);
+        panel.dataset.fitStatus=horizontal&&vertical?'fit':'needs-editing';
+      }
+    });
+  }
+
+  function refreshFontControls() {
+    const panel=currentVisibleLeadSheet();
+    const px=Number(panel?.dataset.bodyPx || PREFERRED_PX);
+    document.querySelectorAll('[data-font-controls]').forEach(controls=>{
+      const output=controls.querySelector('[data-font-size]');
+      const decrease=controls.querySelector('[data-font-decrease]');
+      const increase=controls.querySelector('[data-font-increase]');
+      const reset=controls.querySelector('[data-font-reset]');
+      if (output) output.textContent=String(px);
+      if (decrease) decrease.disabled=!panel||px<=MANUAL_MIN_PX;
+      if (increase) increase.disabled=!panel||px>=MANUAL_MAX_PX;
+      if (reset) {
+        reset.disabled=!panel||!panel.dataset.manualFont;
+        reset.title=panel?.dataset.manualFont?`Return to auto-fit (${panel.dataset.autoBodyPx}px)`:'Using auto-fit';
+      }
+    });
+  }
+
+  function setupFontControls() {
+    const controls=[...document.querySelectorAll('[data-font-controls]')];
+    if (!controls.length) return;
+    const change=delta=>{
+      const panel=currentVisibleLeadSheet();
+      if (!panel) return;
+      const px=Math.max(MANUAL_MIN_PX,Math.min(MANUAL_MAX_PX,Number(panel.dataset.bodyPx||PREFERRED_PX)+delta));
+      const line=Number(panel.dataset.lineHeight||1.2);
+      const id=songIDForPanel(panel);
+      applyTypography(panel,px,line); panel.dataset.bodyPx=String(px); panel.dataset.manualFont='true';
+      if (id) localStorage.setItem(`songs-font-size:${id}`,String(px));
+      updateManualFitStatus(panel); refreshFontControls();
+    };
+    controls.forEach(group=>{
+      group.querySelector('[data-font-decrease]')?.addEventListener('click',()=>change(-1));
+      group.querySelector('[data-font-increase]')?.addEventListener('click',()=>change(1));
+      group.querySelector('[data-font-reset]')?.addEventListener('click',async()=>{
+        const panel=currentVisibleLeadSheet();
+        if (!panel) return;
+        const id=songIDForPanel(panel); if (id) localStorage.removeItem(`songs-font-size:${id}`);
+        delete panel.dataset.manualFont; await fitSheet(panel); refreshFontControls();
+      });
+    });
+    refreshFontControls();
   }
 
   function setupShelleyEditor() {
@@ -480,17 +573,27 @@
   }
 
   function setupLiveNavigation(){
-    const scroller=document.querySelector('[data-live-scroller]');if(!scroller)return;const panels=[...document.querySelectorAll('[data-live-panel]')],progress=document.querySelector('[data-live-progress]');let current=0;
-    const go=i=>{current=Math.max(0,Math.min(panels.length-1,i));panels[current]?.scrollIntoView({behavior:'smooth',block:'start'});if(progress)progress.textContent=`${current+1} / ${panels.length}`;};
-    document.querySelector('[data-live-prev]')?.addEventListener('click',()=>go(current-1));document.querySelector('[data-live-next]')?.addEventListener('click',()=>go(current+1));
+    const scroller=document.querySelector('[data-live-scroller]'); if(!scroller)return;
+    const panels=[...document.querySelectorAll('[data-live-panel]')],progress=document.querySelector('[data-live-progress]'); let current=0,scrollFrame=0;
+    const syncCurrent=()=>{
+      scrollFrame=0;
+      const middle=innerHeight/2;
+      let best=0,distance=Infinity;
+      panels.forEach((panel,index)=>{const rect=panel.getBoundingClientRect(),delta=Math.abs(rect.top+Math.min(rect.height,innerHeight)/2-middle);if(delta<distance){distance=delta;best=index;}});
+      current=best; activeLivePanel=panels[current]||null; if(progress)progress.textContent=`${current+1} / ${panels.length}`; refreshFontControls();
+    };
+    const go=i=>{current=Math.max(0,Math.min(panels.length-1,i));activeLivePanel=panels[current]||null;panels[current]?.scrollIntoView({behavior:'smooth',block:'start'});if(progress)progress.textContent=`${current+1} / ${panels.length}`;refreshFontControls();};
+    document.querySelector('[data-live-prev]')?.addEventListener('click',()=>go(current-1)); document.querySelector('[data-live-next]')?.addEventListener('click',()=>go(current+1));
     addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(current-1)}});
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting&&entry.intersectionRatio>.6){current=panels.indexOf(entry.target);if(progress)progress.textContent=`${current+1} / ${panels.length}`;}}),{root:scroller,threshold:[.6]});panels.forEach(p=>observer.observe(p));
+    scroller.addEventListener('scroll',()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(syncCurrent)},{passive:true});
+    const observer=new IntersectionObserver(()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(syncCurrent)},{root:scroller,threshold:[0,.1,.5]}); panels.forEach(panel=>observer.observe(panel));
+    syncCurrent();
   }
 
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupTheme(); setupSearch(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupTheme(); setupSearch(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();

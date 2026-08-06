@@ -16,5 +16,6 @@
     <footer class="sheet-footer"><a href="/songs">Library</a>{{if or .Song.SourceURL .Song.OriginalKey .Song.OriginalBPM}}<dl class="source-facts" aria-label="Original recording details">{{if .Song.SourceURL}}<div><dt>Lyrics</dt><dd><a href="{{.Song.SourceURL}}" target="_blank" rel="noopener noreferrer">{{if .Song.SourceProvider}}{{.Song.SourceProvider}}{{else}}Source{{end}} ↗</a></dd></div>{{end}}{{if .Song.OriginalKey}}<div><dt>Original key</dt><dd>{{.Song.OriginalKey}}</dd></div>{{end}}{{if .Song.OriginalBPM}}<div><dt>Original BPM</dt><dd>{{.Song.OriginalBPM}}</dd></div>{{end}}</dl>{{end}}</footer>
   </article>
 </main>
+<div class="font-controls" data-font-controls role="group" aria-label="Lead-sheet font size"><button type="button" data-font-decrease aria-label="Decrease font size" title="Decrease font size">A−</button><button type="button" data-font-reset aria-label="Return to automatic font size"><span data-font-size>21</span><small>px</small></button><button type="button" data-font-increase aria-label="Increase font size" title="Increase font size">A+</button></div>
 <script src="/static/app.js" defer></script>
 </body></html>
