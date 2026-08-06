@@ -25,7 +25,6 @@
     <input name="source_provider" type="hidden" value="{{.DraftSourceProvider}}">
     <label><span>Lyrics source <small>filled by the selected provider</small></span><input name="source_url" type="url" value="{{.DraftSource}}" placeholder="https://…"></label>
     <label><span>Lead-sheet Markdown</span><textarea name="body" rows="24" spellcheck="true" placeholder="# Song title\n\n### Verse 1\n…">{{.DraftBody}}</textarea></label>
-    <label class="rights-confirmation"><input type="checkbox" name="rights_confirmed" value="yes" required><span>I confirm that I am authorized to store and use this material in this private lead-sheet library.</span></label>
     <div class="form-actions"><a class="button" href="/songs">Cancel</a><button class="button primary" type="submit">Create Lead Sheet</button></div>
   </form>
 </main>

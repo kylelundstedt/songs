@@ -89,8 +89,6 @@ button:hover, .button:hover { border-color:var(--accent); }
 .song-form label { display:grid; gap:.38rem; font-weight:850; }
 .song-form label small { color:var(--muted); font-weight:500; }
 .song-form input, .song-form textarea { width:100%; border:2px solid var(--line); background:var(--panel); color:var(--text); border-radius:.7rem; padding:.8rem .9rem; font:inherit; }
-.rights-confirmation { grid-template-columns:auto minmax(0,1fr); align-items:start; gap:.6rem!important; color:var(--muted); font-size:.82rem; font-weight:600!important; }
-.song-form .rights-confirmation input { width:1.1rem; height:1.1rem; margin:.12rem 0 0; padding:0; accent-color:var(--accent); }
 .song-form textarea { min-height:42vh; resize:vertical; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:16px; line-height:1.35; }
 .song-form input:focus, .song-form textarea:focus, .search input:focus { outline:3px solid color-mix(in srgb,var(--accent) 45%,transparent); border-color:var(--accent); }
 .form-row { display:grid; grid-template-columns:2fr 1fr; gap:1rem; }

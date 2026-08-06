@@ -105,16 +105,15 @@ func TestCatalogAndRoutes(t *testing.T) {
 func TestCreateSongWorkflow(t *testing.T) {
 	server := fixtureServer(t)
 	form := url.Values{
-		"title":            {"Brand New Song"},
-		"artist":           {"Example Artist"},
-		"key":              {"A"},
-		"bpm":              {"128"},
-		"original_key":     {"Bm"},
-		"original_bpm":     {"166.04"},
-		"source_provider":  {"LRCLIB"},
-		"source_url":       {"https://example.com/song"},
-		"rights_confirmed": {"yes"},
-		"body":             {"# Brand New Song\n\n### Verse 1\nDraft line"},
+		"title":           {"Brand New Song"},
+		"artist":          {"Example Artist"},
+		"key":             {"A"},
+		"bpm":             {"128"},
+		"original_key":    {"Bm"},
+		"original_bpm":    {"166.04"},
+		"source_provider": {"LRCLIB"},
+		"source_url":      {"https://example.com/song"},
+		"body":            {"# Brand New Song\n\n### Verse 1\nDraft line"},
 	}
 	req := httptest.NewRequest(http.MethodPost, "/songs", strings.NewReader(form.Encode()))
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
@@ -185,7 +184,7 @@ func TestLyricsProviderWorkflow(t *testing.T) {
 
 func TestShelleyEditJob(t *testing.T) {
 	server := fixtureServer(t)
-	modelOutput := "# Test Song\n\n### Verse 14x\nOne line  \nTwo lines\n"
+	modelOutput := `{"edits":[{"start":3,"end":3,"replacement":["### Verse 14x"]}]}`
 	model := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/event-stream")
 		encoded, _ := json.Marshal(map[string]string{"type": "response.output_text.delta", "delta": modelOutput})
@@ -223,6 +222,34 @@ func TestShelleyEditJob(t *testing.T) {
 		time.Sleep(10 * time.Millisecond)
 	}
 	t.Fatal("Shelley job did not finish")
+}
+
+func TestApplyFocusedEditPlanPreservesUntouchedBytes(t *testing.T) {
+	tests := []struct {
+		name, original, want string
+		plan                 focusedEditPlan
+	}{
+		{"lf without final newline", "---\nartist: Example\n---\n\n# Demo\n\n### Verse 8x\nOne line", "---\nartist: Example\n---\n\n# Demo\n\n### Verse 14x\nOne line", focusedEditPlan{Edits: []focusedLineEdit{{Start: 3, End: 3, Replacement: []string{"### Verse 14x"}}}}},
+		{"crlf with final newline", "---\r\nartist: Example\r\n---\r\n\r\n# Demo\r\n\r\n### Verse 8x\r\nOne line\r\n", "---\r\nartist: Example\r\n---\r\n\r\n# Demo\r\n\r\n### Verse 14x\r\nOne line\r\n", focusedEditPlan{Edits: []focusedLineEdit{{Start: 3, End: 3, Replacement: []string{"### Verse 14x"}}}}},
+		{"multiple ascending ranges", "# Demo\n\n### Verse 8x\nOne line\nTwo line\n", "# Demo\n\n### Verse 14x\nOne line\nTwo lines\n", focusedEditPlan{Edits: []focusedLineEdit{{Start: 3, End: 3, Replacement: []string{"### Verse 14x"}}, {Start: 5, End: 5, Replacement: []string{"Two lines"}}}}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := applyFocusedEditPlan("Demo", tt.original, tt.plan)
+			if err != nil || got != tt.want {
+				t.Fatalf("got=%q want=%q err=%v", got, tt.want, err)
+			}
+		})
+	}
+	invalid := []focusedEditPlan{
+		{Edits: []focusedLineEdit{{Start: 3, End: 3, Replacement: []string{"### Verse 14x\nInjected"}}}},
+		{Edits: []focusedLineEdit{{Start: 4, End: 4, Replacement: []string{"One"}}, {Start: 3, End: 3, Replacement: []string{"### Verse 14x"}}}},
+	}
+	for _, plan := range invalid {
+		if _, err := applyFocusedEditPlan("Demo", "# Demo\n\n### Verse 8x\nOne\n", plan); err == nil {
+			t.Fatalf("invalid plan accepted: %#v", plan)
+		}
+	}
 }
 
 func TestLeadSheetModelCompactsRepeatedSections(t *testing.T) {
