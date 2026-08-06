@@ -127,8 +127,6 @@
     const source = panel.querySelector('[data-apex-source]');
     const viewport = panel.querySelector('[data-sheet-viewport]');
     const container = panel.querySelector('[data-live-columns]');
-    const badge = panel.querySelector('[data-fit-badge]');
-    const detail = panel.querySelector('[data-fit-detail]');
     if (!source || !viewport || !container) return;
     const sections = sectionize(source);
     const form = document.documentElement.dataset.formFactor || detectFormFactor();
@@ -140,8 +138,6 @@
       const safe = horizontalSafe(col) && horizontalSafe(container);
       panel.dataset.fitStatus = safe ? 'scrollable' : 'needs-editing';
       panel.dataset.columnCount = '1'; panel.dataset.bodyPx = '20';
-      badge.textContent = safe ? '1 column · scroll' : 'Needs editing';
-      detail.textContent = safe ? 'Phone fallback · 20px · vertical scrolling allowed' : 'Horizontal overflow detected';
       return;
     }
 
@@ -160,7 +156,6 @@
         const fits = leftHeight <= height+1 && rightHeight <= height+1 && columns.every(horizontalSafe) && horizontalSafe(container);
         if (fits) {
           panel.dataset.fitStatus='fit'; panel.dataset.columnCount='2'; panel.dataset.bodyPx=String(px); panel.dataset.lineHeight=String(line);
-          badge.textContent=`2 columns · ${px}px`; detail.textContent=`Single viewport · line height ${line.toFixed(2)}`;
           return;
         }
         const overflow=Math.max(0,leftHeight-height,rightHeight-height);
@@ -170,19 +165,32 @@
     const fail=bestFailure || {px:MIN_PX,line:1.12,split:Math.ceil(sections.length/2),overflow:0};
     applyTypography(panel,MIN_PX,1.12); renderColumns(container,sections,2,fail.split);
     panel.dataset.fitStatus='needs-editing'; panel.dataset.columnCount='2'; panel.dataset.bodyPx=String(MIN_PX); panel.dataset.lineHeight='1.12';
-    badge.textContent='Needs editing'; detail.textContent=`Two-column overflow: ${Math.ceil(fail.overflow)}px at 16px minimum`;
   }
 
   async function fitAll() { for (const panel of document.querySelectorAll('[data-lead-sheet]')) await fitSheet(panel); }
   function scheduleFit() { clearTimeout(refitTimer); refitTimer=setTimeout(fitAll,100); }
 
   function setupTheme() {
-    const saved=localStorage.getItem('songs-theme') || 'stage';
-    document.documentElement.dataset.theme=saved;
-    const update=()=>document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.textContent=document.documentElement.dataset.theme==='stage'?'Bright':'Stage');
+    const media = matchMedia('(prefers-color-scheme: light)');
+    const stored = localStorage.getItem('songs-theme');
+    if (stored === 'light' || stored === 'dark') document.documentElement.dataset.theme = stored;
+    else document.documentElement.removeAttribute('data-theme');
+    const effective = () => document.documentElement.dataset.theme || (media.matches ? 'light' : 'dark');
+    const update = () => document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      const target = effective() === 'dark' ? 'light' : 'dark';
+      const icon = button.querySelector('[aria-hidden="true"]');
+      if (icon) icon.textContent = target === 'light' ? '☀︎' : '☾';
+      button.setAttribute('aria-label', `Switch to ${target} mode`);
+      button.setAttribute('title', `Switch to ${target} mode`);
+    });
     update();
-    document.querySelectorAll('[data-theme-toggle]').forEach(button=>button.addEventListener('click',()=>{
-      const next=document.documentElement.dataset.theme==='stage'?'bright':'stage'; document.documentElement.dataset.theme=next; localStorage.setItem('songs-theme',next); update(); scheduleFit();
+    media.addEventListener?.('change', () => { if (!document.documentElement.dataset.theme) { update(); scheduleFit(); } });
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => button.addEventListener('click', () => {
+      const next = effective() === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('songs-theme', next);
+      update();
+      scheduleFit();
     }));
   }
 
@@ -226,7 +234,7 @@
     panel.className = 'lead-sheet-panel';
     panel.dataset.leadSheet = '';
     panel.style.cssText = 'position:fixed;left:-10000px;top:0;width:calc(100vw - 24px);height:calc(100dvh - 72px);visibility:hidden';
-    panel.innerHTML = '<header class="sheet-header"><div><p class="eyebrow">Fit check</p><h1>Song</h1></div><span data-fit-badge></span></header><div class="sheet-viewport" data-sheet-viewport><div class="apex-source" data-apex-source></div><div class="live-columns" data-live-columns></div></div><footer class="sheet-footer"><span data-fit-detail></span></footer>';
+    panel.innerHTML = '<header class="sheet-header"><h1>Song</h1></header><div class="sheet-viewport" data-sheet-viewport><div class="apex-source" data-apex-source></div><div class="live-columns" data-live-columns></div></div>';
     document.body.append(panel);
     const failures = [];
     try {

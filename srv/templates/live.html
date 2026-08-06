@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en" data-theme="stage">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10151c"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>{{.Set.Title}} · Live</title></head>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>{{.Set.Title}} · Live</title></head>
 <body class="live-set-page" data-live-set>
-<nav class="live-nav"><a href="/sets/{{.Set.ID}}" aria-label="Exit live mode">←</a><strong>{{.Set.Title}}</strong><span data-live-progress>1 / {{len .Set.Items}}</span><button data-theme-toggle type="button">Bright</button></nav>
+<nav class="live-nav"><a href="/sets/{{.Set.ID}}" aria-label="Exit live mode">←</a><strong>{{.Set.Title}}</strong><span data-live-progress>1 / {{len .Set.Items}}</span><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></nav>
 <main class="live-set" data-live-scroller>
 {{range .Set.Items}}
 <section class="live-set-panel" data-live-panel data-song-id="{{.Song.ID}}">
   <article class="lead-sheet-panel live" data-lead-sheet>
-    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1></div><span class="fit-badge" data-fit-badge>Measuring…</span></header>
+    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1></div></header>
     <div class="sheet-viewport" data-sheet-viewport><div class="apex-source" data-apex-source>{{.Song.HTML}}</div><div class="live-columns" data-live-columns></div></div>
-    <footer class="sheet-footer"><span data-fit-detail></span>{{if .Note}}<strong>{{.Note}}</strong>{{end}}</footer>
+    {{if .Note}}<footer class="sheet-footer"><strong>{{.Note}}</strong></footer>{{end}}
   </article>
 </section>
 {{end}}

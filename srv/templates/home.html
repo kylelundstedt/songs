@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-theme="stage">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#10151c">
+  <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="/static/style.css">
   <title>Songs</title>
@@ -14,7 +14,7 @@
     <a class="tab active" href="/songs" aria-current="page">Songs</a>
     <a class="tab" href="/set-lists">Set Lists</a>
   </nav>
-  <button data-theme-toggle type="button">Bright</button>
+  <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button>
 </header>
 <main class="library-shell songs-screen">
   <section class="song-tools">

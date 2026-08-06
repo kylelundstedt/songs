@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="en" data-theme="stage">
+<html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#10151c"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>{{.Song.Title}} · Songs</title>
+  <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>{{.Song.Title}} · Songs</title>
 </head>
 <body class="song-page">
-<header class="app-header"><nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs</a><a class="tab" href="/set-lists">Set Lists</a></nav><div class="header-actions"><button data-theme-toggle type="button">Bright</button></div></header>
+<header class="app-header"><nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs</a><a class="tab" href="/set-lists">Set Lists</a></nav><div class="header-actions"><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div></header>
 <main class="single-song-shell">
   <article class="lead-sheet-panel" data-lead-sheet data-song-id="{{.Song.ID}}">
-    <header class="sheet-header"><div><p class="eyebrow">Lead sheet</p><h1>{{.Song.Title}}</h1></div><span class="fit-badge" data-fit-badge>Measuring…</span></header>
+    <header class="sheet-header"><h1>{{.Song.Title}}</h1></header>
     <div class="sheet-viewport" data-sheet-viewport>
       <div class="apex-source" data-apex-source>{{.Song.HTML}}</div>
       <div class="live-columns" data-live-columns aria-label="{{.Song.Title}} lead sheet"></div>
     </div>
-    <footer class="sheet-footer"><span data-fit-detail></span><a href="/">Library</a></footer>
+    <footer class="sheet-footer"><a href="/songs">Library</a></footer>
   </article>
 </main>
 <script src="/static/app.js" defer></script>
