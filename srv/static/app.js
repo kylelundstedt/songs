@@ -39,6 +39,23 @@
     return expanded;
   }
 
+  function cloneSectionHeading(node) {
+    const heading = node.cloneNode(false);
+    const text = node.textContent.trim();
+    const measure = /\b\d+\s*[xX](?:\s*\+\s*\d+)?\b/g;
+    let cursor = 0;
+    for (const match of text.matchAll(measure)) {
+      heading.append(document.createTextNode(text.slice(cursor, match.index)));
+      const count = document.createElement('span');
+      count.className = 'measure-count';
+      count.textContent = match[0].replace(/\s*[xX]\s*/, 'x').replace(/\s*\+\s*/, '+');
+      heading.append(count);
+      cursor = match.index + match[0].length;
+    }
+    heading.append(document.createTextNode(text.slice(cursor)));
+    return heading;
+  }
+
   function sectionize(source) {
     const nodes = expandFlowNodes(source);
     const sections = [];
@@ -52,7 +69,7 @@
         if (headingGroup) push(headingGroup);
         headingGroup = document.createElement('section');
         headingGroup.className = 'section-block';
-        headingGroup.append(node.cloneNode(true));
+        headingGroup.append(cloneSectionHeading(node));
         continue;
       }
       if (headingGroup) {

@@ -6,7 +6,7 @@
 </head>
 <body>
 <header class="app-header">
-  <nav class="tabs" aria-label="Main navigation"><a class="tab" href="/songs">Songs</a><a class="tab active" href="/set-lists" aria-current="page">Set Lists</a></nav>
+  <nav class="tabs" aria-label="Main navigation"><a class="tab" href="/songs">Songs <span class="tab-count">{{.SongCount}}</span></a><a class="tab active" href="/set-lists" aria-current="page">Set Lists <span class="tab-count">{{.SetCount}}</span></a></nav>
   <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button>
 </header>
 <main class="library-shell sets-screen">

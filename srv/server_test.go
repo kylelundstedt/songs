@@ -20,7 +20,8 @@ func fixtureServer(t *testing.T) *Server {
 	if err := os.MkdirAll(filepath.Join(root, "sets"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(root, "songs", "Test-Song.md"), []byte("# Test Song\n\n### Verse\nOne line  \nTwo lines\n"), 0o644); err != nil {
+	song := "---\nartist: Example Artist\nperformance_key: A\nbpm: 124\n---\n\n# Test Song\n\n### Verse 16X\nOne line  \nTwo lines\n"
+	if err := os.WriteFile(filepath.Join(root, "songs", "Test-Song.md"), []byte(song), 0o644); err != nil {
 		t.Fatal(err)
 	}
 	set := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n1. [Test Song](../songs/Test-Song.md)\n"
@@ -46,6 +47,9 @@ func TestCatalogAndRoutes(t *testing.T) {
 	server := fixtureServer(t)
 	if len(server.songs) != 1 || server.songs[0].Title != "Test Song" {
 		t.Fatalf("songs=%#v", server.songs)
+	}
+	if song := server.songs[0]; song.Artist != "Example Artist" || song.Key != "A" || song.BPM != "124" {
+		t.Fatalf("song metadata=%#v", song)
 	}
 	if len(server.sets) != 1 || len(server.sets[0].Items) != 1 {
 		t.Fatalf("sets=%#v", server.sets)
@@ -88,6 +92,7 @@ func TestCreateSongWorkflow(t *testing.T) {
 		"title":      {"Brand New Song"},
 		"artist":     {"Example Artist"},
 		"key":        {"A"},
+		"bpm":        {"128"},
 		"source_url": {"https://example.com/song"},
 		"body":       {"# Brand New Song\n\n### Verse 1\nDraft line"},
 	}
@@ -106,7 +111,7 @@ func TestCreateSongWorkflow(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(body), "source_url: \"https://example.com/song\"") {
+	if !strings.Contains(string(body), "source_url: \"https://example.com/song\"") || !strings.Contains(string(body), "bpm: \"128\"") {
 		t.Fatalf("unexpected markdown: %s", body)
 	}
 	if len(server.songs) != 2 {

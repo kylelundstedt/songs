@@ -17,6 +17,7 @@ import (
 	"regexp"
 	"runtime"
 	"sort"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -29,6 +30,9 @@ type Song struct {
 	ID       string        `json:"id"`
 	Path     string        `json:"path"`
 	Title    string        `json:"title"`
+	Artist   string        `json:"artist,omitempty"`
+	Key      string        `json:"key,omitempty"`
+	BPM      string        `json:"bpm,omitempty"`
 	HTML     template.HTML `json:"-"`
 	Hash     string        `json:"hash"`
 	Modified time.Time     `json:"modified"`
@@ -76,9 +80,12 @@ type pageData struct {
 	Song        *Song
 	Set         *SetList
 	BuildTime   string
+	SongCount   int
+	SetCount    int
 	DraftTitle  string
 	DraftArtist string
 	DraftKey    string
+	DraftBPM    string
 	DraftSource string
 	DraftBody   string
 	FormError   string
@@ -157,10 +164,17 @@ func (s *Server) loadSongs() ([]*Song, map[string]*Song, map[string]*Song, error
 			return err
 		}
 		rel = filepath.ToSlash(rel)
-		title := titleFromMarkdown(string(body))
+		text := string(body)
+		title := titleFromMarkdown(text)
 		if title == "" {
 			title = strings.TrimSuffix(filepath.Base(path), filepath.Ext(path))
 		}
+		artist := metadataValue(text, "artist")
+		key := metadataValue(text, "performance_key")
+		if key == "" {
+			key = metadataValue(text, "key")
+		}
+		bpm := metadataValue(text, "bpm")
 		id := slugify(strings.TrimSuffix(filepath.Base(path), filepath.Ext(path)))
 		if _, exists := byID[id]; exists {
 			return fmt.Errorf("duplicate song id %q", id)
@@ -171,7 +185,7 @@ func (s *Server) loadSongs() ([]*Song, map[string]*Song, map[string]*Song, error
 			return fmt.Errorf("render %s: %w", rel, err)
 		}
 		info, _ := entry.Info()
-		song := &Song{ID: id, Path: rel, Title: title, HTML: template.HTML(rendered), Hash: hash}
+		song := &Song{ID: id, Path: rel, Title: title, Artist: artist, Key: key, BPM: bpm, HTML: template.HTML(rendered), Hash: hash}
 		if info != nil {
 			song.Modified = info.ModTime()
 		}
@@ -331,13 +345,21 @@ func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
 	draft := pageData{
 		Title: "Add a Song", UserEmail: r.Header.Get("X-ExeDev-Email"),
 		DraftTitle: strings.TrimSpace(r.FormValue("title")), DraftArtist: strings.TrimSpace(r.FormValue("artist")),
-		DraftKey: strings.TrimSpace(r.FormValue("key")), DraftSource: strings.TrimSpace(r.FormValue("source_url")),
+		DraftKey: strings.TrimSpace(r.FormValue("key")), DraftBPM: strings.TrimSpace(r.FormValue("bpm")), DraftSource: strings.TrimSpace(r.FormValue("source_url")),
 		DraftBody: strings.TrimSpace(r.FormValue("body")),
 	}
 	if draft.DraftTitle == "" {
 		draft.FormError = "Song title is required."
 		s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
 		return
+	}
+	if draft.DraftBPM != "" {
+		bpm, err := strconv.ParseFloat(draft.DraftBPM, 64)
+		if err != nil || bpm < 20 || bpm > 300 {
+			draft.FormError = "BPM must be a number between 20 and 300."
+			s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
+			return
+		}
 	}
 	if draft.DraftSource != "" {
 		u, err := url.Parse(draft.DraftSource)
@@ -360,7 +382,7 @@ func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
 	if titleFromMarkdown(body) == "" {
 		body = "# " + draft.DraftTitle + "\n\n" + body
 	}
-	markdown := buildSongMarkdown(id, draft.DraftTitle, draft.DraftArtist, draft.DraftKey, draft.DraftSource, body)
+	markdown := buildSongMarkdown(id, draft.DraftTitle, draft.DraftArtist, draft.DraftKey, draft.DraftBPM, draft.DraftSource, body)
 	if err := s.createSongFile(id, markdown); err != nil {
 		if errors.Is(err, os.ErrExist) {
 			draft.FormError = "A song with this filename already exists. Search for it or choose a more specific title."
@@ -454,7 +476,7 @@ func (s *Server) HandleSongJSON(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	writeJSON(w, map[string]any{"id": song.ID, "title": song.Title, "path": song.Path, "hash": song.Hash, "html": string(song.HTML)})
+	writeJSON(w, map[string]any{"id": song.ID, "title": song.Title, "artist": song.Artist, "key": song.Key, "bpm": song.BPM, "path": song.Path, "hash": song.Hash, "html": string(song.HTML)})
 }
 
 func (s *Server) HandleCatalog(w http.ResponseWriter, r *http.Request) {
@@ -494,6 +516,10 @@ func (s *Server) render(w http.ResponseWriter, r *http.Request, name string, dat
 }
 
 func (s *Server) renderStatus(w http.ResponseWriter, r *http.Request, name string, data pageData, status int) {
+	s.mu.RLock()
+	data.SongCount = len(s.songs)
+	data.SetCount = len(s.sets)
+	s.mu.RUnlock()
 	setSecurityHeaders(w)
 	path := filepath.Join(s.TemplatesDir, name)
 	tmpl, err := template.ParseFiles(path)
@@ -536,7 +562,7 @@ func (s *Server) Serve(addr string) error {
 	return http.ListenAndServe(addr, mux)
 }
 
-func buildSongMarkdown(id, title, artist, key, sourceURL, body string) string {
+func buildSongMarkdown(id, title, artist, key, bpm, sourceURL, body string) string {
 	var b strings.Builder
 	b.WriteString("---\n")
 	b.WriteString("schema_version: 1\n")
@@ -547,6 +573,9 @@ func buildSongMarkdown(id, title, artist, key, sourceURL, body string) string {
 	}
 	if key != "" {
 		b.WriteString("performance_key: " + yamlString(key) + "\n")
+	}
+	if bpm != "" {
+		b.WriteString("bpm: " + yamlString(bpm) + "\n")
 	}
 	b.WriteString("provenance_status: user-supplied\n")
 	if sourceURL != "" {

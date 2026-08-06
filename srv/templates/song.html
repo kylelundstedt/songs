@@ -5,10 +5,10 @@
   <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>{{.Song.Title}} · Songs</title>
 </head>
 <body class="song-page">
-<header class="app-header"><nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs</a><a class="tab" href="/set-lists">Set Lists</a></nav><div class="header-actions"><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div></header>
+<header class="app-header"><nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs <span class="tab-count">{{.SongCount}}</span></a><a class="tab" href="/set-lists">Set Lists <span class="tab-count">{{.SetCount}}</span></a></nav><div class="header-actions"><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div></header>
 <main class="single-song-shell">
   <article class="lead-sheet-panel" data-lead-sheet data-song-id="{{.Song.ID}}">
-    <header class="sheet-header"><h1>{{.Song.Title}}</h1></header>
+    <header class="sheet-header"><h1>{{.Song.Title}}</h1><dl class="song-facts" aria-label="Song details"><div><dt>Key</dt><dd>{{if .Song.Key}}{{.Song.Key}}{{else}}—{{end}}</dd></div><div><dt>BPM</dt><dd>{{if .Song.BPM}}{{.Song.BPM}}{{else}}—{{end}}</dd></div><div class="artist-fact"><dt>Artist</dt><dd>{{if .Song.Artist}}{{.Song.Artist}}{{else}}—{{end}}</dd></div></dl></header>
     <div class="sheet-viewport" data-sheet-viewport>
       <div class="apex-source" data-apex-source>{{.Song.HTML}}</div>
       <div class="live-columns" data-live-columns aria-label="{{.Song.Title}} lead sheet"></div>

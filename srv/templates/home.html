@@ -11,8 +11,8 @@
 <body>
 <header class="app-header">
   <nav class="tabs" aria-label="Main navigation">
-    <a class="tab active" href="/songs" aria-current="page">Songs</a>
-    <a class="tab" href="/set-lists">Set Lists</a>
+    <a class="tab active" href="/songs" aria-current="page">Songs <span class="tab-count">{{.SongCount}}</span></a>
+    <a class="tab" href="/set-lists">Set Lists <span class="tab-count">{{.SetCount}}</span></a>
   </nav>
   <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button>
 </header>
@@ -22,7 +22,7 @@
     <a class="button primary" href="/songs/new" data-add-song>Add a Song</a>
   </section>
   <div class="song-list" id="song-list">
-    {{range .Songs}}<a class="song-row" href="/song/{{.ID}}" data-search="{{.Title}} {{.ID}}"><span>{{.Title}}</span><small>{{.ID}}</small></a>{{end}}
+    {{range .Songs}}<a class="song-row" href="/song/{{.ID}}" data-search="{{.Title}} {{.ID}}"><span>{{.Title}}</span></a>{{end}}
   </div>
   <section class="empty-state no-results-card" id="no-results" hidden>
     <h2>No matching song</h2>

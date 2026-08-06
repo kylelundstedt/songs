@@ -7,7 +7,7 @@
 {{range .Set.Items}}
 <section class="live-set-panel" data-live-panel data-song-id="{{.Song.ID}}">
   <article class="lead-sheet-panel live" data-lead-sheet>
-    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1></div></header>
+    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1></div><dl class="song-facts" aria-label="Song details"><div><dt>Key</dt><dd>{{if .Song.Key}}{{.Song.Key}}{{else}}—{{end}}</dd></div><div><dt>BPM</dt><dd>{{if .Song.BPM}}{{.Song.BPM}}{{else}}—{{end}}</dd></div><div class="artist-fact"><dt>Artist</dt><dd>{{if .Song.Artist}}{{.Song.Artist}}{{else}}—{{end}}</dd></div></dl></header>
     <div class="sheet-viewport" data-sheet-viewport><div class="apex-source" data-apex-source>{{.Song.HTML}}</div><div class="live-columns" data-live-columns></div></div>
     {{if .Note}}<footer class="sheet-footer"><strong>{{.Note}}</strong></footer>{{end}}
   </article>
