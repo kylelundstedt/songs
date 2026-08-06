@@ -20,7 +20,7 @@ func fixtureServer(t *testing.T) *Server {
 	if err := os.MkdirAll(filepath.Join(root, "sets"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	song := "---\nartist: Example Artist\nperformance_key: A\nbpm: 124\n---\n\n# Test Song\n\n### Verse 16X\nOne line  \nTwo lines\n"
+	song := "---\nartist: Example Artist\nperformance_key: A\nbpm: 124\noriginal_key: G\noriginal_bpm: 118\nsource_provider: LRCLIB\nsource_url: https://lrclib.net/api/get/1\n---\n\n# Test Song\n\n### Verse 16X\nOne line  \nTwo lines\n"
 	if err := os.WriteFile(filepath.Join(root, "songs", "Test-Song.md"), []byte(song), 0o644); err != nil {
 		t.Fatal(err)
 	}
@@ -48,7 +48,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 	if len(server.songs) != 1 || server.songs[0].Title != "Test Song" {
 		t.Fatalf("songs=%#v", server.songs)
 	}
-	if song := server.songs[0]; song.Artist != "Example Artist" || song.Key != "A" || song.BPM != "124" {
+	if song := server.songs[0]; song.Artist != "Example Artist" || song.Key != "A" || song.BPM != "124" || song.OriginalKey != "G" || song.OriginalBPM != "118" || song.SourceProvider != "LRCLIB" {
 		t.Fatalf("song metadata=%#v", song)
 	}
 	if len(server.sets) != 1 || len(server.sets[0].Items) != 1 {
@@ -89,12 +89,16 @@ func TestCatalogAndRoutes(t *testing.T) {
 func TestCreateSongWorkflow(t *testing.T) {
 	server := fixtureServer(t)
 	form := url.Values{
-		"title":      {"Brand New Song"},
-		"artist":     {"Example Artist"},
-		"key":        {"A"},
-		"bpm":        {"128"},
-		"source_url": {"https://example.com/song"},
-		"body":       {"# Brand New Song\n\n### Verse 1\nDraft line"},
+		"title":            {"Brand New Song"},
+		"artist":           {"Example Artist"},
+		"key":              {"A"},
+		"bpm":              {"128"},
+		"original_key":     {"Bm"},
+		"original_bpm":     {"166.04"},
+		"source_provider":  {"LRCLIB"},
+		"source_url":       {"https://example.com/song"},
+		"rights_confirmed": {"yes"},
+		"body":             {"# Brand New Song\n\n### Verse 1\nDraft line"},
 	}
 	req := httptest.NewRequest(http.MethodPost, "/songs", strings.NewReader(form.Encode()))
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
@@ -111,11 +115,55 @@ func TestCreateSongWorkflow(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(body), "source_url: \"https://example.com/song\"") || !strings.Contains(string(body), "bpm: \"128\"") {
+	if !strings.Contains(string(body), "source_url: \"https://example.com/song\"") || !strings.Contains(string(body), "source_provider: \"LRCLIB\"") || !strings.Contains(string(body), "provenance_status: provider-imported-pending-review") || !strings.Contains(string(body), "original_key: \"Bm\"") || !strings.Contains(string(body), "original_bpm: \"166.04\"") || !strings.Contains(string(body), "bpm: \"128\"") {
 		t.Fatalf("unexpected markdown: %s", body)
 	}
 	if len(server.songs) != 2 {
 		t.Fatalf("indexed songs=%d", len(server.songs))
+	}
+}
+
+func TestLyricsProviderWorkflow(t *testing.T) {
+	provider := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch {
+		case r.URL.Path == "/api/search":
+			_, _ = w.Write([]byte(`[{"id":1,"trackName":"Rebel Yell","artistName":"Billy Idol","albumName":"Rebel Yell","duration":285,"plainLyrics":"not returned to browser"}]`))
+		case r.URL.Path == "/api/get/1":
+			_, _ = w.Write([]byte(`{"id":1,"trackName":"Rebel Yell","artistName":"Billy Idol","plainLyrics":"Verse line one\nVerse line two\n\nRepeated line\nRepeated line two\nRepeated line three\n\nOther verse\nOther line\n\nRepeated line\nRepeated line two\nRepeated line three"}`))
+		case strings.HasPrefix(r.URL.Path, "/suggest/"):
+			_, _ = w.Write([]byte(`{"data":[{"id":99,"title":"Rebel Yell","duration":285,"artist":{"name":"Billy Idol"},"album":{"title":"Rebel Yell"}}]}`))
+		case r.URL.Path == "/track/99":
+			_, _ = w.Write([]byte(`{"bpm":166.04}`))
+		default:
+			http.NotFound(w, r)
+		}
+	}))
+	defer provider.Close()
+
+	server := fixtureServer(t)
+	server.LRCLIBBaseURL = provider.URL
+	server.LyricsOvhURL = provider.URL
+	server.DeezerBaseURL = provider.URL
+
+	searchReq := httptest.NewRequest(http.MethodGet, "/api/lyrics/search?q=Rebel+Yell", nil)
+	searchReq.Header.Set("X-ExeDev-UserID", "test-user")
+	searchW := httptest.NewRecorder()
+	server.HandleLyricsSearch(searchW, searchReq)
+	if searchW.Code != http.StatusOK || !strings.Contains(searchW.Body.String(), `"provider":"LRCLIB"`) || strings.Contains(searchW.Body.String(), "not returned to browser") {
+		t.Fatalf("search status=%d body=%s", searchW.Code, searchW.Body.String())
+	}
+
+	selection := `{"provider":"LRCLIB","id":"1","title":"Rebel Yell","artist":"Billy Idol"}`
+	importReq := httptest.NewRequest(http.MethodPost, "/api/lyrics/import", strings.NewReader(selection))
+	importReq.Header.Set("X-ExeDev-UserID", "test-user")
+	importW := httptest.NewRecorder()
+	server.HandleLyricsImport(importW, importReq)
+	if importW.Code != http.StatusOK {
+		t.Fatalf("import status=%d body=%s", importW.Code, importW.Body.String())
+	}
+	if body := importW.Body.String(); !strings.Contains(body, `"original_bpm":"166.04"`) || !strings.Contains(body, "### Chorus") || !strings.Contains(body, `"source_provider":"LRCLIB"`) {
+		t.Fatalf("unexpected draft: %s", body)
 	}
 }
 

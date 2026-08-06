@@ -268,19 +268,77 @@
     return {failed: failures, checked: ids.length, set: setID};
   }
 
-  function setupExternalLyricsSearch() {
-    const link = document.querySelector('[data-azlyrics-search]');
+  function setupLyricsPicker() {
+    const searchButton = document.querySelector('[data-lyrics-search]');
+    const results = document.querySelector('[data-lyrics-results]');
+    const status = document.querySelector('[data-lyrics-status]');
     const title = document.querySelector('input[name="title"]');
     const artist = document.querySelector('input[name="artist"]');
-    if (!link || !title) return;
-    const update = () => {
-      const query = [artist?.value.trim(), title.value.trim()].filter(Boolean).join(' ');
-      link.href = `https://www.azlyrics.com/search/${query ? `?q=${encodeURIComponent(query)}` : ''}`;
-      link.setAttribute('aria-label', query ? `Search AZLyrics for ${query}` : 'Open AZLyrics search');
+    if (!searchButton || !results || !status || !title) return;
+    const duration = seconds => seconds ? `${Math.floor(seconds/60)}:${String(Math.round(seconds%60)).padStart(2,'0')}` : '';
+    const setStatus = message => { status.textContent = message; };
+    const useChoice = async (choice, button) => {
+      button.disabled = true;
+      setStatus(`Generating lead sheet from ${choice.provider}…`);
+      try {
+        const response = await fetch('/api/lyrics/import', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(choice)});
+        if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to import lyrics');
+        const draft = await response.json();
+        title.value = draft.title || choice.title;
+        if (artist) artist.value = draft.artist || choice.artist;
+        document.querySelector('input[name="original_bpm"]').value = draft.original_bpm || '';
+        document.querySelector('input[name="source_url"]').value = draft.source_url || '';
+        document.querySelector('input[name="source_provider"]').value = draft.source_provider || choice.provider;
+        const body = document.querySelector('textarea[name="body"]');
+        body.value = draft.body || '';
+        results.hidden = true;
+        setStatus(`Draft generated from ${draft.source_provider || choice.provider}. Review it, add performance details, then create the lead sheet.`);
+        body.scrollIntoView({behavior:'smooth',block:'center'});
+        body.focus();
+      } catch (error) {
+        setStatus(error.message);
+      } finally {
+        button.disabled = false;
+      }
     };
-    title.addEventListener('input', update);
-    artist?.addEventListener('input', update);
-    update();
+    const renderChoices = choices => {
+      results.replaceChildren();
+      for (const choice of choices) {
+        const card = document.createElement('article');
+        card.className = 'lyrics-choice';
+        const text = document.createElement('div');
+        const heading = document.createElement('h3');
+        heading.textContent = choice.title;
+        const details = document.createElement('p');
+        details.textContent = [choice.artist, choice.album, duration(choice.duration), choice.provider].filter(Boolean).join(' · ');
+        text.append(heading,details);
+        const use = document.createElement('button');
+        use.type = 'button'; use.className = 'button primary'; use.textContent = 'Use this version';
+        use.addEventListener('click',()=>useChoice(choice,use));
+        card.append(text,use); results.append(card);
+      }
+      results.hidden = choices.length === 0;
+    };
+    const search = async () => {
+      const query = [artist?.value.trim(), title.value.trim()].filter(Boolean).join(' ');
+      if (query.length < 2) { setStatus('Enter a song title or artist.'); title.focus(); return; }
+      searchButton.disabled = true; results.hidden = true; setStatus('Searching lyrics providers…');
+      try {
+        const params = new URLSearchParams({title:title.value.trim()});
+        if (artist?.value.trim()) params.set('artist', artist.value.trim());
+        const response = await fetch(`/api/lyrics/search?${params}`);
+        if (!response.ok) throw new Error((await response.text()).trim() || 'Lyrics search failed');
+        const data = await response.json();
+        renderChoices(data.choices || []);
+        setStatus(data.choices?.length ? `Choose from ${data.choices.length} matching recordings.` : 'No matching lyrics found. Try a shorter title or add the artist.');
+      } catch (error) {
+        setStatus(error.message);
+      } finally {
+        searchButton.disabled = false;
+      }
+    };
+    searchButton.addEventListener('click',search);
+    for (const input of [title,artist]) input?.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();search();}});
   }
 
   async function setupOffline() {
@@ -311,7 +369,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupTheme(); setupSearch(); setupExternalLyricsSearch(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupTheme(); setupSearch(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();

@@ -8,6 +8,7 @@ import (
 	"errors"
 	"fmt"
 	"html/template"
+	"io"
 	"log/slog"
 	"net/http"
 	"net/url"
@@ -27,15 +28,19 @@ import (
 )
 
 type Song struct {
-	ID       string        `json:"id"`
-	Path     string        `json:"path"`
-	Title    string        `json:"title"`
-	Artist   string        `json:"artist,omitempty"`
-	Key      string        `json:"key,omitempty"`
-	BPM      string        `json:"bpm,omitempty"`
-	HTML     template.HTML `json:"-"`
-	Hash     string        `json:"hash"`
-	Modified time.Time     `json:"modified"`
+	ID             string        `json:"id"`
+	Path           string        `json:"path"`
+	Title          string        `json:"title"`
+	Artist         string        `json:"artist,omitempty"`
+	Key            string        `json:"key,omitempty"`
+	BPM            string        `json:"bpm,omitempty"`
+	OriginalKey    string        `json:"original_key,omitempty"`
+	OriginalBPM    string        `json:"original_bpm,omitempty"`
+	SourceURL      string        `json:"source_url,omitempty"`
+	SourceProvider string        `json:"source_provider,omitempty"`
+	HTML           template.HTML `json:"-"`
+	Hash           string        `json:"hash"`
+	Modified       time.Time     `json:"modified"`
 }
 
 type SetItem struct {
@@ -56,12 +61,16 @@ type SetList struct {
 }
 
 type Server struct {
-	DB           *sql.DB
-	Hostname     string
-	RepoRoot     string
-	TemplatesDir string
-	StaticDir    string
-	ApexPath     string
+	DB            *sql.DB
+	Hostname      string
+	RepoRoot      string
+	TemplatesDir  string
+	StaticDir     string
+	ApexPath      string
+	HTTPClient    *http.Client
+	LRCLIBBaseURL string
+	LyricsOvhURL  string
+	DeezerBaseURL string
 
 	mu          sync.RWMutex
 	writeMu     sync.Mutex
@@ -70,26 +79,55 @@ type Server struct {
 	songsByPath map[string]*Song
 	sets        []*SetList
 	setsByID    map[string]*SetList
+	lyricsSem   chan struct{}
 }
 
 type pageData struct {
-	Title       string
-	UserEmail   string
-	Songs       []*Song
-	Sets        []*SetList
-	Song        *Song
-	Set         *SetList
-	BuildTime   string
-	SongCount   int
-	SetCount    int
-	ShelleyURL  string
-	DraftTitle  string
-	DraftArtist string
-	DraftKey    string
-	DraftBPM    string
-	DraftSource string
-	DraftBody   string
-	FormError   string
+	Title               string
+	UserEmail           string
+	Songs               []*Song
+	Sets                []*SetList
+	Song                *Song
+	Set                 *SetList
+	BuildTime           string
+	SongCount           int
+	SetCount            int
+	ShelleyURL          string
+	DraftTitle          string
+	DraftArtist         string
+	DraftKey            string
+	DraftBPM            string
+	DraftOriginalKey    string
+	DraftOriginalBPM    string
+	DraftSource         string
+	DraftSourceProvider string
+	DraftBody           string
+	FormError           string
+}
+
+type lyricsChoice struct {
+	Provider string  `json:"provider"`
+	ID       string  `json:"id"`
+	Title    string  `json:"title"`
+	Artist   string  `json:"artist"`
+	Album    string  `json:"album,omitempty"`
+	Duration float64 `json:"duration,omitempty"`
+}
+
+type lyricsImportRequest struct {
+	Provider string `json:"provider"`
+	ID       string `json:"id"`
+	Title    string `json:"title"`
+	Artist   string `json:"artist"`
+}
+
+type lyricsDraft struct {
+	Title          string `json:"title"`
+	Artist         string `json:"artist"`
+	OriginalBPM    string `json:"original_bpm,omitempty"`
+	SourceURL      string `json:"source_url"`
+	SourceProvider string `json:"source_provider"`
+	Body           string `json:"body"`
 }
 
 var (
@@ -114,8 +152,9 @@ func New(dbPath, hostname, repoRoot string) (*Server, error) {
 	}
 	s := &Server{
 		DB: wdb, Hostname: hostname, RepoRoot: repoRoot,
-		TemplatesDir: filepath.Join(baseDir, "templates"),
-		StaticDir:    filepath.Join(baseDir, "static"), ApexPath: apexPath,
+		TemplatesDir: filepath.Join(baseDir, "templates"), StaticDir: filepath.Join(baseDir, "static"), ApexPath: apexPath,
+		HTTPClient:    &http.Client{Timeout: 15 * time.Second, CheckRedirect: func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }},
+		LRCLIBBaseURL: "https://lrclib.net", LyricsOvhURL: "https://api.lyrics.ovh", DeezerBaseURL: "https://api.deezer.com", lyricsSem: make(chan struct{}, 4),
 	}
 	if err := s.Reindex(); err != nil {
 		_ = wdb.Close()
@@ -176,6 +215,10 @@ func (s *Server) loadSongs() ([]*Song, map[string]*Song, map[string]*Song, error
 			key = metadataValue(text, "key")
 		}
 		bpm := metadataValue(text, "bpm")
+		originalKey := metadataValue(text, "original_key")
+		originalBPM := metadataValue(text, "original_bpm")
+		sourceURL := metadataValue(text, "source_url")
+		sourceProvider := metadataValue(text, "source_provider")
 		id := slugify(strings.TrimSuffix(filepath.Base(path), filepath.Ext(path)))
 		if _, exists := byID[id]; exists {
 			return fmt.Errorf("duplicate song id %q", id)
@@ -186,7 +229,7 @@ func (s *Server) loadSongs() ([]*Song, map[string]*Song, map[string]*Song, error
 			return fmt.Errorf("render %s: %w", rel, err)
 		}
 		info, _ := entry.Info()
-		song := &Song{ID: id, Path: rel, Title: title, Artist: artist, Key: key, BPM: bpm, HTML: template.HTML(rendered), Hash: hash}
+		song := &Song{ID: id, Path: rel, Title: title, Artist: artist, Key: key, BPM: bpm, OriginalKey: originalKey, OriginalBPM: originalBPM, SourceURL: sourceURL, SourceProvider: sourceProvider, HTML: template.HTML(rendered), Hash: hash}
 		if info != nil {
 			song.Modified = info.ModTime()
 		}
@@ -346,7 +389,9 @@ func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
 	draft := pageData{
 		Title: "Add a Song", UserEmail: r.Header.Get("X-ExeDev-Email"),
 		DraftTitle: strings.TrimSpace(r.FormValue("title")), DraftArtist: strings.TrimSpace(r.FormValue("artist")),
-		DraftKey: strings.TrimSpace(r.FormValue("key")), DraftBPM: strings.TrimSpace(r.FormValue("bpm")), DraftSource: strings.TrimSpace(r.FormValue("source_url")),
+		DraftKey: strings.TrimSpace(r.FormValue("key")), DraftBPM: strings.TrimSpace(r.FormValue("bpm")),
+		DraftOriginalKey: strings.TrimSpace(r.FormValue("original_key")), DraftOriginalBPM: strings.TrimSpace(r.FormValue("original_bpm")),
+		DraftSource: strings.TrimSpace(r.FormValue("source_url")), DraftSourceProvider: strings.TrimSpace(r.FormValue("source_provider")),
 		DraftBody: strings.TrimSpace(r.FormValue("body")),
 	}
 	if draft.DraftTitle == "" {
@@ -354,10 +399,18 @@ func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
 		s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
 		return
 	}
-	if draft.DraftBPM != "" {
-		bpm, err := strconv.ParseFloat(draft.DraftBPM, 64)
+	if r.FormValue("rights_confirmed") != "yes" {
+		draft.FormError = "Confirm that you are authorized to store and use this material."
+		s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
+		return
+	}
+	for label, value := range map[string]string{"BPM": draft.DraftBPM, "Original BPM": draft.DraftOriginalBPM} {
+		if value == "" {
+			continue
+		}
+		bpm, err := strconv.ParseFloat(value, 64)
 		if err != nil || bpm < 20 || bpm > 300 {
-			draft.FormError = "BPM must be a number between 20 and 300."
+			draft.FormError = label + " must be a number between 20 and 300."
 			s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
 			return
 		}
@@ -384,7 +437,7 @@ func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
 		body = "# " + draft.DraftTitle + "\n\n" + body
 	}
 	body = preserveLeadSheetLineBreaks(body)
-	markdown := buildSongMarkdown(id, draft.DraftTitle, draft.DraftArtist, draft.DraftKey, draft.DraftBPM, draft.DraftSource, body)
+	markdown := buildSongMarkdown(id, draft.DraftTitle, draft.DraftArtist, draft.DraftKey, draft.DraftBPM, draft.DraftOriginalKey, draft.DraftOriginalBPM, draft.DraftSourceProvider, draft.DraftSource, body)
 	if err := s.createSongFile(id, markdown); err != nil {
 		if errors.Is(err, os.ErrExist) {
 			draft.FormError = "A song with this filename already exists. Search for it or choose a more specific title."
@@ -440,6 +493,426 @@ func (s *Server) createSongFile(id, markdown string) error {
 	return s.Reindex()
 }
 
+func (s *Server) HandleLyricsSearch(w http.ResponseWriter, r *http.Request) {
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	if !s.acquireLyricsRequest(w) {
+		return
+	}
+	defer s.releaseLyricsRequest()
+	titleQuery := strings.TrimSpace(r.URL.Query().Get("title"))
+	artistQuery := strings.TrimSpace(r.URL.Query().Get("artist"))
+	query := strings.TrimSpace(strings.Join([]string{artistQuery, titleQuery}, " "))
+	if query == "" {
+		query = strings.TrimSpace(r.URL.Query().Get("q"))
+	}
+	if len(query) < 2 || len(query) > 160 {
+		http.Error(w, "Enter at least two characters", http.StatusBadRequest)
+		return
+	}
+	type searchResult struct {
+		choices []lyricsChoice
+		err     error
+	}
+	results := make(chan searchResult, 2)
+	go func() { choices, err := s.searchLRCLIB(query); results <- searchResult{choices, err} }()
+	go func() { choices, err := s.searchLyricsOvh(query); results <- searchResult{choices, err} }()
+	choices := make([]lyricsChoice, 0, 12)
+	var failures []string
+	for range 2 {
+		result := <-results
+		if result.err != nil {
+			failures = append(failures, result.err.Error())
+			continue
+		}
+		choices = append(choices, result.choices...)
+	}
+	if len(choices) == 0 && len(failures) > 0 {
+		http.Error(w, "Lyrics providers are temporarily unavailable", http.StatusBadGateway)
+		return
+	}
+	sort.SliceStable(choices, func(i, j int) bool {
+		return lyricsChoiceScore(choices[i], titleQuery, artistQuery) > lyricsChoiceScore(choices[j], titleQuery, artistQuery)
+	})
+	writeJSON(w, map[string]any{"choices": choices, "provider_errors": failures})
+}
+
+func lyricsChoiceScore(choice lyricsChoice, title, artist string) int {
+	score := 0
+	choiceTitle, choiceArtist := normalize(choice.Title), normalize(choice.Artist)
+	title, artist = normalize(title), normalize(artist)
+	if title != "" {
+		switch {
+		case choiceTitle == title:
+			score += 100
+		case strings.Contains(choiceTitle, title):
+			score += 35
+		}
+	}
+	if artist != "" {
+		switch {
+		case choiceArtist == artist:
+			score += 60
+		case strings.Contains(choiceArtist, artist):
+			score += 20
+		}
+	}
+	if choice.Provider == "LRCLIB" {
+		score += 2
+	}
+	return score
+}
+
+func (s *Server) searchLRCLIB(query string) ([]lyricsChoice, error) {
+	var records []struct {
+		ID         int64   `json:"id"`
+		TrackName  string  `json:"trackName"`
+		ArtistName string  `json:"artistName"`
+		AlbumName  string  `json:"albumName"`
+		Duration   float64 `json:"duration"`
+		Instrument bool    `json:"instrumental"`
+	}
+	endpoint := s.LRCLIBBaseURL + "/api/search?q=" + url.QueryEscape(query)
+	if err := s.fetchJSON(endpoint, &records); err != nil {
+		return nil, fmt.Errorf("LRCLIB: %w", err)
+	}
+	choices := make([]lyricsChoice, 0, min(6, len(records)))
+	for _, record := range records {
+		if record.Instrument || record.TrackName == "" || record.ArtistName == "" {
+			continue
+		}
+		choices = append(choices, lyricsChoice{Provider: "LRCLIB", ID: strconv.FormatInt(record.ID, 10), Title: record.TrackName, Artist: record.ArtistName, Album: record.AlbumName, Duration: record.Duration})
+		if len(choices) == 6 {
+			break
+		}
+	}
+	return choices, nil
+}
+
+func (s *Server) searchLyricsOvh(query string) ([]lyricsChoice, error) {
+	var response struct {
+		Data []struct {
+			ID       int64  `json:"id"`
+			Title    string `json:"title"`
+			Duration int    `json:"duration"`
+			Artist   struct {
+				Name string `json:"name"`
+			} `json:"artist"`
+			Album struct {
+				Title string `json:"title"`
+			} `json:"album"`
+		} `json:"data"`
+	}
+	endpoint := s.LyricsOvhURL + "/suggest/" + url.PathEscape(query)
+	if err := s.fetchJSON(endpoint, &response); err != nil {
+		return nil, fmt.Errorf("Lyrics.ovh: %w", err)
+	}
+	choices := make([]lyricsChoice, 0, min(6, len(response.Data)))
+	for _, record := range response.Data {
+		if record.Title == "" || record.Artist.Name == "" {
+			continue
+		}
+		choices = append(choices, lyricsChoice{Provider: "Lyrics.ovh", ID: strconv.FormatInt(record.ID, 10), Title: record.Title, Artist: record.Artist.Name, Album: record.Album.Title, Duration: float64(record.Duration)})
+		if len(choices) == 6 {
+			break
+		}
+	}
+	return choices, nil
+}
+
+func (s *Server) HandleLyricsImport(w http.ResponseWriter, r *http.Request) {
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	if !s.acquireLyricsRequest(w) {
+		return
+	}
+	defer s.releaseLyricsRequest()
+	r.Body = http.MaxBytesReader(w, r.Body, 64<<10)
+	var request lyricsImportRequest
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		http.Error(w, "Invalid lyrics selection", http.StatusBadRequest)
+		return
+	}
+	request.Title = strings.TrimSpace(request.Title)
+	request.Artist = strings.TrimSpace(request.Artist)
+	if request.Title == "" || request.Artist == "" || len(request.Title) > 200 || len(request.Artist) > 200 {
+		http.Error(w, "Invalid song selection", http.StatusBadRequest)
+		return
+	}
+	var draft lyricsDraft
+	var err error
+	switch request.Provider {
+	case "LRCLIB":
+		draft, err = s.importLRCLIB(request)
+	case "Lyrics.ovh":
+		draft, err = s.importLyricsOvh(request)
+	default:
+		http.Error(w, "Unknown lyrics provider", http.StatusBadRequest)
+		return
+	}
+	if err != nil {
+		http.Error(w, "Unable to import that lyrics version: "+err.Error(), http.StatusBadGateway)
+		return
+	}
+	writeJSON(w, draft)
+}
+
+func (s *Server) importLRCLIB(request lyricsImportRequest) (lyricsDraft, error) {
+	id, err := strconv.ParseInt(request.ID, 10, 64)
+	if err != nil || id < 1 {
+		return lyricsDraft{}, errors.New("invalid LRCLIB result")
+	}
+	var record struct {
+		ID          int64  `json:"id"`
+		TrackName   string `json:"trackName"`
+		ArtistName  string `json:"artistName"`
+		PlainLyrics string `json:"plainLyrics"`
+	}
+	sourceURL := s.LRCLIBBaseURL + "/api/get/" + strconv.FormatInt(id, 10)
+	if err := s.fetchJSON(sourceURL, &record); err != nil {
+		return lyricsDraft{}, err
+	}
+	if strings.TrimSpace(record.PlainLyrics) == "" {
+		return lyricsDraft{}, errors.New("the selected result has no plain lyrics")
+	}
+	if record.ID != id || normalize(record.TrackName) != normalize(request.Title) || normalize(record.ArtistName) != normalize(request.Artist) {
+		return lyricsDraft{}, errors.New("the provider result no longer matches the selected recording")
+	}
+	bpm := s.lookupOriginalBPM(record.TrackName, record.ArtistName, "")
+	return lyricsDraft{Title: record.TrackName, Artist: record.ArtistName, OriginalBPM: bpm, SourceURL: sourceURL, SourceProvider: "LRCLIB", Body: structureLyrics(record.TrackName, record.PlainLyrics)}, nil
+}
+
+func (s *Server) importLyricsOvh(request lyricsImportRequest) (lyricsDraft, error) {
+	choices, err := s.searchLyricsOvh(request.Artist + " " + request.Title)
+	if err != nil {
+		return lyricsDraft{}, err
+	}
+	valid := false
+	for _, choice := range choices {
+		if choice.ID == request.ID && normalize(choice.Title) == normalize(request.Title) && normalize(choice.Artist) == normalize(request.Artist) {
+			valid = true
+			break
+		}
+	}
+	if !valid {
+		return lyricsDraft{}, errors.New("the provider result no longer matches the selected recording")
+	}
+	endpoint := s.LyricsOvhURL + "/v1/" + url.PathEscape(request.Artist) + "/" + url.PathEscape(request.Title)
+	var response struct {
+		Lyrics string `json:"lyrics"`
+	}
+	if err := s.fetchJSON(endpoint, &response); err != nil {
+		return lyricsDraft{}, err
+	}
+	if strings.TrimSpace(response.Lyrics) == "" {
+		return lyricsDraft{}, errors.New("the selected result has no lyrics")
+	}
+	bpm := s.lookupOriginalBPM(request.Title, request.Artist, request.ID)
+	return lyricsDraft{Title: request.Title, Artist: request.Artist, OriginalBPM: bpm, SourceURL: endpoint, SourceProvider: "Lyrics.ovh", Body: structureLyrics(request.Title, response.Lyrics)}, nil
+}
+
+func (s *Server) lookupOriginalBPM(title, artist, preferredID string) string {
+	id := strings.TrimSpace(preferredID)
+	if id == "" {
+		choices, err := s.searchLyricsOvh(artist + " " + title)
+		if err != nil {
+			return ""
+		}
+		for _, choice := range choices {
+			if normalize(choice.Title) == normalize(title) && normalize(choice.Artist) == normalize(artist) {
+				id = choice.ID
+				break
+			}
+		}
+	}
+	if id == "" {
+		return ""
+	}
+	var track struct {
+		BPM float64 `json:"bpm"`
+	}
+	if err := s.fetchJSON(s.DeezerBaseURL+"/track/"+url.PathEscape(id), &track); err != nil || track.BPM <= 0 {
+		return ""
+	}
+	return strconv.FormatFloat(track.BPM, 'f', -1, 64)
+}
+
+func (s *Server) fetchJSON(endpoint string, destination any) error {
+	req, err := http.NewRequest(http.MethodGet, endpoint, nil)
+	if err != nil {
+		return err
+	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("User-Agent", "kgl-songs/1.0 (+private lead-sheet app)")
+	response, err := s.HTTPClient.Do(req)
+	if err != nil {
+		return err
+	}
+	defer response.Body.Close()
+	if response.StatusCode < 200 || response.StatusCode >= 300 {
+		return fmt.Errorf("HTTP %d", response.StatusCode)
+	}
+	decoder := json.NewDecoder(io.LimitReader(response.Body, 4<<20))
+	if err := decoder.Decode(destination); err != nil {
+		return fmt.Errorf("invalid provider response: %w", err)
+	}
+	return nil
+}
+
+func (s *Server) acquireLyricsRequest(w http.ResponseWriter) bool {
+	select {
+	case s.lyricsSem <- struct{}{}:
+		return true
+	default:
+		http.Error(w, "Too many lyrics requests; try again in a moment", http.StatusTooManyRequests)
+		return false
+	}
+}
+
+func (s *Server) releaseLyricsRequest() {
+	<-s.lyricsSem
+}
+
+func authenticatedRequest(w http.ResponseWriter, r *http.Request) bool {
+	if strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) == "" {
+		http.Error(w, "Sign in through exe.dev to search or import lyrics", http.StatusUnauthorized)
+		return false
+	}
+	return true
+}
+
+func structureLyrics(title, lyrics string) string {
+	clean := strings.ReplaceAll(strings.TrimSpace(lyrics), "\r\n", "\n")
+	blocks := regexp.MustCompile(`\n\s*\n+`).Split(clean, -1)
+	stanzas := make([][]string, 0, len(blocks))
+	sectionLabel := regexp.MustCompile(`(?i)^(?:\[(?:intro|verse|pre[- ]?chorus|chorus|bridge|break|solo|outro)[^]]*\]|(?:intro|verse|pre[- ]?chorus|chorus|bridge|break|solo|outro)(?:\s+\d+)?)$`)
+	hasLabels := false
+	for _, block := range blocks {
+		var lines []string
+		for _, line := range strings.Split(strings.TrimSpace(block), "\n") {
+			if strings.TrimSpace(line) != "" {
+				lines = append(lines, strings.TrimSpace(line))
+			}
+		}
+		if len(lines) == 0 {
+			continue
+		}
+		if sectionLabel.MatchString(lines[0]) {
+			hasLabels = true
+		}
+		stanzas = append(stanzas, lines)
+	}
+	var b strings.Builder
+	b.WriteString("# " + title + "\n\n")
+	if hasLabels {
+		for _, lines := range stanzas {
+			if sectionLabel.MatchString(lines[0]) {
+				b.WriteString("### " + strings.Trim(lines[0], "[]") + "\n")
+				lines = lines[1:]
+			} else {
+				b.WriteString("### Section\n")
+			}
+			if len(lines) > 0 {
+				b.WriteString(preserveLeadSheetLineBreaks(strings.Join(lines, "\n")) + "\n\n")
+			} else {
+				b.WriteByte('\n')
+			}
+		}
+		return strings.TrimSpace(b.String()) + "\n"
+	}
+
+	chorusPattern := repeatedLyricSequence(stanzas)
+	type section struct {
+		chorus bool
+		lines  []string
+	}
+	var sections []section
+	for _, lines := range stanzas {
+		start := findLyricSequence(lines, chorusPattern)
+		if start < 0 {
+			sections = append(sections, section{lines: lines})
+			continue
+		}
+		if start > 0 {
+			sections = append(sections, section{lines: lines[:start]})
+		}
+		end := start + len(chorusPattern)
+		chorusLines := append([]string(nil), lines[start:end]...)
+		if trailing := len(lines) - end; trailing > 0 && trailing <= 2 {
+			chorusLines = append(chorusLines, lines[end:]...)
+			end = len(lines)
+		}
+		sections = append(sections, section{chorus: true, lines: chorusLines})
+		if end < len(lines) {
+			sections = append(sections, section{lines: lines[end:]})
+		}
+	}
+	verse := 0
+	for i, section := range sections {
+		switch {
+		case section.chorus:
+			b.WriteString("### Chorus\n")
+		case i == len(sections)-1 && len(section.lines) <= 2:
+			b.WriteString("### Outro\n")
+		default:
+			verse++
+			b.WriteString("### Verse " + strconv.Itoa(verse) + "\n")
+		}
+		b.WriteString(preserveLeadSheetLineBreaks(strings.Join(section.lines, "\n")) + "\n\n")
+	}
+	return strings.TrimSpace(b.String()) + "\n"
+}
+
+func repeatedLyricSequence(stanzas [][]string) []string {
+	maxLength := 0
+	for _, stanza := range stanzas {
+		if len(stanza) > maxLength {
+			maxLength = len(stanza)
+		}
+	}
+	if maxLength > 8 {
+		maxLength = 8
+	}
+	for length := maxLength; length >= 3; length-- {
+		for stanzaIndex, stanza := range stanzas {
+			for start := 0; start+length <= len(stanza); start++ {
+				candidate := stanza[start : start+length]
+				matchedStanzas := 1
+				for otherIndex := stanzaIndex + 1; otherIndex < len(stanzas); otherIndex++ {
+					if findLyricSequence(stanzas[otherIndex], candidate) >= 0 {
+						matchedStanzas++
+					}
+				}
+				if matchedStanzas >= 2 {
+					return append([]string(nil), candidate...)
+				}
+			}
+		}
+	}
+	return nil
+}
+
+func findLyricSequence(lines, sequence []string) int {
+	if len(sequence) == 0 || len(sequence) > len(lines) {
+		return -1
+	}
+	for start := 0; start+len(sequence) <= len(lines); start++ {
+		match := true
+		for i := range sequence {
+			if normalize(lines[start+i]) != normalize(sequence[i]) {
+				match = false
+				break
+			}
+		}
+		if match {
+			return start
+		}
+	}
+	return -1
+}
+
 func (s *Server) HandleSong(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	song := s.songsByID[r.PathValue("id")]
@@ -478,7 +951,7 @@ func (s *Server) HandleSongJSON(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	writeJSON(w, map[string]any{"id": song.ID, "title": song.Title, "artist": song.Artist, "key": song.Key, "bpm": song.BPM, "path": song.Path, "hash": song.Hash, "html": string(song.HTML)})
+	writeJSON(w, map[string]any{"id": song.ID, "title": song.Title, "artist": song.Artist, "key": song.Key, "bpm": song.BPM, "original_key": song.OriginalKey, "original_bpm": song.OriginalBPM, "source_url": song.SourceURL, "source_provider": song.SourceProvider, "path": song.Path, "hash": song.Hash, "html": string(song.HTML)})
 }
 
 func (s *Server) HandleCatalog(w http.ResponseWriter, r *http.Request) {
@@ -547,6 +1020,8 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("GET /song/{id}", s.HandleSong)
 	mux.HandleFunc("GET /sets/{id}", s.HandleSet)
 	mux.HandleFunc("GET /sets/{id}/live", s.HandleLiveSet)
+	mux.HandleFunc("GET /api/lyrics/search", s.HandleLyricsSearch)
+	mux.HandleFunc("POST /api/lyrics/import", s.HandleLyricsImport)
 	mux.HandleFunc("GET /api/catalog", s.HandleCatalog)
 	mux.HandleFunc("GET /api/songs/{id}", s.HandleSongJSON)
 	mux.HandleFunc("GET /api/offline/sets/{id}", s.HandleOfflineManifest)
@@ -608,7 +1083,7 @@ func shelleyNewConversationURL(hostname string) string {
 	return "https://" + host + ".shelley.exe.xyz/new"
 }
 
-func buildSongMarkdown(id, title, artist, key, bpm, sourceURL, body string) string {
+func buildSongMarkdown(id, title, artist, key, bpm, originalKey, originalBPM, sourceProvider, sourceURL, body string) string {
 	var b strings.Builder
 	b.WriteString("---\n")
 	b.WriteString("schema_version: 1\n")
@@ -623,7 +1098,20 @@ func buildSongMarkdown(id, title, artist, key, bpm, sourceURL, body string) stri
 	if bpm != "" {
 		b.WriteString("bpm: " + yamlString(bpm) + "\n")
 	}
-	b.WriteString("provenance_status: user-supplied\n")
+	if originalKey != "" {
+		b.WriteString("original_key: " + yamlString(originalKey) + "\n")
+	}
+	if originalBPM != "" {
+		b.WriteString("original_bpm: " + yamlString(originalBPM) + "\n")
+	}
+	provenanceStatus := "user-supplied"
+	if sourceProvider != "" {
+		provenanceStatus = "provider-imported-pending-review"
+	}
+	b.WriteString("provenance_status: " + provenanceStatus + "\n")
+	if sourceProvider != "" {
+		b.WriteString("source_provider: " + yamlString(sourceProvider) + "\n")
+	}
 	if sourceURL != "" {
 		b.WriteString("source_url: " + yamlString(sourceURL) + "\n")
 	}
