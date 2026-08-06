@@ -189,7 +189,34 @@
   function setupSearch() {
     const input=document.querySelector('#song-search'); if(!input)return;
     const rows=[...document.querySelectorAll('.song-row')], count=document.querySelector('#song-count'), empty=document.querySelector('#no-results');
-    input.addEventListener('input',()=>{const q=input.value.toLowerCase().replace(/[^a-z0-9]+/g,'');let shown=0;rows.forEach(row=>{const hay=row.dataset.search.toLowerCase().replace(/[^a-z0-9]+/g,'');const match=!q||hay.includes(q);row.hidden=!match;if(match)shown++;});count.textContent=`${shown} songs`;empty.hidden=shown!==0;});
+    const addMissing=document.querySelector('[data-add-missing-song]');
+    const addSong=document.querySelector('[data-add-song]');
+    const update=()=>{
+      const raw=input.value.trim();
+      const q=raw.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'');
+      let shown=0;
+      rows.forEach(row=>{
+        const hay=row.dataset.search.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'');
+        const match=!q||hay.includes(q);
+        row.hidden=!match;
+        if(match)shown++;
+      });
+      if(count) count.textContent=`${shown} songs`;
+      if(empty) empty.hidden=!raw||shown!==0;
+      const target='/songs/new'+(raw?`?title=${encodeURIComponent(raw)}`:'');
+      if(addMissing){addMissing.href=target;addMissing.textContent=raw?`Add “${raw}”`:'Add this Song';}
+      if(addSong) addSong.href=target;
+    };
+    input.addEventListener('input',update);
+    input.addEventListener('keydown',event=>{
+      if(event.key==='Escape'){input.value='';update();input.focus();}
+      if(event.key==='Enter'){
+        const visible=rows.filter(row=>!row.hidden);
+        if(visible.length===1){event.preventDefault();location.href=visible[0].href;}
+      }
+    });
+    addEventListener('keydown',event=>{if(event.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement?.tagName)){event.preventDefault();input.focus();}});
+    update();
   }
 
   async function verifySetFits(setID) {

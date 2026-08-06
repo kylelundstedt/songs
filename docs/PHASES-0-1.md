@@ -58,7 +58,9 @@ Implemented:
 - Small Go HTTP service.
 - Rebuildable SQLite catalog and Apex render cache.
 - Apex 1.1.14 rendering with plugins and unsafe HTML disabled.
-- Searchable 284-song library.
+- Searchable 284-song library with Songs/Set Lists tabs.
+- No-result searches offer a prefilled Add Song draft form.
+- Draft creation validates with Apex, commits the new Markdown file to Git, pushes it, and reindexes the catalog.
 - Individual lead-sheet views.
 - Set-list summary and one-route live set containing all 32 full-screen song panels.
 - Previous/next buttons, keyboard navigation, swipe/scroll snapping, and progress display.

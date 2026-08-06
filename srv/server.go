@@ -10,6 +10,7 @@ import (
 	"html/template"
 	"log/slog"
 	"net/http"
+	"net/url"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -59,6 +60,7 @@ type Server struct {
 	ApexPath     string
 
 	mu          sync.RWMutex
+	writeMu     sync.Mutex
 	songs       []*Song
 	songsByID   map[string]*Song
 	songsByPath map[string]*Song
@@ -67,13 +69,19 @@ type Server struct {
 }
 
 type pageData struct {
-	Title     string
-	UserEmail string
-	Songs     []*Song
-	Sets      []*SetList
-	Song      *Song
-	Set       *SetList
-	BuildTime string
+	Title       string
+	UserEmail   string
+	Songs       []*Song
+	Sets        []*SetList
+	Song        *Song
+	Set         *SetList
+	BuildTime   string
+	DraftTitle  string
+	DraftArtist string
+	DraftKey    string
+	DraftSource string
+	DraftBody   string
+	FormError   string
 }
 
 var (
@@ -283,10 +291,131 @@ func (s *Server) persistIndex(songs []*Song, sets []*SetList) error {
 func (s *Server) HandleHome(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	songs := append([]*Song(nil), s.songs...)
+	s.mu.RUnlock()
+	s.render(w, r, "home.html", pageData{Title: "Songs", UserEmail: r.Header.Get("X-ExeDev-Email"), Songs: songs, BuildTime: time.Now().Format(time.RFC3339)})
+}
+
+func (s *Server) HandleSetLists(w http.ResponseWriter, r *http.Request) {
+	s.mu.RLock()
 	sets := append([]*SetList(nil), s.sets...)
 	s.mu.RUnlock()
-	s.render(w, r, "home.html", pageData{Title: "Songs", UserEmail: r.Header.Get("X-ExeDev-Email"), Songs: songs, Sets: sets, BuildTime: time.Now().Format(time.RFC3339)})
+	s.render(w, r, "sets.html", pageData{Title: "Set Lists", UserEmail: r.Header.Get("X-ExeDev-Email"), Sets: sets})
 }
+
+func (s *Server) HandleNewSong(w http.ResponseWriter, r *http.Request) {
+	title := strings.TrimSpace(r.URL.Query().Get("title"))
+	body := ""
+	if title != "" {
+		body = "# " + title + "\n\n### Intro\n\n### Verse 1\n\n### Chorus\n"
+	}
+	s.render(w, r, "new_song.html", pageData{Title: "Add a Song", UserEmail: r.Header.Get("X-ExeDev-Email"), DraftTitle: title, DraftBody: body})
+}
+
+func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
+	if strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) == "" {
+		http.Error(w, "Sign in through exe.dev to add a song", http.StatusUnauthorized)
+		return
+	}
+	if origin := strings.TrimSpace(r.Header.Get("Origin")); origin != "" {
+		u, err := url.Parse(origin)
+		if err != nil || !strings.EqualFold(u.Host, r.Host) {
+			http.Error(w, "Cross-origin song creation is not allowed", http.StatusForbidden)
+			return
+		}
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 2<<20)
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, "Invalid song form", http.StatusBadRequest)
+		return
+	}
+	draft := pageData{
+		Title: "Add a Song", UserEmail: r.Header.Get("X-ExeDev-Email"),
+		DraftTitle: strings.TrimSpace(r.FormValue("title")), DraftArtist: strings.TrimSpace(r.FormValue("artist")),
+		DraftKey: strings.TrimSpace(r.FormValue("key")), DraftSource: strings.TrimSpace(r.FormValue("source_url")),
+		DraftBody: strings.TrimSpace(r.FormValue("body")),
+	}
+	if draft.DraftTitle == "" {
+		draft.FormError = "Song title is required."
+		s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
+		return
+	}
+	if draft.DraftSource != "" {
+		u, err := url.Parse(draft.DraftSource)
+		if err != nil || u.Scheme != "https" || u.Host == "" {
+			draft.FormError = "Source URL must be a complete HTTPS URL."
+			s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
+			return
+		}
+	}
+	id := slugify(draft.DraftTitle)
+	if id == "" {
+		draft.FormError = "The title cannot produce a usable filename."
+		s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
+		return
+	}
+	body := draft.DraftBody
+	if body == "" {
+		body = "# " + draft.DraftTitle + "\n\n### Intro\n\n### Verse 1\n\n### Chorus"
+	}
+	if titleFromMarkdown(body) == "" {
+		body = "# " + draft.DraftTitle + "\n\n" + body
+	}
+	markdown := buildSongMarkdown(id, draft.DraftTitle, draft.DraftArtist, draft.DraftKey, draft.DraftSource, body)
+	if err := s.createSongFile(id, markdown); err != nil {
+		if errors.Is(err, os.ErrExist) {
+			draft.FormError = "A song with this filename already exists. Search for it or choose a more specific title."
+			s.renderStatus(w, r, "new_song.html", draft, http.StatusConflict)
+			return
+		}
+		draft.FormError = err.Error()
+		s.renderStatus(w, r, "new_song.html", draft, http.StatusInternalServerError)
+		return
+	}
+	http.Redirect(w, r, "/song/"+id, http.StatusSeeOther)
+}
+
+func (s *Server) createSongFile(id, markdown string) error {
+	s.writeMu.Lock()
+	defer s.writeMu.Unlock()
+	path := filepath.Join(s.RepoRoot, "songs", id+".md")
+	if _, err := os.Stat(path); err == nil {
+		return os.ErrExist
+	} else if !errors.Is(err, os.ErrNotExist) {
+		return err
+	}
+	temp, err := os.CreateTemp(filepath.Dir(path), ".song-*.md")
+	if err != nil {
+		return fmt.Errorf("create draft: %w", err)
+	}
+	tempPath := temp.Name()
+	defer os.Remove(tempPath)
+	if _, err := temp.WriteString(markdown); err != nil {
+		temp.Close()
+		return fmt.Errorf("write draft: %w", err)
+	}
+	if err := temp.Close(); err != nil {
+		return err
+	}
+	cmd := exec.Command(s.ApexPath, "--no-plugins", "--no-unsafe", "--aria", "--mode", "unified", "--to", "html", tempPath)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		return fmt.Errorf("Apex could not render the draft: %s", strings.TrimSpace(string(out)))
+	}
+	if err := os.Rename(tempPath, path); err != nil {
+		return fmt.Errorf("publish song: %w", err)
+	}
+	rel := filepath.ToSlash(mustRel(s.RepoRoot, path))
+	if out, err := gitCommand(s.RepoRoot, "add", "--", rel); err != nil {
+		return fmt.Errorf("git add: %s", out)
+	}
+	if out, err := gitCommand(s.RepoRoot, "commit", "-m", "Add lead sheet: "+titleFromMarkdown(markdown), "--", rel); err != nil {
+		return fmt.Errorf("git commit: %s", out)
+	}
+	if out, err := gitCommand(s.RepoRoot, "push", "origin", "main"); err != nil {
+		slog.Error("push new song", "path", rel, "error", err, "output", out)
+	}
+	return s.Reindex()
+}
+
 func (s *Server) HandleSong(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	song := s.songsByID[r.PathValue("id")]
@@ -361,6 +490,10 @@ func (s *Server) HandleReindex(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) render(w http.ResponseWriter, r *http.Request, name string, data pageData) {
+	s.renderStatus(w, r, name, data, http.StatusOK)
+}
+
+func (s *Server) renderStatus(w http.ResponseWriter, r *http.Request, name string, data pageData, status int) {
 	setSecurityHeaders(w)
 	path := filepath.Join(s.TemplatesDir, name)
 	tmpl, err := template.ParseFiles(path)
@@ -370,6 +503,7 @@ func (s *Server) render(w http.ResponseWriter, r *http.Request, name string, dat
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.WriteHeader(status)
 	if err := tmpl.Execute(w, data); err != nil {
 		slog.Error("execute template", "error", err)
 	}
@@ -377,6 +511,10 @@ func (s *Server) render(w http.ResponseWriter, r *http.Request, name string, dat
 func (s *Server) Serve(addr string) error {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /{$}", s.HandleHome)
+	mux.HandleFunc("GET /songs", s.HandleHome)
+	mux.HandleFunc("GET /songs/new", s.HandleNewSong)
+	mux.HandleFunc("POST /songs", s.HandleCreateSong)
+	mux.HandleFunc("GET /set-lists", s.HandleSetLists)
 	mux.HandleFunc("GET /song/{id}", s.HandleSong)
 	mux.HandleFunc("GET /sets/{id}", s.HandleSet)
 	mux.HandleFunc("GET /sets/{id}/live", s.HandleLiveSet)
@@ -396,6 +534,40 @@ func (s *Server) Serve(addr string) error {
 	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir(s.StaticDir))))
 	slog.Info("starting songs server", "addr", addr, "repo", s.RepoRoot)
 	return http.ListenAndServe(addr, mux)
+}
+
+func buildSongMarkdown(id, title, artist, key, sourceURL, body string) string {
+	var b strings.Builder
+	b.WriteString("---\n")
+	b.WriteString("schema_version: 1\n")
+	b.WriteString("id: " + yamlString(id) + "\n")
+	b.WriteString("title: " + yamlString(title) + "\n")
+	if artist != "" {
+		b.WriteString("artist: " + yamlString(artist) + "\n")
+	}
+	if key != "" {
+		b.WriteString("performance_key: " + yamlString(key) + "\n")
+	}
+	b.WriteString("provenance_status: user-supplied\n")
+	if sourceURL != "" {
+		b.WriteString("source_url: " + yamlString(sourceURL) + "\n")
+	}
+	b.WriteString("---\n\n")
+	b.WriteString(strings.TrimSpace(body))
+	b.WriteByte('\n')
+	return b.String()
+}
+
+func yamlString(value string) string {
+	encoded, _ := json.Marshal(value)
+	return string(encoded)
+}
+
+func gitCommand(root string, args ...string) (string, error) {
+	cmd := exec.Command("git", args...)
+	cmd.Dir = root
+	out, err := cmd.CombinedOutput()
+	return strings.TrimSpace(string(out)), err
 }
 
 func titleFromMarkdown(s string) string {

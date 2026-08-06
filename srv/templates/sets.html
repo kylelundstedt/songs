@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" data-theme="stage">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10151c"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>Set Lists · Songs</title>
+</head>
+<body>
+<header class="app-header">
+  <nav class="tabs" aria-label="Main navigation"><a class="tab" href="/songs">Songs</a><a class="tab active" href="/set-lists" aria-current="page">Set Lists</a></nav>
+  <button data-theme-toggle type="button">Bright</button>
+</header>
+<main class="library-shell sets-screen">
+  <div class="screen-title"><h1>Set Lists</h1></div>
+  {{if .Sets}}<div class="set-grid">{{range .Sets}}<article class="set-card"><p class="eyebrow">{{.Date}}</p><h2><a href="/sets/{{.ID}}">{{.Title}}</a></h2><p>{{len .Items}} songs{{if .Location}} · {{.Location}}{{end}}</p><a class="button primary" href="/sets/{{.ID}}/live">Open Live</a></article>{{end}}</div>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
+</main>
+<script src="/static/app.js" defer></script>
+</body></html>

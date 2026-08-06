@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" data-theme="stage">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10151c"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>Add a Song · Songs</title>
+</head>
+<body>
+<header class="app-header">
+  <nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs</a><a class="tab" href="/set-lists">Set Lists</a></nav>
+  <button data-theme-toggle type="button">Bright</button>
+</header>
+<main class="form-shell">
+  <header class="form-heading"><p class="eyebrow">New lead sheet</p><h1>Add a Song</h1><p>Start with an approximate title, then paste or structure the material you want to use. Web-assisted retrieval will be added as a separate reviewed source adapter.</p></header>
+  {{if .FormError}}<div class="form-error" role="alert">{{.FormError}}</div>{{end}}
+  <form class="song-form" method="post" action="/songs">
+    <label><span>Song title</span><input name="title" value="{{.DraftTitle}}" required autofocus autocomplete="off" placeholder="Approximate song title"></label>
+    <div class="form-row"><label><span>Artist <small>optional</small></span><input name="artist" value="{{.DraftArtist}}" autocomplete="off"></label><label><span>Performance key <small>optional</small></span><input name="key" value="{{.DraftKey}}" autocomplete="off" placeholder="E, Am, F#…"></label></div>
+    <label><span>Source URL <small>optional, HTTPS</small></span><input name="source_url" type="url" value="{{.DraftSource}}" placeholder="https://…"></label>
+    <label><span>Lead-sheet Markdown</span><textarea name="body" rows="24" spellcheck="true" placeholder="# Song title\n\n### Verse 1\n…">{{.DraftBody}}</textarea></label>
+    <div class="form-actions"><a class="button" href="/songs">Cancel</a><button class="button primary" type="submit">Create Draft</button></div>
+  </form>
+</main>
+<script src="/static/app.js" defer></script>
+</body></html>

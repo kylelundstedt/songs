@@ -5,7 +5,7 @@
   <meta name="theme-color" content="#10151c"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>{{.Song.Title}} · Songs</title>
 </head>
 <body class="song-page">
-<header class="app-header"><a class="brand" href="/">Songs</a><div class="header-actions"><button data-theme-toggle type="button">Bright mode</button></div></header>
+<header class="app-header"><nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs</a><a class="tab" href="/set-lists">Set Lists</a></nav><div class="header-actions"><button data-theme-toggle type="button">Bright</button></div></header>
 <main class="single-song-shell">
   <article class="lead-sheet-panel" data-lead-sheet data-song-id="{{.Song.ID}}">
     <header class="sheet-header"><div><p class="eyebrow">Lead sheet</p><h1>{{.Song.Title}}</h1></div><span class="fit-badge" data-fit-badge>Measuring…</span></header>
