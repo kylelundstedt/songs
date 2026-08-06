@@ -76,23 +76,17 @@ Baby, we were born to-
   
 ### Intro Vamp  8x  
 
--runnnnnnnnnn  
-Oh, honey, tramps like us  
+-runnnnnnnnnn; Oh, honey, tramps like us  
 Baby, we were born to runnnnn  
 Come on, Wendy, tramps like us  
 Baby, we were born to-  
   
 ### Intro Vamp  8x  
 
--runnnnnnnnnn  
-Whoah-oh-oh  
-Mm-mm-mm-mm  
-Uh-uh-uh-oh-oh-oh-oh  
-Ru-uh-uh-uh-ohhhh  
+-runnnnnnnnnn; Whoah-oh-oh; Mm-mm-mm-mm  
+Uh-uh-uh-oh-oh-oh-oh; Ru-uh-uh-uh-ohhhh  
   
 ### Intro Vamp  8x  
 
-Mm-mm-mm-mm  
-Whoa-oh-oh-oh  
-Whoa-oh-oh-oh  
-Ru-uh-uh-uh-ohhhh  
+Mm-mm-mm-mm; Whoa-oh-oh-oh  
+Whoa-oh-oh-oh; Ru-uh-uh-uh-ohhhh  
