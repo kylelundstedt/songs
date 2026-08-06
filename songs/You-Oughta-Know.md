@@ -1,3 +1,22 @@
+---
+artist: "Alanis Morissette"
+performance_key: "F#m"
+reference_title: "You Oughta Know"
+reference_artist: "Alanis Morissette"
+reference_album: "Oh What a Feeling"
+reference_duration_seconds: 250.0
+original_bpm: "105.2"
+deezer_track_id: "109843288"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37016114"
+lyrics_reference_url: "https://lrclib.net/api/get/37016114"
+metadata_confidence: 0.9857
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/You-Oughta-Know.md"
+metadata_review_status: "reviewed"
+---
+
 # You Oughta Know
 
 

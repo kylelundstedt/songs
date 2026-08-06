@@ -1,3 +1,22 @@
+---
+artist: "Lizzo"
+reference_title: "Juice"
+reference_artist: "Lizzo"
+reference_album: "The Soulful Harmonies"
+reference_duration_seconds: 195.0
+recording_mbid: "f1be604c-d753-47d1-9faa-6c5d8fe0a832"
+original_bpm: "119.84"
+deezer_track_id: "666286232"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37051892"
+lyrics_reference_url: "https://lrclib.net/api/get/37051892"
+metadata_confidence: 0.9035
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Juice.md"
+metadata_review_status: "reviewed"
+---
+
 # Juice  
 
 ### Intro  8x  

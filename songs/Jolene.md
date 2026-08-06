@@ -1,3 +1,19 @@
+---
+artist: "Dolly Parton"
+reference_title: "Jolene"
+reference_artist: "Dolly Parton"
+reference_album: "Dolly Parton Gold: Greatest Hits"
+reference_duration_seconds: 157.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36984434"
+lyrics_reference_url: "https://lrclib.net/api/get/36984434"
+metadata_confidence: 0.984
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Jolene.md"
+metadata_review_status: "reviewed"
+---
+
 # Jolene
 
 Dolly Parton  
