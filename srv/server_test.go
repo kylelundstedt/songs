@@ -138,6 +138,53 @@ func TestCreateSongWorkflow(t *testing.T) {
 	}
 }
 
+func TestDirectMarkdownEditWorkflow(t *testing.T) {
+	server := fixtureServer(t)
+	get := httptest.NewRequest(http.MethodGet, "/api/songs/test-song/markdown", nil)
+	get.SetPathValue("id", "test-song")
+	get.Header.Set("X-ExeDev-UserID", "test-user")
+	getW := httptest.NewRecorder()
+	server.HandleSongMarkdown(getW, get)
+	if getW.Code != http.StatusOK || getW.Header().Get("Cache-Control") != "no-store" {
+		t.Fatalf("get status=%d cache=%q body=%s", getW.Code, getW.Header().Get("Cache-Control"), getW.Body.String())
+	}
+	var source struct {
+		Markdown string `json:"markdown"`
+		Hash     string `json:"hash"`
+	}
+	if err := json.Unmarshal(getW.Body.Bytes(), &source); err != nil || source.Hash == "" {
+		t.Fatalf("source=%#v err=%v", source, err)
+	}
+	revised := strings.Replace(source.Markdown, "### Verse 16X", "### Verse 14x", 1)
+	payload, _ := json.Marshal(markdownUpdateRequest{Markdown: revised, ExpectedHash: source.Hash})
+	put := httptest.NewRequest(http.MethodPut, "/api/songs/test-song/markdown", strings.NewReader(string(payload)))
+	put.SetPathValue("id", "test-song")
+	put.Header.Set("X-ExeDev-UserID", "test-user")
+	put.Header.Set("Content-Type", "application/json")
+	putW := httptest.NewRecorder()
+	server.HandleUpdateSongMarkdown(putW, put)
+	if putW.Code != http.StatusOK {
+		t.Fatalf("put status=%d body=%s", putW.Code, putW.Body.String())
+	}
+	body, err := os.ReadFile(filepath.Join(server.RepoRoot, "songs", "Test-Song.md"))
+	info, statErr := os.Stat(filepath.Join(server.RepoRoot, "songs", "Test-Song.md"))
+	if err != nil || statErr != nil {
+		t.Fatalf("read err=%v stat err=%v", err, statErr)
+	}
+	if !strings.Contains(string(body), "### Verse 14x") || info.Mode().Perm() != 0o644 {
+		t.Fatalf("body=%s mode=%v", body, info.Mode().Perm())
+	}
+	stalePayload, _ := json.Marshal(markdownUpdateRequest{Markdown: strings.Replace(revised, "14x", "12x", 1), ExpectedHash: source.Hash})
+	stale := httptest.NewRequest(http.MethodPut, "/api/songs/test-song/markdown", strings.NewReader(string(stalePayload)))
+	stale.SetPathValue("id", "test-song")
+	stale.Header.Set("X-ExeDev-UserID", "test-user")
+	staleW := httptest.NewRecorder()
+	server.HandleUpdateSongMarkdown(staleW, stale)
+	if staleW.Code != http.StatusConflict {
+		t.Fatalf("stale status=%d body=%s", staleW.Code, staleW.Body.String())
+	}
+}
+
 func TestLyricsProviderWorkflow(t *testing.T) {
 	provider := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
@@ -307,6 +354,9 @@ func TestHelpers(t *testing.T) {
 	request.Header.Set("Origin", "https://songs.example")
 	if !sameOriginMutation(request) {
 		t.Fatal("same-origin mutation rejected")
+	}
+	if got := preserveMarkdownLineEndings("one\r\ntwo\r\n", "one\ntwo\n"); got != "one\r\ntwo\r\n" {
+		t.Fatalf("CRLF not preserved: %q", got)
 	}
 	body := preserveLeadSheetLineBreaks("# Demo\n\nFirst line\nSecond line\n\n### Chorus\nThird line\nFourth line")
 	if !strings.Contains(body, "First line  \nSecond line") || !strings.Contains(body, "Third line  \nFourth line") {

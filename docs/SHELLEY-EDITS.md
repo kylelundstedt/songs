@@ -13,3 +13,7 @@ The endpoint is deliberately narrower than a general coding-agent session:
 - The file hash is checked again before publication to reject concurrent changes.
 
 General application changes still use the full Shelley conversation link from non-song pages.
+
+## Direct Markdown editing
+
+Song and live-set pages also expose **Edit Markdown**. The editor loads the complete canonical file, including front matter, and saves it with an optimistic source hash. The server rejects stale saves, validates the result with Apex, writes only the indexed song path, commits and pushes the revision, and rebuilds the search index.

@@ -127,6 +127,11 @@ type lyricsImportRequest struct {
 	Artist   string `json:"artist"`
 }
 
+type markdownUpdateRequest struct {
+	Markdown     string `json:"markdown"`
+	ExpectedHash string `json:"expected_hash"`
+}
+
 type shelleyEditRequest struct {
 	Prompt string `json:"prompt"`
 	SongID string `json:"song_id"`
@@ -151,8 +156,10 @@ type lyricsDraft struct {
 }
 
 var (
-	h1Pattern      = regexp.MustCompile(`(?m)^#\s+(.+?)\s*$`)
-	setItemPattern = regexp.MustCompile(`^\s*\d+\.\s+\[([^]]+)\]\(([^)]+)\)\s*(.*)$`)
+	errSongChanged   = errors.New("the song changed while you were editing; reload and try again")
+	errSongUnchanged = errors.New("the Markdown has no changes to save")
+	h1Pattern        = regexp.MustCompile(`(?m)^#\s+(.+?)\s*$`)
+	setItemPattern   = regexp.MustCompile(`^\s*\d+\.\s+\[([^]]+)\]\(([^)]+)\)\s*(.*)$`)
 )
 
 func New(dbPath, hostname, repoRoot string) (*Server, error) {
@@ -496,6 +503,10 @@ func (s *Server) createSongFile(id, markdown string) error {
 		temp.Close()
 		return fmt.Errorf("write draft: %w", err)
 	}
+	if err := temp.Chmod(0o644); err != nil {
+		temp.Close()
+		return err
+	}
 	if err := temp.Close(); err != nil {
 		return err
 	}
@@ -826,7 +837,7 @@ func sameOriginMutation(r *http.Request) bool {
 
 func authenticatedRequest(w http.ResponseWriter, r *http.Request) bool {
 	if strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) == "" {
-		http.Error(w, "Sign in through exe.dev to search or import lyrics", http.StatusUnauthorized)
+		http.Error(w, "Sign in through exe.dev to continue", http.StatusUnauthorized)
 		return false
 	}
 	return true
@@ -1201,6 +1212,71 @@ func (s *Server) HandleSongJSON(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, map[string]any{"id": song.ID, "title": song.Title, "artist": song.Artist, "key": song.Key, "bpm": song.BPM, "original_key": song.OriginalKey, "original_bpm": song.OriginalBPM, "source_url": song.SourceURL, "source_provider": song.SourceProvider, "path": song.Path, "hash": song.Hash, "html": string(song.HTML)})
 }
 
+func (s *Server) HandleSongMarkdown(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-store")
+	w.Header().Add("Vary", "X-ExeDev-UserID")
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	s.mu.RLock()
+	song := s.songsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if song == nil {
+		http.NotFound(w, r)
+		return
+	}
+	markdown, err := os.ReadFile(filepath.Join(s.RepoRoot, filepath.FromSlash(song.Path)))
+	if err != nil {
+		http.Error(w, "Unable to read canonical Markdown", http.StatusInternalServerError)
+		return
+	}
+	writeJSON(w, map[string]any{"id": song.ID, "title": song.Title, "markdown": string(markdown), "hash": hashBytes(markdown)})
+}
+
+func (s *Server) HandleUpdateSongMarkdown(w http.ResponseWriter, r *http.Request) {
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	if !sameOriginMutation(r) {
+		http.Error(w, "Cross-site edit requests are not allowed", http.StatusForbidden)
+		return
+	}
+	s.mu.RLock()
+	song := s.songsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if song == nil {
+		http.NotFound(w, r)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 2<<20)
+	var request markdownUpdateRequest
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		http.Error(w, "Invalid Markdown update", http.StatusBadRequest)
+		return
+	}
+	if request.ExpectedHash == "" || len(request.Markdown) > 1<<20 || strings.ContainsRune(request.Markdown, '\x00') {
+		http.Error(w, "Invalid canonical Markdown", http.StatusBadRequest)
+		return
+	}
+	title := titleFromMarkdown(request.Markdown)
+	if title == "" {
+		http.Error(w, "Canonical Markdown must contain an H1 song title", http.StatusBadRequest)
+		return
+	}
+	warning, err := s.publishSongRevision(song.Path, request.ExpectedHash, request.Markdown, title)
+	if err != nil {
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		} else if errors.Is(err, errSongUnchanged) {
+			status = http.StatusBadRequest
+		}
+		http.Error(w, err.Error(), status)
+		return
+	}
+	writeJSON(w, map[string]any{"ok": true, "id": song.ID, "title": title, "warning": warning})
+}
+
 func (s *Server) HandleCatalog(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	songs := append([]*Song(nil), s.songs...)
@@ -1307,11 +1383,16 @@ func (s *Server) runShelleyEdit(jobID string, request shelleyEditRequest, songPa
 		s.updateShelleyJob(jobID, "error", "Shelley could not produce a safe focused edit: "+err.Error())
 		return
 	}
-	if err := s.publishSongRevision(songPath, hashBytes(original), revised, title); err != nil {
+	warning, err := s.publishSongRevision(songPath, hashBytes(original), revised, title)
+	if err != nil {
 		s.updateShelleyJob(jobID, "error", "Unable to publish the focused edit: "+err.Error())
 		return
 	}
-	s.updateShelleyJob(jobID, "done", "Change complete. Reload the page to see it.")
+	message := "Change complete. Reload the page to see it."
+	if warning != "" {
+		message += " " + warning
+	}
+	s.updateShelleyJob(jobID, "done", message)
 }
 
 type focusedLineEdit struct {
@@ -1469,50 +1550,93 @@ func (s *Server) requestFocusedModel(prompt string, maxOutput int) (string, erro
 	return output.String(), nil
 }
 
-func (s *Server) publishSongRevision(songPath, expectedHash, markdown, title string) error {
+func (s *Server) publishSongRevision(songPath, expectedHash, markdown, title string) (string, error) {
 	s.writeMu.Lock()
 	defer s.writeMu.Unlock()
 	path := filepath.Join(s.RepoRoot, filepath.FromSlash(songPath))
 	current, err := os.ReadFile(path)
 	if err != nil {
-		return err
+		return "", err
 	}
 	if hashBytes(current) != expectedHash {
-		return errors.New("the song changed while Shelley was working; reload and try again")
+		return "", errSongChanged
+	}
+	markdown = preserveMarkdownLineEndings(string(current), markdown)
+	if string(current) == markdown {
+		return "", errSongUnchanged
 	}
 	if status, err := gitCommand(s.RepoRoot, "status", "--porcelain", "--", songPath); err != nil || strings.TrimSpace(status) != "" {
-		return errors.New("the song has an uncommitted change; commit or discard it first")
+		return "", errors.New("the song has an uncommitted change; commit or discard it first")
 	}
-	temp, err := os.CreateTemp(filepath.Dir(path), ".shelley-edit-*.md")
+	info, err := os.Stat(path)
 	if err != nil {
-		return err
+		return "", err
+	}
+	temp, err := os.CreateTemp(filepath.Dir(path), ".song-edit-*.md")
+	if err != nil {
+		return "", err
 	}
 	tempPath := temp.Name()
 	defer os.Remove(tempPath)
 	if _, err := temp.WriteString(markdown); err != nil {
 		temp.Close()
-		return err
+		return "", err
+	}
+	if err := temp.Chmod(info.Mode().Perm()); err != nil {
+		temp.Close()
+		return "", err
 	}
 	if err := temp.Close(); err != nil {
-		return err
+		return "", err
 	}
 	cmd := exec.Command(s.ApexPath, "--no-plugins", "--no-unsafe", "--aria", "--mode", "unified", "--to", "html", tempPath)
 	if output, err := cmd.CombinedOutput(); err != nil {
-		return fmt.Errorf("Apex validation failed: %s", strings.TrimSpace(string(output)))
+		return "", fmt.Errorf("Apex validation failed: %s", strings.TrimSpace(string(output)))
+	}
+	latest, err := os.ReadFile(path)
+	if err != nil {
+		return "", err
+	}
+	if hashBytes(latest) != expectedHash {
+		return "", errSongChanged
 	}
 	if err := os.Rename(tempPath, path); err != nil {
-		return err
+		return "", err
+	}
+	rollback := func() {
+		if err := os.WriteFile(path, current, info.Mode().Perm()); err != nil {
+			slog.Error("restore song after failed edit", "path", songPath, "error", err)
+		}
+		_, _ = gitCommand(s.RepoRoot, "reset", "--", songPath)
+		if err := s.Reindex(); err != nil {
+			slog.Error("restore index after failed edit", "path", songPath, "error", err)
+		}
+	}
+	if err := s.Reindex(); err != nil {
+		rollback()
+		return "", fmt.Errorf("reindex validation failed: %w", err)
 	}
 	if output, err := gitCommand(s.RepoRoot, "add", "--", songPath); err != nil {
-		return fmt.Errorf("git add: %s", output)
+		rollback()
+		return "", fmt.Errorf("git add: %s", output)
 	}
 	if output, err := gitCommand(s.RepoRoot, "commit", "-m", "Update lead sheet: "+title, "--", songPath); err != nil {
-		return fmt.Errorf("git commit: %s", output)
+		rollback()
+		return "", fmt.Errorf("git commit: %s", output)
 	}
 	if output, err := gitCommand(s.RepoRoot, "push", "origin", "main"); err != nil {
-		return fmt.Errorf("git push: %s", output)
+		slog.Error("push song revision", "path", songPath, "error", err, "output", output)
+		return "Saved and committed locally, but the Git push failed; it will need to be retried.", nil
 	}
-	return s.Reindex()
+	return "", nil
+}
+
+func preserveMarkdownLineEndings(current, revised string) string {
+	revised = strings.ReplaceAll(revised, "\r\n", "\n")
+	if strings.Contains(current, "\r\n") {
+		return strings.ReplaceAll(revised, "\n", "\r\n")
+	}
+	return revised
 }
 
 func splitSongFrontMatter(markdown string) (string, string) {
@@ -1606,6 +1730,8 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("POST /api/lyrics/import", s.HandleLyricsImport)
 	mux.HandleFunc("GET /api/catalog", s.HandleCatalog)
 	mux.HandleFunc("GET /api/songs/{id}", s.HandleSongJSON)
+	mux.HandleFunc("GET /api/songs/{id}/markdown", s.HandleSongMarkdown)
+	mux.HandleFunc("PUT /api/songs/{id}/markdown", s.HandleUpdateSongMarkdown)
 	mux.HandleFunc("GET /api/offline/sets/{id}", s.HandleOfflineManifest)
 	mux.HandleFunc("POST /api/shelley/edit", s.HandleShelleyEdit)
 	mux.HandleFunc("GET /api/shelley/jobs/{id}", s.HandleShelleyJob)

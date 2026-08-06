@@ -244,6 +244,16 @@
     update();
   }
 
+  function currentVisibleSongID() {
+    const direct = document.querySelector('.lead-sheet-panel[data-song-id]');
+    if (direct) return direct.dataset.songId || '';
+    const panels = [...document.querySelectorAll('[data-live-panel][data-song-id]')];
+    if (!panels.length) return '';
+    const middle = innerHeight / 2;
+    panels.sort((a,b)=>Math.abs(a.getBoundingClientRect().top+a.offsetHeight/2-middle)-Math.abs(b.getBoundingClientRect().top+b.offsetHeight/2-middle));
+    return panels[0].dataset.songId || '';
+  }
+
   function setupShelleyEditor() {
     const triggers = [...document.querySelectorAll('[data-shelley-edit]')];
     if (!triggers.length || !('HTMLDialogElement' in window)) return;
@@ -258,15 +268,6 @@
     const cancel = dialog.querySelector('[data-shelley-cancel]');
     const close = dialog.querySelector('.dialog-close');
     let completed = false;
-    const currentSongID = () => {
-      const direct = document.querySelector('.lead-sheet-panel[data-song-id]');
-      if (direct) return direct.dataset.songId || '';
-      const panels = [...document.querySelectorAll('[data-live-panel][data-song-id]')];
-      if (!panels.length) return '';
-      const middle = innerHeight / 2;
-      panels.sort((a,b)=>Math.abs(a.getBoundingClientRect().top+a.offsetHeight/2-middle)-Math.abs(b.getBoundingClientRect().top+b.offsetHeight/2-middle));
-      return panels[0].dataset.songId || '';
-    };
     const closeDialog = () => { if (!submit.disabled) dialog.close(); };
     dialog.addEventListener('cancel',event=>{if(submit.disabled)event.preventDefault();});
     close.addEventListener('click',closeDialog);
@@ -292,7 +293,7 @@
       if (completed) { location.reload(); return; }
       const prompt = textarea.value.trim();
       if (prompt.length < 3) { status.textContent='Describe the requested change.'; textarea.focus(); return; }
-      const songID = currentSongID();
+      const songID = currentVisibleSongID();
       if (!songID) { status.textContent='Open a song or live-set song to request a focused edit.'; return; }
       submit.disabled=true; cancel.disabled=true; close.disabled=true; status.textContent='Sending the focused edit to Shelley…';
       try {
@@ -303,6 +304,63 @@
         completed=true; submit.disabled=false; close.disabled=false; submit.textContent='Reload page'; status.textContent='Change complete. Reload to see the updated lead sheet.';
       } catch (error) {
         status.textContent=error.message; submit.disabled=false; cancel.disabled=false; close.disabled=false;
+      }
+    });
+  }
+
+  function setupMarkdownEditor() {
+    const triggers = [...document.querySelectorAll('[data-markdown-edit]')];
+    if (!triggers.length || !('HTMLDialogElement' in window)) return;
+    const dialog = document.createElement('dialog');
+    dialog.className = 'shelley-dialog markdown-dialog';
+    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Canonical source</p><h2>Edit Markdown</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><p class="dialog-help">Edit the complete Git-backed song file. Saving validates it with Apex, commits it, and refreshes the library.</p><label><span>Lead-sheet Markdown</span><textarea name="markdown" required spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></label><p class="shelley-job-status" data-markdown-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-markdown-cancel>Cancel</button><button class="button primary" type="submit" data-markdown-save>Save Markdown</button></div></form>`;
+    document.body.append(dialog);
+    const form = dialog.querySelector('form');
+    const textarea = dialog.querySelector('textarea');
+    const status = dialog.querySelector('[data-markdown-status]');
+    const save = dialog.querySelector('[data-markdown-save]');
+    const cancel = dialog.querySelector('[data-markdown-cancel]');
+    const close = dialog.querySelector('.dialog-close');
+    let songID = '', expectedHash = '', initialMarkdown = '', saving = false, saved = false, loadVersion = 0;
+    const requestClose = () => {
+      if (saving) return;
+      if (!saved && textarea.value !== initialMarkdown && !confirm('Discard your unsaved Markdown changes?')) return;
+      loadVersion++;
+      dialog.close();
+    };
+    dialog.addEventListener('cancel',event=>{event.preventDefault();requestClose();});
+    close.addEventListener('click',requestClose);
+    cancel.addEventListener('click',requestClose);
+    textarea.addEventListener('keydown',event=>{
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase()==='s') { event.preventDefault(); form.requestSubmit(); }
+    });
+    triggers.forEach(button=>button.addEventListener('click',async()=>{
+      const version=++loadVersion;
+      songID = currentVisibleSongID(); expectedHash=''; initialMarkdown=''; saved=false; saving=false;
+      textarea.value=''; textarea.disabled=true; save.disabled=true; cancel.disabled=false; close.disabled=false; save.textContent='Save Markdown';
+      status.textContent='Loading canonical Markdown…'; dialog.showModal();
+      if (!songID) { status.textContent='No song is currently selected.'; return; }
+      try {
+        const response = await fetch(`/api/songs/${encodeURIComponent(songID)}/markdown`,{cache:'no-store'});
+        if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to load Markdown');
+        const data = await response.json();
+        if (version !== loadVersion || !dialog.open) return;
+        expectedHash=data.hash; textarea.value=data.markdown; initialMarkdown=textarea.value; textarea.disabled=false; save.disabled=false; status.textContent='';
+        setTimeout(()=>textarea.focus(),0);
+      } catch (error) { status.textContent=error.message; }
+    }));
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();
+      if (saved) { location.reload(); return; }
+      if (!songID || !expectedHash || textarea.disabled) return;
+      saving=true; textarea.disabled=true; save.disabled=true; cancel.disabled=true; close.disabled=true; status.textContent='Validating and saving Markdown…';
+      try {
+        const response = await fetch(`/api/songs/${encodeURIComponent(songID)}/markdown`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({markdown:textarea.value,expected_hash:expectedHash})});
+        if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to save Markdown');
+        const result = await response.json();
+        initialMarkdown=textarea.value; saved=true; saving=false; save.disabled=false; close.disabled=false; save.textContent='Reload page'; status.textContent=result.warning || 'Markdown saved, committed, pushed, and indexed. Reload to see the updated lead sheet.';
+      } catch (error) {
+        saving=false; textarea.disabled=false; save.disabled=false; cancel.disabled=false; close.disabled=false; status.textContent=error.message;
       }
     });
   }
@@ -432,7 +490,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupTheme(); setupSearch(); setupShelleyEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupTheme(); setupSearch(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();
