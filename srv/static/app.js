@@ -406,7 +406,7 @@
     if (!triggers.length || !('HTMLDialogElement' in window)) return;
     const dialog = document.createElement('dialog');
     dialog.className = 'shelley-dialog markdown-dialog';
-    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Canonical source</p><h2>Edit Markdown</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><p class="dialog-help">Edit the complete Git-backed song file. Saving validates it with Apex, commits it, and refreshes the library.</p><label><span>Lead-sheet Markdown</span><textarea name="markdown" required spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></label><p class="shelley-job-status" data-markdown-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-markdown-cancel>Cancel</button><button class="button primary" type="submit" data-markdown-save>Save Markdown</button></div></form>`;
+    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Canonical source</p><h2>Edit Markdown</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><p class="dialog-help">Edit the complete Git-backed song file. Saving validates it with Apex, commits it, and refreshes the library.</p><label><span>Lead-sheet Markdown</span><textarea name="markdown" required aria-label="Lead-sheet Markdown" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></label><p class="shelley-job-status" data-markdown-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-markdown-cancel>Cancel</button><button class="button primary" type="submit" data-markdown-save>Save Markdown</button></div></form>`;
     document.body.append(dialog);
     const form = dialog.querySelector('form');
     const textarea = dialog.querySelector('textarea');
@@ -415,6 +415,13 @@
     const cancel = dialog.querySelector('[data-markdown-cancel]');
     const close = dialog.querySelector('.dialog-close');
     let songID = '', expectedHash = '', initialMarkdown = '', saving = false, saved = false, loadVersion = 0;
+    const syncEditorViewport = () => {
+      const viewport=window.visualViewport;
+      dialog.style.setProperty('--editor-viewport-height',`${Math.round(viewport?.height||innerHeight)}px`);
+      dialog.style.setProperty('--editor-viewport-top',`${Math.round(viewport?.offsetTop||0)}px`);
+    };
+    window.visualViewport?.addEventListener('resize',syncEditorViewport);
+    window.visualViewport?.addEventListener('scroll',syncEditorViewport);
     const requestClose = () => {
       if (saving) return;
       if (!saved && textarea.value !== initialMarkdown && !confirm('Discard your unsaved Markdown changes?')) return;
@@ -431,7 +438,7 @@
       const version=++loadVersion;
       songID = currentVisibleSongID(); expectedHash=''; initialMarkdown=''; saved=false; saving=false;
       textarea.value=''; textarea.disabled=true; save.disabled=true; cancel.disabled=false; close.disabled=false; save.textContent='Save Markdown';
-      status.textContent='Loading canonical Markdown…'; dialog.showModal();
+      status.textContent='Loading canonical Markdown…'; syncEditorViewport(); dialog.showModal();
       if (!songID) { status.textContent='No song is currently selected.'; return; }
       try {
         const response = await fetch(`/api/songs/${encodeURIComponent(songID)}/markdown`,{cache:'no-store'});

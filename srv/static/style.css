@@ -177,6 +177,18 @@ h1,h2,h3,p { margin-top:0; }
 [data-form-factor="phone"] .live-set { overflow-y:auto; scroll-snap-type:none; }
 [data-form-factor="phone"] .live-set-panel { height:auto; min-height:calc(100dvh - 52px); scroll-snap-align:none; }
 [data-form-factor="phone"] .live-set-panel .lead-sheet-panel { min-height:calc(100dvh - 72px); }
+[data-form-factor="phone"] .markdown-dialog { width:100%; max-width:none; height:var(--editor-viewport-height,100dvh); max-height:var(--editor-viewport-height,100dvh); top:var(--editor-viewport-top,0); bottom:auto; margin:0; border:0; border-radius:0; }
+[data-form-factor="phone"] .markdown-dialog form { height:100%; max-height:none; padding:max(.6rem,var(--safe-top)) max(.6rem,var(--safe-right)) max(.6rem,var(--safe-bottom)) max(.6rem,var(--safe-left)); gap:.5rem; grid-template-rows:auto minmax(0,1fr) auto auto; }
+[data-form-factor="phone"] .markdown-dialog header { align-items:center; }
+[data-form-factor="phone"] .markdown-dialog header .eyebrow, [data-form-factor="phone"] .markdown-dialog > form > .dialog-help, [data-form-factor="phone"] .markdown-dialog label > span { display:none; }
+[data-form-factor="phone"] .markdown-dialog h2 { font-size:1.1rem; }
+[data-form-factor="phone"] .markdown-dialog label { min-height:0; gap:0; }
+[data-form-factor="phone"] .markdown-dialog textarea { height:100%; min-height:0; padding:.65rem; border-radius:.45rem; font-size:16px; line-height:1.3; }
+[data-form-factor="phone"] .markdown-dialog .shelley-job-status { min-height:1.1em; max-height:2.4em; font-size:.74rem; line-height:1.2; overflow:auto; }
+[data-form-factor="phone"] .markdown-dialog .dialog-actions { flex-direction:row; gap:.45rem; }
+[data-form-factor="phone"] .markdown-dialog .dialog-actions .button { width:auto; min-height:2.65rem; padding:.5rem .7rem; }
+[data-form-factor="phone"] .markdown-dialog .dialog-actions [data-markdown-cancel] { flex:1; }
+[data-form-factor="phone"] .markdown-dialog .dialog-actions [data-markdown-save] { flex:2; }
 [data-fit-status="needs-editing"] .live-column { overflow:auto; }
 
 @media (max-width:700px) {
@@ -216,9 +228,6 @@ h1,h2,h3,p { margin-top:0; }
   .about-grid { grid-template-columns:1fr; }
   .shelley-dialog .dialog-actions { flex-direction:column-reverse; }
   .shelley-dialog .dialog-actions .button { width:100%; }
-  .markdown-dialog { height:calc(100dvh - 16px); max-height:calc(100dvh - 16px); }
-  .markdown-dialog form { height:100%; max-height:none; padding:.8rem; gap:.7rem; }
-  .markdown-dialog textarea { height:100%; min-height:0; }
 }
 @media (max-width:420px) {
   .live-font-controls { left:36px; }
