@@ -30,15 +30,15 @@ The read-only Notion audit used the authenticated API proxy and made no writes, 
 Findings:
 
 - 428 search results were returned across five pages.
-- 425 page records, 2,631 blocks, and 425 child containers were processed.
+- 425 page records, 9,579 recursively discovered blocks, and 1,386 child containers were processed.
 - The workspace contains 364 database-backed pages, 38 block-parent pages, 22 page-parent pages, and one workspace page.
 - The Lead Sheets database contains 293 records.
-- Fourteen additional non-database pages were structurally song-like.
-- The Gigs database contains **52 records according to the direct database query**, which is the authoritative count used here. A broader crawl produced an inconsistent intermediate count, so migration tooling must deduplicate records by Notion page ID and verify the query result before import.
+- Forty-four additional non-database pages were structurally song-like, although many are nested copies inside gig pages rather than canonical songs.
+- The Gigs database direct query returns **52 operational records**. Full page traversal also found one blank orphan record under the database; migration tooling must deduplicate by Notion page ID and quarantine blank/orphan records.
 - The Members database contains 18 records and includes contact fields. Member contact information is explicitly out of scope.
 - Notion’s Lead Sheets schema is thin: title, created time, and tags. Arrangement, key, credits, provenance, and revision details are generally in free-form page bodies.
-- Arrangement labels occur inconsistently in body blocks.
-- Duplicate or variant candidates include multiple versions of songs such as “Dreams,” “Levitating,” “Stayin Alive,” and “September.”
+- The bodies are visually consistent but presentation-oriented: 283 of 293 lead sheets use section headings, 288 include recognizable arrangement labels, and 274 use Notion column layouts.
+- Duplicate or variant candidates include multiple versions of songs such as “Dreams,” “Levitating,” “Stayin Alive,” and “September.” One lead-sheet page is empty and eight contain fewer than 500 analyzed text characters.
 - Recent Notion activity extends through the audit date, August 6, 2026, making Notion generally more current operationally.
 
 The Notion API can only see content shared with the integration. It cannot establish a complete workspace inventory if pages or databases are unshared, private, excluded by permissions, or otherwise unavailable to the integration. The migration must therefore include an explicit export/review step rather than assume the API crawl is complete.
@@ -61,7 +61,7 @@ The legacy repository audit found:
 - Zero canonical slug collisions.
 - One tracked VS Code settings file contains a plaintext Snowflake connection password and related connection details. The credential must be rotated/revoked, then removed from current content and Git history without printing it.
 
-The legacy corpus is useful because it already approximates a file-per-song Markdown model. Its Markdown is human-oriented and inconsistent, so migration should preserve content and add structure gradually.
+A conservative normalized-title comparison found 251 matches between Notion and the legacy corpus, plus 42 Notion-only titles and 33 legacy-only filenames. The legacy corpus is useful because it already approximates a file-per-song Markdown model. Its Markdown is human-oriented and inconsistent, so migration should preserve content and add structure gradually.
 
 The master CSV is not a true song catalog. It lists source paths and an empty second field. Existing event text files provide ordered song paths, but they are not normalized set-list documents.
 
