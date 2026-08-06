@@ -6,8 +6,8 @@
 </head>
 <body>
 <header class="app-header">
-  <nav class="tabs" aria-label="Main navigation"><a class="tab" href="/songs">Songs <span class="tab-count">{{.SongCount}}</span></a><a class="tab active" href="/set-lists" aria-current="page">Set Lists <span class="tab-count">{{.SetCount}}</span></a></nav>
-  <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button>
+  <nav class="tabs" aria-label="Main navigation"><a class="tab" href="/songs">Songs List <span class="tab-count">{{.SongCount}}</span></a><a class="tab active" href="/set-lists" aria-current="page">Set Lists <span class="tab-count">{{.SetCount}}</span></a></nav>
+  <div class="header-actions"><a class="button shelley-edit" href="{{.ShelleyURL}}" target="_blank" rel="noopener"><span class="shelley-edit-full">Edit with </span>Shelley</a><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div>
 </header>
 <main class="library-shell sets-screen">
   <div class="screen-title"><h1>Set Lists</h1></div>

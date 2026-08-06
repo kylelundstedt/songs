@@ -6,14 +6,15 @@
 </head>
 <body>
 <header class="app-header">
-  <nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs <span class="tab-count">{{.SongCount}}</span></a><a class="tab" href="/set-lists">Set Lists <span class="tab-count">{{.SetCount}}</span></a></nav>
-  <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button>
+  <nav class="tabs" aria-label="Main navigation"><a class="tab active" href="/songs" aria-current="page">Songs List <span class="tab-count">{{.SongCount}}</span></a><a class="tab" href="/set-lists">Set Lists <span class="tab-count">{{.SetCount}}</span></a></nav>
+  <div class="header-actions"><a class="button shelley-edit" href="{{.ShelleyURL}}" target="_blank" rel="noopener"><span class="shelley-edit-full">Edit with </span>Shelley</a><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div>
 </header>
 <main class="form-shell">
-  <header class="form-heading"><p class="eyebrow">New lead sheet</p><h1>Add a Song</h1><p>Start with an approximate title, then paste or structure the material you want to use. Web-assisted retrieval will be added as a separate reviewed source adapter.</p></header>
+  <header class="form-heading"><p class="eyebrow">New lead sheet</p><h1>Add a Song</h1><p>Start with an approximate title. You can open an external lyrics search, then paste and structure the material you are authorized to use.</p></header>
   {{if .FormError}}<div class="form-error" role="alert">{{.FormError}}</div>{{end}}
   <form class="song-form" method="post" action="/songs">
-    <label><span>Song title</span><input name="title" value="{{.DraftTitle}}" required autofocus autocomplete="off" placeholder="Approximate song title"></label>
+    <div class="title-lookup"><label><span>Song title</span><input name="title" value="{{.DraftTitle}}" required autofocus autocomplete="off" placeholder="Artist name or song title"></label><a class="button external-lookup" data-azlyrics-search href="https://www.azlyrics.com/search/" target="_blank" rel="noopener noreferrer">Search AZLyrics ↗</a></div>
+    <p class="form-help">AZLyrics opens in a separate tab. Copy only material you are authorized to use; pasted lyric line breaks are preserved in the draft.</p>
     <div class="form-row metadata-row"><label><span>Artist <small>usually the original performing artist</small></span><input name="artist" value="{{.DraftArtist}}" autocomplete="off"></label><label><span>Performance key <small>optional</small></span><input name="key" value="{{.DraftKey}}" autocomplete="off" placeholder="E, Am, F#…"></label><label><span>BPM <small>optional</small></span><input name="bpm" type="number" min="20" max="300" step="0.01" inputmode="decimal" value="{{.DraftBPM}}" autocomplete="off" placeholder="120"></label></div>
     <label><span>Source URL <small>optional, HTTPS</small></span><input name="source_url" type="url" value="{{.DraftSource}}" placeholder="https://…"></label>
     <label><span>Lead-sheet Markdown</span><textarea name="body" rows="24" spellcheck="true" placeholder="# Song title\n\n### Verse 1\n…">{{.DraftBody}}</textarea></label>

@@ -82,6 +82,7 @@ type pageData struct {
 	BuildTime   string
 	SongCount   int
 	SetCount    int
+	ShelleyURL  string
 	DraftTitle  string
 	DraftArtist string
 	DraftKey    string
@@ -382,6 +383,7 @@ func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
 	if titleFromMarkdown(body) == "" {
 		body = "# " + draft.DraftTitle + "\n\n" + body
 	}
+	body = preserveLeadSheetLineBreaks(body)
 	markdown := buildSongMarkdown(id, draft.DraftTitle, draft.DraftArtist, draft.DraftKey, draft.DraftBPM, draft.DraftSource, body)
 	if err := s.createSongFile(id, markdown); err != nil {
 		if errors.Is(err, os.ErrExist) {
@@ -519,6 +521,7 @@ func (s *Server) renderStatus(w http.ResponseWriter, r *http.Request, name strin
 	s.mu.RLock()
 	data.SongCount = len(s.songs)
 	data.SetCount = len(s.sets)
+	data.ShelleyURL = shelleyNewConversationURL(s.Hostname)
 	s.mu.RUnlock()
 	setSecurityHeaders(w)
 	path := filepath.Join(s.TemplatesDir, name)
@@ -560,6 +563,49 @@ func (s *Server) Serve(addr string) error {
 	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir(s.StaticDir))))
 	slog.Info("starting songs server", "addr", addr, "repo", s.RepoRoot)
 	return http.ListenAndServe(addr, mux)
+}
+
+func preserveLeadSheetLineBreaks(body string) string {
+	lines := strings.Split(strings.ReplaceAll(body, "\r\n", "\n"), "\n")
+	inFence := false
+	isBlock := func(line string) bool {
+		trimmed := strings.TrimSpace(line)
+		if trimmed == "" || strings.HasPrefix(trimmed, "#") || strings.HasPrefix(trimmed, ">") || strings.HasPrefix(trimmed, "|") || strings.HasPrefix(trimmed, "```") || strings.HasPrefix(trimmed, "~~~") {
+			return true
+		}
+		if strings.HasPrefix(trimmed, "- ") || strings.HasPrefix(trimmed, "* ") || strings.HasPrefix(trimmed, "+ ") {
+			return true
+		}
+		for i := 0; i < len(trimmed) && trimmed[i] >= '0' && trimmed[i] <= '9'; i++ {
+			if i+1 < len(trimmed) && (trimmed[i+1] == '.' || trimmed[i+1] == ')') {
+				return true
+			}
+		}
+		return false
+	}
+	for i, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if strings.HasPrefix(trimmed, "```") || strings.HasPrefix(trimmed, "~~~") {
+			inFence = !inFence
+			continue
+		}
+		if inFence || isBlock(line) || strings.HasSuffix(line, "  ") || strings.HasSuffix(line, "\\") || i+1 >= len(lines) {
+			continue
+		}
+		if strings.TrimSpace(lines[i+1]) != "" && !isBlock(lines[i+1]) {
+			lines[i] = strings.TrimRight(line, " \t") + "  "
+		}
+	}
+	return strings.Join(lines, "\n")
+}
+
+func shelleyNewConversationURL(hostname string) string {
+	host := strings.TrimSpace(strings.Split(hostname, ":")[0])
+	host = strings.TrimSuffix(host, ".exe.xyz")
+	if host == "" {
+		host = "localhost"
+	}
+	return "https://" + host + ".shelley.exe.xyz/new"
 }
 
 func buildSongMarkdown(id, title, artist, key, bpm, sourceURL, body string) string {

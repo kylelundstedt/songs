@@ -129,4 +129,11 @@ func TestHelpers(t *testing.T) {
 	if got := metadataValue("---\ntitle: Demo\n---\n# Demo\n", "title"); got != "Demo" {
 		t.Fatalf("metadata=%q", got)
 	}
+	if got := shelleyNewConversationURL("kgl-songs.exe.xyz"); got != "https://kgl-songs.shelley.exe.xyz/new" {
+		t.Fatalf("shelley URL=%q", got)
+	}
+	body := preserveLeadSheetLineBreaks("# Demo\n\nFirst line\nSecond line\n\n### Chorus\nThird line\nFourth line")
+	if !strings.Contains(body, "First line  \nSecond line") || !strings.Contains(body, "Third line  \nFourth line") {
+		t.Fatalf("line breaks not preserved: %q", body)
+	}
 }

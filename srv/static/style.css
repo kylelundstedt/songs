@@ -24,7 +24,7 @@ html[data-theme="light"] { color-scheme: light; --bg:#fff; --panel:#f5f3ed; --pa
 [hidden] { display:none !important; }
 .sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
 .tabs { display:flex; align-self:stretch; gap:.25rem; }
-.tab { display:flex; align-items:center; padding:0 .9rem; color:var(--muted); text-decoration:none; font-weight:850; border-bottom:3px solid transparent; }
+.tab { display:flex; align-items:center; padding:0 .9rem; color:var(--muted); text-decoration:none; font-weight:850; border-bottom:3px solid transparent; white-space:nowrap; }
 .tab:hover { color:var(--text); }
 .tab.active { color:var(--text); border-color:var(--accent); }
 .tab-count { min-width:1.55em; margin-left:.42rem; padding:.08em .38em; border-radius:999px; background:var(--panel-2); color:var(--muted); font-size:.68em; line-height:1.35; text-align:center; font-variant-numeric:tabular-nums; }
@@ -37,7 +37,9 @@ button:hover, .button:hover { border-color:var(--accent); }
 .button.primary { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
 .app-header { height:64px; padding: max(10px,var(--safe-top)) max(16px,var(--safe-right)) 10px max(16px,var(--safe-left)); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:20; }
 .theme-toggle { width:2.75rem; height:2.75rem; padding:0; display:grid; place-items:center; border-radius:999px; font-size:1.35rem; line-height:1; }
-.header-actions, .set-actions { display:flex; gap:.55rem; flex-wrap:wrap; }
+.shelley-edit { display:inline-flex; align-items:center; white-space:nowrap; font-size:.82rem; }
+.header-actions { display:flex; gap:.55rem; flex-wrap:nowrap; align-items:center; }
+.set-actions { display:flex; gap:.55rem; flex-wrap:wrap; }
 .library-shell, .set-shell { width:min(1120px,100%); margin:auto; padding:clamp(20px,4vw,52px); }
 .songs-screen { padding-top:clamp(16px,3vw,32px); }
 .song-tools { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.8rem; align-items:center; position:sticky; top:64px; z-index:10; background:var(--bg); padding:.5rem 0 1rem; }
@@ -50,6 +52,9 @@ button:hover, .button:hover { border-color:var(--accent); }
 .form-heading h1 { font-size:clamp(2.2rem,6vw,4.5rem); letter-spacing:-.06em; margin-bottom:.7rem; }
 .form-heading p:last-child { color:var(--muted); max-width:64ch; }
 .song-form { display:grid; gap:1rem; }
+.title-lookup { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.7rem; align-items:end; }
+.title-lookup .external-lookup { min-height:3rem; display:flex; align-items:center; }
+.form-help { margin:-.45rem 0 0; color:var(--muted); font-size:.82rem; }
 .song-form label { display:grid; gap:.38rem; font-weight:850; }
 .song-form label small { color:var(--muted); font-weight:500; }
 .song-form input, .song-form textarea { width:100%; border:2px solid var(--line); background:var(--panel); color:var(--text); border-radius:.7rem; padding:.8rem .9rem; font:inherit; }
@@ -107,7 +112,7 @@ h1,h2,h3,p { margin-top:0; }
 .sheet-footer { min-height:22px; display:flex; align-items:center; justify-content:space-between; gap:1rem; color:var(--muted); border-top:1px solid var(--line); padding-top:5px; font-size:.72rem; }
 .measure-host { position:fixed; left:-100000px; top:0; visibility:hidden; pointer-events:none; contain:layout style; }
 .live-set-page { overflow:hidden; }
-.live-nav { height:52px; padding:max(7px,var(--safe-top)) max(12px,var(--safe-right)) 7px max(12px,var(--safe-left)); display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center; gap:.8rem; border-bottom:1px solid var(--line); }
+.live-nav { height:52px; padding:max(7px,var(--safe-top)) max(12px,var(--safe-right)) 7px max(12px,var(--safe-left)); display:grid; grid-template-columns:auto minmax(0,1fr) auto auto auto; align-items:center; gap:.8rem; border-bottom:1px solid var(--line); }
 .live-nav a { font-size:1.5rem; text-decoration:none; }
 .live-nav strong { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
 .live-set { height:calc(100dvh - 52px); overflow-y:auto; overflow-x:hidden; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
@@ -144,6 +149,14 @@ h1,h2,h3,p { margin-top:0; }
   .song-facts .artist-fact { min-width:0; }
   .song-facts .artist-fact dd { max-width:15ch; }
   .form-row, .form-row.metadata-row { grid-template-columns:1fr; }
-  .tab { padding:0 .65rem; }
+  .title-lookup { grid-template-columns:1fr; }
+  .title-lookup .external-lookup { justify-content:center; }
+  .shelley-edit-full { display:none; }
+  .shelley-edit { padding:.55rem .65rem; }
+  .app-header .tab-count { display:none; }
+  .app-header .tab { font-size:.86rem; }
+  .live-nav { gap:.35rem; }
+  .live-nav .shelley-edit { padding:.45rem .55rem; font-size:.72rem; }
+  .tab { padding:0 .5rem; }
 }
 @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }

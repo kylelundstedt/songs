@@ -268,6 +268,21 @@
     return {failed: failures, checked: ids.length, set: setID};
   }
 
+  function setupExternalLyricsSearch() {
+    const link = document.querySelector('[data-azlyrics-search]');
+    const title = document.querySelector('input[name="title"]');
+    const artist = document.querySelector('input[name="artist"]');
+    if (!link || !title) return;
+    const update = () => {
+      const query = [artist?.value.trim(), title.value.trim()].filter(Boolean).join(' ');
+      link.href = `https://www.azlyrics.com/search/${query ? `?q=${encodeURIComponent(query)}` : ''}`;
+      link.setAttribute('aria-label', query ? `Search AZLyrics for ${query}` : 'Open AZLyrics search');
+    };
+    title.addEventListener('input', update);
+    artist?.addEventListener('input', update);
+    update();
+  }
+
   async function setupOffline() {
     if ('serviceWorker' in navigator) await navigator.serviceWorker.register('/sw.js');
     const button=document.querySelector('[data-offline-set]'); if(!button)return;
@@ -296,7 +311,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupTheme(); setupSearch(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupTheme(); setupSearch(); setupExternalLyricsSearch(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();
