@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="stage">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10151c">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>Songs</title>
+</head>
+<body>
+<header class="app-header">
+  <a class="brand" href="/">Songs</a>
+  <div class="header-actions"><button data-theme-toggle type="button">Bright mode</button></div>
+</header>
+<main class="library-shell">
+  <section class="hero">
+    <p class="eyebrow">Loosely Covered</p>
+    <h1>Lead sheets for the next song.</h1>
+    <p>{{len .Songs}} migrated songs · {{len .Sets}} set lists · offline-ready live mode</p>
+    <label class="search"><span>Find a song</span><input id="song-search" type="search" autocomplete="off" placeholder="Approximate title…"></label>
+  </section>
+  {{if .Sets}}
+  <section>
+    <div class="section-heading"><h2>Set lists</h2></div>
+    <div class="set-grid">
+      {{range .Sets}}<article class="set-card"><p class="eyebrow">{{.Date}}</p><h3><a href="/sets/{{.ID}}">{{.Title}}</a></h3><p>{{len .Items}} songs{{if .Location}} · {{.Location}}{{end}}</p><a class="button" href="/sets/{{.ID}}/live">Open live</a></article>{{end}}
+    </div>
+  </section>
+  {{end}}
+  <section>
+    <div class="section-heading"><h2>Song library</h2><span id="song-count">{{len .Songs}} songs</span></div>
+    <div class="song-list" id="song-list">
+      {{range .Songs}}<a class="song-row" href="/song/{{.ID}}" data-search="{{.Title}} {{.ID}}"><span>{{.Title}}</span><small>{{.ID}}</small></a>{{end}}
+    </div>
+    <p class="empty-state" id="no-results" hidden>No matching lead sheet.</p>
+  </section>
+</main>
+<script src="/static/app.js" defer></script>
+</body></html>

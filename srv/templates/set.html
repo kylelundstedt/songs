@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en" data-theme="stage">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10151c"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>{{.Set.Title}} · Songs</title></head>
+<body>
+<header class="app-header"><a class="brand" href="/">Songs</a><button data-theme-toggle type="button">Bright mode</button></header>
+<main class="set-shell">
+  <header class="set-hero"><p class="eyebrow">Set list</p><h1>{{.Set.Title}}</h1><p>{{.Set.Date}}{{if .Set.Location}} · {{.Set.Location}}{{end}} · {{len .Set.Items}} songs</p><div class="set-actions"><a class="button primary" href="/sets/{{.Set.ID}}/live">Open live set</a><button class="button" type="button" data-offline-set="{{.Set.ID}}">Make available offline</button></div><p class="sync-status" data-offline-status></p></header>
+  <ol class="set-list">{{range .Set.Items}}<li><span class="position">{{.Position}}</span><a href="/song/{{.Song.ID}}">{{.Song.Title}}</a>{{if .Note}}<small>{{.Note}}</small>{{end}}</li>{{end}}</ol>
+</main>
+<script src="/static/app.js" defer></script>
+</body></html>

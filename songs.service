@@ -1,0 +1,17 @@
+[Unit]
+Description=Songs lead-sheet web app
+After=network-online.target
+
+[Service]
+Type=simple
+User=exedev
+Group=exedev
+WorkingDirectory=/home/exedev/songs
+ExecStart=/home/exedev/songs/srv/songs -listen :8000 -repo /home/exedev/songs
+Restart=always
+RestartSec=3
+Environment=HOME=/home/exedev
+Environment=USER=exedev
+
+[Install]
+WantedBy=multi-user.target

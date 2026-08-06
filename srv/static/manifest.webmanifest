@@ -1,0 +1,10 @@
+{
+  "name": "Songs · Loosely Covered",
+  "short_name": "Songs",
+  "description": "Offline lead sheets and set lists for cover-band vocalists.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10151c",
+  "theme_color": "#10151c",
+  "icons": [{"src":"/static/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

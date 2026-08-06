@@ -1,30 +1,67 @@
 # Songs
 
-A proposed Git-backed, Apex-rendered web app for cover-band vocalists.
+A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
-The primary experience is a single-screen lead sheet and an offline, touch-friendly set-list mode for a 12–13 inch iPad Pro used on a music stand.
+**Live app:** https://kgl-songs.exe.xyz/
 
-## Current status
+## Phase status
 
-Planning and source-system audit. The application has not been implemented yet.
+Phases 0 and 1 are implemented as of August 6, 2026:
 
+- 284 legacy Markdown lead sheets migrated byte-for-byte into `songs/`.
+- The 32-song Murphys set migrated into `sets/2021-02-20-murphys.md`.
+- 293 API-visible Notion lead sheets exported as review-only Markdown candidates under `migration/notion-candidates/`.
+- Apex 1.1.14 renders every canonical song and every Notion candidate.
+- Searchable read-only song library and set-list views.
+- Offline PWA snapshots for complete sets.
+- Stage-dark and bright-outdoor themes.
+- iPad/tablet live sheets use exactly two columns and fit to one viewport at a 16px readability floor.
+- iPhone uses exactly one 20px column with vertical scrolling when required.
+
+See [Phase 0–1 results](docs/PHASES-0-1.md) and the [full implementation proposal](docs/PROPOSAL.md).
+
+## Run locally
+
+```sh
+make test
+make build
+./srv/songs -listen :8000 -repo .
+```
+
+The service expects Apex on `PATH` and stores its rebuildable SQLite index under `var/`. Markdown in Git remains canonical.
+
+## Repository layout
+
+```text
+songs/                         canonical migrated lead sheets
+sets/                          canonical Markdown set lists
+migration/notion-candidates/   review-only Notion exports
+migration/                     migration manifests and reports
+scripts/                       Notion export tooling
+tools/                         legacy migration tooling
+srv/                           Go server, templates, PWA assets
+```
+
+## Migration commands
+
+```sh
+# Reproduce or verify the byte-preserving legacy migration
+python3 tools/migrate_legacy.py
+python3 tools/migrate_legacy.py --verify-only
+
+# Refresh review-only Notion candidates and validate with Apex
+python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
+```
+
+## Documentation
+
+- [Phase 0–1 implementation report](docs/PHASES-0-1.md)
 - [Implementation proposal](docs/PROPOSAL.md)
-- [Loosely Covered Notion audit](docs/research/notion-audit.md)
-- [Legacy `loosely-covered/set-lists` audit](docs/research/legacy-audit.md)
+- [Legacy migration instructions](docs/legacy-migration.md)
+- [Notion audit](docs/research/notion-audit.md)
+- [Legacy repository audit](docs/research/legacy-audit.md)
+- [Environment record](docs/ENVIRONMENT.md)
 
-## Environment
+## Security note
 
-- VM: `kgl-songs`
-- Local checkout: `/home/exedev/songs`
-- Markdown renderer: Apex 1.1.14 at `/usr/local/bin/apex`
-- Git remote: `kylelundstedt/songs`
-
-## Proposed direction
-
-- Markdown files in Git are canonical.
-- A small Go service invokes Apex and provides editing, indexing, snapshots, and conflict-safe Git commits.
-- SQLite is disposable and used only for indexes, caches, and operation queues.
-- A vanilla-JavaScript PWA supports offline gigs, high-contrast stage/outdoor themes, and touch reordering.
-- Web-assisted song import creates a reviewable draft and records provenance; it never commits fetched or inferred content without human verification.
-
-See [the full proposal](docs/PROPOSAL.md) for architecture, formats, migration, phases, and acceptance criteria.
+The old `loosely-covered/set-lists` repository contains a tracked plaintext Snowflake credential and a workflow step that can expose a secret in logs. Rotate/revoke affected credentials and remove them from current content and Git history. No secret values are copied into this repository.

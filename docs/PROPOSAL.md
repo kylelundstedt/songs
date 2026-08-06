@@ -19,7 +19,7 @@ The product is not a general-purpose music notation system, lyrics search engine
 
 The first implementation should prioritize read-only rendering, offline gig mode, and viewport fitting before adding editing and automated song import. Those capabilities establish whether the most important product promise—readable live performance pages—works against the existing corpus.
 
-The repository `kylelundstedt/songs` currently contains planning material only. This proposal is a build plan, not a claim that the application has been implemented.
+Phases 0 and 1 were implemented on August 6, 2026. The remaining sections define the intended architecture and roadmap for write support, set-list editing, web-assisted import, and production hardening.
 
 ## 2. What was reviewed
 

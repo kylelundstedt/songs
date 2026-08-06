@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+/var/
+/srv/songs
+*.sqlite3
+.DS_Store
