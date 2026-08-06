@@ -244,6 +244,69 @@
     update();
   }
 
+  function setupShelleyEditor() {
+    const triggers = [...document.querySelectorAll('[data-shelley-edit]')];
+    if (!triggers.length || !('HTMLDialogElement' in window)) return;
+    const dialog = document.createElement('dialog');
+    dialog.className = 'shelley-dialog';
+    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Focused edit</p><h2>Ask Shelley</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><label><span>What should change?</span><textarea name="prompt" required maxlength="2000" placeholder="Verse 3 is actually 14 bars"></textarea></label><p class="dialog-help">Shelley will update the canonical Markdown, validate it, commit the change, and leave this page open while it works.</p><p class="shelley-job-status" data-shelley-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-shelley-cancel>Cancel</button><button class="button primary" type="submit" data-shelley-submit>Make change</button></div></form>`;
+    document.body.append(dialog);
+    const form = dialog.querySelector('form');
+    const textarea = dialog.querySelector('textarea');
+    const status = dialog.querySelector('[data-shelley-status]');
+    const submit = dialog.querySelector('[data-shelley-submit]');
+    const cancel = dialog.querySelector('[data-shelley-cancel]');
+    const close = dialog.querySelector('.dialog-close');
+    let completed = false;
+    const currentSongID = () => {
+      const direct = document.querySelector('.lead-sheet-panel[data-song-id]');
+      if (direct) return direct.dataset.songId || '';
+      const panels = [...document.querySelectorAll('[data-live-panel][data-song-id]')];
+      if (!panels.length) return '';
+      const middle = innerHeight / 2;
+      panels.sort((a,b)=>Math.abs(a.getBoundingClientRect().top+a.offsetHeight/2-middle)-Math.abs(b.getBoundingClientRect().top+b.offsetHeight/2-middle));
+      return panels[0].dataset.songId || '';
+    };
+    const closeDialog = () => { if (!submit.disabled) dialog.close(); };
+    dialog.addEventListener('cancel',event=>{if(submit.disabled)event.preventDefault();});
+    close.addEventListener('click',closeDialog);
+    cancel.addEventListener('click',closeDialog);
+    triggers.forEach(button=>button.addEventListener('click',()=>{
+      completed = false; form.reset(); status.textContent=''; submit.disabled=false; cancel.disabled=false; submit.textContent='Make change';
+      dialog.showModal(); setTimeout(()=>textarea.focus(),0);
+    }));
+    const poll = async id => {
+      for (let attempt=0; attempt<450; attempt++) {
+        await new Promise(resolve=>setTimeout(resolve,2000));
+        const response = await fetch(`/api/shelley/jobs/${encodeURIComponent(id)}`);
+        if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to check Shelley status');
+        const job = await response.json();
+        status.textContent = job.message || 'Shelley is working…';
+        if (job.status === 'done') return job;
+        if (job.status === 'error') throw new Error(job.message || 'Shelley could not complete the edit');
+      }
+      throw new Error('Shelley is still working. Open Edit with Shelley again later to check the page.');
+    };
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();
+      if (completed) { location.reload(); return; }
+      const prompt = textarea.value.trim();
+      if (prompt.length < 3) { status.textContent='Describe the requested change.'; textarea.focus(); return; }
+      const songID = currentSongID();
+      if (!songID) { status.textContent='Open a song or live-set song to request a focused edit.'; return; }
+      submit.disabled=true; cancel.disabled=true; close.disabled=true; status.textContent='Sending the focused edit to Shelley…';
+      try {
+        const response = await fetch('/api/shelley/edit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,song_id:songID,path:location.pathname})});
+        if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to start Shelley');
+        const job = await response.json();
+        await poll(job.id);
+        completed=true; submit.disabled=false; close.disabled=false; submit.textContent='Reload page'; status.textContent='Change complete. Reload to see the updated lead sheet.';
+      } catch (error) {
+        status.textContent=error.message; submit.disabled=false; cancel.disabled=false; close.disabled=false;
+      }
+    });
+  }
+
   async function verifySetFits(setID) {
     const ids = [...document.querySelectorAll('.set-list a[href^="/song/"]')].map(link => link.getAttribute('href').split('/').pop());
     if (!ids.length) throw new Error('Set list contains no songs');
@@ -369,7 +432,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupTheme(); setupSearch(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupTheme(); setupSearch(); setupShelleyEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();

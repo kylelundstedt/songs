@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css"><title>About · KGL Songs</title>
+</head>
+<body>
+<header class="app-header">
+  <div class="header-leading"><a class="app-title" href="/songs">KGL Songs</a><nav class="tabs" aria-label="Main navigation"><a class="tab" href="/songs">Songs List <span class="tab-count">{{.SongCount}}</span></a><a class="tab" href="/set-lists">Set Lists <span class="tab-count">{{.SetCount}}</span></a><a class="tab active" href="/about" aria-current="page">About</a></nav></div>
+  <div class="header-actions"><a class="button shelley-edit" href="{{.ShelleyURL}}" target="_blank" rel="noopener"><span class="shelley-edit-full">Edit with Shelley</span><span class="shelley-edit-short">Open Shelley</span></a><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div>
+</header>
+<main class="about-shell">
+  <header class="about-hero"><p class="eyebrow">About</p><h1>KGL Songs</h1><p>A private, performance-focused library for building, organizing, and using compact vocalist lead sheets.</p></header>
+  <div class="about-grid">
+    <section><h2>Built for the stage</h2><p>Lead sheets are automatically fitted into two readable columns on iPad, with a one-column phone layout and light or dark modes for different performance conditions.</p></section>
+    <section><h2>Fast song creation</h2><p>Add a Song searches permitted lyrics providers, lets you choose the recording, and uses a fast Shelley model to produce a best-effort draft with sections, compact repeated choruses, and preserved lyric lines.</p></section>
+    <section><h2>Git-backed and reviewable</h2><p>Markdown files in Git are canonical. SQLite is only a rebuildable search index. Imported lyrics retain source and original-recording metadata, while performance key and BPM remain separate.</p></section>
+    <section><h2>Edit with Shelley</h2><p>Ask for a focused correction without leaving the live sheet—for example, “Verse 3 is actually 14 bars.” Shelley updates the canonical Markdown, validates it, and refreshes the library.</p></section>
+  </div>
+</main>
+<script src="/static/app.js" defer></script>
+</body></html>

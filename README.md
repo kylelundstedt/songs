@@ -58,6 +58,7 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 - [Phase 0–1 implementation report](docs/PHASES-0-1.md)
 - [Implementation proposal](docs/PROPOSAL.md)
 - [Lyrics provider policy](docs/LYRICS-PROVIDERS.md)
+- [Focused Shelley edits](docs/SHELLEY-EDITS.md)
 - [Legacy migration instructions](docs/legacy-migration.md)
 - [Notion audit](docs/research/notion-audit.md)
 - [Legacy repository audit](docs/research/legacy-audit.md)

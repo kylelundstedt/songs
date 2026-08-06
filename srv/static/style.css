@@ -24,6 +24,8 @@ html[data-theme="light"] { color-scheme: light; --bg:#fff; --panel:#f5f3ed; --pa
 [hidden] { display:none !important; }
 .sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
 .tabs { display:flex; align-self:stretch; gap:.25rem; }
+.header-leading { display:flex; align-items:center; align-self:stretch; min-width:0; gap:.65rem; }
+.app-title { color:var(--text); text-decoration:none; white-space:nowrap; font-size:1.08rem; font-weight:950; letter-spacing:-.035em; }
 .tab { display:flex; align-items:center; padding:0 .9rem; color:var(--muted); text-decoration:none; font-weight:850; border-bottom:3px solid transparent; white-space:nowrap; }
 .tab:hover { color:var(--text); }
 .tab.active { color:var(--text); border-color:var(--accent); }
@@ -38,9 +40,30 @@ button:hover, .button:hover { border-color:var(--accent); }
 .app-header { height:64px; padding: max(10px,var(--safe-top)) max(16px,var(--safe-right)) 10px max(16px,var(--safe-left)); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:20; }
 .theme-toggle { width:2.75rem; height:2.75rem; padding:0; display:grid; place-items:center; border-radius:999px; font-size:1.35rem; line-height:1; }
 .shelley-edit { display:inline-flex; align-items:center; white-space:nowrap; font-size:.82rem; }
+.shelley-edit-short { display:none; }
 .header-actions { display:flex; gap:.55rem; flex-wrap:nowrap; align-items:center; }
 .set-actions { display:flex; gap:.55rem; flex-wrap:wrap; }
 .library-shell, .set-shell { width:min(1120px,100%); margin:auto; padding:clamp(20px,4vw,52px); }
+.about-shell { width:min(960px,100%); margin:auto; padding:clamp(28px,6vw,76px) clamp(20px,4vw,52px); }
+.about-hero { max-width:760px; margin-bottom:2rem; }
+.about-hero h1 { font-size:clamp(2.3rem,6vw,4.8rem); letter-spacing:-.06em; margin-bottom:.7rem; }
+.about-hero > p:last-child { color:var(--muted); font-size:1.15rem; line-height:1.5; }
+.about-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.about-grid section { border:1px solid var(--line); border-radius:1rem; background:var(--panel); padding:1.25rem; }
+.about-grid h2 { margin-bottom:.55rem; font-size:1.25rem; }
+.about-grid p { margin-bottom:0; color:var(--muted); line-height:1.5; }
+.shelley-dialog { width:min(560px,calc(100% - 24px)); border:1px solid var(--line); border-radius:1rem; background:var(--panel); color:var(--text); padding:0; box-shadow:0 24px 80px #0008; }
+.shelley-dialog::backdrop { background:#0009; backdrop-filter:blur(3px); }
+.shelley-dialog form { display:grid; gap:1rem; padding:1.15rem; }
+.shelley-dialog header { display:flex; justify-content:space-between; align-items:start; gap:1rem; }
+.shelley-dialog h2 { margin:0; font-size:1.3rem; }
+.shelley-dialog .dialog-close { border:0; background:transparent; padding:.1rem .35rem; font-size:1.4rem; }
+.shelley-dialog label { display:grid; gap:.45rem; font-weight:800; }
+.shelley-dialog textarea { width:100%; min-height:8rem; resize:vertical; border:2px solid var(--line); border-radius:.7rem; background:var(--bg); color:var(--text); padding:.8rem; font:inherit; }
+.shelley-dialog textarea:focus { outline:3px solid color-mix(in srgb,var(--accent) 45%,transparent); border-color:var(--accent); }
+.shelley-dialog .dialog-help, .shelley-dialog .shelley-job-status { margin:0; color:var(--muted); font-size:.82rem; }
+.shelley-dialog .shelley-job-status { min-height:1.3em; color:var(--accent); font-weight:750; }
+.shelley-dialog .dialog-actions { display:flex; justify-content:flex-end; gap:.6rem; }
 .songs-screen { padding-top:clamp(16px,3vw,32px); }
 .song-tools { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.8rem; align-items:center; position:sticky; top:64px; z-index:10; background:var(--bg); padding:.5rem 0 1rem; }
 .search.compact { margin:0; }
@@ -149,14 +172,18 @@ h1,h2,h3,p { margin-top:0; }
 
 @media (max-width:700px) {
   body { font-size:16px; }
-  .app-header { height:58px; }
+  .app-header { height:calc(100px + var(--safe-top)); min-height:calc(100px + var(--safe-top)); align-content:start; flex-wrap:wrap; position:sticky; padding-top:max(8px,var(--safe-top)); }
+  .header-leading { width:100%; height:36px; align-items:flex-start; padding-right:10rem; gap:.25rem; }
+  .app-title { height:36px; display:flex; align-items:center; font-size:1rem; }
+  .tabs { position:absolute; left:max(16px,var(--safe-left)); right:max(16px,var(--safe-right)); top:calc(52px + var(--safe-top)); width:auto; height:42px; align-self:auto; overflow-x:auto; }
+  .header-actions { position:absolute; top:max(8px,var(--safe-top)); right:max(16px,var(--safe-right)); }
   .single-song-shell { padding:8px; }
   .lead-sheet-panel { border-radius:8px; padding:10px; }
   .sheet-header h1 { font-size:1.5rem; }
   .sheet-footer { font-size:.68rem; }
   .hero h1 { font-size:3rem; }
   .song-list { grid-template-columns:1fr; }
-  .song-tools { grid-template-columns:1fr; top:58px; }
+  .song-tools { grid-template-columns:1fr; top:calc(100px + var(--safe-top)); }
   .song-tools .button { text-align:center; }
   .sheet-header { grid-template-columns:minmax(0,1fr); gap:.45rem; }
   .song-facts { gap:.65rem; overflow:hidden; }
@@ -166,11 +193,15 @@ h1,h2,h3,p { margin-top:0; }
   .lyrics-choice { grid-template-columns:1fr; }
   .lyrics-choice .button { width:100%; }
   .shelley-edit-full { display:none; }
+  .shelley-edit-short { display:inline; }
   .shelley-edit { padding:.55rem .65rem; }
   .app-header .tab-count { display:none; }
   .app-header .tab { font-size:.86rem; }
   .live-nav { gap:.35rem; }
   .live-nav .shelley-edit { padding:.45rem .55rem; font-size:.72rem; }
   .tab { padding:0 .5rem; }
+  .about-grid { grid-template-columns:1fr; }
+  .shelley-dialog .dialog-actions { flex-direction:column-reverse; }
+  .shelley-dialog .dialog-actions .button { width:100%; }
 }
 @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }

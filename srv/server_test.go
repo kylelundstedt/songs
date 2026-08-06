@@ -1,6 +1,8 @@
 package srv
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -9,6 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 func fixtureServer(t *testing.T) *Server {
@@ -35,10 +38,22 @@ func fixtureServer(t *testing.T) *Server {
 			t.Fatalf("git %v: %v: %s", args, err, out)
 		}
 	}
+	remote := filepath.Join(t.TempDir(), "remote.git")
+	if out, err := exec.Command("git", "init", "--bare", remote).CombinedOutput(); err != nil {
+		t.Fatalf("init remote: %v: %s", err, out)
+	}
+	for _, args := range [][]string{{"remote", "add", "origin", remote}, {"push", "-u", "origin", "main"}} {
+		cmd := exec.Command("git", args...)
+		cmd.Dir = root
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Fatalf("git %v: %v: %s", args, err, out)
+		}
+	}
 	server, err := New(filepath.Join(root, "test.sqlite3"), "test-host", root)
 	if err != nil {
 		t.Fatal(err)
 	}
+	server.LLMBaseURL = ""
 	t.Cleanup(func() { server.DB.Close() })
 	return server
 }
@@ -64,6 +79,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 		{"song", "/song/test-song", server.HandleSong, "Two lines"},
 		{"set", "/sets/test-set", server.HandleSet, "Open live set"},
 		{"live", "/sets/test-set/live", server.HandleLiveSet, "data-live-panel"},
+		{"about", "/about", server.HandleAbout, "Built for the stage"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -167,6 +183,78 @@ func TestLyricsProviderWorkflow(t *testing.T) {
 	}
 }
 
+func TestShelleyEditJob(t *testing.T) {
+	server := fixtureServer(t)
+	modelOutput := "# Test Song\n\n### Verse 14x\nOne line  \nTwo lines\n"
+	model := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/event-stream")
+		encoded, _ := json.Marshal(map[string]string{"type": "response.output_text.delta", "delta": modelOutput})
+		fmt.Fprintf(w, "data: %s\n\ndata: [DONE]\n\n", encoded)
+	}))
+	defer model.Close()
+	server.LLMBaseURL = model.URL
+	server.LeadSheetModel = "test-model"
+	request := httptest.NewRequest(http.MethodPost, "/api/shelley/edit", strings.NewReader(`{"prompt":"The verse is actually 14 bars","song_id":"test-song","path":"/song/test-song"}`))
+	request.Header.Set("X-ExeDev-UserID", "test-user")
+	w := httptest.NewRecorder()
+	server.HandleShelleyEdit(w, request)
+	if w.Code != http.StatusAccepted {
+		t.Fatalf("status=%d body=%s", w.Code, w.Body.String())
+	}
+	var accepted shelleyEditJob
+	if err := json.Unmarshal(w.Body.Bytes(), &accepted); err != nil {
+		t.Fatal(err)
+	}
+	deadline := time.Now().Add(2 * time.Second)
+	for time.Now().Before(deadline) {
+		server.mu.RLock()
+		job := *server.shelleyJobs[accepted.ID]
+		server.mu.RUnlock()
+		if job.Status == "done" {
+			body, err := os.ReadFile(filepath.Join(server.RepoRoot, "songs", "Test-Song.md"))
+			if err != nil || !strings.Contains(string(body), "### Verse 14x") || !strings.Contains(string(body), "original_key: G") {
+				t.Fatalf("body=%s err=%v", body, err)
+			}
+			return
+		}
+		if job.Status == "error" {
+			t.Fatalf("job=%#v", job)
+		}
+		time.Sleep(10 * time.Millisecond)
+	}
+	t.Fatal("Shelley job did not finish")
+}
+
+func TestLeadSheetModelCompactsRepeatedSections(t *testing.T) {
+	modelOutput := `{"sections":[{"heading":"Verse 1","start":1,"end":2,"repeat_of":0},{"heading":"Chorus","start":3,"end":5,"repeat_of":0},{"heading":"Verse 2","start":6,"end":7,"repeat_of":0},{"heading":"Chorus","start":8,"end":10,"repeat_of":2}]}`
+	model := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/v1/responses" || r.Method != http.MethodPost {
+			http.NotFound(w, r)
+			return
+		}
+		w.Header().Set("Content-Type", "text/event-stream")
+		encoded, _ := json.Marshal(map[string]string{"type": "response.output_text.delta", "delta": modelOutput})
+		fmt.Fprintf(w, "data: %s\n\ndata: [DONE]\n\n", encoded)
+	}))
+	defer model.Close()
+	server := fixtureServer(t)
+	server.LLMBaseURL = model.URL
+	server.LeadSheetModel = "test-model"
+	lyrics := "First line\nSecond line\n\nSing it once\nSing it twice\nSing it three times\n\nOther line\nLast line\n\nSing it once\nSing it twice\nSing it three times"
+	draft, err := server.structureLyricsWithModel("Demo", lyrics)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Count(draft, "Sing it once") != 1 || strings.Count(draft, "### Chorus") != 2 || !strings.Contains(draft, "First line  \nSecond line") {
+		t.Fatalf("unexpected model draft: %s", draft)
+	}
+	alteredPlan := `{"sections":[{"heading":"Chorus","start":1,"end":3,"repeat_of":0},{"heading":"Chorus","start":4,"end":6,"repeat_of":1}]}`
+	altered, err := renderModelLeadSheet("Demo", []string{"one", "two", "three", "one", "two", "changed"}, alteredPlan)
+	if err != nil || !strings.Contains(altered, "changed") || strings.Count(altered, "one") != 2 {
+		t.Fatalf("altered repeat was abbreviated: %s err=%v", altered, err)
+	}
+}
+
 func TestHelpers(t *testing.T) {
 	if got := titleFromMarkdown("# Hello {short=\"Hi\"}\n"); got != "Hello" {
 		t.Fatalf("title=%q", got)
@@ -179,6 +267,19 @@ func TestHelpers(t *testing.T) {
 	}
 	if got := shelleyNewConversationURL("kgl-songs.exe.xyz"); got != "https://kgl-songs.shelley.exe.xyz/new" {
 		t.Fatalf("shelley URL=%q", got)
+	}
+	request := httptest.NewRequest(http.MethodPost, "https://songs.example/api", nil)
+	request.Header.Set("Origin", "https://evil.example")
+	if sameOriginMutation(request) {
+		t.Fatal("cross-origin mutation accepted")
+	}
+	request.Header.Set("Origin", "http://songs.example")
+	if sameOriginMutation(request) {
+		t.Fatal("cross-scheme mutation accepted")
+	}
+	request.Header.Set("Origin", "https://songs.example")
+	if !sameOriginMutation(request) {
+		t.Fatal("same-origin mutation rejected")
 	}
 	body := preserveLeadSheetLineBreaks("# Demo\n\nFirst line\nSecond line\n\n### Chorus\nThird line\nFourth line")
 	if !strings.Contains(body, "First line  \nSecond line") || !strings.Contains(body, "Third line  \nFourth line") {

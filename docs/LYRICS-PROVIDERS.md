@@ -13,6 +13,12 @@ Search responses expose recording metadata only. Full lyrics are fetched only af
 
 AZLyrics does not expose a supported lyrics API and its crawler policy excludes automated search and song retrieval. It must not be scraped or proxied by this application. A future provider may be added only through an API or license that permits the intended private workflow.
 
+## Lead-sheet structuring
+
+After a recording is selected, the raw lyric lines are numbered and sent to the fast `gpt-5.6-luna` model through the VM's Shelley LLM integration. The model returns only a section plan with headings and line ranges; the server—not the model—reassembles the original lyric text verbatim. Invalid plans fall back to deterministic stanza/repetition heuristics.
+
+Repeated sections are abbreviated to a heading only when their normalized lines exactly match an earlier section. This reduces one-page iPad pressure without silently dropping changed lyrics.
+
 ## Provenance and performance metadata
 
 Generated song front matter records:
