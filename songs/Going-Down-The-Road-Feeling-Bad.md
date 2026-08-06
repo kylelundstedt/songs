@@ -1,0 +1,26 @@
+# Going Down The Road Feeling Bad {short="Going Down The Road"}  
+
+Goin' down the road feelin' bad  
+Goin' down the road feelin' bad  
+Goin' down the road feelin' bad  
+I don't want to be treated this away  
+Goin' where the climate suits my clothes  
+Goin' where the climate suits my clothes  
+Goin' where the climate suits my clothes  
+I don't want to be treated this away  
+Goin' down the road feelin' bad  
+Goin' down the road feelin' bad  
+Goin' down the road feelin' bad  
+I don't want to be treated this away  
+Goin' where the water tastes like wine  
+Goin' where the water tastes like wine  
+Goin' where the water tastes like wine  
+I don't want to be treated this away  
+Goin' down the road feelin' bad  
+Goin' down the road feelin' bad  
+Goin' down the road feelin' bad  
+I don't want to be treated this away  
+Goin' where the chilly winds don't blow  
+Goin' where the chilly winds don't blow  
+Goin' where those chilly winds don't blow  
+I don't want to be treated this away

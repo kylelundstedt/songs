@@ -1,0 +1,47 @@
+# Higher Ground
+
+People  
+Keep on learnin'  
+Soldiers  
+Keep on warrin'  
+World  
+Keep on turnin'  
+'Cause it won't be too long  
+Powers  
+Keep on lyin'  
+While your people  
+Keep on dyin'  
+World  
+Keep on turnin'  
+'Cause it won't be too long  
+I'm so darn glad he let me try it again  
+'Cause my last time on earth I lived a whole world of sin  
+I'm so glad that I've know more than I knew then  
+Gonna keep on tryin' till I reach the highest ground  
+Teachers  
+Keep on teachin'  
+Preachers  
+Keep on preachin'  
+World keep on turnin'  
+'Cause it won't be too long  
+Oh, no  
+Lovers  
+Keep on lovin'  
+While believers  
+Keep on believin'  
+Sleepers  
+Just stop sleepin'  
+'Cause it won't be too long  
+Oh, no  
+I'm so darn glad he let me try it again  
+'Cause my last time on earth I lived a whole world of sin  
+I'm so glad that I've know more than I knew then  
+Gonna keep on tryin' till I reach the highest ground  
+An' Stevie knows that nobody's gonna bring me down  
+Till I reach the highest ground, 'cause me 'n' Stevie, see  
+We're gonna be a sailin' on the funky, funky sound  
+Till I reach the highest ground  
+Bustin' out and I'll break you out, 'cause I'm sailin' on  
+Till I reach the highest ground  
+Just sailin' on, sailin' on the higher ground  
+Till I reach the highest ground

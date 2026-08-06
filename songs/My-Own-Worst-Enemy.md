@@ -1,0 +1,35 @@
+# My Own Worst Enemy {short="Own Worst Enemy"}  
+
+Can we forget about the things I said  
+When I was drunk?  
+I didn't mean to call you that  
+I can't remember what was said  
+Or what you threw at me  
+Please tell me, please tell me why?  
+My car is in the front yard  
+And I'm sleeping with my clothes on  
+I came in through the window last night  
+And you're gone, gone  
+It's no surprise to me  
+I am my own worst enemy  
+'Cause every now and then  
+I kick the living shit out of me  
+The smoke alarm is going off  
+When there's a cigarette  
+Still burning  
+Please tell me why?  
+My car is in the front yard  
+And I'm sleeping with my clothes on  
+I came in through the window last night  
+And you're gone, gone  
+Please tell me why?  
+My car is in the front yard  
+And I'm sleeping with my clothes on  
+I came in through the window last night  
+It's no surprise to me  
+I am my own worst enemy  
+'Cause every now and then  
+I kick the living shit out of me  
+Can we forget about the the things I said  
+When I was drunk  
+I didn't mean to call you that

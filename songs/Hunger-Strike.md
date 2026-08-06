@@ -1,0 +1,18 @@
+# Hunger Strike
+
+I don't mind stealing bread  
+From the mouths of decadents  
+But I can't feed on the powerless  
+When my cup's already overfilled, yeah  
+But it's on the table, the fire is cooking  
+And they're farming babies while slaves are working  
+Blood is on the table and the mouths are choking  
+But I'm going hungry  
+I don't mind stealing bread  
+From the mouths of decadents  
+But I can't feed on the powerless  
+When my cup's already overfilled  
+But it's on the table, the fire's cooking  
+And they're farming babies while the slaves are all working  
+And it's on the table, the mouths are choking  
+But I'm going hungry, I'm going hungry
