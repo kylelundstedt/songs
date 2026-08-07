@@ -31,7 +31,13 @@
 
   function expandFlowNodes(source) {
     const expanded = [];
-    for (const node of [...source.children].filter(node => node.tagName !== 'H1')) {
+    for (const node of source.childNodes) {
+      if (node.nodeType === Node.COMMENT_NODE && node.nodeValue.trim().toLowerCase() === 'column-break') {
+        const marker=document.createElement('span');
+        marker.__songsColumnBreak=true; marker.hidden=true; expanded.push(marker);
+        continue;
+      }
+      if (node.nodeType !== Node.ELEMENT_NODE || node.tagName === 'H1') continue;
       if (node.tagName !== 'P' || node.querySelectorAll('br').length < 10) {
         expanded.push(node);
         continue;
@@ -69,6 +75,10 @@
     return heading;
   }
 
+  function isColumnBreak(node) {
+    return node?.__songsColumnBreak === true;
+  }
+
   function sectionize(source) {
     const nodes = expandFlowNodes(source);
     const sections = [];
@@ -78,6 +88,11 @@
       sections.push(section);
     };
     for (const node of nodes) {
+      if (isColumnBreak(node)) {
+        if (headingGroup) { push(headingGroup); headingGroup=null; }
+        push(node);
+        continue;
+      }
       if (/^H[23]$/.test(node.tagName)) {
         if (headingGroup) push(headingGroup);
         headingGroup = document.createElement('section');
@@ -159,16 +174,23 @@
     return best;
   }
 
+  function forcedColumnSplit(sections) {
+    for(let split=1;split<sections.length-1;split++) {
+      if(isColumnBreak(sections[split]) && sections.slice(0,split).some(section=>!isColumnBreak(section)) && sections.slice(split+1).some(section=>!isColumnBreak(section))) return split;
+    }
+    return 0;
+  }
+
   function renderColumns(container, sections, count, split) {
     container.replaceChildren();
     if (count === 1) {
       const col = makeColumn();
-      sections.forEach(s => col.append(s.cloneNode(true)));
+      sections.filter(section=>!isColumnBreak(section)).forEach(s => col.append(s.cloneNode(true)));
       container.append(col);
       return [col];
     }
     const left = makeColumn(), right = makeColumn();
-    sections.forEach((s,i) => (i < split ? left : right).append(s.cloneNode(true)));
+    sections.forEach((s,i) => { if(!isColumnBreak(s)) (i < split ? left : right).append(s.cloneNode(true)); });
     container.append(left,right);
     return [left,right];
   }
@@ -197,12 +219,13 @@
     const gap = parseFloat(getComputedStyle(container).columnGap || getComputedStyle(container).gap) || 24;
     const width = (viewport.clientWidth-gap)/2;
     const height = viewport.clientHeight;
+    const forcedSplit = forcedColumnSplit(sections);
     let bestFailure = null;
     for (let px=PREFERRED_PX; px>=MIN_PX; px--) {
       for (const line of [1.24,1.20,1.16,1.12]) {
         applyTypography(panel, px, line);
         const heights = measureSections(sections,width,panel,px,line);
-        const split = bestSplit(heights);
+        const split = forcedSplit || bestSplit(heights);
         const leftHeight = heights.slice(0,split).reduce((a,b)=>a+b,0);
         const rightHeight = heights.slice(split).reduce((a,b)=>a+b,0);
         const columns = renderColumns(container,sections,2,split);
@@ -216,7 +239,7 @@
         if (!bestFailure || overflow<bestFailure.overflow) bestFailure={px,line,split,overflow};
       }
     }
-    const fail=bestFailure || {px:MIN_PX,line:1.12,split:Math.ceil(sections.length/2),overflow:0};
+    const fail=bestFailure || {px:MIN_PX,line:1.12,split:forcedSplit || Math.ceil(sections.length/2),overflow:0};
     applyTypography(panel,MIN_PX,1.12); renderColumns(container,sections,2,fail.split);
     panel.dataset.fitStatus='needs-editing'; panel.dataset.columnCount='2';
     finalizeTypography(panel,MIN_PX,1.12);
@@ -416,7 +439,7 @@
     if (!triggers.length || !('HTMLDialogElement' in window)) return;
     const dialog = document.createElement('dialog');
     dialog.className = 'shelley-dialog markdown-dialog';
-    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Canonical source</p><h2>Edit Markdown</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><p class="dialog-help">Edit the song file for structure and phrasing. You need TWO SPACES at the line's end to create a rendered NEW line.</p><label><span>Lead-sheet Markdown</span><textarea name="markdown" required aria-label="Lead-sheet Markdown" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></label><p class="shelley-job-status" data-markdown-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-markdown-cancel>Cancel</button><button class="button primary" type="submit" data-markdown-save>Save Markdown</button></div></form>`;
+    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Canonical source</p><h2>Edit Markdown</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><p class="dialog-help">Edit the song file for structure and phrasing. You need TWO SPACES at the line's end to create a rendered NEW line. Use <code>&lt;!-- column-break --&gt;</code> on its own line to start the second tablet column.</p><label><span>Lead-sheet Markdown</span><textarea name="markdown" required aria-label="Lead-sheet Markdown" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></label><p class="shelley-job-status" data-markdown-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-markdown-cancel>Cancel</button><button class="button primary" type="submit" data-markdown-save>Save Markdown</button></div></form>`;
     document.body.append(dialog);
     const form = dialog.querySelector('form');
     const textarea = dialog.querySelector('textarea');

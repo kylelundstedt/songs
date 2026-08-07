@@ -17,6 +17,7 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 - Stage-dark and bright-outdoor themes.
 - iPad/tablet live sheets use exactly two columns and fit to one viewport at a 16px readability floor.
 - iPhone uses exactly one 20px column with vertical scrolling when required.
+- A standalone `<!-- column-break -->` comment forces the start of the second tablet column and is ignored in the one-column phone layout.
 
 See [Phase 0–1 results](docs/PHASES-0-1.md) and the [full implementation proposal](docs/PROPOSAL.md).
 
