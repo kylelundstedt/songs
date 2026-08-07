@@ -52,18 +52,24 @@ type SetItem struct {
 	Suffix            string
 	Singer            string
 	Note              string
+	Unresolved        bool
 	ColumnBreakBefore bool
 	Song              *Song
 }
 
 type SetList struct {
-	ID       string
-	Path     string
-	Title    string
-	Date     string
-	Location string
-	Hash     string
-	Items    []SetItem
+	ID              string
+	Path            string
+	Title           string
+	Date            string
+	DatePrecision   string
+	Location        string
+	Band            string
+	Status          string
+	ReviewRequired  bool
+	UnresolvedCount int
+	Hash            string
+	Items           []SetItem
 }
 
 type Server struct {
@@ -366,7 +372,18 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 		if title == "" {
 			title = id
 		}
-		set := &SetList{ID: id, Path: rel, Title: title, Date: metadataValue(string(body), "date"), Location: metadataValue(string(body), "location"), Hash: hashBytes(body)}
+		set := &SetList{
+			ID:             id,
+			Path:           rel,
+			Title:          title,
+			Date:           metadataValue(string(body), "date"),
+			DatePrecision:  metadataValue(string(body), "date_precision"),
+			Location:       metadataValue(string(body), "location"),
+			Band:           metadataValue(string(body), "band"),
+			Status:         metadataValue(string(body), "status"),
+			ReviewRequired: strings.EqualFold(metadataValue(string(body), "review_required"), "true"),
+			Hash:           hashBytes(body),
+		}
 		lines := strings.Split(string(body), "\n")
 		pendingColumnBreak := false
 		columnBreakCount := 0
@@ -379,11 +396,16 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 			if len(m) == 0 {
 				continue
 			}
-			target := filepath.ToSlash(filepath.Clean(filepath.Join(filepath.Dir(rel), filepath.FromSlash(m[2]))))
-			target = strings.TrimPrefix(target, "./")
-			song := songsByPath[target]
-			if song == nil {
-				return fmt.Errorf("set %s references missing song %s", rel, target)
+			targetRef := strings.TrimSpace(m[2])
+			unresolved := strings.HasPrefix(targetRef, "unresolved:")
+			var song *Song
+			if !unresolved {
+				target := filepath.ToSlash(filepath.Clean(filepath.Join(filepath.Dir(rel), filepath.FromSlash(targetRef))))
+				target = strings.TrimPrefix(target, "./")
+				song = songsByPath[target]
+				if song == nil {
+					return fmt.Errorf("set %s references missing song %s", rel, target)
+				}
 			}
 			singer, note := parseSetItemDetails(m[3])
 			if pendingColumnBreak {
@@ -392,7 +414,10 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 					return fmt.Errorf("set %s contains more than two column breaks", rel)
 				}
 			}
-			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Target: m[2], Suffix: strings.TrimSpace(m[3]), Singer: singer, Note: note, ColumnBreakBefore: pendingColumnBreak, Song: song})
+			if unresolved {
+				set.UnresolvedCount++
+			}
+			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Target: targetRef, Suffix: strings.TrimSpace(m[3]), Singer: singer, Note: note, Unresolved: unresolved, ColumnBreakBefore: pendingColumnBreak, Song: song})
 			pendingColumnBreak = false
 		}
 		sets = append(sets, set)
@@ -1479,7 +1504,9 @@ func (s *Server) HandleOfflineManifest(w http.ResponseWriter, r *http.Request) {
 	}
 	urls := []string{"/", "/sets/" + set.ID, "/sets/" + set.ID + "/live", "/api/catalog", "/static/style.css", "/static/app.js", "/static/icon.svg", "/manifest.webmanifest"}
 	for _, item := range set.Items {
-		urls = append(urls, "/song/"+item.Song.ID)
+		if item.Song != nil {
+			urls = append(urls, "/song/"+item.Song.ID)
+		}
 	}
 	writeJSON(w, map[string]any{"set": set.ID, "hash": set.Hash, "urls": urls})
 }

@@ -182,6 +182,79 @@ func TestReorderSetMarkdownPreservesItemDetailsAndBreaks(t *testing.T) {
 	}
 }
 
+func TestUnresolvedSetItemsRemainUsable(t *testing.T) {
+	server := fixtureServer(t)
+	setPath := filepath.Join(server.RepoRoot, "sets", "test-set.md")
+	body := "---\ntitle: Imported Draft\ndate: 2015-09\ndate_precision: month\nband: Example Band\nstatus: draft\nreview_required: true\n---\n\n# Imported Draft\n\n1. [Test Song](../songs/Test-Song.md) — singer: Alex\n2. [Missing Song](unresolved:missing-song) — singer: Casey — note: Import review\n"
+	if err := os.WriteFile(setPath, []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := server.Reindex(); err != nil {
+		t.Fatal(err)
+	}
+	set := server.setsByID["test-set"]
+	if set == nil || len(set.Items) != 2 || set.UnresolvedCount != 1 || set.Status != "draft" || set.DatePrecision != "month" || set.Band != "Example Band" {
+		t.Fatalf("unexpected imported set: %#v", set)
+	}
+	missing := set.Items[1]
+	if !missing.Unresolved || missing.Song != nil || missing.Target != "unresolved:missing-song" || missing.Singer != "Casey" || missing.Note != "Import review" {
+		t.Fatalf("unexpected unresolved item: %#v", missing)
+	}
+
+	for _, tt := range []struct {
+		path, id, contains string
+		handler            http.HandlerFunc
+	}{
+		{path: "/sets/test-set", id: "test-set", contains: "Lead sheet needed", handler: server.HandleSet},
+		{path: "/sets/test-set/live", id: "test-set", contains: "Lead sheet unavailable", handler: server.HandleLiveSet},
+	} {
+		req := httptest.NewRequest(http.MethodGet, tt.path, nil)
+		req.SetPathValue("id", tt.id)
+		w := httptest.NewRecorder()
+		tt.handler(w, req)
+		if w.Code != http.StatusOK || !strings.Contains(w.Body.String(), tt.contains) {
+			t.Fatalf("%s status=%d missing %q: %s", tt.path, w.Code, tt.contains, w.Body.String())
+		}
+		if strings.Contains(w.Body.String(), "/song/missing-song") {
+			t.Fatalf("%s rendered a fake song link", tt.path)
+		}
+	}
+
+	req := httptest.NewRequest(http.MethodGet, "/api/offline/sets/test-set", nil)
+	req.SetPathValue("id", "test-set")
+	w := httptest.NewRecorder()
+	server.HandleOfflineManifest(w, req)
+	if w.Code != http.StatusOK {
+		t.Fatalf("offline status=%d body=%s", w.Code, w.Body.String())
+	}
+	var manifest struct {
+		URLs []string `json:"urls"`
+	}
+	if err := json.Unmarshal(w.Body.Bytes(), &manifest); err != nil {
+		t.Fatal(err)
+	}
+	joined := strings.Join(manifest.URLs, "\n")
+	if !strings.Contains(joined, "/song/test-song") || strings.Contains(joined, "missing-song") {
+		t.Fatalf("unexpected offline URLs: %#v", manifest.URLs)
+	}
+
+	updated, err := reorderSetMarkdown(body, set, []int{2, 1}, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(updated, "1. [Missing Song](unresolved:missing-song) — singer: Casey — note: Import review") {
+		t.Fatalf("unresolved target was not preserved:\n%s", updated)
+	}
+
+	broken := "---\ntitle: Broken\n---\n\n# Broken\n\n1. [Missing](../songs/Missing.md)\n"
+	if err := os.WriteFile(filepath.Join(server.RepoRoot, "sets", "broken.md"), []byte(broken), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, _, err := server.loadSets(server.songsByPath); err == nil || !strings.Contains(err.Error(), "references missing song") {
+		t.Fatalf("expected conventional missing link to fail, got %v", err)
+	}
+}
+
 func TestSetParserRejectsMoreThanThreeColumns(t *testing.T) {
 	server := fixtureServer(t)
 	body := "---\ntitle: Too Many Columns\n---\n\n# Too Many Columns\n\n1. [One](../songs/Test-Song.md)\n<!-- column-break -->\n2. [Two](../songs/Test-Song.md)\n<!-- column-break -->\n3. [Three](../songs/Test-Song.md)\n<!-- column-break -->\n4. [Four](../songs/Test-Song.md)\n"

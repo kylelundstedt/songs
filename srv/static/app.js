@@ -468,6 +468,12 @@
         reset.title=panel?.dataset.manualFont?`Return to auto-fit (${panel.dataset.autoBodyPx}px)`:'Using auto-fit';
       }
     });
+    const hasSong=!!currentVisibleSongID();
+    document.querySelectorAll('[data-markdown-edit],[data-shelley-edit]').forEach(button=>{
+      if(!button.dataset.enabledTitle)button.dataset.enabledTitle=button.title||button.getAttribute('aria-label')||'Edit';
+      button.disabled=!hasSong;
+      button.title=hasSong?button.dataset.enabledTitle:'Unavailable for an unresolved Set List item';
+    });
   }
 
   function setupFontControls() {

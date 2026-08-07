@@ -1,7 +1,10 @@
-const CACHE = 'songs-shell-v23';
+const CACHE = 'songs-shell-v26';
 const SHELL = ['/', '/static/style.css', '/static/app.js', '/static/icon.svg', '/manifest.webmanifest'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())));
-self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
+self.addEventListener('activate', event => event.waitUntil(Promise.all([
+  self.clients.claim(),
+  caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('songs-shell-') && key !== CACHE).map(key => caches.delete(key))))
+])));
 self.addEventListener('message', event => {
   if (event.data?.type !== 'CACHE_URLS') return;
   event.waitUntil(caches.open(CACHE).then(async cache => {
