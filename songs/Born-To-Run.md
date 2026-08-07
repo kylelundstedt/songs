@@ -61,7 +61,7 @@ I want to know if love is reallllll; Oh, can you show me? ..
 
 Beyond the Palace, hemi-powered drones scream down the boulevard  
 Girls comb their hair in rear-view mirrors, 'n the boys try to look so hard  
-The amusement park rises bold 'n stark, kids are huddld on the beach in a mist  
+The amusement park rises bold 'n stark, kids are huddled on the beach in a mist  
 I wanna die with you, Wendy, on the streets tonight in an everlasting kiss  
   
 ### Bridge 2  17x  _pause at the end_  1-2-3-4!  
