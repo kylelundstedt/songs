@@ -1,3 +1,5 @@
 raw/
 work/
 *.tmp
+__pycache__/
+*.pyc
