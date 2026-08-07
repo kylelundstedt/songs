@@ -23,7 +23,7 @@ metadata_review_status: "reviewed"
   
 ### Intro Vamp  8x  
   
-### Verse  8x  
+### Verse 1  8x  
 
 In the day we sweat it out on the streets, of a runaway American dream  
 At night we ride through mansions of glory, in suicide machines  
@@ -44,21 +44,15 @@ We gotta get out while we're young
   
 ### Verse  8x  
 
-Wendy, let me in, I wanna be your friend  
-I wanna guard your dreams and visions  
-Just wrap your legs 'round these velvet rims  
-And strap your hands 'cross my engines  
+Wendy, let me in, I wanna be your friend, I wanna guard your dreams and visions  
+Just wrap your legs 'round these velvet rims, And strap your hands 'cross my engines  
   
 ### B Section  14x  
 
-Together we could break this trap  
-We'll run 'til we drop, baby, we'll never go back  
-Oh, will you walk with me out on the wire?  
-'Cause, baby, I'm just a scared and lonely rider  
+Together we could break this trap, We'll run 'til we drop, baby, we'll never go back  
+Oh, will you walk with me out on the wire?  'Cause, baby, I'm just a scared and lonely rider  
   
-But I gotta know how it feels  
-I wanna know if love is wild  
-Babe, I want to know if love is-  
+But I gotta know how it feels.  I wanna know if love is wild, babe, I want to know if love is-  
   
 ### Intro Vamp  8x  
 
