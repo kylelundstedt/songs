@@ -21,27 +21,47 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Sullivan-Street.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Sullivan Street
+
+### Intro 8x
+### Verse 1 16x
 
 Take the way home leads back to Sullivan Street  
 Cross the water home through the town  
 Past the shadows that fall down wherever we meet  
 Pretty soon now I won't come around  
+
+### Chorus 8x
+
 I'm almost drowning in her sea  
 She's nearly fallen to her knees  
 Take the way home  
+
+### Verse 2 16x
+
 Take the way home leads back to Sullivan Street  
 Where all the bodies hang on the air  
 If she remembers, she hides it whenever we meet  
 Either way now, I don't really care 'cause I'm gone from there  
+
+### Chorus 12x
+
 I'm almost drowning in her sea  
 She's nearly crawling on her knees  
 She's down on her knees, down on her knees  
+
+### Verse 3 8x
+
 Take the way home that leads back to Sullivan Street  
 Where I'm just another rider burned to the ground  
 Come tumbling down  
+
+### Chorus 18x
+
 I'm almost drowning in her sea  
 She's nearly crawling on her knees  
 It's almost everything I need  

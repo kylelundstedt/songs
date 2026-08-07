@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/I-Kissed-a-Girl.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # I Kissed a Girl
+
+### Intro 2x
+### Verse 1 16x
 
 This was never the way I planned  
 Not my intention  
@@ -33,6 +38,9 @@ It's not what I'm used to
 Just wanna try you on  
 I'm curious for you  
 Caught my attention  
+
+### Chorus 16x
+
 I kissed a girl and I liked it  
 The taste of her cherry chap stick  
 I kissed a girl just to try it  
@@ -42,6 +50,10 @@ It felt so right
 Don't mean I'm in love tonight  
 I kissed a girl and I liked it  
 I liked it  
+
+### Break 2x
+### Verse 2 16x
+
 No, I don't even know your name  
 It doesn't matter  
 You're my experimental game  
@@ -50,6 +62,9 @@ It's not what, good girls do
 Not how they should behave  
 My head gets so confused  
 Hard to obey  
+
+### Chorus 16x
+
 I kissed a girl and I liked it  
 The taste of her cherry chap stick  
 I kissed a girl just to try it  
@@ -59,11 +74,18 @@ It felt so right
 Don't mean I'm in love tonight  
 I kissed a girl and I liked it  
 I liked it  
+
+### Solo
+### Bridge 12x
+
 Us girls we are so magical  
 Soft skin, red lips, so kissable  
 Hard to resist so touchable  
 Too good to deny it  
 Ain't no big deal, it's innocent  
+
+### Chorus 16x
+
 I kissed a girl and I liked it  
 The taste of her cherry chap stick  
 I kissed a girl just to try it  

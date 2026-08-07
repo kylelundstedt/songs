@@ -20,44 +20,85 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Long-Train-Runnin.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Long Train Runnin
 
+### Intro 8x
+### Verse 1 4x
+
 Down around the corner half a mile from here  
 See them long trains runnin' and you watch 'em disappear  
+
+### Chorus 8x
+
 Without love  
 Where would you be now?  
 (without love...)  
+
+### Verse 2 4x
+
 Know I saw Miss Lucy down along the tracks  
 She lost her home and her family and she won't be coming back  
+
+### Chorus 8x
+
 Without love  
 Where would you be right now?  
 (without love...)  
+
+### Verse 3 4x
+
 Well the Illinois Central and the Southern Central freight  
 Got to keep on pushin' mama  
 'Cause you know they're runnin' late  
+
+### Chorus 8x
+
 Without love  
 Where would you be now na na now?  
 (without love...)  
+
+### Verse 3 4x
+
 Well the Illinois Central and the Southern Central freight  
 Got to keep on pushin' mama  
 'Cause you know they're runnin' late  
+
+### Chorus 8x
+
 Without love  
 Where would you be now?  
 (without love...)  
+
+### Verse 5 4x
+
 Well pistons keep on churnin' and the wheels go 'round and 'round  
 And the steel rails lie cold and hard on the mountains they go down  
+
+### Chorus Outro 8x
+
 Without love  
 Where would you be right now?  
 (without love...)  
+
+### Harmonica Solo 12x
+
 Ooh...  
 Where would you be now?  
+
+### Outro Vamp 16x
+
 Mmm... got to get you baby baby  
 Won't you move it down?  
 Won't you move it down?  
 Baby baby baby baby  
 Won't you move it down?  
+
+### Chorus Outro 8x
+
 When the big train run  
 When the train I'm movin' on  
 I got to keep on movin' keep on movin'  

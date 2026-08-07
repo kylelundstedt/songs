@@ -17,46 +17,81 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Mysterious-Ways.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Mysterious Ways
+
+### Intro 8x
+### Verse 1 8x
 
 Johnny take a walk with your sister the moon  
 Let her pale light in to fill up your room  
 You've been living underground, eating from a can  
 You've been running away from what you don't understand  
+
+### Pre-Chorus 4x
+
 Love  
 She's slippy  
 You're sliding down  
 She'll be there  
 When you hit the ground  
+
+### Chorus 8x
+
 It's all right, it's all right, it's all right  
 She moves in mysterious ways  
 It's all right, it's all right, it's all right  
 She moves in mysterious ways  
+
+### Verse 2 8x
+
 Johnny take a dive with your sister in the rain  
 Let her talk about the things you can't explain  
 To touch is to heal, to hurt is to steal  
 If you want to kiss the sky, better learn how to kneel  
 On your knees boy  
+
+### Pre-Chorus 4x
+
 She's the wave  
 She turns the tide  
 [Incomprehensible]  
 She knows why  
+
+### Chorus 8x
+
 It's all right, it's all right, all right  
 She moves in mysterious ways  
+
+### Chorus 8x
+
 It's all right, it's all right, all right  
 She moves in mysterious ways  
+
+### Breakdown 8x
+
 It's all right, it's all right, all right  
 Lift my days, light up my nights, love  
+
+### Bridge 8x
+
 One day you will look back  
 And you'll see where you were held how  
 By this love while you could stand there  
 You could move on this moment, follow this feeling  
+
+### Chorus 8x
+
 It's all right, it's all right, all right  
 She moves in mysterious ways  
 It's all right, it's all right, all right  
 She moves in mysterious ways  
+
+### Chorus 8x
+
 Oh love, oh love  
 Love, no, no, no  
 Move you, spirit move, move  

@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Chasing-Cars.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Chasing Cars
+
+### Intro 4x
+### Verse 1 15x
 
 We'll do it all  
 Everything  
@@ -31,20 +36,32 @@ On our own
 We don't need  
 Anything  
 Or anyone  
+
+### Chorus 8x
+
 If I lay here  
 If I just lay here  
 Would you lie with me  
 And just forget the world?  
+
+### Verse 2 8x
+
 I don't quite know  
 How to say  
 How I feel  
 Those three words  
 Are said too much  
 They're not enough  
+
+### Chorus 16x
+
 If I lay here  
 If I just lay here  
 Would you lie with me  
 And just forget the world?  
+
+### Bridge 16x
+
 Forget what we're told  
 Before we get too old  
 Show me a garden  
@@ -55,10 +72,16 @@ Around our heads
 I need your grace  
 To remind me  
 To find my own  
+
+### Big Chorus 16x
+
 If I lay here  
 If I just lay here  
 Would you lie with me  
 And just forget the world?  
+
+### Chorus 16x
+
 Forget what we're told  
 Before we get too old  
 Show me a garden  
@@ -71,6 +94,9 @@ I don't know where
 Confused about how as well  
 Just know that these things  
 Will never change for us at all  
+
+### QuietChorus 8x
+
 If I lay here  
 If I just lay here  
 Would you lie with me  

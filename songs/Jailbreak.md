@@ -18,9 +18,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Jailbreak.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Jailbreak
+
+### Intro 8x
+### Verse 16x
 
 Tonight there's gonna be a jailbreak  
 Somewhere in this town  
@@ -30,10 +35,17 @@ Hiding low, looking right to left
 If you see us coming, I think it's best  
 To move away, do you hear what I say?  
 From under my breath  
+
+### Chorus 1 8x
+
 Tonight there's gonna be a jailbreak  
 Somewhere in the town  
 Tonight there's gonna be a jailbreak  
 So don't you be around, don't you be around  
+
+### Intro 8x
+### Verse 16x
+
 Tonight there's gonna be trouble  
 Some of us won't survive  
 See the boys and me, we mean business  
@@ -42,16 +54,26 @@ I can hear the hound dogs on my trail
 All hell breaks loose, alarm and sirens wail  
 Like the game if you lose  
 Go to jail  
+
+### Chorus 2 (x2)
+
 Tonight there's gonna be a jailbreak  
 Somewhere in the town  
 Tonight there's gonna be a jailbreak  
 So don't you be around  
+
+### Breakdown ?x
+
 Tonight there's gonna be trouble  
 I'm gonna find myself in  
 Tonight there's gonna be trouble  
 So woman, you stay with a friend  
 You know it's safer  
 Breakout!  
+
+### Intro 8x
+### Verse 16x
+
 Tonight there's gonna be a breakout  
 Into the city zones  
 Don't you dare to try and stop us  
@@ -60,6 +82,9 @@ Searchlight on my trail
 Tonight's the night, all systems fail  
 Hey you, good lookin' female  
 Come here  
+
+### Chorus 1 (x2)
+
 Tonight there's gonna be a jailbreak  
 Somewhere in the town  
 Tonight there's gonna be a jailbreak  

@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/When-I-Come-Around.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # When I Come Around
+
+### Intro 2x + 4x
+### Verse 16x
 
 Oh I heard you cryin' loud  
 All the way across town  
@@ -35,9 +40,16 @@ And dry your whining eyes
 I'm just roaming for the moment  
 Sleazing my backyard so don't get so uptight  
 You've been thinking about ditching me  
+
+### Chorus 4x
+
 No time to search the world around  
 'Cause you know where I'll be found  
 When I come around  
+
+### Intro Vamp 4x
+### Verse 2 8x
+
 Oh I heard it all before  
 So don't knock down my door  
 I'm a loser and the user  
@@ -48,9 +60,17 @@ Make sure you do it wise
 You may find out that yourself doubt  
 Means nothing was ever there  
 You can't come forcing somethin' if it's just not right  
+
+### Chorus 4x
+
 No time to search the world around  
 'Cause you know where I'll be found  
 When I come around  
+
+### Intro 4x
+### Solo 8x
+### Chorus 8x
+
 No time to search the world around  
 'Cause you know where I'll be found  
 When I come around  

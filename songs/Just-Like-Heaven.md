@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Just-Like-Heaven.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Just Like Heaven
+
+### Intro 12x; Keys 4x; Guitar Vamp 16x
+### Verse 1 16x
 
 "Show me, show me, show me how you do that trick  
 The one that makes me scream", she said  
@@ -31,24 +36,39 @@ The one that makes me scream", she said
 Threw her arms around my neck  
 "Show me how you do it? And I'll promise you  
 I'll promise that I'll run away with you, I'll run away with you"  
+
+### Guitar Vamp 16x
+### Verse 2 16x
+
 Spinning on that dizzy edge  
 Kissed her face and kissed her head  
 Dreamed of all the different ways, I had to make her glow  
 "Why are you so far away?", she said  
 "Why won't you ever know that I'm in love with you?  
 That I'm in love with you?"  
+
+### Chorus 10x
+
 You, soft and only, you lost and lonely  
 You, strange as angels  
 Dancing in the deepest oceans  
 Twisting in the water  
 You're just like a dream  
 You're just like a dream  
+
+### Keys + Guitar Solo 16x
+### Verse 3 16x
+
 Daylight licked me into shape  
 I must have been asleep for days  
 And moving lips to breathe her name  
 I opened up my eyes  
 And found myself alone, alone, alone above a raging sea  
 Stole the only girl I loved, drowned her deep inside of me  
+
+### Guitar Vamp 16x
+### Chorus 6x
+
 You soft and only  
 You lost and lonely  
 You just like heaven

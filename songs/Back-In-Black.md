@@ -17,10 +17,16 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Back-In-Black.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Back In Black  
   
+
+### Drums 2x; Drums 8x
+### Verse 1 8x
+
 Back in black  
 I hit the sack  
 I've been too long I'm glad to be back  
@@ -34,6 +40,9 @@ I got nine lives
 Cat's eyes  
 Abusin' every one of them and running wild  
   
+
+### Chorus 8x
+
 'Cause I'm back  
 Yes I'm back  
 Well I'm back  
@@ -43,6 +52,9 @@ Well I'm hey hey hey hey
 Well I'm back in black  
 Yes I'm back in black  
   
+
+### Verse 2 8x
+
 Back in the back  
 Of a Cadillac  
 Number one with a bullet  
@@ -57,6 +69,9 @@ I'm just makin' my play
 Don't try to push your luck  
 Just get out of my way  
   
+
+### Chorus 8x
+
 'Cause I'm back  
 Yes I'm back  
 Well I'm back  
@@ -66,6 +81,10 @@ Well I'm hey hey hey hey
 Well I'm back in black  
 Yes I'm back in black  
   
+
+### Solo 16x
+### Chorus 8x
+
 Well I'm back, Yes I'm back  
 Well I'm back, Yes I'm back  
 Well I'm hey hey hey hey  
@@ -73,11 +92,17 @@ Well I'm hey hey hey hey
 Well I'm back in black  
 Yes I'm back in black  
   
+
+### Bridge 8x
+
 Oh yeah  
 Oh yeah  
 Yes I am  
 Hey yeah, yeah oh yeah  
 Back in now  
+
+### Chorus 8x
+
 Well I'm hey hey hey hey, I'm back  
 Hey hey hey hey, (I'm back)  
 Hey hey hey hey, (I'm back)  

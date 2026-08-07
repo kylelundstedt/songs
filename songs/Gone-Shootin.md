@@ -20,9 +20,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Gone-Shootin.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Gone Shootin
+
+### Intro
+### Verse 1
 
 Feel the pressure rise
 Hear the whistle blow
@@ -32,11 +37,18 @@ Packed her heart in a traveling bag
 And never said bye bye
 Something's missing in the neighborhood
 All the cryin' eyes
+
+### Pre-Chorus
+
 I stirred my coffee with the same spoon
 To a favorite tune
 
+### Chorus
+
 Gone shootin'
 My baby's gone shootin'
+
+### Verse 2
 
 Wrap yourself around
 Like a second skin
@@ -49,6 +61,8 @@ Up until my overkill
 She never made it passed the bedroom door
 What was she aiming for?
 
+### Chorus
+
 Gone shootin'
 She's gone, gone gone gone
 
@@ -57,4 +71,7 @@ My baby's gone shootin'
 Gone shootin'
 Got everything you could ever want
 She's gone, gone gone gone, she's gone
+
+### Solo/Outro
+
 Gone shootin'

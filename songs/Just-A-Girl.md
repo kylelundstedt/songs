@@ -21,23 +21,37 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Just-A-Girl.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-aligned"
 ---
 
 # Just A Girl
+
+### Intro 4x
+### Verse 1 8x
 
 Take this pink ribbon off my eyes  
 I'm exposed and it's no big surprise  
 Don't you think I know exactly where I stand  
 This world is forcing me to hold your hand  
+
+### Chorus 8x + 4x
+
 'Cause I'm just a girl, oh, little old me  
 Don't let me out of your sight  
 Oh, I'm just a girl, all pretty and petite  
 So don't let me have any rights  
 Oh, I've had it up to here  
+
+### Verse 2 8x
+
 The moment that I step outside  
 So many reasons for me to run and hide  
 I can't do the little things I love so dear  
 'Cause it's all those little things that I fear  
+
+### Chorus 12x + 2x
+
 'Cause I'm just a girl, I'd rather not be  
 'Cause they won't let me drive late at night  
 I'm just a girl, guess I'm some kind of freak  
@@ -45,8 +59,14 @@ I'm just a girl, guess I'm some kind of freak
 Oh, I'm just a girl take a good look at me  
 Just your typical prototype, oh, I've had it up to here  
 Oh, am I making myself clear?  
+
+### Bridge 6x
+
 I'm just a girl, I'm just a girl in the world  
 That's all that you'll let me be  
+
+### Chorus 16x + 6x
+
 Oh, I'm just a girl, living in captivity  
 Your rule of thumb make me worry so  
 Oh, I'm just a girl, what's my destiny?  

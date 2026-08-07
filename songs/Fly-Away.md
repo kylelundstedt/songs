@@ -19,9 +19,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Fly-Away.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Fly Away
+
+### Intro
+### Verse 1
 
 I wish that I could fly  
 Into the sky  
@@ -31,12 +36,18 @@ I'd fly above the trees
 Over the seas  
 In all degrees  
 To anywhere I please  
+
+### Chorus
+
 Oh, I want to get away  
 I want to fly away  
 Yea, yea, yea  
 I want to get away  
 I want to fly away  
 Yea, yea, yea  
+
+### Verse 2
+
 Let's go and see the stars  
 The Milky Way or even Mars  
 Where it could just be ours  
@@ -45,20 +56,33 @@ Let your spirit fly
 Where we are one  
 Just for a little fun  
 Oh, oh, oh yea  
+
+### Chorus
+
 I want to get away  
 I want to fly away  
 Yea, yea, yea  
 I want to get away  
 I want to fly away  
 Yea, yea, yea  
+
+### Guitar Solo
+### Bridge
+
 I got to get away  
 Girl I got to get away  
 Oh, oh, oh yea  
+
+### Chorus
+
 I want to get away  
 I want to fly away  
 Yea, yea, yea  
    (With you )  
 Oh yeah  
+
+### Chorus/Outro
+
 I want to get away  
 I want to fly away  
 Yea, yea, yea  

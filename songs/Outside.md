@@ -20,9 +20,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Outside.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Outside
+
+### Verse 1
 
 And you  
 You bring me to my knees, again  
@@ -32,6 +36,9 @@ All the times
 Then I felt insecure, for you  
 And I leave  
 My burdens at the door  
+
+### Chorus
+
 But I'm on the outside  
 I'm looking in  
 I can see through you  
@@ -40,6 +47,9 @@ See your true colors
 You're ugly like me  
 And I can see through you  
 See to the real you  
+
+### Verse 2
+
 All the times  
 That I felt like this won't end, it's for you  
 And I taste  
@@ -48,6 +58,9 @@ All the times
 That I've cried my intentions, full of pride  
 But I waste  
 More time than anyone  
+
+### Chorus
+
 But I'm on the outside  
 I'm looking in  
 I can see through you  
@@ -56,6 +69,9 @@ See your true colors
 You're ugly like me  
 I can see through you  
 See to the real you  
+
+### Bridge
+
 And all the times  
 That I've cried, all this wasted, it's all inside  
 And I feel  
@@ -64,6 +80,9 @@ And I lie
 Here in bed all alone  
 I can't mend  
 But I feel tomorrow will be okay  
+
+### Chorus
+
 But I'm on the outside  
 And I'm looking in  
 I can see through you  

@@ -21,11 +21,18 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Vertigo.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Vertigo
 
+### Intro
+
 Unos, dos, tres, catorce!  
+
+### Verse 1
+
 Lights go down it's dark  
 The jungle is your head  
 Can't rule your heart  
@@ -33,6 +40,9 @@ A feeling so much
 Stronger than a thought  
 Your eyes are wide and though  
 Your soul it can't be bought  
+
+### Chorus
+
 Your mind can wander  
 Hello hello  
 (Hola)  
@@ -41,6 +51,9 @@ I'm at a place called Vertigo
 It's everything I wish I didn't know  
 Except you give me something  
 I can feel, feel  
+
+### Verse 2
+
 The night is full of holes  
 As bullets rip the sky  
 Of ink with gold  
@@ -54,6 +67,9 @@ The girl with crimson nails
 Has Jesus 'round her neck  
 Swinging to the music  
 Swinging to the music  
+
+### Chorus
+
 Hello hello  
 (Hola)  
 I'm at a place called Vertigo  
@@ -61,11 +77,18 @@ I'm at a place called Vertigo
 It's everything I wish I didn't know  
 But you give me something  
 I can feel, feel  
+
+### Break
+
 All of this, all of this can be yours  
 All of this, all of this can be yours  
 All of this, all of this can be yours  
 Just give me what I want  
 And no one gets hurt  
+
+### Guitar Solo
+### Chorus
+
 Hello hello  
 (Hola)  
 We're at a place called Vertigo  
@@ -75,5 +98,8 @@ Is that you give me something
 I can feel your love teaching me how  
 Your love is teaching me how  
 How to kneel, kneel  
+
+### Outro
+
 Yea, yea, yea, yea, yea, yea, yea, yea  
 Yea, yea, yea, yea, yea, yea, yea, yea

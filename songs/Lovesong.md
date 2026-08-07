@@ -17,18 +17,30 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Lovesong.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Lovesong
+
+### Intro 16x
+### Verse 1 16x
 
 Whenever I'm alone with you  
 You make me feel like I am home again  
 Whenever I'm alone with you  
 You make me feel like I am whole again  
+
+### Break 8x
+### Verse 2 16x
+
 Whenever I'm alone with you  
 You make me feel like I am young again  
 Whenever I'm alone with you  
 You make me feel like I am fun again  
+
+### Chorus 16x
+
 However far away  
 I will always love you  
 However long I stay  
@@ -36,10 +48,18 @@ I will always love you
 Whatever words I say  
 I will always love you  
 I will always love you  
+
+### Break 8x
+### Solo 8x
+### Verse 3 16x
+
 Whenever I'm alone with you  
 You make me feel like I am free again  
 Whenever I'm alone with you  
 You make me feel like I am clean again  
+
+### Chorus 16x
+
 However far away  
 I will always love you  
 However long I stay  

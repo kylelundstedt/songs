@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Boys-Don-t-Cry.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Boys Don t Cry
+
+### Intro
+### Verse 1
 
 I would say I'm sorry  
 If I thought that it would change your mind  
@@ -30,8 +35,14 @@ I try to laugh about it
 Cover it all up with lies  
 I try and laugh about it  
 Hiding the tears in my eyes  
+
+### Chorus
+
 Because boys don't cry  
 Boys don't cry  
+
+### Verse 2
+
 I would break down at your feet  
 And beg forgiveness  
 Plead with you  
@@ -41,13 +52,22 @@ So I try to laugh about it
 Cover it all up with lies  
 I try to laugh about it  
 Hiding the tears in my eyes  
+
+### Chorus
+
 Because boys don't cry  
+
+### Verse 3
+
 I would tell you  
 That I loved you  
 If I thought that you would stay  
 But I know that it's no use  
 That you've already  
 Gone away  
+
+### Bridge
+
 Misjudged your limit  
 Pushed you too far  
 Took you for granted  
@@ -56,6 +76,9 @@ Now I would do most anything
 To get you back by my side  
 But I just keep on laughing  
 Hiding the tears in my eyes  
+
+### Chorus
+
 Because boys don't cry  
 Boys don't cry  
 Boys don't cry

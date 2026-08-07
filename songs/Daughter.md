@@ -18,9 +18,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Daughter.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Daughter
+
+### Guitar 4x
+### Verse 1 12x
 
 Alone listless breakfast table in an otherwise empty room  
 Young girl, violin's center of her own attention  
@@ -28,6 +33,9 @@ The mother reads aloud, child, tries to understand it
 Tries to make her proud  
 The shades go down, into her head  
 Painted room, can't deny there's something wrong  
+
+### Pre-Chorus 4x
+
 Don't call me daughter, not fit to  
 The picture kept will remind me  
 Don't call me daughter, not fit to  
@@ -35,6 +43,9 @@ The picture kept will remind me
 Don't call me  
 She holds the hand that holds her down  
 She will rise above  
+
+### Chorus 8x
+
 Don't call me daughter, not fit to  
 The picture kept will remind me  
 Don't call me daughter, not fit to be  
@@ -43,11 +54,18 @@ Don't call me daughter, not fit to
 The picture kept will remind me  
 Don't call me daughter, not fit to  
 The picture kept will remind me  
+
+### Bridge 9x
+
 Don't call me  
 The shades go down  
 The shades go down  
 The shades go down  
 The shades go down  
+
+### Solo 8x
+### Quiet Chorus 8x
+
 I see a girl of the night  
 With a baby in her hand  
 Under an old street light  
@@ -64,6 +82,9 @@ That's one more kid
 That'll never go to school  
 Never get to fall in love  
 Never get to be cool  
+
+### Chorus 8x
+
 He won the lottery  
 When he was born  
 A big hand slapped  
@@ -72,4 +93,8 @@ Do no wrong
 So clean cut  
 Dirties his hands  
 It comes right off  
+
+### Solo 8x
+### Bridge 8x
+
 Police man, police man

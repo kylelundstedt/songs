@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Criminal.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Criminal
+
+### Intro 8x
+### Verse 1 16x
 
 I've been a bad bad girl  
 I've been careless with a delicate man  
@@ -36,11 +41,17 @@ Suffer for my sins
 I've come to you 'cause I need  
 Guidance to be ture  
 And I just don't know where I can begin  
+
+### Chorus 9x
+
 What I need is a good defense  
 'Cause I'm feelin' like a criminal  
 And I need to redeemed  
 To the one I've sinned against  
 Because he's all I ever knew of love  
+
+### Verse 2 16x
+
 Heaven help me for the way I am  
 Save me from these evil deeds
 Before I get them done  
@@ -57,11 +68,17 @@ I've got a lot to lose and I'm
 Bettin' high  
 So I'm beggin' you before it ends  
 Just tell me where to begin  
+
+### Chorus 9x
+
 What I need is a good defense  
 'Cause I'm feelin' like a criminal  
 And I need to redeemed  
 To the one I've sinned against  
 Because he's all I ever knew of love  
+
+### Bridge 16x
+
 Let me know the way  
 Before there's hell to pay  
 Give me room to lay the law and let me go  
@@ -69,11 +86,17 @@ I've got to make a play
 To make my lover stay  
 So what would an angel say
 The devil wants to know  
+
+### Chorus 9x
+
 What I need is a good defense  
 'Cause I'm feelin' like a criminal  
 And I need to redeemed  
 To the one I've sinned against  
 Because he's all I ever knew of love  
+
+### Outro 9x
+
 What I need is a good defense  
 'Cause I'm feelin' like a criminal  
 And I need to redeemed  

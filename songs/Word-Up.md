@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Word-Up.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Word Up
+
+### Intro 4x; Chorus All 8x
+### Verse 1 16x
 
 You pretty ladies around the world  
 Got a weird thing to show you  
@@ -34,11 +39,17 @@ And you know just what to do
 Wave your hands in the air like you don't care  
 Gilde by the people as they start to look and stare  
 Do your dance, do your dance, do your dance quick mama  
+
+### Chorus 8x
+
 Come on baby tell me what's the word  
 Word up everybody says  
 When you hear the call you've got to get it underway  
 Word up it's the code word  
 No matter where you say it, you know that you'll be heard  
+
+### Verse 2 16x
+
 Now all you sucker DJ's who think you're fly  
 There's got to be a reason and we know the reason why  
 Why you put on those airs and you act real cool  
@@ -47,22 +58,43 @@ If there's music we can use it
 We're free to dance  
 We don't have the for physichological romance  
 No romance, no romance, no romance for me mama  
+
+### Chorus 4x
+
 Come on baby tell me what's the word  
 Word up everybody says  
 When you hear the call you've got to get it underway  
+
+### Bridge 1 8x
+
 Dial "L" for Love (x4)  
 W O R D up (x4)  
+
+### Guitar Solo 16x
+
 All you sucker DJ's who think you're fly  
+
+### Bridge 2 8x
+
 There's got to be a reason and we know the reason why  
 Why you put on those airs and you act real cool  
 But you got to realise that you're acting like fools  
 No romance, no romance, no romance for me mama  
+
+### Chorus 4x
+
 Come on baby tell me what's the word  
 Word up everybody says  
 When you hear the call you've got to get it underway  
 Word up it's the code word  
 No matter where you say it, you know that you'll be heard  
+
+### Verse 3 16x
+
 Word up everybody says  
+
+### Chorus 4x; Chorus 4x
+
 When you hear the call you've got to get it underway  
 Word up it's the code word  
 No matter where you say it, you know that you'll be heard

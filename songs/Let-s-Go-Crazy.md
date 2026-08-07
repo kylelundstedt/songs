@@ -18,9 +18,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Let-s-Go-Crazy.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Let's Go Crazy
+
+### Intro
 
 Dearly beloved, we have gathered here today  
 To get through this thing called life  
@@ -36,33 +40,55 @@ Ask him how much of your mind, baby
 This life you're on your own  
 And if the elevator tries to bring you down  
 Go crazy punch a higher floor  
+
+### Vamp 5x
+### Verse 1 8x
+
 If you don't like the world you're living in  
 Take a look around you at least you got friends  
 Come on lady for friendly word  
 She picked up the phone, dropped it on the floor  
 Ahh, ahh is all I heard  
+
+### Chorus 10x
+
 Are we gonna let the elevator  
 Bring us down, oh, no let's go  
 Let's go crazy, let's get nuts  
 Look for the purple banana  
 'Til they put us in the truck, let's go  
+
+### Verse 2 8x
+
 All excited but we don't know why  
 Maybe it's 'cause we're all gonna die  
 And when we do, what's it all for  
 Better live now before the grim reaper  
 Come knocking on your door  
+
+### Chorus 10x
+
 Are we gonna let the elevator  
 Bring us down, oh, no let's go  
 Let's go crazy, let's get nuts  
 Look for the purple banana  
 'Til they put us in the truck, let's go  
+
+### Solo 8x
+
 Come on baby let's get nuts  
 Yeah, crazy  
 Let's go crazy  
+
+### Chorus 10x
+
 Are we gonna let the elevator bring us down  
 Oh, no let's go, go crazy  
 I said let's go, go crazy  
 Let's go, let's go, go, let's go  
+
+### Outro
+
 Dr. Everything'll Be Alright  
 Make everything go wrong  
 Pills and thrills and daffodils will kill  

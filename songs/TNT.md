@@ -15,11 +15,18 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/TNT.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-aligned"
 ---
 
 # TNT
 
+### Intro
+
 (Oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi)  
+
+### Verse 1
+
 See me ride out of the sunset  
 On your color TV screen  
 Out for all that I can get  
@@ -29,10 +36,16 @@ And women to the right
 Ain't got no gun  
 Ain't got no knife  
 Don't you start no fight  
+
+### Chorus
+
 'Cause I'm T.N.T., I'm dynamite  
 (T.N.T.) and I'll win the fight  
 (T.N.T.) I'm a power load  
 (T.N.T.) watch me explode  
+
+### Verse 2
+
 I'm dirty, mean and mighty unclean  
 I'm a wanted man  
 Public enemy number one  
@@ -43,6 +56,9 @@ Lock up your back door
 And run for your life  
 The man is back in town  
 So don't you mess me 'round  
+
+### Chorus
+
 'Cause I'm T.N.T. I'm dynamite  
 (T.N.T.) and I'll win the fight  
 (T.N.T.) I'm a power load  

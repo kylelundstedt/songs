@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Juicebox.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Juicebox
+
+### Intro
+### Verse 1
 
 Everybody sees me  
 But it's not that easy  
@@ -33,9 +38,15 @@ Waiting for some action
 Waiting for some action over  
 Why won't you come over here?  
 Why won't you come over here?  
+
+### Chorus
+
 We got a city to love  
 Why won't you come over here?  
 We got a city to love  
+
+### Bridge
+
 Old time grudges  
 Will die so slowly  
 I know you messed up  
@@ -44,17 +55,27 @@ You're cold
 You're so cold  
 You're so cold  
 You're so cold  
+
+### Guitar Solo
+### Verse 2
+
 Nobody can see me  
 Everything's too easy  
 Standing in the light field  
 Standing in the light field  
 Waiting for some action  
 Waiting for some action she said  
+
+### Chorus
+
 Why won't you come over here?  
 Why won't you come over here?  
 We got a city to love  
 Why won't you come over here?  
 We got a city to love  
+
+### Bridge
+
 Old time loves don't  
 Die so swiftly  
 You never trust me  
@@ -64,6 +85,9 @@ I'm cold
 You're so cold  
 You're so cold  
 You're so cold  
+
+### Vamp
+
 No no no cold  
 You're so cold  
 You're so cold  

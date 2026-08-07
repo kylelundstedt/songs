@@ -5,31 +5,52 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Beer-Drinkers-n-Hell-Raisers.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Beer Drinkers n Hell Raisers {short="Beer Drinkers"}  
   
+
+### Intro
+### Verse 1
+
 If you see me walkin' down the line  
 With my fav'rite honky tonk in mind  
 Well, I'll be here around supper time  
 With my can of dinner and a bunch of fine  
   
+
+### Chorus
+
 Beer drinkers, hell raisers, yeah  
 Uh huh huh, baby, don't you wanna come with me?  
   
+
+### Verse 2
+
 The crowd gets loud when the band gets right  
 Steel guitar cryin' through the night  
 Yeah, try'n to cover up the corner fight  
 But ev'rything's cool 'cause they's just tight  
   
+
+### Chorus
+
 Beer drinkers, hell raisers, yeah  
 Huh, baby, don't you wanna come with me?  
 Ah, play it boy  
   
+
+### Verse 3
+
 The joint was jumpin' like a cat on hot tin  
 Lord, I thought the floor was gonna give in  
 Soundin' a lot like a house congressional  
 'Cause we're experimental and professional  
   
+
+### Chorus
+
 Beer drinkers, hell raisers, yeah  
 Well, baby, don't you wanna come with me?  

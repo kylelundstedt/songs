@@ -20,9 +20,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Enter-Sandman.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Enter Sandman
+
+### Intro 2x
+### Verse 1 8x
 
 Say your prayers little one  
 Don't forget my son  
@@ -30,24 +35,39 @@ To include everyone
 I tuck you in, warm within  
 Keep you free from sin  
 'Til the sandman, he comes, yeah  
+
+### Pre-Chorus 8x
+
 Sleep with one eye open  
 Grippin' your pillow tight  
+
+### Chorus 8x
+
 Exit light  
 Enter night  
 Take my hand  
 Off to never, never land  
+
+### Verse 2 8x
+
 Something's wrong, shut the light  
 Heavy thoughts tonight  
 And they aren't of snow white  
 Dreams of war, dreams of liars  
 Dreams of dragons fire  
 And of things that will bite, yeah  
+
+### Pre-Chorus 8x; Chorus 8x
+
 Sleep with one eye open  
 Grippin' your pillow tight  
 Exit light  
 Enter night  
 Take my hand  
 Off to never, never land  
+
+### Solo 16x
+
 Now I lay me down to sleep  
 Now I lay me down to sleep  
 Pray the Lord my soul to keep  
@@ -56,10 +76,16 @@ If I die before I wake
 If I die before I wake  
 Pray the lord my soul to take  
 Pray the lord my soul to take  
+
+### Bridge 8x
+
 Hush little baby, don't say a word  
 And never mind that noise you heard  
 It's just the beasts under your bed  
 In your closet, in your head  
+
+### Chorus 8x
+
 Exit light  
 Enter night  
 Grain of sand  

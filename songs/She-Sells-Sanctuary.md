@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/She-Sells-Sanctuary.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # She Sells Sanctuary
+
+### Guitar Intro 8x
+### Verse 1 8x
 
 Oh, the heads that turn  
 Make my back burn  
@@ -29,17 +34,32 @@ The sparkle in your eyes
 Keeps me alive  
 And the sparkle in your eyes  
 Keeps me alive, keeps me alive  
+
+### Verse 2 8x
+### Vamp 8x
+
 The world  
 And the world turns around  
 The world and the world yeah  
 The world drags me down  
+
+### Chorus 8x
+
 Oh, the heads that turn  
 Make my back burn  
 And thats heads that turn  
 Make my back, make my back burn, yeah  
+
+### Verse 3 8x
+### Vamp 8x
+
 Hey yeah hey, yeah hey  
 The fire in your eyes keeps me alive  
 And the fire in your eyes keeps me alive  
+
+### Long Verse 4 16x
+### Vamp 8x
+
 I'm sure in her you'll find the sanctuary  
 I'm sure in her you'll find the sanctuary  
 And the world the world turns around  
@@ -47,6 +67,9 @@ And the world and the world the world drags me down
 And the world and the world the world turns around  
 And the world and the world and the world and the world  
 And the world drags me down  
+
+### Chorus 24x
+
 Ah, hey yeah, hey yeah  
 And the world and the world turns around  
 And the world and the world  
@@ -54,7 +77,14 @@ Yeah, the world drags me down
 And the world  
 Yeah, the world turns around  
 And the world and the world the world drags me down  
+
+### Guitar Vamp, Kick 8x
+### Chorus 16x
+
 Sanctuary  
 Sanctuary  
 Sanctuary  
+
+### Outro vamp 8x + 1
+
 Sanctuary

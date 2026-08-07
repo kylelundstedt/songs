@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Closing-Time.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Closing Time
+
+### Guitar 2x; add Piano 4x
+### Verse 1 16x
 
 Closing time, open all the doors  
 And let you out into the world  
@@ -33,10 +38,16 @@ Closing time, one last call for alcohol
 So finish your whiskey or beer  
 Closing time, you don't have to go home  
 But you can't stay here  
+
+### Chorus 8x
+
 I know who I want to take me home  
 I know who I want to take me home  
 I know who I want to take me home  
 Take me home  
+
+### Verse 2 16x
+
 Closing time, time for you to go out  
 To the places you will be from  
 Closing time, this room won't be open  
@@ -45,19 +56,35 @@ So gather up your jackets, move it to the exits
 I hope you have found a friend  
 Closing time, every new beginning comes  
 From some other beginning's end  
+
+### Chorus 8x
+
 I know who I want to take me home  
 I know who I want to take me home  
 I know who I want to take me home  
 Take me home  
+
+### Keys Solo 10x; Guitar Solo 8x
+### Short Verse 4x
+
 Closing time, time for you to go out  
 To the places you will be from  
+
+### Chorus 8x
+
 I know who I want to take me home  
 I know who I want to take me home  
 I know who I want to take me home  
 Take me home  
+
+### Chorus 8x
+
 I know who I want to take me home  
 I know who I want to take me home  
 I know who I want to take me home  
 Take me home  
+
+### Outro 10x
+
 Closing time, every new beginning comes  
 From some other beginning's end

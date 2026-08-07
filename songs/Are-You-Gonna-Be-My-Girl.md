@@ -21,11 +21,18 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Are-You-Gonna-Be-My-Girl.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Are You Gonna Be My Girl {short="Are U Be My Girl"}  
 
+### Intro
+
 Go!  
+
+### Verse 1
+
 It's one, two, three  
 Take my hand and come with me  
 Because you look so fine  
@@ -40,12 +47,21 @@ Big black boots
 Long brown hair  
 She's so sweet with her  
 Get back stare  
+
+### Pre-Chorus
+
 Well, I could see  
 You home with me  
 But you were with another man, yeah  
 I know we ain't got much to say  
 Before I let you get away, yeah  
+
+### Chorus
+
 I said are you gonna be my girl?  
+
+### Verse 2
+
 Well, so one, two, three  
 Take my hand and come with me  
 Because you look so fine  
@@ -60,20 +76,32 @@ Big black boots
 Long brown hair  
 She's so sweet with her  
 Get back stare  
+
+### Pre-Chorus
+
 Well, I could see  
 You home with me  
 But you were with another man, yeah  
 I know we ain't got much to say  
 Before I let you get away, yeah  
+
+### Chorus
+
 I said, are you gonna be my girl?  
 Oh yeah  
 Oh yeah  
 C'mon!  
+
+### Bridge
+
 I could see  
 You home with me  
 But you were with another man, yeah  
 I know we ain't got much to say  
 Before I let you get away, yeah  
+
+### Outro
+
 Be my girl  
 Be my girl  
 Are you gonna be my girl?  

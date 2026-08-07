@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/No-One-Knows.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # No One Knows
+
+### All 1x (punctuated); All 4x
+### Verse 1 20x
 
 We get some rules to follow  
 That and this  
@@ -30,10 +35,17 @@ How they stick in your throat?
 Taste like gold  
 Oh what you do to me  
 No one knows  
+
+### Chorus 8x
+
 And I realize you're mine  
 Indeed a fool am I  
 And I realize you're mine  
 Indeed a fool am I  
+
+### Break 2x
+### Verse 2 20x
+
 And I journey through the desert  
 Of the mind  
 With no hope  
@@ -44,10 +56,17 @@ In the sun
 Come undone  
 Pleasantly caving in  
 I come undone  
+
+### Chorus 8x
+
 And I realize you're mine  
 Indeed a fool am I  
 And I realize you're mine  
 Indeed a fool am I  
+
+### Bridge; Break 2x
+### Verse 3 12x
+
 Heaven smiles above me  
 What a gift  
 Here below  

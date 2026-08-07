@@ -20,9 +20,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Can-t-Stop.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Can't Stop
+
+### Drums/Guitar 8x; All 4x
+### Verse 1 16x
 
 Can't stop addicted to the shindig  
 Chop top he says I'm gonna win big  
@@ -40,6 +45,9 @@ White heat is screaming in the jungle
 Complete the motion if you stumble  
 Go ask the dust for any answers  
 Come back strong with 50 belly dancers  
+
+### Chorus 8x
+
 The world I love  
 The tears I drop  
 To be part of  
@@ -50,6 +58,9 @@ The trains I hop
 To be part of  
 The wave can't stop  
 Come and tell me when it's time to  
+
+### Verse 2 16x
+
 Sweetheart is bleeding in the snow cone  
 So smart she's leading me to ozone  
 Music the great communicator  
@@ -66,6 +77,9 @@ Can't stop the spirits when they need you
 Moptops are happy when they feed you  
 J. Butterfly is in the treetop  
 Birds that blow the meaning into bebop  
+
+### Chorus 8x
+
 The world I love  
 The tears I drop  
 To be part of  
@@ -76,6 +90,9 @@ The trains I hop
 To be part of  
 The wave can't stop  
 Come and tell me when it's time to  
+
+### Reggae Bridge 8x
+
 Wait a minute I'm passing out  
 Win or lose just like you  
 Far more shocking  
@@ -85,6 +102,10 @@ Ten more reasons
 Why I need somebody new just like you  
 Far more shocking than anything I ever knew  
 Right on cue  
+
+### Guitar Solo 4x
+### Verse 3 16x
+
 Can't stop addicted to the shindig  
 Chop top he says I'm gonna win big  
 Choose not a life of imitation  
@@ -97,6 +118,9 @@ Knock out but boy you better come to
 Don't die you know the truth is some do  
 Go write your message on the pavement  
 Burn so bright I wonder what the wave meant  
+
+### Verse 4 16x
+
 Kick start the golden generator  
 Sweet talk but don't intimidate her  
 Can't stop the gods from engineering  

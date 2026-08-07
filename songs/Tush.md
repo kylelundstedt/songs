@@ -17,22 +17,41 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Tush.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Tush
+
+### Verse 1
 
 I been up, I been down  
 Take my word, my way around  
 I ain't askin' for much  
 I said, Lord, take me downtown  
+
+### Chorus
+
 I'm just lookin' for some tush  
+
+### Verse 2
+
 I been bad, I been good  
 Dallas, Texas, Hollywood  
 I ain't askin' for much  
 I said, Lord, take me downtown  
+
+### Chorus
+
 I'm just lookin' for some tush  
+
+### Verse 3
+
 Take me back, way back home  
 Not by myself, not alone  
 I ain't askin' for much  
 I said, Lord, take me downtown  
+
+### Chorus
+
 I'm just lookin' for some tush

@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Higher-Ground.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Higher Ground
+
+### Bass Intro 4x; All 8x
+### Verse 1 16x
 
 People  
 Keep on learnin'  
@@ -28,6 +33,9 @@ Keep on warrin'
 World  
 Keep on turnin'  
 'Cause it won't be too long  
+
+### Verse 2 16x
+
 Powers  
 Keep on lyin'  
 While your people  
@@ -35,10 +43,17 @@ Keep on dyin'
 World  
 Keep on turnin'  
 'Cause it won't be too long  
+
+### Chorus 8x
+
 I'm so darn glad he let me try it again  
 'Cause my last time on earth I lived a whole world of sin  
 I'm so glad that I've know more than I knew then  
 Gonna keep on tryin' till I reach the highest ground  
+
+### Break 4x
+### Verse 3 16x
+
 Teachers  
 Keep on teachin'  
 Preachers  
@@ -46,6 +61,9 @@ Keep on preachin'
 World keep on turnin'  
 'Cause it won't be too long  
 Oh, no  
+
+### Verse 4 16x
+
 Lovers  
 Keep on lovin'  
 While believers  
@@ -54,6 +72,9 @@ Sleepers
 Just stop sleepin'  
 'Cause it won't be too long  
 Oh, no  
+
+### Chorus 8x
+
 I'm so darn glad he let me try it again  
 'Cause my last time on earth I lived a whole world of sin  
 I'm so glad that I've know more than I knew then  

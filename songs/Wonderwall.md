@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Wonderwall.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Wonderwall
+
+### Intro 8x
+### Verse 1 8x
 
 Today is gonna be the day  
 That they're gonna throw it back to you  
@@ -27,38 +32,63 @@ By now you should've somehow
 Realized what you gotta do  
 I don't believe that anybody  
 Feels the way I do about you now  
+
+### Verse 2 8x
+
 Back beat, the word is on the street  
 That the fire in your heart is out  
 I'm sure you've heard it all before  
 But you never really had a doubt  
 I don't believe that anybody  
 Feels the way I do about you now  
+
+### Pre-Chorus 8x
+
 And all the roads we have to walk are winding  
 And all the lights that lead us there are blinding  
 There are many things that I would like to say to you  
 But I don't know how  
+
+### Chorus 8x
+
 Because maybe  
 You're gonna be the one that saves me  
 And after all  
 You're my wonderwall  
+
+### Break 2x
+### Verse 3 8x
+
 Today was gonna be the day  
 But they'll never throw it back to you  
 By now you should've somehow  
 Realized what you're not to do  
 I don't believe that anybody  
 Feels the way I do about you now  
+
+### Pre-Chorus 8x
+
 And all the roads that lead you there were winding  
 And all the lights that light the way are blinding  
 There are many things that I would like to say to you  
 But I don't know how  
+
+### Chorus 8x
+
 I said maybe  
 You're gonna be the one that saves me  
 And after all  
 You're my wonderwall  
+
+### Chorus 8x
+
 I said maybe  
 You're gonna be the one that saves me  
 And after all  
 You're my wonderwall  
+
+### Chorus 8x
+
 I said maybe  
 You're gonna be the one that saves me  
 You're gonna be the one that saves me  

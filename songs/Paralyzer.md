@@ -18,9 +18,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Paralyzer.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Paralyzer
+
+### Intro 8x
+### Verse 1
 
 I hold on so nervously to me and my drink  
 I wish it was coolin' me  
@@ -30,10 +35,16 @@ This club has got to be the most pretentious thing
 Since I thought you and me  
 Well, I am imagining a dark lit place  
 Or your place or my place  
+
+### Chorus
+
 Well I'm not paralyzed but I seem to be struck by you  
 I wanna make you move because you're standin' still  
 If your body matches what your eyes can do  
 You'll probably move right through me on my way to you  
+
+### Verse 2
+
 I hold out for one more drink before I think  
 I'm lookin' too desperately  
 But so far has not been fun, I should just stay home  
@@ -42,14 +53,23 @@ This club will hopefully be closed in three weeks
 That would be cool with me  
 Well, I'm still imagining a dark lit place  
 Or your place or my place  
+
+### Chorus
+
 Well I'm not paralyzed but I seem to be struck by you  
 I wanna make you move because you're standin' still  
 If your body matches what your eyes can do  
 You'll probably move right through me on my way to you  
+
+### Chorus
+
 Well I'm not paralyzed but I seem to be struck by you  
 I wanna make you move because you're standin' still  
 If your body matches what your eyes can do  
 You'll probably move right through me on my way to you  
+
+### Outro
+
 Not paralyzed but I seem to be struck by you  
 I wanna make you move because you're standin' still  
 If your body matches what your eyes can do  

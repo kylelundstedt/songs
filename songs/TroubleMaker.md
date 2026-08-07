@@ -9,9 +9,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/TroubleMaker.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # TroubleMaker
+
+### Verse 1
 
 Put me in a special school  
 'Cause I am such a fool  
@@ -29,6 +33,9 @@ They only sicken me
 Don't let me play football  
 I'll sack the quarterback  
 And jack the brother of the ball  
+
+### Chorus
+
 I'm a troublemaker  
 Never been a faker  
 Doing things my own way  
@@ -37,6 +44,9 @@ I'm a troublemaker
 Not a double taker  
 I don't have the patience  
 To keep it on the up  
+
+### Verse 2
+
 I picked up a guitar  
 What does this signify?  
 I'm gonna play some heavy metal riffs  
@@ -56,6 +66,9 @@ Marrying a bitch
 Having 7 kids  
 Giving up and growing old  
 And hoping there's a God  
+
+### Chorus
+
 I'm a troublemaker  
 Never been a faker  
 Doing things my own way  
@@ -64,6 +77,9 @@ I'm a troublemaker
 Not a double taker  
 I don't have the patience  
 To keep it on the up  
+
+### Verse 3
+
 I'm gonna be a star  
 And people will crane necks  
 To get a glimpse of me  
@@ -80,6 +96,9 @@ And when it's party time
 Like 1999  
 I'll party by myself  
 Because I'm such a special guy  
+
+### Chorus
+
 I'm a troublemaker  
 Never been a faker  
 Doing things my own way  
@@ -88,6 +107,9 @@ I'm a troublemaker
 Not a double taker  
 I don't have the patience  
 To keep it on the up  
+
+### Outro
+
 (Keep it on the up)  
 I'm a troublemaker  
 (Keep it on the up)  

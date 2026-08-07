@@ -17,9 +17,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Possum-Kingdom.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Possum Kingdom
+
+### Verse 1
 
 Make up your mind  
 Decide to walk with me  
@@ -34,6 +38,9 @@ I'm not gonna lie
 I want you for mine  
 My blushing bride  
 My lover, be my lover, yeah  
+
+### Verse 2
+
 Don't be afraid  
 I didn't mean to scare you  
 So help me, Jesus  
@@ -42,12 +49,18 @@ You'll stay as beautiful
 With dark hair  
 And soft skin, forever  
 Forever  
+
+### Pre-Chorus
+
 Make up your mind  
 Make up your mind  
 And I'll promise you  
 I will treat you well  
 My sweet angel  
 So help me, Jesus  
+
+### Chorus
+
 Hey, hey, hey  
 Give it up to me  
 Give it up to me  
@@ -64,6 +77,9 @@ My angel, so help me
 Be my angel  
 Be my angel  
 Be my angel  
+
+### Outro
+
 Do you wanna die?  
 Do you wanna die?  
 Do you wanna die?  

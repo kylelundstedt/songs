@@ -21,14 +21,22 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Crazy-Bitch.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Crazy Bitch
+
+### Guitar/Drum Flam 2x; All 4x
+### Verse 1 8x
 
 Break me down, you got a lovely face  
 We're going to your place, and now you got to freak me out  
 Scream so loud, getting fuckin' laid  
 You want me to stay but I got to make my way  
+
+### Chorus 8x
+
 Hey! You're a crazy bitch  
 But you fuck so good I'm on top of it  
 When I dream I'm doing you all night  
@@ -37,11 +45,18 @@ Hey! You're a crazy bitch
 But you fuck so good I'm on top of it  
 When I dream I'm doing you all night  
 Scratches all down my back to keep me right on  
+
+### Break 2x
+### Verse 2 8x
+
 Take it off, the paper is your game  
 You jump in bed with fame  
 Another one night paid in full  
 You're so fine, it won't be a loss  
 Cashing in the rocks just to get you face to face  
+
+### Chorus 8x
+
 Hey! You're a crazy bitch  
 But you fuck so good I'm on top of it  
 When I dream I'm doing you all night  
@@ -50,10 +65,16 @@ Hey! You're a crazy bitch
 But you fuck so good I'm on top of it  
 When I dream I'm doing you all night  
 Scratches all down my back to keep me right on  
+
+### Bridge 12x
+
 Get the video, fuck you so good  
 Get the video, fuck you so good  
 Crazy bitch, crazy bitch  
 Crazy, bitch  
+
+### Quiet Chorus 8x
+
 Hey! You're a crazy bitch  
 But you fuck so good I'm on top of it  
 When I dream I'm doing you all night  
@@ -62,10 +83,16 @@ Hey! You're a crazy bitch
 But you fuck so good I'm on top of it  
 When I dream I'm doing you all night  
 Scratches all down my back, c'mon  
+
+### Bridge 2 8x
+
 Baby girl you want it all  
 To be a star you'll have to go down  
 Take it off no need to talk  
 You're crazy but I like the way you fuck me  
+
+### Hard Chorus 8x
+
 Hey! You're a crazy bitch  
 But you fuck so good I'm on top of it  
 When I dream I'm doing you all night  

@@ -20,14 +20,22 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Heart-Shaped-Box.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Heart Shaped Box
 
+### Intro 4x
+### Verse 1 16x
+
 She eyes me like a pisces when I am weak  
 I've been locked inside your heart shaped box for weeks  
 I've been drawn into your magnet tar pit trap  
 I wish I could eat your cancer when you turn black  
+
+### Chorus
+
 Hey!  
 Wait!  
 I've got a new complaint  
@@ -41,10 +49,16 @@ Wait!
 I've got a new complaint  
 Forever in debt to your priceless advice  
 Your advice  
+
+### Verse 2
+
 Meat eating orchids forgive no one just yet  
 Cut myself on Angel Hair and baby's breath  
 Broken hymen of your highness I'm left black  
 Throw down your umbilical noose so I can climb right back  
+
+### Chorus
+
 Hey!  
 Wait!  
 I've got a new complaint  
@@ -58,10 +72,17 @@ Wait!
 I've got a new complaint  
 Forever in debt to your priceless advice  
 Your advice  
+
+### Solo
+### Verse 1
+
 She eyes me like a pisces when I am weak  
 I've been locked inside your heart shaped box for weeks  
 I've been drawn into your magnet tar pit trap  
 I wish I could eat your cancer when you turn black  
+
+### Chorus
+
 Hey!  
 Wait!  
 I've got a new complaint  

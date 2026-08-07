@@ -20,9 +20,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Love-Rollercoaster.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Love Rollercoaster
+
+### Intro
 
 RollerCoaster of Love  
 "Say What"  
@@ -39,11 +43,17 @@ RollarCoaster
 "Bow wow wow"  
 Ooh Ohh ohh  
 "ight"  
+
+### Verse
+
 Roller Coaster Of love  
 "Love RollerCoaster Child"  
 RollerCoaster  
 "loving you is really wild"  
 Ooh Ohh Ohh  
+
+### Chorus
+
 Chorus  
 Your love is like a rollercoaster baby  
 i wish to ride (2X)  
@@ -54,6 +64,9 @@ Rightttttt
 Wahooo  
 "Huh Huh"  
 Owwwww  
+
+### Break
+
 RollerCoaster Of Love  
 "Love RollerCoaster Girl"  
 RollerCoaster  
@@ -63,5 +76,8 @@ ooh ooh ooh
 Rollercoaster of Love  
 Rollercoaster  
 ooh ooh ohh Repeat (2x)  
+
+### Outro
+
 Youll love is like a rollercoaster baby i want to ride  
 repeat till fade...

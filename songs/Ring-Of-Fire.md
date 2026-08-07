@@ -21,36 +21,66 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Ring-Of-Fire.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Ring Of Fire
+
+### Guitar 4x
+### Verse 1 16x
 
 Love is a burning thing  
 And it makes a fiery ring  
 Bound by ones desire  
 I fell down into a ring of fire  
+
+### Chorus 15x
+
 I fell into a burning ring of fire  
 Went down, down, down and the flames went higher  
 And it burns, burns, burns that ring of fire, that ring of fire  
+
+### Verse 2 16x
+
 The taste of love is sweet  
 When hearts like ours meet  
 I hide before you like a child  
 Oh but the fire went wild  
+
+### Chorus 15x
+
 I fell into a burning ring of fire  
 Went down, down, down and the flames went higher  
 And it burns, burns, burns that ring of fire, that ring of fire and it burns  
+
+### Guitar Solo (verse groove) 16x
+### Chorus 15x
+
 I fell into a burning ring of fire  
 Went down, down, down and the flames went higher  
 And it burns, burns, burns that ring or fire that ring of fire  
+
+### Verse 2 16x (soft)
+
 The taste of love is sweet  
 When hearts like ours meet  
 I hide before you like a child  
 Oh but the fire went wild  
+
+### Chorus 15x
+
 I fell into a burning ring of fire  
 Went down, down, down and the flames went higher  
 And it burns, burns, burns that ring of fire, that ring of fire  
+
+### Chorus 19x
+
 One more time  
 I fell into a burning ring of fire  
 Went down, down, down and the flames went higher  
 And it burns, burns, burns that ring of fire, that ring of fire  
+
+### Outro 4x
+
 That ring of fire, that ring of fire

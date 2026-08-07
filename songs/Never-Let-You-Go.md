@@ -21,38 +21,63 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Never-Let-You-Go.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Never Let You Go
+
+### Intro
+### Verse 1
 
 There's every good reason  
 For letting you go  
 She's sneaky and smoked out  
 And it's starting to show  
+
+### Chorus
+
 I'll never let you go  
 I'll never let you go  
 I'll never let you go  
 I'll never let you turn around your back on each other  
 That's a good idea, break a promise to your mother  
 Turn around your back on each other  
+
+### Intro Vamp
+### Verse 2
+
 You say that I've changed  
 Well maybe I did  
 But even if I've changed  
 What's wrong with it?  
+
+### Chorus
+
 I'll never let you go  
 I'll never let you go  
 I'll never let you go  
 I'll never let you turn around your back on each other  
 That's a good idea, break a promise to your mother  
 Turn around your back on each other  
+
+### Intro Vamp
+### Bridge
+
 And our friends are gone and gone  
 And all the time moves on and on  
 And all I know is it's wrong, it's wrong  
 And all I know is it's wrong, it's wrong, it's wrong  
+
+### Verse 3
+
 If there's a reason  
 It's lost on me  
 Maybe we'll be friends  
 I guess we'll see  
+
+### Chorus (quiet)
+
 I'll never let you go  
 I'll never let you go  
 I'll never let you go  
@@ -65,6 +90,9 @@ Turn around your back on each other
 That's a good idea, break a promise to your mother  
 Turn around your back on each other  
 What a good idea  
+
+### Outro Vamp
+
 I remember the stupid things, the mood rings  
 The bracelets and the beads  
 Nickels and dimes, yours and mine, did you cash in all your dreams?  

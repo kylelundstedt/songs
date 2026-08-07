@@ -21,9 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Ride-On.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-aligned"
 ---
 
 # Ride On
+
+### Intro 4x
+### Verse 1 16x
 
 It's another lonely evening
 And another lonely town
@@ -36,9 +41,13 @@ Ain't too young to admit it
 And i'm not too old to lie
 I'm just another empty head
 
+### Pre-Chorus 4x
+
 That's why i'm lonely
 I'm so lonely
 But i know what i'm gonna do  
+
+### Chorus 8x
 
 I'm gonna ride on
 Ride on
@@ -47,6 +56,8 @@ Ride on, thumb in the air
 Ride on, one of these days i'm gonna
 Ride on, change my evil ways
 Till then i'll just keep dragging on
+
+### Verse 2 16x
 
 Broke another promise
 And i broke another heart
@@ -57,6 +68,9 @@ And it's another red light nightmare
 Another red light street
 And i ain't too old to hurry
 Cause i ain't too old to die
+
+### Pre-Chorus 4x
+
 But i sure am hard to beat
 
 But i'm lonely
@@ -64,6 +78,9 @@ Lord i'm lonely
 What am i gonna do  
 
 Ride on
+
+### Chorus 8x
+
 Ride on, got myself a one way ticket
 Ride on
 Ride on, going the wrong way
@@ -73,6 +90,9 @@ One of these days
 
 Ride on
 Ride on
+
+### Chorus 8x
+
 I'm gonna ride on
 Ride on, looking for a truck
 Ride on

@@ -17,27 +17,49 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Man-In-The-Box.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Man In The Box
+
+### Intro 16x
+### Verse 1 16x
 
 I'm the man in the box  
 Buried in my shit  
 Won't you come and save me  
 Save me?  
+
+### Chorus 16x
+
 Feed my eyes, can you sew them shut?  
 Jesus Christ, deny your maker  
 He who tries will be wasted  
 Ah, feed my eyes now you've sewn them shut  
+
+### Break 8x
+### Verse 2 16x
+
 I'm the dog who gets beat  
 Shove my nose in shit  
 Won't you come and save me  
 Save me?  
+
+### Chorus 16x
+
 Feed my eyes, can you sew them shut?  
 Jesus Christ, deny your maker  
 He who tries will be wasted  
 Ah, feed my eyes now you've sewn them shut  
+
+### Solo 16x
+### Chorus 16x
+
 Feed my eyes, can you sew them shut?  
 Jesus Christ, deny your maker  
 He who tries will be wasted  
+
+### Break 8x
+
 Ah, feed my eyes now you've sewn them shut

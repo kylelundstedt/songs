@@ -18,9 +18,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/When-I-m-Gone.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # When I'm Gone
+
+### Intro 4x
+### Verse 1 12x
 
 There's another world inside of me that you may never see  
 There's secrets in this life that I can't hide  
@@ -28,6 +33,9 @@ Somewhere in this darkness there's a light that I can't find
 Or maybe it's too far away  
 Or maybe I'm just blind  
 Maybe I'm just blind  
+
+### Chorus 12x
+
 So hold me when I'm here  
 Right me when I'm wrong  
 Hold me when I'm scared  
@@ -43,10 +51,16 @@ Right me when I'm wrong
 You can hold me when I'm scared you won't always be there  
 So love me when I'm gone  
 Love me when I'm gone  
+
+### Verse 2 8x
+
 When your education x ray cannot see under my skin  
 I won't tell you a damn thing that I could not tell my friends  
 And roaming through this darkness I'm alive but I'm alone  
 Part of me is fighting this but part of me is gone  
+
+### Chorus 12x
+
 So hold me when I'm here  
 Right me when I'm wrong  
 Hold me when I'm scared  
@@ -61,9 +75,16 @@ So hold me when I'm here
 Right me when I'm wrong  
 You can hold me when I'm scared, you won't always be there  
 So love me when I'm gone  
+
+### Bridge 4x
+
 ...  
 Maybe I'm just blind  
 ...  
+
+### Solo 8x
+### Chorus 8x
+
 So hold me when I'm here  
 Right me when I'm wrong  
 Hold me when I'm scared  
@@ -74,6 +95,9 @@ Wants to be the one you wanted me to be
 I'll never let you down  
 Even if I could  
 I'd give up everything if only for your good  
+
+### Chorus 8x
+
 So hold me when I'm here  
 Right me when I'm wrong  
 You can hold me when I'm scared, you won't always be there  

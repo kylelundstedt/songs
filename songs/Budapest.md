@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Budapest.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Budapest
+
+### Intro 4x
+### Verse 1 8x
 
 My house in Budapest  
 My hidden treasure chest,  
@@ -28,6 +33,9 @@ My beautiful Castillo
 For you   
 You  
 I’d leave it all  
+
+### Verse 2 8x
+
 My acres of a land  
 I have achieved  
 It may be hard for you to,  
@@ -35,10 +43,16 @@ Stop and believe
 But for you  
 You  
 I’d Leave it all  
+
+### Chorus 8x
+
 Give me one good reason   
 Why I should never make a change  
 And baby if you hold me  
 Then all of this will go away  
+
+### Verse 3 8x
+
 My many artifacts  
 The list goes on  
 If you just say the words  
@@ -46,14 +60,24 @@ I’ll up and run
 Oh, to you  
 You  
 I’d leave it all  
+
+### Chorus 8x
+
 Give me one good reason   
 Why I should never make a change  
 And baby if you hold me  
 Then all of this will go away  
+
+### Chorus 8x
+
 Give me one good reason   
 Why I should never make a change  
 And baby if you hold me  
 Then all of this will go away  
+
+### Solo 8x
+### Verse 4 8x
+
 My friends and family  
 They, don’t understand  
 They fear they’d lose so much   
@@ -61,14 +85,23 @@ If, you took my hand
 But, for you  
 You,  
 I’d lose it all.  
+
+### Chorus 8x
+
 Give me one good reason   
 Why I should never make a change  
 And baby if you hold me  
 Then all of this will go away  
+
+### Chorus 8x
+
 Give me one good reason   
 Why I should never make a change  
 And baby if you hold me  
 Then all of this will go away  
+
+### Outro 12x
+
 My house in Budapest  
 My hidden treasure chest,  
 Golden grand piano   

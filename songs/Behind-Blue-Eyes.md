@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Behind-Blue-Eyes.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Behind Blue Eyes
+
+### Intro
+### Verse 1
 
 No one knows what it's like  
 To be the bad man  
@@ -29,6 +34,9 @@ No one knows what it's like
 To be hated  
 To be fated  
 To telling only lies  
+
+### Chorus
+
 But my dreams  
 They aren't as empty  
 As my conscience  
@@ -37,6 +45,9 @@ I have hours
 Only lonely  
 My love is vengeance  
 That's never free  
+
+### Verse 2
+
 No one knows what it's like  
 To feel these feelings  
 Like I do  
@@ -45,6 +56,9 @@ No one bites back as hard
 On their anger  
 None of my pain and woe  
 Can show through  
+
+### Chorus
+
 But my dreams  
 They aren't as empty  
 As my conscience  
@@ -53,6 +67,9 @@ I have hours
 Only lonely  
 My love is vengeance  
 That's never free  
+
+### Bridge
+
 When my fist clenches  
 Crack it open  
 Before I use it  
@@ -69,6 +86,9 @@ And if I shiver
 Please give me a blanket  
 Keep me warm  
 Let me wear your coat  
+
+### Outro
+
 No one knows what it's like  
 To be the bad man  
 To be the sad man  

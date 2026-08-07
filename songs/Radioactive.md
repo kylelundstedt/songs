@@ -17,9 +17,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Radioactive.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Radioactive
+
+### Verse 1
 
 I'm waking up to ash and dust  
 I wipe my brow, and I sweat my rust  
@@ -27,7 +31,13 @@ I'm breathing in the chemicals
 I'm breaking in and shaping up  
 Then checking out on the prison bus  
 This is it, the apocalypse  
+
+### Pre-Chorus
+
 Whoa  
+
+### Chorus
+
 I'm waking up  
 I feel it in my bones  
 Enough to make my system blow  
@@ -39,14 +49,23 @@ I'm radioactive, radioactive
 Whoa oh oh oh oh  
 Whoa oh oh oh  
 I'm radioactive, radioactive  
+
+### Verse 2
+
 I raise my flag, and dye my clothes  
 It's a revolution, I suppose  
 We're painted red to fit right in  
+
+### Pre-Chorus
+
 Whoa  
 I'm breaking in and shaping up  
 Then checking out on the prison bus  
 This is it, the apocalypse  
 Whoa  
+
+### Chorus
+
 I'm waking up  
 I feel it in my bones  
 Enough to make my system blow  
@@ -58,10 +77,16 @@ I'm radioactive, radioactive
 Whoa oh oh oh oh  
 Whoa oh oh oh  
 I'm radioactive, radioactive  
+
+### Bridge
+
 All systems go  
 The sun hasn't died  
 Deep in my bones  
 Straight from inside  
+
+### Chorus
+
 I'm waking up  
 I feel it in my bones  
 Enough to make my system blow  

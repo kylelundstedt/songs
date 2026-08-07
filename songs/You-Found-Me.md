@@ -21,9 +21,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/You-Found-Me.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # You Found Me
+
+### Verse 1
 
 I found God on the corner of 1st and Amistad  
 Where the West was all but won  
@@ -33,23 +37,38 @@ Where were you when everything was falling apart?
 All my days were spent by the telephone that never rang  
 And all I needed was a call that never came  
 To the corner of 1st and Amistad  
+
+### Chorus
+
 Lost and insecure, you found me, you found me  
 Lying on the floor surrounded, surrounded  
 Why'd you have to wait? Where were you? Where were you?  
 Just a little late, you found me, you found me  
+
+### Verse 2
+
 But in the end everyone ends up alone  
 Losing her, the only one who's ever known  
 Who I am, who I'm not and who I wanna be  
 No way to know how long she will be next to me  
+
+### Chorus
+
 Lost and insecure, you found me, you found me  
 Lying on the floor surrounded, surrounded  
 Why'd you have to wait? Where were you? Where were you?  
 Just a little late, you found me, you found me!  
+
+### Bridge
+
 The early morning, the city breaks  
 And I've been calling for years and years and years and years  
 And you never left me no messages  
 You never sent me no letters  
 You got some kind of Man taking all i want  
+
+### Chorus
+
 Lost and insecure, you found me, you found me  
 Lying on the floor, where were you? Where were you?  
 Lost and insecure, you found me, you found me  

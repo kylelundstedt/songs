@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Last-Nite.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Last Nite
+
+### Intro 2x+10x
+### Verse 1 15x
 
 Last night, she said:  
 "Oh, baby, I feel so down.  
@@ -33,10 +38,16 @@ Well, I've been in town for just about fifteen minutes now
 And Baby, I feel so down  
 And I don't know why  
 I keep walkin' for miles  
+
+### Chorus 8x
+
 See, people they don't understand  
 No, girlfriends, they can't understand  
 Your Grandsons, they won't understand  
 On top of this, I ain't ever gonna understand...  
+
+### Verse 2 10x
+
 Last night, she said:  
 "Oh, baby, don't feel so down.  
 Oh, it turns me off,  
@@ -45,10 +56,18 @@ So I, I turn 'round:
 "Oh, baby, gonna be alright"  
 It was a great big lie  
 'Cause I left that night, yeah  
+
+### Intro Bridge 2x+4x
+### Guitar Solo 6x
+### Chorus 8x
+
 Oh, people they don't understand  
 No, girlfriends, they won't understand  
 Your grandsons, they won't understand  
 And me, I ain't ever gonna understand...  
+
+### Verse 3 10x
+
 Last night, she said:  
 "Oh, baby, I feel so down.  
 See, it turns me off,  

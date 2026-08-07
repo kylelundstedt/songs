@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Lonely-Is-the-Night.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Lonely Is the Night
+
+### Guitar Intro 4x
+### Verse 1 8x
 
 Lonely is the night when you find yourself alone  
 Your demons come to light and your mind is not your own  
@@ -29,28 +34,54 @@ It's a high time to fight when the walls are closin' in
 Call it what you like it's time you got to win  
 Lonely, lonely, lonely your spirit's sinkin' down  
 You find you're not the only stranger in this town  
+
+### Break 4x
+### Verse 2 8x
+
 Red lights, green lights, stop and go jive  
 Headlines, deadlines jammin' your mind  
 You been stealin' shots from the side  
 Let your feelin's go for a ride  
 There's danger out tonight, the man is on the prowl  
 Get the dynamite, the boys are set to howl  
+
+### Chorus 8x
+
 Lonely is the night when you hear the voices call  
 Are you ready for a fight, do you wanna take it all?  
+
+### Break 4x
+### Verse 3 8x
+
 Slowdown, showdown waitin' on line  
 Show time, no time for changin' your mind  
 Streets are ringin', march to the sound  
 Let your secrets follow you down  
+
+### Chorus 8x
+
 Somebody's watchin' you baby, so much you can do  
 Nobody's stoppin' you baby, from makin' it too  
 One glimpse'll show you now baby, what the music can do  
 One kiss'll show you now baby, it can happen to you  
+
+### Bridge 8x
+
 No more sleepin', wastin' our time  
 Midnight creepin's, first on our minds  
 No more lazin' 'round the TV  
 You'll go crazy, come out with me  
+
+### Guitar Solo 8x
+
 Feelin' lonely  
+
+### Chorus 8x
+
 Lonely is the night  
 Feelin' lonely  
 Lonely is the night  
+
+### Guitar Outro 16x
+
 Lonely, lonely, lonely

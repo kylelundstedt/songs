@@ -18,9 +18,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Walk-This-Way.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Walk This Way
+
+### Drums 2x; Guitar 4x
+### Verse 1 8x
 
 Backstroke lover always hidin' 'neath the covers  
 'Til I talked to your daddy he say  
@@ -30,7 +35,13 @@ I met a cheerleader was a real young breeder
 Oh the times I could reminisce  
 'Cause the best things of lovin' with her sister and her cousin  
 Only started with a little kiss  
+
+### Vamp 4x
+
 A like this  
+
+### Verse 2 8x
+
 See saw swingin' with the boys in the school  
 And your feet flyin' up in the air  
 Singin' hey diddle diddle  
@@ -40,6 +51,9 @@ With a missy who was ready to play
 Wasn't me she was foolin' 'cause she knew what she was doin'  
 And I know love was here to stay  
 When she told me to  
+
+### Chorus 8x
+
 Walk this way  
 Walk this way  
 Walk this way  
@@ -48,8 +62,14 @@ Walk this way
 Walk this way  
 Walk this way  
 Walk this way  
+
+### Solo 4x; Vamp 4x
+
 A just gimme a kiss  
 Like this  
+
+### Verse 3 8x
+
 School girl sweetie with a sassy kinda classy  
 Little skirt's climbin' way up the knee  
 It was three young ladies in a school gym locker  
@@ -58,7 +78,13 @@ I was a high school loser never made it with a lady
 'Til the boys told me something I missed  
 Then my next door neighbor with a daughter had a favor  
 So I gave her just a little kiss  
+
+### Vamp 4x
+
 A like this  
+
+### Verse 2 8x
+
 Seesaw swingin' with the boys in the school  
 And your feet flyin' up in the air  
 I sing hey diddle diddy  
@@ -68,6 +94,9 @@ With a missy who was ready to play
 Wasn't me she was foolin' 'cause she knew what she was doin'  
 When she told me how to walk this way  
 She told me to  
+
+### Chorus 8x
+
 Walk this way  
 Talk this way  
 Walk this way  
@@ -76,5 +105,8 @@ Walk this way
 Walk this way  
 Walk this way  
 Talk this way  
+
+### Solo 4x; Vamp 8+x
+
 A just gimme a kiss  
 Like this

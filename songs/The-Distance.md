@@ -17,9 +17,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/The-Distance.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # The Distance
+
+### Verse 1 16x + 1x
 
 Reluctantly crouched at the starting line  
 Engines pumping and thumping in time  
@@ -37,6 +41,9 @@ The sun has gone down and the moon has come up
 And long ago somebody left with the cup  
 But he's driving and striving and hugging the turns  
 And thinking of someone for whom he still burns  
+
+### Chorus 1 8x
+
 He's going the distance  
 He's going for speed  
 She's all alone (All alone)  
@@ -46,6 +53,10 @@ He's fighting and biting and riding on his horse
 He's going the distance  
 Ahh, ahh  
 Yah! Oh!  
+
+### Break 4x
+### Verse 2 12x + 1x
+
 No trophy, no flowers, no flashbulbs, no line  
 He's haunted by something he cannot define  
 Bowel shaking earthquakes of doubt and remorse  
@@ -58,6 +69,9 @@ The sun has gone down and the moon has come up
 And long ago somebody left with the cup  
 But he's striving and driving and hugging the turns  
 And thinking of someone for whom he still burns  
+
+### Chorus 2 12x
+
 'Cause he's going the distance  
 He's going for speed  
 She's all alone (All alone)  

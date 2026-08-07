@@ -17,18 +17,29 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Smells-Like-Teen-Spirit.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Smells Like Teen Spirit
+
+### Intro 16x
+### Verse 1 8x
 
 Load up on guns and bring your friends  
 It's fun to lose and to pretend  
 She's over bored and self assured  
 Oh no, I know a dirty word  
+
+### Pre-Chorus 8x
+
 Hello, hello, hello, how low?  
 Hello, hello, hello, how low?  
 Hello, hello, hello, how low?  
 Hello, hello, hello  
+
+### Chorus 8x
+
 With the lights out, it's less dangerous  
 Here we are now, entertain us  
 I feel stupid and contagious  
@@ -36,14 +47,23 @@ Here we are now, entertain us
 A mulatto, an albino  
 A mosquito, my libido  
 Yeah, hey, yay  
+
+### Verse 2 8x
+
 I'm worse at what I do best  
 And for this gift I feel blessed  
 Our little group has always been  
 And always will until the end  
+
+### Pre-Chorus 8x
+
 Hello, hello, hello, how low?  
 Hello, hello, hello, how low?  
 Hello, hello, hello, how low?  
 Hello, hello, hello  
+
+### Chorus 8x
+
 With the lights out, it's less dangerous  
 Here we are now, entertain us  
 I feel stupid and contagious  
@@ -51,13 +71,23 @@ Here we are now, entertain us
 A mulatto, an albino  
 A mosquito, my libido  
 Yeah, hey, yay  
+
+### Solo 8x
+### Verse 3 8x
+
 And I forget just why I taste  
 Oh yeah, I guess it makes me smile  
 I found it hard, it's hard to findOh well, whatever, nevermind  
+
+### Pre-Chorus 8x
+
 Hello, hello, hello, how low?  
 Hello, hello, hello, how low?  
 Hello, hello, hello, how low?  
 Hello, hello, hello  
+
+### Chorus 8x
+
 With the lights out, it's less dangerous  
 Here we are now, entertain us  
 I feel stupid and contagious  

@@ -17,30 +17,50 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Sharp-Dressed-Man.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Sharp Dressed Man  
   
+
+### Verse 1
+
 Clean shirt, new shoes  
 And I don't know where I am goin' to  
 Silk suit, black tie  
 I don't need a reason why  
   
+
+### Chorus
+
 They come runnin' just as fast as they can  
 'Cause every girl crazy 'bout a sharp dressed man  
   
+
+### Verse 2
+
 Gold watch, diamond ring  
 I ain't missin' not a single thing  
 And cufflinks, stick pin  
 When I step out I'm gonna do you in  
   
+
+### Chorus
+
 They come runnin' just as fast as they can  
 'Cause every girl crazy 'bout a sharp dressed man  
   
+
+### Verse 3
+
 Top coat, top hat  
 Well I don't worry 'cause my wallet's fat  
 Black shades, white gloves  
 Lookin' sharp and lookin' for love  
   
+
+### Chorus
+
 They come runnin' just as fast as they can  
 'Cause every girl crazy 'bout a sharp dressed man  

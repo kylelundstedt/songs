@@ -21,20 +21,32 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Bad-Things.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Bad Things
+
+### Guitar 1x, All 4x
+### Verse 1 16x
 
 When you came in the air went out.  
 And every shadow filled up with doubt.  
 I don't know who you think you are,  
 But before the night is through,  
 I wanna do bad things with you.  
+
+### Verse 2 16x
+
 I'm the kind to sit up in his room.  
 Heart sick and eyes filled up with blue.  
 I don't know what you've done to me,  
 But I know this much is true:  
 I wanna do bad things with you.  
+
+### Guitar Solo 8x
+### Verse 3 - Rim shots 8x/All 12x
+
 OK.  
 When you came in the air went out.  
 And all those shadows there, are filled up with doubt.  
@@ -43,6 +55,10 @@ But before the night is through,
 I wanna do bad things with you.  
 I wanna do real bad things with you.  
 Ow ooh.  
+
+### Guitar Solo 8x
+### Chorus 11x + 3 beats
+
 I don't know what you've done to me,  
 But I know this much is true:  
 I wanna do bad things with you.  

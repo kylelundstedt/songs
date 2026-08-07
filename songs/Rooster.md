@@ -17,9 +17,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Rooster.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Rooster
+
+### Intro 16x; Verse 1 16x
 
 Ain't found a way to kill me yet?  
 Eyes burn with stinging sweat  
@@ -27,20 +31,33 @@ Seems every path leads me to nowhere
 Wife and kids, household pet  
 Army green was no safe bet  
 The bullets scream to me from somewhere  
+
+### Chorus 14x
+
 Here they come to snuff the rooster, yeah  
 Yeah, here come the rooster, yeah  
 You know he ain't gonna die  
 No, no, no, you know he ain't gonna die  
+
+### Break 12x
+### Chorus 14x
+
 Here they come to snuff the rooster, yeah  
 Yeah, here come the rooster, yeah  
 You know he ain't gonna die  
 No, no, no, you know he ain't gonna die  
+
+### Verse 2 16x
+
 Walkin' tall, machine gun man  
 They spit on me, in my home land  
 Gloria sent me pictures of my boy  
 Got my pills against mosquito death  
 My buddy's breathin' his dyin' breath  
 Oh God please won't you help me make it through?  
+
+### Chorus 14x
+
 Here they come to snuff the rooster, yeah  
 Yeah, here come the rooster, yeah  
 You know he ain't gonna die  

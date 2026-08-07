@@ -21,10 +21,16 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Givin-The-Dog-A-Bone.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Givin The Dog A Bone  
   
+
+### Intro
+### Verse 1
+
 She takes you down easy  
 Going down to her knees  
 Going down to the devil  
@@ -32,10 +38,16 @@ Down down to ninety degrees
 Oh, she's blowing me crazy  
 'Til my ammunition is dry  
   
+
+### Pre-Chorus
+
 Oh, She's using her head again  
 She's using her head  
 Oh, She's using her head again  
   
+
+### Chorus
+
 I'm just a givin' the dog a bone  
 Givin' the dog a bone  
 Givin' the dog a bone  
@@ -47,18 +59,30 @@ Givin' the dog a bone
   
 Yeow  
   
+
+### Verse 2
+
 She's no Mona Lisa  
 No, she's no Playboy star  
 But she'll send you to heaven  
 Then explode you to Mars  
   
+
+### Pre-Chorus
+
 Oh, she's using her head again  
 Using her head again  
+
+### Pre-Chorus
+
 She's using her head  
 Using her head again  
 Oh, she's using her head again  
 Using her head  
   
+
+### Chorus
+
 I'm just a givin' the dog a bone  
 Givin' the dog a bone  
 Givin' the dog a bone  
@@ -71,12 +95,19 @@ Givin' the dog a bone
 Let's go  
 Oooh, oh, oh, oh  
   
+
+### Solo
+### Verse 3
+
 She got the power of union  
 Yeah, she only hits when it's hot  
 And if she likes what you're doing  
 Yeah, she'll give you alot  
 (Given everything she got)  
   
+
+### Chorus
+
 I've just given the dog a bone  
 Givin' the dog a bone  
 Givin' the dog a bone  
@@ -85,12 +116,18 @@ Givin' the dog a bone
 Givin' the dog a bone  
 I've just given the dog a bone  
 Givin' the dog a bone  
+
+### Chorus
+
 I'm just givin' the dog a bone  
 Givin' the dog a bone  
 Givin' the dog a bone  
 Givin' the dog a bone  
 I'm just a givin' the dog a bone  
 Givin' the dog a bone  
+
+### Outro
+
 I'm just a given a dog  
 Givin' a dog  
 Givin' a dog  

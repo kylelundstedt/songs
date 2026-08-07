@@ -21,35 +21,63 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/My-Hero.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # My Hero
+
+### Drums x2
+### Verse 1 8x
 
 Too alarming now, to talk about  
 Take your pictures down, and shake it out  
 Truth or consequence, say it aloud  
 Use that evidence, race it around  
+
+### Chorus 8x
+
 There goes my hero  
 Watch him as he goes  
 There goes my hero  
 He's ordinary  
+
+### Turnaround 1x; Guitar 1x
+### Verse 2 8x
+
 Don't the best of them bleed it out  
 While the rest of them peter out  
 Truth or consequence say it aloud  
 Use that evidence race it around  
+
+### Chorus 8x
+
 There goes my hero  
 Watch him as he goes  
 There goes my hero  
 He's ordinary  
+
+### Turnaround 1x; Guitar 4x
+### Verse 3 4x
+
 Kudos my hero  
 Leaving all the best  
 You got my hero  
 One that's on  
+
+### Chorus 8x
+
 There goes my hero  
 Watch him as he goes  
 There goes my hero  
 He's ordinary  
+
+### Chorus 8x
+
 There goes my hero  
 Watch him as he goes  
 There goes my hero  
+
+### Turnaround 1x
+
 He's ordinary

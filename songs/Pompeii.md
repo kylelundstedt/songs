@@ -21,10 +21,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Pompeii.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "notion-assisted"
 ---
 
 # Pompeii
 
+### Intro Vamp
+
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  
@@ -33,38 +37,59 @@ Eh eh oh, eh oh
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  
+
+### Verse 1
+
 I was left to my own devices  
 Many days fell away with nothing to show  
 And the walls kept tumbling down  
 In the city that we love  
 Great clouds roll over the hills  
 Bringing darkness from above  
+
+### Chorus
+
 But if you close your eyes  
 Does it almost feel like nothing changed at all?  
 And if you close your eyes  
 Does it almost feel like you've been here before?  
 How am I gonna be an optimist about this?  
 How am I gonna be an optimist about this?  
+
+### Verse 2
+
 We were caught up and lost in all of our vices  
 In your pose as the dust settled around us  
 And the walls kept tumbling down  
 In the city that we love  
 Great clouds roll over the hills  
 Bringing darkness from above  
+
+### Chorus
+
 But if you close your eyes  
 Does it almost feel like nothing changed at all?  
 And if you close your eyes  
 Does it almost feel like you've been here before?  
 How am I gonna be an optimist about this?  
 How am I gonna be an optimist about this?  
+
+### Intro Vamp
+
 Eh oh, eh oh  
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  
+
+### Verse 3 (Quiet)
+
 Oh, where do we begin?  
 The rubble or our sins?  
 Oh, oh, where do we begin?  
 The rubble or our sins?  
+
+### Chorus
+
 And the walls kept tumbling down  
 In the city that we love  
 Great clouds roll over the hills  
@@ -75,8 +100,14 @@ And if you close your eyes
 Does it almost feel like you've been here before?  
 How am I gonna be an optimist about this?  
 How am I gonna be an optimist about this?  
+
+### Chorus
+
 If you close your eyes  
 Does it almost feel like nothing changed at all?  
+
+### Outro
+
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  
 Eh eh oh, eh oh  

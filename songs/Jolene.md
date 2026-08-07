@@ -17,6 +17,8 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Jolene.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Jolene
@@ -24,34 +26,56 @@ metadata_review_status: "reviewed"
 Dolly Parton  
 Greatest Hits  
 Jolene  
+
+### Intro
+### Chorus
+
 Jolene, jolene, jolene, jolene  
 I'm begging of you please don't take my man  
 Jolene, jolene, jolene, jolene  
 Please don't take him just because you can  
+
+### Verse 1
+
 Your beauty is beyond compare  
 With flaming locks of auburn hair  
 With ivory skin and eyes of emerald green  
 Your smile is like a breath of spring  
 Your voice is soft like summer rain  
 And i cannot compete with you, jolene  
+
+### Verse 2
+
 He talks about you in his sleep  
 There's nothing i can do to keep  
 From crying when he calls your name, jolene  
 And i can easily understand  
 How you could easily take my man  
 But you don't know what he means to me, jolene  
+
+### Chorus
+
 Jolene, jolene, jolene, jolene  
 I'm begging of you please don't take my man  
 Jolene, jolene, jolene, jolene  
 Please don't take him just because you can  
+
+### Verse 3
+
 You could have your choice of men  
 But i could never love again  
 He's the only one for me, jolene  
 I had to have this talk with you  
 My happiness depends on you  
 And whatever you decide to do, jolene  
+
+### Chorus
+
 Jolene, jolene, jolene, jolene  
 I'm begging of you please don't take my man  
 Jolene, jolene, jolene, jolene  
 Please don't take him even though you can  
+
+### Outro
+
 Jolene, jolene

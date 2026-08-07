@@ -17,9 +17,14 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/The-Scientist.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # The Scientist
+
+### Intro 8x
+### Verse 1 16x
 
 Come up to meet you, tell you I'm sorry  
 You don't know how lovely you are  
@@ -29,11 +34,18 @@ Tell me your secrets and ask me your questions
 Oh, let's go back to the start  
 Running in circles, coming up tails  
 Heads on a science apart  
+
+### Chorus 10x
+
 Nobody said it was easy  
 It's such a shame for us to part  
 Nobody said it was easy  
 No one ever said it would be this hard  
 Oh, take me back to the start  
+
+### Break 8x
+### Verse 2 16x
+
 I was just guessing at numbers and figures  
 Pulling the puzzles apart  
 Questions of science, science and progress  
@@ -42,11 +54,18 @@ But tell me you love me, come back and haunt me
 Oh and I rush to the start  
 Running in circles, chasing our tails  
 Coming back as we are  
+
+### Chorus 10x
+
 Nobody said it was easy  
 Oh, it's such a shame for us to part  
 Nobody said it was easy  
 No one ever said it would be so hard  
 I'm going back to the start  
+
+### Break 8x
+### Chorus 14x+
+
 Oh ooh, ooh ooh ooh ooh  
 Ah ooh, ooh ooh ooh ooh  
 Oh ooh, ooh ooh ooh ooh  

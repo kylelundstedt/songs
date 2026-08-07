@@ -17,9 +17,13 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Overkill.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "model-estimated"
 ---
 
 # Overkill
+
+### Verse 1
 
 I can't get to sleep  
 I think about the implications  
@@ -29,20 +33,32 @@ Especially at night
 I worry over situations  
 I know we'll be alright  
 Perhaps it's just imagination  
+
+### Chorus
+
 Day after day it reappears  
 Night after night my heartbeat shows the fear  
 Ghosts appear and fade away  
 Alone between the sheets  
+
+### Verse 2
+
 Only brings exasperation  
 It's time to walk the streets  
 Smell the desperation  
 At least there's pretty lights  
 And though there's little variation  
 It nullifies the night from overkill  
+
+### Chorus
+
 Day after day it reappears  
 Night after night my heartbeat shows the fear  
 Ghosts appear and fade away  
 Come back another day  
+
+### Verse 3
+
 I can't get to sleep  
 I think about the implications  
 Of diving in too deep  
@@ -51,6 +67,9 @@ Especially at night
 I worry over situations that  
 I know will be alright  
 It's just overkill  
+
+### Outro
+
 Day after day it reappears  
 Night after night my heartbeat shows the fear  
 Ghosts appear and fade away  

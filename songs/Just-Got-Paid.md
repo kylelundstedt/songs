@@ -17,10 +17,15 @@ provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Just-Got-Paid.md"
 metadata_review_status: "reviewed"
+structure_status: "estimated"
+structure_source: "expert-reviewed-notion"
 ---
 
 # Just Got Paid  
   
+
+### Verse 1
+
 I just got paid today,
 got me a pocket full of change
 Said, "I just got paid today,  
@@ -28,6 +33,9 @@ got me a pocket full of change"
 If you believe like workin' hard all day
 Just step in my shoes and take my pay
   
+
+### Verse 2
+
 I was born my Papa's son  
 when I hit the ground I was on the run
 I had one glad hand and the other behind
@@ -35,6 +43,10 @@ You can have yours, just give me mine
 When the hound dog barkin' in the black of the night
 Stick my hand in my pocket, everything's all right
   
+
+### Solo
+### Verse 3
+
 I just got paid today and got me a pocket full of change
 Said, "Black sheep, black, do you got some wool?"
 Yes, I do, man, my bag is full
