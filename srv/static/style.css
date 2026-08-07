@@ -163,7 +163,8 @@ h1,h2,h3,p { margin-top:0; }
 .font-controls:hover, .font-controls:focus-within { opacity:1; }
 .font-controls button { min-width:2.7rem; min-height:2.5rem; border:0; border-radius:0; border-right:1px solid var(--line); padding:.4rem .55rem; background:transparent; font-size:.78rem; font-weight:900; }
 .font-controls button:last-child { border-right:0; }
-.font-controls [data-font-reset] { min-width:3.2rem; display:flex; align-items:baseline; justify-content:center; gap:.12rem; color:var(--accent); font-variant-numeric:tabular-nums; }
+.font-controls [data-font-reset] { min-width:3.2rem; display:flex; align-items:center; justify-content:center; color:var(--accent); font-variant-numeric:tabular-nums; }
+.font-controls .font-size-value { display:inline-flex; align-items:baseline; gap:.12rem; line-height:1; }
 .font-controls [data-font-reset] small { color:var(--muted); font-size:.58rem; }
 .font-controls button:disabled { opacity:.38; cursor:default; }
 .flash-warning { position:fixed; z-index:100; top:calc(64px + var(--safe-top)); left:50%; width:min(680px,calc(100% - 24px)); transform:translateX(-50%); border:1px solid #b76b00; border-radius:.75rem; background:#fff2cf; color:#5d3600; padding:.8rem 1rem; box-shadow:0 8px 28px #0005; font-size:.85rem; font-weight:750; }
