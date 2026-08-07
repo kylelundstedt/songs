@@ -510,7 +510,7 @@ func TestApplyFocusedEditPlanPreservesUntouchedBytes(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := applyFocusedEditPlan("Demo", tt.original, tt.plan)
+			got, err := applyFocusedEditPlan("Demo", tt.original, tt.plan, "")
 			if err != nil || got != tt.want {
 				t.Fatalf("got=%q want=%q err=%v", got, tt.want, err)
 			}
@@ -521,8 +521,55 @@ func TestApplyFocusedEditPlanPreservesUntouchedBytes(t *testing.T) {
 		{Edits: []focusedLineEdit{{Start: 4, End: 4, Replacement: []string{"One"}}, {Start: 3, End: 3, Replacement: []string{"### Verse 14x"}}}},
 	}
 	for _, plan := range invalid {
-		if _, err := applyFocusedEditPlan("Demo", "# Demo\n\n### Verse 8x\nOne\n", plan); err == nil {
+		if _, err := applyFocusedEditPlan("Demo", "# Demo\n\n### Verse 8x\nOne\n", plan, ""); err == nil {
 			t.Fatalf("invalid plan accepted: %#v", plan)
+		}
+	}
+
+	titlePlan := focusedEditPlan{Edits: []focusedLineEdit{{Start: 1, End: 1, Replacement: []string{"# Fire Woman/She Sells Sanctuary"}}}}
+	original := "# Fire Woman\n\n### Intro\nRiff\n"
+	if _, err := applyFocusedEditPlan("Fire Woman", original, titlePlan, ""); err == nil {
+		t.Fatal("title change without explicit permission was accepted")
+	}
+	if got, err := applyFocusedEditPlan("Fire Woman", original, titlePlan, "Fire Woman/She Sells Sanctuary"); err != nil || !strings.HasPrefix(got, "# Fire Woman/She Sells Sanctuary\n") {
+		t.Fatalf("explicit title change got=%q err=%v", got, err)
+	}
+	if _, err := applyFocusedEditPlan("Fire Woman", original, titlePlan, "A Different Requested Title"); err == nil {
+		t.Fatal("model title differing from the requested title was accepted")
+	}
+}
+
+func TestFocusedEditTitleIntent(t *testing.T) {
+	allowed := map[string]string{
+		`We want to "mash up" Fire Woman with another song by the Cult called "She Sells Sanctuary". Can you change the title to "Fire Woman/She Sells Sanctuary"?`: "Fire Woman/She Sells Sanctuary",
+		`Can you change the title to "Fire Woman/She Sells Sanctuary"?`:                                                                                             "Fire Woman/She Sells Sanctuary",
+		"Rename this song to the mashup name":     "the mashup name",
+		"Set the song title to Fire Woman mashup": "Fire Woman mashup",
+	}
+	for request, want := range allowed {
+		if got := focusedEditRequestedTitle(request); got != want {
+			t.Errorf("focusedEditRequestedTitle(%q)=%q, want %q", request, got, want)
+		}
+	}
+	for _, request := range []string{
+		"Change Verse 2 to 14 bars",
+		"Change Verse 2, but do not change the song title",
+		"Do not retitle this song",
+		"Change Verse 2, but do not rename the song",
+		`Change Verse 2 to include the word "rename"`,
+		"Rename Verse 2 to Chorus",
+		`Please retitle the chorus as "Final Chorus"`,
+		`Please update the lyric to say "rename"`,
+		"Change the section title to Final Chorus",
+		"Change the name of the singer to Kyle",
+		`Please update lyrics to say "change the title"`,
+		"Do not change the title to Foo",
+		"Do not retitle this song to Foo",
+		`Don't change the song title to "Foo"`,
+		`Please update the lyric to say "change the title to Foo"`,
+	} {
+		if got := focusedEditRequestedTitle(request); got != "" {
+			t.Errorf("ordinary focused edit extracted title %q for %q", got, request)
 		}
 	}
 }
