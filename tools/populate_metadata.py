@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 USER_AGENT = "KGLSongsMetadata/0.1 (klundstedt@industryvault.com)"
 LEGACY_COMMIT = "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+TITLE_ALIASES = {"crash": "Crash Into Me"}
 PILOT_IDS = [
     "1979", "billie-jean", "brown-eyed-girl", "crazy", "crash",
     "feels-sheriff", "home", "home-live", "i-shot-the-sheriff", "jolene",
@@ -25,7 +26,8 @@ PILOT_IDS = [
     "ring-of-fire", "song-2", "superstition-single-version", "walk",
     "white-wedding", "you-oughta-know",
 ]
-KEY_RE = re.compile(r"(?:\(|\s)([A-G](?:#|b)?m?)\)?(?:\s*(?:-|/|\+).*)?$", re.I)
+KEY_RE = re.compile(r"\(([^)]*)\)\s*$", re.I)
+KEY_TOKEN_RE = re.compile(r"(?<![A-Za-z])([A-G](?:#|b)?m?)(?![A-Za-z#b])", re.I)
 FRONT_MATTER_RE = re.compile(r"\A---\n(.*?)\n---\n+", re.S)
 
 
@@ -108,6 +110,43 @@ def read_catalog(root: Path = ROOT) -> list[dict]:
             "metadata": parse_front_matter(text),
         })
     return songs
+
+
+def extract_performance_key(title: str) -> str | None:
+    match = KEY_RE.search(title)
+    if not match:
+        return None
+    content = match.group(1).strip()
+    if not KEY_TOKEN_RE.match(content):
+        return None
+    keys = []
+    for key in KEY_TOKEN_RE.findall(content):
+        normalized = key[0].upper() + key[1:]
+        if normalized not in keys:
+            keys.append(normalized)
+    return ", ".join(keys[:3]) or None
+
+
+def notion_title_without_key(title: str) -> str:
+    return KEY_RE.sub("", title).strip() if extract_performance_key(title) else title.strip()
+
+
+def match_notion(title: str, records: dict[str, dict]) -> dict | None:
+    target = identity(title)
+    if target in records:
+        return records[target]
+    candidates = []
+    for candidate_id, record in records.items():
+        if len(target) >= 4 and (target in candidate_id or candidate_id in target):
+            score = difflib.SequenceMatcher(None, target, candidate_id, autojunk=False).ratio()
+            if score >= 0.72:
+                candidates.append((score, record))
+    candidates.sort(key=lambda item: item[0], reverse=True)
+    if not candidates:
+        return None
+    if len(candidates) > 1 and candidates[0][0] - candidates[1][0] < 0.08:
+        return None
+    return candidates[0][1]
 
 
 def read_notion(root: Path = ROOT) -> dict[str, dict]:
@@ -225,7 +264,11 @@ def best_deezer(data: dict, title: str, artist: str, duration) -> dict:
 
 
 def harvest_song(song: dict, notion: dict[str, dict], client: Client) -> dict:
-    records, search_url = client.lrclib(song["title"])
+    notion_record = match_notion(song["title"], notion)
+    search_title = TITLE_ALIASES.get(song["id"])
+    if not search_title:
+        search_title = notion_title_without_key(notion_record["title"]) if notion_record else song["title"]
+    records, search_url = client.lrclib(search_title)
     ranked = rank_lrclib(song, records)
     best = ranked[0] if ranked else {}
     proposal = {
@@ -234,12 +277,11 @@ def harvest_song(song: dict, notion: dict[str, dict], client: Client) -> dict:
         "notion": None, "lrclib_search_url": search_url, "lrclib_candidates": ranked,
         "suggested": {}, "tier": "C", "reasons": [],
     }
-    notion_record = notion.get(identity(song["title"]))
     if notion_record:
-        key_match = KEY_RE.search(notion_record["title"])
+        key_candidate = extract_performance_key(notion_record["title"])
         proposal["notion"] = {"title": notion_record["title"], "source_id": notion_record["source_id"],
                               "candidate_path": notion_record["candidate_path"],
-                              "performance_key_candidate": key_match.group(1) if key_match else None}
+                              "performance_key_candidate": key_candidate}
     if not best:
         proposal["reasons"].append("no LRCLIB candidate")
         return proposal
@@ -355,11 +397,11 @@ def main():
     if args.command == "inventory":
         rows = []
         for song in catalog:
-            record = notion.get(identity(song["title"]))
-            match = KEY_RE.search(record["title"]) if record else None
+            record = match_notion(song["title"], notion)
+            key_candidate = extract_performance_key(record["title"]) if record else None
             rows.append({key: value for key, value in song.items() if key != "tokens"} | {
                 "notion_title": record["title"] if record else None,
-                "notion_performance_key_candidate": match.group(1) if match else None,
+                "notion_performance_key_candidate": key_candidate,
             })
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps({"song_count": len(rows), "songs": rows}, indent=2) + "\n")

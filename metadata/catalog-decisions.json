@@ -1,0 +1,4432 @@
+{
+  "decisions": [
+    {
+      "id": "1979",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Smashing Pumpkins",
+        "reference_title": "1979",
+        "reference_artist": "The Smashing Pumpkins",
+        "reference_album": "Mellon Collie and the Infinite Sadness (30th anniversary edition)",
+        "reference_duration_seconds": 263.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36976623",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36976623",
+        "metadata_confidence": 0.9738,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are The Smashing Pumpkins' 1979, and E is supported by the matching Notion lead sheet. Use the supplied standard-length LRCLIB candidate and clear recording identifiers inherited from a different outtake/instrumental match."
+    },
+    {
+      "id": "6th-avenue-heartache",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Wallflowers",
+        "reference_title": "6th Avenue Heartache",
+        "reference_artist": "The Wallflowers",
+        "reference_album": "A Year In Review: A Compilation Of The Best Rock In '96",
+        "reference_duration_seconds": 337.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "33803545",
+        "lyrics_reference_url": "https://lrclib.net/api/get/33803545",
+        "metadata_confidence": 0.9579,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The wording and full repeated structure match the listed Wallflowers lyric set, not Sara Evans. Use a standard-length 337-second Wallflowers candidate rather than the truncated 267-second single entry, and clear cover-derived identifiers."
+    },
+    {
+      "id": "8675309",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Tommy Tutone",
+        "performance_key": "F#m"
+      },
+      "review_note": "The complete lyric identifies Tommy Tutone; the matching Notion title supports F#m and the supplied LRCLIB tuple is valid."
+    },
+    {
+      "id": "across-the-universe",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Fiona Apple",
+        "reference_title": "Across the Universe",
+        "reference_artist": "Fiona Apple",
+        "reference_album": "(Single) Across the Universe",
+        "reference_duration_seconds": 309.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34604869",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34604869",
+        "metadata_confidence": 0.9512,
+        "recording_mbid": "2469b6a3-c031-4ae9-810b-62762b9dae58",
+        "original_bpm": "130",
+        "deezer_track_id": "13157466"
+      },
+      "review_note": "The canonical text uses Fiona Apple's variant ('slither while they pass' and 'shades of earth'), whereas the listed Beatles lyric has 'slither wildly' and 'shades of life'. Keep the Fiona Apple candidate and independently matching identifiers."
+    },
+    {
+      "id": "all-about-that-bass",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Meghan Trainor",
+        "performance_key": "A"
+      },
+      "review_note": "The body identifies Meghan Trainor's song; Notion supports A and the supplied candidate matches."
+    },
+    {
+      "id": "all-summer-long",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Kid Rock",
+        "performance_key": "D"
+      },
+      "review_note": "The body identifies Kid Rock's song; Notion supports D and the supplied candidate matches."
+    },
+    {
+      "id": "all-these-things-that-i-ve-done",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Killers",
+        "recording_mbid": null
+      },
+      "review_note": "The lyrics and 302-second LRCLIB/Deezer records match The Killers studio song. Clear only the MusicBrainz identifier tied to a live Berlin recording; retain the independently matching Deezer track and BPM."
+    },
+    {
+      "id": "allison",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Elvis Costello & The Attractions",
+        "performance_key": "E"
+      },
+      "review_note": "The complete lyric is Elvis Costello's Allison; Notion supports E and the supplied candidate matches."
+    },
+    {
+      "id": "always-on-the-run",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lenny Kravitz",
+        "performance_key": "E",
+        "reference_title": "Always On The Run",
+        "reference_artist": "Lenny Kravitz",
+        "reference_album": "Greatest Hits [Explicit]",
+        "reference_duration_seconds": 232.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37360381",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37360381",
+        "metadata_confidence": 0.9564,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Lenny Kravitz's song and Notion supplies E. Use the listed standard-length 232-second candidate; the 320-second Mama Said entry and proposed live identifiers do not match the studio version."
+    },
+    {
+      "id": "amber",
+      "decision": "accept",
+      "overrides": {
+        "artist": "311",
+        "performance_key": "C"
+      },
+      "review_note": "The body identifies 311's Amber; Notion supports C and the supplied candidate matches."
+    },
+    {
+      "id": "american-idiot",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Green Day",
+        "reference_title": "American Idiot",
+        "reference_artist": "Green Day",
+        "reference_album": "American Idiot (Deluxe Edition)",
+        "reference_duration_seconds": 173.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36845236",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36845236",
+        "metadata_confidence": 0.9748,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Green Day's original, not the listed bluegrass cover; use the listed Green Day candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "angel-from-montgomery",
+      "decision": "accept",
+      "overrides": {
+        "artist": "John Prine",
+        "performance_key": "D"
+      },
+      "review_note": "The lyrics are John Prine's song and Notion supports D; the listed John Prine candidate is usable."
+    },
+    {
+      "id": "animal",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Neon Trees"
+      },
+      "review_note": "The body identifies Neon Trees' Animal; the supplied candidate matches."
+    },
+    {
+      "id": "any-way-you-want-it",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Journey"
+      },
+      "review_note": "The complete lyric identifies Journey; the supplied candidate matches."
+    },
+    {
+      "id": "are-you-gonna-be-my-girl",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Jet",
+        "performance_key": "A"
+      },
+      "review_note": "The complete lyric identifies Jet; Notion supports A and the supplied candidate is usable."
+    },
+    {
+      "id": "are-you-gonna-go-my-way",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lenny Kravitz",
+        "performance_key": "E",
+        "reference_title": "Are You Gonna Go My Way",
+        "reference_artist": "Lenny Kravitz",
+        "reference_album": "Now That's What I Call Rock Anthems Disc 3",
+        "reference_duration_seconds": 212.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37516740",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37516740",
+        "metadata_confidence": 0.8525,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics identify Lenny Kravitz and Notion supplies E. Use a listed standard-length 212-second candidate rather than the live Letterman entry or the anomalous 241-second Circus entry; clear version-untied identifiers."
+    },
+    {
+      "id": "baby-i-love-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Aretha Franklin",
+        "performance_key": "G"
+      },
+      "review_note": "The body identifies Aretha Franklin's song; Notion supports G and the supplied candidate matches."
+    },
+    {
+      "id": "back-in-black",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "performance_key": "E",
+        "reference_title": "Back In Black",
+        "reference_artist": "AC/DC",
+        "reference_album": "AC/DC \u2014 Singles",
+        "reference_duration_seconds": 256.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37478166",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37478166",
+        "metadata_confidence": 0.9266,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is AC/DC's original, not the suggested Babies Go cover; use the listed AC/DC candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "bad-romance",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lady Gaga",
+        "performance_key": "A"
+      },
+      "review_note": "The body identifies Lady Gaga's song; Notion supports A and the supplied candidate matches."
+    },
+    {
+      "id": "bad-things",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Jace Everett",
+        "performance_key": "E"
+      },
+      "review_note": "The body identifies Jace Everett's True Blood song; Notion supports E and the supplied candidate matches."
+    },
+    {
+      "id": "badfish",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Sublime",
+        "performance_key": "D"
+      },
+      "review_note": "The spoken intro and complete lyric identify Sublime's original 40 Oz. to Freedom recording, and Notion supplies D. Keep the listed 40 Oz. candidate while normalizing only the catalog artist from the disambiguated 'Sublime (2)' label to 'Sublime'."
+    },
+    {
+      "id": "bang-a-gong-get-it-on",
+      "decision": "accept",
+      "overrides": {
+        "artist": "T. Rex",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are T. Rex's Bang a Gong (Get It On). No LRCLIB candidate is listed, so keep only the known artist."
+    },
+    {
+      "id": "beer-drinkers-n-hell-raisers",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "performance_key": "G",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are ZZ Top's Beer Drinkers and Hell Raisers; Notion supports G. No LRCLIB candidate is listed, so keep only artist/key."
+    },
+    {
+      "id": "behind-blue-eyes",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Who",
+        "performance_key": "E",
+        "reference_title": "Behind Blue Eyes",
+        "reference_artist": "The Who",
+        "reference_album": "The Who- The Greatest Hits & More",
+        "reference_duration_seconds": 223.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37507517",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37507517",
+        "metadata_confidence": 0.9966,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are The Who's original, not a Various Artists cover; use the listed The Who candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "bent",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Matchbox Twenty",
+        "reference_title": "Bent",
+        "reference_artist": "Matchbox 20",
+        "reference_album": "to burn",
+        "reference_duration_seconds": 256.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37065701",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37065701",
+        "metadata_confidence": 0.9754,
+        "recording_mbid": null,
+        "original_bpm": "191.4",
+        "deezer_track_id": "3658089"
+      },
+      "review_note": "The complete lyric identifies Matchbox Twenty. Prefer the listed 256-second standard-length candidate; clear the Storytellers/live MusicBrainz identifier while retaining the independently matching 256-second Deezer track and BPM."
+    },
+    {
+      "id": "betterman",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Pearl Jam",
+        "reference_title": "Betterman",
+        "reference_artist": "Pearl Jam",
+        "reference_album": "Rearviewmirror (Greatest Hits 1991-2003) [44.1-16 CD]",
+        "reference_duration_seconds": 269.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37397232",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37397232",
+        "metadata_confidence": 0.962,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Pearl Jam's song. Use the listed non-live/greatest-hits candidate rather than the suggested live bootleg and clear live-derived identifiers."
+    },
+    {
+      "id": "billie-jean",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Michael Jackson",
+        "reference_title": "Billie Jean",
+        "reference_artist": "Michael Jackson",
+        "reference_album": "The Essential Michael Jackson",
+        "reference_duration_seconds": 258.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36999831",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36999831",
+        "metadata_confidence": 0.9198,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Michael Jackson's Billie Jean, with F#m supported by the Notion title. Replace the Jamie Lancaster lounge cover and clear all cover-derived identifiers and BPM."
+    },
+    {
+      "id": "black-hole-sun",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Soundgarden",
+        "performance_key": "G",
+        "reference_title": "Black Hole Sun",
+        "reference_artist": "Soundgarden",
+        "reference_album": "5:19",
+        "reference_duration_seconds": 319.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36960765",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36960765",
+        "metadata_confidence": 0.9167,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Soundgarden's original, not a Various Artists cover; use the listed Soundgarden candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "black",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Pearl Jam",
+        "performance_key": "E",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Pearl Jam's Black, not Los Bravos's Black Is Black. No correct LRCLIB candidate is listed; retain E and suppress all external fields."
+    },
+    {
+      "id": "blister-in-the-sun",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Violent Femmes"
+      },
+      "review_note": "The complete lyric identifies Violent Femmes; the supplied candidate matches."
+    },
+    {
+      "id": "blue-monday",
+      "decision": "accept",
+      "overrides": {
+        "artist": "New Order",
+        "reference_title": "Blue Monday",
+        "reference_artist": "New Order",
+        "reference_album": "12 Inch Dance - The Definitive Collection",
+        "reference_duration_seconds": 446.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36988178",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36988178",
+        "metadata_confidence": 0.9627,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are New Order's original, not a Various Artists entry; use the listed New Order candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "born-to-run",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bruce Springsteen",
+        "performance_key": "E",
+        "reference_title": "Born To Run",
+        "reference_artist": "Bruce Springsteen",
+        "reference_album": "Bruce (The Boss) Springsteen - 50 Tracks Part I in DTS-HD (op verzoek)",
+        "reference_duration_seconds": 270.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37017251",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37017251",
+        "metadata_confidence": 0.9362,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Bruce Springsteen's song, and Notion supports E. Prefer the listed non-live Bruce Springsteen candidate over the suggested live version and clear live-derived identifiers."
+    },
+    {
+      "id": "boys-don-t-cry",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Cure",
+        "performance_key": "A",
+        "reference_title": "Boys Don't Cry",
+        "reference_artist": "The Cure",
+        "reference_album": "boys don't cry LP80",
+        "reference_duration_seconds": 155.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36857985",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36857985",
+        "metadata_confidence": 0.9858,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are The Cure's original, not Prozac+'s cover; use the listed Cure candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "breakdown",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Tom Petty & the Heartbreakers",
+        "performance_key": "A"
+      },
+      "review_note": "The lyrics identify Tom Petty & the Heartbreakers; Notion supports A and the supplied candidate matches."
+    },
+    {
+      "id": "brick-house",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Commodores"
+      },
+      "review_note": "The lyrics identify The Commodores; the supplied candidate matches."
+    },
+    {
+      "id": "brown-eyed-girl",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric and supplied candidate identify Van Morrison's Brown Eyed Girl. The proposed LRCLIB tuple is present and usable; no performance key is supplied."
+    },
+    {
+      "id": "budapest",
+      "decision": "accept",
+      "overrides": {
+        "artist": "George Ezra",
+        "reference_title": "Budapest",
+        "reference_artist": "George Ezra",
+        "reference_album": "Wanted On Voyage (Deluxe) (HD)",
+        "reference_duration_seconds": 201.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37071584",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37071584",
+        "metadata_confidence": 0.9388,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The complete lyric is George Ezra's Budapest. Replace the Various Artists cover/playlist candidate with the listed George Ezra Wanted On Voyage candidate; no Notion performance key is evidenced."
+    },
+    {
+      "id": "californication",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Red Hot Chili Peppers' Californication, and the matching listed LRCLIB tuple plus Notion Am key are plausible."
+    },
+    {
+      "id": "can-t-stop",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Red Hot Chili Peppers",
+        "reference_title": "Can\u2019t Stop",
+        "reference_artist": "Red Hot Chili Peppers",
+        "reference_album": "Rock: 100 from the 00's",
+        "reference_duration_seconds": 269.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36984908",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36984908",
+        "metadata_confidence": 0.9828,
+        "recording_mbid": null,
+        "original_bpm": "182.9",
+        "deezer_track_id": "725971"
+      },
+      "review_note": "The body is the standard Red Hot Chili Peppers studio song. Use the listed 269-second candidate, clear the live MusicBrainz match, and retain the independently matching 269-second Deezer recording and BPM."
+    },
+    {
+      "id": "can-t-you-see",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Marshall Tucker Band",
+        "reference_title": "Can't You See",
+        "reference_artist": "The Marshall Tucker Band",
+        "reference_album": "Can't You See / See You Later I'm Gone",
+        "reference_duration_seconds": 365.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37124614",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37124614",
+        "metadata_confidence": 0.886,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "D"
+      },
+      "review_note": "The freight-train lyric and flute-led arrangement identify The Marshall Tucker Band original rather than the Zac Brown Band cover. Use the listed Marshall Tucker Band candidate and retain the Notion D key."
+    },
+    {
+      "id": "chasing-cars",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Snow Patrol",
+        "reference_title": "Chasing Cars",
+        "reference_artist": "Snow Patrol",
+        "reference_album": "Eyes Open (20 Year Anniversary Special Edition)",
+        "reference_duration_seconds": 268.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37491196",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37491196",
+        "metadata_confidence": 0.9964,
+        "recording_mbid": "f62a3798-6559-4f9b-8b80-6ea3e4ad89aa",
+        "original_bpm": "103.88",
+        "deezer_track_id": "607028642"
+      },
+      "review_note": "The canonical body is Snow Patrol\u2019s standard song. Use the listed 268-second Eyes Open candidate instead of the anomalous 221-second entry; the 266/267-second MusicBrainz and Deezer records independently match the studio recording, so retain them and the BPM."
+    },
+    {
+      "id": "cheap-sunglasses",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "Cheap Sunglasses",
+        "reference_artist": "ZZ Top",
+        "reference_album": "Chrome, Smoke & BBQ: The ZZ Top Box Disc 2",
+        "reference_duration_seconds": 289.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37185662",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37185662",
+        "metadata_confidence": 0.9655,
+        "recording_mbid": null,
+        "original_bpm": "191.41",
+        "deezer_track_id": "694980222",
+        "performance_key": "Gm"
+      },
+      "review_note": "The lyric is ZZ Top and Notion supplies Gm. Replace the impossible 2254-second LRCLIB entry with the listed 289-second candidate; clear the unrelated DJ-mix MusicBrainz identifier but retain the independently matching 2019 remaster Deezer track and BPM."
+    },
+    {
+      "id": "closer-to-fine",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric identifies Indigo Girls' Closer to Fine; the listed LRCLIB candidate is a plausible standard-length match."
+    },
+    {
+      "id": "closing-time",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Semisonic",
+        "reference_title": "Closing Time",
+        "reference_artist": "Semisonic",
+        "reference_album": "90's Pop Hits",
+        "reference_duration_seconds": 274.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37499142",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37499142",
+        "metadata_confidence": 0.995,
+        "recording_mbid": "db32d71e-848b-42f8-ad48-2f00707cc6e3",
+        "original_bpm": "184.57",
+        "deezer_track_id": "546248912"
+      },
+      "review_note": "The Notion arrangement includes the instrumental break and repeated closing choruses of the full Semisonic recording. Use the listed 274-second candidate, not the truncated 212-second entry; the MusicBrainz and Deezer records independently match that full studio version."
+    },
+    {
+      "id": "cold-hard-bitch",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Jet",
+        "reference_title": "Cold Hard Bitch",
+        "reference_artist": "Jet",
+        "reference_album": "Car Anthems: The Ultimate Collection",
+        "reference_duration_seconds": 243.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36306534",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36306534",
+        "metadata_confidence": 0.9358,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical lyric and full arrangement identify Jet's studio song. Use a listed standard-length 243-second candidate rather than the anomalous 316-second entry or shorter 235-second tuple; clear the live/version-untied identifiers and BPM."
+    },
+    {
+      "id": "come-as-you-are",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Nirvana",
+        "reference_title": "Come As You Are",
+        "reference_artist": "Nirvana",
+        "reference_album": "Nirvana (Vinyl)",
+        "reference_duration_seconds": 219.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36945873",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36945873",
+        "metadata_confidence": 0.9739,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Nirvana's Come As You Are, not Hannah Miller's cover from The Traitors. Use the listed Nirvana candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "come-together",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Beatles",
+        "reference_title": "Come Together",
+        "reference_artist": "The Beatles",
+        "reference_album": "20 Greatest Hits",
+        "reference_duration_seconds": 260.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37013201",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37013201",
+        "metadata_confidence": 0.977,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "D"
+      },
+      "review_note": "The canonical lyric is The Beatles' Come Together. Normalize the artist and use the listed The Beatles candidate, retaining Notion D while clearing identifiers/BPM not independently tied to the replacement."
+    },
+    {
+      "id": "counting-blue-cars",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Dishwalla",
+        "reference_title": "Counting Blue Cars",
+        "reference_artist": "Dishwalla",
+        "reference_album": "Counting Blue Cars",
+        "reference_duration_seconds": 294.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35048500",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35048500",
+        "metadata_confidence": 0.9746,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Dishwalla's Counting Blue Cars; the proposed 558-second entry is an anomalous long variant. Use the listed standard-length Counting Blue Cars candidate and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "crash",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Dave Matthews Band",
+        "performance_key": "E",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Dave Matthews Band's Crash Into Me, and the matching local Notion lead sheet supplies E. Every proposed LRCLIB candidate is the unrelated Murderdolls song Crash Crash, so accept only the artist/key and suppress all external reference and wrong-recording fields."
+    },
+    {
+      "id": "crawling-back-to-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Tom Petty",
+        "reference_title": "Crawling Back To You",
+        "reference_artist": "Tom Petty",
+        "reference_album": "Wildflowers (1994)",
+        "reference_duration_seconds": 304.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35707476",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35707476",
+        "metadata_confidence": 0.9509,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical song is Tom Petty's Crawling Back to You, not specifically a Tom Petty and the Heartbreakers recording. Use the listed Wildflowers candidate and clear identifiers/BPM not tied to that replacement."
+    },
+    {
+      "id": "crazy-bitch",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric identifies Buckcherry's Crazy Bitch, and the listed LRCLIB candidate is a plausible studio-length match."
+    },
+    {
+      "id": "crazy",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Gnarls Barkley",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Gnarls Barkley's Crazy, and the Notion suffix supports Cm. No supplied LRCLIB candidate is this song, so retain the key but suppress the unrelated Crazy Crazy reference."
+    },
+    {
+      "id": "creep",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Radiohead",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "G"
+      },
+      "review_note": "The lyric and Notion title identify Radiohead's Creep in G, but the listed candidates are a children's cover or live versions rather than a clean canonical studio candidate. Accept artist/key and suppress all external references and identifiers."
+    },
+    {
+      "id": "criminal",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric identifies Fiona Apple's Criminal; the listed LRCLIB candidate is a plausible matching standard-length reference."
+    },
+    {
+      "id": "cumbersome",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Seven Mary Three's Cumbersome, and F# is directly supported by the Notion title; the listed Water's Edge candidate is plausible."
+    },
+    {
+      "id": "dancing-with-myself",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Billy Idol",
+        "reference_title": "Dancing With Myself",
+        "reference_artist": "Billy Idol",
+        "reference_album": "Greatest Hits 2001",
+        "reference_duration_seconds": 360.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36955993",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36955993",
+        "metadata_confidence": 0.8961,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The canonical song is Billy Idol's Dancing With Myself, not an unattributed Various Artists compilation entry. Use the listed Billy Idol Greatest Hits candidate and retain Notion E."
+    },
+    {
+      "id": "dani-california",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The supplied Stadium Arcadium LRCLIB candidate and 282-second Deezer record match the Red Hot Chili Peppers studio song. Clear the MusicBrainz identifier tied to a live Toronto performance; retain the independently matching Deezer track and BPM."
+    },
+    {
+      "id": "dark-necessities",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Red Hot Chili Peppers",
+        "reference_title": "Dark Necessities",
+        "reference_artist": "Red Hot Chili Peppers",
+        "reference_album": "Top 100 17.09.16",
+        "reference_duration_seconds": 302.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37247680",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37247680",
+        "metadata_confidence": 0.9394,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The complete Notion arrangement includes the bass vamp, bridge, and guitar outro of the full Red Hot Chili Peppers studio song. Use a listed 302-second candidate rather than the truncated 278-second tuple, and clear the live-derived MusicBrainz/Deezer fields and BPM."
+    },
+    {
+      "id": "darling-nikki",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Prince & The Revolution",
+        "reference_title": "Darling Nikki",
+        "reference_artist": "Prince & The Revolution",
+        "reference_album": "Purple Rain (Deluxe Expanded Edition) [2015 Paisley Park Remaster]",
+        "reference_duration_seconds": 255.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35176506",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35176506",
+        "metadata_confidence": 0.9478,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Prince & The Revolution's studio Darling Nikki, not the proposed live tour recording. Use the listed Purple Rain Deluxe candidate and clear live/replacement-untied identifiers."
+    },
+    {
+      "id": "daughter",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The Pearl Jam lyric includes the extended tag/repeated chorus structure consistent with the proposed Live at Perth candidate; retain the Pearl Jam reference and Notion D is not supplied for this item."
+    },
+    {
+      "id": "demons",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric identifies Imagine Dragons' Demons, and the listed LRCLIB candidate is a matching standard-length reference."
+    },
+    {
+      "id": "dock-of-the-bay",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Otis Redding",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical lyric is Otis Redding's (Sittin' on) the Dock of the Bay, not Sam & Dave. No listed LRCLIB candidate is Otis Redding, so accept the known artist and clear all reference/identifier/BPM fields."
+    },
+    {
+      "id": "doin-time",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Sublime",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Gm"
+      },
+      "review_note": "The body is Sublime's Doin' Time, not Lana Del Rey's cover. No listed LRCLIB candidate is Sublime, so retain the Notion Gm key and clear all reference/identifier/BPM fields."
+    },
+    {
+      "id": "don-t-go-back-to-rockville",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The title alias and body identify R.E.M.'s (Don't Go Back To) Rockville, and the listed Reckoning candidate is appropriate. Clear the MusicBrainz identifier tied to a different live release."
+    },
+    {
+      "id": "drive",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Incubus",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Incubus' Drive, not the unrelated Clean Bandit/Topic track. No listed LRCLIB candidate is Incubus, so accept the known artist and clear all reference/identifier/BPM fields."
+    },
+    {
+      "id": "elderly-woman",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Pearl Jam",
+        "reference_title": "Elderly Woman Behind Counter",
+        "reference_artist": "Pearl Jam",
+        "reference_album": "Vs.",
+        "reference_duration_seconds": 196.257937,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "25426597",
+        "lyrics_reference_url": "https://lrclib.net/api/get/25426597",
+        "metadata_confidence": 0.855,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "D"
+      },
+      "review_note": "The lyric identifies Pearl Jam's Elderly Woman Behind the Counter in a Small Town. Prefer the listed Vs. studio candidate over the anomalous Vortical entry and retain Notion D."
+    },
+    {
+      "id": "enter-sandman",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Metallica",
+        "reference_title": "Enter sandman",
+        "reference_artist": "Metallica",
+        "reference_album": "Metallica Schwarz",
+        "reference_duration_seconds": 332.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36993903",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36993903",
+        "metadata_confidence": 0.9719,
+        "recording_mbid": null,
+        "original_bpm": "124.53",
+        "deezer_track_id": "136408134"
+      },
+      "review_note": "The body and full Notion arrangement identify the standard Metallica recording. Use the listed 332-second album-length candidate instead of the truncated 290-second tuple; clear the mismatched MusicBrainz result and retain the independently matching 331-second Deezer recording and BPM."
+    },
+    {
+      "id": "even-flow",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Pearl Jam",
+        "reference_title": "Even Flow",
+        "reference_artist": "Pearl Jam",
+        "reference_album": "Rearviewmirror (Greatest Hits 1991-2003) [44.1-16 CD]",
+        "reference_duration_seconds": 304.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36993555",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36993555",
+        "metadata_confidence": 0.925,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The full intro/solo/outro arrangement is Pearl Jam\u2019s studio Even Flow, not the proposed Give Way live recording. The listed Ten tuple is truncated at 194 seconds, so use the listed 304-second studio greatest-hits candidate and clear live-derived identifiers."
+    },
+    {
+      "id": "everlong",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric identifies Foo Fighters' Everlong, and the listed reference plus Notion D key are plausible."
+    },
+    {
+      "id": "every-mother-s-son",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric identifies Lynyrd Skynyrd's Every Mother's Son; the listed Gimme Back My Bullets-era candidate is a plausible match."
+    },
+    {
+      "id": "exs-and-ohs",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The complete lyric identifies Elle King's Ex's and Oh's, and the listed Drivetime Anthems candidate plus Notion Em key are plausible."
+    },
+    {
+      "id": "face-in-the-crowd",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Tom Petty & The Heartbreakers",
+        "reference_title": "Face In the Crowd",
+        "reference_artist": "Tom Petty & The Heartbreakers",
+        "reference_album": "Southern Choice Live",
+        "reference_duration_seconds": 242.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34396080",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34396080",
+        "metadata_confidence": 0.9778,
+        "recording_mbid": "cc3da817-46fe-46b2-8ffd-dd94ff0ad180",
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics identify Tom Petty & The Heartbreakers; the listed LRCLIB candidate is a plausible song match, with no Notion key evidenced."
+    },
+    {
+      "id": "faith",
+      "decision": "accept",
+      "overrides": {
+        "artist": "George Michael",
+        "reference_title": "Faith",
+        "reference_artist": "George Michael",
+        "reference_album": "The Ultimate Rock Collection 1985-1988 Volume 5",
+        "reference_duration_seconds": 197.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37463899",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37463899",
+        "metadata_confidence": 0.9247,
+        "recording_mbid": "da176b80-346a-4412-9053-5cf6d0da5062",
+        "original_bpm": "191.4",
+        "deezer_track_id": "8146779"
+      },
+      "review_note": "The body is George Michael\u2019s Faith; the listed candidate is a plausible standard-song match, with no Notion key evidenced."
+    },
+    {
+      "id": "fast-as-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Dwight Yoakam",
+        "reference_title": "Fast As You",
+        "reference_artist": "Dwight Yoakam",
+        "reference_album": "Dwight Yoakam",
+        "reference_duration_seconds": 287.359417,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "18415416",
+        "lyrics_reference_url": "https://lrclib.net/api/get/18415416",
+        "metadata_confidence": 0.9572,
+        "recording_mbid": "cea7406a-b140-484c-a6fd-3e0edc176894",
+        "original_bpm": "126.05",
+        "deezer_track_id": "6631880"
+      },
+      "review_note": "The body is Dwight Yoakam\u2019s Fast as You; retain the matching listed candidate and no Notion key is evidenced."
+    },
+    {
+      "id": "feeling-alright",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Joe Cocker",
+        "reference_title": "Feeling Alright",
+        "reference_artist": "Joe Cocker",
+        "reference_album": "With A Little Help From My Friends",
+        "reference_duration_seconds": 247.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35001284",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35001284",
+        "metadata_confidence": 0.9345,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical wording matches Joe Cocker's version: 'Won't someone lock the door' and the 'I'm not feeling too good myself' chorus differ from the listed Huey Lewis transcription. Use the listed Joe Cocker studio candidate and clear unrelated external identifiers."
+    },
+    {
+      "id": "feels-sheriff",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Calvin Harris feat. Pharrell Williams, Katy Perry & Big Sean / Bob Marley & The Wailers",
+        "performance_key": "Em, Gm",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "This is a manual mashup of Calvin Harris's Feels and Bob Marley & The Wailers' I Shot the Sheriff. Preserve multi-artist attribution and the matching Notion keys Em and Gm; there is no single valid LRCLIB reference recording."
+    },
+    {
+      "id": "feels",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Calvin Harris",
+        "reference_title": "Feels",
+        "reference_artist": "Calvin Harris Pharrell Williams Katy Perry Big Sean",
+        "reference_album": "Feels (feat Pharrell Williams Katy Perry & Big Sean)",
+        "reference_duration_seconds": 223.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34565271",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34565271",
+        "metadata_confidence": 0.9537,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The complete lyric is Calvin Harris\u2019s Feels with Pharrell Williams, Katy Perry, and Big Sean. Use the listed 223-second feature-credited single candidate rather than the anomalous 233-second self-titled entry; no performance key or external identifiers are supported."
+    },
+    {
+      "id": "find-yourself",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lukas Nelson and Promise of the Real",
+        "reference_title": "Find Yourself",
+        "reference_artist": "Lukas Nelson and Promise of the Real",
+        "reference_album": "Sampler",
+        "reference_duration_seconds": 321.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35192531",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35192531",
+        "metadata_confidence": 0.9008,
+        "recording_mbid": "9e8a7f5e-d287-417a-9bab-f359ddff53ce",
+        "original_bpm": "133.37",
+        "deezer_track_id": "387218411",
+        "performance_key": "G"
+      },
+      "review_note": "The body matches Lukas Nelson & Promise of the Real; retain the listed candidate and the Notion G performance key."
+    },
+    {
+      "id": "fire-on-the-mountain",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Grateful Dead",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is the Grateful Dead song, not Dead & Company. The listed Grateful Dead entries are live recordings without evidence of this specific performance, so accept the known artist and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "fly-away",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lenny Kravitz",
+        "reference_title": "Fly Away",
+        "reference_artist": "Lenny Kravitz",
+        "reference_album": "Songs You Need To Listen To Before You Die",
+        "reference_duration_seconds": 221.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36989846",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36989846",
+        "metadata_confidence": 0.982,
+        "recording_mbid": "6d298e45-a6ab-4262-8429-866aca24a5c6",
+        "original_bpm": null,
+        "deezer_track_id": "3129589"
+      },
+      "review_note": "The body and selected LRCLIB entry match Lenny Kravitz\u2019s standard Fly Away. The MusicBrainz compilation recording and 222-second Deezer track independently match; retain both IDs, while the zero BPM remains null."
+    },
+    {
+      "id": "follow-me",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Uncle Kracker",
+        "reference_title": "Follow Me",
+        "reference_artist": "Uncle Kracker",
+        "reference_album": "Cowboy Country",
+        "reference_duration_seconds": 215.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37015309",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37015309",
+        "metadata_confidence": 0.9674,
+        "recording_mbid": "18ea1a62-57cc-48f3-a1f6-3f54455a1fff",
+        "original_bpm": "104.9",
+        "deezer_track_id": "3819653"
+      },
+      "review_note": "The lyrics identify Uncle Kracker\u2019s Follow Me; the listed candidate is a plausible match. No Notion evidence or performance key is supplied."
+    },
+    {
+      "id": "folsom-prison-blues",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Johnny Cash",
+        "reference_title": "Folsom Prison Blues",
+        "reference_artist": "Johnny Cash & The Tennessee Two",
+        "reference_album": "Dim Lights, Thick Smoke & Hillbilly Music: Country & Western Hit Parade - 1956",
+        "reference_duration_seconds": 173.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37498171",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37498171",
+        "metadata_confidence": 0.9257,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The canonical body is Johnny Cash\u2019s Folsom Prison Blues, not the Johnny Crash cover. Use the listed Johnny Cash candidate, retain Notion E, and clear identifiers/BPM tied to the rejected cover."
+    },
+    {
+      "id": "free-fallin",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Tom Petty",
+        "reference_title": "Free Fallin\u2019",
+        "reference_artist": "Tom Petty",
+        "reference_album": "Anthology: Through the Years",
+        "reference_duration_seconds": 250.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37504344",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37504344",
+        "metadata_confidence": 0.9271,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "Free Fallin\u2019 is the Tom Petty solo recording from the Full Moon Fever era, not a Tom Petty and the Heartbreakers recording. Use the listed 250-second Tom Petty candidate and keep unsupported identifiers null."
+    },
+    {
+      "id": "fuck-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Cee Lo Green",
+        "reference_title": "Fuck You",
+        "reference_artist": "Cee-Lo Green",
+        "reference_album": "2010! Songs of the Year",
+        "reference_duration_seconds": 223.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37023237",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37023237",
+        "metadata_confidence": 0.8855,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "C"
+      },
+      "review_note": "The explicit lyric and matching Notion chart identify Cee Lo Green\u2019s standard song and support key C. Use the listed 223-second candidate rather than the unusually long 234-second entry."
+    },
+    {
+      "id": "get-lucky",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Daft Punk",
+        "reference_title": "Get Lucky",
+        "reference_artist": "Daft Punk",
+        "reference_album": "Random Access Memories (10th Annyversary)",
+        "reference_duration_seconds": 370.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37075924",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37075924",
+        "metadata_confidence": 0.8711,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Daft Punk\u2019s Get Lucky, not the Halestorm cover. Use the listed Daft Punk candidate and clear identifiers/BPM not tied to the replacement."
+    },
+    {
+      "id": "gimme-all-your-lovin",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "Gimme All Your Lovin'",
+        "reference_artist": "ZZ Top",
+        "reference_album": "Eliminator (W2 23774)",
+        "reference_duration_seconds": 244.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37525370",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37525370",
+        "metadata_confidence": 0.9774,
+        "recording_mbid": "afd5fc47-b9f6-4966-80de-4252472d7b3d",
+        "original_bpm": null,
+        "deezer_track_id": "3788170382",
+        "performance_key": "C"
+      },
+      "review_note": "The body and Notion chart match ZZ Top\u2019s studio song and support key C. Keep the listed Eliminator candidate; the compilation MusicBrainz recording and 242-second Deezer track independently match the studio song, while Deezer supplied no usable BPM."
+    },
+    {
+      "id": "gimme-shelter",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Rolling Stones",
+        "reference_title": "Gimme Shelter",
+        "reference_artist": "Rolling Stones",
+        "reference_album": "Gimme Shelter",
+        "reference_duration_seconds": 270.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36957137",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36957137",
+        "metadata_confidence": 0.8822,
+        "recording_mbid": null,
+        "original_bpm": "118.5",
+        "deezer_track_id": "9914834"
+      },
+      "review_note": "The lyrics are The Rolling Stones\u2019 standard Gimme Shelter and the listed 270-second candidate is plausible. Retain the independently matching 271-second Deezer recording and BPM, but clear the durationless MusicBrainz result from the unofficial/alternate-oriented Time Trip release."
+    },
+    {
+      "id": "gimme-three-steps",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lynyrd Skynyrd",
+        "reference_title": "Gimme Three Steps",
+        "reference_artist": "Lynyrd Skynyrd",
+        "reference_album": "Hits From 1973",
+        "reference_duration_seconds": 268.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36997318",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36997318",
+        "metadata_confidence": 0.9532,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Lynyrd Skynyrd\u2019s studio song, not a longer deluxe/live variant. Use the listed Hits From 1973 candidate and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "give-me-one-reason",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Tracy Chapman",
+        "reference_title": "Give Me One Reason",
+        "reference_artist": "Tracy Chapman",
+        "reference_album": "Billboard Top 100 Hits Of 1996",
+        "reference_duration_seconds": 269.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37284997",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37284997",
+        "metadata_confidence": 0.9814,
+        "recording_mbid": null,
+        "original_bpm": "100.6",
+        "deezer_track_id": "2477838"
+      },
+      "review_note": "The body is Tracy Chapman\u2019s standard recording. Use the listed 269-second candidate, retain the independently matching 268-second Deezer track and BPM, and clear the MusicBrainz result tied to a live-performance release."
+    },
+    {
+      "id": "givin-the-dog-a-bone",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": "Givin The Dog A Bone",
+        "reference_artist": "AC/DC",
+        "reference_album": "Back in Black (DuoDisc remaster)",
+        "reference_duration_seconds": 211.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37483239",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37483239",
+        "metadata_confidence": 0.9425,
+        "recording_mbid": "cf61eb88-be62-494c-badc-0a27d8d10736",
+        "original_bpm": "132.5",
+        "deezer_track_id": "92720042"
+      },
+      "review_note": "The body is AC/DC\u2019s Givin\u2019 the Dog a Bone; retain the listed Back in Black candidate and no Notion key is evidenced."
+    },
+    {
+      "id": "glycerine",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bush",
+        "reference_title": "Glycerine",
+        "reference_artist": "Bush",
+        "reference_album": "Singles",
+        "reference_duration_seconds": 266.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34750328",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34750328",
+        "metadata_confidence": 0.9621,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Bush\u2019s Glycerine. Use the listed standard-length Singles candidate rather than the unrelated compilation variant and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "god-of-wine",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Third Eye Blind",
+        "reference_title": "God Of Wine",
+        "reference_artist": "Third Eye Blind",
+        "reference_album": "The Winter Of Discontent: Disc II - The Migration",
+        "reference_duration_seconds": 318.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37233134",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37233134",
+        "metadata_confidence": 0.9819,
+        "recording_mbid": "968d9079-19be-40d0-89fd-7f7b671b9e25",
+        "original_bpm": "150.3",
+        "deezer_track_id": "4111791"
+      },
+      "review_note": "The complete body is Third Eye Blind\u2019s God of Wine; the listed candidate is a plausible standard-song match and no Notion key is evidenced."
+    },
+    {
+      "id": "going-down-the-road-feeling-bad",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Grateful Dead",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The repeated lyric/arrangement is the Grateful Dead performance of the traditional song. No Grateful Dead LRCLIB candidate is listed, so accept the known artist and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "gone-gone-gone",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Phillip Phillips",
+        "reference_title": "Gone, Gone, Gone",
+        "reference_artist": "Phillip Phillips",
+        "reference_album": "Summer Music for Kids",
+        "reference_duration_seconds": 209.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36940626",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36940626",
+        "metadata_confidence": 0.9665,
+        "recording_mbid": "ddba9035-19ec-4bd2-a0a2-014e76ab7b6f",
+        "original_bpm": "118.1",
+        "deezer_track_id": "67592080"
+      },
+      "review_note": "The lyrics identify Phillip Phillips\u2019s Gone, Gone, Gone. Use the listed 209-second candidate rather than the overlong deluxe tuple; the 209-second MusicBrainz and Deezer records independently match, so retain their IDs and BPM."
+    },
+    {
+      "id": "gone-shootin",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": "Gone Shootin'",
+        "reference_artist": "Ac/dc",
+        "reference_album": "Beavis and Butthead Do America - Original Motion Picture Soundtrack",
+        "reference_duration_seconds": 305.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36955938",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36955938",
+        "metadata_confidence": 0.8461,
+        "recording_mbid": null,
+        "original_bpm": "122.7",
+        "deezer_track_id": "92722994"
+      },
+      "review_note": "The body is AC/DC\u2019s studio Gone Shootin\u2019. Use the listed 305-second soundtrack issue rather than the truncated 290-second Powerage tuple; retain the independently matching 304-second Deezer track and BPM, and clear the live-broadcast MusicBrainz result."
+    },
+    {
+      "id": "good-times-bad-times",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Led Zeppelin",
+        "reference_title": "Good Times Bad Times",
+        "reference_artist": "Led Zeppelin",
+        "reference_album": "Led Zeppelin I: Remastered [VINYL]",
+        "reference_duration_seconds": 166.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36965729",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36965729",
+        "metadata_confidence": 0.9317,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body explicitly identifies Led Zeppelin\u2019s studio Good Times Bad Times, not the Phish live cover. Use the listed Led Zeppelin album candidate and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "gravity",
+      "decision": "accept",
+      "overrides": {
+        "artist": "John Mayer",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is John Mayer\u2019s Gravity, not the unrelated Brent Faiyaz/Tyler, The Creator or other listed songs. No John Mayer LRCLIB candidate is listed, so accept the known artist and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "guitars-and-cadillacs",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Dwight Yoakam",
+        "reference_title": "Guitars And Cadillacs",
+        "reference_artist": "Dwight Yoakam",
+        "reference_album": "MP3's",
+        "reference_duration_seconds": 185.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "31949390",
+        "lyrics_reference_url": "https://lrclib.net/api/get/31949390",
+        "metadata_confidence": 0.9476,
+        "recording_mbid": "98ac017b-76b6-4f58-8ac1-d8578d22406a",
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "A"
+      },
+      "review_note": "The body is Dwight Yoakam\u2019s Guitars and Cadillacs; retain the listed candidate and the Notion A performance key."
+    },
+    {
+      "id": "hang-you-from-the-heavens",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Dead Weather",
+        "reference_title": "Hang You from the Heavens",
+        "reference_artist": "Dead Weather",
+        "reference_album": "Dead Weather (Single)",
+        "reference_duration_seconds": 216.973056,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "18330433",
+        "lyrics_reference_url": "https://lrclib.net/api/get/18330433",
+        "metadata_confidence": 0.8054,
+        "recording_mbid": "e6d49e37-1e0f-4b74-9c88-c021fe152ee4",
+        "original_bpm": "127.2",
+        "deezer_track_id": "3783637"
+      },
+      "review_note": "The body identifies The Dead Weather\u2019s Hang You from the Heavens. Normalize the canonical artist name; the listed single candidate is plausible."
+    },
+    {
+      "id": "happy",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Pharrell Williams",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Pharrell Williams\u2019s Happy, not any listed Happy Happy candidate. No correct LRCLIB candidate is listed, so accept the known artist and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "hard-to-handle",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Grateful Dead",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "B"
+      },
+      "review_note": "The verse reprise, multiple breaks and solos, and extended \u201cgood lovin\u2019\u201d ad-libs identify the Grateful Dead\u2019s expanded live treatment, not Otis Redding\u2019s compact original or the unrelated proposed cover. Notion supports key B, but no listed Dead performance can be tied to this exact arrangement, so all references and recording identifiers are null."
+    },
+    {
+      "id": "hash-pipe",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Weezer",
+        "reference_title": "Hash Pipe",
+        "reference_artist": "Weezer",
+        "reference_album": "Weezer (Green Album)",
+        "reference_duration_seconds": 92.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37183763",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37183763",
+        "metadata_confidence": 0.8758,
+        "recording_mbid": "524d4eee-19d4-4aa7-8dfc-3bec7a30345f",
+        "original_bpm": "125.7",
+        "deezer_track_id": "2544627"
+      },
+      "review_note": "The body is Weezer\u2019s Hash Pipe; retain the listed candidate and no Notion key is evidenced."
+    },
+    {
+      "id": "have-a-drink-on-me",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The Notion arrangement explicitly moves into Highway to Hell and back, making this an AC/DC medley performance rather than the standalone Back in Black recording. No listed LRCLIB candidate represents that version, so all reference and recording fields are null."
+    },
+    {
+      "id": "heard-it-in-a-love-song",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Marshall Tucker Band",
+        "reference_title": "Heard It In A Love Song",
+        "reference_artist": "Marshall Tucker Band, The",
+        "reference_album": "Country Tucker",
+        "reference_duration_seconds": 297.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "33692927",
+        "lyrics_reference_url": "https://lrclib.net/api/get/33692927",
+        "metadata_confidence": 0.8357,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": "3227195571"
+      },
+      "review_note": "The canonical text explicitly identifies The Marshall Tucker Band and the listed 297-second candidate matches. Retain the independently matching 298-second Deezer track ID; it supplied no usable BPM."
+    },
+    {
+      "id": "heart-shaped-box",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Nirvana",
+        "reference_title": "Heart Shaped Box",
+        "reference_artist": "Nirvana",
+        "reference_album": "Nirvana [Bonus Track]",
+        "reference_duration_seconds": 284.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37260732",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37260732",
+        "metadata_confidence": 0.9973,
+        "recording_mbid": null,
+        "original_bpm": "99.9",
+        "deezer_track_id": "70466227"
+      },
+      "review_note": "The body is Nirvana\u2019s standard Heart-Shaped Box. Use the listed 284-second studio-compilation candidate rather than the truncated 252-second In Utero tuple or a Guitar Hero issue; retain the independently matching 281-second Deezer recording and BPM, and clear the live Roseland MusicBrainz result."
+    },
+    {
+      "id": "higher-ground",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Red Hot Chili Peppers",
+        "reference_title": "Higher Ground",
+        "reference_artist": "Red Hot Chili Peppers",
+        "reference_album": "Higher Ground / If You Want Me",
+        "reference_duration_seconds": 203.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37468088",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37468088",
+        "metadata_confidence": 0.9004,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The canonical outro names Stevie and adds the \u201cfunky, funky sound\u201d lines specific to the Red Hot Chili Peppers cover. Use the listed 203-second RHCP single candidate, retain Notion key E, and clear the Ellen McIlwaine identifiers and BPM."
+    },
+    {
+      "id": "higher",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Creed",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics identify Creed's Higher, not the unrelated Harem Scarem candidate. No Creed LRCLIB candidate is listed, so accept the known artist and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "highway-to-hell",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": "Highway to Hell",
+        "reference_artist": "AC/DC",
+        "reference_album": "All",
+        "reference_duration_seconds": 208.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36967325",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36967325",
+        "metadata_confidence": 0.8547,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is AC/DC's Highway to Hell, not the P!nk cover. Use the listed AC/DC LRCLIB candidate and clear identifiers/BPM tied to the rejected suggestion."
+    },
+    {
+      "id": "hit-me-with-your-best-shot",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Pat Benatar",
+        "reference_title": "Hit Me With Your Best Shot",
+        "reference_artist": "Pat Benatar",
+        "reference_album": "100 Hits - Driving Rock (CD1)",
+        "reference_duration_seconds": 170.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36982436",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36982436",
+        "metadata_confidence": 0.8821,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is Pat Benatar's Hit Me with Your Best Shot, not the Various Artists compilation entry. Use the listed Pat Benatar candidate and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "hold-my-hand",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Hootie & the Blowfish",
+        "reference_title": "Hold My Hand",
+        "reference_artist": "Hootie & the Blowfish",
+        "reference_album": "Legends: These Are Days",
+        "reference_duration_seconds": 257.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37006338",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37006338",
+        "metadata_confidence": 0.9048,
+        "recording_mbid": "65ff10ad-cea5-45d9-99a7-6457536a2c8e",
+        "original_bpm": "173.7",
+        "deezer_track_id": "4086674"
+      },
+      "review_note": "The lyrics identify Hootie & the Blowfish's Hold My Hand; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "home-live",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Phillip Phillips",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The 'Hold on to me as we go' lyric identifies Phillip Phillips' Home. None of the supplied LRCLIB candidates is that song, so accept the artist only and remove the Nicole Henry/Michael Bubl\u00e9 reference fields."
+    },
+    {
+      "id": "home",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Daughtry",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The 'I'm staring out into the night' lyric identifies Daughtry's Home. None of the supplied LRCLIB candidates is that song, so accept the artist only and remove the unrelated reference fields."
+    },
+    {
+      "id": "hunger-strike",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Temple of the Dog",
+        "reference_title": "Hunger Strike",
+        "reference_artist": "Temple of the Dog",
+        "reference_album": "Temple of the Dog (disc 1\u2236 Original Album - 25th Anniversary Mix)",
+        "reference_duration_seconds": 246.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36846970",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36846970",
+        "metadata_confidence": 0.9333,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical song is Temple of the Dog's Hunger Strike, not the Pearl Jam cover. Use the listed Temple of the Dog candidate and clear identifiers/BPM tied to the rejected suggestion."
+    },
+    {
+      "id": "i-don-t-wanna-be",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Gavin DeGraw",
+        "reference_title": "I Don't Wanna Be",
+        "reference_artist": "Gavin DeGraw",
+        "reference_album": "Unknown",
+        "reference_duration_seconds": 212.631375,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "19806825",
+        "lyrics_reference_url": "https://lrclib.net/api/get/19806825",
+        "metadata_confidence": 0.9261,
+        "recording_mbid": "bf8d85ae-ff0e-46dd-9be9-5adee509ada6",
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics identify Gavin DeGraw's I Don't Wanna Be; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "i-kissed-a-girl",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Katy Perry",
+        "reference_title": "I Kissed a Girl",
+        "reference_artist": "Katy Perry",
+        "reference_album": "101 Pop Hits",
+        "reference_duration_seconds": 180.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37013298",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37013298",
+        "metadata_confidence": 0.9835,
+        "recording_mbid": "59dbf792-5e1f-44d9-a39a-a66b55e05f66",
+        "original_bpm": "130",
+        "deezer_track_id": "3169173",
+        "performance_key": "A"
+      },
+      "review_note": "The canonical body is Katy Perry's I Kissed a Girl; retain the matching listed candidate and Notion A performance key."
+    },
+    {
+      "id": "i-shot-the-sheriff",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bob Marley & The Wailers",
+        "recording_mbid": null
+      },
+      "review_note": "The canonical ad-libs, parenthetical responses, verse order, and even transcription quirks closely match supplied LRCLIB candidate 37471372. Retain that exact Bob Marley/Songs Of Freedom tuple, normalize only the canonical artist field to Bob Marley & The Wailers, and clear the independently mismatched MusicBrainz recording."
+    },
+    {
+      "id": "i-want-you-back",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Jackson 5",
+        "reference_title": "I Want You Back",
+        "reference_artist": "The Jackson 5",
+        "reference_album": "Billboard Top Rock\u2019n\u2019Roll Hits: 1970",
+        "reference_duration_seconds": 178.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36941534",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36941534",
+        "metadata_confidence": 0.9435,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "G"
+      },
+      "review_note": "The canonical body is The Jackson 5's I Want You Back. Use the listed The Jackson 5 candidate rather than the suggested Jacksons entry, retain Notion G, and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "i-want-you-to",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Weezer",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "D"
+      },
+      "review_note": "The lyrics identify Weezer's I Want You To, not the unrelated Stereoclip candidate. No Weezer LRCLIB candidate is listed, so retain Notion D and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "i-will-survive",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Cake",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Am"
+      },
+      "review_note": "The altered lines \u201cchanged my fucking lock\u201d and \u201ctried to break me with desire,\u201d plus the guitar-led arrangement, identify Cake\u2019s cover rather than Gloria Gaynor\u2019s recording. Notion supports Am, but no Cake LRCLIB candidate is listed, so all reference fields remain null."
+    },
+    {
+      "id": "i-wish",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stevie Wonder",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Eb"
+      },
+      "review_note": "The lyrics identify Stevie Wonder's I Wish, not the unrelated no1n candidate. No Stevie Wonder LRCLIB candidate is listed, so retain Notion Eb and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "i-m-bad-i-m-nationwide",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "I\u2019m Bad, I\u2019m Nationwide",
+        "reference_artist": "ZZ Top",
+        "reference_album": "Original Album Series",
+        "reference_duration_seconds": 286.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37503041",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37503041",
+        "metadata_confidence": 0.8429,
+        "recording_mbid": null,
+        "original_bpm": "103.36",
+        "deezer_track_id": "694980212",
+        "performance_key": "C"
+      },
+      "review_note": "The body is ZZ Top\u2019s studio song and Notion supports C. Use the cleaner listed 286-second Original Album Series candidate, retain the independently matching 2019-remaster Deezer track and BPM, and clear the MusicBrainz identifier tied to a 1980 live performance."
+    },
+    {
+      "id": "in-the-midnight-hour",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Wilson Pickett",
+        "reference_title": "In the Midnight Hour",
+        "reference_artist": "Wilson Pickett",
+        "reference_album": "The 500 Greatest Songs of All Time (2024 Edition)",
+        "reference_duration_seconds": 152.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37508357",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37508357",
+        "metadata_confidence": 0.9535,
+        "recording_mbid": "532fee45-0243-4b8f-84e7-232971ba23a4",
+        "original_bpm": "111.4",
+        "deezer_track_id": "39056731"
+      },
+      "review_note": "The canonical body is Wilson Pickett's In the Midnight Hour; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "in-your-eyes",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Peter Gabriel",
+        "reference_title": "In Your Eyes",
+        "reference_artist": "Peter Gabriel",
+        "reference_album": "Say Anything\u2026 The Original Motion Picture Soundtrack",
+        "reference_duration_seconds": 324.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37457477",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37457477",
+        "metadata_confidence": 0.9822,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Peter Gabriel's In Your Eyes, not the Jeffrey Gaines cover. Use the listed Peter Gabriel candidate and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "inside-out",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Eve 6",
+        "reference_title": "Inside Out",
+        "reference_artist": "Eve 6",
+        "reference_album": "BuzzCuts",
+        "reference_duration_seconds": 219.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37019928",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37019928",
+        "metadata_confidence": 0.9108,
+        "recording_mbid": "c478443b-f76e-4636-b196-631b2a728b45",
+        "original_bpm": "175.9",
+        "deezer_track_id": "2311279",
+        "performance_key": "A"
+      },
+      "review_note": "The canonical body is Eve 6's Inside Out; retain the matching listed candidate and Notion A performance key."
+    },
+    {
+      "id": "interstate-love-song",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stone Temple Pilots",
+        "reference_title": "Interstate Love Song",
+        "reference_artist": "Stone Temple Pilots",
+        "reference_album": "Summer HIts of the 90's",
+        "reference_duration_seconds": 193.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37492109",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37492109",
+        "metadata_confidence": 0.9333,
+        "recording_mbid": "4828e014-e945-4a14-afd3-4727eb0ce9ab",
+        "original_bpm": "168.8",
+        "deezer_track_id": "3907803",
+        "performance_key": "C#m"
+      },
+      "review_note": "The canonical body is Stone Temple Pilots' Interstate Love Song; retain the matching listed candidate and Notion C#m performance key."
+    },
+    {
+      "id": "jailbreak",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Thin Lizzy",
+        "reference_title": "Jailbreak",
+        "reference_artist": "Thin Lizzy",
+        "reference_album": "TM Series 1711",
+        "reference_duration_seconds": 240.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37467829",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37467829",
+        "metadata_confidence": 0.9824,
+        "recording_mbid": "4c4365ca-961b-4160-a9b3-312aac5be9a6",
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is Thin Lizzy's Jailbreak; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "jesus-left-chicago",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "Jesus Left Chicago",
+        "reference_artist": "ZZ Top",
+        "reference_album": "I Love My Automobile",
+        "reference_duration_seconds": 286.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34167572",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34167572",
+        "metadata_confidence": 0.9583,
+        "recording_mbid": "0dfc9475-5706-441f-a37f-3aa59b16d627",
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is ZZ Top's Jesus Left Chicago; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "jolene",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Dolly Parton",
+        "reference_title": "Jolene",
+        "reference_artist": "Dolly Parton",
+        "reference_album": "Dolly Parton Gold: Greatest Hits",
+        "reference_duration_seconds": 157.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36984434",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36984434",
+        "metadata_confidence": 0.984,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body explicitly identifies Dolly Parton and Greatest Hits. Use the supplied normal-length Greatest Hits LRCLIB candidate rather than the anomalous 216-second entry, and clear identifiers not tied to the replacement."
+    },
+    {
+      "id": "juice-dance",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lizzo / David Bowie",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Dm, D"
+      },
+      "review_note": "This body is an explicit mashup of Lizzo's Juice and David Bowie's Let's Dance. No LRCLIB candidate is listed, so accept the composite canonical artist and Notion Dm, D key while clearing all external references/identifiers/BPM."
+    },
+    {
+      "id": "juice",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The lyrics exactly identify Lizzo's Juice, and the proposed 195-second Lizzo LRCLIB candidate and independently matched identifiers are consistent."
+    },
+    {
+      "id": "juicebox",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Strokes",
+        "reference_title": "Juicebox",
+        "reference_artist": "The Strokes",
+        "reference_album": "KROQ Weenie Roast, Irvine, USA, 2011",
+        "reference_duration_seconds": 206.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37045837",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37045837",
+        "metadata_confidence": 0.9235,
+        "recording_mbid": "74b6355e-825d-44ef-8b53-ffad2e333d0e",
+        "original_bpm": "154.8",
+        "deezer_track_id": "15529735"
+      },
+      "review_note": "The canonical body is The Strokes' Juicebox; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "jump-jive-wail",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Brian Setzer Orchestra",
+        "reference_title": "Jump, jive,  & wail",
+        "reference_artist": "Brian Setzer Orchestra",
+        "reference_album": "The Dirty Boogie",
+        "reference_duration_seconds": 174.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "33519658",
+        "lyrics_reference_url": "https://lrclib.net/api/get/33519658",
+        "metadata_confidence": 0.9359,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The guitar-led, modulating big-band arrangement matches The Brian Setzer Orchestra cover rather than merely the Louis Prima composition. The listed Dirty Boogie candidate is the appropriate reference; no performance key or external identifiers are supplied."
+    },
+    {
+      "id": "jump",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Van Halen",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "C"
+      },
+      "review_note": "The lyrics identify Van Halen's Jump, not the unrelated \u9e7f\u4e43 candidate. No Van Halen LRCLIB candidate is listed, so retain Notion C and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "just-a-girl",
+      "decision": "accept",
+      "overrides": {
+        "artist": "No Doubt",
+        "reference_title": "Just A Girl",
+        "reference_artist": "No Doubt",
+        "reference_album": "Girl Power 2022",
+        "reference_duration_seconds": 206.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37003794",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37003794",
+        "metadata_confidence": 0.977,
+        "recording_mbid": "17f8a51b-782b-4b78-9cc3-2ff23360edbc",
+        "original_bpm": "107.9",
+        "deezer_track_id": "24246271"
+      },
+      "review_note": "The canonical body is No Doubt's Just a Girl; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "just-got-paid",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "Just Got Paid",
+        "reference_artist": "ZZ Top",
+        "reference_album": "The Best of ZZ Top [Disc 1]",
+        "reference_duration_seconds": 269.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37395013",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37395013",
+        "metadata_confidence": 0.8693,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are ZZ Top\u2019s Just Got Paid. Use the listed standard-length 269-second candidate rather than the malformed-title, truncated 229-second tuple; the proposed MusicBrainz recording is the Montgomery Gentry cover and remains null."
+    },
+    {
+      "id": "just-like-heaven",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Cure",
+        "reference_title": "Just Like Heaven",
+        "reference_artist": "The Cure",
+        "reference_album": "Pop Brit\u00e1nico",
+        "reference_duration_seconds": 211.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36843917",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36843917",
+        "metadata_confidence": 0.996,
+        "recording_mbid": "773c2eb7-f868-44bc-b7d5-59ef96bf2788",
+        "original_bpm": "150.34",
+        "deezer_track_id": "409670332"
+      },
+      "review_note": "The canonical body is The Cure's Just Like Heaven; retain the matching listed candidate and no Notion performance key is evidenced."
+    },
+    {
+      "id": "just-what-i-needed",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Cars",
+        "reference_title": "Just What I Needed",
+        "reference_artist": "The Cars",
+        "reference_album": "The Best Ever- Rock",
+        "reference_duration_seconds": 226.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36958127",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36958127",
+        "metadata_confidence": 0.919,
+        "recording_mbid": null,
+        "original_bpm": "128.4",
+        "deezer_track_id": "404618712"
+      },
+      "review_note": "The body and selected LRCLIB candidate match The Cars\u2019 standard recording. Retain the independently matching 225-second Deezer track and BPM, but clear the MusicBrainz identifier tied to Classic Performance Live."
+    },
+    {
+      "id": "killing-in-the-name",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Rage Against the Machine",
+        "reference_title": "Killing In The Name",
+        "reference_artist": "Rage Against The Machine",
+        "reference_album": "TOP2000-DTS-tem2017",
+        "reference_duration_seconds": 314.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37019781",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37019781",
+        "metadata_confidence": 0.7761,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is Rage Against the Machine's Killing in the Name; normalize the artist away from the Topic suffix, use the listed Rage Against the Machine candidate, and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "kiss",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Prince",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "A"
+      },
+      "review_note": "The lyrics identify Prince's Kiss, not the unrelated AKASAKI Kiss Kiss Kiss candidate. No Prince LRCLIB candidate is listed, so retain Notion A and clear all external references/identifiers/BPM."
+    },
+    {
+      "id": "kryptonite",
+      "decision": "accept",
+      "overrides": {
+        "artist": "3 Doors Down",
+        "reference_title": "Kryptonite",
+        "reference_artist": "3 Doors Down",
+        "reference_album": "Best Of The 2000s",
+        "reference_duration_seconds": 234.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37010739",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37010739",
+        "metadata_confidence": 0.9271,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Bm"
+      },
+      "review_note": "The body is 3 Doors Down\u2019s standard Kryptonite and Notion supports Bm. Use the listed 234-second candidate rather than the implausibly short 210-second Better Life tuple; no external identifiers are supplied."
+    },
+    {
+      "id": "la-grange",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "La Grange",
+        "reference_artist": "ZZ Top",
+        "reference_album": "Burger Man",
+        "reference_duration_seconds": 231.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37456462",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37456462",
+        "metadata_confidence": 0.924,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "A"
+      },
+      "review_note": "The canonical body is ZZ Top's La Grange, not the Various Artists compilation entry. Use the listed ZZ Top candidate, retain Notion A, and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "last-nite",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Strokes",
+        "reference_title": "Last Nite",
+        "reference_artist": "The Strokes",
+        "reference_album": "NME- Greatest Songs of All Time",
+        "reference_duration_seconds": 193.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37032522",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37032522",
+        "metadata_confidence": 0.9465,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is The Strokes' Last Nite, not the First to Eleven cover. Use the listed The Strokes candidate and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "let-me-put-my-love-into-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": "Let Me Put My Love Into You",
+        "reference_artist": "AC/DC",
+        "reference_album": "Back In Black - remaster 2003",
+        "reference_duration_seconds": 255.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36986864",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36986864",
+        "metadata_confidence": 0.8164,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is AC/DC's Let Me Put My Love Into You, not the Six Feet Under cover. Use the listed AC/DC candidate and clear replacement-untied identifiers/BPM."
+    },
+    {
+      "id": "let-s-get-it-on",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Marvin Gaye's Let's Get It On, and the listed LRCLIB candidate plus Notion E key match."
+    },
+    {
+      "id": "let-s-go-crazy",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Prince's Let's Go Crazy, and the listed LRCLIB candidate plus Notion F# key match."
+    },
+    {
+      "id": "lets-dance",
+      "decision": "accept",
+      "overrides": {
+        "artist": "David Bowie",
+        "reference_title": "Let's Dance",
+        "reference_artist": "David Bowie",
+        "reference_album": "The Best of David Bowie",
+        "reference_duration_seconds": 250.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37006563",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37006563",
+        "metadata_confidence": 0.901,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are David Bowie's Let's Dance, not Hi_Tack's unrelated song. Use the listed David Bowie candidate and clear identifiers/BPM tied to the rejected suggestion; no Notion key is evidenced."
+    },
+    {
+      "id": "life-during-wartime",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Talking Heads",
+        "reference_title": "Life During Wartime",
+        "reference_artist": "Talking Heads",
+        "reference_album": "Fear of Music [2005 DualDisc remaster]",
+        "reference_duration_seconds": 221.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35012523",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35012523",
+        "metadata_confidence": 0.9906,
+        "recording_mbid": null,
+        "original_bpm": "132.9",
+        "deezer_track_id": "747560"
+      },
+      "review_note": "The canonical body is Talking Heads\u2019 standard studio Life During Wartime, and the listed 221-second Fear of Music candidate matches. Retain the independently matching 221-second remaster Deezer track and BPM, and clear the MusicBrainz identifier tied to a 1983 live performance."
+    },
+    {
+      "id": "lightning-crashes",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical and Notion lyrics match Live's standard studio recording. The listed 326-second LRCLIB tuple is consistent with the full Throwing Copper version; no performance key is supplied."
+    },
+    {
+      "id": "like-a-stone",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Audioslave's Like a Stone, and the listed LRCLIB candidate matches; no Notion key is evidenced."
+    },
+    {
+      "id": "little-less-conversation",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Elvis Presley",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The title annotation is only a display abbreviation; the body is Elvis Presley's A Little Less Conversation. No listed LRCLIB or Notion candidate is available, so all reference and recording fields remain null."
+    },
+    {
+      "id": "little-lover",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC"
+      },
+      "review_note": "The lyrics and long instrumental structure identify AC/DC's Little Lover. The selected 340-second candidate and the High Voltage recording identifiers are version-consistent; only the artist spelling needs normalization."
+    },
+    {
+      "id": "little-sister",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Elvis Presley's Little Sister, and the listed LRCLIB candidate plus Notion E key match."
+    },
+    {
+      "id": "livin-after-midnight",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Judas Priest's Livin' After Midnight, and the listed LRCLIB candidate matches; no Notion key is evidenced."
+    },
+    {
+      "id": "locked-out-of-heaven",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bruno Mars",
+        "reference_title": "Locked Out Of Heaven",
+        "reference_artist": "Bruno Mars",
+        "reference_album": "The Official Uk Top 40 Singles Chart 25-11-2012",
+        "reference_duration_seconds": 234.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37169456",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37169456",
+        "metadata_confidence": 0.9233,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "C"
+      },
+      "review_note": "The lyric and Notion arrangement identify Bruno Mars, not a generic Various Artists credit. Use the listed 234-second Bruno Mars tuple, retain performance key C, and clear identifiers tied to the rejected cover/compilation result."
+    },
+    {
+      "id": "lonely-is-the-night",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Billy Squier",
+        "reference_title": "Lonely Is The Night",
+        "reference_artist": "Billy Squier",
+        "reference_album": "Don't Say No (IR)",
+        "reference_duration_seconds": 282.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36843534",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36843534",
+        "metadata_confidence": 0.9155,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The words are Billy Squier's Lonely Is the Night, not David Knopfler's different song. The listed Don't Say No-length tuple matches, Notion supports E, and the unrelated identifiers are cleared."
+    },
+    {
+      "id": "long-train-runnin",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Doobie Brothers"
+      },
+      "review_note": "The canonical and Notion arrangement match The Doobie Brothers' standard 208-second recording. Normalize the artist name while retaining the independently matching Deezer track and BPM."
+    },
+    {
+      "id": "love-rollercoaster",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The lyric is Ohio Players' Love Rollercoaster, and the selected 171-second tuple aligns with the 172-second single recording and BPM. The 205-second MusicBrainz result is a different version and is cleared."
+    },
+    {
+      "id": "love-shack",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The B-52's",
+        "reference_title": "Love Shack",
+        "reference_artist": "The B-52's",
+        "reference_album": "Party Like It's 1989",
+        "reference_duration_seconds": 321.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37464738",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37464738",
+        "metadata_confidence": 0.9154,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are The B-52's Love Shack, with C supported by Notion. Replace the 390-second live proposal with the supplied 321-second candidate, preserving its exact tuple, and clear the live MusicBrainz identifier."
+    },
+    {
+      "id": "love-train",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The body is Wolfmother's Love Train, not the similarly titled O'Jays song; the listed Wolfmother LRCLIB candidate matches and no Notion key is evidenced."
+    },
+    {
+      "id": "lovesong",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Cure",
+        "reference_title": "Lovesong",
+        "reference_artist": "The Cure",
+        "reference_album": "1997 - Galore (The Singles 87-97)",
+        "reference_duration_seconds": 209.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37483628",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37483628",
+        "metadata_confidence": 0.9567,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The 16-bar intro, breaks, solo, and compact duration identify The Cure's studio Lovesong rather than the longer Orleya or Adele covers. Use the listed 209-second Cure tuple and clear cover-derived identifiers."
+    },
+    {
+      "id": "low",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Cracker",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Cracker's Low, while every listed LRCLIB candidate is a different song. Keep the established artist and null all external reference and recording fields."
+    },
+    {
+      "id": "major-tom",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Peter Schilling",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Peter Schilling's English-language Major Tom (Coming Home). The listed Peter Schilling LRCLIB entries contain the German V\u00f6llig losgel\u00f6st lyric, so none matches the actual language/version and all reference fields must be null."
+    },
+    {
+      "id": "man-in-the-box",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Alice in Chains",
+        "reference_title": "Man in the Box",
+        "reference_artist": "Alice in Chains",
+        "reference_album": "Music Bank [compilation]",
+        "reference_duration_seconds": 287.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36971090",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36971090",
+        "metadata_confidence": 0.9984,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical lyric is Alice in Chains' studio Man in the Box. Use the listed 287-second Music Bank tuple rather than the mislabeled proposal, and clear the MusicBrainz identifier tied to a live 2007 performance."
+    },
+    {
+      "id": "margaritaville",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Jimmy Buffett",
+        "reference_title": "Margaritaville",
+        "reference_artist": "Jimmy Buffett",
+        "reference_album": "Songs You Know By Heart\u2236 Jimmy Buffett's Greatest Hits",
+        "reference_duration_seconds": 250.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37289363",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37289363",
+        "metadata_confidence": 0.9571,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The three verses, solo, changing blame lines, and final refrain match Jimmy Buffett's standard approximately 250-second recording, not the proposed live version or the impossible 200-second tuple. Use the listed Songs You Know by Heart candidate and clear live-derived identifiers."
+    },
+    {
+      "id": "mary-had-a-little-lamb",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stevie Ray Vaughan",
+        "reference_title": "Mary Had a Little Lamb",
+        "reference_artist": "Stevie Ray Vaughan",
+        "reference_album": "Texas Flood (Legacy Edition)",
+        "reference_duration_seconds": 169.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37470122",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37470122",
+        "metadata_confidence": 0.8799,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The two opening guitar vamps, 24-bar solo, and Tisket Tasket verse identify Stevie Ray Vaughan's Texas Flood arrangement. Use the listed 169-second studio tuple and clear the live-performance MusicBrainz identifier."
+    },
+    {
+      "id": "mary-jane-s-last-dance",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Tom Petty's Mary Jane's Last Dance, and the listed LRCLIB candidate plus Notion Am key match."
+    },
+    {
+      "id": "melissa",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Allman Brothers Band",
+        "recording_mbid": null
+      },
+      "review_note": "The exact wording best matches the selected 235-second 1972 Allman Brothers tuple. Normalize the band name, clear the MusicBrainz result tied to a 2005 live performance, and retain the independently matching 234-second Deezer recording and BPM."
+    },
+    {
+      "id": "melt-with-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Modern English",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is Modern English's original I Melt with You lyric, including the 'Dream of better lives' verse. Every supplied LRCLIB candidate carries the same re-recorded/live lyric that omits that verse and adds stage patter, so accept the artist but suppress all reference and variant-derived identifier fields."
+    },
+    {
+      "id": "mercy",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Duffy",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "G"
+      },
+      "review_note": "The canonical and Notion body is Duffy's Mercy, not Mercy, Mercy, Mercy by The Paragons or the other listed artists. Retain Notion key G and null all nonmatching external references."
+    },
+    {
+      "id": "miss-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Rolling Stones",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Am"
+      },
+      "review_note": "The full canonical/Notion arrangement is The Rolling Stones' extended studio Miss You in Am. The listed live tuples are wrong versions, while the nominal 215-second studio tuple ends after its stated duration, so no listed LRCLIB record safely matches."
+    },
+    {
+      "id": "moves-like-jagger",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Maroon 5 feat. Christina Aguilera",
+        "reference_title": "Moves Like Jagger",
+        "reference_artist": "Maroon 5 featt. Christina Aguilera",
+        "reference_album": "German Top 100 Single Charts 03.10.2011",
+        "reference_duration_seconds": 201.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37501333",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37501333",
+        "metadata_confidence": 0.9784,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The complete lyric includes the Christina Aguilera feature and identifies Maroon 5's original recording, not a generic Various Artists track. Use the listed 201-second credited tuple and clear replacement-untied identifiers."
+    },
+    {
+      "id": "mustang-sally",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Wilson Pickett",
+        "reference_title": "Mustang Sally",
+        "reference_artist": "Wilson Pickett",
+        "reference_album": "The Vietnam War: A Film By Ken Burns & Lynn Novick [Disc 1]",
+        "reference_duration_seconds": 186.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36999837",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36999837",
+        "metadata_confidence": 0.7687,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The ad-libs and wording, including 'what I said now' and 'listen one more time y'all,' match Wilson Pickett's recording rather than Jonny Lang's cover. Use the listed 186-second Pickett tuple and clear cover-derived identifiers."
+    },
+    {
+      "id": "my-hero",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical lyric is Foo Fighters' My Hero, and the listed LRCLIB candidate matches; no Notion key is evidenced."
+    },
+    {
+      "id": "my-own-worst-enemy",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The selected 170-second Lit tuple fits the complete lyric and synced ending; the proposed 258-second alternative is malformed. Retain the independently matching studio Deezer track/BPM and clear the Woodstock live MusicBrainz identifier."
+    },
+    {
+      "id": "mysterious-ways",
+      "decision": "accept",
+      "overrides": {
+        "artist": "U2",
+        "reference_title": "Mysterious Ways",
+        "reference_artist": "U2",
+        "reference_album": "All",
+        "reference_duration_seconds": 244.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36970706",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36970706",
+        "metadata_confidence": 0.9463,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical and Notion arrangement is U2's compact studio Mysterious Ways, not a Zoo TV or other live performance. Use the listed 244-second tuple and clear live-derived identifiers."
+    },
+    {
+      "id": "never-let-you-go",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The selected 237-second Third Eye Blind tuple accommodates the full long outro and matches the 237-second MusicBrainz/Deezer records. The cheaper review's 219-second Blue tuple is shorter than its own synced lyric and should not replace it."
+    },
+    {
+      "id": "new-year-s-day",
+      "decision": "accept",
+      "overrides": {
+        "artist": "U2",
+        "reference_title": "New Year's Day",
+        "reference_artist": "U2",
+        "reference_album": "U218 Singles",
+        "reference_duration_seconds": 338.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36944136",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36944136",
+        "metadata_confidence": 0.932,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The 24-bar intro, extended vamp, and 32-bar solo identify U2's full approximately 338-second arrangement, not Karen Souza's cover or the truncated 258-second tuple. Use the listed U218 candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "no-one-knows",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Queens of the Stone Age",
+        "reference_title": "No One Knows",
+        "reference_artist": "Queens of the Stone Age",
+        "reference_album": "Songs for the Deaf",
+        "reference_duration_seconds": 285.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37362669",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37362669",
+        "metadata_confidence": 0.9571,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The full arrangement is Queens of the Stone Age's Songs for the Deaf recording, not the edited/live matches returned by MusicBrainz and Deezer. Use the listed 285-second album tuple and clear version-untied identifiers."
+    },
+    {
+      "id": "no-rain",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Blind Melon",
+        "reference_title": "No Rain",
+        "reference_artist": "Blind Melon",
+        "reference_album": "VA - 90s Pop Rock Ultimate Mix (2023)",
+        "reference_duration_seconds": 217.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37059567",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37059567",
+        "metadata_confidence": 0.9626,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Blind Melon's standard No Rain. Use a listed 217-second studio-length tuple; the proposed live session is wrong and the nominal 203-second album tuple is shorter than its synced lyric."
+    },
+    {
+      "id": "no-woman-no-cry",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bob Marley & The Wailers",
+        "reference_title": "No Woman, No Cry",
+        "reference_artist": "Bob Marley & The Wailers",
+        "reference_album": "18 Greatest Hits",
+        "reference_duration_seconds": 431.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36981500",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36981500",
+        "metadata_confidence": 0.9158,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The stuttered opening, Trenchtown verses, eightfold 'Everything's gonna be all right,' and repeated closing chorus identify Bob Marley & The Wailers' famous extended live version, not Jimmy Cliff's cover. Use the listed 431-second tuple and clear cover-derived identifiers."
+    },
+    {
+      "id": "nothing-compares-2-u",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Chris Cornell",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "C"
+      },
+      "review_note": "The male pronouns and explicit guitar-solo arrangement identify Chris Cornell's cover. Every listed LRCLIB candidate is Sin\u00e9ad O'Connor's different lyric/version, so retain Notion key C but null all references and recording identifiers."
+    },
+    {
+      "id": "numb",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Linkin Park"
+      },
+      "review_note": "The complete lyric is Linkin Park's Numb, and the listed 187-second Meteora tuple matches despite its duplicated title parenthetical. No Notion performance key is available."
+    },
+    {
+      "id": "one",
+      "decision": "accept",
+      "overrides": {
+        "artist": "U2",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is U2's One, while all listed LRCLIB candidates are different songs titled One & One or similar. Keep the established artist and null every external reference and identifier."
+    },
+    {
+      "id": "outshined",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Soundgarden",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": null
+      },
+      "review_note": "The canonical body is Soundgarden's Outshined. The Notion page is Collective Soul's different song Shine, so D is not transferable, and none of the listed LRCLIB candidates matches."
+    },
+    {
+      "id": "outside",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Staind",
+        "recording_mbid": null
+      },
+      "review_note": "The body is Staind's standard 293-second studio Outside, not the longer Family Values performance. Retain the independently matching Deezer track/BPM and clear the MusicBrainz result associated with an unplugged/rarities release."
+    },
+    {
+      "id": "overkill",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Men at Work",
+        "reference_title": "Overkill",
+        "reference_artist": "Men At Work",
+        "reference_album": "TM Series 1731",
+        "reference_duration_seconds": 224.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37469832",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37469832",
+        "metadata_confidence": 0.983,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Men at Work's original Overkill. The Colin Hay tuples are shorter than their own synced lyric, while the listed 224-second Men at Work tuple is internally and version consistent; clear solo-cover identifiers."
+    },
+    {
+      "id": "panama",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Van Halen",
+        "reference_title": "Panama",
+        "reference_artist": "Van Halen",
+        "reference_album": "Get Psyched",
+        "reference_duration_seconds": 212.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36958419",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36958419",
+        "metadata_confidence": 0.8442,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The Notion chart includes Van Halen's full electric arrangement and spoken breakdown, not Pat Boone's lounge cover. Use the listed 212-second Van Halen tuple and clear cover-derived identifiers and BPM."
+    },
+    {
+      "id": "paradise-city",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Guns N' Roses"
+      },
+      "review_note": "The canonical body is Guns N' Roses' Paradise City, and the listed LRCLIB candidate plus Deezer/MusicBrainz tuple match the standard recording."
+    },
+    {
+      "id": "paralyzer",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Finger Eleven"
+      },
+      "review_note": "The complete canonical lyric is Finger Eleven's Paralyzer, matching the listed LRCLIB candidate."
+    },
+    {
+      "id": "patience",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Guns N' Roses",
+        "recording_mbid": null
+      },
+      "review_note": "The complete acoustic intro, break, breakdown, and final chorus match Guns N' Roses' standard 354-second Patience. Retain the matching Deezer track/BPM and clear the MusicBrainz result tied to an untimed bootleg/live release."
+    },
+    {
+      "id": "peaceful-easy-feelin",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Eagles",
+        "reference_title": "Peaceful Easy Feelin'",
+        "reference_artist": "Eagles",
+        "reference_album": "Eagles",
+        "reference_duration_seconds": 259.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "9043127",
+        "lyrics_reference_url": "https://lrclib.net/api/get/9043127",
+        "metadata_confidence": 0.9735,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Eagles' standard Peaceful Easy Feelin'. Use the listed 259-second self-titled-album tuple instead of the malformed 'Eagles - 02' credit; no performance key is supplied."
+    },
+    {
+      "id": "play-that-funky-music",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Wild Cherry",
+        "reference_title": "Play That Funky Music",
+        "reference_artist": "Wild Cherry",
+        "reference_album": "1976! Songs of the Year",
+        "reference_duration_seconds": 300.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36939561",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36939561",
+        "metadata_confidence": 0.7807,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Em"
+      },
+      "review_note": "The three verses, solo, and extended 16-bar bridge require the full approximately five-minute Wild Cherry recording. Use the listed 300-second tuple, retain Notion key Em, and clear identifiers tied to the shorter edit."
+    },
+    {
+      "id": "plush",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stone Temple Pilots",
+        "reference_title": "Plush",
+        "reference_artist": "Stone Temple Pilots",
+        "reference_album": "90s Alternative",
+        "reference_duration_seconds": 314.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37485811",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37485811",
+        "metadata_confidence": 0.8919,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "G"
+      },
+      "review_note": "The repeated bridge and final vamp identify the full Stone Temple Pilots arrangement. Use the listed 314-second tuple rather than entries shorter than their own synced lyric, retain Notion key G, and clear live/edit-derived identifiers."
+    },
+    {
+      "id": "pompeii",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bastille"
+      },
+      "review_note": "The canonical body is Bastille's Pompeii, matching the listed LRCLIB candidate and identifiers."
+    },
+    {
+      "id": "possum-kingdom",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Toadies",
+        "reference_title": "Possum Kingdom",
+        "reference_artist": "Toadies",
+        "reference_album": "ESPN X-Games, Volume 1\u2236 Music From The Edge",
+        "reference_duration_seconds": 307.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35142592",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35142592",
+        "metadata_confidence": 0.9898,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical body is Toadies' Possum Kingdom. Use the listed 307-second standard-length tuple and normalize the official artist name without a leading 'The'."
+    },
+    {
+      "id": "pride",
+      "decision": "accept",
+      "overrides": {
+        "artist": "U2",
+        "reference_title": "Pride",
+        "reference_artist": "U2",
+        "reference_album": "The Best Of U2 1980-2005",
+        "reference_duration_seconds": 219.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37482335",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37482335",
+        "metadata_confidence": 0.9922,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is U2's standard Pride (In the Name of Love), not the proposed PopMart live performance. Use the listed compact studio/greatest-hits tuple and clear the live MusicBrainz identifier."
+    },
+    {
+      "id": "psycho-killer",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Talking Heads",
+        "reference_title": "Psycho Killer",
+        "reference_artist": "Talking Heads",
+        "reference_album": "1977! Songs of the Year",
+        "reference_duration_seconds": 261.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36942895",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36942895",
+        "metadata_confidence": 0.9289,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The full French verse and original wording identify Talking Heads' studio Psycho Killer. The proposed Phish tuple is shorter than its own live synced lyric; use the listed 261-second Talking Heads candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "purple-rain",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Prince & The Revolution",
+        "performance_key": "Bb"
+      },
+      "review_note": "The three verses followed by the long closing solo identify Prince & The Revolution's full approximately 523-second Purple Rain recording. The selected tuple matches, and Notion supports performance key Bb."
+    },
+    {
+      "id": "radioactive",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Imagine Dragons",
+        "reference_title": "Radioactive",
+        "reference_artist": "Imagine Dragons",
+        "reference_album": "NRJ 200% Hits 2013, Volume 2",
+        "reference_duration_seconds": 188.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36984550",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36984550",
+        "metadata_confidence": 0.9959,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical and Notion body represents Imagine Dragons' standard 188-second Radioactive rather than Our Last Night's longer cover. Use the listed Imagine Dragons tuple and clear cover-derived identifiers."
+    },
+    {
+      "id": "ramble-on",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Led Zeppelin",
+        "reference_title": "Ramble On",
+        "reference_artist": "Led Zeppelin",
+        "reference_album": "#000 Rolling Stone Magazine's 500 Greatest Songs Of All Time",
+        "reference_duration_seconds": 264.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36961385",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36961385",
+        "metadata_confidence": 0.8524,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The Mordor/Gollum verse and extended closing ad-libs match Led Zeppelin's original wording, not the altered Great White or Train covers. Use the listed Led Zeppelin tuple, retain Notion key E, and clear cover-derived identifiers."
+    },
+    {
+      "id": "rebel-yell",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Billy Idol",
+        "reference_title": "Rebel Yell",
+        "reference_artist": "Billy Idol",
+        "reference_album": "100 Hits - Driving Rock (CD1)",
+        "reference_duration_seconds": 288.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36982050",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36982050",
+        "metadata_confidence": 0.9045,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Bm"
+      },
+      "review_note": "The 'million times' bridge and full solo/outro arrangement identify Billy Idol's original; HIM's cover substitutes different wording. Use the listed 288-second Billy Idol tuple, retain Notion key Bm, and clear cover-derived identifiers."
+    },
+    {
+      "id": "redemption-song-live",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Ziggy Marley & Lauryn Hill",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The explicit Ziggy/Lauryn labels and L. Boogie rap identify the Ziggy Marley and Lauryn Hill rendition, not Bob Marley's standard recording. No supplied LRCLIB candidate contains that version, so accept the performance artists and clear all standard-version references and identifiers."
+    },
+    {
+      "id": "ride-on",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC"
+      },
+      "review_note": "The canonical body is AC/DC's Ride On, matching the listed LRCLIB candidate and identifiers."
+    },
+    {
+      "id": "ring-of-fire",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The repeated second verse, extended choruses, 'One more time' cue, and wording closely match the supplied Social Distortion Live at The Roxy lyric rather than Johnny Cash's compact original. Retain the suggested live-cover tuple and its tied identifiers."
+    },
+    {
+      "id": "roadhouse-blues",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Doors"
+      },
+      "review_note": "The canonical body contains the extended live-style Roadhouse Blues performance, so the listed The Doors Live In New York candidate is plausible; do not replace it with a studio candidate."
+    },
+    {
+      "id": "rock-and-roll-ain-t-noise-pollution",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The {short=...} text is only a display attribute; the body is AC/DC's Rock and Roll Ain't Noise Pollution. No matching LRCLIB or Notion candidate is listed, so all external fields remain null."
+    },
+    {
+      "id": "rock-n-roll",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Led Zeppelin",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Led Zeppelin's Rock and Roll, not the Generation X, Great White, or other listed songs/covers. No Led Zeppelin LRCLIB candidate is available, so all reference and identifier fields are null."
+    },
+    {
+      "id": "rooster",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Alice in Chains",
+        "reference_title": "rooster",
+        "reference_artist": "Alice In Chains",
+        "reference_album": "ALICE IN CHAINS dirt",
+        "reference_duration_seconds": 375.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37502615",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37502615",
+        "metadata_confidence": 0.9286,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric says 'buddy's breathing his dying breath' and uses Alice in Chains' original chorus, not Ann Wilson's altered cover. Use the listed 375-second Dirt tuple and clear cover-derived identifiers."
+    },
+    {
+      "id": "runnin-with-the-devil",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Van Halen"
+      },
+      "review_note": "The canonical body is Van Halen's Runnin' with the Devil, and the listed LRCLIB candidate plus Deezer/MusicBrainz tuple match the standard recording."
+    },
+    {
+      "id": "santeria",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Sublime",
+        "performance_key": "E"
+      },
+      "review_note": "The canonical body is Sublime's Santeria, matching the listed LRCLIB candidate and the plausible Notion E key."
+    },
+    {
+      "id": "say-it-ain-t-so",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Weezer",
+        "reference_title": "Say It Ain't So",
+        "reference_artist": "Weezer",
+        "reference_album": "Weezer Essentials",
+        "reference_duration_seconds": 259.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36953128",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36953128",
+        "metadata_confidence": 0.9348,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The canonical/Notion arrangement is Weezer's standard Say It Ain't So. Use the listed 259-second Weezer tuple rather than D.I.'s cover, whose stated duration is shorter than its synced lyric, and clear cover-derived identifiers."
+    },
+    {
+      "id": "seven-nation-army",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The White Stripes",
+        "reference_title": "Seven Nation Army",
+        "reference_artist": "The White Stripes",
+        "reference_album": "2003! Songs of the Year",
+        "reference_duration_seconds": 232.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36954792",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36954792",
+        "metadata_confidence": 0.9823,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The bass-and-drums intro, instrumental choruses, 18-bar guitar solo, and full structure identify The White Stripes' original rather than Marc Mar\u00e9e's cover. Use the listed 232-second tuple, retain Notion key E, and clear cover-derived identifiers."
+    },
+    {
+      "id": "sex-and-candy",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Marcy Playground"
+      },
+      "review_note": "The canonical body is Marcy Playground's Sex and Candy, matching the listed LRCLIB candidate and identifiers."
+    },
+    {
+      "id": "sex-on-fire",
+      "decision": "accept",
+      "overrides": {
+        "reference_title": "Sex on Fire",
+        "reference_artist": "Kings of Leon",
+        "reference_album": "Booom 2009: Die 1. Hit\u2010Explosion",
+        "reference_duration_seconds": 203.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37021273",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37021273",
+        "metadata_confidence": 0.984,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "artist": "Kings of Leon"
+      },
+      "review_note": "The canonical body is Kings of Leon's Sex on Fire. The LRCLIB candidate matches, but the supplied MusicBrainz release is live while the lead sheet is the standard song, so clear recording/BPM/Deezer identifiers."
+    },
+    {
+      "id": "shake-shake-shake",
+      "decision": "accept",
+      "overrides": {
+        "artist": "KC & the Sunshine Band",
+        "reference_title": "(Shake, Shake, Shake) Shake Y",
+        "reference_artist": "Kc & the Sunshine Band",
+        "reference_album": "Seventies Complete Volume 2",
+        "reference_duration_seconds": 187.071625,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "22153352",
+        "lyrics_reference_url": "https://lrclib.net/api/get/22153352",
+        "metadata_confidence": 0.8315,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is KC & the Sunshine Band's (Shake, Shake, Shake) Shake Your Booty. The closing Get Lucky cue is only a transition; the listed 187-second candidate matches the actual song body."
+    },
+    {
+      "id": "sharp-dressed-man",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "Sharp Dressed Man",
+        "reference_artist": "ZZ Top",
+        "reference_album": "Eliminator (\u201cTarget\u201d CD, made in West Germany)",
+        "reference_duration_seconds": 258.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36971877",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36971877",
+        "metadata_confidence": 0.949,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "C"
+      },
+      "review_note": "The full lead-sheet arrangement is ZZ Top's studio Sharp Dressed Man, not the proposed short/live associations. Use the listed 258-second Eliminator candidate and retain Notion key C."
+    },
+    {
+      "id": "she-sells-sanctuary",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Cult",
+        "reference_title": "She Sells Sanctuary",
+        "reference_artist": "The Cult",
+        "reference_album": "1001 Songs To Hear Before You Die",
+        "reference_duration_seconds": 265.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36921099",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36921099",
+        "metadata_confidence": 0.9747,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The wording and arrangement identify The Cult's original, not The Dandy Warhols cover. Use the listed 265-second Cult candidate and clear cover-derived identifiers."
+    },
+    {
+      "id": "shine",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Collective Soul",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "D"
+      },
+      "review_note": "This is Collective Soul's Shine ('Heaven let your light shine down'), while every listed LRCLIB result is Chris Rea's different song. Retain the matching Notion key D and null all external fields."
+    },
+    {
+      "id": "shining-star",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Earth, Wind & Fire",
+        "reference_title": "Shining Star",
+        "reference_artist": "Earth, Wind & Fire",
+        "reference_album": "1975! Songs of the Year",
+        "reference_duration_seconds": 170.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36957418",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36957418",
+        "metadata_confidence": 0.9868,
+        "recording_mbid": null,
+        "original_bpm": "102.3",
+        "deezer_track_id": "15636886"
+      },
+      "review_note": "The lyric is Earth, Wind & Fire's standard studio Shining Star. Use a listed 170-second studio-length candidate, clear the live MusicBrainz result, and retain the independently matching 171-second Deezer recording and BPM."
+    },
+    {
+      "id": "short-skirt",
+      "decision": "accept",
+      "overrides": {
+        "artist": "CAKE",
+        "performance_key": "D"
+      },
+      "review_note": "The body and Notion evidence identify CAKE's Short Skirt; the listed LRCLIB candidate matches and Notion supports D."
+    },
+    {
+      "id": "simple-man",
+      "decision": "accept",
+      "overrides": {
+        "reference_title": "Simple Man",
+        "reference_artist": "Lynyrd Skynyrd",
+        "reference_album": "Best Of (2013)",
+        "reference_duration_seconds": 359.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36978537",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36978537",
+        "metadata_confidence": 0.9885,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "artist": "Lynyrd Skynyrd"
+      },
+      "review_note": "The canonical body is Lynyrd Skynyrd's standard Simple Man. The listed LRCLIB candidate is usable, but the supplied MusicBrainz release is a live tribute-tour association, so clear recording/BPM/Deezer identifiers."
+    },
+    {
+      "id": "sittin-on-the-dock-of-the-bay",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Otis Redding",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The {short=...} text is only a display attribute; the whistle-ending song is Otis Redding's (Sittin' On) The Dock of the Bay. No LRCLIB or Notion candidate is supplied."
+    },
+    {
+      "id": "smells-like-teen-spirit",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Nirvana",
+        "reference_title": "Smells Like Teen Spirit",
+        "reference_artist": "Nirvana",
+        "reference_album": "Nevermind (24kt Gold Remastered)",
+        "reference_duration_seconds": 302.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36961307",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36961307",
+        "metadata_confidence": 0.9805,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The complete arrangement is Nirvana's Nevermind studio recording. Use the listed 302-second Nevermind candidate and clear the proposed live MusicBrainz/Deezer data."
+    },
+    {
+      "id": "so-lonely",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Police",
+        "reference_title": "So Lonely",
+        "reference_artist": "The Police",
+        "reference_album": "Thet Police Greatest Hits",
+        "reference_duration_seconds": 288.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37386488",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37386488",
+        "metadata_confidence": 0.9413,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The chart's compact full arrangement is The Police's standard So Lonely rather than one of the 7\u20138 minute live performances. Use the listed 288-second candidate and clear the live Deezer association."
+    },
+    {
+      "id": "some-kind-of-wonderful",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The female-perspective lyric and Notion C chart identify Joss Stone's recording. The selected 236-second LRCLIB and Deezer records match it; only the MusicBrainz result tied to a live New York performance is cleared."
+    },
+    {
+      "id": "song-2",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Blur",
+        "reference_title": "Song 2",
+        "reference_artist": "Blur",
+        "reference_album": "Contact, Volume 4: Overtime!",
+        "reference_duration_seconds": 123.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37002844",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37002844",
+        "metadata_confidence": 0.9686,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Blur's Song 2, not DJ Krush's unrelated same-title track. Use the supplied Blur candidate and clear the wrong DJ Krush recording identifiers and BPM."
+    },
+    {
+      "id": "soulshine",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Allman Brothers Band",
+        "reference_title": "Soulshine",
+        "reference_artist": "Allman Brothers Band",
+        "reference_album": "The Essential Allman Brothers Band - The Epic Years",
+        "reference_duration_seconds": 403.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "33574662",
+        "lyrics_reference_url": "https://lrclib.net/api/get/33574662",
+        "metadata_confidence": 0.9574,
+        "recording_mbid": null,
+        "original_bpm": "135.1",
+        "deezer_track_id": "586473"
+      },
+      "review_note": "The long closing solo identifies The Allman Brothers Band's approximately 403-second studio arrangement, not the proposed 538-second Nola performance. Retain the independently matching studio Deezer track/BPM and clear the live MusicBrainz result."
+    },
+    {
+      "id": "stayin-alive",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bee Gees",
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The proposal's listed 288-second Bee Gees candidate matches the canonical 'And you may look' and 'we're stayin alive' wording. Clear the unrelated Ultimix MusicBrainz and karaoke Deezer/BPM data."
+    },
+    {
+      "id": "steady-as-she-goes",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The body and Notion evidence identify The Raconteurs' Steady as She Goes; its extended outro makes the supplied live-associated reference plausible, so retain the suggested metadata."
+    },
+    {
+      "id": "sullivan-street",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The body and Notion evidence identify Counting Crows' Sullivan Street, and the extended performance structure is consistent with the supplied Across a Wire live candidate; retain the suggested metadata."
+    },
+    {
+      "id": "superstition-single-version",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stevie Wonder",
+        "reference_title": "Superstition",
+        "reference_artist": "Stevie Wonder",
+        "reference_album": "Motown 40 Forever - Disc Two",
+        "reference_duration_seconds": 240.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37517292",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37517292",
+        "metadata_confidence": 0.8958,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics are Stevie Wonder's Superstition, E is supported by Notion, and the canonical filename specifies the single version. Use the supplied 240-second Stevie Wonder candidate rather than UB40 or an album-length entry, and clear the cover identifier."
+    },
+    {
+      "id": "sweet-emotion",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Aerosmith",
+        "reference_title": "Sweet Emotion",
+        "reference_artist": "Aerosmith",
+        "reference_album": "Aerosmith / Get Your Wings / Toys in the Attic",
+        "reference_duration_seconds": 276.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36956109",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36956109",
+        "metadata_confidence": 0.9537,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": "2061076857"
+      },
+      "review_note": "The intro, four verses, and outro solo require Aerosmith's full studio Sweet Emotion. Use the listed 276-second candidate, clear the live MusicBrainz result, and retain the independently matching 274-second Aerosmith Deezer track."
+    },
+    {
+      "id": "sweet-home-alabama",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Lynyrd Skynyrd",
+        "reference_title": "Sweet Home Alabama",
+        "reference_artist": "Lynyrd Skynyrd",
+        "reference_album": "Bayern 1 \u2013 Die Oldie\u2010WM",
+        "reference_duration_seconds": 285.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36957190",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36957190",
+        "metadata_confidence": 0.9653,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The complete lyric and arrangement identify Lynyrd Skynyrd's standard recording, not a generic Various Artists entry. Use the listed 285-second Lynyrd Skynyrd candidate and clear generic-source identifiers/BPM."
+    },
+    {
+      "id": "tnt",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": "TNT",
+        "reference_artist": "ACDC",
+        "reference_album": "T.N.T.",
+        "reference_duration_seconds": 214.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34416182",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34416182",
+        "metadata_confidence": 0.9702,
+        "recording_mbid": null,
+        "original_bpm": "126.8",
+        "deezer_track_id": "92720006"
+      },
+      "review_note": "Use the listed 214-second T.N.T. album candidate for AC/DC's standard recording. The Deezer track and BPM independently match that studio version; the uncertain compilation-associated MusicBrainz result is cleared."
+    },
+    {
+      "id": "take-me-out",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Franz Ferdinand",
+        "reference_title": "Take Me Out",
+        "reference_artist": "Franz Ferdinand",
+        "reference_album": "Albums (2004 - 2018) (disc 1: Franz Ferdinand)",
+        "reference_duration_seconds": 237.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34396378",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34396378",
+        "metadata_confidence": 0.9501,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The wording and two-part arrangement identify Franz Ferdinand's original, not the Kidz Bop cover. Use the listed 237-second Franz Ferdinand candidate and clear cover-derived fields."
+    },
+    {
+      "id": "tennessee-whiskey",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Chris Stapleton"
+      },
+      "review_note": "The lyric and extended ending identify Chris Stapleton's Traveller recording. Retain the proposed listed 293-second candidate despite its literal artist misspelling, while normalizing the canonical artist field."
+    },
+    {
+      "id": "thank-you-falettinme-be-mice-elf-agin",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Sly & the Family Stone"
+      },
+      "review_note": "The body is Sly & the Family Stone's single recording. The listed LRCLIB title is merely truncated; its duration, MusicBrainz recording, Deezer single, and BPM are version-consistent."
+    },
+    {
+      "id": "thank-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Led Zeppelin",
+        "performance_key": "D",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The composition and canonical lyrics are Led Zeppelin\u2019s Thank You; D is supported by Notion. The available LRCLIB result is Duran Duran\u2019s cover, so retain artist/key only and omit a mismatched external recording reference."
+    },
+    {
+      "id": "that-s-the-way-i-like-it",
+      "decision": "accept",
+      "overrides": {
+        "artist": "KC & the Sunshine Band",
+        "reference_title": "That's the Way I Like It",
+        "reference_artist": "KC & the Sunshine Band",
+        "reference_album": "Greatest Hits Collection of the 70's",
+        "reference_duration_seconds": 184.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36963457",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36963457",
+        "metadata_confidence": 0.7587,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The {short=...} text is only a display attribute. The lyric is KC & the Sunshine Band's That's the Way (I Like It); use the listed 184-second standard candidate and clear the unrelated mix-master recording."
+    },
+    {
+      "id": "the-big-bang",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The body, Notion evidence, and listed LRCLIB candidate identify Katy Tiz's The Big Bang; retain the supplied matching metadata."
+    },
+    {
+      "id": "the-distance",
+      "decision": "accept",
+      "overrides": {
+        "artist": "CAKE",
+        "reference_title": "The Distance",
+        "reference_artist": "Cake",
+        "reference_album": "Fashion Nugget (Reissue)",
+        "reference_duration_seconds": 181.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36841041",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36841041",
+        "metadata_confidence": 0.9931,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is CAKE's The Distance, not Relient K's cover. Use the listed 181-second Fashion Nugget candidate and clear cover-derived fields."
+    },
+    {
+      "id": "the-middle",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The selected 166-second Jimmy Eat World candidate and studio Deezer track/BPM match The Middle, and Notion supports D. Clear only the MusicBrainz result tied to a live compilation."
+    },
+    {
+      "id": "the-scientist",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Coldplay",
+        "reference_title": "The Scientist",
+        "reference_artist": "Coldplay",
+        "reference_album": "Generaci\u00f3n Cassette",
+        "reference_duration_seconds": 309.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37480350",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37480350",
+        "metadata_confidence": 0.9761,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric and long piano/vocal outro identify Coldplay's The Scientist. Use the listed 309-second Coldplay candidate and clear the generic Various Artists fields."
+    },
+    {
+      "id": "thinking-out-loud",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Ed Sheeran",
+        "reference_title": "Thinking Out Loud",
+        "reference_artist": "Ed Sheeran",
+        "reference_album": "The Official Uk Top 40 Singles Chart 17-08-2014",
+        "reference_duration_seconds": 282.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36972557",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36972557",
+        "metadata_confidence": 0.9748,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The exact lyric and arrangement are Ed Sheeran's original, not Bria Skonberg's cover. Use the listed 282-second Ed Sheeran candidate and clear cover-derived identifiers/BPM."
+    },
+    {
+      "id": "this-is-how-you-remind-me",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Nickelback",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The {short=...} annotation is display-only; the complete lyric is Nickelback's This Is How You Remind Me. No LRCLIB or Notion candidate is supplied."
+    },
+    {
+      "id": "times-like-these",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Foo Fighters",
+        "reference_title": "Times Like These",
+        "reference_artist": "Foo Fighters",
+        "reference_album": "Foo Fighters",
+        "reference_duration_seconds": 266.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37124257",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37124257",
+        "metadata_confidence": 0.9001,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "D"
+      },
+      "review_note": "The seven-beat intro vamp and full screamed closing choruses identify Foo Fighters' studio arrangement, not Glen Campbell's cover. Use the listed 266-second studio-length candidate, retain Notion key D, and clear cover-derived fields."
+    },
+    {
+      "id": "tom-sawyer",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Rush",
+        "reference_title": "Tom Sawyer",
+        "reference_artist": "Rush",
+        "reference_album": "The Complete Mercury Years",
+        "reference_duration_seconds": 273.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37495907",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37495907",
+        "metadata_confidence": 0.9996,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The full odd-meter solo arrangement is Rush's Moving Pictures studio recording. Use the listed 273-second studio compilation candidate; the supplied Moving Pictures MusicBrainz record and 276-second Deezer track/BPM independently match and are retained. Conservative apply clears recording-linked identifiers after changing LRCLIB release."
+    },
+    {
+      "id": "touch-too-much",
+      "decision": "accept",
+      "overrides": {
+        "artist": "AC/DC",
+        "reference_title": "Touch Too Much",
+        "reference_artist": "AC\u26a1DC",
+        "reference_album": "Highway To Hell (1995 RM)",
+        "reference_duration_seconds": 266.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37058438",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37058438",
+        "metadata_confidence": 0.9067,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": "92719906"
+      },
+      "review_note": "The chart is AC/DC's Highway to Hell studio version. Use the listed 266-second remaster candidate, clear the Japan Tour MusicBrainz result, and retain the independently matching 264-second Deezer track."
+    },
+    {
+      "id": "troublemaker",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Weezer",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Weezer's Troublemaker. None of the listed LRCLIB candidates is Weezer or lyric-compatible, so every external reference and identifier must be null."
+    },
+    {
+      "id": "turn-the-page",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bob Seger & the Silver Bullet Band",
+        "performance_key": "Em",
+        "recording_mbid": null
+      },
+      "review_note": "The sax-framed form and exact Seger wording identify the famous Bob Seger live-style arrangement; the listed Live Hits! candidate matches and Notion supports Em. Clear the MusicBrainz identifier tied to a different 1986 performance."
+    },
+    {
+      "id": "tush",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top",
+        "reference_title": "Tush",
+        "reference_artist": "ZZ Top",
+        "reference_album": "The Best of ZZ Top [Disc 1]",
+        "reference_duration_seconds": 138.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36964766",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36964766",
+        "metadata_confidence": 0.9618,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "G"
+      },
+      "review_note": "The chart explicitly calls for the record version of ZZ Top's short Tush arrangement. Use the listed 138-second standard candidate, retain Notion key G, and clear live-derived identifiers."
+    },
+    {
+      "id": "under-the-bridge",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Red Hot Chili Peppers",
+        "reference_title": "Under the Bridge",
+        "reference_artist": "Red Hot Chili Peppers",
+        "reference_album": "All",
+        "reference_duration_seconds": 264.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36975019",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36975019",
+        "metadata_confidence": 0.9191,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The body is Red Hot Chili Peppers' standard Under the Bridge. Use the listed cleanly credited 264-second candidate, normalize the artist spelling, and retain Notion key E."
+    },
+    {
+      "id": "uptown-funk",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Mark Ronson feat. Bruno Mars",
+        "performance_key": "D"
+      },
+      "review_note": "The exact lyric and arrangement are Mark Ronson featuring Bruno Mars's Uptown Funk. The proposed jointly credited 271-second candidate matches, and Notion supports D."
+    },
+    {
+      "id": "use-me",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bill Withers",
+        "reference_title": "Use Me",
+        "reference_artist": "Bill Withers",
+        "reference_album": "1972",
+        "reference_duration_seconds": 222.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37503147",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37503147",
+        "metadata_confidence": 0.948,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "E"
+      },
+      "review_note": "The structure and lyric identify Bill Withers' compact studio Use Me, not Widespread Panic's extended live cover. Use the listed 222-second candidate, retain Notion key E, and clear cover-derived fields."
+    },
+    {
+      "id": "use-somebody",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Kings of Leon",
+        "recording_mbid": null
+      },
+      "review_note": "The selected 233-second candidate and studio Deezer track/BPM match Kings of Leon's Use Somebody. Clear the MusicBrainz result tied to Live at Bonnaroo; no Notion key is supplied."
+    },
+    {
+      "id": "valerie",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Amy Winehouse",
+        "recording_mbid": null,
+        "performance_key": "E"
+      },
+      "review_note": "The response vocals, arrangement, key E, and Notion reference identify Amy Winehouse's BBC Live Lounge-style Valerie. Retain the matching 234-second LRCLIB and BBC Deezer/BPM data, but clear the MusicBrainz result tied to a different live release."
+    },
+    {
+      "id": "vasoline",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stone Temple Pilots"
+      },
+      "review_note": "The canonical body is Stone Temple Pilots' Vasoline; the listed candidate and identifiers are consistent, with no Notion key evidenced."
+    },
+    {
+      "id": "vertigo",
+      "decision": "accept",
+      "overrides": {
+        "artist": "U2"
+      },
+      "review_note": "The canonical body is U2's Vertigo; the listed CD-single candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "wagon-wheel",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Darius Rucker",
+        "reference_title": "Wagon Wheel",
+        "reference_artist": "Darius Rucker",
+        "reference_album": "Homegrown",
+        "reference_duration_seconds": 298.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "35190377",
+        "lyrics_reference_url": "https://lrclib.net/api/get/35190377",
+        "metadata_confidence": 0.9107,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The arrangement is Darius Rucker's Wagon Wheel, including the long post-lyric solo tail. Use a listed 298-second Darius Rucker candidate rather than the incorrectly co-credited entry."
+    },
+    {
+      "id": "waitin-for-the-bus",
+      "decision": "accept",
+      "overrides": {
+        "artist": "ZZ Top"
+      },
+      "review_note": "The canonical body is ZZ Top's Waitin' for the Bus; the listed studio candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "walk-this-way",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Aerosmith"
+      },
+      "review_note": "The canonical body is Aerosmith's Walk This Way; the listed candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "walk",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The lyrics exactly identify Foo Fighters' Walk. Retain supplied candidate 21823172 and its literal LRCLIB tuple, including the duplicated reference title Walk;Walk; its track identifiers and BPM are independently consistent."
+    },
+    {
+      "id": "wanted-dead-or-alive",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Bon Jovi"
+      },
+      "review_note": "The canonical body is Bon Jovi's Wanted Dead or Alive; the listed candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "welcome-to-the-jungle",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Guns N' Roses",
+        "reference_title": "Welcome To The Jungle",
+        "reference_artist": "Guns N' Roses",
+        "reference_album": "Greatest Hits [24-48]",
+        "reference_duration_seconds": 273.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37076799",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37076799",
+        "metadata_confidence": 0.872,
+        "recording_mbid": null,
+        "original_bpm": "123.05",
+        "deezer_track_id": "518458092"
+      },
+      "review_note": "The canonical and Notion charts are Guns N' Roses' standard studio arrangement. Use the listed 273-second studio-length candidate, clear the live MusicBrainz result, and retain the independently matching 271-second Deezer track/BPM."
+    },
+    {
+      "id": "what-i-got",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Sublime",
+        "performance_key": "D"
+      },
+      "review_note": "The canonical body is Sublime's What I Got; the listed candidate matches and Notion supports D."
+    },
+    {
+      "id": "wheels",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Foo Fighters",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The body is Foo Fighters' Wheels, while every listed LRCLIB result is Rory Gallagher's unrelated Wheels Within Wheels. Null all external fields."
+    },
+    {
+      "id": "when-i-come-around",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Green Day"
+      },
+      "review_note": "The canonical body is Green Day's When I Come Around; the listed standard candidate and identifiers match."
+    },
+    {
+      "id": "when-i-m-gone",
+      "decision": "accept",
+      "overrides": {
+        "artist": "3 Doors Down"
+      },
+      "review_note": "The canonical body is 3 Doors Down's When I'm Gone; the listed candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "whenever-you-come-around",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical and Notion lyrics identify Vince Gill's standard Whenever You Come Around. The proposed 260-second candidate and When Love Finds You MusicBrainz recording are consistent; no performance key is supplied."
+    },
+    {
+      "id": "where-the-streets-have-no-names",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The full extended intro/outro arrangement is U2's Joshua Tree recording. The proposed 337-second candidate and matching remastered Deezer/BPM data are consistent, and Notion supports D."
+    },
+    {
+      "id": "white-wedding",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Billy Idol",
+        "reference_title": "White Wedding",
+        "reference_artist": "Billy Idol",
+        "reference_album": "Greatest Hits 2001",
+        "reference_duration_seconds": 249.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36955987",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36955987",
+        "metadata_confidence": 0.7978,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The extended arrangement and lyric identify Billy Idol's White Wedding, with Bm supported by Notion. Replace the Code 69 cover candidate and clear all cover-derived identifiers."
+    },
+    {
+      "id": "wicked-game",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Chris Isaak",
+        "reference_title": "Wicked Game",
+        "reference_artist": "Chris Isaak",
+        "reference_album": "Best of Chris Isaak (2011)",
+        "reference_duration_seconds": 287.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "36997112",
+        "lyrics_reference_url": "https://lrclib.net/api/get/36997112",
+        "metadata_confidence": 0.892,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "Bm"
+      },
+      "review_note": "The slide-guitar arrangement, backing line 'This world is only gonna break your heart,' and ending identify Chris Isaak's original, not Stone Sour's cover. Use the listed 287-second Chris Isaak candidate and retain Notion key Bm."
+    },
+    {
+      "id": "wicked-garden",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Stone Temple Pilots",
+        "performance_key": "A"
+      },
+      "review_note": "The canonical body is Stone Temple Pilots' Wicked Garden; the listed candidate matches and Notion supports A."
+    },
+    {
+      "id": "wine-wine-wine",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Nightcaps",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The New Orleans verse, Drinkin' Wine Spo-Dee-O-Dee refrain, and blackberry/raspberry/huckleberry/wild-cherry responses identify The Nightcaps' Wine, Wine, Wine arrangement. None of the listed LRCLIB candidates matches, so all references are null."
+    },
+    {
+      "id": "with-arms-wide-open",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Creed"
+      },
+      "review_note": "The canonical body is Creed's With Arms Wide Open; the listed candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "with-or-without-you",
+      "decision": "accept",
+      "overrides": {
+        "artist": "U2",
+        "reference_title": "With Or Without You",
+        "reference_artist": "U2",
+        "reference_album": "The Best of 1980-1990 [Japan]",
+        "reference_duration_seconds": 300.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37494529",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37494529",
+        "metadata_confidence": 0.9793,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null,
+        "performance_key": "D"
+      },
+      "review_note": "The full arrangement is U2's original With or Without You, not Juan Camus's cover. Use the listed 300-second U2 candidate, retain Notion key D, and clear cover-derived fields."
+    },
+    {
+      "id": "woman",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Wolfmother",
+        "reference_title": null,
+        "reference_artist": null,
+        "reference_album": null,
+        "reference_duration_seconds": null,
+        "lyrics_reference_provider": null,
+        "lyrics_reference_id": null,
+        "lyrics_reference_url": null,
+        "metadata_confidence": null,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The exact 'Woman, you know you're a woman' lyric and long instrumental section identify Wolfmother's Woman. None of the listed Kevin Coyne or Gary Puckett songs matches, so all external fields are null."
+    },
+    {
+      "id": "wonderwall",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Oasis",
+        "reference_title": "Wonderwall",
+        "reference_artist": "Oasis",
+        "reference_album": "Top 200 Hits of the 90's",
+        "reference_duration_seconds": 259.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "37020413",
+        "lyrics_reference_url": "https://lrclib.net/api/get/37020413",
+        "metadata_confidence": 0.9803,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyric is Oasis's Wonderwall. The listed 165-second Oasis entry is shorter than its own 222-second synced lyric, so use the duration-plausible 259-second Oasis candidate and clear cover-derived fields."
+    },
+    {
+      "id": "word-up",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical wording and guitar-solo/bridge structure exactly match Gun's cover of Word Up, not Cameo's original. The proposed Gun LRCLIB, MusicBrainz, Deezer/BPM fields and Notion key F# are version-consistent."
+    },
+    {
+      "id": "yellow-ledbetter",
+      "decision": "accept",
+      "overrides": {
+        "artist": "Pearl Jam"
+      },
+      "review_note": "The canonical body is Pearl Jam's Yellow Ledbetter; the listed candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "you-found-me",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Fray"
+      },
+      "review_note": "The canonical body is The Fray's You Found Me; the listed candidate matches and no Notion performance key is evidenced."
+    },
+    {
+      "id": "you-oughta-know",
+      "decision": "accept",
+      "overrides": {
+        "recording_mbid": null
+      },
+      "review_note": "The lyric and supplied LRCLIB candidate identify Alanis Morissette's You Oughta Know, and F#m is supported by Notion. Retain the matching studio reference, BPM, and Deezer track, but clear the MusicBrainz identifier sourced from an unrelated live release."
+    },
+    {
+      "id": "you-shook-me-all-night-long",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical and Notion charts match AC/DC's standard recording. The proposed 210-second LRCLIB candidate, studio identifiers/BPM, and Notion key G are consistent."
+    },
+    {
+      "id": "you-wreck-me",
+      "decision": "accept",
+      "overrides": {},
+      "review_note": "The canonical and Notion charts match Tom Petty's Wildflowers studio recording. The proposed 201-second candidate, studio Deezer/BPM data, and Notion key D are consistent."
+    },
+    {
+      "id": "fire-woman",
+      "decision": "accept",
+      "overrides": {
+        "artist": "The Cult",
+        "reference_title": "Fire Woman",
+        "reference_artist": "The Cult",
+        "reference_album": "Sonic Temple (Extended)",
+        "reference_duration_seconds": 311.0,
+        "lyrics_reference_provider": "LRCLIB",
+        "lyrics_reference_id": "34617503",
+        "lyrics_reference_url": "https://lrclib.net/api/get/34617503",
+        "metadata_confidence": 0.945,
+        "recording_mbid": null,
+        "original_bpm": null,
+        "deezer_track_id": null
+      },
+      "review_note": "The lyrics identify The Cult\u2019s Fire Woman. Use the listed Sonic Temple recording, normalize the artist name, and clear identifiers derived from a different compilation candidate."
+    }
+  ]
+}

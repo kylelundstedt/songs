@@ -19,10 +19,16 @@ class MetadataTests(unittest.TestCase):
         self.assertNotIn("verse", tokens)
 
     def test_key_suffix(self):
-        self.assertEqual(metadata.KEY_RE.search("Billie Jean (F#m)").group(1), "F#m")
-        self.assertIsNone(metadata.KEY_RE.search("American Idiot"))
+        self.assertEqual(metadata.extract_performance_key("Billie Jean (F#m)"), "F#m")
+        self.assertEqual(metadata.extract_performance_key("Feels-Sheriff (Em, Gm)"), "Em, Gm")
+        self.assertIsNone(metadata.extract_performance_key("American Idiot"))
 
-    def test_rank_prefers_matching_lyrics(self):
+    def test_title_alias_and_key_qualified_notion_title(self):
+        records = {metadata.identity("Crash Into Me"): {"title": "Crash Into Me (E)"}}
+        self.assertIsNone(metadata.match_notion("Crash", records))
+        self.assertEqual(metadata.TITLE_ALIASES["crash"], "Crash Into Me")
+        self.assertEqual(metadata.notion_title_without_key("I Want You Back (G for Rae n Jess)"), "I Want You Back")
+
         song = {"title": "Crazy", "tokens": metadata.lyric_tokens("# Crazy\nI remember when I remember when I lost my mind")}
         ranked = metadata.rank_lrclib(song, [
             {"id": 1, "trackName": "Crazy", "artistName": "Wrong", "plainLyrics": "Completely unrelated words here"},
