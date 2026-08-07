@@ -48,10 +48,13 @@ Just wrap ur legs 'roun these velvet rims, n' strap ur hands 'cross my engines
   
 ### B Section  14x  
 
-Together we could break this trap, We'll run 'til we drop, baby, we'll never go back  
-Oh, will you walk with me out on the wire?  'Cause, baby, I'm just a scared and lonely rider  
-  
-But I gotta know how it feels.  I wanna know if love is wild, babe, I want to know if love is reallllll; Oh, can you show me? ..   
+Together, we could break this trap,  
+We'll run 'til we drop, baby, we'll never go back  
+Oh, will you walk with me out on the wire?  
+'Cause, baby, I'm just a scared and lonely rider  
+But I gotta know how it feels.  I wanna know if love is wild, babe, 
+I want to know if love is reallllll; 
+Oh, can you show me? ..   
   
 ### Intro Vamp  8x    Sax Solo  12x
   
