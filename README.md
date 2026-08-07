@@ -10,6 +10,8 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 
 - 284 legacy Markdown lead sheets migrated byte-for-byte into `songs/`.
 - The 32-song Murphys set migrated into `sets/2021-02-20-murphys.md`.
+- 59 historical Set List drafts imported from GitHub, Notion, and the private Band archive, for 60 visible Set Lists total.
+- Draft Set Lists preserve unresolved songs in place, support month-precision dates, can be reordered, and show lead-sheet placeholders in live mode.
 - 293 API-visible Notion lead sheets exported as review-only Markdown candidates under `migration/notion-candidates/`.
 - Apex 1.1.14 renders every canonical song and every Notion candidate.
 - Searchable read-only song library and set-list views.
