@@ -12,15 +12,9 @@ draft_id: "sld-82d724e0933f"
 review_required: true
 unresolved_items:
   - "sld-82d724e0933f-item-01-019"
-  - "sld-82d724e0933f-item-01-034"
-  - "sld-82d724e0933f-item-01-035"
-  - "sld-82d724e0933f-item-01-039"
   - "sld-82d724e0933f-item-01-040"
   - "sld-82d724e0933f-item-01-041"
-  - "sld-82d724e0933f-item-01-046"
-  - "sld-82d724e0933f-item-01-049"
-  - "sld-82d724e0933f-item-01-051"
-review_note: "candidate requires review; 9 unresolved item(s); band unresolved"
+review_note: "candidate requires review; 3 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 ---
@@ -60,24 +54,24 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 31. [American Idiot](../songs/American-Idiot.md)
 32. [Wanted Dead or Alive](../songs/Wanted-Dead-Or-Alive.md)
 33. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
-34. [if you could only see](unresolved:if-you-could-only-see) — match: unresolved?
-35. [@fire woman into She Sells Sanctuary](unresolved:fire-woman-into-she-sells-sanctuary) — match: unresolved?
+34. [If You Could Only See](../songs/if-you-could-only-see.md)
+35. [Fire Woman into She Sells Sanctuary](../songs/fire-woman.md)
 36. [1979](../songs/1979.md)
 37. [Killing in The Name](../songs/Killing-In-The-Name.md)
 38. [Sex on Fire](../songs/Sex-on-Fire.md)
-39. [if you could only see](unresolved:if-you-could-only-see) — match: unresolved?
+39. [If You Could Only See](../songs/if-you-could-only-see.md)
 40. [3 am](unresolved:3-am) — match: unresolved?
 41. [iris](unresolved:iris) — match: unresolved?
 42. [Just What I Needed](../songs/Just-What-I-Needed.md)
 43. [Breakdown](../songs/Breakdown.md)
 44. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
 45. [Just Like Heaven](../songs/Just-Like-Heaven.md)
-46. [I Melt With You add vox back](unresolved:i-melt-with-you-add-vox-back) — match: unresolved?
+46. [Melt With You](../songs/Melt-With-You.md)
 47. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
 48. [Born To Run](../songs/Born-To-Run.md)
-49. [Listen to the Music](unresolved:listen-to-the-music) — match: unresolved?
+49. [Listen To The Music](../songs/listen-to-the-music.md)
 50. [Fast As You](../songs/Fast-As-You.md)
-51. [American Girl](unresolved:american-girl) — match: unresolved?
+51. [American Girl](../songs/american-girl.md)
 52. [The Middle](../songs/The-Middle.md)
 53. [Come Together](../songs/Come-Together.md)
 54. [Simple Man](../songs/Simple-Man.md)
