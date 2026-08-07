@@ -150,6 +150,18 @@ type setOrderRequest struct {
 	Breaks       []int  `json:"breaks"`
 }
 
+type setItemAddRequest struct {
+	ExpectedHash string `json:"expected_hash"`
+	SongID       string `json:"song_id"`
+	Singer       string `json:"singer"`
+	Note         string `json:"note"`
+	Column       int    `json:"column"`
+}
+
+type setItemDeleteRequest struct {
+	ExpectedHash string `json:"expected_hash"`
+}
+
 type shelleyEditRequest struct {
 	Prompt string `json:"prompt"`
 	SongID string `json:"song_id"`
@@ -1291,28 +1303,119 @@ func (s *Server) HandleSet(w http.ResponseWriter, r *http.Request) {
 	}
 	s.render(w, r, "set.html", pageData{Title: set.Title, Set: set, UserEmail: r.Header.Get("X-ExeDev-Email")})
 }
-func reorderSetMarkdown(current string, set *SetList, order, breaks []int) (string, error) {
-	if len(order) != len(set.Items) {
-		return "", errors.New("the reordered set must contain every song exactly once")
+func (s *Server) HandleSetMarkdown(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-store")
+	w.Header().Add("Vary", "X-ExeDev-UserID")
+	if !authenticatedRequest(w, r) {
+		return
 	}
-	seen := make(map[int]bool, len(order))
-	for _, position := range order {
-		if position < 1 || position > len(set.Items) || seen[position] {
-			return "", errors.New("the reordered set contains an invalid or duplicate song")
+	s.mu.RLock()
+	set := s.setsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if set == nil {
+		http.NotFound(w, r)
+		return
+	}
+	markdown, err := os.ReadFile(filepath.Join(s.RepoRoot, filepath.FromSlash(set.Path)))
+	if err != nil {
+		http.Error(w, "Unable to read canonical Markdown", http.StatusInternalServerError)
+		return
+	}
+	writeJSON(w, map[string]any{"id": set.ID, "title": set.Title, "markdown": string(markdown), "hash": hashBytes(markdown)})
+}
+
+func (s *Server) HandleUpdateSetMarkdown(w http.ResponseWriter, r *http.Request) {
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	if !sameOriginMutation(r) {
+		http.Error(w, "Cross-site edit requests are not allowed", http.StatusForbidden)
+		return
+	}
+	s.mu.RLock()
+	set := s.setsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if set == nil {
+		http.NotFound(w, r)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 2<<20)
+	var request markdownUpdateRequest
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		http.Error(w, "Invalid Markdown update", http.StatusBadRequest)
+		return
+	}
+	if request.ExpectedHash == "" || len(request.Markdown) > 1<<20 || strings.ContainsRune(request.Markdown, '\x00') {
+		http.Error(w, "Invalid canonical Markdown", http.StatusBadRequest)
+		return
+	}
+	title := titleFromMarkdown(request.Markdown)
+	if title == "" {
+		http.Error(w, "Canonical Markdown must contain an H1 Set List title", http.StatusBadRequest)
+		return
+	}
+	warning, err := s.publishSetRevision(set.Path, request.ExpectedHash, request.Markdown, title)
+	if err != nil {
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		} else if errors.Is(err, errSongUnchanged) {
+			status = http.StatusBadRequest
 		}
-		seen[position] = true
+		http.Error(w, err.Error(), status)
+		return
 	}
+	writeJSON(w, map[string]any{"ok": true, "id": set.ID, "title": title, "warning": warning})
+}
+
+type canonicalSetItem struct {
+	Label  string
+	Target string
+	Suffix string
+}
+
+func canonicalSetItems(set *SetList) []canonicalSetItem {
+	items := make([]canonicalSetItem, len(set.Items))
+	for index, item := range set.Items {
+		items[index] = canonicalSetItem{Label: item.Label, Target: item.Target, Suffix: item.Suffix}
+	}
+	return items
+}
+
+func setColumnBreakOffsets(set *SetList) []int {
+	var breaks []int
+	for index, item := range set.Items {
+		if item.ColumnBreakBefore && index > 0 {
+			breaks = append(breaks, index)
+		}
+	}
+	return breaks
+}
+
+func rewriteSetItemsMarkdown(current string, items []canonicalSetItem, breaks []int) (string, error) {
 	if len(breaks) > 2 {
 		return "", errors.New("a set list supports at most three columns")
 	}
 	breakSet := map[int]bool{}
 	previousBreak := 0
 	for _, offset := range breaks {
-		if offset <= 0 || offset >= len(order) || offset <= previousBreak {
+		if offset <= 0 || offset >= len(items) || offset <= previousBreak {
 			return "", errors.New("column breaks must be unique, ordered, and between songs")
 		}
 		breakSet[offset] = true
 		previousBreak = offset
+	}
+
+	replacement := make([]string, 0, len(items)+len(breaks))
+	for index, item := range items {
+		if breakSet[index] {
+			replacement = append(replacement, "<!-- column-break -->")
+		}
+		line := fmt.Sprintf("%d. [%s](%s)", index+1, item.Label, item.Target)
+		if item.Suffix != "" {
+			line += " " + item.Suffix
+		}
+		replacement = append(replacement, line)
 	}
 
 	normalized := strings.ReplaceAll(current, "\r\n", "\n")
@@ -1326,33 +1429,114 @@ func reorderSetMarkdown(current string, set *SetList, order, breaks []int) (stri
 			last = index
 		}
 	}
-	if first < 0 || last < first {
-		return "", errors.New("set list contains no reorderable songs")
+	if first < 0 {
+		if len(replacement) == 0 {
+			return normalized, nil
+		}
+		trimmed := strings.TrimRight(normalized, "\n")
+		return trimmed + "\n\n" + strings.Join(replacement, "\n") + "\n", nil
 	}
 	for _, line := range lines[first : last+1] {
 		trimmed := strings.TrimSpace(line)
 		if trimmed == "" || setItemPattern.MatchString(line) || strings.EqualFold(trimmed, "<!-- column-break -->") {
 			continue
 		}
-		return "", errors.New("set list contains unsupported Markdown between songs; replace it with singer/note fields or column-break comments before arranging")
-	}
-
-	replacement := make([]string, 0, len(order)+len(breaks))
-	for index, position := range order {
-		if breakSet[index] {
-			replacement = append(replacement, "<!-- column-break -->")
-		}
-		item := set.Items[position-1]
-		line := fmt.Sprintf("%d. [%s](%s)", index+1, item.Label, item.Target)
-		if item.Suffix != "" {
-			line += " " + item.Suffix
-		}
-		replacement = append(replacement, line)
+		return "", errors.New("set list contains unsupported Markdown between songs; replace it with singer/note fields or column-break comments before editing songs")
 	}
 	updated := append([]string{}, lines[:first]...)
 	updated = append(updated, replacement...)
 	updated = append(updated, lines[last+1:]...)
 	return strings.Join(updated, "\n"), nil
+}
+
+func reorderSetMarkdown(current string, set *SetList, order, breaks []int) (string, error) {
+	if len(order) != len(set.Items) {
+		return "", errors.New("the reordered set must contain every song exactly once")
+	}
+	seen := make(map[int]bool, len(order))
+	items := make([]canonicalSetItem, 0, len(order))
+	for _, position := range order {
+		if position < 1 || position > len(set.Items) || seen[position] {
+			return "", errors.New("the reordered set contains an invalid or duplicate song")
+		}
+		seen[position] = true
+		item := set.Items[position-1]
+		items = append(items, canonicalSetItem{Label: item.Label, Target: item.Target, Suffix: item.Suffix})
+	}
+	return rewriteSetItemsMarkdown(current, items, breaks)
+}
+
+func addSetItemMarkdown(current string, set *SetList, song *Song, singer, note string, column int) (string, error) {
+	singer, note = strings.TrimSpace(singer), strings.TrimSpace(note)
+	if strings.ContainsAny(singer+note, "\r\n") || len(singer) > 120 || len(note) > 500 {
+		return "", errors.New("singer or note is too long or contains a line break")
+	}
+	breaks := setColumnBreakOffsets(set)
+	columns := len(breaks) + 1
+	if column < 1 || column > columns {
+		return "", errors.New("invalid destination Set")
+	}
+	ends := append(append([]int{}, breaks...), len(set.Items))
+	insertAt := ends[column-1]
+	target, err := filepath.Rel(filepath.Dir(set.Path), song.Path)
+	if err != nil {
+		return "", err
+	}
+	suffix := ""
+	if singer != "" {
+		suffix = "— singer: " + singer
+	}
+	if note != "" {
+		if suffix != "" {
+			suffix += " "
+		}
+		suffix += "— note: " + note
+	}
+	items := canonicalSetItems(set)
+	item := canonicalSetItem{Label: song.Title, Target: filepath.ToSlash(target), Suffix: suffix}
+	items = append(items, canonicalSetItem{})
+	copy(items[insertAt+1:], items[insertAt:])
+	items[insertAt] = item
+	for index := range breaks {
+		if breaks[index] >= insertAt {
+			breaks[index]++
+		}
+	}
+	return rewriteSetItemsMarkdown(current, items, breaks)
+}
+
+func deleteSetItemMarkdown(current string, set *SetList, position int) (string, error) {
+	if position < 1 || position > len(set.Items) {
+		return "", errors.New("invalid Set List song")
+	}
+	removeAt := position - 1
+	items := canonicalSetItems(set)
+	items = append(items[:removeAt], items[removeAt+1:]...)
+	breaks := setColumnBreakOffsets(set)
+	adjusted := make([]int, 0, len(breaks))
+	for _, offset := range breaks {
+		if removeAt < offset {
+			offset--
+		}
+		if offset > 0 && offset < len(items) && (len(adjusted) == 0 || adjusted[len(adjusted)-1] != offset) {
+			adjusted = append(adjusted, offset)
+		}
+	}
+	return rewriteSetItemsMarkdown(current, items, adjusted)
+}
+
+func (s *Server) readSetMarkdownForStructuredEdit(set *SetList, expectedHash string) ([]byte, error) {
+	if expectedHash == "" || set.Hash != expectedHash {
+		return nil, errSongChanged
+	}
+	current, err := os.ReadFile(filepath.Join(s.RepoRoot, filepath.FromSlash(set.Path)))
+	if err != nil {
+		return nil, err
+	}
+	if hashBytes(current) != expectedHash {
+		return nil, errSongChanged
+	}
+	return current, nil
 }
 
 func (s *Server) HandleUpdateSetOrder(w http.ResponseWriter, r *http.Request) {
@@ -1376,9 +1560,13 @@ func (s *Server) HandleUpdateSetOrder(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Invalid set order", http.StatusBadRequest)
 		return
 	}
-	current, err := os.ReadFile(filepath.Join(s.RepoRoot, filepath.FromSlash(set.Path)))
+	current, err := s.readSetMarkdownForStructuredEdit(set, request.ExpectedHash)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		}
+		http.Error(w, err.Error(), status)
 		return
 	}
 	updated, err := reorderSetMarkdown(string(current), set, request.Order, request.Breaks)
@@ -1392,6 +1580,112 @@ func (s *Server) HandleUpdateSetOrder(w http.ResponseWriter, r *http.Request) {
 			writeJSON(w, map[string]any{"ok": true, "warning": ""})
 			return
 		}
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		}
+		http.Error(w, err.Error(), status)
+		return
+	}
+	writeJSON(w, map[string]any{"ok": true, "warning": warning})
+}
+
+func (s *Server) HandleAddSetItem(w http.ResponseWriter, r *http.Request) {
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	if !sameOriginMutation(r) {
+		http.Error(w, "Cross-site set edits are not allowed", http.StatusForbidden)
+		return
+	}
+	s.mu.RLock()
+	set := s.setsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if set == nil {
+		http.NotFound(w, r)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 64<<10)
+	var request setItemAddRequest
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil || request.ExpectedHash == "" || request.SongID == "" {
+		http.Error(w, "Invalid Set List song", http.StatusBadRequest)
+		return
+	}
+	s.mu.RLock()
+	song := s.songsByID[request.SongID]
+	s.mu.RUnlock()
+	if song == nil {
+		http.Error(w, "Selected song is not in the catalog", http.StatusBadRequest)
+		return
+	}
+	current, err := s.readSetMarkdownForStructuredEdit(set, request.ExpectedHash)
+	if err != nil {
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		}
+		http.Error(w, err.Error(), status)
+		return
+	}
+	updated, err := addSetItemMarkdown(string(current), set, song, request.Singer, request.Note, request.Column)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	warning, err := s.publishSetRevision(set.Path, request.ExpectedHash, updated, set.Title)
+	if err != nil {
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		}
+		http.Error(w, err.Error(), status)
+		return
+	}
+	writeJSON(w, map[string]any{"ok": true, "warning": warning})
+}
+
+func (s *Server) HandleDeleteSetItem(w http.ResponseWriter, r *http.Request) {
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	if !sameOriginMutation(r) {
+		http.Error(w, "Cross-site set edits are not allowed", http.StatusForbidden)
+		return
+	}
+	s.mu.RLock()
+	set := s.setsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if set == nil {
+		http.NotFound(w, r)
+		return
+	}
+	position, err := strconv.Atoi(r.PathValue("position"))
+	if err != nil {
+		http.Error(w, "Invalid Set List song", http.StatusBadRequest)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 16<<10)
+	var request setItemDeleteRequest
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil || request.ExpectedHash == "" {
+		http.Error(w, "Invalid Set List song", http.StatusBadRequest)
+		return
+	}
+	current, err := s.readSetMarkdownForStructuredEdit(set, request.ExpectedHash)
+	if err != nil {
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		}
+		http.Error(w, err.Error(), status)
+		return
+	}
+	updated, err := deleteSetItemMarkdown(string(current), set, position)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	warning, err := s.publishSetRevision(set.Path, request.ExpectedHash, updated, set.Title)
+	if err != nil {
 		status := http.StatusInternalServerError
 		if errors.Is(err, errSongChanged) {
 			status = http.StatusConflict
@@ -1980,7 +2274,11 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("GET /about", s.HandleAbout)
 	mux.HandleFunc("GET /song/{id}", s.HandleSong)
 	mux.HandleFunc("GET /sets/{id}", s.HandleSet)
+	mux.HandleFunc("GET /api/sets/{id}/markdown", s.HandleSetMarkdown)
+	mux.HandleFunc("PUT /api/sets/{id}/markdown", s.HandleUpdateSetMarkdown)
 	mux.HandleFunc("PUT /api/sets/{id}/order", s.HandleUpdateSetOrder)
+	mux.HandleFunc("POST /api/sets/{id}/items", s.HandleAddSetItem)
+	mux.HandleFunc("DELETE /api/sets/{id}/items/{position}", s.HandleDeleteSetItem)
 	mux.HandleFunc("GET /sets/{id}/live", s.HandleLiveSet)
 	mux.HandleFunc("GET /api/lyrics/search", s.HandleLyricsSearch)
 	mux.HandleFunc("POST /api/lyrics/import", s.HandleLyricsImport)

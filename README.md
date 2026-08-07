@@ -21,6 +21,7 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 - iPhone uses exactly one 20px column with vertical scrolling when required.
 - A standalone `<!-- column-break -->` comment starts the next tablet column in lead sheets and set lists; it is ignored in one-column phone layouts.
 - Set-list entries support gig-specific `— singer: Name — note: Details` fields, so the same song can have different singers on different dates.
+- Individual Set Lists can be edited as canonical Markdown or maintained with Add song, Delete, and drag-to-reorder controls; every save validates, commits, pushes, and reindexes.
 
 See [Phase 0–1 results](docs/PHASES-0-1.md) and the [full implementation proposal](docs/PROPOSAL.md).
 

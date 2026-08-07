@@ -374,7 +374,7 @@
   }
 
   function setupSetArrangement() {
-    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),arrange=panel?.querySelector('[data-set-arrange]'),cancel=panel?.querySelector('[data-set-cancel]'),save=panel?.querySelector('[data-set-save]'),status=panel?.querySelector('[data-offline-status]');
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),arrange=panel?.querySelector('[data-set-arrange]'),cancel=panel?.querySelector('[data-set-cancel]'),save=panel?.querySelector('[data-set-save]'),status=panel?.querySelector('[data-offline-status]');
     if(!panel||!list||!arrange||!cancel||!save)return;
     let original=[],dragging=null,layoutFrame=0;
     const entries=()=>[...list.querySelectorAll('[data-set-item]')];
@@ -383,11 +383,11 @@
     const finishDrag=()=>{dragging?.classList.remove('is-dragging');list.querySelectorAll('.is-drop-target').forEach(entry=>entry.classList.remove('is-drop-target'));dragging=null;};
     arrange.addEventListener('click',()=>{
       original=entries(); panel.dataset.arranging='true'; panel.dataset.arrangeBreaks=panel.dataset.setBreaks||'';
-      arrange.hidden=true; cancel.hidden=false; save.hidden=false; status.textContent='Drag songs within or across columns, then save.'; relayout();
+      arrange.hidden=true; if(add)add.disabled=true; cancel.hidden=false; save.hidden=false; status.textContent='Drag songs within or across columns, then save.'; relayout();
     });
     cancel.addEventListener('click',()=>{
       finishDrag(); original.forEach(entry=>list.append(entry)); renumber(); delete panel.dataset.arranging; delete panel.dataset.arrangeBreaks;
-      arrange.hidden=false; cancel.hidden=true; save.hidden=true; status.textContent=''; relayout();
+      arrange.hidden=false; if(add)add.disabled=false; cancel.hidden=true; save.hidden=true; status.textContent=''; relayout();
     });
     list.addEventListener('pointerdown',event=>{
       const handle=event.target.closest('.set-drag-handle'); if(!handle||panel.dataset.arranging!=='true')return;
@@ -418,6 +418,55 @@
         try { if(result.warning)sessionStorage.setItem('songs-flash-warning',result.warning); } catch {}
         location.reload();
       } catch(error) { status.textContent=error.message; save.disabled=false; cancel.disabled=false; }
+    });
+  }
+
+  function setupSetItemEditing() {
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),pageStatus=panel?.querySelector('[data-offline-status]');
+    if(!panel||!list||!add)return;
+    let catalog=null,expectedHash='';
+    const dialog=document.createElement('dialog');
+    dialog.className='shelley-dialog set-item-dialog';
+    dialog.innerHTML=`<form method="dialog"><header><div><p class="eyebrow">Set List</p><h2>Add song</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><label><span>Find a song</span><input type="search" data-set-song-search placeholder="Title or artist" autocomplete="off"></label><label><span>Song</span><select data-set-song-options size="8" required aria-label="Song"></select></label><div class="set-item-fields"><label><span>Singer</span><input name="singer" maxlength="120" autocomplete="off"></label><label><span>Destination</span><select name="column" data-set-column required></select></label></div><label><span>Note</span><input name="note" maxlength="500" autocomplete="off"></label><p class="shelley-job-status" data-set-item-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-set-item-cancel>Cancel</button><button class="button primary" type="submit" data-set-item-save>Add song</button></div></form>`;
+    document.body.append(dialog);
+    const form=dialog.querySelector('form'),search=dialog.querySelector('[data-set-song-search]'),options=dialog.querySelector('[data-set-song-options]'),columns=dialog.querySelector('[data-set-column]'),status=dialog.querySelector('[data-set-item-status]'),save=dialog.querySelector('[data-set-item-save]'),cancel=dialog.querySelector('[data-set-item-cancel]'),close=dialog.querySelector('.dialog-close');
+    const closeDialog=()=>{if(!save.disabled)dialog.close();}; close.addEventListener('click',closeDialog);cancel.addEventListener('click',closeDialog);
+    const renderSongs=()=>{
+      const query=search.value.trim().toLocaleLowerCase(); options.innerHTML='';
+      const matches=(catalog||[]).filter(song=>!query||`${song.title} ${song.artist||''} ${song.id}`.toLocaleLowerCase().includes(query)).slice(0,250);
+      matches.forEach(song=>{const option=document.createElement('option');option.value=song.id;option.textContent=song.artist?`${song.title} — ${song.artist}`:song.title;options.append(option);});
+      options.selectedIndex=-1; status.textContent=matches.length?`${matches.length}${matches.length===250?' matching':''} song${matches.length===1?'':'s'}`:'No matching songs';
+    };
+    search.addEventListener('input',renderSongs);
+    search.addEventListener('keydown',event=>{if(event.key==='ArrowDown'&&options.options.length){event.preventDefault();options.focus();options.selectedIndex=0;}});
+    add.addEventListener('click',async()=>{
+      if(panel.dataset.arranging==='true')return;
+      form.reset();options.innerHTML='';columns.innerHTML='';expectedHash=panel.dataset.setHash;save.disabled=true;cancel.disabled=false;close.disabled=false;status.textContent='Loading song catalog…';
+      const marked=[...list.querySelectorAll('[data-column-break-before="true"]')].length;
+      for(let index=1;index<=marked+1;index++){const option=document.createElement('option');option.value=String(index);option.textContent=marked?`Set ${index}`:'End of Set List';columns.append(option);}
+      dialog.showModal();
+      try { if(!catalog){const response=await fetch('/api/catalog',{cache:'no-store'});if(!response.ok)throw new Error('Unable to load song catalog');catalog=await response.json();}renderSongs();save.disabled=false;setTimeout(()=>search.focus(),0); }
+      catch(error){status.textContent=error.message;}
+    });
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();const songID=options.value;if(!songID){status.textContent='Select a song to add.';options.focus();return;}
+      save.disabled=true;cancel.disabled=true;close.disabled=true;status.textContent='Adding song and saving Set List…';
+      try {
+        const response=await fetch(`/api/sets/${encodeURIComponent(panel.dataset.setId)}/items`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_hash:expectedHash,song_id:songID,singer:form.elements.singer.value,note:form.elements.note.value,column:Number(form.elements.column.value)})});
+        if(!response.ok)throw new Error((await response.text()).trim()||'Unable to add song');const result=await response.json();
+        try{if(result.warning)sessionStorage.setItem('songs-flash-warning',result.warning);}catch{} location.reload();
+      } catch(error){status.textContent=error.message;save.disabled=false;cancel.disabled=false;close.disabled=false;}
+    });
+    list.addEventListener('click',async event=>{
+      const button=event.target.closest('[data-set-delete]');if(!button||panel.dataset.arranging==='true')return;
+      const entry=button.closest('[data-set-item]'),title=entry.querySelector('.set-entry-title a,.set-entry-title > span')?.textContent.trim()||'this song';
+      if(!confirm(`Delete “${title}” from this Set List?`))return;
+      button.disabled=true;pageStatus.textContent=`Deleting ${title}…`;
+      try {
+        const response=await fetch(`/api/sets/${encodeURIComponent(panel.dataset.setId)}/items/${encodeURIComponent(entry.dataset.originalPosition)}`,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_hash:panel.dataset.setHash})});
+        if(!response.ok)throw new Error((await response.text()).trim()||'Unable to delete song');const result=await response.json();
+        try{if(result.warning)sessionStorage.setItem('songs-flash-warning',result.warning);}catch{} location.reload();
+      } catch(error){pageStatus.textContent=error.message;button.disabled=false;}
     });
   }
 
@@ -469,7 +518,7 @@
       }
     });
     const hasSong=!!currentVisibleSongID();
-    document.querySelectorAll('[data-markdown-edit],[data-shelley-edit]').forEach(button=>{
+    document.querySelectorAll('[data-shelley-edit],[data-markdown-edit]:not([data-markdown-kind="set"])').forEach(button=>{
       if(!button.dataset.enabledTitle)button.dataset.enabledTitle=button.title||button.getAttribute('aria-label')||'Edit';
       button.disabled=!hasSong;
       button.title=hasSong?button.dataset.enabledTitle:'Unavailable for an unresolved Set List item';
@@ -561,15 +610,17 @@
     if (!triggers.length || !('HTMLDialogElement' in window)) return;
     const dialog = document.createElement('dialog');
     dialog.className = 'shelley-dialog markdown-dialog';
-    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Canonical source</p><h2>Edit Markdown</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><p class="dialog-help">Edit the song file for structure and phrasing. You need TWO SPACES at the line's end to create a rendered NEW line. Use <code>&lt;!-- column-break --&gt;</code> on its own line to start the second tablet column.</p><label><span>Lead-sheet Markdown</span><textarea name="markdown" required aria-label="Lead-sheet Markdown" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></label><p class="shelley-job-status" data-markdown-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-markdown-cancel>Cancel</button><button class="button primary" type="submit" data-markdown-save>Save Markdown</button></div></form>`;
+    dialog.innerHTML = `<form method="dialog"><header><div><p class="eyebrow">Canonical source</p><h2>Edit Markdown</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><p class="dialog-help" data-markdown-help></p><label><span data-markdown-label>Markdown</span><textarea name="markdown" required aria-label="Canonical Markdown" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></label><p class="shelley-job-status" data-markdown-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-markdown-cancel>Cancel</button><button class="button primary" type="submit" data-markdown-save>Save Markdown</button></div></form>`;
     document.body.append(dialog);
     const form = dialog.querySelector('form');
     const textarea = dialog.querySelector('textarea');
+    const help = dialog.querySelector('[data-markdown-help]');
+    const label = dialog.querySelector('[data-markdown-label]');
     const status = dialog.querySelector('[data-markdown-status]');
     const save = dialog.querySelector('[data-markdown-save]');
     const cancel = dialog.querySelector('[data-markdown-cancel]');
     const close = dialog.querySelector('.dialog-close');
-    let songID = '', expectedHash = '', initialMarkdown = '', saving = false, saved = false, loadVersion = 0;
+    let resourceKind = 'songs', resourceID = '', expectedHash = '', initialMarkdown = '', saving = false, saved = false, loadVersion = 0;
     const syncEditorViewport = () => {
       const viewport=window.visualViewport;
       dialog.style.setProperty('--editor-viewport-height',`${Math.round(viewport?.height||innerHeight)}px`);
@@ -591,12 +642,16 @@
     });
     triggers.forEach(button=>button.addEventListener('click',async()=>{
       const version=++loadVersion;
-      songID = currentVisibleSongID(); expectedHash=''; initialMarkdown=''; saved=false; saving=false;
+      const editingSet=button.dataset.markdownKind==='set';
+      resourceKind=editingSet?'sets':'songs'; resourceID=editingSet?button.dataset.markdownId:currentVisibleSongID();
+      expectedHash=''; initialMarkdown=''; saved=false; saving=false;
+      help.innerHTML=editingSet?'Edit Set List details and numbered song entries. Use <code>&lt;!-- column-break --&gt;</code> on its own line to begin the next Set column.':'Edit the song file for structure and phrasing. You need TWO SPACES at the line\'s end to create a rendered NEW line. Use <code>&lt;!-- column-break --&gt;</code> on its own line to start the second tablet column.';
+      label.textContent=editingSet?'Set List Markdown':'Lead-sheet Markdown';
       textarea.value=''; textarea.disabled=true; save.disabled=true; cancel.disabled=false; close.disabled=false; save.textContent='Save Markdown';
       status.textContent='Loading canonical Markdown…'; syncEditorViewport(); dialog.showModal();
-      if (!songID) { status.textContent='No song is currently selected.'; return; }
+      if (!resourceID) { status.textContent=editingSet?'No Set List is currently selected.':'No song is currently selected.'; return; }
       try {
-        const response = await fetch(`/api/songs/${encodeURIComponent(songID)}/markdown`,{cache:'no-store'});
+        const response = await fetch(`/api/${resourceKind}/${encodeURIComponent(resourceID)}/markdown`,{cache:'no-store'});
         if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to load Markdown');
         const data = await response.json();
         if (version !== loadVersion || !dialog.open) return;
@@ -607,10 +662,10 @@
     form.addEventListener('submit',async event=>{
       event.preventDefault();
       if (saved) { location.reload(); return; }
-      if (!songID || !expectedHash || textarea.disabled) return;
+      if (!resourceID || !expectedHash || textarea.disabled) return;
       saving=true; textarea.disabled=true; save.disabled=true; cancel.disabled=true; close.disabled=true; status.textContent='Validating and saving Markdown…';
       try {
-        const response = await fetch(`/api/songs/${encodeURIComponent(songID)}/markdown`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({markdown:textarea.value,expected_hash:expectedHash})});
+        const response = await fetch(`/api/${resourceKind}/${encodeURIComponent(resourceID)}/markdown`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({markdown:textarea.value,expected_hash:expectedHash})});
         if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to save Markdown');
         const result = await response.json();
         initialMarkdown=textarea.value; saved=true; saving=false; status.textContent=result.warning || 'Markdown saved. Reloading…';
@@ -788,7 +843,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupSetItemEditing(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();

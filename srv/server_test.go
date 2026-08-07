@@ -368,6 +368,66 @@ func TestDirectMarkdownEditWorkflow(t *testing.T) {
 	}
 }
 
+func TestDirectSetMarkdownEditWorkflow(t *testing.T) {
+	server := fixtureServer(t)
+	get := httptest.NewRequest(http.MethodGet, "/api/sets/test-set/markdown", nil)
+	get.SetPathValue("id", "test-set")
+	get.Header.Set("X-ExeDev-UserID", "test-user")
+	getW := httptest.NewRecorder()
+	server.HandleSetMarkdown(getW, get)
+	if getW.Code != http.StatusOK || getW.Header().Get("Cache-Control") != "no-store" {
+		t.Fatalf("get status=%d cache=%q body=%s", getW.Code, getW.Header().Get("Cache-Control"), getW.Body.String())
+	}
+	var source struct {
+		Markdown string `json:"markdown"`
+		Hash     string `json:"hash"`
+	}
+	if err := json.Unmarshal(getW.Body.Bytes(), &source); err != nil || source.Hash == "" {
+		t.Fatalf("source=%#v err=%v", source, err)
+	}
+	revised := strings.Replace(source.Markdown, "location: Test Room", "location: New Room", 1)
+	payload, _ := json.Marshal(markdownUpdateRequest{Markdown: revised, ExpectedHash: source.Hash})
+	put := httptest.NewRequest(http.MethodPut, "/api/sets/test-set/markdown", strings.NewReader(string(payload)))
+	put.SetPathValue("id", "test-set")
+	put.Header.Set("X-ExeDev-UserID", "test-user")
+	put.Header.Set("Content-Type", "application/json")
+	putW := httptest.NewRecorder()
+	server.HandleUpdateSetMarkdown(putW, put)
+	if putW.Code != http.StatusOK {
+		t.Fatalf("put status=%d body=%s", putW.Code, putW.Body.String())
+	}
+	if got := server.setsByID["test-set"].Location; got != "New Room" {
+		t.Fatalf("indexed location=%q", got)
+	}
+}
+
+func TestStructuredSetEditRejectsDiskNewerThanCatalog(t *testing.T) {
+	server := fixtureServer(t)
+	setPath := filepath.Join(server.RepoRoot, "sets", "test-set.md")
+	current, err := os.ReadFile(setPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	external := strings.Replace(string(current), "1. [Test Song]", "1. [Test Song]", 1) + "2. [Test Song](../songs/Test-Song.md) — note: External addition\n"
+	if err := os.WriteFile(setPath, []byte(external), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	payload, _ := json.Marshal(setItemAddRequest{ExpectedHash: hashBytes([]byte(external)), SongID: "test-song", Column: 1})
+	request := httptest.NewRequest(http.MethodPost, "/api/sets/test-set/items", strings.NewReader(string(payload)))
+	request.SetPathValue("id", "test-set")
+	request.Header.Set("X-ExeDev-UserID", "test-user")
+	request.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+	server.HandleAddSetItem(w, request)
+	if w.Code != http.StatusConflict {
+		t.Fatalf("status=%d body=%s", w.Code, w.Body.String())
+	}
+	after, err := os.ReadFile(setPath)
+	if err != nil || string(after) != external {
+		t.Fatalf("external Markdown was overwritten: err=%v\n%s", err, after)
+	}
+}
+
 func TestSetOrderWorkflow(t *testing.T) {
 	server := fixtureServer(t)
 	second := "---\nartist: Example\n---\n\n# Second Song\n\n### Verse\nLine\n"
@@ -410,6 +470,46 @@ func TestSetOrderWorkflow(t *testing.T) {
 	want := "1. [Second Song](../songs/Second-Song.md) — singer: Kiana\n<!-- column-break -->\n2. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in"
 	if !strings.Contains(string(updated), want) {
 		t.Fatalf("unexpected set markdown:\n%s", updated)
+	}
+
+	set = server.setsByID["test-set"]
+	addPayload, _ := json.Marshal(setItemAddRequest{ExpectedHash: set.Hash, SongID: "test-song", Singer: "Guest", Note: "Added in UI", Column: 1})
+	addRequest := httptest.NewRequest(http.MethodPost, "/api/sets/test-set/items", strings.NewReader(string(addPayload)))
+	addRequest.SetPathValue("id", "test-set")
+	addRequest.Header.Set("X-ExeDev-UserID", "test-user")
+	addRequest.Header.Set("Content-Type", "application/json")
+	addW := httptest.NewRecorder()
+	server.HandleAddSetItem(addW, addRequest)
+	if addW.Code != http.StatusOK {
+		t.Fatalf("add status=%d body=%s", addW.Code, addW.Body.String())
+	}
+	added, err := os.ReadFile(setPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	addedLine := "2. [Test Song](../songs/Test-Song.md) — singer: Guest — note: Added in UI\n<!-- column-break -->"
+	if !strings.Contains(string(added), addedLine) {
+		t.Fatalf("added song missing from set markdown:\n%s", added)
+	}
+
+	set = server.setsByID["test-set"]
+	deletePayload, _ := json.Marshal(setItemDeleteRequest{ExpectedHash: set.Hash})
+	deleteRequest := httptest.NewRequest(http.MethodDelete, "/api/sets/test-set/items/2", strings.NewReader(string(deletePayload)))
+	deleteRequest.SetPathValue("id", "test-set")
+	deleteRequest.SetPathValue("position", "2")
+	deleteRequest.Header.Set("X-ExeDev-UserID", "test-user")
+	deleteRequest.Header.Set("Content-Type", "application/json")
+	deleteW := httptest.NewRecorder()
+	server.HandleDeleteSetItem(deleteW, deleteRequest)
+	if deleteW.Code != http.StatusOK {
+		t.Fatalf("delete status=%d body=%s", deleteW.Code, deleteW.Body.String())
+	}
+	deleted, err := os.ReadFile(setPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(deleted), "Added in UI") || !strings.Contains(string(deleted), want) {
+		t.Fatalf("unexpected set markdown after delete:\n%s", deleted)
 	}
 }
 
