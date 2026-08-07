@@ -7,7 +7,7 @@
   <article class="set-sheet-panel" data-set-sheet>
     <header class="set-sheet-header"><div><p class="eyebrow">Set list</p><h1>{{.Set.Title}}</h1></div><dl class="set-facts" aria-label="Set-list details"><div><dt>Date</dt><dd>{{if .Set.Date}}{{.Set.Date}}{{else}}—{{end}}</dd></div><div><dt>Location</dt><dd>{{if .Set.Location}}{{.Set.Location}}{{else}}—{{end}}</dd></div><div><dt>Songs</dt><dd>{{len .Set.Items}}</dd></div></dl></header>
     <div class="set-sheet-viewport" data-set-viewport>
-      <table class="set-sheet-table"><thead><tr><th scope="col">#</th><th scope="col">Song</th><th scope="col">Singer</th><th scope="col">Note</th></tr></thead><tbody>{{range .Set.Items}}<tr><td>{{.Position}}</td><th scope="row"><a href="/song/{{.Song.ID}}">{{.Song.Title}}</a></th><td>{{if .Singer}}{{.Singer}}{{else}}—{{end}}</td><td>{{if .Note}}{{.Note}}{{else}}—{{end}}</td></tr>{{end}}</tbody></table>
+      <ol class="set-entry-list" data-set-entries aria-label="Ordered set list">{{range .Set.Items}}<li class="set-entry"><span class="set-entry-position">{{.Position}}</span><div class="set-entry-content"><div class="set-entry-title"><a href="/song/{{.Song.ID}}">{{.Song.Title}}</a> <span class="set-entry-singer">({{if .Singer}}{{.Singer}}{{else}}—{{end}})</span></div><small>{{if .Note}}{{.Note}}{{else}}—{{end}}</small></div></li>{{end}}</ol>
     </div>
     <footer class="set-sheet-footer"><a href="/set-lists">Set Lists</a><p class="sync-status" data-offline-status aria-live="polite"></p><div class="set-actions"><a class="button primary" href="/sets/{{.Set.ID}}/live">Open live set</a><button class="button" type="button" data-offline-set="{{.Set.ID}}">Make available offline</button></div></footer>
   </article>

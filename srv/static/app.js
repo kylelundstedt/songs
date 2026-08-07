@@ -252,16 +252,21 @@
   }
 
   async function fitSetSheet(panel) {
-    const viewport=panel.querySelector('[data-set-viewport]'),table=panel.querySelector('.set-sheet-table');
-    if(!viewport||!table)return;
+    const viewport=panel.querySelector('[data-set-viewport]'),list=panel.querySelector('[data-set-entries]');
+    if(!viewport||!list)return;
     await (document.fonts?.ready||Promise.resolve());
-    if((document.documentElement.dataset.formFactor||detectFormFactor())==='phone') {
-      applySetTypography(panel,16,3); panel.dataset.fitStatus='scrollable'; return;
+    const entries=[...list.querySelectorAll('.set-entry')],form=document.documentElement.dataset.formFactor||detectFormFactor();
+    if(form==='phone') {
+      panel.style.setProperty('--set-rows',String(Math.max(1,entries.length)));
+      panel.dataset.columnCount='1'; applySetTypography(panel,16,3); panel.dataset.fitStatus='scrollable'; return;
     }
-    for(let px=17;px>=10;px--) {
-      const pad=px>=15?4:px>=12?3:1;
+    const columns=entries.length>24&&viewport.clientWidth>=820?3:entries.length>12&&viewport.clientWidth>=600?2:1;
+    panel.style.setProperty('--set-rows',String(Math.max(1,Math.ceil(entries.length/columns))));
+    panel.dataset.columnCount=String(columns);
+    for(let px=19;px>=11;px--) {
+      const pad=px>=17?5:px>=14?4:2;
       applySetTypography(panel,px,pad);
-      if(table.scrollHeight<=viewport.clientHeight+1&&table.scrollWidth<=viewport.clientWidth+1) {
+      if(list.scrollHeight<=viewport.clientHeight+1&&list.scrollWidth<=viewport.clientWidth+1) {
         panel.dataset.fitStatus='fit'; return;
       }
     }
@@ -552,7 +557,7 @@
   }
 
   async function verifySetFits(setID) {
-    const ids = [...document.querySelectorAll('.set-sheet-table a[href^="/song/"]')].map(link => link.getAttribute('href').split('/').pop());
+    const ids = [...document.querySelectorAll('.set-entry-list a[href^="/song/"]')].map(link => link.getAttribute('href').split('/').pop());
     if (!ids.length) throw new Error('Set list contains no songs');
     const panel = document.createElement('article');
     panel.className = 'lead-sheet-panel';

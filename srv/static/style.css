@@ -129,15 +129,14 @@ h1,h2,h3,p { margin-top:0; }
 .set-facts dt { color:var(--muted); font-size:.64rem; font-weight:850; letter-spacing:.07em; text-transform:uppercase; }
 .set-facts dd { max-width:18ch; margin:0; overflow:hidden; text-overflow:ellipsis; font-size:.9rem; font-weight:850; font-variant-numeric:tabular-nums; }
 .set-sheet-viewport { min-height:0; min-width:0; overflow:hidden; }
-.set-sheet-table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:var(--set-font,16px); line-height:1.12; }
-.set-sheet-table th, .set-sheet-table td { overflow:hidden; padding:var(--set-row-pad,4px) .55rem; border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent); text-align:left; text-overflow:ellipsis; white-space:nowrap; }
-.set-sheet-table thead th { color:var(--muted); font-size:.72em; letter-spacing:.07em; text-transform:uppercase; }
-.set-sheet-table th:first-child, .set-sheet-table td:first-child { width:3rem; color:var(--accent); text-align:right; font-variant-numeric:tabular-nums; }
-.set-sheet-table th:nth-child(2) { width:34%; }
-.set-sheet-table th:nth-child(3) { width:20%; }
-.set-sheet-table tbody th { font-weight:850; white-space:normal; }
-.set-sheet-table tbody td:last-child { white-space:normal; }
-.set-sheet-table a { text-decoration:none; }
+.set-entry-list { min-height:0; margin:0; padding:0; display:grid; grid-template-rows:repeat(var(--set-rows,1),auto); grid-auto-flow:column; grid-auto-columns:minmax(0,1fr); align-content:start; gap:0 clamp(12px,1.6vw,24px); list-style:none; font-size:var(--set-font,17px); line-height:1.12; }
+.set-entry { min-width:0; display:grid; grid-template-columns:2em minmax(0,1fr); align-items:start; gap:.42em; border-left:1px solid var(--line); border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent); padding:var(--set-row-pad,5px) .55rem; }
+.set-entry-position { color:var(--accent); text-align:right; font-variant-numeric:tabular-nums; }
+.set-entry-content { min-width:0; }
+.set-entry-title { min-width:0; font-weight:850; }
+.set-entry-title a { text-decoration:none; }
+.set-entry-singer { color:var(--muted); font-weight:700; }
+.set-entry small { display:block; min-height:1.1em; margin-top:.12em; overflow:hidden; color:var(--muted); font-size:.72em; line-height:1.15; text-overflow:ellipsis; white-space:nowrap; }
 .set-sheet-footer { min-height:38px; display:flex; align-items:center; gap:.7rem 1rem; border-top:1px solid var(--line); padding-top:5px; color:var(--muted); font-size:.72rem; }
 .set-sheet-footer > a { white-space:nowrap; }
 .set-sheet-footer .sync-status { flex:1; min-width:0; min-height:0; margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -242,15 +241,9 @@ h1,h2,h3,p { margin-top:0; }
   .set-facts { gap:.65rem; overflow:hidden; }
   .set-facts dd { max-width:13ch; }
   .set-sheet-viewport { overflow:visible; }
-  .set-sheet-table, .set-sheet-table tbody, .set-sheet-table tr, .set-sheet-table th, .set-sheet-table td { display:block; width:auto; }
-  .set-sheet-table thead { display:none; }
-  .set-sheet-table tbody tr { display:grid; grid-template-columns:2.1rem minmax(0,1fr); padding:.42rem 0; border-bottom:1px solid var(--line); }
-  .set-sheet-table tbody th, .set-sheet-table tbody td { border:0; padding:.08rem .4rem; overflow:visible; text-overflow:clip; white-space:normal; }
-  .set-sheet-table tbody td:first-child { grid-column:1; grid-row:1 / span 3; width:auto; padding-top:.12rem; text-align:right; }
-  .set-sheet-table tbody th { grid-column:2; }
-  .set-sheet-table tbody td:nth-child(3), .set-sheet-table tbody td:nth-child(4) { grid-column:2; color:var(--muted); font-size:.82em; }
-  .set-sheet-table tbody td:nth-child(3)::before { content:"Singer: "; color:var(--text); font-weight:800; }
-  .set-sheet-table tbody td:nth-child(4)::before { content:"Note: "; color:var(--text); font-weight:800; }
+  .set-entry-list { display:grid; grid-template-columns:1fr; grid-template-rows:none; grid-auto-flow:row; grid-auto-columns:auto; font-size:16px; }
+  .set-entry { padding:.48rem .35rem; }
+  .set-entry small { white-space:normal; }
   .set-sheet-footer { align-items:flex-start; flex-wrap:wrap; }
   .set-sheet-footer .sync-status { order:3; flex-basis:100%; white-space:normal; }
   .set-sheet-footer .set-actions { margin-left:auto; }
