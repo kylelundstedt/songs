@@ -27,12 +27,8 @@ metadata_review_status: "reviewed"
 
 
 ### Chorus  8x (claps)
-Because you know I'm all about that bass
-'Bout that bass, no treble
-I'm all about that bass
-'Bout that bass, no treble
-I'm all about that bass
-'Bout that bass, no treble
+Because you know 
+I'm all about that bass, 'Bout that bass, no treble x3
 I'm all about that bass
 'Bout that bass... bass... bass... bass
 
@@ -58,14 +54,7 @@ You know I won't be no stick figure silicone Barbie doll
 So if that what you're into, then go 'head and move along
 
 ### Chorus  8x
-Because you know I'm all about that bass
-'Bout that bass, no treble
-I'm all about that bass
-'Bout that bass, no treble
-I'm all about that bass
-'Bout that bass, no treble
-I'm all about that bass
-'Bout that bass... Hey!
+Hey!
 
 ### Verse  8x
 I'm bringing booty back
@@ -92,7 +81,5 @@ _vocals, bass only_
 
 ### Chorus  8x
 _no background vocals_
-Hey!
-Yeah yeah... ohh... 
-You know you like this bass... 
-Hey...
+Hey!  Yeah yeah... ohh... 
+You know you like this bass... Hey...
