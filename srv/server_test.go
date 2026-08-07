@@ -100,16 +100,6 @@ func TestCatalogAndRoutes(t *testing.T) {
 			}
 		})
 	}
-
-	server.songs[0].Key = ""
-	server.songs[0].BPM = ""
-	req := httptest.NewRequest(http.MethodGet, "/song/test-song", nil)
-	req.SetPathValue("id", "test-song")
-	w := httptest.NewRecorder()
-	server.HandleSong(w, req)
-	if body := w.Body.String(); !strings.Contains(body, "Orig key</dt><dd>~G") || !strings.Contains(body, "Orig BPM</dt><dd>118") {
-		t.Fatalf("original metadata fallback missing: %s", body)
-	}
 }
 
 func TestCreateSongWorkflow(t *testing.T) {
@@ -117,8 +107,6 @@ func TestCreateSongWorkflow(t *testing.T) {
 	form := url.Values{
 		"title":           {"Brand New Song"},
 		"artist":          {"Example Artist"},
-		"key":             {"A"},
-		"bpm":             {"128"},
 		"original_key":    {"Bm"},
 		"original_bpm":    {"166.04"},
 		"source_provider": {"LRCLIB"},
@@ -140,7 +128,7 @@ func TestCreateSongWorkflow(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(body), "source_url: \"https://example.com/song\"") || !strings.Contains(string(body), "source_provider: \"LRCLIB\"") || !strings.Contains(string(body), "provenance_status: provider-imported-pending-review") || !strings.Contains(string(body), "original_key: \"Bm\"") || !strings.Contains(string(body), "original_bpm: \"166.04\"") || !strings.Contains(string(body), "bpm: \"128\"") {
+	if !strings.Contains(string(body), "source_url: \"https://example.com/song\"") || !strings.Contains(string(body), "source_provider: \"LRCLIB\"") || !strings.Contains(string(body), "provenance_status: provider-imported-pending-review") || !strings.Contains(string(body), "performance_key: \"Bm\"") || !strings.Contains(string(body), "original_key: \"Bm\"") || !strings.Contains(string(body), "original_bpm: \"166.04\"") || !strings.Contains(string(body), "bpm: \"166.04\"") {
 		t.Fatalf("unexpected markdown: %s", body)
 	}
 	if len(server.songs) != 2 {

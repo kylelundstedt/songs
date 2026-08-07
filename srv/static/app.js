@@ -495,6 +495,20 @@
     const status = document.querySelector('[data-lyrics-status]');
     const title = document.querySelector('input[name="title"]');
     const artist = document.querySelector('input[name="artist"]');
+    const performanceKey = document.querySelector('input[name="key"]');
+    const performanceBPM = document.querySelector('input[name="bpm"]');
+    const originalKey = document.querySelector('input[name="original_key"]');
+    const originalBPM = document.querySelector('input[name="original_bpm"]');
+    const mirrorOriginal = (original, performance) => {
+      if (!original || !performance) return;
+      let previousOriginal = original.value;
+      original.addEventListener('input', () => {
+        if (!performance.value || performance.value === previousOriginal) performance.value = original.value;
+        previousOriginal = original.value;
+      });
+    };
+    mirrorOriginal(originalKey, performanceKey);
+    mirrorOriginal(originalBPM, performanceBPM);
     if (!searchButton || !results || !status || !title) return;
     const duration = seconds => seconds ? `${Math.floor(seconds/60)}:${String(Math.round(seconds%60)).padStart(2,'0')}` : '';
     const setStatus = message => { status.textContent = message; };
@@ -507,7 +521,9 @@
         const draft = await response.json();
         title.value = draft.title || choice.title;
         if (artist) artist.value = draft.artist || choice.artist;
-        document.querySelector('input[name="original_bpm"]').value = draft.original_bpm || '';
+        const importedBPM = draft.original_bpm || '';
+        if (originalBPM) originalBPM.value = importedBPM;
+        if (performanceBPM && !performanceBPM.value) performanceBPM.value = importedBPM;
         document.querySelector('input[name="source_url"]').value = draft.source_url || '';
         document.querySelector('input[name="source_provider"]').value = draft.source_provider || choice.provider;
         const body = document.querySelector('textarea[name="body"]');

@@ -432,6 +432,12 @@ func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
 		DraftSource: strings.TrimSpace(r.FormValue("source_url")), DraftSourceProvider: strings.TrimSpace(r.FormValue("source_provider")),
 		DraftBody: strings.TrimSpace(r.FormValue("body")),
 	}
+	if draft.DraftKey == "" {
+		draft.DraftKey = draft.DraftOriginalKey
+	}
+	if draft.DraftBPM == "" {
+		draft.DraftBPM = draft.DraftOriginalBPM
+	}
 	if draft.DraftTitle == "" {
 		draft.FormError = "Song title is required."
 		s.renderStatus(w, r, "new_song.html", draft, http.StatusBadRequest)
