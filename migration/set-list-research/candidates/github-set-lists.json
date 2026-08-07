@@ -1,0 +1,2228 @@
+{
+  "schema_version": "1.0",
+  "collection": {
+    "source": "public GitHub raw/API access; allowlisted repository metadata and _bookdown.yml, cover2.tex, index.Rmd, README/README.md only",
+    "organization": "loosely-covered",
+    "collected_at": "2026-08-07",
+    "restrictions_observed": [
+      "No repository cloning or history traversal.",
+      "No lead-sheet bodies accessed.",
+      "No OAuth, credentials, secrets, workflow secret values, or hidden files accessed."
+    ],
+    "commit_ref_method": "Public git ls-remote against refs/heads/master (branch-tip metadata only; no clone/history traversal)."
+  },
+  "candidates": [
+    {
+      "repository": "loosely-covered/set_list_ty_caton_2017_06",
+      "default_branch": "master",
+      "commit_sha": "b49889703b9c20b387fb30b91874f0e4a4e9cbeb",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used.",
+      "repository_metadata": {
+        "archived": false,
+        "updated_at": "2022-10-19T06:55:09Z",
+        "github_api_listing_source": "https://api.github.com/orgs/loosely-covered/repos?per_page=100"
+      },
+      "band_name": "Loosely Covered",
+      "gig": {
+        "title": "2017-06 Ty Caton",
+        "date": "2017-06",
+        "location": "Ty Caton",
+        "derivation": "book_filename",
+        "date_confidence": "medium"
+      },
+      "index_metadata": {
+        "title": "Ty Caton Winery",
+        "author": "Loosely Covered",
+        "date": "2017-06"
+      },
+      "ordered_songs": [
+        {
+          "position": 1,
+          "song": "Valerie",
+          "source_filename": "Valerie.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 2,
+          "song": "1979",
+          "source_filename": "1979.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 3,
+          "song": "Redemption Song Live",
+          "source_filename": "Redemption-Song-Live.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 4,
+          "song": "Give Me One Reason",
+          "source_filename": "Give-Me-One-Reason.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 5,
+          "song": "Ramble On",
+          "source_filename": "Ramble-On.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 6,
+          "song": "Times Like These",
+          "source_filename": "Times-Like-These.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 7,
+          "song": "Mercy",
+          "source_filename": "Mercy.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 8,
+          "song": "Lets Get It On",
+          "source_filename": "Lets-Get-It-On.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 9,
+          "song": "Have A Drink On Me",
+          "source_filename": "Have-A-Drink-On-Me.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 10,
+          "song": "Say It Aint So",
+          "source_filename": "Say-It-Aint-So.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 11,
+          "song": "What I Got",
+          "source_filename": "What-I-Got.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 12,
+          "song": "In The Midnight Hour",
+          "source_filename": "In-The-Midnight-Hour.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 13,
+          "song": "Hit Me With Your Best Shot",
+          "source_filename": "Hit-Me-With-Your-Best-Shot.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 14,
+          "song": "Under The Bridge",
+          "source_filename": "Under-The-Bridge.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 15,
+          "song": "Just A Girl",
+          "source_filename": "Just-A-Girl.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 16,
+          "song": "Interstate Love Song",
+          "source_filename": "Interstate-Love-Song.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 17,
+          "song": "Thinking Out Loud",
+          "source_filename": "Thinking-Out-Loud.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 18,
+          "song": "Criminal",
+          "source_filename": "Criminal.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 19,
+          "song": "Home Live",
+          "source_filename": "Home-Live.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 20,
+          "song": "Santeria",
+          "source_filename": "Santeria.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 21,
+          "song": "Purple Rain",
+          "source_filename": "Purple-Rain.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 22,
+          "song": "The Middle",
+          "source_filename": "The-Middle.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 23,
+          "song": "The Big Bang",
+          "source_filename": "The-Big-Bang.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 24,
+          "song": "Short Skirt Long Jacket",
+          "source_filename": "Short-Skirt-Long-Jacket.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 25,
+          "song": "Rebel Yell",
+          "source_filename": "Rebel-Yell.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 26,
+          "song": "Kiss",
+          "source_filename": "Kiss.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 27,
+          "song": "Exs And Ohs",
+          "source_filename": "Exs-And-Ohs.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 28,
+          "song": "Play That Funky Music",
+          "source_filename": "Play-That-Funky-Music.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 29,
+          "song": "Faith",
+          "source_filename": "Faith.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 30,
+          "song": "Always On The Run",
+          "source_filename": "Always-On-The-Run.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 31,
+          "song": "Shine",
+          "source_filename": "Shine.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 32,
+          "song": "Wicked Game",
+          "source_filename": "Wicked-Game.Rmd",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        }
+      ],
+      "singer_status": "cover2.tex is absent or contains no generated Title/Singer/Group rows; singer values remain null.",
+      "source_files": [
+        {
+          "path": "_bookdown.yml",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_ty_caton_2017_06/master/_bookdown.yml",
+          "sha256": "ad5dbc1cd532719ca2ac1b97a73e69c59abc5ae5b7d4ffec6106e22ef813b874",
+          "bytes": 1149
+        },
+        {
+          "path": "index.Rmd",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_ty_caton_2017_06/master/index.Rmd",
+          "sha256": "3c2b068530e281cf0c531f8a30e7c10639a109e82240b7e846f8c02a37445ccd",
+          "bytes": 128
+        },
+        {
+          "path": "README.md",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_ty_caton_2017_06/master/README.md",
+          "sha256": "37778adae261b6d9b04312326d710e2dd983dd1d23105a10764e08d0fb525801",
+          "bytes": 11
+        }
+      ],
+      "conflicts": [
+        {
+          "field": "location/title",
+          "preferred_value": "Ty Caton",
+          "conflicting_value": "Ty Caton Winery",
+          "reason": "book_filename corresponds to the repository/gig naming while index.Rmd title is reused/stale."
+        }
+      ],
+      "confidence": {
+        "overall": "high",
+        "ordered_songs": "high",
+        "singers": "none",
+        "gig_metadata": "high"
+      }
+    },
+    {
+      "repository": "loosely-covered/set_list_jack_london_2017_06",
+      "default_branch": "master",
+      "commit_sha": "d1dd110820e106c6f684320793275bc339f50b25",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used.",
+      "repository_metadata": {
+        "archived": false,
+        "updated_at": "2022-10-19T06:55:50Z",
+        "github_api_listing_source": "https://api.github.com/orgs/loosely-covered/repos?per_page=100"
+      },
+      "band_name": "Loosely Covered",
+      "gig": {
+        "title": "2017-06 Jack London",
+        "date": "2017-06",
+        "location": "Jack London",
+        "derivation": "book_filename",
+        "date_confidence": "medium"
+      },
+      "index_metadata": {
+        "title": "Jack London",
+        "author": "Loosely Covered",
+        "date": "2017-06"
+      },
+      "ordered_songs": [
+        {
+          "position": 1,
+          "song": "Jump",
+          "source_filename": "Jump.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Jump"
+        },
+        {
+          "position": 2,
+          "song": "Stayin Alive",
+          "source_filename": "Stayin-Alive.md",
+          "singer": "Ellen",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Stayin Alive"
+        },
+        {
+          "position": 3,
+          "song": "Santeria",
+          "source_filename": "Santeria.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Santeria"
+        },
+        {
+          "position": 4,
+          "song": "Miss You",
+          "source_filename": "Miss-You.md",
+          "singer": "Dave",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Miss You"
+        },
+        {
+          "position": 5,
+          "song": "The Middle",
+          "source_filename": "The-Middle.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "The Middle"
+        },
+        {
+          "position": 6,
+          "song": "1979",
+          "source_filename": "1979.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "1979"
+        },
+        {
+          "position": 7,
+          "song": "Locked Out Of Heaven",
+          "source_filename": "Locked-Out-Of-Heaven.md",
+          "singer": "Mayra",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Locked Out Of Heaven"
+        },
+        {
+          "position": 8,
+          "song": "I Want You To",
+          "source_filename": "I-Want-You-To.md",
+          "singer": "K/E",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Want You To"
+        },
+        {
+          "position": 9,
+          "song": "Short Skirt",
+          "source_filename": "Short-Skirt.md",
+          "singer": "Dave",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Short Skirt"
+        },
+        {
+          "position": 10,
+          "song": "Valerie",
+          "source_filename": "Valerie.md",
+          "singer": "Janel",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Valerie"
+        },
+        {
+          "position": 11,
+          "song": "Hard To Handle",
+          "source_filename": "Hard-To-Handle.md",
+          "singer": "Dave",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hard To Handle"
+        },
+        {
+          "position": 12,
+          "song": "Exs And Ohs",
+          "source_filename": "Exs-And-Ohs.md",
+          "singer": "Mayra",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Exs And Ohs"
+        },
+        {
+          "position": 13,
+          "song": "Faith",
+          "source_filename": "Faith.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Faith"
+        },
+        {
+          "position": 14,
+          "song": "What I Got",
+          "source_filename": "What-I-Got.md",
+          "singer": "E/D/K",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "What I Got"
+        },
+        {
+          "position": 15,
+          "song": "In The Midnight Hour",
+          "source_filename": "In-The-Midnight-Hour.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "In The Midnight Hour"
+        },
+        {
+          "position": 16,
+          "song": "Lets Get It On",
+          "source_filename": "Lets-Get-It-On.md",
+          "singer": "E/K/D",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Lets Get It On"
+        },
+        {
+          "position": 17,
+          "song": "Mercy",
+          "source_filename": "Mercy.md",
+          "singer": "Ellen",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Mercy"
+        },
+        {
+          "position": 18,
+          "song": "Hash Pipe",
+          "source_filename": "Hash-Pipe.md",
+          "singer": "Dave",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hash Pipe"
+        },
+        {
+          "position": 19,
+          "song": "Kiss",
+          "source_filename": "Kiss.md",
+          "singer": "Janel",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Kiss"
+        },
+        {
+          "position": 20,
+          "song": "Thank You Falettinme Be Mice Elf Agin",
+          "source_filename": "Thank-You-Falettinme-Be-Mice-Elf-Agin.md",
+          "singer": "K/E/D",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thank You Falettinme Be Mice Elf Agin"
+        },
+        {
+          "position": 21,
+          "song": "Play That Funky Music",
+          "source_filename": "Play-That-Funky-Music.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Play That Funky Music"
+        },
+        {
+          "position": 22,
+          "song": "Uptown Funk",
+          "source_filename": "Uptown-Funk.md",
+          "singer": "Ellen",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Uptown Funk"
+        },
+        {
+          "position": 23,
+          "song": "Brick House",
+          "source_filename": "Brick-House.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Brick House"
+        },
+        {
+          "position": 24,
+          "song": "Love Shack",
+          "source_filename": "Love-Shack.md",
+          "singer": "E/K/D",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Love Shack"
+        },
+        {
+          "position": 25,
+          "song": "Thats The Way I Like It",
+          "source_filename": "Thats-The-Way-I-Like-It.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thats The Way I Like It"
+        },
+        {
+          "position": 26,
+          "song": "Shake Shake Shake",
+          "source_filename": "Shake-Shake-Shake.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Shake Shake Shake"
+        },
+        {
+          "position": 27,
+          "song": "Get Lucky",
+          "source_filename": "Get-Lucky.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Get Lucky"
+        },
+        {
+          "position": 28,
+          "song": "I Want You Back",
+          "source_filename": "I-Want-You-Back.md",
+          "singer": "Mayra",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Want You Back"
+        },
+        {
+          "position": 29,
+          "song": "Superstition Single Version",
+          "source_filename": "Superstition-Single-Version.md",
+          "singer": "Kyle",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Superstition Single Version"
+        },
+        {
+          "position": 30,
+          "song": "Folsom Prison Blues",
+          "source_filename": "Folsom-Prison-Blues.md",
+          "singer": "Dave",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Folsom Prison Blues"
+        },
+        {
+          "position": 31,
+          "song": "Rebel Yell",
+          "source_filename": "Rebel-Yell.md",
+          "singer": "Kyle",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Rebel Yell"
+        },
+        {
+          "position": 32,
+          "song": "Purple Rain",
+          "source_filename": "Purple-Rain.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Purple Rain"
+        },
+        {
+          "position": 33,
+          "song": "Bad Romance",
+          "source_filename": "Bad-Romance.md",
+          "singer": "Ellen",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Bad Romance"
+        },
+        {
+          "position": 34,
+          "song": "You Shook Me All Night Long",
+          "source_filename": "You-Shook-Me-All-Night-Long.md",
+          "singer": "Mayra",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "You Shook Me All Night Long"
+        }
+      ],
+      "singer_status": "All 34 singer values and group numbers aligned positionally after exact normalized title matching against _bookdown.yml; raw cover2.tex singer strings preserved.",
+      "source_files": [
+        {
+          "path": "_bookdown.yml",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_jack_london_2017_06/master/_bookdown.yml",
+          "sha256": "88269b0ce96ba3e369692297fe66a174f52a9fc198d3a4b3629b76c83660c89f",
+          "bytes": 1199
+        },
+        {
+          "path": "cover2.tex",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_jack_london_2017_06/master/cover2.tex",
+          "sha256": "f447ba7667c9a6fcda1f177bbb7b27cd05e8722abab4db966f259f06328d4137",
+          "bytes": 17193
+        },
+        {
+          "path": "index.Rmd",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_jack_london_2017_06/master/index.Rmd",
+          "sha256": "4ff58a15e6de126a7c656a42c34987adee82e571130385dc076752afb78928ca",
+          "bytes": 124
+        },
+        {
+          "path": "README.md",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_jack_london_2017_06/master/README.md",
+          "sha256": "37778adae261b6d9b04312326d710e2dd983dd1d23105a10764e08d0fb525801",
+          "bytes": 11
+        }
+      ],
+      "conflicts": [],
+      "confidence": {
+        "overall": "high",
+        "ordered_songs": "high",
+        "singers": "high",
+        "gig_metadata": "high",
+        "groups": "high"
+      }
+    },
+    {
+      "repository": "loosely-covered/set_list_nicholson_ranch_2017_06",
+      "default_branch": "master",
+      "commit_sha": "fa917c3208fa76d1113efe65096bfdc9bb8f7cd0",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used.",
+      "repository_metadata": {
+        "archived": false,
+        "updated_at": "2022-10-19T06:57:05Z",
+        "github_api_listing_source": "https://api.github.com/orgs/loosely-covered/repos?per_page=100"
+      },
+      "band_name": "Loosely Covered",
+      "gig": {
+        "title": "20171102 Nicholson",
+        "date": "2017-11-02",
+        "location": "Nicholson",
+        "derivation": "book_filename",
+        "date_confidence": "high"
+      },
+      "index_metadata": {
+        "title": "Jack London",
+        "author": "Loosely Covered",
+        "date": "2017-06"
+      },
+      "ordered_songs": [
+        {
+          "position": 1,
+          "song": "Under The Bridge",
+          "source_filename": "Under-The-Bridge.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 2,
+          "song": "Times Like These",
+          "source_filename": "Times-Like-These.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 3,
+          "song": "Ramble On",
+          "source_filename": "Ramble-On.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 4,
+          "song": "Interstate Love Song",
+          "source_filename": "Interstate-Love-Song.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 5,
+          "song": "Superstition Single Version",
+          "source_filename": "Superstition-Single-Version.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 6,
+          "song": "Kryptonite",
+          "source_filename": "Kryptonite.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 7,
+          "song": "Short Skirt",
+          "source_filename": "Short-Skirt.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 8,
+          "song": "Faith",
+          "source_filename": "Faith.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 9,
+          "song": "The Middle",
+          "source_filename": "The-Middle.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 10,
+          "song": "Jolene",
+          "source_filename": "Jolene.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 11,
+          "song": "Come Together",
+          "source_filename": "Come-Together.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 12,
+          "song": "Shine",
+          "source_filename": "Shine.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        },
+        {
+          "position": 13,
+          "song": "1979",
+          "source_filename": "1979.md",
+          "singer": null,
+          "group_number": null,
+          "set_number": null
+        }
+      ],
+      "singer_status": "cover2.tex has 0 generated rows while _bookdown.yml has 13 songs; no singer/group alignment applied.",
+      "source_files": [
+        {
+          "path": "_bookdown.yml",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_ranch_2017_06/master/_bookdown.yml",
+          "sha256": "2690ff53c2c09c9ea3da85a883926b162d5defc9a23d61f66118c0311b7f4062",
+          "bytes": 482
+        },
+        {
+          "path": "cover2.tex",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_ranch_2017_06/master/cover2.tex",
+          "sha256": "95fa0c2817cc6f29f2563b915115ef2559960f9cd7061c723475d33629179dfd",
+          "bytes": 2488
+        },
+        {
+          "path": "index.Rmd",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_ranch_2017_06/master/index.Rmd",
+          "sha256": "4ff58a15e6de126a7c656a42c34987adee82e571130385dc076752afb78928ca",
+          "bytes": 124
+        },
+        {
+          "path": "README.md",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_ranch_2017_06/master/README.md",
+          "sha256": "37778adae261b6d9b04312326d710e2dd983dd1d23105a10764e08d0fb525801",
+          "bytes": 11
+        }
+      ],
+      "conflicts": [
+        {
+          "field": "location/title",
+          "preferred_value": "Nicholson",
+          "conflicting_value": "Jack London",
+          "reason": "book_filename corresponds to the repository/gig naming while index.Rmd title is reused/stale."
+        },
+        {
+          "field": "date",
+          "preferred_value": "2017-11-02",
+          "conflicting_value": "2017-06",
+          "reason": "book_filename has a specific gig date/month and index.Rmd date is reused/stale."
+        },
+        {
+          "field": "cover2_alignment",
+          "preferred_value": "do not assign table singers/groups",
+          "conflicting_value": "0 cover rows vs 13 ordered songs",
+          "reason": "row count differs, so positional alignment is unsafe."
+        }
+      ],
+      "confidence": {
+        "overall": "high",
+        "ordered_songs": "high",
+        "singers": "none",
+        "gig_metadata": "high"
+      }
+    },
+    {
+      "repository": "loosely-covered/set_list_hopmonk_2017_11",
+      "default_branch": "master",
+      "commit_sha": "3e0c9454037f37d8068cfcfb47003caa1b7f3e24",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used.",
+      "repository_metadata": {
+        "archived": false,
+        "updated_at": "2022-10-19T06:56:24Z",
+        "github_api_listing_source": "https://api.github.com/orgs/loosely-covered/repos?per_page=100"
+      },
+      "band_name": "Loosely Covered",
+      "gig": {
+        "title": "20171110 Hopmonk",
+        "date": "2017-11-10",
+        "location": "Hopmonk",
+        "derivation": "book_filename",
+        "date_confidence": "high"
+      },
+      "index_metadata": {
+        "title": "Jack London",
+        "author": "Loosely Covered",
+        "date": "2017-06"
+      },
+      "ordered_songs": [
+        {
+          "position": 1,
+          "song": "Where the Streets Have No Names",
+          "source_filename": "Where-the-Streets-Have-No-Names.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Where the Streets Have No Names"
+        },
+        {
+          "position": 2,
+          "song": "Miss You",
+          "source_filename": "Miss-You.md",
+          "singer": "Dave",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Miss You"
+        },
+        {
+          "position": 3,
+          "song": "Faith",
+          "source_filename": "Faith.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Faith"
+        },
+        {
+          "position": 4,
+          "song": "The Middle",
+          "source_filename": "The-Middle.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "The Middle"
+        },
+        {
+          "position": 5,
+          "song": "I Want You To",
+          "source_filename": "I-Want-You-To.md",
+          "singer": "M/D/K",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Want You To"
+        },
+        {
+          "position": 6,
+          "song": "Santeria",
+          "source_filename": "Santeria.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Santeria"
+        },
+        {
+          "position": 7,
+          "song": "Folsom Prison Blues",
+          "source_filename": "Folsom-Prison-Blues.md",
+          "singer": "Mayra",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Folsom Prison Blues"
+        },
+        {
+          "position": 8,
+          "song": "What I Got",
+          "source_filename": "What-I-Got.md",
+          "singer": "M/D/K",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "What I Got"
+        },
+        {
+          "position": 9,
+          "song": "In The Midnight Hour",
+          "source_filename": "In-The-Midnight-Hour.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "In The Midnight Hour"
+        },
+        {
+          "position": 10,
+          "song": "Short Skirt",
+          "source_filename": "Short-Skirt.md",
+          "singer": "Dave",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Short Skirt"
+        },
+        {
+          "position": 11,
+          "song": "Hard To Handle",
+          "source_filename": "Hard-To-Handle.md",
+          "singer": "Dave",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hard To Handle"
+        },
+        {
+          "position": 12,
+          "song": "Superstition Single Version",
+          "source_filename": "Superstition-Single-Version.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Superstition Single Version"
+        },
+        {
+          "position": 13,
+          "song": "I Wish",
+          "source_filename": "I-Wish.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Wish"
+        },
+        {
+          "position": 14,
+          "song": "Kiss",
+          "source_filename": "Kiss.md",
+          "singer": "Mayra",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Kiss"
+        },
+        {
+          "position": 15,
+          "song": "Thank You Falettinme Be Mice Elf Agin",
+          "source_filename": "Thank-You-Falettinme-Be-Mice-Elf-Agin.md",
+          "singer": "M/D/K",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thank You Falettinme Be Mice Elf Agin"
+        },
+        {
+          "position": 16,
+          "song": "Play That Funky Music",
+          "source_filename": "Play-That-Funky-Music.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Play That Funky Music"
+        },
+        {
+          "position": 17,
+          "song": "Brick House",
+          "source_filename": "Brick-House.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Brick House"
+        },
+        {
+          "position": 18,
+          "song": "Uptown Funk",
+          "source_filename": "Uptown-Funk.md",
+          "singer": "Mayra",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Uptown Funk"
+        },
+        {
+          "position": 19,
+          "song": "Love Shack",
+          "source_filename": "Love-Shack.md",
+          "singer": "M/D/K",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Love Shack"
+        },
+        {
+          "position": 20,
+          "song": "Thats The Way I Like It",
+          "source_filename": "Thats-The-Way-I-Like-It.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thats The Way I Like It"
+        },
+        {
+          "position": 21,
+          "song": "Shake Shake Shake",
+          "source_filename": "Shake-Shake-Shake.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Shake Shake Shake"
+        },
+        {
+          "position": 22,
+          "song": "Get Lucky",
+          "source_filename": "Get-Lucky.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Get Lucky"
+        },
+        {
+          "position": 23,
+          "song": "Lets Get It On",
+          "source_filename": "Lets-Get-It-On.md",
+          "singer": "M/D/K",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Lets Get It On"
+        },
+        {
+          "position": 24,
+          "song": "Valerie",
+          "source_filename": "Valerie.md",
+          "singer": "Mayra",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Valerie"
+        },
+        {
+          "position": 25,
+          "song": "Mercy",
+          "source_filename": "Mercy.md",
+          "singer": "Mayra",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Mercy"
+        },
+        {
+          "position": 26,
+          "song": "Seven Nation Army",
+          "source_filename": "Seven-Nation-Army.md",
+          "singer": "Dave",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Seven Nation Army"
+        },
+        {
+          "position": 27,
+          "song": "Hash Pipe",
+          "source_filename": "Hash-Pipe.md",
+          "singer": "Dave",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hash Pipe"
+        },
+        {
+          "position": 28,
+          "song": "Bad Romance",
+          "source_filename": "Bad-Romance.md",
+          "singer": "Mayra",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Bad Romance"
+        },
+        {
+          "position": 29,
+          "song": "Jump",
+          "source_filename": "Jump.md",
+          "singer": "Kyle",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Jump"
+        },
+        {
+          "position": 30,
+          "song": "Rebel Yell",
+          "source_filename": "Rebel-Yell.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Rebel Yell"
+        },
+        {
+          "position": 31,
+          "song": "Purple Rain",
+          "source_filename": "Purple-Rain.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Purple Rain"
+        },
+        {
+          "position": 32,
+          "song": "Are You Gonna Go My Way",
+          "source_filename": "Are-You-Gonna-Go-My-Way.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Are You Gonna Go My Way"
+        }
+      ],
+      "singer_status": "All 32 singer values and group numbers aligned positionally after exact normalized title matching against _bookdown.yml; raw cover2.tex singer strings preserved.",
+      "source_files": [
+        {
+          "path": "_bookdown.yml",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_hopmonk_2017_11/master/_bookdown.yml",
+          "sha256": "92173d744786f9e21489f266677a37e65f688af0d7f0d7073ecf2c010bfd7958",
+          "bytes": 1333
+        },
+        {
+          "path": "cover2.tex",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_hopmonk_2017_11/master/cover2.tex",
+          "sha256": "842b66cbb1913ef4ae33e514191bc6c3a13f01024cc85125de40047b7470b189",
+          "bytes": 16243
+        },
+        {
+          "path": "index.Rmd",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_hopmonk_2017_11/master/index.Rmd",
+          "sha256": "4ff58a15e6de126a7c656a42c34987adee82e571130385dc076752afb78928ca",
+          "bytes": 124
+        },
+        {
+          "path": "README.md",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_hopmonk_2017_11/master/README.md",
+          "sha256": "37778adae261b6d9b04312326d710e2dd983dd1d23105a10764e08d0fb525801",
+          "bytes": 11
+        }
+      ],
+      "conflicts": [
+        {
+          "field": "location/title",
+          "preferred_value": "Hopmonk",
+          "conflicting_value": "Jack London",
+          "reason": "book_filename corresponds to the repository/gig naming while index.Rmd title is reused/stale."
+        },
+        {
+          "field": "date",
+          "preferred_value": "2017-11-10",
+          "conflicting_value": "2017-06",
+          "reason": "book_filename has a specific gig date/month and index.Rmd date is reused/stale."
+        }
+      ],
+      "confidence": {
+        "overall": "high",
+        "ordered_songs": "high",
+        "singers": "high",
+        "gig_metadata": "high",
+        "groups": "high"
+      }
+    },
+    {
+      "repository": "loosely-covered/set_list_bv_2018_02",
+      "default_branch": "master",
+      "commit_sha": "915c30bb695cd80ed125d4656c481c02d934a60b",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used.",
+      "repository_metadata": {
+        "archived": false,
+        "updated_at": "2022-10-19T06:57:43Z",
+        "github_api_listing_source": "https://api.github.com/orgs/loosely-covered/repos?per_page=100"
+      },
+      "band_name": "Loosely Covered",
+      "gig": {
+        "title": "20180224 BV",
+        "date": "2018-02-24",
+        "location": "BV",
+        "derivation": "book_filename",
+        "date_confidence": "high"
+      },
+      "index_metadata": {
+        "title": "Jack London",
+        "author": "Loosely Covered",
+        "date": "2017-06"
+      },
+      "ordered_songs": [
+        {
+          "position": 1,
+          "song": "Valerie",
+          "source_filename": "Valerie.md",
+          "singer": "Christy",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Valerie"
+        },
+        {
+          "position": 2,
+          "song": "Hard To Handle",
+          "source_filename": "Hard-To-Handle.md",
+          "singer": "Dave",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hard To Handle"
+        },
+        {
+          "position": 3,
+          "song": "The Middle",
+          "source_filename": "The-Middle.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "The Middle"
+        },
+        {
+          "position": 4,
+          "song": "I Want You To",
+          "source_filename": "I-Want-You-To.md",
+          "singer": "K/C",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Want You To"
+        },
+        {
+          "position": 5,
+          "song": "Bad Romance",
+          "source_filename": "Bad-Romance.md",
+          "singer": "Christy",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Bad Romance"
+        },
+        {
+          "position": 6,
+          "song": "Where the Streets Have No Names",
+          "source_filename": "Where-the-Streets-Have-No-Names.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Where the Streets Have No Names"
+        },
+        {
+          "position": 7,
+          "song": "Miss You",
+          "source_filename": "Miss-You.md",
+          "singer": "Dave",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Miss You"
+        },
+        {
+          "position": 8,
+          "song": "Santeria",
+          "source_filename": "Santeria.md",
+          "singer": "Christy",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Santeria"
+        },
+        {
+          "position": 9,
+          "song": "Faith",
+          "source_filename": "Faith.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Faith"
+        },
+        {
+          "position": 10,
+          "song": "Hash Pipe",
+          "source_filename": "Hash-Pipe.md",
+          "singer": "Dave",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hash Pipe"
+        },
+        {
+          "position": 11,
+          "song": "Superstition Single Version",
+          "source_filename": "Superstition-Single-Version.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Superstition Single Version"
+        },
+        {
+          "position": 12,
+          "song": "Simple Man",
+          "source_filename": "Simple-Man.md",
+          "singer": "Christy",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Simple Man"
+        },
+        {
+          "position": 13,
+          "song": "Love Shack",
+          "source_filename": "Love-Shack.md",
+          "singer": "Dave",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Love Shack"
+        },
+        {
+          "position": 14,
+          "song": "I Wish",
+          "source_filename": "I-Wish.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Wish"
+        },
+        {
+          "position": 15,
+          "song": "Play That Funky Music",
+          "source_filename": "Play-That-Funky-Music.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Play That Funky Music"
+        },
+        {
+          "position": 16,
+          "song": "Thank You Falettinme Be Mice Elf Agin",
+          "source_filename": "Thank-You-Falettinme-Be-Mice-Elf-Agin.md",
+          "singer": "Dave",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thank You Falettinme Be Mice Elf Agin"
+        },
+        {
+          "position": 17,
+          "song": "I will Survive",
+          "source_filename": "I-will-Survive.md",
+          "singer": "Christy",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I will Survive"
+        },
+        {
+          "position": 18,
+          "song": "Thats The Way I Like It",
+          "source_filename": "Thats-The-Way-I-Like-It.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thats The Way I Like It"
+        },
+        {
+          "position": 19,
+          "song": "Shake Shake Shake",
+          "source_filename": "Shake-Shake-Shake.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Shake Shake Shake"
+        },
+        {
+          "position": 20,
+          "song": "Get Lucky",
+          "source_filename": "Get-Lucky.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Get Lucky"
+        },
+        {
+          "position": 21,
+          "song": "Short Skirt",
+          "source_filename": "Short-Skirt.md",
+          "singer": "Dave",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Short Skirt"
+        },
+        {
+          "position": 22,
+          "song": "Sweet Home Alabama",
+          "source_filename": "Sweet-Home-Alabama.md",
+          "singer": "Christy",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Sweet Home Alabama"
+        },
+        {
+          "position": 23,
+          "song": "All Summer Long",
+          "source_filename": "All-Summer-Long.md",
+          "singer": "Christy",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "All Summer Long"
+        },
+        {
+          "position": 24,
+          "song": "Rebel Yell",
+          "source_filename": "Rebel-Yell.md",
+          "singer": "Dave",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Rebel Yell"
+        },
+        {
+          "position": 25,
+          "song": "Jump",
+          "source_filename": "Jump.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Jump"
+        },
+        {
+          "position": 26,
+          "song": "Kiss",
+          "source_filename": "Kiss.md",
+          "singer": "Christy",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Kiss"
+        },
+        {
+          "position": 27,
+          "song": "Uptown Funk",
+          "source_filename": "Uptown-Funk.md",
+          "singer": "Christy",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Uptown Funk"
+        },
+        {
+          "position": 28,
+          "song": "What I Got",
+          "source_filename": "What-I-Got.md",
+          "singer": "Christy",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "What I Got"
+        },
+        {
+          "position": 29,
+          "song": "In The Midnight Hour",
+          "source_filename": "In-The-Midnight-Hour.md",
+          "singer": "Kyle",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "In The Midnight Hour"
+        },
+        {
+          "position": 30,
+          "song": "Brick House",
+          "source_filename": "Brick-House.md",
+          "singer": "Kyle",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Brick House"
+        },
+        {
+          "position": 31,
+          "song": "Folsom Prison Blues",
+          "source_filename": "Folsom-Prison-Blues.md",
+          "singer": "Christy",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Folsom Prison Blues"
+        },
+        {
+          "position": 32,
+          "song": "Are You Gonna Go My Way",
+          "source_filename": "Are-You-Gonna-Go-My-Way.md",
+          "singer": "Dave",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Are You Gonna Go My Way"
+        },
+        {
+          "position": 33,
+          "song": "Exs and Ohs",
+          "source_filename": "Exs-and-Ohs.md",
+          "singer": "Christy",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Exs and Ohs"
+        },
+        {
+          "position": 34,
+          "song": "Seven Nation Army",
+          "source_filename": "Seven-Nation-Army.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Seven Nation Army"
+        },
+        {
+          "position": 35,
+          "song": "Mercy",
+          "source_filename": "Mercy.md",
+          "singer": "Christy",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Mercy"
+        },
+        {
+          "position": 36,
+          "song": "You Oughta Know",
+          "source_filename": "You-Oughta-Know.md",
+          "singer": "Christy",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "You Oughta Know"
+        },
+        {
+          "position": 37,
+          "song": "Purple Rain",
+          "source_filename": "Purple-Rain.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Purple Rain"
+        }
+      ],
+      "singer_status": "All 37 singer values and group numbers aligned positionally after exact normalized title matching against _bookdown.yml; raw cover2.tex singer strings preserved.",
+      "source_files": [
+        {
+          "path": "_bookdown.yml",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_bv_2018_02/master/_bookdown.yml",
+          "sha256": "5b59696fa10c81f1e3f18edbdf1e82c64850b49653a56cd7427955667ace0663",
+          "bytes": 1502
+        },
+        {
+          "path": "cover2.tex",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_bv_2018_02/master/cover2.tex",
+          "sha256": "abec177b4462faf3564a3b8d72efb140806d01e622133552c8a764f5fafb4535",
+          "bytes": 18682
+        },
+        {
+          "path": "index.Rmd",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_bv_2018_02/master/index.Rmd",
+          "sha256": "4ff58a15e6de126a7c656a42c34987adee82e571130385dc076752afb78928ca",
+          "bytes": 124
+        },
+        {
+          "path": "README.md",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_bv_2018_02/master/README.md",
+          "sha256": "37778adae261b6d9b04312326d710e2dd983dd1d23105a10764e08d0fb525801",
+          "bytes": 11
+        }
+      ],
+      "conflicts": [
+        {
+          "field": "location/title",
+          "preferred_value": "BV",
+          "conflicting_value": "Jack London",
+          "reason": "book_filename corresponds to the repository/gig naming while index.Rmd title is reused/stale."
+        },
+        {
+          "field": "date",
+          "preferred_value": "2018-02-24",
+          "conflicting_value": "2017-06",
+          "reason": "book_filename has a specific gig date/month and index.Rmd date is reused/stale."
+        },
+        {
+          "field": "ordered_songs",
+          "preferred_value": "preserve this repository as an independent gig candidate",
+          "conflicting_value": "loosely-covered/set_list_nicholson_2018_06",
+          "reason": "the permitted _bookdown.yml lists are identical in order/grouping despite distinct gig filenames; possible copied/reused set list."
+        }
+      ],
+      "confidence": {
+        "overall": "high",
+        "ordered_songs": "high",
+        "singers": "high",
+        "gig_metadata": "high",
+        "groups": "high"
+      }
+    },
+    {
+      "repository": "loosely-covered/set_list_nicholson_2018_06",
+      "default_branch": "master",
+      "commit_sha": "a8c66e776803b09e37cbdc5269cf1cd2f0529c8b",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used.",
+      "repository_metadata": {
+        "archived": false,
+        "updated_at": "2022-10-19T06:58:16Z",
+        "github_api_listing_source": "https://api.github.com/orgs/loosely-covered/repos?per_page=100"
+      },
+      "band_name": "Loosely Covered",
+      "gig": {
+        "title": "20180609 Nicholson",
+        "date": "2018-06-09",
+        "location": "Nicholson",
+        "derivation": "book_filename",
+        "date_confidence": "high"
+      },
+      "index_metadata": {
+        "title": "Jack London",
+        "author": "Loosely Covered",
+        "date": "2017-06"
+      },
+      "ordered_songs": [
+        {
+          "position": 1,
+          "song": "Valerie",
+          "source_filename": "Valerie.md",
+          "singer": "Christy",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Valerie"
+        },
+        {
+          "position": 2,
+          "song": "Hard To Handle",
+          "source_filename": "Hard-To-Handle.md",
+          "singer": "Dave",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hard To Handle"
+        },
+        {
+          "position": 3,
+          "song": "The Middle",
+          "source_filename": "The-Middle.md",
+          "singer": "Kyle",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "The Middle"
+        },
+        {
+          "position": 4,
+          "song": "I Want You To",
+          "source_filename": "I-Want-You-To.md",
+          "singer": "K/C",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Want You To"
+        },
+        {
+          "position": 5,
+          "song": "Bad Romance",
+          "source_filename": "Bad-Romance.md",
+          "singer": "Christy",
+          "group_number": 1,
+          "set_number": 1,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Bad Romance"
+        },
+        {
+          "position": 6,
+          "song": "Where the Streets Have No Names",
+          "source_filename": "Where-the-Streets-Have-No-Names.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Where the Streets Have No Names"
+        },
+        {
+          "position": 7,
+          "song": "Miss You",
+          "source_filename": "Miss-You.md",
+          "singer": "Dave",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Miss You"
+        },
+        {
+          "position": 8,
+          "song": "Santeria",
+          "source_filename": "Santeria.md",
+          "singer": "Christy",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Santeria"
+        },
+        {
+          "position": 9,
+          "song": "Faith",
+          "source_filename": "Faith.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Faith"
+        },
+        {
+          "position": 10,
+          "song": "Hash Pipe",
+          "source_filename": "Hash-Pipe.md",
+          "singer": "Dave",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Hash Pipe"
+        },
+        {
+          "position": 11,
+          "song": "Superstition Single Version",
+          "source_filename": "Superstition-Single-Version.md",
+          "singer": "Kyle",
+          "group_number": 2,
+          "set_number": 2,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Superstition Single Version"
+        },
+        {
+          "position": 12,
+          "song": "Simple Man",
+          "source_filename": "Simple-Man.md",
+          "singer": "Christy",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Simple Man"
+        },
+        {
+          "position": 13,
+          "song": "Love Shack",
+          "source_filename": "Love-Shack.md",
+          "singer": "Dave",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Love Shack"
+        },
+        {
+          "position": 14,
+          "song": "I Wish",
+          "source_filename": "I-Wish.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I Wish"
+        },
+        {
+          "position": 15,
+          "song": "Play That Funky Music",
+          "source_filename": "Play-That-Funky-Music.md",
+          "singer": "Kyle",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Play That Funky Music"
+        },
+        {
+          "position": 16,
+          "song": "Thank You Falettinme Be Mice Elf Agin",
+          "source_filename": "Thank-You-Falettinme-Be-Mice-Elf-Agin.md",
+          "singer": "Dave",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thank You Falettinme Be Mice Elf Agin"
+        },
+        {
+          "position": 17,
+          "song": "I will Survive",
+          "source_filename": "I-will-Survive.md",
+          "singer": "Christy",
+          "group_number": 3,
+          "set_number": 3,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "I will Survive"
+        },
+        {
+          "position": 18,
+          "song": "Thats The Way I Like It",
+          "source_filename": "Thats-The-Way-I-Like-It.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Thats The Way I Like It"
+        },
+        {
+          "position": 19,
+          "song": "Shake Shake Shake",
+          "source_filename": "Shake-Shake-Shake.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Shake Shake Shake"
+        },
+        {
+          "position": 20,
+          "song": "Get Lucky",
+          "source_filename": "Get-Lucky.md",
+          "singer": "Kyle",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Get Lucky"
+        },
+        {
+          "position": 21,
+          "song": "Short Skirt",
+          "source_filename": "Short-Skirt.md",
+          "singer": "Dave",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Short Skirt"
+        },
+        {
+          "position": 22,
+          "song": "Sweet Home Alabama",
+          "source_filename": "Sweet-Home-Alabama.md",
+          "singer": "Christy",
+          "group_number": 4,
+          "set_number": 4,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Sweet Home Alabama"
+        },
+        {
+          "position": 23,
+          "song": "All Summer Long",
+          "source_filename": "All-Summer-Long.md",
+          "singer": "Christy",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "All Summer Long"
+        },
+        {
+          "position": 24,
+          "song": "Rebel Yell",
+          "source_filename": "Rebel-Yell.md",
+          "singer": "Dave",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Rebel Yell"
+        },
+        {
+          "position": 25,
+          "song": "Jump",
+          "source_filename": "Jump.md",
+          "singer": "Kyle",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Jump"
+        },
+        {
+          "position": 26,
+          "song": "Kiss",
+          "source_filename": "Kiss.md",
+          "singer": "Christy",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Kiss"
+        },
+        {
+          "position": 27,
+          "song": "Uptown Funk",
+          "source_filename": "Uptown-Funk.md",
+          "singer": "Christy",
+          "group_number": 5,
+          "set_number": 5,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Uptown Funk"
+        },
+        {
+          "position": 28,
+          "song": "What I Got",
+          "source_filename": "What-I-Got.md",
+          "singer": "Christy",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "What I Got"
+        },
+        {
+          "position": 29,
+          "song": "In The Midnight Hour",
+          "source_filename": "In-The-Midnight-Hour.md",
+          "singer": "Kyle",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "In The Midnight Hour"
+        },
+        {
+          "position": 30,
+          "song": "Brick House",
+          "source_filename": "Brick-House.md",
+          "singer": "Kyle",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Brick House"
+        },
+        {
+          "position": 31,
+          "song": "Folsom Prison Blues",
+          "source_filename": "Folsom-Prison-Blues.md",
+          "singer": "Christy",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Folsom Prison Blues"
+        },
+        {
+          "position": 32,
+          "song": "Are You Gonna Go My Way",
+          "source_filename": "Are-You-Gonna-Go-My-Way.md",
+          "singer": "Dave",
+          "group_number": 6,
+          "set_number": 6,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Are You Gonna Go My Way"
+        },
+        {
+          "position": 33,
+          "song": "Exs and Ohs",
+          "source_filename": "Exs-and-Ohs.md",
+          "singer": "Christy",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Exs and Ohs"
+        },
+        {
+          "position": 34,
+          "song": "Seven Nation Army",
+          "source_filename": "Seven-Nation-Army.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Seven Nation Army"
+        },
+        {
+          "position": 35,
+          "song": "Mercy",
+          "source_filename": "Mercy.md",
+          "singer": "Christy",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Mercy"
+        },
+        {
+          "position": 36,
+          "song": "You Oughta Know",
+          "source_filename": "You-Oughta-Know.md",
+          "singer": "Christy",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "You Oughta Know"
+        },
+        {
+          "position": 37,
+          "song": "Purple Rain",
+          "source_filename": "Purple-Rain.md",
+          "singer": "Dave",
+          "group_number": 7,
+          "set_number": 7,
+          "singer_source": "cover2.tex generated Title/Singer/Group table",
+          "cover_title": "Purple Rain"
+        }
+      ],
+      "singer_status": "All 37 singer values and group numbers aligned positionally after exact normalized title matching against _bookdown.yml; raw cover2.tex singer strings preserved.",
+      "source_files": [
+        {
+          "path": "_bookdown.yml",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_2018_06/master/_bookdown.yml",
+          "sha256": "de3960db76ca55e5514cdf5f05488ec7f35a62804231474d418347eca3b6d2ad",
+          "bytes": 1509
+        },
+        {
+          "path": "cover2.tex",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_2018_06/master/cover2.tex",
+          "sha256": "abec177b4462faf3564a3b8d72efb140806d01e622133552c8a764f5fafb4535",
+          "bytes": 18682
+        },
+        {
+          "path": "index.Rmd",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_2018_06/master/index.Rmd",
+          "sha256": "4ff58a15e6de126a7c656a42c34987adee82e571130385dc076752afb78928ca",
+          "bytes": 124
+        },
+        {
+          "path": "README.md",
+          "raw_url": "https://raw.githubusercontent.com/loosely-covered/set_list_nicholson_2018_06/master/README.md",
+          "sha256": "37778adae261b6d9b04312326d710e2dd983dd1d23105a10764e08d0fb525801",
+          "bytes": 11
+        }
+      ],
+      "conflicts": [
+        {
+          "field": "location/title",
+          "preferred_value": "Nicholson",
+          "conflicting_value": "Jack London",
+          "reason": "book_filename corresponds to the repository/gig naming while index.Rmd title is reused/stale."
+        },
+        {
+          "field": "date",
+          "preferred_value": "2018-06-09",
+          "conflicting_value": "2017-06",
+          "reason": "book_filename has a specific gig date/month and index.Rmd date is reused/stale."
+        },
+        {
+          "field": "ordered_songs",
+          "preferred_value": "preserve this repository as an independent gig candidate",
+          "conflicting_value": "loosely-covered/set_list_bv_2018_02",
+          "reason": "the permitted _bookdown.yml lists are identical in order/grouping despite distinct gig filenames; possible copied/reused set list."
+        }
+      ],
+      "confidence": {
+        "overall": "high",
+        "ordered_songs": "high",
+        "singers": "high",
+        "gig_metadata": "high",
+        "groups": "high"
+      }
+    }
+  ],
+  "quarantined_repositories": [
+    {
+      "repository": "loosely-covered/set_list_ty_caton_2018_06",
+      "reason": "_bookdown.yml declares book_filename \"Master\" and enumerates a master song catalog rather than a gig-specific set list.",
+      "confidence": "high",
+      "commit_sha": "7fec26b2f7c246f792f1f4cfe14e618ed81fdafc",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used."
+    },
+    {
+      "repository": "loosely-covered/set-lists",
+      "reason": "README describes the current master lead-sheet/catalog and Google Sheets workflow; no gig-specific ordered list was collected.",
+      "confidence": "high",
+      "commit_sha": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
+      "commit_sha_status": "collected from public refs/heads/master via git ls-remote; no clone, fetch, or history traversal used."
+    }
+  ],
+  "collection_blockers": []
+}

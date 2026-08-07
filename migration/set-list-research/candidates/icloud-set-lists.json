@@ -1,0 +1,1563 @@
+{
+  "schema_version": "1.0",
+  "scope": {
+    "manifest": "manifests/icloud-artifacts.jsonl",
+    "selection": "type == explicit_set_list",
+    "source_archive": "raw/Band.zip",
+    "artifact_count": 16
+  },
+  "artifacts": [
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+        "sha256": "4ad8393d751bff2d07fef9775f0f9550b27229d35394cccf7da2e3348ab7267d",
+        "size_bytes": 303059,
+        "format": "pages",
+        "modified_at": "2015-09-19T16:26:00",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2015-09",
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg"
+      },
+      "confidence": "medium"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2016-05 Prestwood.pages",
+        "sha256": "0a6d4eceaaec3bc21db45af54a0b49284f3b22df49f186a81a41afa8e2406813",
+        "size_bytes": 265841,
+        "format": "pages",
+        "modified_at": "2017-03-28T18:21:16",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2016-05 Prestwood.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2016-05",
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg"
+      },
+      "confidence": "medium"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-10 SVSA.pages",
+        "sha256": "8b490115b54fac22175a61e9129c8f995c5f41ccd06d213c3dac36a111f6bf39",
+        "size_bytes": 215476,
+        "format": "pages",
+        "modified_at": "2017-10-07T13:57:02",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-10 SVSA.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2017-10",
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg"
+      },
+      "confidence": "medium"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2015-10 Halloween at Rossi's.pages",
+        "sha256": "1458904e1b072537773afc2055081fc4122ffd22bc3536723d4a0bf268779b0f",
+        "size_bytes": 170313,
+        "format": "pages",
+        "modified_at": "2016-04-24T15:57:36",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2015-10 Halloween at Rossi's.pages",
+        "paired_representations": []
+      },
+      "disposition": "unsupported",
+      "candidate_id": null,
+      "evidence": {
+        "method": "IWA package inspection",
+        "finding": "no reliable preview transcription"
+      },
+      "confidence": "none"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-06 Nicholson.pages",
+        "sha256": "76ea849c663d34629ec1dc81aac1085b35593b8ecc7bc9f530db0c435f7f7c4e",
+        "size_bytes": 214245,
+        "format": "pages",
+        "modified_at": "2017-10-07T13:37:22",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-06 Nicholson.pages",
+        "paired_representations": []
+      },
+      "disposition": "unsupported",
+      "candidate_id": null,
+      "evidence": {
+        "method": "IWA package inspection",
+        "finding": "no reliable preview transcription"
+      },
+      "confidence": "none"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set LIst - 2016-07-08 Stonetree.xlsx",
+        "sha256": "790efae29450a62a354064d2d4a8b60900e8f8679c3e6fe81a5f9d2b5d2a0951",
+        "size_bytes": 9629,
+        "format": "xlsx",
+        "modified_at": "2016-07-09T09:11:16",
+        "band": "Loosely Covered",
+        "filename": "LC Set LIst - 2016-07-08 Stonetree.xlsx",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2016-07-08-stonetree",
+      "evidence": {
+        "method": "openpyxl",
+        "sheet": "Sheet1"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf",
+        "sha256": "9e97e23ad8f7f8711c3b7d8a9c6278bef273e364a25951e9f1da0e9b52474b96",
+        "size_bytes": 21126,
+        "format": "pdf",
+        "modified_at": "2017-03-31T17:13:20",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-04-01 SIFF.pdf",
+        "paired_representations": [
+          "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages"
+        ]
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2017-04-01-siff",
+      "evidence": {
+        "method": "PyMuPDF",
+        "pages": [
+          1
+        ]
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages",
+        "sha256": "cc082d497fb72503ede2e3af6d91918375ba36da82f1d544c44f5c52069b5c38",
+        "size_bytes": 79472,
+        "format": "pages",
+        "modified_at": "2017-06-16T19:35:22",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-04-01 SIFF.pages",
+        "paired_representations": [
+          "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf"
+        ]
+      },
+      "disposition": "duplicate_representation",
+      "candidate_id": "loosely-covered-2017-04-01-siff",
+      "evidence": {
+        "canonical_source": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf",
+        "basis": "manifest paired_representations; same event/date"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/Master Set List 2020-12.pdf",
+        "sha256": "9c3a84bcb230ec43225d68b7d58cbb06013bcbe4fc849448f3911bce94681f1e",
+        "size_bytes": 492103,
+        "format": "pdf",
+        "modified_at": "2020-12-07T16:48:34",
+        "band": "Loosely Covered",
+        "filename": "Master Set List 2020-12.pdf",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "PyMuPDF",
+        "finding": "284-page master catalog/lead-sheet collection"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/Master-Set-List.pdf",
+        "sha256": "ef69f0546e603c21488d20963a4bbb1f77af044a838c9e3e9ffef035a80d255a",
+        "size_bytes": 453183,
+        "format": "pdf",
+        "modified_at": "2020-09-25T18:04:24",
+        "band": "Loosely Covered",
+        "filename": "Master-Set-List.pdf",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "PyMuPDF",
+        "finding": "283-page master catalog/lead-sheet collection"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/Nicholson-Set-List.pdf",
+        "sha256": "46f58f53e6bc432ddddc583567d1f13a98455b413bd036c06391f5582b892560",
+        "size_bytes": 95279,
+        "format": "pdf",
+        "modified_at": "2020-09-25T18:02:04",
+        "band": "Loosely Covered",
+        "filename": "Nicholson-Set-List.pdf",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "PyMuPDF",
+        "finding": "46-page catalog contents followed by lead sheets, not a gig running order"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/The Smileys/2005-01-14 Ireland's 32/Song List - Ireland's 32.doc",
+        "sha256": "f3a95d6b55d508ab8a21cc788a4f92e7c2b91e1be964d374dae36df096b3ab94",
+        "size_bytes": 24576,
+        "format": "doc",
+        "modified_at": "2008-01-26T22:21:32",
+        "band": "The Smileys",
+        "filename": "Song List - Ireland's 32.doc",
+        "paired_representations": []
+      },
+      "disposition": "unsupported",
+      "candidate_id": null,
+      "evidence": {
+        "method": "olefile stream inspection",
+        "finding": "legacy DOC parser unavailable"
+      },
+      "confidence": "none"
+    },
+    {
+      "source": {
+        "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pages/",
+        "sha256": "662faab48d7fd6f2197779b43628c2f136bdaa825b01c92d9db56a593c1dca3d",
+        "size_bytes": 28912,
+        "format": "pages_package",
+        "modified_at": "2024-02-21T22:05:48",
+        "band": "The Smileys",
+        "filename": "Set List.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "smileys-2005-03-26-easter-pageant",
+      "evidence": {
+        "method": "index.xml.gz XML parse"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pdf",
+        "sha256": "6eef3f3877cce91c2cffc98927a87cb695d6552b6f15dadd3bf42ee6869f28ce",
+        "size_bytes": 34654,
+        "format": "pdf",
+        "modified_at": "2008-01-26T22:21:34",
+        "band": "The Smileys",
+        "filename": "Set List.pdf",
+        "paired_representations": []
+      },
+      "disposition": "duplicate_representation",
+      "candidate_id": "smileys-2005-03-26-easter-pageant",
+      "evidence": {
+        "canonical_source": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pages/",
+        "basis": "same dated directory and matching set/song text"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Wait for the Shake/Set List 2006-01-25.pages/",
+        "sha256": "92bb0493635aa59c0986b8c02f64530c96d85fd5bbe450724ff683436606e3dd",
+        "size_bytes": 37991,
+        "format": "pages_package",
+        "modified_at": "2024-02-21T22:05:22",
+        "band": "Wait for the Shake",
+        "filename": "Set List 2006-01-25.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "wait-for-the-shake-2006-01-25",
+      "evidence": {
+        "method": "index.xml.gz XML parse"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Wait for the Shake/Song List 2005-11-17.xls",
+        "sha256": "641a81f36f00655ee670383d2a453bb43325e5f1182335e8325de892405eb6ef",
+        "size_bytes": 51200,
+        "format": "xls",
+        "modified_at": "2008-01-26T22:24:30",
+        "band": "Wait for the Shake",
+        "filename": "Song List 2005-11-17.xls",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "xlrd",
+        "finding": "multi-row Song/Artist/member/status/votes catalog; no set order"
+      },
+      "confidence": "high"
+    }
+  ],
+  "gig_candidates": [
+    {
+      "id": "loosely-covered-2015-09",
+      "status": "extracted",
+      "metadata": {
+        "band": "Loosely Covered",
+        "date": "2015-09",
+        "venue_or_event": "Acoustic at Hopmonk"
+      },
+      "groups": [
+        {
+          "label": null,
+          "songs": [
+            {
+              "label": "Cumbersome",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Ramble On",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Interstate Love Song",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Short Skirt, Long Jacket",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Kryptonite",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Times Like These",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Seven Nation Army",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Santeria",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Black",
+              "singer": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "label": null,
+          "songs": [
+            {
+              "label": "Everlong",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Drive",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Wagon Wheel",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Radioactive",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Say It Ain’t So",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Black Hole Sun",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Shine",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Californication",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Sullivan Street",
+              "singer": null,
+              "note": null
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "path": "Band/Loosely Covered/LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+          "sha256": "4ad8393d751bff2d07fef9775f0f9550b27229d35394cccf7da2e3348ab7267d",
+          "size_bytes": 303059,
+          "format": "pages",
+          "modified_at": "2015-09-19T16:26:00",
+          "band": "Loosely Covered",
+          "filename": "LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg",
+        "retained": "song labels only"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "loosely-covered-2016-05",
+      "status": "extracted",
+      "metadata": {
+        "band": "Loosely Covered",
+        "date": "2016-05",
+        "venue_or_event": "Prestwood"
+      },
+      "groups": [
+        {
+          "label": null,
+          "songs": [
+            {
+              "label": "Valerie",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Hard to Handle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Santeria",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Short Skirt, Long Jacket",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "The Distance",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Miss You",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Mercy",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Locked Out of Heaven",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Are You Gonna Go My Way",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Rebel Yell",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Bad Romance",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "I Want You Back",
+              "singer": null,
+              "note": null
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "path": "Band/Loosely Covered/LC Set List - 2016-05 Prestwood.pages",
+          "sha256": "0a6d4eceaaec3bc21db45af54a0b49284f3b22df49f186a81a41afa8e2406813",
+          "size_bytes": 265841,
+          "format": "pages",
+          "modified_at": "2017-03-28T18:21:16",
+          "band": "Loosely Covered",
+          "filename": "LC Set List - 2016-05 Prestwood.pages",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg",
+        "retained": "song labels only"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "loosely-covered-2017-10",
+      "status": "extracted",
+      "metadata": {
+        "band": "Loosely Covered",
+        "date": "2017-10",
+        "venue_or_event": "SVSA"
+      },
+      "groups": [
+        {
+          "label": null,
+          "songs": [
+            {
+              "label": "Streets",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Ex and Ohs",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Faith",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Miss You",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "The Middle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "I Want You To",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Santeria",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Folsom",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "What I Got",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Locked Out",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Short Skirt",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Hard To Handle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Superstition",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Kiss",
+              "singer": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "label": null,
+          "songs": [
+            {
+              "label": "Thank You",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Play That Funky",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Brick House",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Uptown Funk",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Love Shack",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "That’s/Shake/Lucky",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "I Want You Back",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Lets Get It On",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Valerie",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Mercy",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Seven Nation",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Hash Pipe",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Bad Romance",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Stayin’ Alive",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Jump",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "You Shook Me",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Rebel Yell",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Are You ... My Way",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Purple Rain",
+              "singer": null,
+              "note": null
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "path": "Band/Loosely Covered/LC Set List - 2017-10 SVSA.pages",
+          "sha256": "8b490115b54fac22175a61e9129c8f995c5f41ccd06d213c3dac36a111f6bf39",
+          "size_bytes": 215476,
+          "format": "pages",
+          "modified_at": "2017-10-07T13:57:02",
+          "band": "Loosely Covered",
+          "filename": "LC Set List - 2017-10 SVSA.pages",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg",
+        "retained": "song labels only"
+      },
+      "confidence": "medium"
+    },
+    {
+      "id": "unsupported-a433e9e4ce",
+      "status": "unsupported",
+      "metadata": {
+        "band": "Loosely Covered"
+      },
+      "groups": [],
+      "sources": [
+        {
+          "path": "Band/Loosely Covered/LC Set List - 2015-10 Halloween at Rossi's.pages",
+          "sha256": "1458904e1b072537773afc2055081fc4122ffd22bc3536723d4a0bf268779b0f",
+          "size_bytes": 170313,
+          "format": "pages",
+          "modified_at": "2016-04-24T15:57:36",
+          "band": "Loosely Covered",
+          "filename": "LC Set List - 2015-10 Halloween at Rossi's.pages",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "IWA package inspection",
+        "members": [
+          "Index/Document.iwa",
+          "preview.jpg"
+        ],
+        "finding": "No embedded PDF/text; preview was not legible enough for reliable OCR."
+      },
+      "confidence": "none"
+    },
+    {
+      "id": "unsupported-ce2e85390f",
+      "status": "unsupported",
+      "metadata": {
+        "band": "Loosely Covered"
+      },
+      "groups": [],
+      "sources": [
+        {
+          "path": "Band/Loosely Covered/LC Set List - 2017-06 Nicholson.pages",
+          "sha256": "76ea849c663d34629ec1dc81aac1085b35593b8ecc7bc9f530db0c435f7f7c4e",
+          "size_bytes": 214245,
+          "format": "pages",
+          "modified_at": "2017-10-07T13:37:22",
+          "band": "Loosely Covered",
+          "filename": "LC Set List - 2017-06 Nicholson.pages",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "IWA package inspection",
+        "members": [
+          "Index/Document.iwa",
+          "preview.jpg"
+        ],
+        "finding": "No embedded PDF/text; preview was not legible enough for reliable OCR."
+      },
+      "confidence": "none"
+    },
+    {
+      "id": "loosely-covered-2016-07-08-stonetree",
+      "status": "extracted",
+      "metadata": {
+        "band": "Loosely Covered",
+        "date": "2016-07-08",
+        "venue_or_event": "Stonetree"
+      },
+      "groups": [
+        {
+          "label": "Set 1",
+          "songs": [
+            {
+              "label": "Faith",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Hard to Handle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Santeria",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Short Skirt Long Jacket",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "The Middle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Under the Bridge",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Interstate Love Song",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Kiss",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Let's get it on",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Love Shack",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Mercy",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Stayin' In Black",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Valerie",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "What I got / Midnight Hour",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "You Oughta Know",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Miss You",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Thank you falettinme",
+              "singer": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "label": "Set 2",
+          "songs": [
+            {
+              "label": "Blister in the Sun",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Cumbersome",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Drive",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Everlong",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Folsom Prison Blues",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "I will Survive",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Kryptonite",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Play that Funky Music",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Purple Rain",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Ramble On",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Rebel Yell",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Say it Ain't So",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Seven Nation Army",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Shine",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Superstition",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Californication",
+              "singer": null,
+              "note": null
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "path": "Band/Loosely Covered/LC Set LIst - 2016-07-08 Stonetree.xlsx",
+          "sha256": "790efae29450a62a354064d2d4a8b60900e8f8679c3e6fe81a5f9d2b5d2a0951",
+          "size_bytes": 9629,
+          "format": "xlsx",
+          "modified_at": "2016-07-09T09:11:16",
+          "band": "Loosely Covered",
+          "filename": "LC Set LIst - 2016-07-08 Stonetree.xlsx",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "openpyxl",
+        "sheet": "Sheet1",
+        "layout": "columns A and C, top-to-bottom"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "loosely-covered-2017-04-01-siff",
+      "status": "extracted",
+      "metadata": {
+        "band": "Loosely Covered",
+        "date": "2017-04-01",
+        "venue_or_event": "SIFF"
+      },
+      "groups": [
+        {
+          "label": null,
+          "songs": [
+            {
+              "label": "Jump",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Stayin’ In Black",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Santeria",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Miss You",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "In the Middle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Locked Out",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "I Want You To",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Short Skirt",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Valerie",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Hard to Handle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Exs and Ohs",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Faith",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "What I Got",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Let's Get It On",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Mercy",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Kiss",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Thank u 4 Lettin",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Play That Funky",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Uptown Funk",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Brick House",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Love Shack",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "That’s the Way",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Shake Shake",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Get Lucky",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "I Want You Back",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Superstition",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Folsom Prison",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Rebel Yell",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Purple Rain",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Bad Romance",
+              "singer": null,
+              "note": null
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf",
+          "sha256": "9e97e23ad8f7f8711c3b7d8a9c6278bef273e364a25951e9f1da0e9b52474b96",
+          "size_bytes": 21126,
+          "format": "pdf",
+          "modified_at": "2017-03-31T17:13:20",
+          "band": "Loosely Covered",
+          "filename": "LC Set List - 2017-04-01 SIFF.pdf",
+          "paired_representations": [
+            "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages"
+          ]
+        }
+      ],
+      "related_artifacts": [
+        {
+          "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages",
+          "sha256": "cc082d497fb72503ede2e3af6d91918375ba36da82f1d544c44f5c52069b5c38",
+          "size_bytes": 79472,
+          "format": "pages",
+          "modified_at": "2017-06-16T19:35:22",
+          "band": "Loosely Covered",
+          "filename": "LC Set List - 2017-04-01 SIFF.pages",
+          "paired_representations": [
+            "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf"
+          ]
+        }
+      ],
+      "evidence": {
+        "method": "PyMuPDF text extraction",
+        "pages": [
+          1
+        ]
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "unsupported-smileys-2005-01-14",
+      "status": "unsupported",
+      "metadata": {
+        "band": "The Smileys",
+        "date": "2005-01-14",
+        "venue_or_event": "Ireland's 32"
+      },
+      "groups": [],
+      "sources": [
+        {
+          "path": "Band/The Smileys/2005-01-14 Ireland's 32/Song List - Ireland's 32.doc",
+          "sha256": "f3a95d6b55d508ab8a21cc788a4f92e7c2b91e1be964d374dae36df096b3ab94",
+          "size_bytes": 24576,
+          "format": "doc",
+          "modified_at": "2008-01-26T22:21:32",
+          "band": "The Smileys",
+          "filename": "Song List - Ireland's 32.doc",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "OLE compound-file inspection",
+        "streams": [
+          "WordDocument",
+          "1Table",
+          "Data"
+        ],
+        "finding": "legacy DOC text extraction unsupported; no content guessed."
+      },
+      "confidence": "none"
+    },
+    {
+      "id": "smileys-2005-03-26-easter-pageant",
+      "status": "extracted",
+      "metadata": {
+        "band": "The Smileys",
+        "date": "2005-03-26",
+        "venue_or_event": "Easter Pageant"
+      },
+      "groups": [
+        {
+          "label": "Set One",
+          "songs": [
+            {
+              "label": "Inside Out",
+              "singer": null,
+              "note": "Eve 6; “Everybody Poops”. Hugh."
+            },
+            {
+              "label": "Fly Away",
+              "singer": null,
+              "note": "Lenny Kravitz note."
+            },
+            {
+              "label": "I Don’t Wanna Be",
+              "singer": null,
+              "note": "Gavin; raspy/allergies."
+            },
+            {
+              "label": "You Really Got Me",
+              "singer": null,
+              "note": "Kinks / Van Halen / Smileys."
+            },
+            {
+              "label": "Save Tonight",
+              "singer": null,
+              "note": "Eagle-Eye Cherry note."
+            },
+            {
+              "label": "American Girl",
+              "singer": null,
+              "note": "Miami/441 note."
+            },
+            {
+              "label": "Bright Lights",
+              "singer": null,
+              "note": "JJ tune; became a favorite."
+            },
+            {
+              "label": "Don’t You Forget About Me",
+              "singer": null,
+              "note": "Breakfast Club note."
+            }
+          ]
+        },
+        {
+          "label": "Set Two",
+          "songs": [
+            {
+              "label": "Gimme Shelter",
+              "singer": null,
+              "note": "Mick Jagger backing-vocals note."
+            },
+            {
+              "label": "Remedy",
+              "singer": null,
+              "note": "Chris/Rich Robinson note."
+            },
+            {
+              "label": "Shine",
+              "singer": null,
+              "note": "Brad re-tune; phone numbers."
+            },
+            {
+              "label": "Pump It Up",
+              "singer": null,
+              "note": "Fun to play out."
+            },
+            {
+              "label": "What I Got",
+              "singer": null,
+              "note": "Sublime note."
+            },
+            {
+              "label": "Get Back",
+              "singer": null,
+              "note": "Meaning queried."
+            },
+            {
+              "label": "Last Dance with Mary Jane",
+              "singer": null,
+              "note": "No note retained."
+            },
+            {
+              "label": "Brick House",
+              "singer": null,
+              "note": "Contrast / fun note."
+            },
+            {
+              "label": "Stuck in the Moment",
+              "singer": null,
+              "note": "Try U2; lush."
+            },
+            {
+              "label": "One More Time",
+              "singer": null,
+              "note": "Scott’s Britney Spears persona."
+            }
+          ]
+        },
+        {
+          "label": "Set Three",
+          "songs": [
+            {
+              "label": "The One I Love",
+              "singer": null,
+              "note": "REM / vocals note."
+            },
+            {
+              "label": "Just What I Needed",
+              "singer": null,
+              "note": "Cars videos note."
+            },
+            {
+              "label": "You Ain’t Seen Nothin’ Yet",
+              "singer": null,
+              "note": "1973/74 hit note."
+            },
+            {
+              "label": "White Wedding",
+              "singer": null,
+              "note": "Wedding Singer / Idol note."
+            },
+            {
+              "label": "Hashpipe",
+              "singer": null,
+              "note": "L.A. band note."
+            },
+            {
+              "label": "Any Way You Want It",
+              "singer": null,
+              "note": "Journey note."
+            },
+            {
+              "label": "Louie, Louie",
+              "singer": null,
+              "note": "FBI investigation note."
+            },
+            {
+              "label": "Stray Cat Strut",
+              "singer": null,
+              "note": "Last song; a little swing."
+            },
+            {
+              "label": "Sweet Emotion",
+              "singer": null,
+              "note": "Walk This Way taxi note."
+            },
+            {
+              "label": "Sweet Home Alabama",
+              "singer": null,
+              "note": null
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pages/",
+          "sha256": "662faab48d7fd6f2197779b43628c2f136bdaa825b01c92d9db56a593c1dca3d",
+          "size_bytes": 28912,
+          "format": "pages_package",
+          "modified_at": "2024-02-21T22:05:48",
+          "band": "The Smileys",
+          "filename": "Set List.pages",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [
+        {
+          "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pdf",
+          "sha256": "6eef3f3877cce91c2cffc98927a87cb695d6552b6f15dadd3bf42ee6869f28ce",
+          "size_bytes": 34654,
+          "format": "pdf",
+          "modified_at": "2008-01-26T22:21:34",
+          "band": "The Smileys",
+          "filename": "Set List.pdf",
+          "paired_representations": []
+        }
+      ],
+      "evidence": {
+        "method": "legacy Pages index.xml.gz XML parse",
+        "selection": "text after Set One; concise adjacent notes only"
+      },
+      "confidence": "high"
+    },
+    {
+      "id": "wait-for-the-shake-2006-01-25",
+      "status": "extracted",
+      "metadata": {
+        "band": "Wait for the Shake",
+        "date": "2006-01-25"
+      },
+      "groups": [
+        {
+          "label": "Set List",
+          "songs": [
+            {
+              "label": "Remedy",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Inside Out",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Ball and Chain",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "If You Could Only See",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Kryptonite",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Father of Mine",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Shine",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Word Up",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Hard to Handle",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Flagpole Sitta",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "I Don’t Wanna Be",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Gin and Juice",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Santeria",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "What I Got",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Interstate Love Song",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Are ... My Girl?",
+              "singer": null,
+              "note": null
+            },
+            {
+              "label": "Sweet Home Alabama",
+              "singer": null,
+              "note": null
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "path": "Band/Wait for the Shake/Set List 2006-01-25.pages/",
+          "sha256": "92bb0493635aa59c0986b8c02f64530c96d85fd5bbe450724ff683436606e3dd",
+          "size_bytes": 37991,
+          "format": "pages_package",
+          "modified_at": "2024-02-21T22:05:22",
+          "band": "Wait for the Shake",
+          "filename": "Set List 2006-01-25.pages",
+          "paired_representations": []
+        }
+      ],
+      "related_artifacts": [],
+      "evidence": {
+        "method": "legacy Pages index.xml.gz XML parse",
+        "retained": "song labels; arrangement directions omitted"
+      },
+      "confidence": "high"
+    }
+  ]
+}
