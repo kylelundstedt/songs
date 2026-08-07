@@ -1,0 +1,1445 @@
+{
+  "cheap_model_audit": [
+    {
+      "id": "1979",
+      "action": "keep",
+      "note": "Keep: Eb consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "all-about-that-bass",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "amber",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "any-way-you-want-it",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "back-in-black",
+      "action": "review",
+      "note": "Review: estimate is A\u266d, while the well-known recording/main riff is generally identified in A; possible tape-pitch issue."
+    },
+    {
+      "id": "behind-blue-eyes",
+      "action": "review",
+      "note": "Review: D conflicts with the song\u2019s familiar E-minor/E-centered tonality; likely section or analysis error."
+    },
+    {
+      "id": "black",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "boys-don-t-cry",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "californication",
+      "action": "keep",
+      "note": "Keep: Am consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "cheap-sunglasses",
+      "action": "keep",
+      "note": "Keep: Gm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "come-as-you-are",
+      "action": "review",
+      "note": "Review: G is doubtful; the well-known recording is centered around D (with down-tuned/pitch considerations)."
+    },
+    {
+      "id": "crawling-back-to-you",
+      "action": "keep",
+      "note": "Keep: F consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "criminal",
+      "action": "keep",
+      "note": "Keep: Cm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "daughter",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "don-t-go-back-to-rockville",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "even-flow",
+      "action": "keep",
+      "note": "Keep: Dm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "face-in-the-crowd",
+      "action": "keep",
+      "note": "Keep: AcousticBrainz estimate Am is plausible; no obvious match or key red flag."
+    },
+    {
+      "id": "fly-away",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "gimme-shelter",
+      "action": "keep",
+      "note": "Keep: C#m consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "glycerine",
+      "action": "keep",
+      "note": "Keep: F consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "good-times-bad-times",
+      "action": "keep",
+      "note": "Keep: F#m consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "hard-to-handle",
+      "action": "keep",
+      "note": "Keep: B consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "higher-ground",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "hold-my-hand",
+      "action": "keep",
+      "note": "Keep: B consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "i-shot-the-sheriff",
+      "action": "keep",
+      "note": "Keep: F#m consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "in-the-midnight-hour",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "jailbreak",
+      "action": "keep",
+      "note": "Keep: Eb consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "just-a-girl",
+      "action": "keep",
+      "note": "Keep: D consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "killing-in-the-name",
+      "action": "keep",
+      "note": "Keep: D consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "last-nite",
+      "action": "keep",
+      "note": "Keep: C consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "lets-dance",
+      "action": "keep",
+      "note": "Keep: Ab consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "little-sister",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "love-rollercoaster",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "low",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "mary-had-a-little-lamb",
+      "action": "review",
+      "note": "Review: A\u266d is implausible for the SRV recording, commonly heard as an E-shape blues in E\u266d concert pitch; check section/pitch."
+    },
+    {
+      "id": "miss-you",
+      "action": "keep",
+      "note": "Keep: Am consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "mysterious-ways",
+      "action": "keep",
+      "note": "Keep: Bbm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "no-rain",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "one",
+      "action": "keep",
+      "note": "Keep: Am consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "panama",
+      "action": "keep",
+      "note": "Keep: Eb consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "play-that-funky-music",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "psycho-killer",
+      "action": "review",
+      "note": "Review: C may be relative-major confusion; the song is commonly centered in A minor."
+    },
+    {
+      "id": "ride-on",
+      "action": "keep",
+      "note": "Keep: F consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "runnin-with-the-devil",
+      "action": "keep",
+      "note": "Keep: Eb consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "sex-and-candy",
+      "action": "keep",
+      "note": "Keep: Bm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "shine",
+      "action": "review",
+      "note": "Review: C\u266f conflicts with the commonly cited D-centered recording; could be tuning/pitch offset, so verify."
+    },
+    {
+      "id": "smells-like-teen-spirit",
+      "action": "keep",
+      "note": "Keep: Fm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "sullivan-street",
+      "action": "keep",
+      "note": "Keep: D consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "take-me-out",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "the-big-bang",
+      "action": "keep",
+      "note": "Keep: Gm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "times-like-these",
+      "action": "review",
+      "note": "Review: A minor conflicts with the familiar D-major studio arrangement; performance estimate D supports checking this."
+    },
+    {
+      "id": "tush",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "valerie",
+      "action": "review",
+      "note": "Review: B\u266d is doubtful; the familiar Amy Winehouse/Mark Ronson arrangement is generally E-centered (often charted in E)."
+    },
+    {
+      "id": "waitin-for-the-bus",
+      "action": "keep",
+      "note": "Keep: Am consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "welcome-to-the-jungle",
+      "action": "review",
+      "note": "Review: A\u266d is doubtful for the original, generally E\u266d/E-centered down-tuned guitar recording; verify pitch/section."
+    },
+    {
+      "id": "when-i-m-gone",
+      "action": "keep",
+      "note": "Keep: Am consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "wine-wine-wine",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "wonderwall",
+      "action": "review",
+      "note": "Review: A likely reflects relative-major confusion; the original is commonly understood as F\u266f minor (capo-2 G-shape arrangement)."
+    },
+    {
+      "id": "you-oughta-know",
+      "action": "keep",
+      "note": "Keep: F#m consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "6th-avenue-heartache",
+      "action": "keep",
+      "note": "Keep: F consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "all-summer-long",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "american-idiot",
+      "action": "keep",
+      "note": "Keep: Ab consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "are-you-gonna-be-my-girl",
+      "action": "review",
+      "note": "Review: Am is doubtful for the well-known recording, which is generally treated as major/E- or A-centered; AcousticBrainz also disagrees (D). Possible tonic/mode error."
+    },
+    {
+      "id": "bad-romance",
+      "action": "keep",
+      "note": "Keep: Am consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "bent",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "blister-in-the-sun",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "breakdown",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "can-t-stop",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "closer-to-fine",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "come-together",
+      "action": "review",
+      "note": "Review: D major conflicts with the familiar Beatles recording, commonly centered in D minor/modal D; possible relative-mode confusion."
+    },
+    {
+      "id": "crazy-bitch",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "dancing-with-myself",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "demons",
+      "action": "review",
+      "note": "Review: Deezer matched the TELYKast Remix rather than the original \u201cDemons\u201d; this is an obvious recording mismatch, so the Cm estimate cannot validate the target."
+    },
+    {
+      "id": "drive",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "everlong",
+      "action": "review",
+      "note": "Review: Bm is doubtful; the familiar Foo Fighters recording is commonly centered in D major. Possible relative-major/minor confusion."
+    },
+    {
+      "id": "fast-as-you",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "follow-me",
+      "action": "keep",
+      "note": "Keep: F consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "gimme-three-steps",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "god-of-wine",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "gravity",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "hash-pipe",
+      "action": "keep",
+      "note": "Keep: Am consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "higher",
+      "action": "keep",
+      "note": "Keep: D consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "home",
+      "action": "keep",
+      "note": "Keep: F# consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "i-want-you-to",
+      "action": "review",
+      "note": "Review: Deezer matched \u201cI Don\u2019t Want To Let You Go\u201d (score 0.8293), not \u201cI Want You To\u201d; obvious wrong recording/title match."
+    },
+    {
+      "id": "in-your-eyes",
+      "action": "keep",
+      "note": "Keep: D consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "jolene",
+      "action": "keep",
+      "note": "Keep: C#m consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "just-got-paid",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "kiss",
+      "action": "keep",
+      "note": "Keep: A consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "let-me-put-my-love-into-you",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "lightning-crashes",
+      "action": "keep",
+      "note": "Keep: F# consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "locked-out-of-heaven",
+      "action": "review",
+      "note": "Review: F major is likely relative-major confusion; the original Bruno Mars recording is commonly centered in D minor."
+    },
+    {
+      "id": "love-shack",
+      "action": "review",
+      "note": "Review: Cm is doubtful; the familiar B-52\u2019s recording is generally treated as C major. Possible relative-major/minor confusion."
+    },
+    {
+      "id": "major-tom",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "melissa",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "mustang-sally",
+      "action": "keep",
+      "note": "Keep: C consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "never-let-you-go",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "no-woman-no-cry",
+      "action": "keep",
+      "note": "Keep: C# consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "outshined",
+      "action": "keep",
+      "note": "Keep: D consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "paradise-city",
+      "action": "keep",
+      "note": "Keep: F# consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "plush",
+      "action": "review",
+      "note": "Review: C major conflicts with the familiar Stone Temple Pilots recording, commonly centered in G major (also consistent with the supplied performance key)."
+    },
+    {
+      "id": "radioactive",
+      "action": "review",
+      "note": "Review: A major is doubtful; \u201cRadioactive\u201d is commonly centered in B minor. Possible tonic/section analysis error."
+    },
+    {
+      "id": "ring-of-fire",
+      "action": "keep",
+      "note": "Keep: Bb consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "santeria",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "sex-on-fire",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "shining-star",
+      "action": "keep",
+      "note": "Keep: Em consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "so-lonely",
+      "action": "keep",
+      "note": "Keep: C consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "superstition-single-version",
+      "action": "keep",
+      "note": "Keep: Ebm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "thank-you-falettinme-be-mice-elf-agin",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "the-distance",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "tom-sawyer",
+      "action": "keep",
+      "note": "Keep: Bm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "under-the-bridge",
+      "action": "keep",
+      "note": "Keep: E consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "vasoline",
+      "action": "keep",
+      "note": "Keep: Gm consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "walk-this-way",
+      "action": "keep",
+      "note": "Keep: F consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "what-i-got",
+      "action": "keep",
+      "note": "Keep: D consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "whenever-you-come-around",
+      "action": "keep",
+      "note": "Keep: B consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "with-arms-wide-open",
+      "action": "keep",
+      "note": "Keep: C consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "word-up",
+      "action": "keep",
+      "note": "Keep: F#m consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "you-shook-me-all-night-long",
+      "action": "keep",
+      "note": "Keep: G consensus is plausible for this recording; performance-key differences are not by themselves concerning."
+    },
+    {
+      "id": "8675309",
+      "action": "review",
+      "note": "Estimate C conflicts with the well-known recording's F#/F#-minor tonal center; review."
+    },
+    {
+      "id": "all-these-things-that-i-ve-done",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "angel-from-montgomery",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "are-you-gonna-go-my-way",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "bad-things",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "billie-jean",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "blue-monday",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "brown-eyed-girl",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "can-t-you-see",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "closing-time",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "counting-blue-cars",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "crazy",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "dani-california",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "dock-of-the-bay",
+      "action": "review",
+      "note": "Likely relative-major/minor error: the classic recording is centered on G major, while the estimate is Em."
+    },
+    {
+      "id": "elderly-woman",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "every-mother-s-son",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "find-yourself",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "free-fallin",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "give-me-one-reason",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "gone-gone-gone",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "hang-you-from-the-heavens",
+      "action": "review",
+      "note": "Preview consensus is Em but AcousticBrainz reports F with low strength; semitone/mode disagreement warrants review."
+    },
+    {
+      "id": "heard-it-in-a-love-song",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "highway-to-hell",
+      "action": "review",
+      "note": "Likely mode error: the iconic recording is centered on A major/blues, not A minor."
+    },
+    {
+      "id": "hunger-strike",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "i-will-survive",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "inside-out",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "juicebox",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "just-like-heaven",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "kryptonite",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "let-s-get-it-on",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "like-a-stone",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "lonely-is-the-night",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "love-train",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "man-in-the-box",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "melt-with-you",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "my-hero",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "new-year-s-day",
+      "action": "review",
+      "note": "E\u266d minor is doubtful against the commonly recognized D-minor tonal center; review for a semitone/key-estimation error."
+    },
+    {
+      "id": "nothing-compares-2-u",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "outside",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "paralyzer",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "pompeii",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "ramble-on",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "roadhouse-blues",
+      "action": "review",
+      "note": "Likely mode/tonic error: the classic blues recording centers on E/E7, while the estimate is Em and AcousticBrainz reports Am."
+    },
+    {
+      "id": "say-it-ain-t-so",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "sharp-dressed-man",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "short-skirt",
+      "action": "review",
+      "note": "Doubtful: preview consensus is Dm, but AcousticBrainz and the supplied performance key both indicate G; review."
+    },
+    {
+      "id": "song-2",
+      "action": "review",
+      "note": "Ab is doubtful for this recording; the low-agreement preview estimate conflicts with commonly cited F/F\u266f-area tonal centers."
+    },
+    {
+      "id": "sweet-emotion",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "thank-you",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "the-middle",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "troublemaker",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "use-me",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "vertigo",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "walk",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "wheels",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "where-the-streets-have-no-names",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "with-or-without-you",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "yellow-ledbetter",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "you-wreck-me",
+      "action": "keep",
+      "note": "Matched recording and key estimate are plausible; no material concern."
+    },
+    {
+      "id": "across-the-universe",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "always-on-the-run",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "animal",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "baby-i-love-you",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "bang-a-gong-get-it-on",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "black-hole-sun",
+      "action": "review",
+      "note": "The recording is commonly centered in G (major/modal mixture), while Ab minor is a semitone/mode discrepancy; review the estimate."
+    },
+    {
+      "id": "born-to-run",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "budapest",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "chasing-cars",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "cold-hard-bitch",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "crash",
+      "action": "review",
+      "note": "Deezer matched 'Crash into Me' rather than Dave Matthews Band's song 'Crash'; this is an obvious recording mismatch, so the E estimate needs review."
+    },
+    {
+      "id": "creep",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "dark-necessities",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "doin-time",
+      "action": "review",
+      "note": "C major is doubtful for Sublime's recording, which is commonly centered in C minor; possible mode/relative-key confusion."
+    },
+    {
+      "id": "enter-sandman",
+      "action": "review",
+      "note": "The canonical recording is commonly understood as E minor; an unqualified E major estimate suggests a mode error despite classifier agreement."
+    },
+    {
+      "id": "exs-and-ohs",
+      "action": "review",
+      "note": "G major is questionable; the recording is commonly centered in E minor, suggesting relative-major/minor confusion."
+    },
+    {
+      "id": "fire-on-the-mountain",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "gimme-all-your-lovin",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "givin-the-dog-a-bone",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "gone-shootin",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "happy",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "heart-shaped-box",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "hit-me-with-your-best-shot",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "i-kissed-a-girl",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "i-m-bad-i-m-nationwide",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "interstate-love-song",
+      "action": "review",
+      "note": "E major may be the relative-major reading; the recording is commonly identified as C-sharp minor, so review the mode/tonic."
+    },
+    {
+      "id": "jump",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "just-what-i-needed",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "la-grange",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "let-s-go-crazy",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "little-less-conversation",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "long-train-runnin",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "lovesong",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "margaritaville",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "mercy",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "my-own-worst-enemy",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "no-one-knows",
+      "action": "review",
+      "note": "C major is questionable; the recording is commonly described as C minor/modal-minor, so review for a mode error."
+    },
+    {
+      "id": "numb",
+      "action": "review",
+      "note": "A major is likely a relative-major reading; the main harmony/tonal center is commonly F-sharp minor, so review."
+    },
+    {
+      "id": "overkill",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "patience",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "possum-kingdom",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "rebel-yell",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "rooster",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "seven-nation-army",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "she-sells-sanctuary",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "sittin-on-the-dock-of-the-bay",
+      "action": "review",
+      "note": "E minor is questionable; the standard recording is generally centered in G major, suggesting relative-major/minor confusion."
+    },
+    {
+      "id": "soulshine",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "sweet-home-alabama",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "that-s-the-way-i-like-it",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "the-scientist",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "turn-the-page",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "use-somebody",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "wagon-wheel",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "wanted-dead-or-alive",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "when-i-come-around",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "wicked-game",
+      "action": "review",
+      "note": "E major conflicts with the commonly recognized B-minor tonality and the supplied Bm performance key; review for tonal-center/mode error."
+    },
+    {
+      "id": "woman",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "you-found-me",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    },
+    {
+      "id": "fire-woman",
+      "action": "keep",
+      "note": "Matched recording and key estimate appear plausible; no material concern."
+    }
+  ],
+  "expert_decisions": [
+    {
+      "id": "are-you-gonna-be-my-girl",
+      "action": "replace",
+      "key": "A",
+      "confidence": 0.88,
+      "note": "A is the concert tonic; the riff is A-blues/modal, so its flat-third and flat-seventh content can make profile matching report Am even though a plain A label is the better original-recording key."
+    },
+    {
+      "id": "come-together",
+      "action": "replace",
+      "key": "Dm",
+      "confidence": 0.95,
+      "note": "The recording is D-centered minor/blues-modal: the verse riff and vocal use the minor collection, and the detailed opening-window profiles strongly select Dm. The full-preview D label loses the mode."
+    },
+    {
+      "id": "demons",
+      "action": "replace",
+      "key": "Eb",
+      "confidence": 0.98,
+      "note": "The matched audio is the TELYKast remix, but the standard Imagine Dragons original is clearly established in Eb major. The remix's Cm result is the relative-minor reading, not evidence for the original key."
+    },
+    {
+      "id": "everlong",
+      "action": "replace",
+      "key": "D",
+      "confidence": 0.97,
+      "note": "Everlong resolves to D and is conventionally D major/modal; Bm is its relative minor. Temperley also selected D, while the other profiles over-weighted the shared pitch collection."
+    },
+    {
+      "id": "i-want-you-to",
+      "action": "reject",
+      "key": null,
+      "confidence": 0.99,
+      "note": "Deezer matched Weezer's different song I Don't Want To Let You Go. The body supplies no recording evidence, and the D performance chart alone is insufficient to assert the original-recording key conservatively."
+    },
+    {
+      "id": "locked-out-of-heaven",
+      "action": "replace",
+      "key": "Dm",
+      "confidence": 0.97,
+      "note": "The original is centered in D minor; F is its relative major and is prominent in the sampled section. The Dm-F-Bb-C harmonic material explains the profile confusion."
+    },
+    {
+      "id": "love-shack",
+      "action": "replace",
+      "key": "C",
+      "confidence": 0.88,
+      "note": "The song is a C-centered major/blues vamp rather than functional C minor. Blues flat thirds and sevenths explain the Cm profile; the canonical performance chart also keeps the tonic at C."
+    },
+    {
+      "id": "plush",
+      "action": "replace",
+      "key": "G",
+      "confidence": 0.95,
+      "note": "The original arrangement has a G tonal center with substantial modal/chromatic mixture. The preview covers C-heavy material, but C is not the song's global tonic; the canonical G chart is consistent with the recording."
+    },
+    {
+      "id": "radioactive",
+      "action": "replace",
+      "key": "Bm",
+      "confidence": 0.98,
+      "note": "The global loop and melodic resolution center B minor. A and E dominate parts of the excerpt, but the detailed first window selects Bm and the full A result is a section/tonic error."
+    },
+    {
+      "id": "black-hole-sun",
+      "action": "replace",
+      "key": "G",
+      "confidence": 0.95,
+      "note": "The original is G-centered with unusually chromatic major/minor mixture. A higher-resolution aggregate of the cached preview selects G across the tested profiles; Abm is a section-driven semitone/mode failure."
+    },
+    {
+      "id": "crash",
+      "action": "keep",
+      "key": "E",
+      "confidence": 0.98,
+      "note": "The canonical lyrics identify Crash Into Me; 'Crash' is only the local shorthand title, so the Deezer match is semantically correct. The recording and the performance chart both support E."
+    },
+    {
+      "id": "doin-time",
+      "action": "replace",
+      "key": "Gm",
+      "confidence": 0.96,
+      "note": "The Sublime recording centers G minor/G Dorian. Its characteristic Gm-C vamp makes C major attractive to profile matching, but G remains the tonic; the canonical performance key agrees."
+    },
+    {
+      "id": "enter-sandman",
+      "action": "replace",
+      "key": "Em",
+      "confidence": 0.96,
+      "note": "The recording is E-centered minor/blues-modal. Power chords and the major-inflected E sonority cause some profiles to omit the minor mode, but the riff and later window establish Em."
+    },
+    {
+      "id": "exs-and-ohs",
+      "action": "replace",
+      "key": "Em",
+      "confidence": 0.95,
+      "note": "The original centers E minor; G is the relative major and dominates the sampled opening. Later-window profiles move to Em, and the canonical Em performance chart matches the song's tonic."
+    },
+    {
+      "id": "interstate-love-song",
+      "action": "keep",
+      "key": "E",
+      "confidence": 0.91,
+      "note": "E major is a defensible global key for the original: every profile in each detailed preview window selects E, with repeated long E sonorities. C#m is the relative-minor/verse-centered performance reading, not a clear basis to overturn E."
+    },
+    {
+      "id": "no-one-knows",
+      "action": "replace",
+      "key": "Cm",
+      "confidence": 0.98,
+      "note": "The low-tuned main riff and harmonic center are C minor/modal. Major-oriented profiles flatten the mode to C, while the detailed chord evidence and minor-sensitive profiles consistently favor Cm."
+    },
+    {
+      "id": "numb",
+      "action": "replace",
+      "key": "F#m",
+      "confidence": 0.98,
+      "note": "The progression and melodic resolution center F# minor. A is the relative major; the minor-sensitive detailed profiles shift to F#m, especially in the later window."
+    },
+    {
+      "id": "sittin-on-the-dock-of-the-bay",
+      "action": "replace",
+      "key": "G",
+      "confidence": 0.99,
+      "note": "The Otis Redding recording is plainly G major. Em is the relative-minor profile reading and does not match the verse, chorus, or final G-centered resolution."
+    },
+    {
+      "id": "wicked-game",
+      "action": "replace",
+      "key": "Bm",
+      "confidence": 0.99,
+      "note": "The repeating Bm-A-E progression resolves to B minor, with a Dorian major-IV color. The E-heavy preview is a tonic-selection error, not E major; the canonical Bm chart agrees."
+    },
+    {
+      "id": "back-in-black",
+      "action": "replace",
+      "key": "E",
+      "confidence": 0.99,
+      "note": "Deezer supplied the River Plate live version, but the original studio recording's E-centered major/blues key is unequivocal. The live preview's Ab result is unrelated to the song's tonic."
+    },
+    {
+      "id": "behind-blue-eyes",
+      "action": "replace",
+      "key": "Em",
+      "confidence": 0.98,
+      "note": "The matched track is a live version and its excerpt emphasizes D/A material. The original studio song is clearly E-minor-centered, later contrasting with an E-centered rock section; the canonical E chart reflects the tonic, not concert major mode."
+    },
+    {
+      "id": "come-as-you-are",
+      "action": "replace",
+      "key": "Em",
+      "confidence": 0.93,
+      "note": "The recording's concert bass and chord content center E minor, with G as the relative-major collection. The cached preview repeatedly exposes E/D/G roots; a D label should not be inferred merely from alternate down-tuned guitar notation."
+    },
+    {
+      "id": "mary-had-a-little-lamb",
+      "action": "keep",
+      "key": "Ab",
+      "confidence": 0.96,
+      "note": "Ab is the concert-pitch blues tonic of the SRV recording. The guitar is commonly treated as an A-shape performance with the instrument tuned down a semitone; that fingering must not be mislabeled as concert A or Eb."
+    },
+    {
+      "id": "psycho-killer",
+      "action": "replace",
+      "key": "Am",
+      "confidence": 0.97,
+      "note": "The verse bass line and vocal cadence center A minor. C is the relative major and dominates portions of the preview, while the later detailed window correctly selects Am."
+    },
+    {
+      "id": "shine",
+      "action": "keep",
+      "key": "C#",
+      "confidence": 0.97,
+      "note": "The cached original recording consistently centers C#/Db, with F# as the main contrasting area. The D performance key is a playable/fingering transposition; it should not override the concert pitch."
+    },
+    {
+      "id": "times-like-these",
+      "action": "replace",
+      "key": "D",
+      "confidence": 0.97,
+      "note": "The studio arrangement resolves to D and is best labeled D major/modal. Its prominent Am and C material can mislead a short-window profile, but later windows and the canonical D chart recover the global tonic."
+    },
+    {
+      "id": "valerie",
+      "action": "replace",
+      "key": "Eb",
+      "confidence": 0.96,
+      "note": "The matched BBC Live Lounge recording is the intended canonical version. Detailed aggregate profiles and chord evidence center Eb, with Fm as ii; Bb is the dominant, while the E performance chart is transposed up a semitone."
+    },
+    {
+      "id": "welcome-to-the-jungle",
+      "action": "replace",
+      "key": "Eb",
+      "confidence": 0.94,
+      "note": "The studio recording is Eb-centered major/blues in concert pitch, commonly played with E shapes on guitars tuned down a semitone. The preview's Ab result reflects a sampled section, not the global tonic."
+    },
+    {
+      "id": "wonderwall",
+      "action": "replace",
+      "key": "F#m",
+      "confidence": 0.95,
+      "note": "The original centers F# minor; A is its relative major. The familiar capo-2 Em/G/D/A shapes sound as F#m/A/E/B in concert pitch, so fingering labels must not be used as the recording key."
+    },
+    {
+      "id": "8675309",
+      "action": "reject",
+      "key": null,
+      "confidence": 0.95,
+      "note": "The cached Deezer track is a later recording from Retro Classic Rock Live, not the original studio master. The body and F#m performance chart do not resolve the original's F#m-versus-A relative-key ambiguity strongly enough to replace conservatively."
+    },
+    {
+      "id": "dock-of-the-bay",
+      "action": "replace",
+      "key": "G",
+      "confidence": 0.99,
+      "note": "This duplicate canonical entry is the same Otis Redding recording and is in G major. The Em estimate is relative-minor confusion."
+    },
+    {
+      "id": "hang-you-from-the-heavens",
+      "action": "keep",
+      "key": "Em",
+      "confidence": 0.92,
+      "note": "The exact Dead Weather recording is consistently E-minor-centered in the detailed windows. AcousticBrainz's F has only 0.488 strength and is outweighed by the stronger repeated Em profiles."
+    },
+    {
+      "id": "highway-to-hell",
+      "action": "replace",
+      "key": "A",
+      "confidence": 0.99,
+      "note": "The original is A-centered major/blues, built from A, D, and G-related rock harmony. The Am result captures blues flat-third color but assigns the wrong mode."
+    },
+    {
+      "id": "new-year-s-day",
+      "action": "keep",
+      "key": "Ebm",
+      "confidence": 0.97,
+      "note": "The exact 2008 remaster preview is consistently Eb-minor-centered: all five tested profiles select Ebm in the opening window and again in the closing window, with Eb prominent in the bass. There is no evidence for a D-minor semitone correction."
+    },
+    {
+      "id": "roadhouse-blues",
+      "action": "replace",
+      "key": "E",
+      "confidence": 0.98,
+      "note": "The Doors performance is an E/E7 blues. Minor profiles interpret the flat-third blues vocabulary as Em, but the tonic sonority and dominant-blues function call for E rather than E minor."
+    },
+    {
+      "id": "short-skirt",
+      "action": "keep",
+      "key": "Dm",
+      "confidence": 0.93,
+      "note": "The recording is D-minor/funk centered; the detailed windows repeatedly select Dm and the chord evidence centers D/Dm. The unqualified D performance chart preserves the tonic but not necessarily the mode, and AcousticBrainz G is not persuasive."
+    },
+    {
+      "id": "song-2",
+      "action": "replace",
+      "key": "Fm",
+      "confidence": 0.93,
+      "note": "The riff is F-minor/modal in concert pitch; Ab is the relative-major reading. The detailed opening window strongly selects Fm, and the familiar power-chord progression resolves to F rather than Ab."
+    }
+  ]
+}

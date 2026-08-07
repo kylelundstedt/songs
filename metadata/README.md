@@ -14,3 +14,16 @@ python3 -m unittest tests/test_populate_metadata.py
 ```
 
 `source_provider`/`source_url` are intentionally not assigned to migrated lead sheets. The external LRCLIB match is stored as `lyrics_reference_*`; actual text provenance remains the legacy Git import.
+
+## Original-key estimates
+
+Original-recording keys can be estimated from the selected recording using AcousticBrainz where available and three Essentia key profiles over a transient Deezer preview:
+
+```sh
+python3 -m venv /tmp/songs-keyenv
+/tmp/songs-keyenv/bin/pip install -r tools/metadata-key-requirements.txt
+/tmp/songs-keyenv/bin/python tools/populate_keys.py harvest
+/tmp/songs-keyenv/bin/python tools/populate_keys.py apply --proposals metadata/key-proposals.json
+```
+
+Audio previews remain only in the ignored `.metadata-cache/`. Canonical files record the estimated key, estimate kind, confidence, and analyzed recording URL. A leading `~` in the app indicates that the displayed original key is an estimate rather than a confirmed band performance key.
