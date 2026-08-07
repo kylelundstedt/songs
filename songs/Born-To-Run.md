@@ -35,11 +35,11 @@ Chrome-wheeled, fuel-injected, and steppin' out over the line
 Oh, baby, this town rips the bones from your back  
 It's a death trap, it's a suicide rap 
 We gotta get out while we're young  
-'Cause tramps like us .. Baby, we were born to-  
+'Cause tramps like us; Baby, we were born to-  
   
 ### Intro Vamp  8x  
 
--runnnnnnnnnn ... Yes, girl, we were ...  
+-runnnnnnnnnn; Yes, girl, we were 
   
 ### Verse  8x  
 
@@ -51,8 +51,7 @@ Just wrap ur legs 'roun these velvet rims, n' strap ur hands 'cross my engines
 Together we could break this trap, We'll run 'til we drop, baby, we'll never go back  
 Oh, will you walk with me out on the wire?  'Cause, baby, I'm just a scared and lonely rider  
   
-But I gotta know how it feels.  I wanna know if love is wild, babe, I want to know if love is  
--realllllllllll ... Oh, can you show me? ..   
+But I gotta know how it feels.  I wanna know if love is wild, babe, I want to know if love is reallllll; Oh, can you show me? ..   
   
 ### Intro Vamp  8x    Sax Solo  12x
   
