@@ -100,6 +100,16 @@ func TestCatalogAndRoutes(t *testing.T) {
 			}
 		})
 	}
+
+	server.songs[0].Key = ""
+	server.songs[0].BPM = ""
+	req := httptest.NewRequest(http.MethodGet, "/song/test-song", nil)
+	req.SetPathValue("id", "test-song")
+	w := httptest.NewRecorder()
+	server.HandleSong(w, req)
+	if body := w.Body.String(); !strings.Contains(body, "Orig key</dt><dd>~G") || !strings.Contains(body, "Orig BPM</dt><dd>118") {
+		t.Fatalf("original metadata fallback missing: %s", body)
+	}
 }
 
 func TestCreateSongWorkflow(t *testing.T) {
