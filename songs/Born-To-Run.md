@@ -33,7 +33,7 @@ At night we ride through mansions of glory, in suicide machines
 Sprung from cages out on Highway 9  
 Chrome-wheeled, fuel-injected, and steppin' out over the line  
 Oh, baby, this town rips the bones from your back  
-It's a death trap, it's a suicide rap 
+It's a death trap, it's a suicide rap  
 We gotta get out while we're young  
 'Cause tramps like us; Baby, we were born to runnnn    
   
