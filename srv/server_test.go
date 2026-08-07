@@ -102,6 +102,45 @@ func TestCatalogAndRoutes(t *testing.T) {
 	}
 }
 
+func TestMetadataPlaceholdersRemainVisible(t *testing.T) {
+	server := fixtureServer(t)
+	song := server.songs[0]
+	song.Artist = ""
+	song.Key = ""
+	song.BPM = ""
+	song.OriginalKey = ""
+	song.OriginalBPM = ""
+	song.SourceURL = ""
+	song.SourceProvider = ""
+
+	tests := []struct {
+		path    string
+		handler http.HandlerFunc
+		id      string
+	}{
+		{path: "/song/test-song", handler: server.HandleSong, id: "test-song"},
+		{path: "/sets/test-set/live", handler: server.HandleLiveSet, id: "test-set"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.path, func(t *testing.T) {
+			req := httptest.NewRequest(http.MethodGet, tt.path, nil)
+			req.SetPathValue("id", tt.id)
+			w := httptest.NewRecorder()
+			tt.handler(w, req)
+			if w.Code != http.StatusOK {
+				t.Fatalf("status=%d body=%s", w.Code, w.Body.String())
+			}
+			body := w.Body.String()
+			for _, field := range []string{"Key", "BPM", "Artist", "Lyrics", "Original key", "Original BPM"} {
+				want := "<dt>" + field + "</dt><dd>—</dd>"
+				if !strings.Contains(body, want) {
+					t.Errorf("body missing visible placeholder %q", want)
+				}
+			}
+		})
+	}
+}
+
 func TestCreateSongWorkflow(t *testing.T) {
 	server := fixtureServer(t)
 	form := url.Values{

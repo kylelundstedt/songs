@@ -13,7 +13,7 @@
       <div class="apex-source" data-apex-source>{{.Song.HTML}}</div>
       <div class="live-columns" data-live-columns aria-label="{{.Song.Title}} lead sheet"></div>
     </div>
-    <footer class="sheet-footer"><a href="/songs">Library</a>{{if or .Song.SourceURL .Song.OriginalKey .Song.OriginalBPM}}<dl class="source-facts" aria-label="Original recording details">{{if .Song.SourceURL}}<div><dt>Lyrics</dt><dd><a href="{{.Song.SourceURL}}" target="_blank" rel="noopener noreferrer">{{if .Song.SourceProvider}}{{.Song.SourceProvider}}{{else}}Source{{end}} ↗</a></dd></div>{{end}}{{if .Song.OriginalKey}}<div><dt>Original key</dt><dd>{{.Song.OriginalKey}}</dd></div>{{end}}{{if .Song.OriginalBPM}}<div><dt>Original BPM</dt><dd>{{.Song.OriginalBPM}}</dd></div>{{end}}</dl>{{end}}</footer>
+    <footer class="sheet-footer"><a href="/songs">Library</a><dl class="source-facts" aria-label="Original recording details"><div><dt>Lyrics</dt><dd>{{if .Song.SourceURL}}<a href="{{.Song.SourceURL}}" target="_blank" rel="noopener noreferrer">{{if .Song.SourceProvider}}{{.Song.SourceProvider}}{{else}}Source{{end}} ↗</a>{{else}}—{{end}}</dd></div><div><dt>Original key</dt><dd>{{if .Song.OriginalKey}}{{.Song.OriginalKey}}{{else}}—{{end}}</dd></div><div><dt>Original BPM</dt><dd>{{if .Song.OriginalBPM}}{{.Song.OriginalBPM}}{{else}}—{{end}}</dd></div></dl></footer>
   </article>
 </main>
 <script src="/static/app.js" defer></script>
