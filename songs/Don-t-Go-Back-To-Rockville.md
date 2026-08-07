@@ -1,5 +1,6 @@
 ---
 artist: "R.E.M."
+performance_key: "E"
 original_key: "E"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.83"

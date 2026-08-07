@@ -1,5 +1,6 @@
 ---
 artist: "Violent Femmes"
+performance_key: "G"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.873"

@@ -1,6 +1,7 @@
 ---
 artist: "Lukas Nelson and Promise of the Real"
 performance_key: "G"
+bpm: "133.37"
 original_key: "Ab"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.906"

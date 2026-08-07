@@ -1,5 +1,6 @@
 ---
 artist: "Oasis"
+performance_key: "F#m"
 original_key: "F#m"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.95"

@@ -1,5 +1,7 @@
 ---
 artist: "Uncle Kracker"
+performance_key: "F"
+bpm: "104.9"
 original_key: "F"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.918"

@@ -1,6 +1,7 @@
 ---
 artist: "Katy Perry"
 performance_key: "A"
+bpm: "130"
 original_key: "Am"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.852"

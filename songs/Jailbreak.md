@@ -1,5 +1,6 @@
 ---
 artist: "Thin Lizzy"
+performance_key: "Eb"
 original_key: "Eb"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.811"

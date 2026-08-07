@@ -1,5 +1,7 @@
 ---
 artist: "AC/DC"
+performance_key: "F#"
+bpm: "122.7"
 original_key: "F#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.899"

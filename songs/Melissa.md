@@ -1,5 +1,7 @@
 ---
 artist: "The Allman Brothers Band"
+performance_key: "E"
+bpm: "166.04"
 original_key: "E"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.913"

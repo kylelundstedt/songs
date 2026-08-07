@@ -1,5 +1,7 @@
 ---
 artist: "Third Eye Blind"
+performance_key: "A"
+bpm: "150.3"
 original_key: "A"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

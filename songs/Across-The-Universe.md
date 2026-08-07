@@ -1,5 +1,7 @@
 ---
 artist: "Fiona Apple"
+performance_key: "E"
+bpm: "130"
 original_key: "E"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

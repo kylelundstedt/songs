@@ -1,5 +1,7 @@
 ---
 artist: "Stone Temple Pilots"
+performance_key: "Gm"
+bpm: "168.1"
 original_key: "Gm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.818"

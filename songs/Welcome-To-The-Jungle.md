@@ -1,5 +1,7 @@
 ---
 artist: "Guns N' Roses"
+performance_key: "Eb"
+bpm: "123.05"
 original_key: "Eb"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.94"

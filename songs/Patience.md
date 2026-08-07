@@ -1,5 +1,7 @@
 ---
 artist: "Guns N' Roses"
+performance_key: "C#"
+bpm: "118.8"
 original_key: "C#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.854"

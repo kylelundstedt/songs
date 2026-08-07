@@ -1,5 +1,6 @@
 ---
 artist: "Tom Petty & The Heartbreakers"
+performance_key: "Am"
 original_key: "Am"
 original_key_kind: "acousticbrainz-estimate"
 original_key_confidence: "0.837"

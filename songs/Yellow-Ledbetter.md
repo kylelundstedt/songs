@@ -1,5 +1,7 @@
 ---
 artist: "Pearl Jam"
+performance_key: "E"
+bpm: "140.6"
 original_key: "E"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.917"

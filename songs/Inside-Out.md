@@ -1,6 +1,7 @@
 ---
 artist: "Eve 6"
 performance_key: "A"
+bpm: "175.9"
 original_key: "B"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.847"

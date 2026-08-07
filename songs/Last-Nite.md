@@ -1,5 +1,6 @@
 ---
 artist: "The Strokes"
+performance_key: "C"
 original_key: "C"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.918"

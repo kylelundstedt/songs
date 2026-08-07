@@ -1,6 +1,7 @@
 ---
 artist: "Jimmy Eat World"
 performance_key: "D"
+bpm: "162.13"
 original_key: "D"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.903"

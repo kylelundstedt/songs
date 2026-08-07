@@ -1,5 +1,7 @@
 ---
 artist: "Fiona Apple"
+performance_key: "Cm"
+bpm: "179.8"
 original_key: "Cm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.881"

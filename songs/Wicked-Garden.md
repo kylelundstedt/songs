@@ -1,17 +1,18 @@
 ---
 artist: "Stone Temple Pilots"
 performance_key: "A"
+bpm: "152.6"
+original_bpm: "152.6"
 reference_title: "Wicked Garden"
 reference_artist: "Stone Temple Pilots"
 reference_album: "Top Trax MP3's #2"
-reference_duration_seconds: 245.0
+reference_duration_seconds: "245.0"
 recording_mbid: "203319a8-5428-4ed2-b4bf-8ad101d7f543"
-original_bpm: "152.6"
 deezer_track_id: "3907796"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37475577"
 lyrics_reference_url: "https://lrclib.net/api/get/37475577"
-metadata_confidence: 0.9442
+metadata_confidence: "0.9442"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Wicked-Garden.md"

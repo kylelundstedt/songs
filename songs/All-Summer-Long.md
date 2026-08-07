@@ -1,6 +1,7 @@
 ---
 artist: "Kid Rock"
 performance_key: "D"
+bpm: "102.8"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.905"

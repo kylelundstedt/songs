@@ -1,5 +1,7 @@
 ---
 artist: "Foo Fighters"
+performance_key: "A"
+bpm: "140.1"
 original_key: "A"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.906"

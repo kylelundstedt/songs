@@ -1,5 +1,7 @@
 ---
 artist: "Semisonic"
+performance_key: "G"
+bpm: "184.57"
 original_key: "G"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

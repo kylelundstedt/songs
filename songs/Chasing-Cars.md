@@ -1,5 +1,7 @@
 ---
 artist: "Snow Patrol"
+performance_key: "A"
+bpm: "103.88"
 original_key: "A"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

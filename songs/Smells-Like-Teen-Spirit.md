@@ -1,5 +1,6 @@
 ---
 artist: "Nirvana"
+performance_key: "Fm"
 original_key: "Fm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.904"

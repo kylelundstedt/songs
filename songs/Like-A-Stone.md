@@ -1,5 +1,7 @@
 ---
 artist: "Audioslave"
+performance_key: "Gm"
+bpm: "107.7"
 original_key: "Gm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.84"

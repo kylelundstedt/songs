@@ -1,5 +1,6 @@
 ---
 artist: "Queens of the Stone Age"
+performance_key: "Cm"
 original_key: "Cm"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.98"

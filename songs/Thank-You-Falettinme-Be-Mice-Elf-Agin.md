@@ -1,5 +1,7 @@
 ---
 artist: "Sly & the Family Stone"
+performance_key: "E"
+bpm: "106"
 original_key: "E"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.841"

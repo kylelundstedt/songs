@@ -1,5 +1,7 @@
 ---
 artist: "Bon Jovi"
+performance_key: "G"
+bpm: "150.89"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.825"

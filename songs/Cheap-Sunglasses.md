@@ -1,6 +1,7 @@
 ---
 artist: "ZZ Top"
 performance_key: "Gm"
+bpm: "191.41"
 original_key: "Gm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.797"

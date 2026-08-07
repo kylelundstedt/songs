@@ -1,6 +1,7 @@
 ---
 artist: "Amy Winehouse"
 performance_key: "E"
+bpm: "96.4"
 original_key: "Eb"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.96"

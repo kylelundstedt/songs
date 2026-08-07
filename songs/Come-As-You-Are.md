@@ -1,5 +1,6 @@
 ---
 artist: "Nirvana"
+performance_key: "Em"
 original_key: "Em"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.93"

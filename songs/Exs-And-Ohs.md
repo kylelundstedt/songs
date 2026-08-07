@@ -1,6 +1,7 @@
 ---
 artist: "Elle King"
 performance_key: "Em"
+bpm: "140.2"
 original_key: "Em"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.95"

@@ -1,5 +1,6 @@
 ---
 artist: "Dishwalla"
+performance_key: "D"
 original_key: "D"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.83"

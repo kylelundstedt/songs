@@ -1,5 +1,7 @@
 ---
 artist: "Hootie & the Blowfish"
+performance_key: "B"
+bpm: "173.7"
 original_key: "B"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.844"

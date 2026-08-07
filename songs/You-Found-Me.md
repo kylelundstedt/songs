@@ -1,5 +1,7 @@
 ---
 artist: "The Fray"
+performance_key: "B"
+bpm: "152"
 original_key: "B"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.914"

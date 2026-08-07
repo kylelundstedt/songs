@@ -1,11 +1,12 @@
 ---
 artist: "Lizzo"
+bpm: "119.84"
+original_bpm: "119.84"
 reference_title: "Juice"
 reference_artist: "Lizzo"
 reference_album: "The Soulful Harmonies"
 reference_duration_seconds: "195.0"
 recording_mbid: "f1be604c-d753-47d1-9faa-6c5d8fe0a832"
-original_bpm: "119.84"
 deezer_track_id: "666286232"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37051892"

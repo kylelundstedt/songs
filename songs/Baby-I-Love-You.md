@@ -1,6 +1,7 @@
 ---
 artist: "Aretha Franklin"
 performance_key: "G"
+bpm: "91.3"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.852"

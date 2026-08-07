@@ -1,6 +1,7 @@
 ---
 artist: "Meghan Trainor"
 performance_key: "A"
+bpm: "133.8"
 original_key: "A"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.905"

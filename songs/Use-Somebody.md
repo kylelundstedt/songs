@@ -1,5 +1,7 @@
 ---
 artist: "Kings of Leon"
+performance_key: "C"
+bpm: "139.7"
 original_key: "C"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.915"

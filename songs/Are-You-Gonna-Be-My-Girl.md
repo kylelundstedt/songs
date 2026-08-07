@@ -1,6 +1,7 @@
 ---
 artist: "Jet"
 performance_key: "A"
+bpm: "104.93"
 original_key: "A"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.88"

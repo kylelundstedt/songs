@@ -1,6 +1,7 @@
 ---
 artist: "Elvis Presley"
 performance_key: "E"
+bpm: "139.7"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.884"

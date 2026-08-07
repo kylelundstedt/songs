@@ -1,5 +1,6 @@
 ---
 artist: "Stevie Ray Vaughan"
+performance_key: "Ab"
 original_key: "Ab"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.96"

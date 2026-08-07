@@ -1,5 +1,6 @@
 ---
 artist: "Franz Ferdinand"
+performance_key: "Em"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.835"

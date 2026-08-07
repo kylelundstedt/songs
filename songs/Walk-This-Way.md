@@ -1,5 +1,6 @@
 ---
 artist: "Aerosmith"
+performance_key: "F"
 original_key: "F"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.847"

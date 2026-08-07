@@ -1,15 +1,16 @@
 ---
 artist: "Talking Heads"
+bpm: "132.9"
+original_bpm: "132.9"
 reference_title: "Life During Wartime"
 reference_artist: "Talking Heads"
 reference_album: "Fear of Music [2005 DualDisc remaster]"
-reference_duration_seconds: 221.0
-original_bpm: "132.9"
+reference_duration_seconds: "221.0"
 deezer_track_id: "747560"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "35012523"
 lyrics_reference_url: "https://lrclib.net/api/get/35012523"
-metadata_confidence: 0.9906
+metadata_confidence: "0.9906"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Life-During-Wartime.md"

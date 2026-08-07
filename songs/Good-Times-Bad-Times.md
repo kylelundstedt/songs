@@ -1,5 +1,6 @@
 ---
 artist: "Led Zeppelin"
+performance_key: "F#m"
 original_key: "F#m"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.875"

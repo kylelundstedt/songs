@@ -1,17 +1,18 @@
 ---
 artist: "Seven Mary Three"
 performance_key: "F#"
+bpm: "162.1"
+original_bpm: "162.1"
 reference_title: "Cumbersome"
 reference_artist: "Seven Mary Three"
 reference_album: "Water's Edge"
-reference_duration_seconds: 266.0
+reference_duration_seconds: "266.0"
 recording_mbid: "37261f1c-6b65-4247-82e9-972149aecec2"
-original_bpm: "162.1"
 deezer_track_id: "3822225"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36969277"
 lyrics_reference_url: "https://lrclib.net/api/get/36969277"
-metadata_confidence: 0.9541
+metadata_confidence: "0.9541"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Cumbersome.md"

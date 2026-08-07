@@ -1,5 +1,7 @@
 ---
 artist: "The Dead Weather"
+performance_key: "Em"
+bpm: "127.2"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.92"
