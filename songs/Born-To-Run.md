@@ -35,11 +35,9 @@ Chrome-wheeled, fuel-injected, and steppin' out over the line
 Oh, baby, this town rips the bones from your back  
 It's a death trap, it's a suicide rap  
 We gotta get out while we're young  
-'Cause tramps like us; Baby, we were born to runnnn    
+'Cause tramps like us; Baby, we were born to runn;  Yes, girl, we were    
   
-### Intro Vamp  8x  
-
-Yes, girl, we were  
+### Intro Vamp  8x    
   
 ### Verse  8x  
 
