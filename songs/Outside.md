@@ -1,3 +1,21 @@
+---
+artist: "Staind"
+reference_title: "Outside"
+reference_artist: "Staind"
+reference_album: "All"
+reference_duration_seconds: 293.0
+original_bpm: "145.6"
+deezer_track_id: "3592357"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36976598"
+lyrics_reference_url: "https://lrclib.net/api/get/36976598"
+metadata_confidence: 0.9815
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Outside.md"
+metadata_review_status: "reviewed"
+---
+
 # Outside
 
 And you  

@@ -1,3 +1,20 @@
+---
+artist: "Finger Eleven"
+reference_title: "Paralyzer"
+reference_artist: "Finger Eleven"
+reference_album: "Billboard Top 100 Hits 2008"
+reference_duration_seconds: 207.0
+recording_mbid: "8bee2202-0b48-42be-9e89-bf68e6ab742c"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36999377"
+lyrics_reference_url: "https://lrclib.net/api/get/36999377"
+metadata_confidence: 0.9808
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Paralyzer.md"
+metadata_review_status: "reviewed"
+---
+
 # Paralyzer
 
 I hold on so nervously to me and my drink  

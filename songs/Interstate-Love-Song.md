@@ -1,3 +1,23 @@
+---
+artist: "Stone Temple Pilots"
+performance_key: "C#m"
+reference_title: "Interstate Love Song"
+reference_artist: "Stone Temple Pilots"
+reference_album: "Summer HIts of the 90's"
+reference_duration_seconds: 193.0
+recording_mbid: "4828e014-e945-4a14-afd3-4727eb0ce9ab"
+original_bpm: "168.8"
+deezer_track_id: "3907803"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37492109"
+lyrics_reference_url: "https://lrclib.net/api/get/37492109"
+metadata_confidence: 0.9333
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Interstate-Love-Song.md"
+metadata_review_status: "reviewed"
+---
+
 # Interstate Love Song
 
 

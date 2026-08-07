@@ -1,3 +1,23 @@
+---
+artist: "Elvis Presley"
+performance_key: "E"
+reference_title: "Little Sister"
+reference_artist: "Elvis Presley"
+reference_album: "Song List"
+reference_duration_seconds: 164.0
+recording_mbid: "7629f53e-fa8c-4daf-a7f1-e8726bc35d4c"
+original_bpm: "139.7"
+deezer_track_id: "1055482"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37471664"
+lyrics_reference_url: "https://lrclib.net/api/get/37471664"
+metadata_confidence: 0.9736
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Little-Sister.md"
+metadata_review_status: "reviewed"
+---
+
 # Little Sister
 
 Little sister, don't you  

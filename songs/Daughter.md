@@ -1,3 +1,20 @@
+---
+artist: "Pearl Jam"
+reference_title: "Daughter"
+reference_artist: "Pearl Jam"
+reference_album: "Live at Perth, Australia (CD 2)"
+reference_duration_seconds: 411.0
+recording_mbid: "2ea2b0ae-7719-4ddc-9883-20593b9db71d"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37021378"
+lyrics_reference_url: "https://lrclib.net/api/get/37021378"
+metadata_confidence: 0.9296
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Daughter.md"
+metadata_review_status: "reviewed"
+---
+
 # Daughter
 
 Alone listless breakfast table in an otherwise empty room  

@@ -4,11 +4,11 @@ performance_key: "C"
 reference_title: "Love Shack"
 reference_artist: "The B-52's"
 reference_album: "Party Like It's 1989"
-reference_duration_seconds: 321.0
+reference_duration_seconds: "321.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37464738"
 lyrics_reference_url: "https://lrclib.net/api/get/37464738"
-metadata_confidence: 0.9154
+metadata_confidence: "0.9154"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Love-Shack.md"

@@ -1,3 +1,20 @@
+---
+artist: "Cee Lo Green"
+performance_key: "C"
+reference_title: "Fuck You"
+reference_artist: "Cee-Lo Green"
+reference_album: "2010! Songs of the Year"
+reference_duration_seconds: 223.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37023237"
+lyrics_reference_url: "https://lrclib.net/api/get/37023237"
+metadata_confidence: 0.8855
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Fuck-You.md"
+metadata_review_status: "reviewed"
+---
+
 # Fuck You
 
 ### Intro  4x  

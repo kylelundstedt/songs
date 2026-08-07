@@ -1,3 +1,22 @@
+---
+artist: "Wolfmother"
+reference_title: "Love Train"
+reference_artist: "Wolfmother"
+reference_album: "Triple J: Hottest 100, Volume 14"
+reference_duration_seconds: 183.0
+recording_mbid: "efc99063-57d1-4bdf-8b26-2ff04c66bbe2"
+original_bpm: "182.1"
+deezer_track_id: "1182059"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37507863"
+lyrics_reference_url: "https://lrclib.net/api/get/37507863"
+metadata_confidence: 0.8984
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Love-Train.md"
+metadata_review_status: "reviewed"
+---
+
 # Love Train
 
 What'd you see, girl on the love train?  

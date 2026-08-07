@@ -1,3 +1,11 @@
+---
+artist: "T. Rex"
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Bang-a-Gong-Get-It-On.md"
+metadata_review_status: "reviewed"
+---
+
 # Bang a Gong Get It On {short="Bang a Gong"}  
 
 Well you're dirty and sweet, clad in black  

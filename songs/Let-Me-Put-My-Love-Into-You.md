@@ -1,3 +1,19 @@
+---
+artist: "AC/DC"
+reference_title: "Let Me Put My Love Into You"
+reference_artist: "AC/DC"
+reference_album: "Back In Black - remaster 2003"
+reference_duration_seconds: 255.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36986864"
+lyrics_reference_url: "https://lrclib.net/api/get/36986864"
+metadata_confidence: 0.8164
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Let-Me-Put-My-Love-Into-You.md"
+metadata_review_status: "reviewed"
+---
+
 # Let Me Put My Love Into You  {short="Let Me Put ... You"}  
 
 Flying on a free flight  

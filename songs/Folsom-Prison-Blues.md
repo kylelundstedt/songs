@@ -1,3 +1,20 @@
+---
+artist: "Johnny Cash"
+performance_key: "E"
+reference_title: "Folsom Prison Blues"
+reference_artist: "Johnny Cash & The Tennessee Two"
+reference_album: "Dim Lights, Thick Smoke & Hillbilly Music: Country & Western Hit Parade - 1956"
+reference_duration_seconds: 173.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37498171"
+lyrics_reference_url: "https://lrclib.net/api/get/37498171"
+metadata_confidence: 0.9257
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Folsom-Prison-Blues.md"
+metadata_review_status: "reviewed"
+---
+
 # Folsom Prison Blues
 
 

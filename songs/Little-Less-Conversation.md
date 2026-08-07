@@ -1,3 +1,11 @@
+---
+artist: "Elvis Presley"
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Little-Less-Conversation.md"
+metadata_review_status: "reviewed"
+---
+
 # Little Less Conversation {short="Lil' Less Conversation"}  
 
 A little less conversation, a little more action please  

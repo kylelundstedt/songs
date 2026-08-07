@@ -1,3 +1,23 @@
+---
+artist: "Gun"
+performance_key: "F#"
+reference_title: "Word Up"
+reference_artist: "Gun"
+reference_album: "Now That's What I Call Music! 1994"
+reference_duration_seconds: 256.0
+recording_mbid: "91cde3dc-fcb9-4574-9355-b20bb51b5b02"
+original_bpm: "117.8"
+deezer_track_id: "2502045"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37473368"
+lyrics_reference_url: "https://lrclib.net/api/get/37473368"
+metadata_confidence: 0.999
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Word-Up.md"
+metadata_review_status: "reviewed"
+---
+
 # Word Up
 
 You pretty ladies around the world  

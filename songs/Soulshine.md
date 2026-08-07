@@ -1,3 +1,21 @@
+---
+artist: "The Allman Brothers Band"
+reference_title: "Soulshine"
+reference_artist: "Allman Brothers Band"
+reference_album: "The Essential Allman Brothers Band - The Epic Years"
+reference_duration_seconds: 403.0
+original_bpm: "135.1"
+deezer_track_id: "586473"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "33574662"
+lyrics_reference_url: "https://lrclib.net/api/get/33574662"
+metadata_confidence: 0.9574
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Soulshine.md"
+metadata_review_status: "reviewed"
+---
+
 # Soulshine
 
 ### Intro  8x  

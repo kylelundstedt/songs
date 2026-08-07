@@ -1,3 +1,19 @@
+---
+artist: "Prince & The Revolution"
+reference_title: "Darling Nikki"
+reference_artist: "Prince & The Revolution"
+reference_album: "Purple Rain (Deluxe Expanded Edition) [2015 Paisley Park Remaster]"
+reference_duration_seconds: 255.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "35176506"
+lyrics_reference_url: "https://lrclib.net/api/get/35176506"
+metadata_confidence: 0.9478
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Darling-Nikki.md"
+metadata_review_status: "reviewed"
+---
+
 # Darling Nikki
 
 I knew a girl named Nikki  

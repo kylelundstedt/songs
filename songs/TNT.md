@@ -1,3 +1,21 @@
+---
+artist: "AC/DC"
+reference_title: "TNT"
+reference_artist: "ACDC"
+reference_album: "T.N.T."
+reference_duration_seconds: 214.0
+original_bpm: "126.8"
+deezer_track_id: "92720006"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "34416182"
+lyrics_reference_url: "https://lrclib.net/api/get/34416182"
+metadata_confidence: 0.9702
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/TNT.md"
+metadata_review_status: "reviewed"
+---
+
 # TNT
 
 (Oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi, oi)  

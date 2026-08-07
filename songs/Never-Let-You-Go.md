@@ -1,3 +1,22 @@
+---
+artist: "Third Eye Blind"
+reference_title: "Never Let You Go"
+reference_artist: "Third Eye Blind"
+reference_album: "Billboard Top 100 Hits 2000"
+reference_duration_seconds: 237.0
+recording_mbid: "0cc8a518-3756-4255-997d-b4ad7453ff82"
+original_bpm: "113.6"
+deezer_track_id: "6586756"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37505366"
+lyrics_reference_url: "https://lrclib.net/api/get/37505366"
+metadata_confidence: 0.9847
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Never-Let-You-Go.md"
+metadata_review_status: "reviewed"
+---
+
 # Never Let You Go
 
 There's every good reason  

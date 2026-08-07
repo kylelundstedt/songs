@@ -1,3 +1,19 @@
+---
+artist: "Dishwalla"
+reference_title: "Counting Blue Cars"
+reference_artist: "Dishwalla"
+reference_album: "Counting Blue Cars"
+reference_duration_seconds: 294.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "35048500"
+lyrics_reference_url: "https://lrclib.net/api/get/35048500"
+metadata_confidence: 0.9746
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Counting-Blue-Cars.md"
+metadata_review_status: "reviewed"
+---
+
 # Counting Blue Cars
 
 Must of been mid afternoon  

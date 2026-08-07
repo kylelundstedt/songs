@@ -1,3 +1,23 @@
+---
+artist: "Lukas Nelson and Promise of the Real"
+performance_key: "G"
+reference_title: "Find Yourself"
+reference_artist: "Lukas Nelson and Promise of the Real"
+reference_album: "Sampler"
+reference_duration_seconds: 321.0
+recording_mbid: "9e8a7f5e-d287-417a-9bab-f359ddff53ce"
+original_bpm: "133.37"
+deezer_track_id: "387218411"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "35192531"
+lyrics_reference_url: "https://lrclib.net/api/get/35192531"
+metadata_confidence: 0.9008
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Find-Yourself.md"
+metadata_review_status: "reviewed"
+---
+
 # Find Yourself  
   
 ### Intro  16x  

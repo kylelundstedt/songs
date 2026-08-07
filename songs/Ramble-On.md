@@ -1,3 +1,20 @@
+---
+artist: "Led Zeppelin"
+performance_key: "E"
+reference_title: "Ramble On"
+reference_artist: "Led Zeppelin"
+reference_album: "#000 Rolling Stone Magazine's 500 Greatest Songs Of All Time"
+reference_duration_seconds: 264.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36961385"
+lyrics_reference_url: "https://lrclib.net/api/get/36961385"
+metadata_confidence: 0.8524
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Ramble-On.md"
+metadata_review_status: "reviewed"
+---
+
 # Ramble On
 
 ### Intro  6x

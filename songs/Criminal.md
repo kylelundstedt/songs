@@ -1,3 +1,22 @@
+---
+artist: "Fiona Apple"
+reference_title: "Criminal"
+reference_artist: "Fiona Apple"
+reference_album: "Rolling Stone- Best Songs of All Time"
+reference_duration_seconds: 342.0
+recording_mbid: "69ac9ad4-ae71-4b4f-bc1a-a2c64ea0e78d"
+original_bpm: "179.8"
+deezer_track_id: "82293008"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37019114"
+lyrics_reference_url: "https://lrclib.net/api/get/37019114"
+metadata_confidence: 0.9589
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Criminal.md"
+metadata_review_status: "reviewed"
+---
+
 # Criminal
 
 I've been a bad bad girl  

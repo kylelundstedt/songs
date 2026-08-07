@@ -1,3 +1,23 @@
+---
+artist: "AC/DC"
+performance_key: "G"
+reference_title: "You Shook Me All Night Long"
+reference_artist: "AC/DC"
+reference_album: "ACDC Essentials"
+reference_duration_seconds: 210.0
+recording_mbid: "45813d61-f7e4-44f8-9b1f-66ad0cbecc9a"
+original_bpm: "129.2"
+deezer_track_id: "92720048"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36902514"
+lyrics_reference_url: "https://lrclib.net/api/get/36902514"
+metadata_confidence: 0.8592
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/You-Shook-Me-All-Night-Long.md"
+metadata_review_status: "reviewed"
+---
+
 # You Shook Me All Night Long {short="You Shook Me"}  
 
 ### Intro  8x

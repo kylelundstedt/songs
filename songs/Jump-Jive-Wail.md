@@ -1,3 +1,19 @@
+---
+artist: "The Brian Setzer Orchestra"
+reference_title: "Jump, jive,  & wail"
+reference_artist: "Brian Setzer Orchestra"
+reference_album: "The Dirty Boogie"
+reference_duration_seconds: 174.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "33519658"
+lyrics_reference_url: "https://lrclib.net/api/get/33519658"
+metadata_confidence: 0.9359
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Jump-Jive-Wail.md"
+metadata_review_status: "reviewed"
+---
+
 # Jump Jive Wail
 
 ### Intro  4x  

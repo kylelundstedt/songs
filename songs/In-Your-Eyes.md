@@ -1,3 +1,19 @@
+---
+artist: "Peter Gabriel"
+reference_title: "In Your Eyes"
+reference_artist: "Peter Gabriel"
+reference_album: "Say Anything… The Original Motion Picture Soundtrack"
+reference_duration_seconds: 324.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37457477"
+lyrics_reference_url: "https://lrclib.net/api/get/37457477"
+metadata_confidence: 0.9822
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/In-Your-Eyes.md"
+metadata_review_status: "reviewed"
+---
+
 # In Your Eyes
 
 Love I get so lost, sometimes  

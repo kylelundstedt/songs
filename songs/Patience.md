@@ -1,3 +1,21 @@
+---
+artist: "Guns N' Roses"
+reference_title: "Patience"
+reference_artist: "Guns N' Roses"
+reference_album: "All"
+reference_duration_seconds: 354.0
+original_bpm: "118.8"
+deezer_track_id: "1091041532"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36974051"
+lyrics_reference_url: "https://lrclib.net/api/get/36974051"
+metadata_confidence: 0.9214
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Patience.md"
+metadata_review_status: "reviewed"
+---
+
 # Patience
 
 ### Guitar Intro  8x

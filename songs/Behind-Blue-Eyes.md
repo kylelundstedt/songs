@@ -1,3 +1,20 @@
+---
+artist: "The Who"
+performance_key: "E"
+reference_title: "Behind Blue Eyes"
+reference_artist: "The Who"
+reference_album: "The Who- The Greatest Hits & More"
+reference_duration_seconds: 223.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37507517"
+lyrics_reference_url: "https://lrclib.net/api/get/37507517"
+metadata_confidence: 0.9966
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Behind-Blue-Eyes.md"
+metadata_review_status: "reviewed"
+---
+
 # Behind Blue Eyes
 
 No one knows what it's like  

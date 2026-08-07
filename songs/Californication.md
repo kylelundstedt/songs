@@ -1,3 +1,23 @@
+---
+artist: "Red Hot Chili Peppers"
+performance_key: "Am"
+reference_title: "Californication"
+reference_artist: "Red Hot Chili Peppers"
+reference_album: "All"
+reference_duration_seconds: 330.0
+recording_mbid: "72d66b6a-ada8-4a76-abc3-bfeec8e81fc5"
+original_bpm: "96.8"
+deezer_track_id: "725274"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36975049"
+lyrics_reference_url: "https://lrclib.net/api/get/36975049"
+metadata_confidence: 0.958
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Californication.md"
+metadata_review_status: "reviewed"
+---
+
 # Californication
 
 

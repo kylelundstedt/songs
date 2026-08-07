@@ -1,3 +1,22 @@
+---
+artist: "The Doors"
+reference_title: "Roadhouse Blues"
+reference_artist: "The Doors"
+reference_album: "Live In New York Highlights"
+reference_duration_seconds: 392.0
+recording_mbid: "e45c3c28-92d8-4ea5-b2a9-d04c3d81975c"
+original_bpm: "123.78"
+deezer_track_id: "17326265"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36977750"
+lyrics_reference_url: "https://lrclib.net/api/get/36977750"
+metadata_confidence: 0.811
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Roadhouse-Blues.md"
+metadata_review_status: "reviewed"
+---
+
 # Roadhouse Blues
 
 A keep you eyes on the road, your hand upon da wheel  

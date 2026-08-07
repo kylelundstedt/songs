@@ -1,3 +1,20 @@
+---
+artist: "Neon Trees"
+reference_title: "Animal"
+reference_artist: "Neon Trees"
+reference_album: "Animal"
+reference_duration_seconds: 204.0
+recording_mbid: "9fa5b939-8fc4-4e33-951d-5409d22da863"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37011046"
+lyrics_reference_url: "https://lrclib.net/api/get/37011046"
+metadata_confidence: 0.9817
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Animal.md"
+metadata_review_status: "reviewed"
+---
+
 # Animal
 
 Here we go again, I kinda want to be more than friends  

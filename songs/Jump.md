@@ -1,3 +1,12 @@
+---
+artist: "Van Halen"
+performance_key: "C"
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Jump.md"
+metadata_review_status: "reviewed"
+---
+
 # Jump
 
 ### Intro  16x

@@ -1,3 +1,21 @@
+---
+artist: "Matchbox Twenty"
+reference_title: "Bent"
+reference_artist: "Matchbox 20"
+reference_album: "to burn"
+reference_duration_seconds: 256.0
+original_bpm: "191.4"
+deezer_track_id: "3658089"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37065701"
+lyrics_reference_url: "https://lrclib.net/api/get/37065701"
+metadata_confidence: 0.9754
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Bent.md"
+metadata_review_status: "reviewed"
+---
+
 # Bent
 
 If I fall along the way  

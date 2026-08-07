@@ -1,3 +1,20 @@
+---
+artist: "U2"
+performance_key: "D"
+reference_title: "With Or Without You"
+reference_artist: "U2"
+reference_album: "The Best of 1980-1990 [Japan]"
+reference_duration_seconds: 300.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37494529"
+lyrics_reference_url: "https://lrclib.net/api/get/37494529"
+metadata_confidence: 0.9793
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/With-Or-Without-You.md"
+metadata_review_status: "reviewed"
+---
+
 # With Or Without You
 
 See the stone set in your eyes  

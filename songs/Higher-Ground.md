@@ -1,3 +1,20 @@
+---
+artist: "Red Hot Chili Peppers"
+performance_key: "E"
+reference_title: "Higher Ground"
+reference_artist: "Red Hot Chili Peppers"
+reference_album: "Higher Ground / If You Want Me"
+reference_duration_seconds: 203.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37468088"
+lyrics_reference_url: "https://lrclib.net/api/get/37468088"
+metadata_confidence: 0.9004
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Higher-Ground.md"
+metadata_review_status: "reviewed"
+---
+
 # Higher Ground
 
 People  

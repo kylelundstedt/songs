@@ -1,3 +1,22 @@
+---
+artist: "U2"
+performance_key: "D"
+reference_title: "Where the Streets Have No Name (Where the Streets Have No Name)"
+reference_artist: "U2"
+reference_album: "The Joshua Tree"
+reference_duration_seconds: 337.0
+original_bpm: "125.66"
+deezer_track_id: "366440291"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "29445748"
+lyrics_reference_url: "https://lrclib.net/api/get/29445748"
+metadata_confidence: 0.925
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Where-the-Streets-Have-No-Names.md"
+metadata_review_status: "reviewed"
+---
+
 # Where the Streets Have No Names {short="Where the Streets"}  
 
 ### (lots of stuff)  

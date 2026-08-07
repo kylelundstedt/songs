@@ -1,3 +1,22 @@
+---
+artist: "Bastille"
+reference_title: "Pompeii"
+reference_artist: "Bastille"
+reference_album: "energetic and hyper songs"
+reference_duration_seconds: 214.0
+recording_mbid: "4c750ca7-e92c-48a3-bd00-76eec075f709"
+original_bpm: "127.6"
+deezer_track_id: "63034985"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36904361"
+lyrics_reference_url: "https://lrclib.net/api/get/36904361"
+metadata_confidence: 0.9805
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Pompeii.md"
+metadata_review_status: "reviewed"
+---
+
 # Pompeii
 
 Eh eh oh, eh oh  

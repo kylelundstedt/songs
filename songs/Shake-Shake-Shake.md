@@ -1,3 +1,19 @@
+---
+artist: "KC & the Sunshine Band"
+reference_title: "(Shake, Shake, Shake) Shake Y"
+reference_artist: "Kc & the Sunshine Band"
+reference_album: "Seventies Complete Volume 2"
+reference_duration_seconds: 187.071625
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "22153352"
+lyrics_reference_url: "https://lrclib.net/api/get/22153352"
+metadata_confidence: 0.8315
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Shake-Shake-Shake.md"
+metadata_review_status: "reviewed"
+---
+
 # Shake Shake Shake
 [from Thats The Way]
 

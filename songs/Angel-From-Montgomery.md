@@ -1,3 +1,23 @@
+---
+artist: "John Prine"
+performance_key: "D"
+reference_title: "Angel From Montgomery"
+reference_artist: "John Prine"
+reference_album: "Just Country - CD4"
+reference_duration_seconds: 222.0
+recording_mbid: "2d9de5c4-d28a-40df-b06c-16f37d53a444"
+original_bpm: "132.5"
+deezer_track_id: "6632014"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37464389"
+lyrics_reference_url: "https://lrclib.net/api/get/37464389"
+metadata_confidence: 0.8287
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Angel-From-Montgomery.md"
+metadata_review_status: "reviewed"
+---
+
 # Angel from Montgomery {short="Angel ... Montgomery"}  
 
 ### Intro  ?x  

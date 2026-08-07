@@ -1,3 +1,23 @@
+---
+artist: "Sublime"
+performance_key: "D"
+reference_title: "What I Got"
+reference_artist: "Sublime"
+reference_album: "The '90s Pop Box"
+reference_duration_seconds: 173.0
+recording_mbid: "bb883fd9-ab17-434f-b336-9469a2b4f363"
+original_bpm: "95.7"
+deezer_track_id: "127245037"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37181872"
+lyrics_reference_url: "https://lrclib.net/api/get/37181872"
+metadata_confidence: 0.9252
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/What-I-Got.md"
+metadata_review_status: "reviewed"
+---
+
 # What I Got
 
 

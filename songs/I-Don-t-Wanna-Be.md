@@ -1,3 +1,20 @@
+---
+artist: "Gavin DeGraw"
+reference_title: "I Don't Wanna Be"
+reference_artist: "Gavin DeGraw"
+reference_album: "Unknown"
+reference_duration_seconds: 212.631375
+recording_mbid: "bf8d85ae-ff0e-46dd-9be9-5adee509ada6"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "19806825"
+lyrics_reference_url: "https://lrclib.net/api/get/19806825"
+metadata_confidence: 0.9261
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/I-Don-t-Wanna-Be.md"
+metadata_review_status: "reviewed"
+---
+
 # I Don t Wanna Be
 
 I don't need to be anything other than a prison guards son  

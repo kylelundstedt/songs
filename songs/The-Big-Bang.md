@@ -1,3 +1,22 @@
+---
+artist: "Katy Tiz"
+reference_title: "The Big Bang"
+reference_artist: "Katy Tiz"
+reference_album: "Playlist NRJ Les Hits Du Moment Mai 2014"
+reference_duration_seconds: 160.0
+recording_mbid: "f6039eaf-f993-4d01-8fe6-12443a1cb75b"
+original_bpm: "95.9"
+deezer_track_id: "77849369"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37486033"
+lyrics_reference_url: "https://lrclib.net/api/get/37486033"
+metadata_confidence: 0.9799
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/The-Big-Bang.md"
+metadata_review_status: "reviewed"
+---
+
 # The Big Bang
 
 ### Intro  4x

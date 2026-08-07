@@ -1,3 +1,19 @@
+---
+artist: "Chris Stapleton"
+reference_title: "Tennessee Whiskey"
+reference_artist: "Chris Stapelton"
+reference_album: "Traveller"
+reference_duration_seconds: 293.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "33751701"
+lyrics_reference_url: "https://lrclib.net/api/get/33751701"
+metadata_confidence: 0.9683
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Tennessee-Whiskey.md"
+metadata_review_status: "reviewed"
+---
+
 # Tennessee Whiskey  
   
 ### Intro  4x

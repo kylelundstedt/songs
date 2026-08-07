@@ -1,3 +1,22 @@
+---
+artist: "ZZ Top"
+performance_key: "Gm"
+reference_title: "Cheap Sunglasses"
+reference_artist: "ZZ Top"
+reference_album: "Chrome, Smoke & BBQ: The ZZ Top Box Disc 2"
+reference_duration_seconds: 289.0
+original_bpm: "191.41"
+deezer_track_id: "694980222"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37185662"
+lyrics_reference_url: "https://lrclib.net/api/get/37185662"
+metadata_confidence: 0.9655
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Cheap-Sunglasses.md"
+metadata_review_status: "reviewed"
+---
+
 # Cheap Sunglasses  
   
 When you get up in the morning and the light is hurt your head  

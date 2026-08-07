@@ -1,9 +1,20 @@
 ---
-schema_version: 1
+artist: "The Cult"
+reference_title: "Fire Woman"
+reference_artist: "The Cult"
+reference_album: "Sonic Temple (Extended)"
+reference_duration_seconds: 311.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "34617503"
+lyrics_reference_url: "https://lrclib.net/api/get/34617503"
+metadata_confidence: 0.945
+provenance_status: "provider-imported-pending-review"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/fire-woman.md"
+metadata_review_status: "reviewed"
+schema_version: "1"
 id: "fire-woman"
 title: "Fire Woman"
-artist: "The Cult"
-provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/3934789"
 ---

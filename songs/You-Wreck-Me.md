@@ -1,3 +1,23 @@
+---
+artist: "Tom Petty"
+performance_key: "D"
+reference_title: "You Wreck Me"
+reference_artist: "Tom Petty"
+reference_album: "The Best Of Everything - The Definitive Career Spanning Hits Collection 1976"
+reference_duration_seconds: 201.0
+recording_mbid: "60fb389a-f887-4f47-b731-c45dfe4dbf42"
+original_bpm: "164.1"
+deezer_track_id: "4091205"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36359484"
+lyrics_reference_url: "https://lrclib.net/api/get/36359484"
+metadata_confidence: 0.9922
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/You-Wreck-Me.md"
+metadata_review_status: "reviewed"
+---
+
 # You Wreck Me
 
 ### Intro  8x  

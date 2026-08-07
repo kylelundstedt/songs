@@ -1,3 +1,19 @@
+---
+artist: "Joe Cocker"
+reference_title: "Feeling Alright"
+reference_artist: "Joe Cocker"
+reference_album: "With A Little Help From My Friends"
+reference_duration_seconds: 247.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "35001284"
+lyrics_reference_url: "https://lrclib.net/api/get/35001284"
+metadata_confidence: 0.9345
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Feeling-Alright.md"
+metadata_review_status: "reviewed"
+---
+
 # Feeling Alright
 
 ### Intro  4x  

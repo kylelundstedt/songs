@@ -1,3 +1,20 @@
+---
+artist: "Thin Lizzy"
+reference_title: "Jailbreak"
+reference_artist: "Thin Lizzy"
+reference_album: "TM Series 1711"
+reference_duration_seconds: 240.0
+recording_mbid: "4c4365ca-961b-4160-a9b3-312aac5be9a6"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37467829"
+lyrics_reference_url: "https://lrclib.net/api/get/37467829"
+metadata_confidence: 0.9824
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Jailbreak.md"
+metadata_review_status: "reviewed"
+---
+
 # Jailbreak
 
 Tonight there's gonna be a jailbreak  

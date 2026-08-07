@@ -1,3 +1,21 @@
+---
+artist: "Prince & The Revolution"
+performance_key: "Bb"
+reference_title: "Purple Rain"
+reference_artist: "Prince & The Revolution"
+reference_album: "#000 Rolling Stone Magazine's 500 Greatest Songs Of All Time"
+reference_duration_seconds: 523.0
+recording_mbid: "77a5a8d5-0917-4dc7-80c1-77ae48806af9"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36954827"
+lyrics_reference_url: "https://lrclib.net/api/get/36954827"
+metadata_confidence: 0.9779
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Purple-Rain.md"
+metadata_review_status: "reviewed"
+---
+
 # Purple Rain
 
 

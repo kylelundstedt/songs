@@ -1,3 +1,20 @@
+---
+artist: "The Marshall Tucker Band"
+reference_title: "Heard It In A Love Song"
+reference_artist: "Marshall Tucker Band, The"
+reference_album: "Country Tucker"
+reference_duration_seconds: 297.0
+deezer_track_id: "3227195571"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "33692927"
+lyrics_reference_url: "https://lrclib.net/api/get/33692927"
+metadata_confidence: 0.8357
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Heard-It-In-A-Love-Song.md"
+metadata_review_status: "reviewed"
+---
+
 # Heard It In A Love Song {short="Heard It ... Love Song"}  
 
 ### Intro  16x  

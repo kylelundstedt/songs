@@ -1,3 +1,22 @@
+---
+artist: "ZZ Top"
+performance_key: "C"
+reference_title: "Gimme All Your Lovin'"
+reference_artist: "ZZ Top"
+reference_album: "Eliminator (W2 23774)"
+reference_duration_seconds: 244.0
+recording_mbid: "afd5fc47-b9f6-4966-80de-4252472d7b3d"
+deezer_track_id: "3788170382"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37525370"
+lyrics_reference_url: "https://lrclib.net/api/get/37525370"
+metadata_confidence: 0.9774
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Gimme-All-Your-Lovin.md"
+metadata_review_status: "reviewed"
+---
+
 # Gimme All Your Lovin
 
 I got to have a shot  

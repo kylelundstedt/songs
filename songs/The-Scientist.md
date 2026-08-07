@@ -1,3 +1,19 @@
+---
+artist: "Coldplay"
+reference_title: "The Scientist"
+reference_artist: "Coldplay"
+reference_album: "Generación Cassette"
+reference_duration_seconds: 309.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37480350"
+lyrics_reference_url: "https://lrclib.net/api/get/37480350"
+metadata_confidence: 0.9761
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/The-Scientist.md"
+metadata_review_status: "reviewed"
+---
+
 # The Scientist
 
 Come up to meet you, tell you I'm sorry  

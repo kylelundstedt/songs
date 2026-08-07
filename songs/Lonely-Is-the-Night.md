@@ -1,3 +1,20 @@
+---
+artist: "Billy Squier"
+performance_key: "E"
+reference_title: "Lonely Is The Night"
+reference_artist: "Billy Squier"
+reference_album: "Don't Say No (IR)"
+reference_duration_seconds: 282.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36843534"
+lyrics_reference_url: "https://lrclib.net/api/get/36843534"
+metadata_confidence: 0.9155
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Lonely-Is-the-Night.md"
+metadata_review_status: "reviewed"
+---
+
 # Lonely Is the Night
 
 Lonely is the night when you find yourself alone  

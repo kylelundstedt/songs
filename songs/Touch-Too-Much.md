@@ -1,3 +1,20 @@
+---
+artist: "AC/DC"
+reference_title: "Touch Too Much"
+reference_artist: "AC⚡DC"
+reference_album: "Highway To Hell (1995 RM)"
+reference_duration_seconds: 266.0
+deezer_track_id: "92719906"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37058438"
+lyrics_reference_url: "https://lrclib.net/api/get/37058438"
+metadata_confidence: 0.9067
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Touch-Too-Much.md"
+metadata_review_status: "reviewed"
+---
+
 # Touch Too Much  
   
 It was one of those nights  

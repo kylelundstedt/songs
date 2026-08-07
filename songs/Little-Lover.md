@@ -1,3 +1,22 @@
+---
+artist: "AC/DC"
+reference_title: "Little Lover"
+reference_artist: "Ac-Dc"
+reference_album: "Ac-Dc Box Set"
+reference_duration_seconds: 340.0
+recording_mbid: "ef3af814-ee58-4dc7-b77a-efb84fe2f43e"
+original_bpm: "106"
+deezer_track_id: "92720010"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36843135"
+lyrics_reference_url: "https://lrclib.net/api/get/36843135"
+metadata_confidence: 0.9242
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Little-Lover.md"
+metadata_review_status: "reviewed"
+---
+
 # Little Lover
 
 Saw you in the front row

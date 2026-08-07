@@ -1,3 +1,23 @@
+---
+artist: "Meghan Trainor"
+performance_key: "A"
+reference_title: "All About That Bass"
+reference_artist: "Meghan Trainor"
+reference_album: "Timeless Pop Classics"
+reference_duration_seconds: 191.0
+recording_mbid: "c864842f-cc60-49f2-a778-65cfcbf8b9c5"
+original_bpm: "133.8"
+deezer_track_id: "113420702"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37013037"
+lyrics_reference_url: "https://lrclib.net/api/get/37013037"
+metadata_confidence: 0.9068
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/All-About-That-Bass.md"
+metadata_review_status: "reviewed"
+---
+
 # All About That Bass
 
 

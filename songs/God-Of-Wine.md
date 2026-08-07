@@ -1,3 +1,22 @@
+---
+artist: "Third Eye Blind"
+reference_title: "God Of Wine"
+reference_artist: "Third Eye Blind"
+reference_album: "The Winter Of Discontent: Disc II - The Migration"
+reference_duration_seconds: 318.0
+recording_mbid: "968d9079-19be-40d0-89fd-7f7b671b9e25"
+original_bpm: "150.3"
+deezer_track_id: "4111791"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37233134"
+lyrics_reference_url: "https://lrclib.net/api/get/37233134"
+metadata_confidence: 0.9819
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/God-Of-Wine.md"
+metadata_review_status: "reviewed"
+---
+
 # God of Wine  
   
 <https://www.youtube.com/watch?v=azcHk0oe-gc>  

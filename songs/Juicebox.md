@@ -1,3 +1,22 @@
+---
+artist: "The Strokes"
+reference_title: "Juicebox"
+reference_artist: "The Strokes"
+reference_album: "KROQ Weenie Roast, Irvine, USA, 2011"
+reference_duration_seconds: 206.0
+recording_mbid: "74b6355e-825d-44ef-8b53-ffad2e333d0e"
+original_bpm: "154.8"
+deezer_track_id: "15529735"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37045837"
+lyrics_reference_url: "https://lrclib.net/api/get/37045837"
+metadata_confidence: 0.9235
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Juicebox.md"
+metadata_review_status: "reviewed"
+---
+
 # Juicebox
 
 Everybody sees me  

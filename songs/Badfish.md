@@ -1,3 +1,20 @@
+---
+artist: "Sublime"
+performance_key: "D"
+reference_title: "Badfish"
+reference_artist: "Sublime (2)"
+reference_album: "40 Oz. To Freedom"
+reference_duration_seconds: 185.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37188698"
+lyrics_reference_url: "https://lrclib.net/api/get/37188698"
+metadata_confidence: 0.9757
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Badfish.md"
+metadata_review_status: "reviewed"
+---
+
 # Badfish  
   
 ### Acoustic Guitar Intro  8x  

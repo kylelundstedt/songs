@@ -1,3 +1,19 @@
+---
+artist: "Red Hot Chili Peppers"
+reference_title: "Dark Necessities"
+reference_artist: "Red Hot Chili Peppers"
+reference_album: "Top 100 17.09.16"
+reference_duration_seconds: 302.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37247680"
+lyrics_reference_url: "https://lrclib.net/api/get/37247680"
+metadata_confidence: 0.9394
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Dark-Necessities.md"
+metadata_review_status: "reviewed"
+---
+
 # Dark Necessities
 
 Coming on to the light of day  

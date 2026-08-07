@@ -1,3 +1,19 @@
+---
+artist: "Franz Ferdinand"
+reference_title: "Take Me Out"
+reference_artist: "Franz Ferdinand"
+reference_album: "Albums (2004 - 2018) (disc 1: Franz Ferdinand)"
+reference_duration_seconds: 237.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "34396378"
+lyrics_reference_url: "https://lrclib.net/api/get/34396378"
+metadata_confidence: 0.9501
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Take-Me-Out.md"
+metadata_review_status: "reviewed"
+---
+
 # Take Me Out
 
 So if you're lonely, you know I'm here waiting for you  

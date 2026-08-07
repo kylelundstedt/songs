@@ -1,3 +1,20 @@
+---
+artist: "Mark Ronson feat. Bruno Mars"
+performance_key: "D"
+reference_title: "Uptown Funk"
+reference_artist: "Mark Ronson, Bruno Mars"
+reference_album: "Gracies Party!"
+reference_duration_seconds: 271.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37526374"
+lyrics_reference_url: "https://lrclib.net/api/get/37526374"
+metadata_confidence: 0.8806
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Uptown-Funk.md"
+metadata_review_status: "reviewed"
+---
+
 # Uptown Funk
 
 

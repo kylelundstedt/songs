@@ -1,3 +1,19 @@
+---
+artist: "Pearl Jam"
+reference_title: "Even Flow"
+reference_artist: "Pearl Jam"
+reference_album: "Rearviewmirror (Greatest Hits 1991-2003) [44.1-16 CD]"
+reference_duration_seconds: 304.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36993555"
+lyrics_reference_url: "https://lrclib.net/api/get/36993555"
+metadata_confidence: 0.925
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Even-Flow.md"
+metadata_review_status: "reviewed"
+---
+
 # Even Flow
 
 Freezin', rests his head on a pillow made of concrete, again  

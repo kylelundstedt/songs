@@ -1,3 +1,23 @@
+---
+artist: "Sublime"
+performance_key: "E"
+reference_title: "Santeria"
+reference_artist: "Sublime"
+reference_album: "1996! Songs of the Year"
+reference_duration_seconds: 183.0
+recording_mbid: "21218d8f-42d3-4382-96a3-9d8d6ec255fd"
+original_bpm: "181.33"
+deezer_track_id: "127245051"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36952503"
+lyrics_reference_url: "https://lrclib.net/api/get/36952503"
+metadata_confidence: 0.9316
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Santeria.md"
+metadata_review_status: "reviewed"
+---
+
 # Santeria
 
 

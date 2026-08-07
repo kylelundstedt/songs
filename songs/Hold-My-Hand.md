@@ -1,3 +1,22 @@
+---
+artist: "Hootie & the Blowfish"
+reference_title: "Hold My Hand"
+reference_artist: "Hootie & the Blowfish"
+reference_album: "Legends: These Are Days"
+reference_duration_seconds: 257.0
+recording_mbid: "65ff10ad-cea5-45d9-99a7-6457536a2c8e"
+original_bpm: "173.7"
+deezer_track_id: "4086674"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37006338"
+lyrics_reference_url: "https://lrclib.net/api/get/37006338"
+metadata_confidence: 0.9048
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Hold-My-Hand.md"
+metadata_review_status: "reviewed"
+---
+
 # Hold My Hand  
 
 <https://www.youtube.com/watch?v=woBdwrcRFCA>

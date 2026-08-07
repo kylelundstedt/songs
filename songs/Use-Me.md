@@ -1,3 +1,20 @@
+---
+artist: "Bill Withers"
+performance_key: "E"
+reference_title: "Use Me"
+reference_artist: "Bill Withers"
+reference_album: "1972"
+reference_duration_seconds: 222.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37503147"
+lyrics_reference_url: "https://lrclib.net/api/get/37503147"
+metadata_confidence: 0.948
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Use-Me.md"
+metadata_review_status: "reviewed"
+---
+
 # Use Me  
 
 ### Intro  8x  

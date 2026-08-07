@@ -1,3 +1,20 @@
+---
+artist: "Imagine Dragons"
+reference_title: "Demons"
+reference_artist: "Imagine Dragons"
+reference_album: "Best Of 10's"
+reference_duration_seconds: 178.0
+recording_mbid: "a5a494ee-d088-4e25-aabe-bfc11cbcd7ef"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36964059"
+lyrics_reference_url: "https://lrclib.net/api/get/36964059"
+metadata_confidence: 0.9869
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Demons.md"
+metadata_review_status: "reviewed"
+---
+
 # Demons
 
 When the days are cold and the cards all fold  

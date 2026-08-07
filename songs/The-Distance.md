@@ -1,3 +1,19 @@
+---
+artist: "CAKE"
+reference_title: "The Distance"
+reference_artist: "Cake"
+reference_album: "Fashion Nugget (Reissue)"
+reference_duration_seconds: 181.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36841041"
+lyrics_reference_url: "https://lrclib.net/api/get/36841041"
+metadata_confidence: 0.9931
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/The-Distance.md"
+metadata_review_status: "reviewed"
+---
+
 # The Distance
 
 Reluctantly crouched at the starting line  

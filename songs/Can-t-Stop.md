@@ -1,3 +1,21 @@
+---
+artist: "Red Hot Chili Peppers"
+reference_title: "Can’t Stop"
+reference_artist: "Red Hot Chili Peppers"
+reference_album: "Rock: 100 from the 00's"
+reference_duration_seconds: 269.0
+original_bpm: "182.9"
+deezer_track_id: "725971"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36984908"
+lyrics_reference_url: "https://lrclib.net/api/get/36984908"
+metadata_confidence: 0.9828
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Can-t-Stop.md"
+metadata_review_status: "reviewed"
+---
+
 # Can't Stop
 
 Can't stop addicted to the shindig  

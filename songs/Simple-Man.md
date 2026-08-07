@@ -1,3 +1,19 @@
+---
+artist: "Lynyrd Skynyrd"
+reference_title: "Simple Man"
+reference_artist: "Lynyrd Skynyrd"
+reference_album: "Best Of (2013)"
+reference_duration_seconds: 359.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36978537"
+lyrics_reference_url: "https://lrclib.net/api/get/36978537"
+metadata_confidence: 0.9885
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Simple-Man.md"
+metadata_review_status: "reviewed"
+---
+
 # Simple Man
 
 ### Intro Groove  16x

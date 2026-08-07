@@ -1,3 +1,20 @@
+---
+artist: "The Jackson 5"
+performance_key: "G"
+reference_title: "I Want You Back"
+reference_artist: "The Jackson 5"
+reference_album: "Billboard Top Rock’n’Roll Hits: 1970"
+reference_duration_seconds: 178.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36941534"
+lyrics_reference_url: "https://lrclib.net/api/get/36941534"
+metadata_confidence: 0.9435
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/I-Want-You-Back.md"
+metadata_review_status: "reviewed"
+---
+
 # I Want You Back
 
 

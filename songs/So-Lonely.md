@@ -1,3 +1,19 @@
+---
+artist: "The Police"
+reference_title: "So Lonely"
+reference_artist: "The Police"
+reference_album: "Thet Police Greatest Hits"
+reference_duration_seconds: 288.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37386488"
+lyrics_reference_url: "https://lrclib.net/api/get/37386488"
+metadata_confidence: 0.9413
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/So-Lonely.md"
+metadata_review_status: "reviewed"
+---
+
 # So Lonely
 
 Well, someone told me yesterday  

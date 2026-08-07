@@ -1,3 +1,19 @@
+---
+artist: "Queens of the Stone Age"
+reference_title: "No One Knows"
+reference_artist: "Queens of the Stone Age"
+reference_album: "Songs for the Deaf"
+reference_duration_seconds: 285.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37362669"
+lyrics_reference_url: "https://lrclib.net/api/get/37362669"
+metadata_confidence: 0.9571
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/No-One-Knows.md"
+metadata_review_status: "reviewed"
+---
+
 # No One Knows
 
 We get some rules to follow  

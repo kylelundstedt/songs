@@ -1,3 +1,23 @@
+---
+artist: "Foo Fighters"
+performance_key: "D"
+reference_title: "Everlong"
+reference_artist: "Foo Fighters"
+reference_album: "Rolling Stone- Best Songs of All Time"
+reference_duration_seconds: 251.0
+recording_mbid: "fb0706a6-2de9-4f51-8719-c63c3d4c51c2"
+original_bpm: "157.8"
+deezer_track_id: "4762041"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37021528"
+lyrics_reference_url: "https://lrclib.net/api/get/37021528"
+metadata_confidence: 0.9237
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Everlong.md"
+metadata_review_status: "reviewed"
+---
+
 # Everlong
 
 

@@ -1,3 +1,19 @@
+---
+artist: "Daft Punk"
+reference_title: "Get Lucky"
+reference_artist: "Daft Punk"
+reference_album: "Random Access Memories (10th Annyversary)"
+reference_duration_seconds: 370.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37075924"
+lyrics_reference_url: "https://lrclib.net/api/get/37075924"
+metadata_confidence: 0.8711
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Get-Lucky.md"
+metadata_review_status: "reviewed"
+---
+
 # Get Lucky
 [from Shake Shake Shake]
 

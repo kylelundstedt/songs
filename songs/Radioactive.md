@@ -1,3 +1,19 @@
+---
+artist: "Imagine Dragons"
+reference_title: "Radioactive"
+reference_artist: "Imagine Dragons"
+reference_album: "NRJ 200% Hits 2013, Volume 2"
+reference_duration_seconds: 188.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36984550"
+lyrics_reference_url: "https://lrclib.net/api/get/36984550"
+metadata_confidence: 0.9959
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Radioactive.md"
+metadata_review_status: "reviewed"
+---
+
 # Radioactive
 
 I'm waking up to ash and dust  

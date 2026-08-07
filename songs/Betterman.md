@@ -1,3 +1,19 @@
+---
+artist: "Pearl Jam"
+reference_title: "Betterman"
+reference_artist: "Pearl Jam"
+reference_album: "Rearviewmirror (Greatest Hits 1991-2003) [44.1-16 CD]"
+reference_duration_seconds: 269.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37397232"
+lyrics_reference_url: "https://lrclib.net/api/get/37397232"
+metadata_confidence: 0.962
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Betterman.md"
+metadata_review_status: "reviewed"
+---
+
 # Betterman
 
 Waitin', watchin' the clock  

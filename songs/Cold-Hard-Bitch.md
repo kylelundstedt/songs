@@ -1,3 +1,19 @@
+---
+artist: "Jet"
+reference_title: "Cold Hard Bitch"
+reference_artist: "Jet"
+reference_album: "Car Anthems: The Ultimate Collection"
+reference_duration_seconds: 243.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36306534"
+lyrics_reference_url: "https://lrclib.net/api/get/36306534"
+metadata_confidence: 0.9358
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Cold-Hard-Bitch.md"
+metadata_review_status: "reviewed"
+---
+
 # Cold Hard Bitch
 
 Gotta leave town  

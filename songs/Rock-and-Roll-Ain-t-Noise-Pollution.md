@@ -1,3 +1,11 @@
+---
+artist: "AC/DC"
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Rock-and-Roll-Ain-t-Noise-Pollution.md"
+metadata_review_status: "reviewed"
+---
+
 # Rock n Roll Ain t Noise Pollution {short="Rock ... Pollution"}  
 
 Hey there, all you middlemen

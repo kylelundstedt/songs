@@ -1,3 +1,23 @@
+---
+artist: "Aretha Franklin"
+performance_key: "G"
+reference_title: "Baby, I Love You"
+reference_artist: "Aretha Franklin"
+reference_album: "Aretha Franklin"
+reference_duration_seconds: 158.0
+recording_mbid: "0a447d69-9d27-44d2-957b-c1a73dc56884"
+original_bpm: "91.3"
+deezer_track_id: "2133613"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36858093"
+lyrics_reference_url: "https://lrclib.net/api/get/36858093"
+metadata_confidence: 0.8973
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Baby-I-Love-You.md"
+metadata_review_status: "reviewed"
+---
+
 # Baby I Love You  
 
 ### Intro  8x  

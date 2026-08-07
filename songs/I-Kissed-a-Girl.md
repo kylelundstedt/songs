@@ -1,3 +1,23 @@
+---
+artist: "Katy Perry"
+performance_key: "A"
+reference_title: "I Kissed a Girl"
+reference_artist: "Katy Perry"
+reference_album: "101 Pop Hits"
+reference_duration_seconds: 180.0
+recording_mbid: "59dbf792-5e1f-44d9-a39a-a66b55e05f66"
+original_bpm: "130"
+deezer_track_id: "3169173"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37013298"
+lyrics_reference_url: "https://lrclib.net/api/get/37013298"
+metadata_confidence: 0.9835
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/I-Kissed-a-Girl.md"
+metadata_review_status: "reviewed"
+---
+
 # I Kissed a Girl
 
 This was never the way I planned  

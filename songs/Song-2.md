@@ -3,11 +3,11 @@ artist: "Blur"
 reference_title: "Song 2"
 reference_artist: "Blur"
 reference_album: "Contact, Volume 4: Overtime!"
-reference_duration_seconds: 123.0
+reference_duration_seconds: "123.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37002844"
 lyrics_reference_url: "https://lrclib.net/api/get/37002844"
-metadata_confidence: 0.9686
+metadata_confidence: "0.9686"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Song-2.md"

@@ -1,3 +1,19 @@
+---
+artist: "Calvin Harris"
+reference_title: "Feels"
+reference_artist: "Calvin Harris Pharrell Williams Katy Perry Big Sean"
+reference_album: "Feels (feat Pharrell Williams Katy Perry & Big Sean)"
+reference_duration_seconds: 223.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "34565271"
+lyrics_reference_url: "https://lrclib.net/api/get/34565271"
+metadata_confidence: 0.9537
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Feels.md"
+metadata_review_status: "reviewed"
+---
+
 # Feels
 
 ### Intro  8x  

@@ -1,3 +1,19 @@
+---
+artist: "U2"
+reference_title: "Pride"
+reference_artist: "U2"
+reference_album: "The Best Of U2 1980-2005"
+reference_duration_seconds: 219.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37482335"
+lyrics_reference_url: "https://lrclib.net/api/get/37482335"
+metadata_confidence: 0.9922
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Pride.md"
+metadata_review_status: "reviewed"
+---
+
 # Pride
 
 One man come in the name of love  

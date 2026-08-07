@@ -1,3 +1,19 @@
+---
+artist: "Temple of the Dog"
+reference_title: "Hunger Strike"
+reference_artist: "Temple of the Dog"
+reference_album: "Temple of the Dog (disc 1∶ Original Album - 25th Anniversary Mix)"
+reference_duration_seconds: 246.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36846970"
+lyrics_reference_url: "https://lrclib.net/api/get/36846970"
+metadata_confidence: 0.9333
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Hunger-Strike.md"
+metadata_review_status: "reviewed"
+---
+
 # Hunger Strike
 
 I don't mind stealing bread  

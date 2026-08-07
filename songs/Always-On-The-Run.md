@@ -1,3 +1,20 @@
+---
+artist: "Lenny Kravitz"
+performance_key: "E"
+reference_title: "Always On The Run"
+reference_artist: "Lenny Kravitz"
+reference_album: "Greatest Hits [Explicit]"
+reference_duration_seconds: 232.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37360381"
+lyrics_reference_url: "https://lrclib.net/api/get/37360381"
+metadata_confidence: 0.9564
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Always-On-The-Run.md"
+metadata_review_status: "reviewed"
+---
+
 # Always On The Run
 
 ### Verse 1

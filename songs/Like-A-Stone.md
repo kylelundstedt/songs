@@ -1,3 +1,22 @@
+---
+artist: "Audioslave"
+reference_title: "Like A Stone"
+reference_artist: "Audioslave"
+reference_album: "Chris Cornell (1CD)"
+reference_duration_seconds: 295.0
+recording_mbid: "d3d1686b-a4d7-4a79-81d4-604c508878f3"
+original_bpm: "107.7"
+deezer_track_id: "851057"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37012858"
+lyrics_reference_url: "https://lrclib.net/api/get/37012858"
+metadata_confidence: 0.9812
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Like-A-Stone.md"
+metadata_review_status: "reviewed"
+---
+
 # Like A Stone
 
 On a cobweb afternoon  

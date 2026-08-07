@@ -1,3 +1,20 @@
+---
+artist: "The Commodores"
+reference_title: "Brick House"
+reference_artist: "The Commodores"
+reference_album: "20 #1’s: Disco"
+reference_duration_seconds: 211.0
+recording_mbid: "e510d44f-a2c8-42fe-bfdb-c5f1acdfb36f"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37009893"
+lyrics_reference_url: "https://lrclib.net/api/get/37009893"
+metadata_confidence: 0.9354
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Brick-House.md"
+metadata_review_status: "reviewed"
+---
+
 # Brick House
 
 

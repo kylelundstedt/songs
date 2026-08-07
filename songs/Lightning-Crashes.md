@@ -1,3 +1,20 @@
+---
+artist: "Live"
+reference_title: "Lightning Crashes"
+reference_artist: "Live"
+reference_album: "Veronica Top 590 - 2006"
+reference_duration_seconds: 326.0
+recording_mbid: "e63b9f15-a422-4ec5-87b7-3e14720c6d48"
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37476218"
+lyrics_reference_url: "https://lrclib.net/api/get/37476218"
+metadata_confidence: 0.9722
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Lightning-Crashes.md"
+metadata_review_status: "reviewed"
+---
+
 # Lightning Crashes
 
 Lightning crashes, a new mother cries  

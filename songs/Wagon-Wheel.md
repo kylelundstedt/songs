@@ -1,3 +1,19 @@
+---
+artist: "Darius Rucker"
+reference_title: "Wagon Wheel"
+reference_artist: "Darius Rucker"
+reference_album: "Homegrown"
+reference_duration_seconds: 298.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "35190377"
+lyrics_reference_url: "https://lrclib.net/api/get/35190377"
+metadata_confidence: 0.9107
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Wagon-Wheel.md"
+metadata_review_status: "reviewed"
+---
+
 # Wagon Wheel
 
 Headin' down south to the land of the pines  

@@ -1,3 +1,20 @@
+---
+artist: "ZZ Top"
+performance_key: "A"
+reference_title: "La Grange"
+reference_artist: "ZZ Top"
+reference_album: "Burger Man"
+reference_duration_seconds: 231.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37456462"
+lyrics_reference_url: "https://lrclib.net/api/get/37456462"
+metadata_confidence: 0.924
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/La-Grange.md"
+metadata_review_status: "reviewed"
+---
+
 # La Grange
 
 Rumor spreadin' 'round in that Texas town

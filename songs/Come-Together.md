@@ -1,3 +1,20 @@
+---
+artist: "The Beatles"
+performance_key: "D"
+reference_title: "Come Together"
+reference_artist: "The Beatles"
+reference_album: "20 Greatest Hits"
+reference_duration_seconds: 260.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37013201"
+lyrics_reference_url: "https://lrclib.net/api/get/37013201"
+metadata_confidence: 0.977
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Come-Together.md"
+metadata_review_status: "reviewed"
+---
+
 # Come Together
 
 Here come old flattop, he come grooving up slowly  

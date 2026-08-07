@@ -1,3 +1,19 @@
+---
+artist: "Blind Melon"
+reference_title: "No Rain"
+reference_artist: "Blind Melon"
+reference_album: "VA - 90s Pop Rock Ultimate Mix (2023)"
+reference_duration_seconds: 217.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "37059567"
+lyrics_reference_url: "https://lrclib.net/api/get/37059567"
+metadata_confidence: 0.9626
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/No-Rain.md"
+metadata_review_status: "reviewed"
+---
+
 # No Rain
 
 All I can say is that my life is pretty plain  

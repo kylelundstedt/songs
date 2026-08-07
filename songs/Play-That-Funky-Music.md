@@ -1,3 +1,20 @@
+---
+artist: "Wild Cherry"
+performance_key: "Em"
+reference_title: "Play That Funky Music"
+reference_artist: "Wild Cherry"
+reference_album: "1976! Songs of the Year"
+reference_duration_seconds: 300.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "36939561"
+lyrics_reference_url: "https://lrclib.net/api/get/36939561"
+metadata_confidence: 0.7807
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Play-That-Funky-Music.md"
+metadata_review_status: "reviewed"
+---
+
 # Play That Funky Music {short="Play That Funky"}  
 
 ### Intro  4x

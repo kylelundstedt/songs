@@ -1,3 +1,11 @@
+---
+artist: "Grateful Dead"
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/Going-Down-The-Road-Feeling-Bad.md"
+metadata_review_status: "reviewed"
+---
+
 # Going Down The Road Feeling Bad {short="Going Down The Road"}  
 
 Goin' down the road feelin' bad  

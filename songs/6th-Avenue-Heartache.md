@@ -1,3 +1,19 @@
+---
+artist: "The Wallflowers"
+reference_title: "6th Avenue Heartache"
+reference_artist: "The Wallflowers"
+reference_album: "A Year In Review: A Compilation Of The Best Rock In '96"
+reference_duration_seconds: 337.0
+lyrics_reference_provider: "LRCLIB"
+lyrics_reference_id: "33803545"
+lyrics_reference_url: "https://lrclib.net/api/get/33803545"
+metadata_confidence: 0.9579
+provenance_status: "legacy-imported"
+legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
+legacy_source_path: "lead-sheet/6th-Avenue-Heartache.md"
+metadata_review_status: "reviewed"
+---
+
 # 6th Avenue Heartache
 
 Sirens ring, the shots ring out  
