@@ -10,8 +10,12 @@
   <div class="header-actions"><a class="button shelley-edit" href="{{.ShelleyURL}}" target="_blank" rel="noopener"><span class="shelley-edit-full">Edit with Shelley</span><span class="shelley-edit-short">Open Shelley</span></a><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div>
 </header>
 <main class="library-shell sets-screen">
-  <div class="screen-title"><h1>Set Lists</h1></div>
-  {{if .Sets}}<div class="set-grid">{{range .Sets}}<article class="set-card"><p class="eyebrow">{{.Date}}</p><h2><a href="/sets/{{.ID}}">{{.Title}}</a></h2><p>{{len .Items}} songs{{if .Location}} · {{.Location}}{{end}}</p><a class="button primary" href="/sets/{{.ID}}/live">Open Live</a></article>{{end}}</div>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
+  <section class="set-tools" aria-label="Set-list sorting">
+    <h1 class="sr-only">Set Lists</h1>
+    <label><span>Sort by</span><select data-set-sort><option value="date" selected>Date</option><option value="title">Title</option></select></label>
+    <label><span>Order</span><select data-set-order><option value="desc" selected>Reverse</option><option value="asc">Forward</option></select></label>
+  </section>
+  {{if .Sets}}<div class="set-grid" data-set-list>{{range .Sets}}<a class="set-row" href="/sets/{{.ID}}" data-set-title="{{.Title}}" data-set-date="{{.Date}}"><strong>{{.Title}}</strong><time datetime="{{.Date}}">{{if .Date}}{{.Date}}{{else}}—{{end}}</time></a>{{end}}</div>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
 </main>
 <script src="/static/app.js" defer></script>
 </body></html>

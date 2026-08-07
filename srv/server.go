@@ -48,6 +48,7 @@ type Song struct {
 type SetItem struct {
 	Position int
 	Label    string
+	Singer   string
 	Note     string
 	Song     *Song
 }
@@ -94,6 +95,8 @@ type pageData struct {
 	Songs               []*Song
 	Sets                []*SetList
 	Song                *Song
+	PreviousSong        *Song
+	NextSong            *Song
 	Set                 *SetList
 	BuildTime           string
 	SongCount           int
@@ -161,6 +164,35 @@ var (
 	h1Pattern        = regexp.MustCompile(`(?m)^#\s+(.+?)\s*$`)
 	setItemPattern   = regexp.MustCompile(`^\s*\d+\.\s+\[([^]]+)\]\(([^)]+)\)\s*(.*)$`)
 )
+
+func parseSetItemDetails(raw string) (singer, note string) {
+	raw = strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(raw), "—–"))
+	if raw == "" {
+		return "", ""
+	}
+	var notes []string
+	for _, segment := range strings.Split(raw, "—") {
+		segment = strings.TrimSpace(segment)
+		if segment == "" {
+			continue
+		}
+		field, value, labeled := strings.Cut(segment, ":")
+		if labeled {
+			switch strings.ToLower(strings.TrimSpace(field)) {
+			case "singer":
+				singer = strings.TrimSpace(value)
+				continue
+			case "note":
+				if value = strings.TrimSpace(value); value != "" {
+					notes = append(notes, value)
+				}
+				continue
+			}
+		}
+		notes = append(notes, segment)
+	}
+	return singer, strings.Join(notes, " — ")
+}
 
 func New(dbPath, hostname, repoRoot string) (*Server, error) {
 	_, thisFile, _, _ := runtime.Caller(0)
@@ -338,8 +370,8 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 			if song == nil {
 				return fmt.Errorf("set %s references missing song %s", rel, target)
 			}
-			note := strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(m[3]), "—"))
-			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Note: note, Song: song})
+			singer, note := parseSetItemDetails(m[3])
+			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Singer: singer, Note: note, Song: song})
 		}
 		sets = append(sets, set)
 		byID[id] = set
@@ -1180,12 +1212,27 @@ func findLyricSequence(lines, sequence []string) int {
 func (s *Server) HandleSong(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	song := s.songsByID[r.PathValue("id")]
+	var previous, next *Song
+	if song != nil {
+		for i, candidate := range s.songs {
+			if candidate.ID != song.ID {
+				continue
+			}
+			if i > 0 {
+				previous = s.songs[i-1]
+			}
+			if i+1 < len(s.songs) {
+				next = s.songs[i+1]
+			}
+			break
+		}
+	}
 	s.mu.RUnlock()
 	if song == nil {
 		http.NotFound(w, r)
 		return
 	}
-	s.render(w, r, "song.html", pageData{Title: song.Title, Song: song, UserEmail: r.Header.Get("X-ExeDev-Email")})
+	s.render(w, r, "song.html", pageData{Title: song.Title, Song: song, PreviousSong: previous, NextSong: next, UserEmail: r.Header.Get("X-ExeDev-Email")})
 }
 func (s *Server) HandleSet(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()

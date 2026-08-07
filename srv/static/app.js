@@ -245,7 +245,34 @@
     finalizeTypography(panel,MIN_PX,1.12);
   }
 
-  async function fitAll() { for (const panel of document.querySelectorAll('[data-lead-sheet]')) await fitSheet(panel); refreshFontControls(); }
+  function applySetTypography(panel,px,pad) {
+    panel.style.setProperty('--set-font',`${px}px`);
+    panel.style.setProperty('--set-row-pad',`${pad}px`);
+    panel.dataset.bodyPx=String(px);
+  }
+
+  async function fitSetSheet(panel) {
+    const viewport=panel.querySelector('[data-set-viewport]'),table=panel.querySelector('.set-sheet-table');
+    if(!viewport||!table)return;
+    await (document.fonts?.ready||Promise.resolve());
+    if((document.documentElement.dataset.formFactor||detectFormFactor())==='phone') {
+      applySetTypography(panel,16,3); panel.dataset.fitStatus='scrollable'; return;
+    }
+    for(let px=17;px>=10;px--) {
+      const pad=px>=15?4:px>=12?3:1;
+      applySetTypography(panel,px,pad);
+      if(table.scrollHeight<=viewport.clientHeight+1&&table.scrollWidth<=viewport.clientWidth+1) {
+        panel.dataset.fitStatus='fit'; return;
+      }
+    }
+    panel.dataset.fitStatus='needs-editing';
+  }
+
+  async function fitAll() {
+    for (const panel of document.querySelectorAll('[data-lead-sheet]')) await fitSheet(panel);
+    for (const panel of document.querySelectorAll('[data-set-sheet]')) await fitSetSheet(panel);
+    refreshFontControls();
+  }
   function scheduleFit() { clearTimeout(refitTimer); refitTimer=setTimeout(()=>fitAll(),100); }
 
   function setupTheme() {
@@ -303,6 +330,27 @@
     });
     addEventListener('keydown',event=>{if(event.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement?.tagName)){event.preventDefault();input.focus();}});
     update();
+  }
+
+  function setupSetSorting() {
+    const list=document.querySelector('[data-set-list]'),sort=document.querySelector('[data-set-sort]'),order=document.querySelector('[data-set-order]');
+    if(!list||!sort||!order)return;
+    try {
+      if(['date','title'].includes(localStorage.getItem('songs-set-sort')))sort.value=localStorage.getItem('songs-set-sort');
+      if(['asc','desc'].includes(localStorage.getItem('songs-set-order')))order.value=localStorage.getItem('songs-set-order');
+    } catch {}
+    const collator=new Intl.Collator(undefined,{sensitivity:'base',numeric:true});
+    const update=()=>{
+      const rows=[...list.querySelectorAll('.set-row')],field=sort.value,direction=order.value==='asc'?1:-1;
+      rows.sort((a,b)=>{
+        const av=(field==='date'?a.dataset.setDate:a.dataset.setTitle)||'',bv=(field==='date'?b.dataset.setDate:b.dataset.setTitle)||'';
+        if(!av||!bv)return av? -1 : bv? 1 : 0;
+        return collator.compare(av,bv)*direction;
+      });
+      rows.forEach(row=>list.append(row));
+      try { localStorage.setItem('songs-set-sort',field); localStorage.setItem('songs-set-order',order.value); } catch {}
+    };
+    sort.addEventListener('change',update); order.addEventListener('change',update); update();
   }
 
   function currentVisibleLeadSheet() {
@@ -504,7 +552,7 @@
   }
 
   async function verifySetFits(setID) {
-    const ids = [...document.querySelectorAll('.set-list a[href^="/song/"]')].map(link => link.getAttribute('href').split('/').pop());
+    const ids = [...document.querySelectorAll('.set-sheet-table a[href^="/song/"]')].map(link => link.getAttribute('href').split('/').pop());
     if (!ids.length) throw new Error('Set list contains no songs');
     const panel = document.createElement('article');
     panel.className = 'lead-sheet-panel';
@@ -633,6 +681,18 @@
     });
   }
 
+  function setupSongNavigation() {
+    const previous=document.body.dataset.previousSong, next=document.body.dataset.nextSong;
+    if(!previous&&!next)return;
+    addEventListener('keydown',event=>{
+      if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey)return;
+      if(document.querySelector('dialog[open]')||(event.target instanceof Element&&event.target.closest('input,textarea,select,button,a,[contenteditable="true"]')))return;
+      const destination=event.key==='ArrowUp'?previous:event.key==='ArrowDown'?next:'';
+      if(!destination)return;
+      event.preventDefault(); location.assign(destination);
+    });
+  }
+
   function setupLiveNavigation(){
     const scroller=document.querySelector('[data-live-scroller]'); if(!scroller)return;
     const panels=[...document.querySelectorAll('[data-live-panel]')],progress=document.querySelector('[data-live-progress]'); let current=0,scrollFrame=0;
@@ -654,7 +714,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();

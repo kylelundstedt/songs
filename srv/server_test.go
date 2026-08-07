@@ -27,7 +27,7 @@ func fixtureServer(t *testing.T) *Server {
 	if err := os.WriteFile(filepath.Join(root, "songs", "Test-Song.md"), []byte(song), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	set := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n1. [Test Song](../songs/Test-Song.md)\n"
+	set := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n1. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in\n"
 	if err := os.WriteFile(filepath.Join(root, "sets", "test-set.md"), []byte(set), 0o644); err != nil {
 		t.Fatal(err)
 	}
@@ -69,6 +69,9 @@ func TestCatalogAndRoutes(t *testing.T) {
 	if len(server.sets) != 1 || len(server.sets[0].Items) != 1 {
 		t.Fatalf("sets=%#v", server.sets)
 	}
+	if item := server.sets[0].Items[0]; item.Singer != "Alex" || item.Note != "Count in" {
+		t.Fatalf("set item metadata=%#v", item)
+	}
 
 	tests := []struct {
 		name, path string
@@ -77,8 +80,8 @@ func TestCatalogAndRoutes(t *testing.T) {
 	}{
 		{"home", "/", server.HandleHome, "Test Song"},
 		{"song", "/song/test-song", server.HandleSong, "Two lines"},
-		{"set", "/sets/test-set", server.HandleSet, "Open live set"},
-		{"live", "/sets/test-set/live", server.HandleLiveSet, "data-live-panel"},
+		{"set", "/sets/test-set", server.HandleSet, "Alex"},
+		{"live", "/sets/test-set/live", server.HandleLiveSet, "Alex"},
 		{"about", "/about", server.HandleAbout, "Built for the stage"},
 	}
 	for _, tt := range tests {
@@ -138,6 +141,44 @@ func TestMetadataPlaceholdersRemainVisible(t *testing.T) {
 				}
 			}
 		})
+	}
+}
+
+func TestParseSetItemDetails(t *testing.T) {
+	tests := []struct {
+		raw, singer, note string
+	}{
+		{"— singer: Kyle — note: short count-in", "Kyle", "short count-in"},
+		{"singer: Kiana", "Kiana", ""},
+		{"Watch the ending", "", "Watch the ending"},
+		{"— note: First — extra detail", "", "First — extra detail"},
+	}
+	for _, tt := range tests {
+		singer, note := parseSetItemDetails(tt.raw)
+		if singer != tt.singer || note != tt.note {
+			t.Errorf("parseSetItemDetails(%q)=(%q,%q), want (%q,%q)", tt.raw, singer, note, tt.singer, tt.note)
+		}
+	}
+}
+
+func TestSongNavigationUsesCatalogOrder(t *testing.T) {
+	server := fixtureServer(t)
+	current := server.songs[0]
+	previous := &Song{ID: "alpha", Title: "Alpha"}
+	next := &Song{ID: "zulu", Title: "Zulu"}
+	server.songs = []*Song{previous, current, next}
+
+	req := httptest.NewRequest(http.MethodGet, "/song/test-song", nil)
+	req.SetPathValue("id", "test-song")
+	w := httptest.NewRecorder()
+	server.HandleSong(w, req)
+	if w.Code != http.StatusOK {
+		t.Fatalf("status=%d body=%s", w.Code, w.Body.String())
+	}
+	for _, want := range []string{`data-previous-song="/song/alpha"`, `data-next-song="/song/zulu"`} {
+		if !strings.Contains(w.Body.String(), want) {
+			t.Errorf("body missing %q", want)
+		}
 	}
 }
 

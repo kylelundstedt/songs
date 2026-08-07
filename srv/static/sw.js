@@ -1,4 +1,4 @@
-const CACHE = 'songs-shell-v20';
+const CACHE = 'songs-shell-v21';
 const SHELL = ['/', '/static/style.css', '/static/app.js', '/static/icon.svg', '/manifest.webmanifest'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
