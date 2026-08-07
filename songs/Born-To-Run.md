@@ -76,10 +76,8 @@ Everybody's out on the run tonight, but there's no place left to hide
 Together, Wendy, we can live with the sadness  
 I'll love you with all the madness in my soul  
 Oh, someday, girl, I don't know when
-We're gonna get to that place where we really wanna go
-  
-And we'll walk in the sun  
-But 'til then tramps like us  
+We're gonna get to that place where we really wanna go   
+And we'll walk in the sun; But 'til then, tramps like us  
 Baby, we were born to runnnnn  
   
 ### Intro Vamp  24x  
