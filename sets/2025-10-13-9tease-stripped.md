@@ -10,11 +10,8 @@ band_review: "unresolved"
 status: draft
 draft_id: "sld-82d724e0933f"
 review_required: true
-unresolved_items:
-  - "sld-82d724e0933f-item-01-019"
-  - "sld-82d724e0933f-item-01-040"
-  - "sld-82d724e0933f-item-01-041"
-review_note: "candidate requires review; 3 unresolved item(s); band unresolved"
+unresolved_items: []
+review_note: "candidate requires review; band unresolved"
 source_type: "notion"
 source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 ---
@@ -39,7 +36,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 16. [Shine](../songs/Shine.md)
 17. [Elderly Woman](../songs/Elderly-Woman.md)
 18. [Wicked Game](../songs/Wicked-Game.md)
-19. [yer so bad](unresolved:yer-so-bad) — match: unresolved?
+19. [You're So Bad](../songs/you-re-so-bad.md)
 20. [Everlong](../songs/Everlong.md)
 21. [Drive](../songs/Drive.md)
 22. [Higher](../songs/Higher.md)
@@ -60,8 +57,8 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 37. [Killing in The Name](../songs/Killing-In-The-Name.md)
 38. [Sex on Fire](../songs/Sex-on-Fire.md)
 39. [If You Could Only See](../songs/if-you-could-only-see.md)
-40. [3 am](unresolved:3-am) — match: unresolved?
-41. [iris](unresolved:iris) — match: unresolved?
+40. [3 AM](../songs/3-am.md)
+41. [Iris](../songs/iris.md)
 42. [Just What I Needed](../songs/Just-What-I-Needed.md)
 43. [Breakdown](../songs/Breakdown.md)
 44. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
