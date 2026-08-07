@@ -43,8 +43,8 @@ We gotta get out while we're young
   
 ### Verse  8x  
 
-Wendy, let me in, I wanna be your friend, I wanna guard your dreams and visions  
-Just wrap your legs 'round these velvet rims, And strap your hands 'cross my engines  
+Wendy, let me in, I wanna be your friend, I wanna guard ur dreams& visions  
+Just wrap ur legs 'round these velvet rims, And strap ur hands 'cross my engines  
   
 ### B Section  14x  
 
