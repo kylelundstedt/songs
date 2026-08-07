@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "method": "deterministic conservative reconciliation; full dates required for automatic cross-page event grouping",
+  "method": "deterministic conservative reconciliation; day-precision dates required for automatic cross-page event grouping; month-precision dates are importable but never auto-merged",
   "source_candidate_index": [
     {
       "source_type": "github",
@@ -18,6 +18,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2017-06",
+      "date_value": "2017-06",
+      "date_precision": "month",
       "date_exact": null,
       "title_raw": "2017-06 Ty Caton",
       "venue_raw": "Ty Caton",
@@ -78,6 +80,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2017-06",
+      "date_value": "2017-06",
+      "date_precision": "month",
       "date_exact": null,
       "title_raw": "2017-06 Jack London",
       "venue_raw": "Jack London",
@@ -140,6 +144,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2017-11-02",
+      "date_value": "2017-11-02",
+      "date_precision": "day",
       "date_exact": "2017-11-02",
       "title_raw": "20171102 Nicholson",
       "venue_raw": "Nicholson",
@@ -181,6 +187,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2017-11-10",
+      "date_value": "2017-11-10",
+      "date_precision": "day",
       "date_exact": "2017-11-10",
       "title_raw": "20171110 Hopmonk",
       "venue_raw": "Hopmonk",
@@ -241,6 +249,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2018-02-24",
+      "date_value": "2018-02-24",
+      "date_precision": "day",
       "date_exact": "2018-02-24",
       "title_raw": "20180224 BV",
       "venue_raw": "BV",
@@ -306,6 +316,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2018-06-09",
+      "date_value": "2018-06-09",
+      "date_precision": "day",
       "date_exact": "2018-06-09",
       "title_raw": "20180609 Nicholson",
       "venue_raw": "Nicholson",
@@ -371,6 +383,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2025-10-13",
+      "date_value": "2025-10-13",
+      "date_precision": "day",
       "date_exact": "2025-10-13",
       "title_raw": "9Tease Stripped",
       "venue_raw": "Castello Golightly",
@@ -451,6 +465,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-11-25",
+      "date_value": "2023-11-25",
+      "date_precision": "day",
       "date_exact": "2023-11-25",
       "title_raw": "FF: Vintage Space",
       "venue_raw": null,
@@ -493,6 +509,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2023-12-01",
+      "date_value": "2023-12-01",
+      "date_precision": "day",
       "date_exact": "2023-12-01",
       "title_raw": "SF: 12-13-25",
       "venue_raw": null,
@@ -541,6 +559,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-09-24",
+      "date_value": "2023-09-24",
+      "date_precision": "day",
       "date_exact": "2023-09-24",
       "title_raw": "LC Acou: BV xmas",
       "venue_raw": null,
@@ -601,6 +621,8 @@
       "status": "unsupported",
       "confidence": "low",
       "date_raw": "2021-01-01",
+      "date_value": "2021-01-01",
+      "date_precision": "day",
       "date_exact": "2021-01-01",
       "title_raw": null,
       "venue_raw": null,
@@ -630,6 +652,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-10-07",
+      "date_value": "2023-10-07",
+      "date_precision": "day",
       "date_exact": "2023-10-07",
       "title_raw": "Oktoberfest 10/7/2023",
       "venue_raw": null,
@@ -676,6 +700,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-08-24",
+      "date_value": "2023-08-24",
+      "date_precision": "day",
       "date_exact": "2023-08-24",
       "title_raw": "LC Acou: Murphys",
       "venue_raw": "Murphy's",
@@ -738,6 +764,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-12-03",
+      "date_value": "2023-12-03",
+      "date_precision": "day",
       "date_exact": "2023-12-03",
       "title_raw": "LC Acou: BV Party",
       "venue_raw": null,
@@ -806,6 +834,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-07-01",
+      "date_value": "2023-07-01",
+      "date_precision": "day",
       "date_exact": "2023-07-01",
       "title_raw": "LC Elec:  Raymond",
       "venue_raw": "Wedding",
@@ -873,6 +903,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-07-01",
+      "date_value": "2023-07-01",
+      "date_precision": "day",
       "date_exact": "2023-07-01",
       "title_raw": "LC Elec:  Raymond - Start/Stop Notes",
       "venue_raw": "Wedding",
@@ -940,6 +972,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2021-01-01",
+      "date_value": "2021-01-01",
+      "date_precision": "day",
       "date_exact": "2021-01-01",
       "title_raw": "Naz Pahtay",
       "venue_raw": null,
@@ -986,6 +1020,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-09-21",
+      "date_value": "2023-09-21",
+      "date_precision": "day",
       "date_exact": "2023-09-21",
       "title_raw": "JLL - LC Electric 6/27",
       "venue_raw": "Jack London Saloon",
@@ -1045,6 +1081,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-07-15",
+      "date_value": "2023-07-15",
+      "date_precision": "day",
       "date_exact": "2023-07-15",
       "title_raw": "LC Elec:  Ellen’s Wedding",
       "venue_raw": "Wedding",
@@ -1109,6 +1147,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-04-13",
+      "date_value": "2023-04-13",
+      "date_precision": "day",
       "date_exact": "2023-04-13",
       "title_raw": "JLL - LC Acoustic",
       "venue_raw": "Jack London Saloon",
@@ -1169,6 +1209,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2023-06-10",
+      "date_value": "2023-06-10",
+      "date_precision": "day",
       "date_exact": "2023-06-10",
       "title_raw": "LC Elec:  Nicholson",
       "venue_raw": "Nicholson Ranch",
@@ -1231,6 +1273,8 @@
       "status": "unsupported",
       "confidence": "low",
       "date_raw": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_exact": null,
       "title_raw": null,
       "venue_raw": null,
@@ -1260,6 +1304,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-12-20",
+      "date_value": "2022-12-20",
+      "date_precision": "day",
       "date_exact": "2022-12-20",
       "title_raw": "GDE Holiday Jam",
       "venue_raw": "Castello Golightly",
@@ -1296,6 +1342,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-12-31",
+      "date_value": "2022-12-31",
+      "date_precision": "day",
       "date_exact": "2022-12-31",
       "title_raw": "NYE 22",
       "venue_raw": null,
@@ -1340,6 +1388,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-10-15",
+      "date_value": "2022-10-15",
+      "date_precision": "day",
       "date_exact": "2022-10-15",
       "title_raw": "LCA: Annadel Estate Winery",
       "venue_raw": null,
@@ -1399,6 +1449,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-09-25T15:30:00.000-07:00",
+      "date_value": "2022-09-25",
+      "date_precision": "day",
       "date_exact": "2022-09-25",
       "title_raw": "Last Sunday (R&B) - LC Electric - Set up inside",
       "venue_raw": "Reel and Brand",
@@ -1452,6 +1504,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-08-20T12:30:00.000-07:00",
+      "date_value": "2022-08-20",
+      "date_precision": "day",
       "date_exact": "2022-08-20",
       "title_raw": "LC Acou: Ellen (JR)’s party - 8/20/22",
       "venue_raw": "Ellen's House",
@@ -1532,6 +1586,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_exact": null,
       "title_raw": "LC Acou: JLL - 9/22/22",
       "venue_raw": "Ellen's House",
@@ -1612,6 +1668,8 @@
       "status": "unsupported",
       "confidence": "low",
       "date_raw": "2022-01-01",
+      "date_value": "2022-01-01",
+      "date_precision": "day",
       "date_exact": "2022-01-01",
       "title_raw": "LC",
       "venue_raw": null,
@@ -1645,6 +1703,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-10-01",
+      "date_value": "2022-10-01",
+      "date_precision": "day",
       "date_exact": "2022-10-01",
       "title_raw": "FF: Crooked Goat & Campo Fina",
       "venue_raw": "Sonoma Plaza",
@@ -1690,6 +1750,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-08-28",
+      "date_value": "2022-08-28",
+      "date_precision": "day",
       "date_exact": "2022-08-28",
       "title_raw": "Last Sunday (R&B) - LC Electric 7/28",
       "venue_raw": "Reel and Brand",
@@ -1743,6 +1805,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-09-22T17:30:00.000-07:00",
+      "date_value": "2022-09-22",
+      "date_precision": "day",
       "date_exact": "2022-09-22",
       "title_raw": "NYE 22 print",
       "venue_raw": "Jack London Saloon",
@@ -1791,6 +1855,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-08-27",
+      "date_value": "2022-08-27",
+      "date_precision": "day",
       "date_exact": "2022-08-27",
       "title_raw": "FF: Red & White Ball 8/27",
       "venue_raw": "Sonoma Plaza",
@@ -1835,6 +1901,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-07-08",
+      "date_value": "2022-07-08",
+      "date_precision": "day",
       "date_exact": "2022-07-08",
       "title_raw": "Acoustic 90s-ish List (for Ted)",
       "venue_raw": "Kenwood Residence (Neat Chateau St Jean)",
@@ -1897,6 +1965,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-07-09",
+      "date_value": "2022-07-09",
+      "date_precision": "day",
       "date_exact": "2022-07-09",
       "title_raw": "FF: Nicholson Pigs n Pinot 7/9",
       "venue_raw": "Nicholson Ranch",
@@ -1947,6 +2017,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-06-16",
+      "date_value": "2022-06-16",
+      "date_precision": "day",
       "date_exact": "2022-06-16",
       "title_raw": "JLL - LC Acoustic 6/16",
       "venue_raw": "Jack London Saloon",
@@ -2016,6 +2088,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-06-26",
+      "date_value": "2022-06-26",
+      "date_precision": "day",
       "date_exact": "2022-06-26",
       "title_raw": "Last Sunday (R&B) - LC Electric 6/26",
       "venue_raw": "Reel and Brand",
@@ -2076,6 +2150,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-07-08",
+      "date_value": "2022-07-08",
+      "date_precision": "day",
       "date_exact": "2022-07-08",
       "title_raw": "Kenwood Party - LC Acoustic 7/8",
       "venue_raw": "Kenwood Residence (Neat Chateau St Jean)",
@@ -2144,6 +2220,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-10-09",
+      "date_value": "2022-10-09",
+      "date_precision": "day",
       "date_exact": "2022-10-09",
       "title_raw": "LC Elec: Glen Ellen Fair",
       "venue_raw": "Downtown Glen Ellen",
@@ -2189,6 +2267,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_exact": "2021-10-02",
       "title_raw": "FF: Sarah’s 50th (candidate)",
       "venue_raw": "Sonoma Plaza",
@@ -2232,6 +2312,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_exact": "2021-10-02",
       "title_raw": "Sarah 50th Bday",
       "venue_raw": "Sonoma Plaza",
@@ -2293,6 +2375,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2022-08-04",
+      "date_value": "2022-08-04",
+      "date_precision": "day",
       "date_exact": "2022-08-04",
       "title_raw": "SleaZZy Tom",
       "venue_raw": "Sonoma Plaza",
@@ -2332,6 +2416,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2022-05-04",
+      "date_value": "2022-05-04",
+      "date_precision": "day",
       "date_exact": "2022-05-04",
       "title_raw": "DG/ET -  LC Acoustic",
       "venue_raw": "Murphy's",
@@ -2389,6 +2475,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2021-12-31",
+      "date_value": "2021-12-31",
+      "date_precision": "day",
       "date_exact": "2021-12-31",
       "title_raw": "NYE 2021 - SZ Ideas",
       "venue_raw": "Castello Golightly",
@@ -2432,6 +2520,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-11-19T19:00:00.000-08:00",
+      "date_value": "2021-11-19",
+      "date_precision": "day",
       "date_exact": "2021-11-19",
       "title_raw": "Reel & Brand - LC Acoustic",
       "venue_raw": "Reel and Brand",
@@ -2494,6 +2584,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_exact": "2021-10-02",
       "title_raw": "Oktoberfest - FF",
       "venue_raw": "Sonoma Plaza",
@@ -2544,6 +2636,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2021-08-05",
+      "date_value": "2021-08-05",
+      "date_precision": "day",
       "date_exact": "2021-08-05",
       "title_raw": "Berry Bros Guitar Notes",
       "venue_raw": "Sonoma Plaza",
@@ -2581,6 +2675,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2021-08-05",
+      "date_value": "2021-08-05",
+      "date_precision": "day",
       "date_exact": "2021-08-05",
       "title_raw": "City Party - Berry Brothers",
       "venue_raw": "Sonoma Plaza",
@@ -2617,6 +2713,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2021-08-05",
+      "date_value": "2021-08-05",
+      "date_precision": "day",
       "date_exact": "2021-08-05",
       "title_raw": "City Party - FF",
       "venue_raw": "Sonoma Plaza",
@@ -2662,6 +2760,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-09-23",
+      "date_value": "2021-09-23",
+      "date_precision": "day",
       "date_exact": "2021-09-23",
       "title_raw": "Jack London - LC Acoustic",
       "venue_raw": "Jack London Saloon",
@@ -2728,6 +2828,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_exact": "2021-10-02",
       "title_raw": "Oktoberfest 2021 - LC Electric",
       "venue_raw": "Sonoma Plaza",
@@ -2793,6 +2895,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-07-10",
+      "date_value": "2021-07-10",
+      "date_precision": "day",
       "date_exact": "2021-07-10",
       "title_raw": "MattMere Wedding - FF",
       "venue_raw": "Castello Golightly",
@@ -2849,6 +2953,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-06-19T19:00:00.000-07:00",
+      "date_value": "2021-06-19",
+      "date_precision": "day",
       "date_exact": "2021-06-19",
       "title_raw": "Murphy's - LC Acoustic",
       "venue_raw": "Murphy's",
@@ -2925,6 +3031,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-04-03",
+      "date_value": "2021-04-03",
+      "date_precision": "day",
       "date_exact": "2021-04-03",
       "title_raw": "Taylor's Birthday",
       "venue_raw": "Castello Golightly",
@@ -2987,6 +3095,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-04-10",
+      "date_value": "2021-04-10",
+      "date_precision": "day",
       "date_exact": "2021-04-10",
       "title_raw": "Reel and Brand - LC Acoustic",
       "venue_raw": "Reel and Brand",
@@ -3052,6 +3162,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2021-08-07",
+      "date_value": "2021-08-07",
+      "date_precision": "day",
       "date_exact": "2021-08-07",
       "title_raw": "Banned",
       "venue_raw": "Wölffer Estate",
@@ -3100,6 +3212,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-02-20",
+      "date_value": "2021-02-20",
+      "date_precision": "day",
       "date_exact": "2021-02-20",
       "title_raw": "Murphy's - LC",
       "venue_raw": null,
@@ -3166,6 +3280,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2021-05-15",
+      "date_value": "2021-05-15",
+      "date_precision": "day",
       "date_exact": "2021-05-15",
       "title_raw": "Murphy's - LC Acoustic",
       "venue_raw": "Murphy's",
@@ -3244,6 +3360,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2015-09",
+      "date_value": "2015-09",
+      "date_precision": "month",
       "date_exact": null,
       "title_raw": "Acoustic at Hopmonk",
       "venue_raw": "Acoustic at Hopmonk",
@@ -3301,6 +3419,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2016-05",
+      "date_value": "2016-05",
+      "date_precision": "month",
       "date_exact": null,
       "title_raw": "Prestwood",
       "venue_raw": "Prestwood",
@@ -3352,6 +3472,8 @@
       "status": "extracted",
       "confidence": "medium",
       "date_raw": "2017-10",
+      "date_value": "2017-10",
+      "date_precision": "month",
       "date_exact": null,
       "title_raw": "SVSA",
       "venue_raw": "SVSA",
@@ -3423,6 +3545,8 @@
       "status": "unsupported",
       "confidence": "none",
       "date_raw": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_exact": null,
       "title_raw": null,
       "venue_raw": null,
@@ -3461,6 +3585,8 @@
       "status": "unsupported",
       "confidence": "none",
       "date_raw": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_exact": null,
       "title_raw": null,
       "venue_raw": null,
@@ -3499,6 +3625,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2016-07-08",
+      "date_value": "2016-07-08",
+      "date_precision": "day",
       "date_exact": "2016-07-08",
       "title_raw": "Stonetree",
       "venue_raw": "Stonetree",
@@ -3584,6 +3712,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2017-04-01",
+      "date_value": "2017-04-01",
+      "date_precision": "day",
       "date_exact": "2017-04-01",
       "title_raw": "SIFF",
       "venue_raw": "SIFF",
@@ -3652,6 +3782,8 @@
       "status": "unsupported",
       "confidence": "none",
       "date_raw": "2005-01-14",
+      "date_value": "2005-01-14",
+      "date_precision": "day",
       "date_exact": "2005-01-14",
       "title_raw": "Ireland's 32",
       "venue_raw": "Ireland's 32",
@@ -3701,6 +3833,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2005-03-26",
+      "date_value": "2005-03-26",
+      "date_precision": "day",
       "date_exact": "2005-03-26",
       "title_raw": "Easter Pageant",
       "venue_raw": "Easter Pageant",
@@ -3754,6 +3888,8 @@
       "status": "extracted",
       "confidence": "high",
       "date_raw": "2006-01-25",
+      "date_value": "2006-01-25",
+      "date_precision": "day",
       "date_exact": "2006-01-25",
       "title_raw": null,
       "venue_raw": null,
@@ -4093,6 +4229,8 @@
       "event_group_id": "event-001",
       "primary_source_id": "07919a2a-28f0-4c25-877a-7aaa7e3b83eb",
       "date_exact": "2021-04-03",
+      "date_value": "2021-04-03",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-04-03"
       ],
@@ -4119,6 +4257,8 @@
       "event_group_id": "event-002",
       "primary_source_id": "0d5c361e-24e3-4ad9-af08-c4639f54c7d8",
       "date_exact": "2021-04-10",
+      "date_value": "2021-04-10",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-04-10"
       ],
@@ -4151,6 +4291,8 @@
       "event_group_id": "event-003",
       "primary_source_id": "202e6f13-b36b-4eea-a87e-8e30265dbef6",
       "date_exact": "2022-05-04",
+      "date_value": "2022-05-04",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-05-04"
       ],
@@ -4183,6 +4325,8 @@
       "event_group_id": "event-004",
       "primary_source_id": "203dc7bc-0118-4c36-91a9-054982d8cb04",
       "date_exact": "2021-08-07",
+      "date_value": "2021-08-07",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-08-07"
       ],
@@ -4207,6 +4351,8 @@
       "event_group_id": "event-005",
       "primary_source_id": "283640bb-c477-4377-9efe-c67a601f21ea",
       "date_exact": "2022-09-22",
+      "date_value": "2022-09-22",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-09-22T17:30:00.000-07:00"
       ],
@@ -4233,6 +4379,8 @@
       "event_group_id": "event-006",
       "primary_source_id": "28b46aa1-262b-804d-b4c3-ea5e7766d7ec",
       "date_exact": "2025-10-13",
+      "date_value": "2025-10-13",
+      "date_precision": "day",
       "date_raw_values": [
         "2025-10-13"
       ],
@@ -4259,6 +4407,8 @@
       "event_group_id": "event-007",
       "primary_source_id": "28f25265-6d1a-45d5-ac9d-ae02c07534a7",
       "date_exact": "2021-09-23",
+      "date_value": "2021-09-23",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-09-23"
       ],
@@ -4291,6 +4441,8 @@
       "event_group_id": "event-008",
       "primary_source_id": "2f2e676d-93f8-4a8b-b50a-97818cb391db",
       "date_exact": "2021-02-20",
+      "date_value": "2021-02-20",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-02-20"
       ],
@@ -4335,6 +4487,8 @@
       "event_group_id": "event-009",
       "primary_source_id": "2f7f9435-a568-4116-9b63-2eb56580cce5",
       "date_exact": "2023-06-10",
+      "date_value": "2023-06-10",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-06-10"
       ],
@@ -4367,6 +4521,8 @@
       "event_group_id": "event-010",
       "primary_source_id": "31c5bb73-effb-4fc6-828f-994ab4677da7",
       "date_exact": "2022-07-08",
+      "date_value": "2022-07-08",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-07-08"
       ],
@@ -4394,6 +4550,8 @@
       "event_group_id": "event-011",
       "primary_source_id": "333f84b7-9df4-4535-9286-37900c93ac83",
       "date_exact": "2023-11-25",
+      "date_value": "2023-11-25",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-11-25"
       ],
@@ -4418,6 +4576,8 @@
       "event_group_id": "event-012",
       "primary_source_id": "3675b233-e08e-45c2-a3dd-2d3936c72ad6",
       "date_exact": "2021-08-05",
+      "date_value": "2021-08-05",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-08-05"
       ],
@@ -4442,6 +4602,8 @@
       "event_group_id": "event-013",
       "primary_source_id": "42f1f331-a66f-4ca2-a738-e390d7d84c5d",
       "date_exact": "2022-07-08",
+      "date_value": "2022-07-08",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-07-08"
       ],
@@ -4475,6 +4637,8 @@
       "event_group_id": "event-014",
       "primary_source_id": "435d0a5d-7572-4520-a8f7-d7d4873f4d8c",
       "date_exact": "2021-12-31",
+      "date_value": "2021-12-31",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-12-31"
       ],
@@ -4499,6 +4663,8 @@
       "event_group_id": "event-015",
       "primary_source_id": "4a943883-cd15-490f-8aaf-f6f72e9d654b",
       "date_exact": "2021-07-10",
+      "date_value": "2021-07-10",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-07-10"
       ],
@@ -4525,6 +4691,8 @@
       "event_group_id": "event-016",
       "primary_source_id": "4b1bafe4-7163-46d5-9eda-eabbd079f053",
       "date_exact": "2022-10-15",
+      "date_value": "2022-10-15",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-10-15"
       ],
@@ -4551,6 +4719,8 @@
       "event_group_id": "event-017",
       "primary_source_id": "4d71271e-456b-4577-b5ae-2b975f0d2388",
       "date_exact": "2021-05-15",
+      "date_value": "2021-05-15",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-05-15"
       ],
@@ -4583,6 +4753,8 @@
       "event_group_id": "event-018",
       "primary_source_id": "54662544-15de-49d0-b2ed-2e7cc6555dc1",
       "date_exact": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-10-02"
       ],
@@ -4610,6 +4782,8 @@
       "event_group_id": "event-019",
       "primary_source_id": "5b9b4243-c90c-4130-a5cd-02eabde767cf",
       "date_exact": "2021-01-01",
+      "date_value": "2021-01-01",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-01-01"
       ],
@@ -4638,6 +4812,8 @@
       "event_group_id": "event-020",
       "primary_source_id": "634925dc-1c91-4087-bea1-7e86dc41a179",
       "date_exact": "2021-11-19",
+      "date_value": "2021-11-19",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-11-19T19:00:00.000-08:00"
       ],
@@ -4670,6 +4846,8 @@
       "event_group_id": "event-021",
       "primary_source_id": "6a710d6b-1b24-48ff-8823-d4d6423db113",
       "date_exact": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_raw_values": [
         "None"
       ],
@@ -4690,7 +4868,7 @@
       "import_disposition": "review_blocked",
       "review_blockers": [
         "unsupported source extraction",
-        "partial or missing date; not eligible for automatic historical-gig merging",
+        "missing or unsupported date",
         "missing or blank gig title",
         "no canonical-song evidence"
       ]
@@ -4699,6 +4877,8 @@
       "event_group_id": "event-022",
       "primary_source_id": "749fde84-3489-400e-9c6f-c804cca3e3fa",
       "date_exact": "2022-06-26",
+      "date_value": "2022-06-26",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-06-26"
       ],
@@ -4731,6 +4911,8 @@
       "event_group_id": "event-023",
       "primary_source_id": "7e0be840-413e-468e-90f0-b8a4eabff48a",
       "date_exact": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-10-02"
       ],
@@ -4757,6 +4939,8 @@
       "event_group_id": "event-024",
       "primary_source_id": "8365fac7-c739-4a65-8b84-ddea34f4e0ac",
       "date_exact": "2022-12-20",
+      "date_value": "2022-12-20",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-12-20"
       ],
@@ -4781,6 +4965,8 @@
       "event_group_id": "event-025",
       "primary_source_id": "8406e30d-d95e-4a02-b716-d2363b8d2b6a",
       "date_exact": "2023-07-15",
+      "date_value": "2023-07-15",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-07-15"
       ],
@@ -4813,6 +4999,8 @@
       "event_group_id": "event-026",
       "primary_source_id": "840d3d08-7198-45c5-8b45-6a9b9b1eefac",
       "date_exact": "2021-01-01",
+      "date_value": "2021-01-01",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-01-01"
       ],
@@ -4837,6 +5025,8 @@
       "event_group_id": "event-027",
       "primary_source_id": "89e74478-afb2-442b-9b35-f4bd20d86bce",
       "date_exact": "2023-07-01",
+      "date_value": "2023-07-01",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-07-01"
       ],
@@ -4876,6 +5066,8 @@
       "event_group_id": "event-028",
       "primary_source_id": "8c909721-6696-4046-939f-372acfef2e9b",
       "date_exact": "2023-08-24",
+      "date_value": "2023-08-24",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-08-24"
       ],
@@ -4908,6 +5100,8 @@
       "event_group_id": "event-029",
       "primary_source_id": "8ce8bc35-3718-4133-84e5-53f5eb08339b",
       "date_exact": "2022-08-04",
+      "date_value": "2022-08-04",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-08-04"
       ],
@@ -4932,6 +5126,8 @@
       "event_group_id": "event-030",
       "primary_source_id": "94c064c9-03e5-4047-aed7-922ddeab6e06",
       "date_exact": "2023-10-07",
+      "date_value": "2023-10-07",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-10-07"
       ],
@@ -4956,6 +5152,8 @@
       "event_group_id": "event-031",
       "primary_source_id": "9a74f7c5-9016-4e68-903c-60cbb9afa617",
       "date_exact": "2022-08-27",
+      "date_value": "2022-08-27",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-08-27"
       ],
@@ -4982,6 +5180,8 @@
       "event_group_id": "event-032",
       "primary_source_id": "9c0d19df-67b5-44bb-830b-c8d3088e9899",
       "date_exact": "2021-06-19",
+      "date_value": "2021-06-19",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-06-19T19:00:00.000-07:00"
       ],
@@ -5014,6 +5214,8 @@
       "event_group_id": "event-033",
       "primary_source_id": "a6cf6ba4-5273-40da-a5cf-1375937bed5f",
       "date_exact": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-10-02"
       ],
@@ -5046,6 +5248,8 @@
       "event_group_id": "event-034",
       "primary_source_id": "a6ee9eaf-088e-4a58-9a30-1db86fcfba49",
       "date_exact": "2022-01-01",
+      "date_value": "2022-01-01",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-01-01"
       ],
@@ -5079,6 +5283,8 @@
       "event_group_id": "event-035",
       "primary_source_id": "ac25109e-1ce6-4977-98ed-e653c5b532b7",
       "date_exact": "2022-08-20",
+      "date_value": "2022-08-20",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-08-20T12:30:00.000-07:00"
       ],
@@ -5111,6 +5317,8 @@
       "event_group_id": "event-036",
       "primary_source_id": "b003defc-e7cf-47b5-add8-5ccee34f9b71",
       "date_exact": "2023-12-03",
+      "date_value": "2023-12-03",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-12-03"
       ],
@@ -5143,6 +5351,8 @@
       "event_group_id": "event-037",
       "primary_source_id": "b3c0c774-dd52-4f2a-bd48-edb092f027f0",
       "date_exact": "2023-04-13",
+      "date_value": "2023-04-13",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-04-13"
       ],
@@ -5175,6 +5385,8 @@
       "event_group_id": "event-038",
       "primary_source_id": "b4c394be-47e3-4daa-8e08-325c6b81b3b3",
       "date_exact": "2022-12-31",
+      "date_value": "2022-12-31",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-12-31"
       ],
@@ -5199,6 +5411,8 @@
       "event_group_id": "event-039",
       "primary_source_id": "cdffff1f-9682-434c-9f26-74d2e3c852d1",
       "date_exact": "2023-12-01",
+      "date_value": "2023-12-01",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-12-01"
       ],
@@ -5223,6 +5437,8 @@
       "event_group_id": "event-040",
       "primary_source_id": "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e",
       "date_exact": "2021-08-05",
+      "date_value": "2021-08-05",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-08-05"
       ],
@@ -5249,6 +5465,8 @@
       "event_group_id": "event-041",
       "primary_source_id": "d796e81f-e56f-4457-91a4-8afd60f59e9c",
       "date_exact": "2022-06-16",
+      "date_value": "2022-06-16",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-06-16"
       ],
@@ -5281,6 +5499,8 @@
       "event_group_id": "event-042",
       "primary_source_id": "da8f45af-060b-46ef-a9e8-90fbc77b53b7",
       "date_exact": "2022-10-01",
+      "date_value": "2022-10-01",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-10-01"
       ],
@@ -5307,6 +5527,8 @@
       "event_group_id": "event-043",
       "primary_source_id": "e07c69c5-4c52-4a28-a9cf-cc76e627a30a",
       "date_exact": "2022-09-25",
+      "date_value": "2022-09-25",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-09-25T15:30:00.000-07:00"
       ],
@@ -5339,6 +5561,8 @@
       "event_group_id": "event-044",
       "primary_source_id": "e234682c-c893-4528-9377-43a8b988507d",
       "date_exact": "2023-09-21",
+      "date_value": "2023-09-21",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-09-21"
       ],
@@ -5371,6 +5595,8 @@
       "event_group_id": "event-045",
       "primary_source_id": "e472acb0-56ed-498c-9ed6-b95c557f9014",
       "date_exact": "2021-10-02",
+      "date_value": "2021-10-02",
+      "date_precision": "day",
       "date_raw_values": [
         "2021-10-02"
       ],
@@ -5398,6 +5624,8 @@
       "event_group_id": "event-046",
       "primary_source_id": "e4b46d6b-00bd-4472-8947-6803c92ae4b7",
       "date_exact": "2022-07-09",
+      "date_value": "2022-07-09",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-07-09"
       ],
@@ -5424,6 +5652,8 @@
       "event_group_id": "event-047",
       "primary_source_id": "e76d122c-1e14-4994-9ea3-e00bd2c5c99c",
       "date_exact": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_raw_values": [
         "None"
       ],
@@ -5449,7 +5679,7 @@
       "canonical_matches": [],
       "import_disposition": "review_blocked",
       "review_blockers": [
-        "partial or missing date; not eligible for automatic historical-gig merging",
+        "missing or unsupported date",
         "Notion column-order ambiguity; order requires review"
       ]
     },
@@ -5457,6 +5687,8 @@
       "event_group_id": "event-048",
       "primary_source_id": "e9041404-722b-44d6-8f91-84fce0688a11",
       "date_exact": "2022-10-09",
+      "date_value": "2022-10-09",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-10-09"
       ],
@@ -5487,6 +5719,8 @@
       "event_group_id": "event-049",
       "primary_source_id": "f5ba4bef-1cd7-4342-ba31-21328730d4dc",
       "date_exact": "2022-08-28",
+      "date_value": "2022-08-28",
+      "date_precision": "day",
       "date_raw_values": [
         "2022-08-28"
       ],
@@ -5519,6 +5753,8 @@
       "event_group_id": "event-050",
       "primary_source_id": "fd92ce08-dc81-418e-af8b-c999f9384e0a",
       "date_exact": "2023-09-24",
+      "date_value": "2023-09-24",
+      "date_precision": "day",
       "date_raw_values": [
         "2023-09-24"
       ],
@@ -5551,6 +5787,8 @@
       "event_group_id": "event-051",
       "primary_source_id": "loosely-covered-2015-09",
       "date_exact": null,
+      "date_value": "2015-09",
+      "date_precision": "month",
       "date_raw_values": [
         "2015-09"
       ],
@@ -5570,15 +5808,15 @@
         "loosely-covered-2015-09"
       ],
       "canonical_matches": [],
-      "import_disposition": "review_blocked",
-      "review_blockers": [
-        "partial or missing date; not eligible for automatic historical-gig merging"
-      ]
+      "import_disposition": "import_ready",
+      "review_blockers": []
     },
     {
       "event_group_id": "event-052",
       "primary_source_id": "loosely-covered-2016-05",
       "date_exact": null,
+      "date_value": "2016-05",
+      "date_precision": "month",
       "date_raw_values": [
         "2016-05"
       ],
@@ -5598,15 +5836,15 @@
         "loosely-covered-2016-05"
       ],
       "canonical_matches": [],
-      "import_disposition": "review_blocked",
-      "review_blockers": [
-        "partial or missing date; not eligible for automatic historical-gig merging"
-      ]
+      "import_disposition": "import_ready",
+      "review_blockers": []
     },
     {
       "event_group_id": "event-053",
       "primary_source_id": "loosely-covered-2016-07-08-stonetree",
       "date_exact": "2016-07-08",
+      "date_value": "2016-07-08",
+      "date_precision": "day",
       "date_raw_values": [
         "2016-07-08"
       ],
@@ -5633,6 +5871,8 @@
       "event_group_id": "event-054",
       "primary_source_id": "loosely-covered-2017-04-01-siff",
       "date_exact": "2017-04-01",
+      "date_value": "2017-04-01",
+      "date_precision": "day",
       "date_raw_values": [
         "2017-04-01"
       ],
@@ -5659,6 +5899,8 @@
       "event_group_id": "event-055",
       "primary_source_id": "loosely-covered-2017-10",
       "date_exact": null,
+      "date_value": "2017-10",
+      "date_precision": "month",
       "date_raw_values": [
         "2017-10"
       ],
@@ -5678,15 +5920,15 @@
         "loosely-covered-2017-10"
       ],
       "canonical_matches": [],
-      "import_disposition": "review_blocked",
-      "review_blockers": [
-        "partial or missing date; not eligible for automatic historical-gig merging"
-      ]
+      "import_disposition": "import_ready",
+      "review_blockers": []
     },
     {
       "event_group_id": "event-056",
       "primary_source_id": "loosely-covered/set_list_bv_2018_02@915c30bb695cd80ed125d4656c481c02d934a60b",
       "date_exact": "2018-02-24",
+      "date_value": "2018-02-24",
+      "date_precision": "day",
       "date_raw_values": [
         "2018-02-24"
       ],
@@ -5713,6 +5955,8 @@
       "event_group_id": "event-057",
       "primary_source_id": "loosely-covered/set_list_hopmonk_2017_11@3e0c9454037f37d8068cfcfb47003caa1b7f3e24",
       "date_exact": "2017-11-10",
+      "date_value": "2017-11-10",
+      "date_precision": "day",
       "date_raw_values": [
         "2017-11-10"
       ],
@@ -5739,6 +5983,8 @@
       "event_group_id": "event-058",
       "primary_source_id": "loosely-covered/set_list_jack_london_2017_06@d1dd110820e106c6f684320793275bc339f50b25",
       "date_exact": null,
+      "date_value": "2017-06",
+      "date_precision": "month",
       "date_raw_values": [
         "2017-06"
       ],
@@ -5758,15 +6004,15 @@
         "loosely-covered/set_list_jack_london_2017_06@d1dd110820e106c6f684320793275bc339f50b25"
       ],
       "canonical_matches": [],
-      "import_disposition": "review_blocked",
-      "review_blockers": [
-        "partial or missing date; not eligible for automatic historical-gig merging"
-      ]
+      "import_disposition": "import_ready",
+      "review_blockers": []
     },
     {
       "event_group_id": "event-059",
       "primary_source_id": "loosely-covered/set_list_nicholson_2018_06@a8c66e776803b09e37cbdc5269cf1cd2f0529c8b",
       "date_exact": "2018-06-09",
+      "date_value": "2018-06-09",
+      "date_precision": "day",
       "date_raw_values": [
         "2018-06-09"
       ],
@@ -5793,6 +6039,8 @@
       "event_group_id": "event-060",
       "primary_source_id": "loosely-covered/set_list_nicholson_ranch_2017_06@fa917c3208fa76d1113efe65096bfdc9bb8f7cd0",
       "date_exact": "2017-11-02",
+      "date_value": "2017-11-02",
+      "date_precision": "day",
       "date_raw_values": [
         "2017-11-02"
       ],
@@ -5819,6 +6067,8 @@
       "event_group_id": "event-061",
       "primary_source_id": "loosely-covered/set_list_ty_caton_2017_06@b49889703b9c20b387fb30b91874f0e4a4e9cbeb",
       "date_exact": null,
+      "date_value": "2017-06",
+      "date_precision": "month",
       "date_raw_values": [
         "2017-06"
       ],
@@ -5838,15 +6088,15 @@
         "loosely-covered/set_list_ty_caton_2017_06@b49889703b9c20b387fb30b91874f0e4a4e9cbeb"
       ],
       "canonical_matches": [],
-      "import_disposition": "review_blocked",
-      "review_blockers": [
-        "partial or missing date; not eligible for automatic historical-gig merging"
-      ]
+      "import_disposition": "import_ready",
+      "review_blockers": []
     },
     {
       "event_group_id": "event-062",
       "primary_source_id": "smileys-2005-03-26-easter-pageant",
       "date_exact": "2005-03-26",
+      "date_value": "2005-03-26",
+      "date_precision": "day",
       "date_raw_values": [
         "2005-03-26"
       ],
@@ -5873,6 +6123,8 @@
       "event_group_id": "event-063",
       "primary_source_id": "unsupported-a433e9e4ce",
       "date_exact": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_raw_values": [
         "None"
       ],
@@ -5895,7 +6147,7 @@
       "import_disposition": "review_blocked",
       "review_blockers": [
         "unsupported source extraction",
-        "partial or missing date; not eligible for automatic historical-gig merging",
+        "missing or unsupported date",
         "missing or blank gig title",
         "no canonical-song evidence"
       ]
@@ -5904,6 +6156,8 @@
       "event_group_id": "event-064",
       "primary_source_id": "unsupported-ce2e85390f",
       "date_exact": null,
+      "date_value": null,
+      "date_precision": "missing",
       "date_raw_values": [
         "None"
       ],
@@ -5926,7 +6180,7 @@
       "import_disposition": "review_blocked",
       "review_blockers": [
         "unsupported source extraction",
-        "partial or missing date; not eligible for automatic historical-gig merging",
+        "missing or unsupported date",
         "missing or blank gig title",
         "no canonical-song evidence"
       ]
@@ -5935,6 +6189,8 @@
       "event_group_id": "event-065",
       "primary_source_id": "unsupported-smileys-2005-01-14",
       "date_exact": "2005-01-14",
+      "date_value": "2005-01-14",
+      "date_precision": "day",
       "date_raw_values": [
         "2005-01-14"
       ],
@@ -5964,6 +6220,8 @@
       "event_group_id": "event-066",
       "primary_source_id": "wait-for-the-shake-2006-01-25",
       "date_exact": "2006-01-25",
+      "date_value": "2006-01-25",
+      "date_precision": "day",
       "date_raw_values": [
         "2006-01-25"
       ],
@@ -6160,7 +6418,7 @@
     "possible_duplicates": 3,
     "template_reuse": 2,
     "existing_canonical_matches": 1,
-    "import_ready_candidates": 19,
-    "review_blocked_candidates": 46
+    "import_ready_candidates": 24,
+    "review_blocked_candidates": 41
   }
 }

@@ -15,7 +15,7 @@ A draft contains:
 - draft identity and revision;
 - optional Band name;
 - Gig name/title;
-- date;
+- date, supporting exact-day (`YYYY-MM-DD`) and month-precision (`YYYY-MM`) historical values;
 - optional location;
 - ordered sections such as Set 1, Set 2, and Encore;
 - ordered Set List items;
@@ -37,7 +37,7 @@ Each item has its own stable item identity, separate from Song identity, so the 
 
 ### Create blank
 
-Create an empty draft and open the shared editor. Band is optional free text, Gig name and date are required for publication, and location is optional.
+Create an empty draft and open the shared editor. Band is optional free text, Gig name and date are required for publication, and location is optional. New gigs normally use an exact day; historical imports may intentionally use month precision when the day is unknown.
 
 ### Clone existing
 
@@ -116,7 +116,7 @@ The intended metadata includes:
 - canonical ID;
 - Band;
 - Gig name/title;
-- date;
+- date (`YYYY-MM-DD` or `YYYY-MM` when only the historical month is known);
 - location;
 - status;
 - optional `cloned_from`;

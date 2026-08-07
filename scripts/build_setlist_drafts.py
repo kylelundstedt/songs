@@ -197,12 +197,23 @@ def source_refs(group, records):
 
 def primary_record(group, records): return records[group["primary_source_id"]]
 
-def metadata(group, primary):
-    date_raw=clean_none(primary.get("date_raw")); date_exact=primary.get("date_exact")
-    return {"band_explicit": primary.get("band_explicit"), "band_proposal": primary.get("band_proposal"),
-            "title": clean_none(primary.get("title_raw")),
-            "date": {"raw":date_raw,"value":date_exact or date_raw,"precision":"full" if date_exact else ("partial" if date_raw else "missing")},
-            "location": clean_none(primary.get("venue_raw"))}
+def metadata(group, primary, source_record):
+    date_raw=clean_none(primary.get("date_raw"))
+    out = {"band_explicit": primary.get("band_explicit"), "band_proposal": primary.get("band_proposal"),
+           "title": clean_none(primary.get("title_raw")), "date": {"raw": date_raw, "value": primary.get("date_value"),
+           "precision": primary.get("date_precision") or "missing"}, "location": clean_none(primary.get("venue_raw"))}
+    # The usable Wait for the Shake artifact has no source title.  Keep the null
+    # source value and make the generated label explicitly review-only.
+    if primary.get("source_id") == "wait-for-the-shake-2006-01-25" and out["title"] is None:
+        source = (source_record.get("sources") or [{}])[0]
+        filename = source.get("filename") or Path(source.get("path") or "source").name
+        stem = Path(filename).stem
+        fallback = f"{primary.get('band_explicit')} — {stem}".strip(" —")
+        out["title"] = fallback
+        out["title_proposal"] = {"value": fallback, "confidence": "low", "requires_review": True,
+            "basis": "generated from explicit band, date, and source filename",
+            "original_source_value": None, "source_filename": filename}
+    return out
 
 def confidence(sections, blockers):
     items=[x for s in sections for x in s["items"]]
@@ -215,69 +226,77 @@ def build():
     matched = {str(path.relative_to(ROOT)): load(path) for name, path in INPUTS.items() if name != "reconciled"}
     indexes = build_source_indexes(matched)
     records = {x["source_id"]: x for x in recon["source_candidate_index"]}
-    # Resolve every pointer up front; reconciliation intentionally contains pointers,
-    # not duplicated source records.
     resolved = {sid: resolve_source_record(record, indexes) for sid, record in records.items()}
     rel_by_id = defaultdict(list)
     for rel in recon["related_supporting_pages"]:
         concise = {"kind": rel["kind"], "source_ids": rel["source_ids"], "basis": rel.get("basis", {})}
         for sid in rel["source_ids"]: rel_by_id[sid].append(concise)
-    drafts=[]; excluded=[]
+    drafts=[]; existing=[]; unusable=[]
     for group in recon["event_groups"]:
         if group["import_disposition"] == "existing_canonical":
-            excluded.append({"event_group_id":group["event_group_id"],"reason":"existing_canonical","canonical_matches":group["canonical_matches"]}); continue
-        primary = primary_record(group, records)
-        rec = resolved[primary["source_id"]]
+            existing.append({"event_group_id":group["event_group_id"],"reason":"existing_canonical","canonical_matches":group["canonical_matches"]}); continue
+        primary = primary_record(group, records); rec = resolved[primary["source_id"]]
         draft_id="sld-"+sha(group["event_group_id"])[:12]
         if primary["source_type"] == "github": sections=sections_github(rec,draft_id)
         elif primary["source_type"] == "icloud": sections=sections_icloud(rec,draft_id)
         else: sections=sections_notion(rec,draft_id)
+        item_count=sum(len(section["items"]) for section in sections)
+        if not item_count:
+            unusable.append({"event_group_id":group["event_group_id"],"reason":"zero_extracted_items_or_no_song_evidence",
+                             "primary_source":concise_locator(primary),"reconciliation_blockers":group["review_blockers"]})
+            continue
         unresolved=[x["item_id"] for s in sections for x in s["items"] if x["resolution_status"] == "unresolved"]
         blockers=list(group["review_blockers"])
+        proposed = metadata(group, primary, rec)
+        if proposed.get("title_proposal"):
+            blockers.append("generated fallback title is a proposal; confirm or replace before publication")
         if unresolved: blockers.append(f"{len(unresolved)} unresolved item(s): composite, fuzzy, or unmatched matches require human resolution or removal")
-        proposed = metadata(group, primary)
         material={"event_group_id":group["event_group_id"],"metadata":proposed,"sections":sections,"blockers":blockers}
-        supporting = []
-        seen = set()
+        supporting=[]; seen=set()
         for sid in group["representation_source_ids"]:
             for rel in rel_by_id[sid]:
                 marker=json.dumps(rel,sort_keys=True)
                 if marker not in seen: supporting.append(rel); seen.add(marker)
         draft={"draft_id":draft_id,"revision":"sha256:"+sha(json.dumps(material,ensure_ascii=False,sort_keys=True,separators=(",",":")))[:16],
                "schema_version":"set-list-draft-candidate/1.0","event_group_id":group["event_group_id"],
-               "status":"import_ready" if not blockers else "review_blocked","proposed_metadata":proposed,"sections":sections,
+               "status":"publication_ready" if not blockers else "review_required","proposed_metadata":proposed,"sections":sections,
                "validation":{"publication_blocked":bool(blockers),"blockers":blockers,"unresolved_item_ids":unresolved},
                "import_evidence":{"confidence":confidence(sections,blockers),"primary_source":concise_locator(primary),
                                   "representations":source_refs(group, records),"supporting_relationships":supporting,
                                   "reconciliation_disposition":group["import_disposition"]}}
         drafts.append(draft)
-    drafts.sort(key=lambda x:x["event_group_id"])
-    ready=[x for x in drafts if x["status"]=="import_ready"]; blocked=[x for x in drafts if x["status"]=="review_blocked"]
-    return {"schema_version":"set-list-draft-candidates/1.0","method":"deterministic source-neutral draft construction from reconciled source_record_ref pointers; publication remains explicitly human-reviewed","input_fingerprints":{str(p.relative_to(ROOT)):fingerprint(p) for p in INPUTS.values()},"import_ready":ready,"review_blocked":blocked,"excluded_existing_canonical":excluded,
-            "counts":{"drafts":len(drafts),"import_ready":len(ready),"review_blocked":len(blocked),"excluded_existing_canonical":len(excluded)}}
+    drafts.sort(key=lambda x:x["event_group_id"]); unusable.sort(key=lambda x:x["event_group_id"])
+    publication_ready=[x for x in drafts if x["status"]=="publication_ready"]
+    review_required=[x for x in drafts if x["status"]=="review_required"]
+    return {"schema_version":"set-list-draft-candidates/1.0","method":"permissive draft admission from reconciled source_record_ref pointers; publication remains explicitly human-reviewed and strict","input_fingerprints":{str(p.relative_to(ROOT)):fingerprint(p) for p in INPUTS.values()},
+            "publication_ready":publication_ready,"review_required":review_required,"excluded_unusable":unusable,"excluded_existing_canonical":existing,
+            "counts":{"admitted_drafts":len(drafts),"publication_ready":len(publication_ready),"review_required":len(review_required),"excluded_unusable":len(unusable),"excluded_existing_canonical":len(existing)}}
 
 def write_report(data):
-    drafts=data["import_ready"]+data["review_blocked"]
+    drafts=data["publication_ready"]+data["review_required"]
     source=Counter(d["import_evidence"]["primary_source"]["source_type"] for d in drafts)
     band=Counter((d["proposed_metadata"]["band_explicit"] or (d["proposed_metadata"]["band_proposal"] or {}).get("value") or "(none)") for d in drafts)
     status=Counter(d["status"] for d in drafts); items=[i for d in drafts for s in d["sections"] for i in s["items"]]
     resolution=Counter(i["resolution_status"] for i in items)
     singer=Counter("confirmed" if i.get("singer") else "proposal" if i.get("singer_proposal") else "none" for i in items)
-    lines=["# SetListDraft readiness","","Generated by `scripts/build_setlist_drafts.py`. Drafts are source-neutral working state, not canonical Markdown.","","## Counts","", "| Dimension | Value | Count |","|---|---|---:|"]
+    lines=["# SetListDraft admission and readiness","","Generated by `scripts/build_setlist_drafts.py`. Admission permits editable drafts with source items; canonical publication remains strict.","","## Draft admission","",f"- **Admitted editable drafts:** {data['counts']['admitted_drafts']}.",f"- **Excluded unusable sources (zero extracted items/no song evidence):** {data['counts']['excluded_unusable']}.",f"- **Excluded existing canonical events:** {data['counts']['excluded_existing_canonical']}.","", "## Publication readiness","",f"- **Publication ready:** {data['counts']['publication_ready']} admitted drafts.",f"- **Review required:** {data['counts']['review_required']} admitted drafts.",f"- **Unresolved items:** {sum(1 for i in items if i['resolution_status']=='unresolved')}; each blocks publication.","", "## Counts", "", "| Dimension | Value | Count |", "|---|---|---:|"]
     for k,v in sorted(source.items()): lines.append(f"| primary source | {k} | {v} |")
     for k,v in sorted(band.items()): lines.append(f"| band (explicit or proposal) | {k} | {v} |")
-    for k,v in sorted(status.items()): lines.append(f"| draft status | {k} | {v} |")
+    for k,v in sorted(status.items()): lines.append(f"| admitted draft status | {k} | {v} |")
     for k,v in sorted(resolution.items()): lines.append(f"| item resolution | {k} | {v} |")
     for k,v in sorted(singer.items()): lines.append(f"| singer evidence | {k} | {v} |")
-    lines += [f"| existing canonical excluded | duplicate prevention | {data['counts']['excluded_existing_canonical']} |","","## Publication readiness","",f"- **Import ready:** {data['counts']['import_ready']} drafts.",f"- **Review blocked:** {data['counts']['review_blocked']} drafts.",f"- **Unresolved items:** {sum(1 for i in items if i['resolution_status']=='unresolved')}; each blocks publication.","","## Prioritized human-review packet",""]
+    lines += ["", "## Prioritized publication-review packet", ""]
     priority=[]
-    for d in data["review_blocked"]:
+    for d in data["review_required"]:
         b=d["validation"]["blockers"]; score=(0 if any("possible-duplicate" in x for x in b) else 1, 0 if d["validation"]["unresolved_item_ids"] else 1, d["event_group_id"])
         priority.append((score,d))
     for _,d in sorted(priority)[:15]:
         title=d["proposed_metadata"]["title"] or "(missing title)"; date=d["proposed_metadata"]["date"]["raw"] or "(missing date)"
         lines.append(f"1. **{d['event_group_id']}** — `{title}` ({date}): " + "; ".join(d["validation"]["blockers"]))
-    lines += ["","## Guardrails","","- Existing canonical event groups are excluded; no duplicate canonical Markdown was generated.","- Only exact/normalized title matches carry `resolved_canonical_song`.","- GitHub parsed singers/groups are preserved as direct source fields; iCloud groups/singers/notes are preserved.","- Notion set breaks become sections only from explicit break blocks. Notion singers/notes are proposals only when clear syntax supports them.","- Supporting-page and reconciliation provenance remain with every draft."]
+    lines += ["", "## Excluded unusable sources", ""]
+    for x in data["excluded_unusable"]:
+        lines.append(f"- **{x['event_group_id']}** — `{x['primary_source']['source_type']}` `{x['primary_source']['source_id']}`: {x['reason']}.")
+    lines += ["", "## Guardrails", "", "- Admission never implies publication readiness.", "- Only exact/normalized title matches carry `resolved_canonical_song`; unresolved retained items block publication.", "- Existing canonical events remain excluded; no canonical Markdown was generated.", "- The Wait for the Shake fallback title is explicitly a review-only proposal and retains the original null source value.", "- GitHub parsed singers/groups and iCloud groups/singers/notes are preserved; Notion singer/note values remain conservative proposals."]
     REPORT.write_text("\n".join(lines)+"\n")
 
 def main():
