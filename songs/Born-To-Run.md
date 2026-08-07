@@ -25,10 +25,8 @@ metadata_review_status: "reviewed"
   
 ### Verse  8x  
 
-In the day we sweat it out on the streets  
-of a runaway American dream  
-At night we ride through mansions of glory  
-in suicide machines  
+In the day we sweat it out on the streets, of a runaway American dream  
+At night we ride through mansions of glory, in suicide machines  
   
 ### B Section  14x  
 
