@@ -161,6 +161,38 @@ func TestParseSetItemDetails(t *testing.T) {
 	}
 }
 
+func TestReorderSetMarkdownPreservesItemDetailsAndBreaks(t *testing.T) {
+	set := &SetList{Items: []SetItem{
+		{Position: 1, Label: "One", Target: "../songs/one.md", Suffix: "— singer: Kyle"},
+		{Position: 2, Label: "Two", Target: "../songs/two.md", Suffix: "— singer: Kiana — note: Count in"},
+		{Position: 3, Label: "Three", Target: "../songs/three.md"},
+	}}
+	current := "---\ntitle: Test\n---\n\n# Test\n\n1. [One](../songs/one.md) — singer: Kyle\n<!-- column-break -->\n2. [Two](../songs/two.md) — singer: Kiana — note: Count in\n3. [Three](../songs/three.md)\n"
+	updated, err := reorderSetMarkdown(current, set, []int{2, 1, 3}, []int{2})
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := "1. [Two](../songs/two.md) — singer: Kiana — note: Count in\n2. [One](../songs/one.md) — singer: Kyle\n<!-- column-break -->\n3. [Three](../songs/three.md)"
+	if !strings.Contains(updated, want) {
+		t.Fatalf("updated markdown missing reordered list:\n%s", updated)
+	}
+	unsafe := strings.Replace(current, "<!-- column-break -->", "Band announcement", 1)
+	if _, err := reorderSetMarkdown(unsafe, set, []int{1, 2, 3}, nil); err == nil {
+		t.Fatal("expected inter-entry Markdown to block reordering")
+	}
+}
+
+func TestSetParserRejectsMoreThanThreeColumns(t *testing.T) {
+	server := fixtureServer(t)
+	body := "---\ntitle: Too Many Columns\n---\n\n# Too Many Columns\n\n1. [One](../songs/Test-Song.md)\n<!-- column-break -->\n2. [Two](../songs/Test-Song.md)\n<!-- column-break -->\n3. [Three](../songs/Test-Song.md)\n<!-- column-break -->\n4. [Four](../songs/Test-Song.md)\n"
+	if err := os.WriteFile(filepath.Join(server.RepoRoot, "sets", "test-set.md"), []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, _, err := server.loadSets(server.songsByPath); err == nil || !strings.Contains(err.Error(), "more than two column breaks") {
+		t.Fatalf("expected column-break validation error, got %v", err)
+	}
+}
+
 func TestSongNavigationUsesCatalogOrder(t *testing.T) {
 	server := fixtureServer(t)
 	current := server.songs[0]
@@ -260,6 +292,51 @@ func TestDirectMarkdownEditWorkflow(t *testing.T) {
 	server.HandleUpdateSongMarkdown(staleW, stale)
 	if staleW.Code != http.StatusConflict {
 		t.Fatalf("stale status=%d body=%s", staleW.Code, staleW.Body.String())
+	}
+}
+
+func TestSetOrderWorkflow(t *testing.T) {
+	server := fixtureServer(t)
+	second := "---\nartist: Example\n---\n\n# Second Song\n\n### Verse\nLine\n"
+	if err := os.WriteFile(filepath.Join(server.RepoRoot, "songs", "Second-Song.md"), []byte(second), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	setPath := filepath.Join(server.RepoRoot, "sets", "test-set.md")
+	setBody := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n1. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in\n<!-- column-break -->\n2. [Second Song](../songs/Second-Song.md) — singer: Kiana\n"
+	if err := os.WriteFile(setPath, []byte(setBody), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	for _, args := range [][]string{{"add", "songs/Second-Song.md", "sets/test-set.md"}, {"commit", "-m", "expand fixture set"}, {"push", "origin", "main"}} {
+		cmd := exec.Command("git", args...)
+		cmd.Dir = server.RepoRoot
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Fatalf("git %v: %v: %s", args, err, out)
+		}
+	}
+	if err := server.Reindex(); err != nil {
+		t.Fatal(err)
+	}
+	set := server.setsByID["test-set"]
+	if len(set.Items) != 2 || !set.Items[1].ColumnBreakBefore {
+		t.Fatalf("column break was not indexed: %#v", set.Items)
+	}
+	payload, _ := json.Marshal(setOrderRequest{ExpectedHash: set.Hash, Order: []int{2, 1}, Breaks: []int{1}})
+	req := httptest.NewRequest(http.MethodPut, "/api/sets/test-set/order", strings.NewReader(string(payload)))
+	req.SetPathValue("id", "test-set")
+	req.Header.Set("X-ExeDev-UserID", "test-user")
+	req.Header.Set("Content-Type", "application/json")
+	w := httptest.NewRecorder()
+	server.HandleUpdateSetOrder(w, req)
+	if w.Code != http.StatusOK {
+		t.Fatalf("status=%d body=%s", w.Code, w.Body.String())
+	}
+	updated, err := os.ReadFile(setPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := "1. [Second Song](../songs/Second-Song.md) — singer: Kiana\n<!-- column-break -->\n2. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in"
+	if !strings.Contains(string(updated), want) {
+		t.Fatalf("unexpected set markdown:\n%s", updated)
 	}
 }
 

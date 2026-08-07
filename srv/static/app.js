@@ -251,18 +251,33 @@
     panel.dataset.bodyPx=String(px);
   }
 
+  function layoutSetEntries(panel,list,entries,form) {
+    const markedBreaks=entries.map((entry,index)=>entry.dataset.columnBreakBefore==='true'&&index>0?index:0).filter(Boolean).slice(0,2);
+    const arrangedBreaks=panel.dataset.arranging==='true'&&panel.dataset.arrangeBreaks?panel.dataset.arrangeBreaks.split(',').map(Number).filter(offset=>offset>0&&offset<entries.length).slice(0,2):[];
+    let boundaries=form==='phone'?[]:(arrangedBreaks.length?arrangedBreaks:markedBreaks);
+    let columns;
+    if(boundaries.length) columns=boundaries.length+1;
+    else columns=form==='phone'?1:entries.length>24&&list.clientWidth>=820?3:entries.length>12&&list.clientWidth>=600?2:1;
+    if(!boundaries.length&&columns>1) {
+      const rows=Math.ceil(entries.length/columns);
+      boundaries=Array.from({length:columns-1},(_,index)=>Math.min(entries.length,rows*(index+1)));
+    }
+    panel.dataset.setBreaks=(form==='phone'?(arrangedBreaks.length?arrangedBreaks:markedBreaks):boundaries).join(',');
+    const starts=[0,...boundaries],ends=[...boundaries,entries.length],rows=Math.max(1,...starts.map((start,index)=>ends[index]-start));
+    panel.style.setProperty('--set-columns',String(columns)); panel.style.setProperty('--set-rows',String(rows)); panel.dataset.columnCount=String(columns);
+    starts.forEach((start,column)=>{for(let index=start;index<ends[column];index++){entries[index].style.gridColumn=String(column+1);entries[index].style.gridRow=String(index-start+1);}});
+    return columns;
+  }
+
   async function fitSetSheet(panel) {
     const viewport=panel.querySelector('[data-set-viewport]'),list=panel.querySelector('[data-set-entries]');
     if(!viewport||!list)return;
     await (document.fonts?.ready||Promise.resolve());
     const entries=[...list.querySelectorAll('.set-entry')],form=document.documentElement.dataset.formFactor||detectFormFactor();
+    layoutSetEntries(panel,list,entries,form);
     if(form==='phone') {
-      panel.style.setProperty('--set-rows',String(Math.max(1,entries.length)));
-      panel.dataset.columnCount='1'; applySetTypography(panel,16,3); panel.dataset.fitStatus='scrollable'; return;
+      applySetTypography(panel,16,3); panel.dataset.fitStatus='scrollable'; return;
     }
-    const columns=entries.length>24&&viewport.clientWidth>=820?3:entries.length>12&&viewport.clientWidth>=600?2:1;
-    panel.style.setProperty('--set-rows',String(Math.max(1,Math.ceil(entries.length/columns))));
-    panel.dataset.columnCount=String(columns);
     for(let px=19;px>=11;px--) {
       const pad=px>=17?5:px>=14?4:2;
       applySetTypography(panel,px,pad);
@@ -356,6 +371,54 @@
       try { localStorage.setItem('songs-set-sort',field); localStorage.setItem('songs-set-order',order.value); } catch {}
     };
     sort.addEventListener('change',update); order.addEventListener('change',update); update();
+  }
+
+  function setupSetArrangement() {
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),arrange=panel?.querySelector('[data-set-arrange]'),cancel=panel?.querySelector('[data-set-cancel]'),save=panel?.querySelector('[data-set-save]'),status=panel?.querySelector('[data-offline-status]');
+    if(!panel||!list||!arrange||!cancel||!save)return;
+    let original=[],dragging=null,layoutFrame=0;
+    const entries=()=>[...list.querySelectorAll('[data-set-item]')];
+    const renumber=()=>entries().forEach((entry,index)=>entry.querySelector('.set-entry-position').textContent=String(index+1));
+    const relayout=()=>{if(!layoutFrame)layoutFrame=requestAnimationFrame(async()=>{layoutFrame=0;await fitSetSheet(panel);});};
+    const finishDrag=()=>{dragging?.classList.remove('is-dragging');list.querySelectorAll('.is-drop-target').forEach(entry=>entry.classList.remove('is-drop-target'));dragging=null;};
+    arrange.addEventListener('click',()=>{
+      original=entries(); panel.dataset.arranging='true'; panel.dataset.arrangeBreaks=panel.dataset.setBreaks||'';
+      arrange.hidden=true; cancel.hidden=false; save.hidden=false; status.textContent='Drag songs within or across columns, then save.'; relayout();
+    });
+    cancel.addEventListener('click',()=>{
+      finishDrag(); original.forEach(entry=>list.append(entry)); renumber(); delete panel.dataset.arranging; delete panel.dataset.arrangeBreaks;
+      arrange.hidden=false; cancel.hidden=true; save.hidden=true; status.textContent=''; relayout();
+    });
+    list.addEventListener('pointerdown',event=>{
+      const handle=event.target.closest('.set-drag-handle'); if(!handle||panel.dataset.arranging!=='true')return;
+      dragging=handle.closest('[data-set-item]'); dragging.classList.add('is-dragging'); handle.setPointerCapture?.(event.pointerId); event.preventDefault();
+    });
+    list.addEventListener('pointermove',event=>{
+      if(!dragging)return;
+      const target=document.elementFromPoint(event.clientX,event.clientY)?.closest('[data-set-item]');
+      list.querySelectorAll('.is-drop-target').forEach(entry=>entry.classList.remove('is-drop-target'));
+      if(!target||target===dragging||!list.contains(target))return;
+      target.classList.add('is-drop-target'); const rect=target.getBoundingClientRect();
+      list.insertBefore(dragging,event.clientY<rect.top+rect.height/2?target:target.nextSibling); renumber(); relayout();
+    });
+    list.addEventListener('pointerup',finishDrag); list.addEventListener('pointercancel',finishDrag);
+    list.addEventListener('keydown',event=>{
+      if(panel.dataset.arranging!=='true'||!event.target.matches('.set-drag-handle')||!['ArrowUp','ArrowDown'].includes(event.key))return;
+      const entry=event.target.closest('[data-set-item]'),items=entries(),index=items.indexOf(entry),targetIndex=event.key==='ArrowUp'?index-1:index+1;
+      if(targetIndex<0||targetIndex>=items.length)return;
+      event.preventDefault(); if(event.key==='ArrowUp')list.insertBefore(entry,items[targetIndex]);else list.insertBefore(items[targetIndex],entry); renumber(); relayout(); event.target.focus();
+    });
+    save.addEventListener('click',async()=>{
+      finishDrag(); save.disabled=true; cancel.disabled=true; status.textContent='Saving set order…';
+      const order=entries().map(entry=>Number(entry.dataset.originalPosition)),breaks=(panel.dataset.arrangeBreaks||'').split(',').map(Number).filter(Boolean);
+      try {
+        const response=await fetch(`/api/sets/${encodeURIComponent(panel.dataset.setId)}/order`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_hash:panel.dataset.setHash,order,breaks})});
+        if(!response.ok)throw new Error((await response.text()).trim()||'Unable to save set order');
+        const result=await response.json();
+        try { if(result.warning)sessionStorage.setItem('songs-flash-warning',result.warning); } catch {}
+        location.reload();
+      } catch(error) { status.textContent=error.message; save.disabled=false; cancel.disabled=false; }
+    });
   }
 
   function currentVisibleLeadSheet() {
@@ -719,7 +782,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();

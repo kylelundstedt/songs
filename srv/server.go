@@ -46,11 +46,14 @@ type Song struct {
 }
 
 type SetItem struct {
-	Position int
-	Label    string
-	Singer   string
-	Note     string
-	Song     *Song
+	Position          int
+	Label             string
+	Target            string
+	Suffix            string
+	Singer            string
+	Note              string
+	ColumnBreakBefore bool
+	Song              *Song
 }
 
 type SetList struct {
@@ -133,6 +136,12 @@ type lyricsImportRequest struct {
 type markdownUpdateRequest struct {
 	Markdown     string `json:"markdown"`
 	ExpectedHash string `json:"expected_hash"`
+}
+
+type setOrderRequest struct {
+	ExpectedHash string `json:"expected_hash"`
+	Order        []int  `json:"order"`
+	Breaks       []int  `json:"breaks"`
 }
 
 type shelleyEditRequest struct {
@@ -359,7 +368,13 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 		}
 		set := &SetList{ID: id, Path: rel, Title: title, Date: metadataValue(string(body), "date"), Location: metadataValue(string(body), "location"), Hash: hashBytes(body)}
 		lines := strings.Split(string(body), "\n")
+		pendingColumnBreak := false
+		columnBreakCount := 0
 		for _, line := range lines {
+			if strings.EqualFold(strings.TrimSpace(line), "<!-- column-break -->") {
+				pendingColumnBreak = len(set.Items) > 0
+				continue
+			}
 			m := setItemPattern.FindStringSubmatch(line)
 			if len(m) == 0 {
 				continue
@@ -371,7 +386,14 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 				return fmt.Errorf("set %s references missing song %s", rel, target)
 			}
 			singer, note := parseSetItemDetails(m[3])
-			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Singer: singer, Note: note, Song: song})
+			if pendingColumnBreak {
+				columnBreakCount++
+				if columnBreakCount > 2 {
+					return fmt.Errorf("set %s contains more than two column breaks", rel)
+				}
+			}
+			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Target: m[2], Suffix: strings.TrimSpace(m[3]), Singer: singer, Note: note, ColumnBreakBefore: pendingColumnBreak, Song: song})
+			pendingColumnBreak = false
 		}
 		sets = append(sets, set)
 		byID[id] = set
@@ -1244,6 +1266,117 @@ func (s *Server) HandleSet(w http.ResponseWriter, r *http.Request) {
 	}
 	s.render(w, r, "set.html", pageData{Title: set.Title, Set: set, UserEmail: r.Header.Get("X-ExeDev-Email")})
 }
+func reorderSetMarkdown(current string, set *SetList, order, breaks []int) (string, error) {
+	if len(order) != len(set.Items) {
+		return "", errors.New("the reordered set must contain every song exactly once")
+	}
+	seen := make(map[int]bool, len(order))
+	for _, position := range order {
+		if position < 1 || position > len(set.Items) || seen[position] {
+			return "", errors.New("the reordered set contains an invalid or duplicate song")
+		}
+		seen[position] = true
+	}
+	if len(breaks) > 2 {
+		return "", errors.New("a set list supports at most three columns")
+	}
+	breakSet := map[int]bool{}
+	previousBreak := 0
+	for _, offset := range breaks {
+		if offset <= 0 || offset >= len(order) || offset <= previousBreak {
+			return "", errors.New("column breaks must be unique, ordered, and between songs")
+		}
+		breakSet[offset] = true
+		previousBreak = offset
+	}
+
+	normalized := strings.ReplaceAll(current, "\r\n", "\n")
+	lines := strings.Split(normalized, "\n")
+	first, last := -1, -1
+	for index, line := range lines {
+		if setItemPattern.MatchString(line) {
+			if first < 0 {
+				first = index
+			}
+			last = index
+		}
+	}
+	if first < 0 || last < first {
+		return "", errors.New("set list contains no reorderable songs")
+	}
+	for _, line := range lines[first : last+1] {
+		trimmed := strings.TrimSpace(line)
+		if trimmed == "" || setItemPattern.MatchString(line) || strings.EqualFold(trimmed, "<!-- column-break -->") {
+			continue
+		}
+		return "", errors.New("set list contains unsupported Markdown between songs; replace it with singer/note fields or column-break comments before arranging")
+	}
+
+	replacement := make([]string, 0, len(order)+len(breaks))
+	for index, position := range order {
+		if breakSet[index] {
+			replacement = append(replacement, "<!-- column-break -->")
+		}
+		item := set.Items[position-1]
+		line := fmt.Sprintf("%d. [%s](%s)", index+1, item.Label, item.Target)
+		if item.Suffix != "" {
+			line += " " + item.Suffix
+		}
+		replacement = append(replacement, line)
+	}
+	updated := append([]string{}, lines[:first]...)
+	updated = append(updated, replacement...)
+	updated = append(updated, lines[last+1:]...)
+	return strings.Join(updated, "\n"), nil
+}
+
+func (s *Server) HandleUpdateSetOrder(w http.ResponseWriter, r *http.Request) {
+	if !authenticatedRequest(w, r) {
+		return
+	}
+	if !sameOriginMutation(r) {
+		http.Error(w, "Cross-site set edits are not allowed", http.StatusForbidden)
+		return
+	}
+	s.mu.RLock()
+	set := s.setsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if set == nil {
+		http.NotFound(w, r)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 1<<20)
+	var request setOrderRequest
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil || request.ExpectedHash == "" {
+		http.Error(w, "Invalid set order", http.StatusBadRequest)
+		return
+	}
+	current, err := os.ReadFile(filepath.Join(s.RepoRoot, filepath.FromSlash(set.Path)))
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	updated, err := reorderSetMarkdown(string(current), set, request.Order, request.Breaks)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	warning, err := s.publishSetRevision(set.Path, request.ExpectedHash, updated, set.Title)
+	if err != nil {
+		if errors.Is(err, errSongUnchanged) {
+			writeJSON(w, map[string]any{"ok": true, "warning": ""})
+			return
+		}
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		}
+		http.Error(w, err.Error(), status)
+		return
+	}
+	writeJSON(w, map[string]any{"ok": true, "warning": warning})
+}
+
 func (s *Server) HandleLiveSet(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	set := s.setsByID[r.PathValue("id")]
@@ -1604,9 +1737,17 @@ func (s *Server) requestFocusedModel(prompt string, maxOutput int) (string, erro
 }
 
 func (s *Server) publishSongRevision(songPath, expectedHash, markdown, title string) (string, error) {
+	return s.publishMarkdownRevision(songPath, expectedHash, markdown, "Update lead sheet: "+title)
+}
+
+func (s *Server) publishSetRevision(setPath, expectedHash, markdown, title string) (string, error) {
+	return s.publishMarkdownRevision(setPath, expectedHash, markdown, "Update set list: "+title)
+}
+
+func (s *Server) publishMarkdownRevision(sourcePath, expectedHash, markdown, commitMessage string) (string, error) {
 	s.writeMu.Lock()
 	defer s.writeMu.Unlock()
-	path := filepath.Join(s.RepoRoot, filepath.FromSlash(songPath))
+	path := filepath.Join(s.RepoRoot, filepath.FromSlash(sourcePath))
 	current, err := os.ReadFile(path)
 	if err != nil {
 		return "", err
@@ -1618,8 +1759,8 @@ func (s *Server) publishSongRevision(songPath, expectedHash, markdown, title str
 	if string(current) == markdown {
 		return "", errSongUnchanged
 	}
-	if status, err := gitCommand(s.RepoRoot, "status", "--porcelain", "--", songPath); err != nil || strings.TrimSpace(status) != "" {
-		return "", errors.New("the song has an uncommitted change; commit or discard it first")
+	if status, err := gitCommand(s.RepoRoot, "status", "--porcelain", "--", sourcePath); err != nil || strings.TrimSpace(status) != "" {
+		return "", errors.New("the file has an uncommitted change; commit or discard it first")
 	}
 	info, err := os.Stat(path)
 	if err != nil {
@@ -1658,27 +1799,27 @@ func (s *Server) publishSongRevision(songPath, expectedHash, markdown, title str
 	}
 	rollback := func() {
 		if err := os.WriteFile(path, current, info.Mode().Perm()); err != nil {
-			slog.Error("restore song after failed edit", "path", songPath, "error", err)
+			slog.Error("restore file after failed edit", "path", sourcePath, "error", err)
 		}
-		_, _ = gitCommand(s.RepoRoot, "reset", "--", songPath)
+		_, _ = gitCommand(s.RepoRoot, "reset", "--", sourcePath)
 		if err := s.Reindex(); err != nil {
-			slog.Error("restore index after failed edit", "path", songPath, "error", err)
+			slog.Error("restore index after failed edit", "path", sourcePath, "error", err)
 		}
 	}
 	if err := s.Reindex(); err != nil {
 		rollback()
 		return "", fmt.Errorf("reindex validation failed: %w", err)
 	}
-	if output, err := gitCommand(s.RepoRoot, "add", "--", songPath); err != nil {
+	if output, err := gitCommand(s.RepoRoot, "add", "--", sourcePath); err != nil {
 		rollback()
 		return "", fmt.Errorf("git add: %s", output)
 	}
-	if output, err := gitCommand(s.RepoRoot, "commit", "-m", "Update lead sheet: "+title, "--", songPath); err != nil {
+	if output, err := gitCommand(s.RepoRoot, "commit", "-m", commitMessage, "--", sourcePath); err != nil {
 		rollback()
 		return "", fmt.Errorf("git commit: %s", output)
 	}
 	if output, err := gitCommand(s.RepoRoot, "push", "origin", "main"); err != nil {
-		slog.Error("push song revision", "path", songPath, "error", err, "output", output)
+		slog.Error("push revision", "path", sourcePath, "error", err, "output", output)
 		return "Saved and committed locally, but the Git push failed; it will need to be retried.", nil
 	}
 	return "", nil
@@ -1778,6 +1919,7 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("GET /about", s.HandleAbout)
 	mux.HandleFunc("GET /song/{id}", s.HandleSong)
 	mux.HandleFunc("GET /sets/{id}", s.HandleSet)
+	mux.HandleFunc("PUT /api/sets/{id}/order", s.HandleUpdateSetOrder)
 	mux.HandleFunc("GET /sets/{id}/live", s.HandleLiveSet)
 	mux.HandleFunc("GET /api/lyrics/search", s.HandleLyricsSearch)
 	mux.HandleFunc("POST /api/lyrics/import", s.HandleLyricsImport)
