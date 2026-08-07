@@ -27,8 +27,7 @@ source_url: "https://lrclib.net/api/get/3934789"
 # Fire Woman
 
 ### Intro
-Fire, yeah  
-Woah, yeah  
+Fire, yeah; Woah, yeah  
 Shake, shake, shake, shake it, yeah
 
 ### Verse 1
@@ -37,21 +36,18 @@ Oh, since I set my eyes on you
 I tell you the truth  
 T-t-t-t-twistin' like a flame in a slow dance, baby  
 You're driving me crazy  
-Come on, little honey  
-Come on now
+Come on, little honey; Come on now
 
 ### Chorus
 Fire; Smoke, she is a rising fire, yeah  
 Smoke on the horizon, well  
-Fire  
-Smoke, she is a rising fire  
+Fire; Smoke, she is a rising fire  
 Oh, smokestack lightning  
 Smokestack lightning
 
 ### Verse 2
 Well, shake it up, you're to blame, got me swayin' little honey  
-My heart's a ball of burnin' flame  
-Oh, yes it is  
+My heart's a ball of burnin' flame; Oh, yes it is  
 Prancing like a cat on a hot tin shack  
 Lord, have mercy  
 Come on little sister  
@@ -74,8 +70,7 @@ And I never, yeah
 A-j-j-j...
 
 ### Outro
-Burnin' out  
-And shake it, baby  
+Burnin' out; And shake it, baby  
 Come on and burn it  
 I say send down fire to me  
 Say send down fire to me  
