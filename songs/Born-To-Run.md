@@ -78,16 +78,16 @@ We're gonna get to that place where we really wanna go
   
 And we'll walk in the sun  
 But 'til then tramps like us  
-Baby, we were born to-  
+Baby, we were born to runnnnn  
   
 ### Intro Vamp  24x  
 
--runnnnnnnnnn; Oh, honey, tramps like us  
+Oh, honey, tramps like us  
 Baby, we were born to runnnnn  
 Come on, Wendy, tramps like us  
-Baby, we were born to-  
+Baby, we were born to runnnnnnnnnn
 
--runnnnnnnnnn; Whoah-oh-oh; Mm-mm-mm-mm  
+Whoah-oh-oh; Mm-mm-mm-mm  
 Uh-uh-uh-oh-oh-oh-oh; Ru-uh-uh-uh-ohhhh  
 
 Mm-mm-mm-mm; Whoa-oh-oh-oh  
