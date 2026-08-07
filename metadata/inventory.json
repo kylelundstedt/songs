@@ -36,6 +36,7 @@
       "body_sha256": "1b2bc5d6bd54d054783c489702376cfa1b7c6fc2fc573a3ac5d6159fc302c47d",
       "metadata": {
         "artist": "The Wallflowers",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.904",
@@ -64,11 +65,12 @@
       "metadata": {
         "artist": "Tommy Tutone",
         "performance_key": "F#m",
+        "bpm": "137.81",
+        "original_bpm": "137.81",
         "reference_title": "8675309",
         "reference_artist": "Tommy Tutone",
         "reference_album": "VH1 One Hit Wonders",
         "reference_duration_seconds": "230.0",
-        "original_bpm": "137.81",
         "deezer_track_id": "123740556",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "31080847",
@@ -89,6 +91,8 @@
       "body_sha256": "237900f1ddb5d0f649bf42313e315d117f27f5cdc3285341a54606163bea8f86",
       "metadata": {
         "artist": "Fiona Apple",
+        "performance_key": "E",
+        "bpm": "130",
         "original_key": "E",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -120,6 +124,7 @@
       "metadata": {
         "artist": "Meghan Trainor",
         "performance_key": "A",
+        "bpm": "133.8",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.905",
@@ -151,6 +156,7 @@
       "metadata": {
         "artist": "Kid Rock",
         "performance_key": "D",
+        "bpm": "102.8",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.905",
@@ -181,6 +187,8 @@
       "body_sha256": "dbedac5294695d6db644522c13e4dbcc6efe75ba1c1156942af47ba75b749d1d",
       "metadata": {
         "artist": "The Killers",
+        "performance_key": "F#",
+        "bpm": "118.12",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.917",
@@ -263,6 +271,7 @@
       "metadata": {
         "artist": "311",
         "performance_key": "C",
+        "bpm": "166",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.826",
@@ -293,6 +302,7 @@
       "body_sha256": "078c6811d7a72b6430feed3c62da2c3402598bc4f35702fb08ec38e528a26609",
       "metadata": {
         "artist": "Green Day",
+        "performance_key": "Ab",
         "original_key": "Ab",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.898",
@@ -321,6 +331,7 @@
       "metadata": {
         "artist": "John Prine",
         "performance_key": "D",
+        "bpm": "132.5",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.856",
@@ -351,6 +362,7 @@
       "body_sha256": "724e37a647bac347858990c5325a900e2b695ac3ef2f6756e3abebcac6ff6173",
       "metadata": {
         "artist": "Neon Trees",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.924",
@@ -379,6 +391,8 @@
       "body_sha256": "8872adb2ced110576aa347489a7bc6a2f75839ea8b3fad943bd5757851005010",
       "metadata": {
         "artist": "Journey",
+        "performance_key": "G",
+        "bpm": "149.8",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.839",
@@ -410,6 +424,7 @@
       "metadata": {
         "artist": "Jet",
         "performance_key": "A",
+        "bpm": "104.93",
         "original_key": "A",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.88",
@@ -469,6 +484,7 @@
       "metadata": {
         "artist": "Aretha Franklin",
         "performance_key": "G",
+        "bpm": "91.3",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.852",
@@ -528,6 +544,7 @@
       "metadata": {
         "artist": "Lady Gaga",
         "performance_key": "A",
+        "bpm": "118.8",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.85",
@@ -558,6 +575,7 @@
       "metadata": {
         "artist": "Jace Everett",
         "performance_key": "E",
+        "bpm": "130.8",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.916",
@@ -612,6 +630,7 @@
       "body_sha256": "a53d196f7987da26bc36747d048958861ba3f3cd6e406b8c2723a0b8d625f509",
       "metadata": {
         "artist": "T. Rex",
+        "performance_key": "E",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.908",
@@ -675,6 +694,8 @@
       "body_sha256": "5c2151641697439b81d930bb9287fb65b7055af5564bf3e283cd1d7d4e0ca19b",
       "metadata": {
         "artist": "Matchbox Twenty",
+        "performance_key": "E",
+        "bpm": "191.4",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.909",
@@ -803,6 +824,7 @@
       "body_sha256": "f4202671d66b7d63b336d89f0cf9fdd06fe10622170d8fef6bd998f06b37b2bd",
       "metadata": {
         "artist": "Violent Femmes",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.873",
@@ -831,6 +853,7 @@
       "body_sha256": "6aaed27edf3ce2428d70f8d8dfaecef391eba7a96c65707888d132e97568d944",
       "metadata": {
         "artist": "New Order",
+        "performance_key": "Dm",
         "original_key": "Dm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.821",
@@ -915,6 +938,7 @@
       "metadata": {
         "artist": "Tom Petty & the Heartbreakers",
         "performance_key": "A",
+        "bpm": "114.53",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.827",
@@ -969,6 +993,8 @@
       "body_sha256": "ef860b31df7b82db328c6f534f8da85b1a4824dde993b260952172f4483dfd56",
       "metadata": {
         "artist": "Van Morrison",
+        "performance_key": "G",
+        "bpm": "149.8",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.924",
@@ -999,6 +1025,7 @@
       "body_sha256": "a1d0bae4aa18350bece17e5947892099dea5f7088dbdba482d0c34f78dfa71d3",
       "metadata": {
         "artist": "George Ezra",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.925",
@@ -1027,6 +1054,7 @@
       "metadata": {
         "artist": "Red Hot Chili Peppers",
         "performance_key": "Am",
+        "bpm": "96.8",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.846",
@@ -1057,6 +1085,8 @@
       "body_sha256": "23dc70883993905ba447eb5f048e8a26b9f4ce233993c7750088536ec789f79e",
       "metadata": {
         "artist": "Red Hot Chili Peppers",
+        "performance_key": "Em",
+        "bpm": "182.9",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.845",
@@ -1114,6 +1144,8 @@
       "body_sha256": "ff694ecdd0a7be32d0c749f2bc7b683bc752449b8e6e7420e08cdea84da0aba4",
       "metadata": {
         "artist": "Snow Patrol",
+        "performance_key": "A",
+        "bpm": "103.88",
         "original_key": "A",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -1145,6 +1177,7 @@
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "Gm",
+        "bpm": "191.41",
         "original_key": "Gm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.797",
@@ -1174,6 +1207,8 @@
       "body_sha256": "2eef2eb92451ed926eabbe52967f45c671b981fc74ff46c9c09826a42581a58d",
       "metadata": {
         "artist": "Indigo Girls",
+        "performance_key": "A",
+        "bpm": "196.9",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.913",
@@ -1204,6 +1239,8 @@
       "body_sha256": "b550f8596a800b5a1aecb242bdaa8a15777eb7604ff0e6ef6d8ec6a576ada0e2",
       "metadata": {
         "artist": "Semisonic",
+        "performance_key": "G",
+        "bpm": "184.57",
         "original_key": "G",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -1234,6 +1271,7 @@
       "body_sha256": "9fe5406ffc2bb672ed79eb785e444a9c31886768724126ff95c12e3c8dce8035",
       "metadata": {
         "artist": "Jet",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.837",
@@ -1261,6 +1299,7 @@
       "body_sha256": "39fc43dd019e44c344aea06b45d55798783fc3d62684bc70b12dd2437922986d",
       "metadata": {
         "artist": "Nirvana",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.93",
@@ -1316,6 +1355,7 @@
       "body_sha256": "e7dacab88f2ef824b21859d70cf1bb5278a3156b96699c534830438c247db69e",
       "metadata": {
         "artist": "Dishwalla",
+        "performance_key": "D",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.83",
@@ -1363,6 +1403,7 @@
       "body_sha256": "98eb8f09060aa0e20f0e32772679d063f5e09bbb8a4335880672c5a23d3e5e9a",
       "metadata": {
         "artist": "Tom Petty",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.907",
@@ -1390,6 +1431,8 @@
       "body_sha256": "d822522f61db10ded3e4a21238698115ff6930453bf1e1b594bc38d2fc441137",
       "metadata": {
         "artist": "Buckcherry",
+        "performance_key": "E",
+        "bpm": "98",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.82",
@@ -1460,6 +1503,8 @@
       "body_sha256": "5d398f0a2cec867ee22bb18901ec7078108c14ff51e65e020593dff5720588d4",
       "metadata": {
         "artist": "Fiona Apple",
+        "performance_key": "Cm",
+        "bpm": "179.8",
         "original_key": "Cm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.881",
@@ -1491,12 +1536,13 @@
       "metadata": {
         "artist": "Seven Mary Three",
         "performance_key": "F#",
+        "bpm": "162.1",
+        "original_bpm": "162.1",
         "reference_title": "Cumbersome",
         "reference_artist": "Seven Mary Three",
         "reference_album": "Water's Edge",
         "reference_duration_seconds": "266.0",
         "recording_mbid": "37261f1c-6b65-4247-82e9-972149aecec2",
-        "original_bpm": "162.1",
         "deezer_track_id": "3822225",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "36969277",
@@ -1545,6 +1591,8 @@
       "body_sha256": "45b64c326d757b5a27fb867768bb33b576ebb949b5b344f60046e319f58b09fa",
       "metadata": {
         "artist": "Red Hot Chili Peppers",
+        "performance_key": "Dm",
+        "bpm": "95.9",
         "original_key": "Dm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.833",
@@ -1574,6 +1622,7 @@
       "body_sha256": "2a5865510d37c99a128d9900c894da4cfd441051bc4232574bdaae3086e09fbd",
       "metadata": {
         "artist": "Red Hot Chili Peppers",
+        "performance_key": "Cm",
         "original_key": "Cm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.9",
@@ -1624,6 +1673,7 @@
       "body_sha256": "7fc95f37d81d5b05de133914b5d5482e6d0bd48f858591cace049f74004059d5",
       "metadata": {
         "artist": "Pearl Jam",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.919",
@@ -1652,6 +1702,7 @@
       "body_sha256": "4880ac5e9d811a2ee00e07150af49384b600fc24d0b6ac1b4e379ac71d71375e",
       "metadata": {
         "artist": "Imagine Dragons",
+        "performance_key": "Eb",
         "original_key": "Eb",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.98",
@@ -1680,6 +1731,7 @@
       "body_sha256": "33a71a58bede358be653f6bc1e965ee97a5e374fa01a14ea34e3a41e1598a731",
       "metadata": {
         "artist": "Otis Redding",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.99",
@@ -1719,6 +1771,7 @@
       "body_sha256": "3fac0db111b5da169b5c03cc39e7192e7f8ecdb4669b0ec883074140a419b0ed",
       "metadata": {
         "artist": "R.E.M.",
+        "performance_key": "E",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.83",
@@ -1746,6 +1799,7 @@
       "body_sha256": "aa64a13654614cde5841008bebe99d3373c37cdae9b9df56e9f817eb5918df27",
       "metadata": {
         "artist": "Incubus",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.836",
@@ -1793,6 +1847,8 @@
       "body_sha256": "ac762be1ff5479d4f272d547581832949c8b156c2a64c747e48ef7843371fa4e",
       "metadata": {
         "artist": "Metallica",
+        "performance_key": "Em",
+        "bpm": "124.53",
         "original_key": "Em",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.96",
@@ -1822,6 +1878,7 @@
       "body_sha256": "7835ccdb04fdaab2805d78f7d172ffa08040102b3f0d8960244edb3a3b91dc70",
       "metadata": {
         "artist": "Pearl Jam",
+        "performance_key": "Dm",
         "original_key": "Dm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.802",
@@ -1850,6 +1907,7 @@
       "metadata": {
         "artist": "Foo Fighters",
         "performance_key": "D",
+        "bpm": "157.8",
         "original_key": "D",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.97",
@@ -1880,6 +1938,8 @@
       "body_sha256": "79893c65f33d4d1d545e8a8b4cc73a7c0005cc66721bb85738bad7e759f80427",
       "metadata": {
         "artist": "Lynyrd Skynyrd",
+        "performance_key": "G",
+        "bpm": "106.3",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.906",
@@ -1911,6 +1971,7 @@
       "metadata": {
         "artist": "Elle King",
         "performance_key": "Em",
+        "bpm": "140.2",
         "original_key": "Em",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.95",
@@ -1941,6 +2002,7 @@
       "body_sha256": "a2be4dd7fc126fff18d9b5d5e623c7c9760fe417b9484550668909c2aaaea3a1",
       "metadata": {
         "artist": "Tom Petty & The Heartbreakers",
+        "performance_key": "Am",
         "original_key": "Am",
         "original_key_kind": "acousticbrainz-estimate",
         "original_key_confidence": "0.837",
@@ -1969,12 +2031,13 @@
       "body_sha256": "6fa5376a937b652a403b4b6f02c9b70e7891cf72d1e604db4aada21c3393dabc",
       "metadata": {
         "artist": "George Michael",
+        "bpm": "191.4",
+        "original_bpm": "191.4",
         "reference_title": "Faith",
         "reference_artist": "George Michael",
         "reference_album": "The Ultimate Rock Collection 1985-1988 Volume 5",
         "reference_duration_seconds": "197.0",
         "recording_mbid": "da176b80-346a-4412-9053-5cf6d0da5062",
-        "original_bpm": "191.4",
         "deezer_track_id": "8146779",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "37463899",
@@ -1995,6 +2058,8 @@
       "body_sha256": "5862e4b88b83460f8b72e6d67c9b1fa4a7e9d8e789a977969ac8799e92f5e6d1",
       "metadata": {
         "artist": "Dwight Yoakam",
+        "performance_key": "A",
+        "bpm": "126.05",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.906",
@@ -2088,6 +2153,7 @@
       "metadata": {
         "artist": "Lukas Nelson and Promise of the Real",
         "performance_key": "G",
+        "bpm": "133.37",
         "original_key": "Ab",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.906",
@@ -2118,6 +2184,7 @@
       "body_sha256": "9128f8f277830c078e7bf6787558de25f8e2e32167675fbb45faf0c585317d3b",
       "metadata": {
         "artist": "Grateful Dead",
+        "performance_key": "B",
         "original_key": "B",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.819",
@@ -2137,6 +2204,7 @@
       "body_sha256": "15af199b649ee25a1856b4d6cf62a4e231978cd8884364474bce6bac47b32b4d",
       "metadata": {
         "artist": "Lenny Kravitz",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.898",
@@ -2166,6 +2234,8 @@
       "body_sha256": "a7c81b72060ddb82903a9934af44e0f63714d8407d072bb657ad0ae7939c6f22",
       "metadata": {
         "artist": "Uncle Kracker",
+        "performance_key": "F",
+        "bpm": "104.9",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.918",
@@ -2220,6 +2290,7 @@
       "body_sha256": "6ff8e5c130c7ec6839bff4bea073ba51124b59a3a1efe34d35a0946f9dbc9e2b",
       "metadata": {
         "artist": "Tom Petty",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.921",
@@ -2324,6 +2395,8 @@
       "body_sha256": "81ec90f18fa7b3d4c5034a976b8d3dfafa9d28b3b4ad5c4b6995c1d46d4296ac",
       "metadata": {
         "artist": "The Rolling Stones",
+        "performance_key": "C#m",
+        "bpm": "118.5",
         "original_key": "C#m",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.89",
@@ -2353,6 +2426,7 @@
       "body_sha256": "181dcf40a83f78b191633a217d4b16607427a87dbb66c4bc95bca85780f5600e",
       "metadata": {
         "artist": "Lynyrd Skynyrd",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.891",
@@ -2380,6 +2454,8 @@
       "body_sha256": "6553592f10c00588b77a310ea2d9ef5ac0d7bf2df9ae47f232f77d2eeeb73e22",
       "metadata": {
         "artist": "Tracy Chapman",
+        "performance_key": "F#",
+        "bpm": "100.6",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.897",
@@ -2409,6 +2485,8 @@
       "body_sha256": "ede25b5cf445f029110ff019f5339115f1255165d39da09062534f695b989545",
       "metadata": {
         "artist": "AC/DC",
+        "performance_key": "A",
+        "bpm": "132.5",
         "original_key": "A",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -2439,6 +2517,7 @@
       "body_sha256": "8675d0b469a61babd1cb15faac505c82d1c144875947a7e41a8cc0a270a7e00a",
       "metadata": {
         "artist": "Bush",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.923",
@@ -2466,6 +2545,8 @@
       "body_sha256": "a22ee1d657c155d9383b9a6b9930519ac7a1bd8c91751699cc3b5fe1040cd63c",
       "metadata": {
         "artist": "Third Eye Blind",
+        "performance_key": "A",
+        "bpm": "150.3",
         "original_key": "A",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -2511,6 +2592,8 @@
       "body_sha256": "3e54e4265c726498dd8efdb40b6f0cf66fef35a8a26314eed937ed911d0239b2",
       "metadata": {
         "artist": "Phillip Phillips",
+        "performance_key": "F#",
+        "bpm": "118.1",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.905",
@@ -2541,6 +2624,8 @@
       "body_sha256": "f6b3ee429207aa4839bad88e6b45bf6c52bbae6e289da8b91ab4746179aa0da7",
       "metadata": {
         "artist": "AC/DC",
+        "performance_key": "F#",
+        "bpm": "122.7",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.899",
@@ -2570,6 +2655,7 @@
       "body_sha256": "7014bfdf15bf34ddcb071aa627076710752e6ac4a93c89713305005c48f6fe5f",
       "metadata": {
         "artist": "Led Zeppelin",
+        "performance_key": "F#m",
         "original_key": "F#m",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.875",
@@ -2597,6 +2683,7 @@
       "body_sha256": "6a6c89138a3c0ee20a584ca58afaa6a7b99634d07c9a3d70f01066988b379fe8",
       "metadata": {
         "artist": "John Mayer",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.887",
@@ -2641,6 +2728,8 @@
       "body_sha256": "59dbba2a8918e86c3ce0d07685e284d3b7bce4878f65e7f388372a9af333c615",
       "metadata": {
         "artist": "The Dead Weather",
+        "performance_key": "Em",
+        "bpm": "127.2",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.92",
@@ -2671,6 +2760,7 @@
       "body_sha256": "d2d773d335a58068575f59738d5f4afdfe7867af8e3f44365ecca409d175e7e7",
       "metadata": {
         "artist": "Pharrell Williams",
+        "performance_key": "Fm",
         "original_key": "Fm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.898",
@@ -2710,6 +2800,8 @@
       "body_sha256": "0102647ed1a4480e8c865dade0ffec5f7246d0b4648c79cf528119a9854c905a",
       "metadata": {
         "artist": "Weezer",
+        "performance_key": "Am",
+        "bpm": "125.7",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.819",
@@ -2755,6 +2847,7 @@
       "body_sha256": "17373e28ff933038f4903ea7425e0f87b7bb3aaf53c28cbbaafb9bb3111adac0",
       "metadata": {
         "artist": "The Marshall Tucker Band",
+        "performance_key": "D",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.917",
@@ -2783,6 +2876,8 @@
       "body_sha256": "6fadb890eeff8e454576a3c395bf8814ff18cc47807855f9b3cc5e04ff799bbe",
       "metadata": {
         "artist": "Nirvana",
+        "performance_key": "C#",
+        "bpm": "99.9",
         "original_key": "C#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.811",
@@ -2840,6 +2935,7 @@
       "body_sha256": "3022f69945b4be2fe1cbe1f52590ef942c73543a4c2278c62c487e53007b0c29",
       "metadata": {
         "artist": "Creed",
+        "performance_key": "D",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.91",
@@ -2859,6 +2955,7 @@
       "body_sha256": "8ff2bf948ba6d92ed09fae4e573ff05e1e3dc2d06b3589cbb97b63d36f760c02",
       "metadata": {
         "artist": "AC/DC",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.99",
@@ -2886,6 +2983,7 @@
       "body_sha256": "56305cec49d54364bca84b563e2318fe0f4e8e4c2f17a9f12a83be1f412ad27a",
       "metadata": {
         "artist": "Pat Benatar",
+        "performance_key": "B",
         "original_key": "B",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.85",
@@ -2913,6 +3011,8 @@
       "body_sha256": "07bf1298fecdba407792ce6f823f8567bcd7c39d2bccc81b36803a1c828e60a0",
       "metadata": {
         "artist": "Hootie & the Blowfish",
+        "performance_key": "B",
+        "bpm": "173.7",
         "original_key": "B",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.844",
@@ -2958,6 +3058,7 @@
       "body_sha256": "48baab5b5135b89d20e89a9a9ae4b93f42fc52f8a23cbcbb7e0033fec008844c",
       "metadata": {
         "artist": "Daughtry",
+        "performance_key": "F#",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.91",
@@ -2977,6 +3078,7 @@
       "body_sha256": "1a586af94ac7ab2b2ca58e4a87dd829848ec1af377c3049f22a6f40c9bc27139",
       "metadata": {
         "artist": "Temple of the Dog",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.919",
@@ -3029,6 +3131,7 @@
       "metadata": {
         "artist": "Katy Perry",
         "performance_key": "A",
+        "bpm": "130",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.852",
@@ -3059,6 +3162,7 @@
       "body_sha256": "9cb8c1eb93139fc38d6271dcb54a5e3a5a16766f3f67a38fb957c97f83a79575",
       "metadata": {
         "artist": "Bob Marley & The Wailers",
+        "performance_key": "F#m",
         "original_key": "F#m",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.849",
@@ -3163,6 +3267,7 @@
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "C",
+        "bpm": "103.36",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.899",
@@ -3192,6 +3297,8 @@
       "body_sha256": "e42ed73cc2ecfe556a9648d389392e5fadb58c1e625213611d5e4c23f3b5236f",
       "metadata": {
         "artist": "Wilson Pickett",
+        "performance_key": "E",
+        "bpm": "111.4",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.907",
@@ -3222,6 +3329,7 @@
       "body_sha256": "e20774d2c7cba9a16a69f35f574409d1562266cd3a2f262ce21e2deadd390fc3",
       "metadata": {
         "artist": "Peter Gabriel",
+        "performance_key": "D",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.925",
@@ -3250,6 +3358,7 @@
       "metadata": {
         "artist": "Eve 6",
         "performance_key": "A",
+        "bpm": "175.9",
         "original_key": "B",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.847",
@@ -3281,6 +3390,7 @@
       "metadata": {
         "artist": "Stone Temple Pilots",
         "performance_key": "C#m",
+        "bpm": "168.8",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.91",
@@ -3311,6 +3421,7 @@
       "body_sha256": "447f97236bc688e5857ccb9ca0ea68c672804de584cf4023a1b398b211c51854",
       "metadata": {
         "artist": "Thin Lizzy",
+        "performance_key": "Eb",
         "original_key": "Eb",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.811",
@@ -3363,6 +3474,7 @@
       "body_sha256": "05aacb20020884ee69048dbc79ddbf32464ca2c8d5684495c75acf439fc0022f",
       "metadata": {
         "artist": "Dolly Parton",
+        "performance_key": "C#m",
         "original_key": "C#m",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.843",
@@ -3406,12 +3518,13 @@
       "body_sha256": "57efede2fe7bc8795c7a8d0140cd43a662807c38b4eb1063e70f251da9743697",
       "metadata": {
         "artist": "Lizzo",
+        "bpm": "119.84",
+        "original_bpm": "119.84",
         "reference_title": "Juice",
         "reference_artist": "Lizzo",
         "reference_album": "The Soulful Harmonies",
         "reference_duration_seconds": "195.0",
         "recording_mbid": "f1be604c-d753-47d1-9faa-6c5d8fe0a832",
-        "original_bpm": "119.84",
         "deezer_track_id": "666286232",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "37051892",
@@ -3432,6 +3545,8 @@
       "body_sha256": "aad36ac1260f4d54bd83dca10695e3ee7e554b47ee81cea581001966ad4055c2",
       "metadata": {
         "artist": "The Strokes",
+        "performance_key": "F",
+        "bpm": "154.8",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.905",
@@ -3505,6 +3620,8 @@
       "body_sha256": "9c471601ab8447aa8ffdd9a48436409707ced94fa434b3c1230c677a7bca18de",
       "metadata": {
         "artist": "No Doubt",
+        "performance_key": "D",
+        "bpm": "107.9",
         "original_key": "D",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -3535,6 +3652,7 @@
       "body_sha256": "a5d24dbccf72eefe55d363225b96dd83e305ecd5a8963cc6beffc5f69c290d0d",
       "metadata": {
         "artist": "ZZ Top",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.88",
@@ -3562,6 +3680,8 @@
       "body_sha256": "7e5ce5ba5450efe3ad89a450217fda3d2c05148ce3a53b3ad8df54a58291d2fa",
       "metadata": {
         "artist": "The Cure",
+        "performance_key": "A",
+        "bpm": "150.34",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.913",
@@ -3592,6 +3712,8 @@
       "body_sha256": "66ced4a7ee8d20a9f7418cc265bbeed1c2a5e3de4aefa09aedcab9593f71902e",
       "metadata": {
         "artist": "The Cars",
+        "performance_key": "E",
+        "bpm": "128.4",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.902",
@@ -3621,6 +3743,7 @@
       "body_sha256": "b9608d1d22cc97198055a79c1f9223105445c7b651d6cdd682282d9af320a057",
       "metadata": {
         "artist": "Rage Against the Machine",
+        "performance_key": "D",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.804",
@@ -3724,6 +3847,7 @@
       "body_sha256": "030f46aae16f377d6767bc6c0328cdb333ad15fdd38506ed7af2f89d8d5ef5be",
       "metadata": {
         "artist": "The Strokes",
+        "performance_key": "C",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.918",
@@ -3751,6 +3875,7 @@
       "body_sha256": "e0b161d0cf13521bd624b90378c992a5b8e27464ffcb5255e10d59f8e39088c1",
       "metadata": {
         "artist": "AC/DC",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.889",
@@ -3779,6 +3904,7 @@
       "metadata": {
         "artist": "Marvin Gaye",
         "performance_key": "E",
+        "bpm": "167.38",
         "original_key": "Eb",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.904",
@@ -3838,6 +3964,7 @@
       "body_sha256": "f43e4f127a64bb9cb4542d3686f63b1bbc7ef8e1d645b9174f52cfd45ea09c16",
       "metadata": {
         "artist": "David Bowie",
+        "performance_key": "Ab",
         "original_key": "Ab",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.913",
@@ -3865,11 +3992,12 @@
       "body_sha256": "df6b2fbad6153ceee5d5e89a84330710c0a6441ed9d47ae5f47fcfd55d848633",
       "metadata": {
         "artist": "Talking Heads",
+        "bpm": "132.9",
+        "original_bpm": "132.9",
         "reference_title": "Life During Wartime",
         "reference_artist": "Talking Heads",
         "reference_album": "Fear of Music [2005 DualDisc remaster]",
         "reference_duration_seconds": "221.0",
-        "original_bpm": "132.9",
         "deezer_track_id": "747560",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "35012523",
@@ -3890,6 +4018,7 @@
       "body_sha256": "dcbc35361e428e297c2e461ff0ff89400eda89c1645172ca58878fea2b24108b",
       "metadata": {
         "artist": "Live",
+        "performance_key": "F#",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.845",
@@ -3918,6 +4047,8 @@
       "body_sha256": "6602661b2e6f86767d13fd4ad08c71d8899a4119a1348a3bba4c7d790405ea0b",
       "metadata": {
         "artist": "Audioslave",
+        "performance_key": "Gm",
+        "bpm": "107.7",
         "original_key": "Gm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.84",
@@ -3948,6 +4079,7 @@
       "body_sha256": "029b7f60c748830627627c339a678c4428689391d52f7a2aa3d87310d5e23c88",
       "metadata": {
         "artist": "Elvis Presley",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.864",
@@ -3967,12 +4099,13 @@
       "body_sha256": "678fab3b247f90c98820dc586482063074811d93f5980a8f6d8b42a438fb19f3",
       "metadata": {
         "artist": "AC/DC",
+        "bpm": "106",
+        "original_bpm": "106",
         "reference_title": "Little Lover",
         "reference_artist": "Ac-Dc",
         "reference_album": "Ac-Dc Box Set",
         "reference_duration_seconds": "340.0",
         "recording_mbid": "ef3af814-ee58-4dc7-b77a-efb84fe2f43e",
-        "original_bpm": "106",
         "deezer_track_id": "92720010",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "36843135",
@@ -3994,6 +4127,7 @@
       "metadata": {
         "artist": "Elvis Presley",
         "performance_key": "E",
+        "bpm": "139.7",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.884",
@@ -4104,6 +4238,8 @@
       "body_sha256": "3fffdadc9f8ba9220efccc70669953072ed7a703634e9ef76b68d4ef9946233f",
       "metadata": {
         "artist": "The Doobie Brothers",
+        "performance_key": "Gm",
+        "bpm": "118.5",
         "original_key": "Gm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.906",
@@ -4133,6 +4269,8 @@
       "body_sha256": "dde660c5cc14e3b199348c3f70260112a04ae51b5005775513f11881bb384e91",
       "metadata": {
         "artist": "Ohio Players",
+        "performance_key": "G",
+        "bpm": "117.12",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.841",
@@ -4190,6 +4328,8 @@
       "body_sha256": "917e4525062533bb12bc081ada1aa7e6ecf4cd223a0d6f941a023cf93e870d66",
       "metadata": {
         "artist": "Wolfmother",
+        "performance_key": "C",
+        "bpm": "182.1",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.816",
@@ -4220,6 +4360,7 @@
       "body_sha256": "7ec2faedf483938c55c8669e3f9734c94e88af9bf3213085985cb7e2799fc8fe",
       "metadata": {
         "artist": "The Cure",
+        "performance_key": "Am",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.836",
@@ -4247,6 +4388,7 @@
       "body_sha256": "1bf6c09a6f9356b6deb34aa5160d3e9fd864434498322c7ecef27aa5c459a18c",
       "metadata": {
         "artist": "Cracker",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.845",
@@ -4266,6 +4408,7 @@
       "body_sha256": "5d27c73c34a26696498fa3e5e07f544fbb479c21aacd3a825256d7ddde8a508a",
       "metadata": {
         "artist": "Peter Schilling",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.836",
@@ -4285,6 +4428,7 @@
       "body_sha256": "1275948ab511c1aa4764ec47eb891e49b7945e988b106c774d18a062d464f064",
       "metadata": {
         "artist": "Alice in Chains",
+        "performance_key": "Ebm",
         "original_key": "Ebm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.829",
@@ -4312,6 +4456,7 @@
       "body_sha256": "041d9f9ff37d0f1adda615d1b8dde093e9a70bcdf17bf0ad0a09cddf3f3c8501",
       "metadata": {
         "artist": "Jimmy Buffett",
+        "performance_key": "D",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.916",
@@ -4339,6 +4484,7 @@
       "body_sha256": "2b41134101a01ffff35b456094bfe44366581827d2308ac066f24ea5237a03c8",
       "metadata": {
         "artist": "Stevie Ray Vaughan",
+        "performance_key": "Ab",
         "original_key": "Ab",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.96",
@@ -4391,6 +4537,8 @@
       "body_sha256": "9a263658e7cf86abf807a65c7af853bd4d8a23f9bf5e8c0fb8c934a87747d7c2",
       "metadata": {
         "artist": "The Allman Brothers Band",
+        "performance_key": "E",
+        "bpm": "166.04",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.913",
@@ -4420,6 +4568,7 @@
       "body_sha256": "6b684a07a15d8b41f4b13e764231a6359aab3582e3b2c4d07de4f27780e3b4ed",
       "metadata": {
         "artist": "Modern English",
+        "performance_key": "C",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.916",
@@ -4502,6 +4651,7 @@
       "body_sha256": "06679c0e00d818dc4e5b80506655c9fc9ebf00999a51a34d54549ff3040e16fb",
       "metadata": {
         "artist": "Wilson Pickett",
+        "performance_key": "C",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.883",
@@ -4529,6 +4679,8 @@
       "body_sha256": "1ceca8f49af78b80dabf5dedfa2e02b548f2a576c8bdad1f5682e6dc1bc6b290",
       "metadata": {
         "artist": "Foo Fighters",
+        "performance_key": "E",
+        "bpm": "154.27",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.913",
@@ -4559,6 +4711,8 @@
       "body_sha256": "0fe42aa8dab819075753371ca014d3d0182227f7b02f767c382f17b0b52beccd",
       "metadata": {
         "artist": "Lit",
+        "performance_key": "E",
+        "bpm": "103.4",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.923",
@@ -4588,6 +4742,7 @@
       "body_sha256": "c7093fe70c2a135822eb3d6b6b7fc233cd408aa61e6a84aa9ec309326daf292d",
       "metadata": {
         "artist": "U2",
+        "performance_key": "Bbm",
         "original_key": "Bbm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.827",
@@ -4615,6 +4770,8 @@
       "body_sha256": "cbd0b6c3720411600f5c05741e853a25482e2638ff19016a92b6a3bd102bb579",
       "metadata": {
         "artist": "Third Eye Blind",
+        "performance_key": "E",
+        "bpm": "113.6",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.9",
@@ -4645,6 +4802,7 @@
       "body_sha256": "28247ce58c8711a7cb2b1549df1a575c59c82dc4bd7b86aba26aa5ee2bdaa3d9",
       "metadata": {
         "artist": "U2",
+        "performance_key": "Ebm",
         "original_key": "Ebm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.97",
@@ -4672,6 +4830,7 @@
       "body_sha256": "d5e20ecb2a8f94d5e1f9a2a307d64c8b4031c4a86927fc8e018bb1a3b7b4c7f0",
       "metadata": {
         "artist": "Queens of the Stone Age",
+        "performance_key": "Cm",
         "original_key": "Cm",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.98",
@@ -4699,6 +4858,7 @@
       "body_sha256": "b39181b44abd99f836e197667494fc122bfd508258e2d41368d554452d88b410",
       "metadata": {
         "artist": "Blind Melon",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.837",
@@ -4726,6 +4886,7 @@
       "body_sha256": "ec083e432e13d23f19b37554eb0b4e5e1fc53bcded2e7f0db77836f41103bb7b",
       "metadata": {
         "artist": "Bob Marley & The Wailers",
+        "performance_key": "C#",
         "original_key": "C#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.82",
@@ -4773,6 +4934,7 @@
       "body_sha256": "69a717aad30ad3e161db013db8564a810e476792255bb87f82446717b70bede1",
       "metadata": {
         "artist": "Linkin Park",
+        "performance_key": "F#m",
         "original_key": "F#m",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.98",
@@ -4800,6 +4962,7 @@
       "body_sha256": "6e7a0151d4b3ee34826a0a19a1a03d7598e4c60be0d1a21f1d9f38440bdd0e2b",
       "metadata": {
         "artist": "U2",
+        "performance_key": "Am",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.851",
@@ -4819,6 +4982,7 @@
       "body_sha256": "33ea52f29ff75128ddae5a6a1e9c51fce245aa876b24832ae2929d85f6b84115",
       "metadata": {
         "artist": "Soundgarden",
+        "performance_key": "D",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.834",
@@ -4838,6 +5002,8 @@
       "body_sha256": "90fc0ac581810cef9710e642ef9f0ec2e57ecf2a3040ebdbc45c3277859de469",
       "metadata": {
         "artist": "Staind",
+        "performance_key": "F#",
+        "bpm": "145.6",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.824",
@@ -4867,6 +5033,7 @@
       "body_sha256": "62b1dd656b693cb79f35115586418e4a4e86176a2d7398675b85268192f85e78",
       "metadata": {
         "artist": "Men at Work",
+        "performance_key": "E",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.834",
@@ -4894,6 +5061,7 @@
       "body_sha256": "6824ad9c197f5787fbb653ec069a4af20bfe84c662251ae25f5dede5e4086b02",
       "metadata": {
         "artist": "Van Halen",
+        "performance_key": "Eb",
         "original_key": "Eb",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.825",
@@ -4921,6 +5089,8 @@
       "body_sha256": "e4be1a3fcbb6badb1b468d5adf9600dbdd88936daef6c1f54d43a4f78433b5ab",
       "metadata": {
         "artist": "Guns N' Roses",
+        "performance_key": "F#",
+        "bpm": "100.11",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.837",
@@ -4951,6 +5121,7 @@
       "body_sha256": "fd49ef40b7513430e25648ac3f238e740438b0db3bfaaba4c6e0817e277ad218",
       "metadata": {
         "artist": "Finger Eleven",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.907",
@@ -4979,6 +5150,8 @@
       "body_sha256": "21c3b0f91da1d6ef1c11bcb9814899e658c7d6009ce97faabf7859177ec0aa2a",
       "metadata": {
         "artist": "Guns N' Roses",
+        "performance_key": "C#",
+        "bpm": "118.8",
         "original_key": "C#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.854",
@@ -5087,6 +5260,8 @@
       "body_sha256": "eafb5dacb58d33aa63e66cf92b4b8a3533561433240ca51a4b7204ad26d8d5d3",
       "metadata": {
         "artist": "Bastille",
+        "performance_key": "A",
+        "bpm": "127.6",
         "original_key": "A",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -5117,6 +5292,7 @@
       "body_sha256": "444e828a88c02ea406f364b9dc10789b444bb8ab80d7b92868a87adadb5bae48",
       "metadata": {
         "artist": "Toadies",
+        "performance_key": "E",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.878",
@@ -5167,6 +5343,7 @@
       "body_sha256": "006b933d62a42d6e8c64f2e856f785b187adcbb0d51c194a8e8f2a97c633da82",
       "metadata": {
         "artist": "Talking Heads",
+        "performance_key": "Am",
         "original_key": "Am",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.97",
@@ -5219,6 +5396,7 @@
       "body_sha256": "59425ecf8de9956d944c4ed9756ffd48cd2c0d9aff1e6502bb5dcfcfdb74d909",
       "metadata": {
         "artist": "Imagine Dragons",
+        "performance_key": "Bm",
         "original_key": "Bm",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.98",
@@ -5317,6 +5495,8 @@
       "body_sha256": "ea66b64b37c0207c4c530398927788ba8379b426ca4e58c9c9a113cdd18ad36c",
       "metadata": {
         "artist": "AC/DC",
+        "performance_key": "F",
+        "bpm": "105.7",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.881",
@@ -5347,6 +5527,8 @@
       "body_sha256": "737a7ab9b3eaff73f1e06c33a67f1fbcf836ca619ab3da0150afa66636cef70f",
       "metadata": {
         "artist": "Social Distortion",
+        "performance_key": "Bb",
+        "bpm": "179.8",
         "original_key": "Bb",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -5377,6 +5559,8 @@
       "body_sha256": "d084688fb058ec01cf476d1c875b08564a6c63b2541a88df95929906de35ee2f",
       "metadata": {
         "artist": "The Doors",
+        "performance_key": "E",
+        "bpm": "123.78",
         "original_key": "E",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.98",
@@ -5437,6 +5621,7 @@
       "body_sha256": "c538d765af66c8221bbc35de8ea76530bf654466f6cf27f557e8469c2f6a2f91",
       "metadata": {
         "artist": "Alice in Chains",
+        "performance_key": "Fm",
         "original_key": "Fm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.847",
@@ -5464,6 +5649,8 @@
       "body_sha256": "271751afc095461c87a0d037cfeb26147cc508245777c6bed35c2790908fcd34",
       "metadata": {
         "artist": "Van Halen",
+        "performance_key": "Eb",
+        "bpm": "95.7",
         "original_key": "Eb",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.801",
@@ -5495,6 +5682,7 @@
       "metadata": {
         "artist": "Sublime",
         "performance_key": "E",
+        "bpm": "181.33",
         "original_key": "E",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.98",
@@ -5525,6 +5713,7 @@
       "body_sha256": "6c81f524ab72810025803f162741a2c84484186ad32885f1127c38b7f5614ad4",
       "metadata": {
         "artist": "Weezer",
+        "performance_key": "Eb",
         "original_key": "Eb",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.905",
@@ -5580,6 +5769,7 @@
       "body_sha256": "e53002897cf24cb6fa34a28040d1edf851f51c7dcc5600c7d523792a9e74b436",
       "metadata": {
         "artist": "Marcy Playground",
+        "performance_key": "Bm",
         "original_key": "Bm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.83",
@@ -5608,6 +5798,7 @@
       "body_sha256": "7bb922fee945ac0e0b9bc9b181696a701fdb8383f13dfd8b72c7d7cc83275060",
       "metadata": {
         "artist": "Kings of Leon",
+        "performance_key": "E",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.915",
@@ -5686,6 +5877,7 @@
       "body_sha256": "e1f032b68ec3fb250e8bcf8dfb2edca07c4f5deff6fb3bbc116a77178ff2d9d8",
       "metadata": {
         "artist": "The Cult",
+        "performance_key": "C#",
         "original_key": "C#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.904",
@@ -5733,6 +5925,8 @@
       "body_sha256": "4a0a4491485cfd9bfc0d787523822d28d2abca2ab2e2339655961b3fc1a990b2",
       "metadata": {
         "artist": "Earth, Wind & Fire",
+        "performance_key": "Em",
+        "bpm": "102.3",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.885",
@@ -5763,6 +5957,7 @@
       "metadata": {
         "artist": "CAKE",
         "performance_key": "D",
+        "bpm": "125.3",
         "original_key": "Dm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.93",
@@ -5816,6 +6011,7 @@
       "body_sha256": "bc014525681d99e09b61a86c324b1a3806c1c9b907c07ace44c91d1270f7f9f2",
       "metadata": {
         "artist": "Otis Redding",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.99",
@@ -5835,6 +6031,7 @@
       "body_sha256": "9652f07e33ee86b5c64da18cd6ead133286d89bf587ed0e66134f665c3b2ef24",
       "metadata": {
         "artist": "Nirvana",
+        "performance_key": "Fm",
         "original_key": "Fm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.904",
@@ -5862,6 +6059,7 @@
       "body_sha256": "feca55ef9d76720abe614efeb2573c49af1d6192679b9c77aa9fdd1e3a0253fb",
       "metadata": {
         "artist": "The Police",
+        "performance_key": "C",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.92",
@@ -5890,11 +6088,12 @@
       "metadata": {
         "artist": "Joss Stone",
         "performance_key": "C",
+        "bpm": "103.88",
+        "original_bpm": "103.88",
         "reference_title": "Some Kind Of Wonderful",
         "reference_artist": "Joss Stone",
         "reference_album": "Late Night Moods - Disc I",
         "reference_duration_seconds": "236.0",
-        "original_bpm": "103.88",
         "deezer_track_id": "3151643",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "37096848",
@@ -5915,6 +6114,7 @@
       "body_sha256": "a9caf51dab9fb16db9fea3698705f71e3d186fd34f86eca97580c592dcba365e",
       "metadata": {
         "artist": "Blur",
+        "performance_key": "Fm",
         "original_key": "Fm",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.93",
@@ -5942,6 +6142,8 @@
       "body_sha256": "4df87873e204e89c8eec4443fa5f0b923220ea50b28abe6eb7f8d278a4d9278e",
       "metadata": {
         "artist": "The Allman Brothers Band",
+        "performance_key": "Bb",
+        "bpm": "135.1",
         "original_key": "Bb",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.915",
@@ -6018,6 +6220,8 @@
       "body_sha256": "d1f0a1c3b392ec6ab4f450278e23479144799df1e492957595e2915a88cd5725",
       "metadata": {
         "artist": "Counting Crows",
+        "performance_key": "D",
+        "bpm": "156",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.916",
@@ -6076,6 +6280,7 @@
       "body_sha256": "51a660f6ddd95acf09bda2f88819ebb504e2b13c2d9963b8447ae746d00ee4fc",
       "metadata": {
         "artist": "Aerosmith",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.903",
@@ -6104,6 +6309,7 @@
       "body_sha256": "6319ffe89c89070d7944b9ff20516c5691a11308d1c3ce72574819d6b58ce235",
       "metadata": {
         "artist": "Lynyrd Skynyrd",
+        "performance_key": "G",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.91",
@@ -6131,11 +6337,12 @@
       "body_sha256": "be79d8af3c95105eb7096c189c1c5980d6802119573540111f2fe590f927345b",
       "metadata": {
         "artist": "AC/DC",
+        "bpm": "126.8",
+        "original_bpm": "126.8",
         "reference_title": "TNT",
         "reference_artist": "ACDC",
         "reference_album": "T.N.T.",
         "reference_duration_seconds": "214.0",
-        "original_bpm": "126.8",
         "deezer_track_id": "92720006",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "34416182",
@@ -6156,6 +6363,7 @@
       "body_sha256": "11678dc825811f1de2707f2e376569f956041bb8a823c1954fba7fcdd35716bf",
       "metadata": {
         "artist": "Franz Ferdinand",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.835",
@@ -6206,6 +6414,8 @@
       "body_sha256": "44c3d57205e98fecda3d97a0cf76afa72e488b87deca8327e8f1756593fba324",
       "metadata": {
         "artist": "Sly & the Family Stone",
+        "performance_key": "E",
+        "bpm": "106",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.841",
@@ -6256,6 +6466,7 @@
       "body_sha256": "dd11d5192b17be7c34bd895bdb65d6fb807a6e42af2f12a636066d6e8dce226c",
       "metadata": {
         "artist": "KC & the Sunshine Band",
+        "performance_key": "Cm",
         "original_key": "Cm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.85",
@@ -6283,6 +6494,8 @@
       "body_sha256": "ee19113dc1ddf6c643e01c00f70c0d46b4907a377b533a6ea0add22482741424",
       "metadata": {
         "artist": "Katy Tiz",
+        "performance_key": "Gm",
+        "bpm": "95.9",
         "original_key": "Gm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.903",
@@ -6313,6 +6526,7 @@
       "body_sha256": "b5181d98b55cdbed6f92ea6de2ac031fe7230894e2660c2d64f6693955408b60",
       "metadata": {
         "artist": "CAKE",
+        "performance_key": "E",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.896",
@@ -6341,6 +6555,7 @@
       "metadata": {
         "artist": "Jimmy Eat World",
         "performance_key": "D",
+        "bpm": "162.13",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.903",
@@ -6370,6 +6585,7 @@
       "body_sha256": "03c6455824d185ef8a08ec20e50074270bc380115070a906a94ab846e6ed8a02",
       "metadata": {
         "artist": "Coldplay",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.914",
@@ -6463,6 +6679,7 @@
       "body_sha256": "1d9cc0fd469bcfd1a8f7c26e4f55556a6f742a8bc2b0afca0637f474dbbab32d",
       "metadata": {
         "artist": "Rush",
+        "performance_key": "Bm",
         "original_key": "Bm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.829",
@@ -6514,6 +6731,7 @@
       "body_sha256": "d492bf23f646d8b06c6d0cbbeeddce86ee8a90d6d9dad652c2653aafac38b30b",
       "metadata": {
         "artist": "Weezer",
+        "performance_key": "Ab",
         "original_key": "Ab",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.895",
@@ -6669,6 +6887,8 @@
       "body_sha256": "6704906d6e6e666b792606b38a1739ac7072f8a64c3fc30b000cabfa5d08e05a",
       "metadata": {
         "artist": "Kings of Leon",
+        "performance_key": "C",
+        "bpm": "139.7",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.915",
@@ -6699,6 +6919,7 @@
       "metadata": {
         "artist": "Amy Winehouse",
         "performance_key": "E",
+        "bpm": "96.4",
         "original_key": "Eb",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.96",
@@ -6728,6 +6949,8 @@
       "body_sha256": "4a372e2c1e23c7b40f1e2a146ae55d87061c832bbc8cb3ffb826f967b2abb451",
       "metadata": {
         "artist": "Stone Temple Pilots",
+        "performance_key": "Gm",
+        "bpm": "168.1",
         "original_key": "Gm",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.818",
@@ -6758,6 +6981,8 @@
       "body_sha256": "ff67c529e15406bd843217cba04182d74dad6c5bf3e9ade4c1f27b8e6907f99b",
       "metadata": {
         "artist": "U2",
+        "performance_key": "A",
+        "bpm": "140.2",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.879",
@@ -6788,6 +7013,7 @@
       "body_sha256": "7476d48fe651255dd8b069e1a4a495ecea85d053b12bf302b180a257d03009f3",
       "metadata": {
         "artist": "Darius Rucker",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.92",
@@ -6815,6 +7041,7 @@
       "body_sha256": "71eff86745973e24ff67176575b390d9cdbdd496e75da89eb26b8a0c76259668",
       "metadata": {
         "artist": "ZZ Top",
+        "performance_key": "Am",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.826",
@@ -6843,6 +7070,7 @@
       "body_sha256": "2befea00dc7de53c7edb21d776caaac2a5c549fdd71d97085b06c6d100c0bd6d",
       "metadata": {
         "artist": "Aerosmith",
+        "performance_key": "F",
         "original_key": "F",
         "original_key_kind": "analysis-consensus",
         "original_key_confidence": "0.847",
@@ -6871,6 +7099,8 @@
       "body_sha256": "e94917979e44d8c858da8537af97249af30965a27b092f58baac8757e2b1d19e",
       "metadata": {
         "artist": "Foo Fighters",
+        "performance_key": "A",
+        "bpm": "140.1",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.906",
@@ -6900,6 +7130,8 @@
       "body_sha256": "8c4568fbef493e756794f3b730dc8cbc37ce265ed5aa50f547394d11c075c0c1",
       "metadata": {
         "artist": "Bon Jovi",
+        "performance_key": "G",
+        "bpm": "150.89",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.825",
@@ -6930,6 +7162,8 @@
       "body_sha256": "5a42a8f829faa502f97b41f847b87d5ec5e9a25ad6a072c5fe2c3c49748f1cf7",
       "metadata": {
         "artist": "Guns N' Roses",
+        "performance_key": "Eb",
+        "bpm": "123.05",
         "original_key": "Eb",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.94",
@@ -6960,6 +7194,7 @@
       "metadata": {
         "artist": "Sublime",
         "performance_key": "D",
+        "bpm": "95.7",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.906",
@@ -6990,6 +7225,7 @@
       "body_sha256": "feeacd9c4230c2d7176f64fee8dabfc4fc3e746b0dbddc852b821e5db084be51",
       "metadata": {
         "artist": "Foo Fighters",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.924",
@@ -7009,6 +7245,8 @@
       "body_sha256": "81d3b2251cb4ba8965d5e15160853a359a739d3a877e98604389769bf23f4070",
       "metadata": {
         "artist": "Green Day",
+        "performance_key": "F#",
+        "bpm": "193.2",
         "original_key": "F#",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.9",
@@ -7039,6 +7277,7 @@
       "body_sha256": "780bcd0e6f48480ee68440a715bc802d335469403ff9f6721f2e1b7547a9e52a",
       "metadata": {
         "artist": "3 Doors Down",
+        "performance_key": "Am",
         "original_key": "Am",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.826",
@@ -7067,6 +7306,7 @@
       "body_sha256": "d2e3147d477bc4c7cd93355276636651fe953747d69a10575e7d698df368de16",
       "metadata": {
         "artist": "Vince Gill",
+        "performance_key": "B",
         "original_key": "B",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.912",
@@ -7096,6 +7336,7 @@
       "metadata": {
         "artist": "U2",
         "performance_key": "D",
+        "bpm": "125.66",
         "original_key": "D",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.918",
@@ -7178,12 +7419,13 @@
       "metadata": {
         "artist": "Stone Temple Pilots",
         "performance_key": "A",
+        "bpm": "152.6",
+        "original_bpm": "152.6",
         "reference_title": "Wicked Garden",
         "reference_artist": "Stone Temple Pilots",
         "reference_album": "Top Trax MP3's #2",
         "reference_duration_seconds": "245.0",
         "recording_mbid": "203319a8-5428-4ed2-b4bf-8ad101d7f543",
-        "original_bpm": "152.6",
         "deezer_track_id": "3907796",
         "lyrics_reference_provider": "LRCLIB",
         "lyrics_reference_id": "37475577",
@@ -7204,6 +7446,7 @@
       "body_sha256": "fe0667516f8466c6700ed75faf8be5118f901310350318fe506da6b297c863f3",
       "metadata": {
         "artist": "The Nightcaps",
+        "performance_key": "A",
         "original_key": "A",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.923",
@@ -7223,6 +7466,8 @@
       "body_sha256": "c299ddc45fc10ecb46342ad8c4c2503b8062f6c0140539b631852d410dfe0009",
       "metadata": {
         "artist": "Creed",
+        "performance_key": "C",
+        "bpm": "138.7",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.902",
@@ -7281,6 +7526,7 @@
       "body_sha256": "3790bdb2cd3aaedc7801a1540af775f1139a37cc2dbce261fd6dc819f09982a3",
       "metadata": {
         "artist": "Wolfmother",
+        "performance_key": "Em",
         "original_key": "Em",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.818",
@@ -7300,6 +7546,7 @@
       "body_sha256": "6fc0f908e3ffe2f32751b19360bebfa60f1a91ac66428fe3d0fb638416aa90d8",
       "metadata": {
         "artist": "Oasis",
+        "performance_key": "F#m",
         "original_key": "F#m",
         "original_key_kind": "expert-reviewed-estimate",
         "original_key_confidence": "0.95",
@@ -7328,6 +7575,7 @@
       "metadata": {
         "artist": "Gun",
         "performance_key": "F#",
+        "bpm": "117.8",
         "original_key": "F#m",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.836",
@@ -7358,6 +7606,8 @@
       "body_sha256": "7e456176b9a79055369e37fcb35b8c4fd973b8da2386566c74898c22cdc838ea",
       "metadata": {
         "artist": "Pearl Jam",
+        "performance_key": "E",
+        "bpm": "140.6",
         "original_key": "E",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.917",
@@ -7388,6 +7638,8 @@
       "body_sha256": "6de6d756683f6d5fb9e435e944ac41d08457be06b330d94ef40fac1411b5e7c7",
       "metadata": {
         "artist": "The Fray",
+        "performance_key": "B",
+        "bpm": "152",
         "original_key": "B",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.914",
@@ -7419,6 +7671,7 @@
       "metadata": {
         "artist": "Alanis Morissette",
         "performance_key": "F#m",
+        "bpm": "105.2",
         "original_key": "F#m",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.819",
@@ -7449,6 +7702,7 @@
       "metadata": {
         "artist": "AC/DC",
         "performance_key": "G",
+        "bpm": "129.2",
         "original_key": "G",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.914",
@@ -7480,6 +7734,7 @@
       "metadata": {
         "artist": "Tom Petty",
         "performance_key": "D",
+        "bpm": "164.1",
         "original_key": "F",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.831",
@@ -7510,6 +7765,7 @@
       "body_sha256": "1a46f6ebf63c235212e43146a53333c7210f6385fa2ccd3393b68bb25ba689ac",
       "metadata": {
         "artist": "The Cult",
+        "performance_key": "C",
         "original_key": "C",
         "original_key_kind": "preview-analysis-estimate",
         "original_key_confidence": "0.818",

@@ -208,6 +208,39 @@ def build_proposals(cache_root: Path, ids: set[str] | None = None) -> dict:
     return {"song_count": len(output), "songs": output}
 
 
+def write_metadata(path: Path, values: dict[str, str], body: str):
+    ordered = [
+        "artist", "performance_key", "bpm", "original_key", "original_key_kind", "original_key_confidence",
+        "original_key_source", "original_bpm", "reference_title", "reference_artist", "reference_album",
+        "reference_duration_seconds", "recording_mbid", "deezer_track_id", "lyrics_reference_provider",
+        "lyrics_reference_id", "lyrics_reference_url", "metadata_confidence", "provenance_status",
+        "legacy_source_commit", "legacy_source_path", "metadata_review_status",
+    ]
+    lines = [f"{key}: {metadata.quote_yaml(values[key])}" for key in ordered if key in values]
+    lines.extend(f"{key}: {metadata.quote_yaml(values[key])}" for key in values if key not in ordered)
+    path.write_text("---\n" + "\n".join(lines) + "\n---\n\n" + body)
+
+
+def seed_performance_values(root: Path = ROOT):
+    changed = []
+    for song in metadata.read_catalog(root):
+        source = root / song["path"]
+        text = source.read_text()
+        _, body = metadata.split_front_matter(text)
+        values = metadata.parse_front_matter(text)
+        seeded = False
+        if not values.get("performance_key") and values.get("original_key"):
+            values["performance_key"] = values["original_key"]
+            seeded = True
+        if not values.get("bpm") and values.get("original_bpm"):
+            values["bpm"] = values["original_bpm"]
+            seeded = True
+        if seeded:
+            write_metadata(source, values, body)
+            changed.append(song["path"])
+    return changed
+
+
 def apply_proposals(path: Path):
     proposals = json.loads(path.read_text())["songs"]
     by_id = {song["id"]: song for song in metadata.read_catalog(ROOT)}
@@ -227,16 +260,7 @@ def apply_proposals(path: Path):
             values["original_key_source"] = proposal["acousticbrainz"]["source_url"]
         elif proposal.get("deezer", {}).get("track_id"):
             values["original_key_source"] = f"https://www.deezer.com/track/{proposal['deezer']['track_id']}"
-        ordered = [
-            "artist", "performance_key", "bpm", "original_key", "original_key_kind", "original_key_confidence",
-            "original_key_source", "original_bpm", "reference_title", "reference_artist", "reference_album",
-            "reference_duration_seconds", "recording_mbid", "deezer_track_id", "lyrics_reference_provider",
-            "lyrics_reference_id", "lyrics_reference_url", "metadata_confidence", "provenance_status",
-            "legacy_source_commit", "legacy_source_path", "metadata_review_status",
-        ]
-        lines = [f"{key}: {metadata.quote_yaml(values[key])}" for key in ordered if key in values]
-        lines.extend(f"{key}: {metadata.quote_yaml(values[key])}" for key in values if key not in ordered)
-        source.write_text("---\n" + "\n".join(lines) + "\n---\n\n" + body)
+        write_metadata(source, values, body)
         changed.append(song["path"])
     return changed
 
@@ -250,12 +274,16 @@ def main():
     harvest.add_argument("--ids", nargs="*")
     apply_cmd = sub.add_parser("apply")
     apply_cmd.add_argument("--proposals", type=Path, default=ROOT / "metadata/key-proposals.json")
+    sub.add_parser("seed-performance")
     args = parser.parse_args()
     if args.command == "harvest":
         result = build_proposals(args.cache, set(args.ids) if args.ids else None)
         args.output.write_text(json.dumps(result, indent=2) + "\n")
-    else:
+    elif args.command == "apply":
         for path in apply_proposals(args.proposals):
+            print(path)
+    else:
+        for path in seed_performance_values():
             print(path)
 
 

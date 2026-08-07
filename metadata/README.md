@@ -27,3 +27,11 @@ python3 -m venv /tmp/songs-keyenv
 ```
 
 Audio previews remain only in the ignored `.metadata-cache/`. Canonical files record the estimated key, estimate kind, confidence, and analyzed recording URL. A leading `~` in the app indicates that the displayed original key is an estimate rather than a confirmed band performance key.
+
+After original metadata is reviewed, seed missing editable performance values from it:
+
+```sh
+python3 tools/populate_keys.py seed-performance
+```
+
+This only fills missing `performance_key` and `bpm` fields. Existing band-arrangement values are never overwritten. The header always displays the editable performance values; original key/BPM remain in the footer for comparison.

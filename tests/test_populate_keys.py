@@ -22,6 +22,20 @@ class KeyMetadataTests(unittest.TestCase):
         weak = {"consensus_key": "Am", "agreement": 2, "strength": 0.5}
         self.assertEqual(keys.decide(None, weak)["decision"], "review")
 
+    def test_seeds_missing_performance_values_without_changing_body(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "songs").mkdir()
+            body = "# Song\n\nWords\n"
+            path = root / "songs/song.md"
+            path.write_text('---\noriginal_key: "G"\noriginal_bpm: "120"\n---\n\n' + body)
+            self.assertEqual(keys.seed_performance_values(root), ["songs/song.md"])
+            values = keys.metadata.parse_front_matter(path.read_text())
+            self.assertEqual(values["performance_key"], "G")
+            self.assertEqual(values["bpm"], "120")
+            self.assertEqual(keys.metadata.split_front_matter(path.read_text())[1], body)
+
     def test_prefers_cross_source_consensus(self):
         preview = {"consensus_key": "G", "agreement": 2, "strength": 0.75}
         acousticbrainz = {"key": "G", "strength": 0.6}
