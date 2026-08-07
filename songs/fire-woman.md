@@ -19,7 +19,7 @@ legacy_source_path: "lead-sheet/fire-woman.md"
 metadata_review_status: "reviewed"
 schema_version: "1"
 id: "fire-woman"
-title: "Fire Woman"
+title: "Fire Woman/She Sells Sanctuary"
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/3934789"
 ---
