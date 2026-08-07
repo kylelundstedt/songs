@@ -35,3 +35,18 @@ python3 tools/populate_keys.py seed-performance
 ```
 
 This only fills missing `performance_key` and `bpm` fields. Existing band-arrangement values are never overwritten. The header always displays the editable performance values; original key/BPM remain in the footer for comparison.
+
+## Estimated song structure
+
+Unsectioned lead sheets can receive headings without rewriting their canonical content:
+
+```sh
+python3 tools/populate_structure.py propose
+python3 tools/populate_structure.py merge \
+  --proposals metadata/structure-proposals.json \
+  --decisions /path/to/review-decisions.json
+python3 tools/populate_structure.py apply \
+  --proposals metadata/structure-proposals.json
+```
+
+The pipeline first aligns headings from matching Notion candidates, then uses reviewed model plans for unresolved songs. Application inserts headings only, records `structure_status: estimated` and `structure_source`, and verifies that every original non-heading content line remains unchanged and in order. Measure counts are retained only when supported by Notion; model-only plans do not invent them.

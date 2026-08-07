@@ -1,0 +1,4201 @@
+{
+  "cheap_model_qa": [
+    {
+      "id": "6th-avenue-heartache",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "8675309",
+      "action": "review",
+      "note": "Notion has nine sections, but the plan has six and omits the later Chorus/Solo/final Chorus boundaries."
+    },
+    {
+      "id": "all-these-things-that-i-ve-done",
+      "action": "review",
+      "note": "Two low-confidence boundaries (lines 27 and 37) split identical repeated lyric lines; the Drum Break is also omitted from the Notion pattern."
+    },
+    {
+      "id": "allison",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "american-idiot",
+      "action": "review",
+      "note": "Only five headings cover nine Notion sections; later intro/solo/final-chorus material is unheaded, and the !!! labels are malformed."
+    },
+    {
+      "id": "animal",
+      "action": "review",
+      "note": "The low-confidence Break/Bridge alignment is questionable; the line-40 chorus starts inside a repeated lyric run and has a malformed duplicate/unknown label."
+    },
+    {
+      "id": "any-way-you-want-it",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "are-you-gonna-be-my-girl",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "back-in-black",
+      "action": "review",
+      "note": "The plan omits the Notion Chorus/Solo/Chorus sequence and places the Bridge/last Chorus without representing that instrumental transition."
+    },
+    {
+      "id": "bad-things",
+      "action": "review",
+      "note": "Notion contains two Guitar Solo sections that are absent from the plan; review the resulting Verse 3 to Chorus transition."
+    },
+    {
+      "id": "bang-a-gong-get-it-on",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "beer-drinkers-n-hell-raisers",
+      "action": "review",
+      "note": "The Chorus alignment at line 13 has only 0.55 confidence and coincides with several same-position boundaries; verify the short final sections."
+    },
+    {
+      "id": "behind-blue-eyes",
+      "action": "review",
+      "note": "The second Chorus in the seven-section Notion pattern is omitted, leaving the long later lyric block under Bridge."
+    },
+    {
+      "id": "bent",
+      "action": "review",
+      "note": "The plan stops at Bridge (line 30), omitting the Notion Vamp/final Pre-Chorus/Chorus/Outro over the remaining lyrics."
+    },
+    {
+      "id": "betterman",
+      "action": "review",
+      "note": "The second/final Chorus in the Notion pattern is omitted; Outro begins after an unheaded later lyric block."
+    },
+    {
+      "id": "blister-in-the-sun",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "blue-monday",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "boys-don-t-cry",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "budapest",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "can-t-stop",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "chasing-cars",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "cheap-sunglasses",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "closer-to-fine",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "closing-time",
+      "action": "review",
+      "note": "Notion sections for the second Chorus and guitar/keys solo are missing, producing a suspicious jump from Verse 2 to Short Verse."
+    },
+    {
+      "id": "cold-hard-bitch",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "come-as-you-are",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "come-together",
+      "action": "review",
+      "note": "The plan omits the later vamps, solo, Verse 4, and final composite section present in Notion; eight headings are too sparse for this arrangement."
+    },
+    {
+      "id": "counting-blue-cars",
+      "action": "review",
+      "note": "Notion Break and Solo headings are omitted, and the Outro starts on a repeated lyric line near the end; verify the boundary."
+    },
+    {
+      "id": "crash",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "crazy-bitch",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "criminal",
+      "action": "review",
+      "note": "The final Chorus/Outro from Notion is absent; the plan ends at Bridge despite 54 lyric lines."
+    },
+    {
+      "id": "dani-california",
+      "action": "review",
+      "note": "Notion Break, final Chorus repetitions, and Solo are omitted; Verse 4 runs directly to the end without a final section."
+    },
+    {
+      "id": "dark-necessities",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "darling-nikki",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "daughter",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "demons",
+      "action": "review",
+      "note": "Only four headings are present for six Notion sections; the final Chorus is missing."
+    },
+    {
+      "id": "don-t-go-back-to-rockville",
+      "action": "review",
+      "note": "Model-estimated Intro starts on metadata/artifact lines (REM/Miscellaneous/title), and its 0.58 confidence warrants checking the opening boundary."
+    },
+    {
+      "id": "enter-sandman",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "even-flow",
+      "action": "review",
+      "note": "The plan omits Notion Breakdown, later Chorus repetitions, riff/solo material; the final one-line section boundaries need expert verification."
+    },
+    {
+      "id": "fire-on-the-mountain",
+      "action": "review",
+      "note": "All of Intro/Verse/Chorus measure labels are unknown (?x), confidence is only 0.57, and the later Chorus/Solo/Chorus pattern is missing."
+    },
+    {
+      "id": "fly-away",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "follow-me",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "free-fallin",
+      "action": "review",
+      "note": "The Notion Verse 3 section is omitted; the plan jumps from Bridge to Verse 4."
+    },
+    {
+      "id": "gimme-all-your-lovin",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "gimme-shelter",
+      "action": "review",
+      "note": "The Notion Vamp/Solo and repeated final Chorus sections are collapsed into fewer headings; verify the long later lyric sequence."
+    },
+    {
+      "id": "give-me-one-reason",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "givin-the-dog-a-bone",
+      "action": "review",
+      "note": "The plan duplicates Pre-Chorus boundaries around lines 25/29 and retains the uncertain \u201cSolo ? x\u201d; compare against the composite Notion prechorus labels."
+    },
+    {
+      "id": "glycerine",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "going-down-the-road-feeling-bad",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "gone-gone-gone",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "gone-shootin",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "good-times-bad-times",
+      "action": "review",
+      "note": "The plan relies on an uncertain \u201cBreakdown ?\u201d label and has four headings for six Notion sections; also verify handling of the literal source Chorus marker."
+    },
+    {
+      "id": "gravity",
+      "action": "review",
+      "note": "The Notion Solo between Verses 2 and 3 is omitted."
+    },
+    {
+      "id": "hang-you-from-the-heavens",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "have-a-drink-on-me",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "heart-shaped-box",
+      "action": "review",
+      "note": "Only four headings cover 53 lines and eight Notion sections; the repeated Chorus/Solo/final Verse material is largely unheaded."
+    },
+    {
+      "id": "higher-ground",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "higher",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "highway-to-hell",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "hit-me-with-your-best-shot",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "home-live",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "home",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "hunger-strike",
+      "action": "review",
+      "note": "Only Intro and one Verse heading are supplied for a five-section Notion candidate; the repeated second half needs explicit review."
+    },
+    {
+      "id": "i-don-t-wanna-be",
+      "action": "review",
+      "note": "Notion Drum Solo/Instrumental and Quiet/Loud Chorus sections are omitted; review the sparse seven-heading plan."
+    },
+    {
+      "id": "i-kissed-a-girl",
+      "action": "review",
+      "note": "Notion Break, Solo, and final Chorus sections are omitted; the plan ends at Bridge."
+    },
+    {
+      "id": "i-m-bad-i-m-nationwide",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "in-your-eyes",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "jailbreak",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "jesus-left-chicago",
+      "action": "review",
+      "note": "Two Notion Solo sections are omitted from the three repeated Verse plan."
+    },
+    {
+      "id": "jolene",
+      "action": "review",
+      "note": "The second Chorus in the Notion pattern is omitted; review the Chorus-to-Verse 3 and final Outro boundaries."
+    },
+    {
+      "id": "juicebox",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "just-a-girl",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "just-got-paid",
+      "action": "review",
+      "note": "Both Notion Solo sections are omitted, leaving only three headings for the five-section candidate."
+    },
+    {
+      "id": "just-like-heaven",
+      "action": "review",
+      "note": "Guitar Vamp and Keys/Guitar solo sections are omitted from the plan; verify the compressed six-section sequence."
+    },
+    {
+      "id": "just-what-i-needed",
+      "action": "review",
+      "note": "The low-confidence line-41 heading uses a duplicated composite Chorus label and starts amid repeated \u201cjust what I needed\u201d lines; review that ending."
+    },
+    {
+      "id": "killing-in-the-name",
+      "action": "review",
+      "note": "The plan omits repeated Part/Verse sections and the final one-bar Outro distinction in the 14-section Notion candidate."
+    },
+    {
+      "id": "la-grange",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "last-nite",
+      "action": "review",
+      "note": "Notion Intro Bridge, Guitar Solo, and Outro are omitted; the plan labels the later repeated sections only as Chorus/Verse."
+    },
+    {
+      "id": "let-me-put-my-love-into-you",
+      "action": "review",
+      "note": "Notion Break, second Pre-Chorus, Solo, and final Chorus sections are omitted."
+    },
+    {
+      "id": "let-s-go-crazy",
+      "action": "review",
+      "note": "The Intro measure count is unknown (?x), the Vamp/Solo material is omitted, and the final Outro label is only \u201cx\u201d."
+    },
+    {
+      "id": "life-during-wartime",
+      "action": "review",
+      "note": "Notion Solo is omitted between Chorus and Verse 3; verify the compressed later sequence."
+    },
+    {
+      "id": "lightning-crashes",
+      "action": "review",
+      "note": "The final Chorus repetitions and Solo in Notion are absent; the plan ends at Verse 3 with 26 lines still unsectioned."
+    },
+    {
+      "id": "like-a-stone",
+      "action": "review",
+      "note": "Notion Break, second Chorus, Solo, and final Chorus are omitted from the five-heading plan."
+    },
+    {
+      "id": "little-less-conversation",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "little-lover",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "little-sister",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "livin-after-midnight",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "lonely-is-the-night",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "long-train-runnin",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "love-rollercoaster",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "love-train",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "lovesong",
+      "action": "review",
+      "note": "Notion Break/Solo sections are omitted, leaving a long final block under Verse 3."
+    },
+    {
+      "id": "low",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "major-tom",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "man-in-the-box",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "mary-jane-s-last-dance",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "melissa",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "melt-with-you",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "moves-like-jagger",
+      "action": "review",
+      "note": "The final Chorus/Outro from Notion is omitted; the plan ends at Verse 3 around line 42."
+    },
+    {
+      "id": "my-hero",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "my-own-worst-enemy",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "mysterious-ways",
+      "action": "review",
+      "note": "The Notion Pre-Chorus alignment at line 19 has only 0.54 confidence; verify that boundary and the composite final Chorus label."
+    },
+    {
+      "id": "never-let-you-go",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "new-year-s-day",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "no-one-knows",
+      "action": "review",
+      "note": "Notion Break/Bridge/final All sections are omitted; the plan ends with Verse 3 despite the candidate\u2019s later material."
+    },
+    {
+      "id": "no-rain",
+      "action": "review",
+      "note": "The Notion Solo and final Chorus are omitted between Verse 2, Bridge, and Outro."
+    },
+    {
+      "id": "numb",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "one",
+      "action": "review",
+      "note": "Notion includes two Break sections, but both are omitted; verify the compressed nine-heading plan."
+    },
+    {
+      "id": "outshined",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "outside",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "overkill",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "panama",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "paradise-city",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "paralyzer",
+      "action": "review",
+      "note": "The second Chorus and Outro from Notion are omitted; plan ends at Verse 2."
+    },
+    {
+      "id": "pompeii",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "possum-kingdom",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "pride",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "psycho-killer",
+      "action": "review",
+      "note": "The final Chorus/Outro sections in Notion are omitted after the Vamp."
+    },
+    {
+      "id": "radioactive",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "redemption-song-live",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "ride-on",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "ring-of-fire",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "roadhouse-blues",
+      "action": "review",
+      "note": "The plan omits multiple Notion vamps and Verses 3/4, and splits the Keys Solo/Call-Response composite into boundaries that should be checked."
+    },
+    {
+      "id": "rock-and-roll-ain-t-noise-pollution",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "rock-n-roll",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "rooster",
+      "action": "review",
+      "note": "The Notion Chorus between Break and Verse 2 is absent; Break and Verse 2 share a position, making the transition especially worth review."
+    },
+    {
+      "id": "runnin-with-the-devil",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "sex-on-fire",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "sharp-dressed-man",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "she-sells-sanctuary",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "shining-star",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "smells-like-teen-spirit",
+      "action": "review",
+      "note": "The Notion Solo is omitted and the final combined Pre-Chorus/Chorus boundary is low-confidence."
+    },
+    {
+      "id": "so-lonely",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "song-2",
+      "action": "review",
+      "note": "The Notion Vamp between Chorus and Verse 2 is omitted; review the short later sections and Outro boundary."
+    },
+    {
+      "id": "steady-as-she-goes",
+      "action": "review",
+      "note": "The 12-heading plan omits Verse 4, Ringing 2, final Chorus, and Outro from the 16-section Notion candidate."
+    },
+    {
+      "id": "sullivan-street",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "sweet-emotion",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "tnt",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "take-me-out",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "that-s-the-way-i-like-it",
+      "action": "review",
+      "note": "Intro and Chorus share line 1 in a model-estimated plan, yielding an empty/same-position opening section; verify whether Intro should exist."
+    },
+    {
+      "id": "the-distance",
+      "action": "review",
+      "note": "Both Notion Break sections are omitted, leaving only four headings for a six-section candidate."
+    },
+    {
+      "id": "the-scientist",
+      "action": "review",
+      "note": "Both Notion Break sections are omitted; the final Chorus begins immediately after Verse 2 without representing the intervening break."
+    },
+    {
+      "id": "thinking-out-loud",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "this-is-how-you-remind-me",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "tom-sawyer",
+      "action": "review",
+      "note": "Many riff/solo sections and the malformed unknown Outro from Notion are omitted; the eight-heading plan is too compressed for this instrumental-heavy song."
+    },
+    {
+      "id": "touch-too-much",
+      "action": "review",
+      "note": "Notion Break, later Chorus, Solo, and Outro material are omitted."
+    },
+    {
+      "id": "troublemaker",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "tush",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "use-somebody",
+      "action": "review",
+      "note": "Verse 2 has an unknown (?x) measure count and only 0.63 alignment confidence; verify that boundary and the nearby Intro Vamp omission."
+    },
+    {
+      "id": "vasoline",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "vertigo",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "wagon-wheel",
+      "action": "review",
+      "note": "The Notion final Outro Solos are omitted, and the plan separates a composite Solos heading from the Chorus sequence without an ending section."
+    },
+    {
+      "id": "waitin-for-the-bus",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "walk-this-way",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "walk",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "welcome-to-the-jungle",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "wheels",
+      "action": "review",
+      "note": "Only five headings cover 56 lines; the later repeated pre-chorus/chorus, break, solo, and outro material in Notion is unheaded."
+    },
+    {
+      "id": "when-i-come-around",
+      "action": "review",
+      "note": "Notion Intro Vamp and Solo sections are omitted; verify the sparse five-heading plan."
+    },
+    {
+      "id": "when-i-m-gone",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "wine-wine-wine",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "with-arms-wide-open",
+      "action": "review",
+      "note": "Notion Bridge 1/Solo/Bridge 2 distinctions are collapsed into one Bridge and the final composite Chorus/Outro is omitted."
+    },
+    {
+      "id": "with-or-without-you",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "woman",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "wonderwall",
+      "action": "review",
+      "note": "The plan omits Notion Break, repeated final Chorus sections, and Piano Outro, leaving a long block after Verse 3 sparsely labeled."
+    },
+    {
+      "id": "word-up",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    },
+    {
+      "id": "yellow-ledbetter",
+      "action": "review",
+      "note": "Notion Solo, repeated final Chorus, Outro, and Intro Vamp sections are omitted."
+    },
+    {
+      "id": "you-found-me",
+      "action": "keep",
+      "note": "No material structural concern found in this QA pass."
+    }
+  ],
+  "expert_corrections": [
+    {
+      "id": "8675309",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Guitar Picked 4x; All 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 14x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 14x",
+          "before_line": 17,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 14x",
+          "before_line": 24,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo 12x",
+          "before_line": 31,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus 14x",
+          "before_line": 31,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Outro",
+          "before_line": 39,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the omitted second chorus, solo, and final chorus. Removed the unknown outro count."
+    },
+    {
+      "id": "all-these-things-that-i-ve-done",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Pings 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Organ Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Drum Break 4x; add Guitar 8x",
+          "before_line": 6,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 and 2 16x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 1 8x",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 18,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 22,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Breakdown 24x",
+          "before_line": 28,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 38,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 24x",
+          "before_line": 46,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the drum break and moved the later chorus and breakdown boundaries to the starts of their complete repeated blocks."
+    },
+    {
+      "id": "american-idiot",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Intro 4x",
+          "before_line": 11,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 11,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Intro 8x; Solo 16x; Intro 2x",
+          "before_line": 21,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x; Intro 2x; Outro 8x",
+          "before_line": 25,
+          "confidence": 0.97
+        }
+      ],
+      "review_note": "Restored all later instrumental and chorus material and removed the malformed exclamation labels while retaining known counts."
+    },
+    {
+      "id": "animal",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x; Break 1x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 18,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 9x",
+          "before_line": 25,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Bridge",
+          "before_line": 25,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 32,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 39,
+          "confidence": 0.88
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 43,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Separated the instrumental bridge from the lyric bridge, placed the later choruses at complete phrase starts, and removed the unknown duplicate chorus count."
+    },
+    {
+      "id": "back-in-black",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Drums 2x; Drums 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 21,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 34,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Solo 16x",
+          "before_line": 42,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 42,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 48,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 53,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored the omitted chorus-solo-chorus sequence and the bridge; the separate final solo follows the last canonical lyric and has no valid insertion boundary."
+    },
+    {
+      "id": "bad-things",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Guitar 1x, All 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Guitar Solo 8x",
+          "before_line": 11,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 3 - Rim shots 8x/All 12x",
+          "before_line": 11,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Guitar Solo 8x",
+          "before_line": 19,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 11x + 3 beats",
+          "before_line": 19,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored both guitar solos at the instrumental transitions before Verse 3 and the final chorus."
+    },
+    {
+      "id": "beer-drinkers-n-hell-raisers",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 7,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 11,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 3",
+          "before_line": 14,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 18,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Moved the second chorus to line 11 so its restored refrain and the 'Ah, play it boy' tag remain together before Verse 3."
+    },
+    {
+      "id": "behind-blue-eyes",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 17,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge",
+          "before_line": 33,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro",
+          "before_line": 49,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored both chorus boundaries and correctly limited the bridge to the distinct later lyric section."
+    },
+    {
+      "id": "bent",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 14x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Pre-Chorus 2x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 12,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 7x",
+          "before_line": 18,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Pre-Chorus 2x",
+          "before_line": 22,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 10x",
+          "before_line": 31,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Vamp 8x",
+          "before_line": 35,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Pre-Chorus 2x",
+          "before_line": 35,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x; Outro",
+          "before_line": 38,
+          "confidence": 0.97
+        }
+      ],
+      "review_note": "Restored the second chorus, vamp, final pre-chorus, final chorus, and trailing outro while correcting boundaries shifted onto preceding lyrics."
+    },
+    {
+      "id": "betterman",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 13x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 19x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 10,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 24x",
+          "before_line": 14,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 36x",
+          "before_line": 20,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored the final chorus and placed Verse 2 and the outro after their preceding chorus tags rather than inside them."
+    },
+    {
+      "id": "closing-time",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Guitar 2x; add Piano 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Keys Solo 10x; Guitar Solo 8x",
+          "before_line": 25,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Short Verse 4x",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 27,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 31,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 10x",
+          "before_line": 35,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the second chorus, instrumental solos, and both final chorus passes; Verse 2 now begins after the first chorus resolves."
+    },
+    {
+      "id": "come-together",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x; Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 5,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 5,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 9,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 10,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 10,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus; Vamp 2x; Solo 8x; Vamp 2x",
+          "before_line": 14,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Verse 4 8x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus; Vamp 4x",
+          "before_line": 21,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Outro 16x",
+          "before_line": 22,
+          "confidence": 0.95
+        }
+      ],
+      "review_note": "Mapped all four verses and retained the source-supported vamp/solo composites at the vocal boundaries."
+    },
+    {
+      "id": "counting-blue-cars",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 8,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 10,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 10,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 16,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo 8x",
+          "before_line": 23,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 3 16x",
+          "before_line": 23,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 29,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 16x",
+          "before_line": 36,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored the break, solo, and final chorus. The outro begins at the first of the two extra 'Am I very far now?' repetitions."
+    },
+    {
+      "id": "criminal",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 9x",
+          "before_line": 12,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 17,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 9x",
+          "before_line": 33,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 16x",
+          "before_line": 38,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 9x",
+          "before_line": 45,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Outro 9x",
+          "before_line": 50,
+          "confidence": 0.92
+        }
+      ],
+      "review_note": "Restored the omitted second chorus, final chorus, and outro; the two final lyric repetitions support a boundary at line 50."
+    },
+    {
+      "id": "dani-california",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Drums 2x; All 4x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 7,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 4x",
+          "before_line": 18,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 18,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 24,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 29,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 4 8x",
+          "before_line": 33,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x; Chorus 8x; Solo 18x",
+          "before_line": 40,
+          "confidence": 0.94
+        }
+      ],
+      "review_note": "Restored the empty break and all later sections, using the band\u2019s exact final double-chorus/solo composite at the first final chorus boundary."
+    },
+    {
+      "id": "demons",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 29,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "All six Notion sections align directly with the canonical lyric repetitions."
+    },
+    {
+      "id": "don-t-go-back-to-rockville",
+      "source": "expert-reviewed-model",
+      "plan": [
+        {
+          "heading": "Verse 1",
+          "before_line": 4,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Pre-Chorus",
+          "before_line": 8,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 11,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 13,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Bridge",
+          "before_line": 19,
+          "confidence": 0.86
+        },
+        {
+          "heading": "Pre-Chorus",
+          "before_line": 23,
+          "confidence": 0.92
+        }
+      ],
+      "review_note": "Removed the unsupported intro over the REM/album/title artifacts and separated the later contrasting bridge from Verse 2."
+    },
+    {
+      "id": "even-flow",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro (riff1x3, riff2 x1, pause 2+4)",
+          "before_line": 1,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Breakdown (Riff1 x3 + Riff 2 pause2)",
+          "before_line": 5,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Chorus 13x",
+          "before_line": 5,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse",
+          "before_line": 9,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 13x; Riff3 x4; Solo",
+          "before_line": 13,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 13x",
+          "before_line": 18,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored the breakdown and middle riff/solo composite and corrected the later vocal boundaries; the separate ending riff follows the final lyric and has no valid insertion boundary."
+    },
+    {
+      "id": "fire-on-the-mountain",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro",
+          "before_line": 1,
+          "confidence": 0.86
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 7,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 8,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 14,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Solo",
+          "before_line": 15,
+          "confidence": 0.88
+        },
+        {
+          "heading": "Verse 3",
+          "before_line": 15,
+          "confidence": 0.96
+        }
+      ],
+      "review_note": "Removed every unknown count, corrected the first chorus to line 7, and retained the solo before Verse 3; the post-song chorus has no canonical line to anchor."
+    },
+    {
+      "id": "free-fallin",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 5,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 11,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 17,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 4 8x",
+          "before_line": 19,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 23,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 8x",
+          "before_line": 31,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored Verse 3 and realigned the break, Verse 2, and first chorus to the canonical lyric boundaries."
+    },
+    {
+      "id": "gimme-shelter",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 24x; Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 5,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 9,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 9,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 4x; Solo 12x",
+          "before_line": 17,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Alt Chorus 16x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 23,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 27,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 35,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Outro 8x",
+          "before_line": 43,
+          "confidence": 0.96
+        }
+      ],
+      "review_note": "Combined the vocalized intro with Verse 1 to avoid a false empty-section boundary, then restored the vamp/solo and both distinct final choruses."
+    },
+    {
+      "id": "givin-the-dog-a-bone",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro",
+          "before_line": 1,
+          "confidence": 0.9
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Pre-Chorus",
+          "before_line": 7,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 10,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 19,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Pre-Chorus",
+          "before_line": 23,
+          "confidence": 0.84
+        },
+        {
+          "heading": "Pre-Chorus",
+          "before_line": 25,
+          "confidence": 0.82
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 29,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Solo",
+          "before_line": 39,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Verse 3",
+          "before_line": 39,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 44,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 52,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Outro",
+          "before_line": 58,
+          "confidence": 0.96
+        }
+      ],
+      "review_note": "Removed all bare/unknown counts, retained the two distinct repeated pre-chorus phrases, and moved the solo after the line-37/38 vocal pickup to the Verse 3 transition."
+    },
+    {
+      "id": "good-times-bad-times",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Verse 1",
+          "before_line": 4,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 10,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 23,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Solo",
+          "before_line": 24,
+          "confidence": 0.9
+        },
+        {
+          "heading": "Breakdown",
+          "before_line": 24,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Removed the question mark from Breakdown. The literal Chorus marker remains canonical content under the chorus heading, followed by a genuine empty solo before the breakdown lyrics."
+    },
+    {
+      "id": "gravity",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Drums 4x; Guitar 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo 24x",
+          "before_line": 11,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 11,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 4 16x",
+          "before_line": 14,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the 24x solo as an empty instrumental section immediately before Verse 3."
+    },
+    {
+      "id": "heart-shaped-box",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 18,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 22,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo",
+          "before_line": 35,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 35,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 39,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the second chorus, empty solo, repeated first verse, and final chorus while removing all bare x labels."
+    },
+    {
+      "id": "hunger-strike",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 9,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Bridge",
+          "before_line": 13,
+          "confidence": 0.88
+        },
+        {
+          "heading": "Outro",
+          "before_line": 16,
+          "confidence": 0.93
+        }
+      ],
+      "review_note": "Removed bare x counts and mapped the repeated second half to Verse 2, the overlapping variation to Bridge, and the final repeated hunger refrain to Outro."
+    },
+    {
+      "id": "i-don-t-wanna-be",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 2x; Add Drums 2x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 5,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Drum Solo +2; Instrumental 2x",
+          "before_line": 9,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 9,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Bridge 4x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 4x + 2 beats",
+          "before_line": 19,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Quiet/Loud Chorus 4x/4x",
+          "before_line": 21,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Outro 16x",
+          "before_line": 25,
+          "confidence": 0.96
+        }
+      ],
+      "review_note": "Restored the drum/instrumental break, second chorus, and quiet/loud chorus; the source-matched outro begins with the repeated line at 25."
+    },
+    {
+      "id": "i-kissed-a-girl",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 2x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 18,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 18,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 26,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo",
+          "before_line": 35,
+          "confidence": 0.9
+        },
+        {
+          "heading": "Bridge 12x",
+          "before_line": 35,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 40,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored Break, Solo, and final Chorus; removed the unknown Solo count."
+    },
+    {
+      "id": "jesus-left-chicago",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 2x",
+          "before_line": 1,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 12x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 12x",
+          "before_line": 7,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo 12x",
+          "before_line": 13,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 12x",
+          "before_line": 13,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Placed the supported solo between the second and third verses; the separate trailing solo occurs after the last canonical lyric and cannot be inserted without misplacing it."
+    },
+    {
+      "id": "jolene",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro",
+          "before_line": 4,
+          "confidence": 0.88
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 4,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 8,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 20,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 3",
+          "before_line": 24,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 30,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Outro",
+          "before_line": 34,
+          "confidence": 0.94
+        }
+      ],
+      "review_note": "Skipped the three artist/album/title artifacts, removed all bare counts, and restored both later choruses and the final outro."
+    },
+    {
+      "id": "just-got-paid",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 7,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo",
+          "before_line": 13,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 3",
+          "before_line": 13,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Placed the supported solo before Verse 3; the separate trailing solo occurs after the final canonical lyric and has no valid insertion boundary."
+    },
+    {
+      "id": "just-like-heaven",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 12x; Keys 4x; Guitar Vamp 16x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Guitar Vamp 16x",
+          "before_line": 7,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 7,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Keys + Guitar Solo 16x",
+          "before_line": 19,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 3 16x",
+          "before_line": 19,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Guitar Vamp 16x",
+          "before_line": 25,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 6x",
+          "before_line": 25,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored the inter-section guitar vamps and keys/guitar solo. The lyricless repeated Chorus 10x was not duplicated at line 25 because same-position non-instrumental sections are disallowed."
+    },
+    {
+      "id": "just-what-i-needed",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Guitar 4x (on 4); All 4x (on 4)",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Keys Solo 8x",
+          "before_line": 9,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x + 6",
+          "before_line": 17,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Guitar Solo 8x",
+          "before_line": 23,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 23,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x + 6",
+          "before_line": 31,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x + 6",
+          "before_line": 37,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Outro 15x",
+          "before_line": 44,
+          "confidence": 0.96
+        }
+      ],
+      "review_note": "Corrected the first chorus to line 17, restored both solos and the repeated verse, split the duplicated chorus composite at its genuine repeat, and moved Outro to line 44."
+    },
+    {
+      "id": "killing-in-the-name",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x; Bass Vamp 4x; All Vamp 12x; All Verse 4x (slow); Part 1 8x (slow)",
+          "before_line": 1,
+          "confidence": 0.86
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 4,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Part 2 12x",
+          "before_line": 6,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Part 3 8x",
+          "before_line": 8,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 1 Repeat 8x",
+          "before_line": 16,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 19,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Part 2 Repeat 12x",
+          "before_line": 21,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Part 3 Repeat 8x",
+          "before_line": 24,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Guitar Solo 8x",
+          "before_line": 32,
+          "confidence": 0.9
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 33,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Outro 4x+; Outro 1x",
+          "before_line": 35,
+          "confidence": 0.89
+        }
+      ],
+      "review_note": "Mapped the literal repeat markers to the repeated Part/Verse sequence, restored the guitar solo, and retained the distinct one-bar ending in a final composite."
+    },
+    {
+      "id": "last-nite",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 2x+10x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 15x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 10x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Intro Bridge 2x+4x",
+          "before_line": 25,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Guitar Solo 6x",
+          "before_line": 25,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 25,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 3 10x",
+          "before_line": 29,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored the empty intro-bridge and guitar-solo transition before the later chorus; the separate outro follows the last canonical lyric and has no valid insertion boundary."
+    },
+    {
+      "id": "let-me-put-my-love-into-you",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro Guitar 16x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 7,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Pre-Chorus 4x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 17,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Break 4x",
+          "before_line": 22,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 22,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Pre-Chorus 8x",
+          "before_line": 28,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 32,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 33,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Solo 16x",
+          "before_line": 33,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus 8x; Chorus 8x",
+          "before_line": 33,
+          "confidence": 0.91
+        }
+      ],
+      "review_note": "Restored both breaks, the second pre-chorus, solo, and final double chorus while retaining the canonical CHORUS marker lines."
+    },
+    {
+      "id": "let-s-go-crazy",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 5x",
+          "before_line": 15,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 20,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 30,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo 8x",
+          "before_line": 35,
+          "confidence": 0.88
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 38,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Outro",
+          "before_line": 42,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Removed the unknown Intro and Outro counts and split the later composite into Chorus, Solo, and final Chorus at the vocal boundaries."
+    },
+    {
+      "id": "life-during-wartime",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 21,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo 8x",
+          "before_line": 25,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 3 16x",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 33,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 4 16x",
+          "before_line": 37,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 5 16x",
+          "before_line": 45,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the Solo before Verse 3 and corrected the second Chorus boundary from line 23 to line 21."
+    },
+    {
+      "id": "lightning-crashes",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 11,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 3 16x",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 21,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo 14x",
+          "before_line": 26,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 26,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 30,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 34,
+          "confidence": 0.96
+        }
+      ],
+      "review_note": "Corrected Verse 3 to line 15 and restored the post-verse chorus, solo, and three final chorus repetitions."
+    },
+    {
+      "id": "like-a-stone",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 9,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 4x",
+          "before_line": 14,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 23,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo 16x",
+          "before_line": 28,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Bridge 16x",
+          "before_line": 28,
+          "confidence": 0.97
+        }
+      ],
+      "review_note": "Restored both instrumental transitions and the second chorus; the separate final chorus follows the last canonical lyric and cannot be inserted without mislabeling the bridge."
+    },
+    {
+      "id": "lovesong",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 16x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 8x",
+          "before_line": 5,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 8x",
+          "before_line": 16,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Solo 8x",
+          "before_line": 16,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 3 16x",
+          "before_line": 16,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 20,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored both Breaks, the Solo, and the final Chorus. The final Chorus encompasses the extended repeated refrain through line 35."
+    },
+    {
+      "id": "moves-like-jagger",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 10,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 20,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 32,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 3 16x",
+          "before_line": 42,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x; Outro 2x",
+          "before_line": 53,
+          "confidence": 0.96
+        }
+      ],
+      "review_note": "Restored the final composite Chorus/Outro and corrected both earlier Chorus boundaries to the first refrain lyric."
+    },
+    {
+      "id": "mysterious-ways",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Pre-Chorus 4x",
+          "before_line": 5,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 10,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Pre-Chorus 4x",
+          "before_line": 19,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 23,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 25,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Breakdown 8x",
+          "before_line": 27,
+          "confidence": 0.87
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 29,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 33,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 37,
+          "confidence": 0.91
+        }
+      ],
+      "review_note": "Confirmed the second pre-chorus at line 19 and split both Notion chorus composites at the repeated lyric-block boundaries, including the line-27 breakdown tail."
+    },
+    {
+      "id": "no-one-knows",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "All 1x (punctuated); All 4x",
+          "before_line": 1,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 1 20x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 10,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 14,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 2 20x",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 24,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Bridge; Break 2x",
+          "before_line": 28,
+          "confidence": 0.89
+        },
+        {
+          "heading": "Verse 3 12x",
+          "before_line": 28,
+          "confidence": 0.97
+        }
+      ],
+      "review_note": "Restored both breaks and the instrumental bridge while removing its uncertainty-marked count; the final punctuated hit follows the last canonical lyric and has no valid insertion boundary."
+    },
+    {
+      "id": "no-rain",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 12x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 18x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 18x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo 18x",
+          "before_line": 13,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Bridge 18x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 17,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 8x",
+          "before_line": 21,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the empty Solo and the final Chorus; all vocal boundaries align directly with the canonical lyrics."
+    },
+    {
+      "id": "one",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 4x",
+          "before_line": 9,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 4x",
+          "before_line": 18,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 3",
+          "before_line": 18,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 22,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge",
+          "before_line": 26,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 31,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored both 4x Breaks, corrected Chorus and Verse boundaries, and removed every malformed bare x count rather than inventing measures."
+    },
+    {
+      "id": "paralyzer",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro",
+          "before_line": 29,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored both repeated Choruses and the Outro. All malformed bare x counts were removed."
+    },
+    {
+      "id": "psycho-killer",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro bass 4x; kick 4x; all 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 18x",
+          "before_line": 6,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 15,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 18x",
+          "before_line": 19,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Vamp 20x",
+          "before_line": 28,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 18x",
+          "before_line": 35,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 24x",
+          "before_line": 43,
+          "confidence": 0.93
+        }
+      ],
+      "review_note": "Restored both Vamps, the final Chorus, and the Outro. Chorus-tail exclamations remain with their preceding Choruses."
+    },
+    {
+      "id": "roadhouse-blues",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 12x",
+          "before_line": 1,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 1 12x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 4,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 2 12x",
+          "before_line": 4,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 7,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Guitar Solo 8x",
+          "before_line": 11,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Keys Solo 4x; Call/Response 6x",
+          "before_line": 12,
+          "confidence": 0.88
+        },
+        {
+          "heading": "Verse 3 12x",
+          "before_line": 12,
+          "confidence": 0.89
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 24,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Verse 4 12x",
+          "before_line": 24,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 28,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Verse 5 12x",
+          "before_line": 28,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 31,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored all vamps and Verses 3\u20134; the keys-solo/call-response composite is placed between the line-11 guitar-solo cue and the Verse 3 vocal."
+    },
+    {
+      "id": "rooster",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 16x; Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Chorus 14x",
+          "before_line": 7,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 12x",
+          "before_line": 11,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 14x",
+          "before_line": 11,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 15,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 14x",
+          "before_line": 21,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Combined the vocalized intro with Verse 1, restored the chorus after the break, and moved Verse 2 to line 15; the separate vocalized outro follows the last canonical lyric."
+    },
+    {
+      "id": "smells-like-teen-spirit",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 16x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Pre-Chorus 8x",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 16,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Pre-Chorus 8x",
+          "before_line": 20,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 24,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo 8x",
+          "before_line": 31,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 31,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Pre-Chorus 8x",
+          "before_line": 34,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 38,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the omitted middle Pre-Chorus, Chorus, and Solo and split the final composite at the clear line-34 and line-38 lyric boundaries."
+    },
+    {
+      "id": "song-2",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Drums only 4x; add Guitar 4x; All big 8x; Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 5,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 10,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 10,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Outro 8x",
+          "before_line": 19,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Combined the vocalized intro with Verse 1 to avoid a false empty boundary, restored the vamp, and corrected both chorus and outro starts."
+    },
+    {
+      "id": "steady-as-she-goes",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro",
+          "before_line": 1,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Verse 1 4x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 3,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 6,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 2 4x",
+          "before_line": 6,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 8,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 10,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Vamp 4x",
+          "before_line": 15,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Verse 3 4x",
+          "before_line": 15,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Ringing 1x",
+          "before_line": 19,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 19,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 26,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Verse 4 4x",
+          "before_line": 27,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Ringing 2x",
+          "before_line": 31,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 31,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro 4x",
+          "before_line": 35,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the omitted Verse 4, Ringing 2, final Chorus, and Outro. Removed the unknown Intro count while retaining the section."
+    },
+    {
+      "id": "that-s-the-way-i-like-it",
+      "source": "expert-reviewed-model",
+      "plan": [
+        {
+          "heading": "Chorus",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 1",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge",
+          "before_line": 33,
+          "confidence": 0.9
+        },
+        {
+          "heading": "Chorus",
+          "before_line": 40,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Outro",
+          "before_line": 48,
+          "confidence": 0.9
+        }
+      ],
+      "review_note": "Removed the unsupported empty Intro; the song begins directly with the Chorus."
+    },
+    {
+      "id": "the-distance",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Verse 1 16x + 1x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 1 8x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 4x",
+          "before_line": 26,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 2 12x + 1x",
+          "before_line": 26,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 2 12x",
+          "before_line": 38,
+          "confidence": 0.98
+        }
+      ],
+      "review_note": "Restored the internal break at the Verse 2 boundary; the separate 12x closing break follows the final canonical lyric and has no valid insertion boundary."
+    },
+    {
+      "id": "the-scientist",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Break 8x",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 14,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 10x",
+          "before_line": 22,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 8x",
+          "before_line": 27,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 14x+",
+          "before_line": 27,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored both empty Break sections and moved the second Chorus to its full canonical refrain at line 22."
+    },
+    {
+      "id": "tom-sawyer",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Chorus Riff 4x",
+          "before_line": 1,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 1,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Verse Riff 8x",
+          "before_line": 5,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Verse 1 10x",
+          "before_line": 5,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse Riff 8x",
+          "before_line": 10,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Breakdown 8x",
+          "before_line": 10,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Bridge 10x",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus Riff 4x",
+          "before_line": 17,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo Riff 10x (sevens); Guitar Solo 14x (sevens); Verse Riff 8x (fours; drums)",
+          "before_line": 21,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Verse 3 10x",
+          "before_line": 21,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse Riff 8x",
+          "before_line": 26,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Breakdown 8x",
+          "before_line": 26,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Breakdown Riff 4x",
+          "before_line": 30,
+          "confidence": 0.91
+        },
+        {
+          "heading": "Bridge 10x",
+          "before_line": 30,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus Riff 4x",
+          "before_line": 33,
+          "confidence": 0.92
+        },
+        {
+          "heading": "Chorus 6x",
+          "before_line": 33,
+          "confidence": 0.97
+        }
+      ],
+      "review_note": "Restored the riff/solo sequence around both vocal halves and split the late bridge and chorus-riff transitions; the uncertainty-marked trailing solo-riff outro is omitted because it follows the last canonical lyric."
+    },
+    {
+      "id": "touch-too-much",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 19,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 19,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 31,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 32,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Solo 12x",
+          "before_line": 32,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Bridge 16x",
+          "before_line": 32,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 16x; Outro Solo 16x + 4x",
+          "before_line": 40,
+          "confidence": 0.91
+        }
+      ],
+      "review_note": "Used the literal chorus markers at lines 13, 31, and 40; restored both breaks and the solo, with the trailing outro solo retained in the final composite."
+    },
+    {
+      "id": "use-somebody",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 16x",
+          "before_line": 1,
+          "confidence": 0.93
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 4,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Intro Vamp 16x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2",
+          "before_line": 16,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 24,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo 8x",
+          "before_line": 28,
+          "confidence": 0.96
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 28,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 1 Outro 4x",
+          "before_line": 31,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the Intro Vamp, confirmed Verse 2 at line 16, and removed its unknown measure count."
+    },
+    {
+      "id": "wagon-wheel",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 12x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 7,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 8x",
+          "before_line": 13,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 2 16x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 16x",
+          "before_line": 19,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solos 8x + 8x",
+          "before_line": 25,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 3 (soft) 16x",
+          "before_line": 25,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus (soft) 16x; Chorus 16x; Outro Solos 8x + 8x",
+          "before_line": 32,
+          "confidence": 0.93
+        }
+      ],
+      "review_note": "Preserved the instrumental solos before Verse 3 and used the band\u2019s source-supported final composite for the soft chorus, full chorus, and outro solos."
+    },
+    {
+      "id": "wheels",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Pre-Chorus 6x",
+          "before_line": 9,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 15,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 23,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 8x",
+          "before_line": 23,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Pre-Chorus 6x",
+          "before_line": 27,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 33,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 4x; Solo 8x",
+          "before_line": 41,
+          "confidence": 0.94
+        },
+        {
+          "heading": "Chorus 8x; Chorus 8x; Outro 2x",
+          "before_line": 41,
+          "confidence": 0.93
+        }
+      ],
+      "review_note": "Restored the later pre-chorus/chorus sequence and used the source-supported final composite after the break/solo transition."
+    },
+    {
+      "id": "when-i-come-around",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 2x + 4x",
+          "before_line": 1,
+          "confidence": 1.0
+        },
+        {
+          "heading": "Verse 16x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 11,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Intro Vamp 4x",
+          "before_line": 14,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 14,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 4x",
+          "before_line": 24,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Intro 4x",
+          "before_line": 27,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Solo 8x",
+          "before_line": 27,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 27,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the Intro Vamp and the Intro/Solo instrumental sequence before the final Chorus."
+    },
+    {
+      "id": "with-arms-wide-open",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 4x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 5,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 9,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 12x",
+          "before_line": 13,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Bridge 1 4x",
+          "before_line": 19,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Solo 4x",
+          "before_line": 21,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Bridge 2 8x",
+          "before_line": 21,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Chorus 12x",
+          "before_line": 25,
+          "confidence": 0.99
+        },
+        {
+          "heading": "Outro (Bridge 1) 4x",
+          "before_line": 31,
+          "confidence": 0.99
+        }
+      ],
+      "review_note": "Restored the separate Bridge 1, Solo, Bridge 2, final Chorus, and Bridge 1-based Outro boundaries."
+    },
+    {
+      "id": "wonderwall",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 2 8x",
+          "before_line": 7,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Pre-Chorus 8x",
+          "before_line": 13,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Break 2x",
+          "before_line": 21,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Verse 3 8x",
+          "before_line": 21,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Pre-Chorus 8x",
+          "before_line": 27,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 31,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 35,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 39,
+          "confidence": 0.97
+        }
+      ],
+      "review_note": "Restored the break, second pre-chorus, and all three final chorus blocks; the separate piano outro follows the last canonical lyric and has no valid insertion boundary."
+    },
+    {
+      "id": "yellow-ledbetter",
+      "source": "expert-reviewed-notion",
+      "plan": [
+        {
+          "heading": "Intro 8x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Verse 1 16x",
+          "before_line": 1,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 9,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Solo 12x",
+          "before_line": 14,
+          "confidence": 0.95
+        },
+        {
+          "heading": "Bridge 8x",
+          "before_line": 14,
+          "confidence": 0.97
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 17,
+          "confidence": 0.98
+        },
+        {
+          "heading": "Chorus 8x",
+          "before_line": 21,
+          "confidence": 0.97
+        }
+      ],
+      "review_note": "Restored the solo and both final chorus boundaries; the separate outro and soft intro-vamp reprise occur after the last canonical lyric and cannot be inserted without misplacement."
+    }
+  ]
+}

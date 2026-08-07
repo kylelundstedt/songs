@@ -5,7 +5,7 @@
       "id": "1979",
       "path": "songs/1979.md",
       "title": "1979",
-      "body_sha256": "44db340ee64a9481c0a1cd2db2a52dd1f9d91ee627d2395cf9904adaa1531b92",
+      "body_sha256": "d4c0ebe6bfff298e4fc0c2f9f780dd15d7e966614c63d5ad10dd2e75aeb14ff2",
       "metadata": {
         "artist": "The Smashing Pumpkins",
         "performance_key": "E",
@@ -33,7 +33,7 @@
       "id": "6th-avenue-heartache",
       "path": "songs/6th-Avenue-Heartache.md",
       "title": "6th Avenue Heartache",
-      "body_sha256": "1b2bc5d6bd54d054783c489702376cfa1b7c6fc2fc573a3ac5d6159fc302c47d",
+      "body_sha256": "12191d4a7c2edf59e7d2948f44688c9b7920cfb3dbe06995da615272696a0d9e",
       "metadata": {
         "artist": "The Wallflowers",
         "performance_key": "F",
@@ -52,7 +52,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/6th-Avenue-Heartache.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "6th Avenue Heartache",
       "notion_performance_key_candidate": null
@@ -61,7 +63,7 @@
       "id": "8675309",
       "path": "songs/8675309.md",
       "title": "867-5309",
-      "body_sha256": "327aa5e7fc1fc9f9c35217b01faa28d786fab11bcfaaf59a73d68a546d9b71d5",
+      "body_sha256": "ecca5322eec7609eeeb57395e9c1158aabb1448faac61d359bd88c08bf530038",
       "metadata": {
         "artist": "Tommy Tutone",
         "performance_key": "F#m",
@@ -79,7 +81,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/8675309.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "8675309 (F#m)",
       "notion_performance_key_candidate": "F#m"
@@ -184,7 +188,7 @@
       "id": "all-these-things-that-i-ve-done",
       "path": "songs/All-These-Things-That-I-ve-Done.md",
       "title": "All These Things That I've Done {short=\"All These Things\"}",
-      "body_sha256": "dbedac5294695d6db644522c13e4dbcc6efe75ba1c1156942af47ba75b749d1d",
+      "body_sha256": "187925180a78f3d9d79fcbe33d0b7051ddf4a496ffef6cd072541f40c85ec4db",
       "metadata": {
         "artist": "The Killers",
         "performance_key": "F#",
@@ -206,7 +210,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/All-These-Things-That-I-ve-Done.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "All These Things That I've Done",
       "notion_performance_key_candidate": null
@@ -215,7 +221,7 @@
       "id": "allison",
       "path": "songs/Allison.md",
       "title": "Allison",
-      "body_sha256": "9e1c4e5e485207227b44a3ee223d24325baa28ed9ef44a2ecb04ae5fee057e29",
+      "body_sha256": "8b5cc93b142a2c40f175ba759a5e1355751a0ff47e448258c1ff4c92cd39849d",
       "metadata": {
         "artist": "Elvis Costello & The Attractions",
         "performance_key": "E",
@@ -230,7 +236,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Allison.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Allison (E)",
       "notion_performance_key_candidate": "E"
@@ -299,7 +307,7 @@
       "id": "american-idiot",
       "path": "songs/American-Idiot.md",
       "title": "American Idiot",
-      "body_sha256": "078c6811d7a72b6430feed3c62da2c3402598bc4f35702fb08ec38e528a26609",
+      "body_sha256": "e1bd334c9e1d502375c0a3792f9bf9693342b9b0a85e6f3b29d843dda236dc8b",
       "metadata": {
         "artist": "Green Day",
         "performance_key": "Ab",
@@ -318,7 +326,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/American-Idiot.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "American Idiot",
       "notion_performance_key_candidate": null
@@ -359,7 +369,7 @@
       "id": "animal",
       "path": "songs/Animal.md",
       "title": "Animal",
-      "body_sha256": "724e37a647bac347858990c5325a900e2b695ac3ef2f6756e3abebcac6ff6173",
+      "body_sha256": "3a2705b89a1512ff249da47029ca479a0b795fbcf061caf88d138ff3b620547e",
       "metadata": {
         "artist": "Neon Trees",
         "performance_key": "F",
@@ -379,7 +389,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Animal.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Animal",
       "notion_performance_key_candidate": null
@@ -388,7 +400,7 @@
       "id": "any-way-you-want-it",
       "path": "songs/Any-Way-You-Want-It.md",
       "title": "Any Way You Want It",
-      "body_sha256": "8872adb2ced110576aa347489a7bc6a2f75839ea8b3fad943bd5757851005010",
+      "body_sha256": "594fd4a34fe4a9bbe330a23ea957d16795af1d9c29350d8eb65667230f76d692",
       "metadata": {
         "artist": "Journey",
         "performance_key": "G",
@@ -411,7 +423,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Any-Way-You-Want-It.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Any Way You Want It",
       "notion_performance_key_candidate": null
@@ -420,7 +434,7 @@
       "id": "are-you-gonna-be-my-girl",
       "path": "songs/Are-You-Gonna-Be-My-Girl.md",
       "title": "Are You Gonna Be My Girl {short=\"Are U Be My Girl\"}",
-      "body_sha256": "e9b847675973681d740b4bae9e6352d59248ef9b362226a60442c879daa63f9d",
+      "body_sha256": "433be762af05ad7fd309c2c9ba4d4784584e7fd895f438881f32f334b095f897",
       "metadata": {
         "artist": "Jet",
         "performance_key": "A",
@@ -443,7 +457,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Are-You-Gonna-Be-My-Girl.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -512,7 +528,7 @@
       "id": "back-in-black",
       "path": "songs/Back-In-Black.md",
       "title": "Back In Black",
-      "body_sha256": "86f75aa52b8579fd5f387202d8b06af1f54d859ff1456dc1a8d9a7fead0f815a",
+      "body_sha256": "d1785ba18ef1e9ecda7f3e0d8c3a6bfc56ac30fe69d9f5246b7fac49408a7f18",
       "metadata": {
         "artist": "AC/DC",
         "performance_key": "E",
@@ -531,7 +547,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Back-In-Black.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Back In Black (E)",
       "notion_performance_key_candidate": "E"
@@ -571,7 +589,7 @@
       "id": "bad-things",
       "path": "songs/Bad-Things.md",
       "title": "Bad Things",
-      "body_sha256": "f27e4fc70ee5657369313d96736db14c4e0ddb5d3eed8dcebb2c7f59be8e5edd",
+      "body_sha256": "5b117577d357ce80f130bd5219c8fad073d256128f4b03c9d5fa696ed3d1b410",
       "metadata": {
         "artist": "Jace Everett",
         "performance_key": "E",
@@ -594,7 +612,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Bad-Things.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Bad Things (E)",
       "notion_performance_key_candidate": "E"
@@ -627,7 +647,7 @@
       "id": "bang-a-gong-get-it-on",
       "path": "songs/Bang-a-Gong-Get-It-On.md",
       "title": "Bang a Gong Get It On {short=\"Bang a Gong\"}",
-      "body_sha256": "a53d196f7987da26bc36747d048958861ba3f3cd6e406b8c2723a0b8d625f509",
+      "body_sha256": "295d7e654930c83679af85bc21992ea44776a0cf3c3f0f481d1f897ec1a5e9f7",
       "metadata": {
         "artist": "T. Rex",
         "performance_key": "E",
@@ -638,7 +658,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Bang-a-Gong-Get-It-On.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -647,14 +669,16 @@
       "id": "beer-drinkers-n-hell-raisers",
       "path": "songs/Beer-Drinkers-n-Hell-Raisers.md",
       "title": "Beer Drinkers n Hell Raisers {short=\"Beer Drinkers\"}",
-      "body_sha256": "c9a297a0a5b34e7d5c0c44825cdb3c6a4347d1a19f01d5d623a0804dd5ebd301",
+      "body_sha256": "316e2325a700a04d85b34cda649ca511adfde18dfa305e9ce4245658a27cda97",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "G",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Beer-Drinkers-n-Hell-Raisers.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Beer Drinkers 'n Hell Raisers (G)",
       "notion_performance_key_candidate": "G"
@@ -663,7 +687,7 @@
       "id": "behind-blue-eyes",
       "path": "songs/Behind-Blue-Eyes.md",
       "title": "Behind Blue Eyes",
-      "body_sha256": "366ce50a9538f1700f4021ec215fac148903c2830063c65e2775909dae231c52",
+      "body_sha256": "2aa0c63c7a071e39a9d5f13fc7d81a5715560af414d3139021c33c8ef3e98ba1",
       "metadata": {
         "artist": "The Who",
         "performance_key": "E",
@@ -682,7 +706,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Behind-Blue-Eyes.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Behind Blue Eyes (E)",
       "notion_performance_key_candidate": "E"
@@ -691,7 +717,7 @@
       "id": "bent",
       "path": "songs/Bent.md",
       "title": "Bent",
-      "body_sha256": "5c2151641697439b81d930bb9287fb65b7055af5564bf3e283cd1d7d4e0ca19b",
+      "body_sha256": "31b29c8d4d6166d735e94bcdcd2094547738fc2ab7bee0d73f320e90d835a77e",
       "metadata": {
         "artist": "Matchbox Twenty",
         "performance_key": "E",
@@ -713,7 +739,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Bent.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Bent",
       "notion_performance_key_candidate": null
@@ -722,7 +750,7 @@
       "id": "betterman",
       "path": "songs/Betterman.md",
       "title": "Betterman",
-      "body_sha256": "97feef0acdcc229e3ea64202eff191c2a0157b1304507c1ad1352440ba5c7597",
+      "body_sha256": "cfbd47438960c6cff44b0b849d21d20ecb245b0353f80c6bcf33605801d6d5b1",
       "metadata": {
         "artist": "Pearl Jam",
         "reference_title": "Betterman",
@@ -736,7 +764,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Betterman.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Betterman",
       "notion_performance_key_candidate": null
@@ -821,7 +851,7 @@
       "id": "blister-in-the-sun",
       "path": "songs/Blister-In-The-Sun.md",
       "title": "Blister In The Sun",
-      "body_sha256": "f4202671d66b7d63b336d89f0cf9fdd06fe10622170d8fef6bd998f06b37b2bd",
+      "body_sha256": "405f98c523d51d18a577fd8b93618fc9b6e114d6be8a377ef6595960c5fc671b",
       "metadata": {
         "artist": "Violent Femmes",
         "performance_key": "G",
@@ -841,7 +871,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Blister-In-The-Sun.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Blister In the Sun",
       "notion_performance_key_candidate": null
@@ -850,7 +882,7 @@
       "id": "blue-monday",
       "path": "songs/Blue-Monday.md",
       "title": "Blue Monday",
-      "body_sha256": "6aaed27edf3ce2428d70f8d8dfaecef391eba7a96c65707888d132e97568d944",
+      "body_sha256": "e8e72c86edb44dbb135b39f4ed2aad52e3046bc61c877fec24524a4c5eb0da19",
       "metadata": {
         "artist": "New Order",
         "performance_key": "Dm",
@@ -869,7 +901,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Blue-Monday.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Blue Monday",
       "notion_performance_key_candidate": null
@@ -878,7 +912,7 @@
       "id": "born-to-run",
       "path": "songs/Born-To-Run.md",
       "title": "Born To Run",
-      "body_sha256": "3d3ea11733f7e10ca87e1cd4b20583424f99c9a888afc578bff1f89f792defb9",
+      "body_sha256": "420bec59ba5981099aef64e054455397503c79ce70622b84bb37881c57ea8c5f",
       "metadata": {
         "artist": "Bruce Springsteen",
         "performance_key": "E",
@@ -906,7 +940,7 @@
       "id": "boys-don-t-cry",
       "path": "songs/Boys-Don-t-Cry.md",
       "title": "Boys Don t Cry",
-      "body_sha256": "98f0c7c675c6af6fa94057d188993640e3548d1246a45f21324e21432517e2c0",
+      "body_sha256": "58c09c009ca7a02605d35c423f456bbe35dc87ced9910acf9fb82003406800d1",
       "metadata": {
         "artist": "The Cure",
         "performance_key": "A",
@@ -925,7 +959,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Boys-Don-t-Cry.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Boys Don\u2019t Cry (A)",
       "notion_performance_key_candidate": "A"
@@ -1022,7 +1058,7 @@
       "id": "budapest",
       "path": "songs/Budapest.md",
       "title": "Budapest",
-      "body_sha256": "a1d0bae4aa18350bece17e5947892099dea5f7088dbdba482d0c34f78dfa71d3",
+      "body_sha256": "e1348a029325a4b054cfa03a5df78f9dfe05ee5bdc3a6e762aed17bb74f29268",
       "metadata": {
         "artist": "George Ezra",
         "performance_key": "F",
@@ -1041,7 +1077,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Budapest.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Budapest",
       "notion_performance_key_candidate": null
@@ -1082,7 +1120,7 @@
       "id": "can-t-stop",
       "path": "songs/Can-t-Stop.md",
       "title": "Can't Stop",
-      "body_sha256": "23dc70883993905ba447eb5f048e8a26b9f4ce233993c7750088536ec789f79e",
+      "body_sha256": "ba1dc5ba11033db32581b232959dee735c953eb7e7e1765615a0fe055287d7da",
       "metadata": {
         "artist": "Red Hot Chili Peppers",
         "performance_key": "Em",
@@ -1104,7 +1142,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Can-t-Stop.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Can\u2019t Stop",
       "notion_performance_key_candidate": null
@@ -1141,7 +1181,7 @@
       "id": "chasing-cars",
       "path": "songs/Chasing-Cars.md",
       "title": "Chasing Cars",
-      "body_sha256": "ff694ecdd0a7be32d0c749f2bc7b683bc752449b8e6e7420e08cdea84da0aba4",
+      "body_sha256": "0c8fbd40e96e039acda1aa9bd16f8d3813b4e6155a7e8c4aada34e6aa8670532",
       "metadata": {
         "artist": "Snow Patrol",
         "performance_key": "A",
@@ -1164,7 +1204,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Chasing-Cars.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Chasing Cars",
       "notion_performance_key_candidate": null
@@ -1173,7 +1215,7 @@
       "id": "cheap-sunglasses",
       "path": "songs/Cheap-Sunglasses.md",
       "title": "Cheap Sunglasses",
-      "body_sha256": "3ba70f41c37ce07ddab6f04b46f1de6e9471be95bda9e13edc6e6b1e70b90b56",
+      "body_sha256": "d2d0967c0734707c114f800e1c551f85f30ead18372d5a4143fa29cca01d5e88",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "Gm",
@@ -1195,7 +1237,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Cheap-Sunglasses.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": "Cheap Sunglasses (Gm)",
       "notion_performance_key_candidate": "Gm"
@@ -1204,7 +1248,7 @@
       "id": "closer-to-fine",
       "path": "songs/Closer-To-Fine.md",
       "title": "Closer To Fine",
-      "body_sha256": "2eef2eb92451ed926eabbe52967f45c671b981fc74ff46c9c09826a42581a58d",
+      "body_sha256": "8cf5a006e937de214d26540e3d774e990932f9d2b762b18bb0a14af10af246ee",
       "metadata": {
         "artist": "Indigo Girls",
         "performance_key": "A",
@@ -1227,7 +1271,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Closer-To-Fine.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Closer To Fine",
       "notion_performance_key_candidate": null
@@ -1236,7 +1282,7 @@
       "id": "closing-time",
       "path": "songs/Closing-Time.md",
       "title": "Closing Time",
-      "body_sha256": "b550f8596a800b5a1aecb242bdaa8a15777eb7604ff0e6ef6d8ec6a576ada0e2",
+      "body_sha256": "9904b5557a441621c5b6e1f593e35fbe27014b3faa6480e7bc05b1e2fee116e4",
       "metadata": {
         "artist": "Semisonic",
         "performance_key": "G",
@@ -1259,7 +1305,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Closing-Time.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Closing Time",
       "notion_performance_key_candidate": null
@@ -1268,7 +1316,7 @@
       "id": "cold-hard-bitch",
       "path": "songs/Cold-Hard-Bitch.md",
       "title": "Cold Hard Bitch",
-      "body_sha256": "9fe5406ffc2bb672ed79eb785e444a9c31886768724126ff95c12e3c8dce8035",
+      "body_sha256": "c4fab4bc86db2e70a9c4d4d49132f94f6917c30db58a08d5ee9ce41e086832d5",
       "metadata": {
         "artist": "Jet",
         "performance_key": "A",
@@ -1287,7 +1335,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Cold-Hard-Bitch.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Cold Hard Bitch",
       "notion_performance_key_candidate": null
@@ -1296,7 +1346,7 @@
       "id": "come-as-you-are",
       "path": "songs/Come-As-You-Are.md",
       "title": "Come As You Are",
-      "body_sha256": "39fc43dd019e44c344aea06b45d55798783fc3d62684bc70b12dd2437922986d",
+      "body_sha256": "decedae6bc9a5a03f6e41dad47e90f42efd9a372c25f546097f4e8585efccc35",
       "metadata": {
         "artist": "Nirvana",
         "performance_key": "Em",
@@ -1315,7 +1365,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Come-As-You-Are.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Come As You Are",
       "notion_performance_key_candidate": null
@@ -1324,7 +1376,7 @@
       "id": "come-together",
       "path": "songs/Come-Together.md",
       "title": "Come Together",
-      "body_sha256": "99c0da509a254d0df8bbf4326c165673dcb3d6206641fbaecacebd0f442b6ea7",
+      "body_sha256": "724463722a2a28f2a5ae87a177929a55f174b1e1107ed086707e54d5c3742809",
       "metadata": {
         "artist": "The Beatles",
         "performance_key": "D",
@@ -1343,7 +1395,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Come-Together.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Come Together (D)",
       "notion_performance_key_candidate": "D"
@@ -1352,7 +1406,7 @@
       "id": "counting-blue-cars",
       "path": "songs/Counting-Blue-Cars.md",
       "title": "Counting Blue Cars",
-      "body_sha256": "e7dacab88f2ef824b21859d70cf1bb5278a3156b96699c534830438c247db69e",
+      "body_sha256": "abc4c61601762dfdf476a3b0c6920d531ef127b41adf51c665792c707aabde22",
       "metadata": {
         "artist": "Dishwalla",
         "performance_key": "D",
@@ -1371,7 +1425,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Counting-Blue-Cars.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Counting Blue Cars",
       "notion_performance_key_candidate": null
@@ -1380,7 +1436,7 @@
       "id": "crash",
       "path": "songs/Crash.md",
       "title": "Crash",
-      "body_sha256": "4784fa66b6f4bc35e8f09945287fd2609436bd8a0bf8d6695a2a0e29f1ae275d",
+      "body_sha256": "d9a3cbac3e04fff195cc3982e10d2727b53ff45cb130f84ba3c16f94dde83ff5",
       "metadata": {
         "artist": "Dave Matthews Band",
         "performance_key": "E",
@@ -1391,7 +1447,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Crash.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -1428,7 +1486,7 @@
       "id": "crazy-bitch",
       "path": "songs/Crazy-Bitch.md",
       "title": "Crazy Bitch",
-      "body_sha256": "d822522f61db10ded3e4a21238698115ff6930453bf1e1b594bc38d2fc441137",
+      "body_sha256": "1ec61ff0c11ef98771dfa71e12b0fbdf4c0a9c0464d9b828a1eb14b73e2baaae",
       "metadata": {
         "artist": "Buckcherry",
         "performance_key": "E",
@@ -1451,7 +1509,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Crazy-Bitch.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Crazy Bitch",
       "notion_performance_key_candidate": null
@@ -1500,7 +1560,7 @@
       "id": "criminal",
       "path": "songs/Criminal.md",
       "title": "Criminal",
-      "body_sha256": "5d398f0a2cec867ee22bb18901ec7078108c14ff51e65e020593dff5720588d4",
+      "body_sha256": "45fed9c6e6ac956a785a0f1fd1a29c5bf1f7db21a599d8fcd3d9eaafad5dd32d",
       "metadata": {
         "artist": "Fiona Apple",
         "performance_key": "Cm",
@@ -1523,7 +1583,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Criminal.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Criminal",
       "notion_performance_key_candidate": null
@@ -1588,7 +1650,7 @@
       "id": "dani-california",
       "path": "songs/Dani-California.md",
       "title": "Dani California",
-      "body_sha256": "45b64c326d757b5a27fb867768bb33b576ebb949b5b344f60046e319f58b09fa",
+      "body_sha256": "0cfa198338fbcc317c0dbcd7f2151b4d0b9ab22c7ee7415bd7904bd4d5e3a358",
       "metadata": {
         "artist": "Red Hot Chili Peppers",
         "performance_key": "Dm",
@@ -1610,7 +1672,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Dani-California.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Dani California",
       "notion_performance_key_candidate": null
@@ -1619,7 +1683,7 @@
       "id": "dark-necessities",
       "path": "songs/Dark-Necessities.md",
       "title": "Dark Necessities",
-      "body_sha256": "2a5865510d37c99a128d9900c894da4cfd441051bc4232574bdaae3086e09fbd",
+      "body_sha256": "86136aaaf49889a6296436f9682b8b011adef85912b4ce85077500370183feb0",
       "metadata": {
         "artist": "Red Hot Chili Peppers",
         "performance_key": "Cm",
@@ -1638,7 +1702,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Dark-Necessities.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Dark Necessities",
       "notion_performance_key_candidate": null
@@ -1647,7 +1713,7 @@
       "id": "darling-nikki",
       "path": "songs/Darling-Nikki.md",
       "title": "Darling Nikki",
-      "body_sha256": "5d1ed98d3c9529ce4ea89da3b8746c942cb4368afed56fb6c233fc3450dcbed8",
+      "body_sha256": "d8b316dc68eafb04eb5a0880df854deac2e4af26da50de575cb9cd48adc36658",
       "metadata": {
         "artist": "Prince & The Revolution",
         "reference_title": "Darling Nikki",
@@ -1661,7 +1727,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Darling-Nikki.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Darling Nikki",
       "notion_performance_key_candidate": null
@@ -1670,7 +1738,7 @@
       "id": "daughter",
       "path": "songs/Daughter.md",
       "title": "Daughter",
-      "body_sha256": "7fc95f37d81d5b05de133914b5d5482e6d0bd48f858591cace049f74004059d5",
+      "body_sha256": "e08e921da2f664464f9997535a3fe57098f4a19a1b831112528399704a1ccea1",
       "metadata": {
         "artist": "Pearl Jam",
         "performance_key": "G",
@@ -1690,7 +1758,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Daughter.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Daughter",
       "notion_performance_key_candidate": null
@@ -1699,7 +1769,7 @@
       "id": "demons",
       "path": "songs/Demons.md",
       "title": "Demons",
-      "body_sha256": "4880ac5e9d811a2ee00e07150af49384b600fc24d0b6ac1b4e379ac71d71375e",
+      "body_sha256": "a56812e972e041896072d236fa55425f47161332b2894e8a703867de31cf2e48",
       "metadata": {
         "artist": "Imagine Dragons",
         "performance_key": "Eb",
@@ -1719,7 +1789,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Demons.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Demons",
       "notion_performance_key_candidate": null
@@ -1768,7 +1840,7 @@
       "id": "don-t-go-back-to-rockville",
       "path": "songs/Don-t-Go-Back-To-Rockville.md",
       "title": "Don't Go Back To Rockville {short=\"Back to Rockville\"}",
-      "body_sha256": "3fac0db111b5da169b5c03cc39e7192e7f8ecdb4669b0ec883074140a419b0ed",
+      "body_sha256": "bb1be32a8a6a7726d5f9763ce39f84b20143636d44a5cc3abd073203f3b2cbcc",
       "metadata": {
         "artist": "R.E.M.",
         "performance_key": "E",
@@ -1787,7 +1859,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Don-t-Go-Back-To-Rockville.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-model"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -1844,7 +1918,7 @@
       "id": "enter-sandman",
       "path": "songs/Enter-Sandman.md",
       "title": "Enter Sandman",
-      "body_sha256": "ac762be1ff5479d4f272d547581832949c8b156c2a64c747e48ef7843371fa4e",
+      "body_sha256": "8b05975d4bcb8d851461999a74c9e556319ee304defbc912edd9ede822ee1e2d",
       "metadata": {
         "artist": "Metallica",
         "performance_key": "Em",
@@ -1866,7 +1940,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Enter-Sandman.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Enter Sandman",
       "notion_performance_key_candidate": null
@@ -1875,7 +1951,7 @@
       "id": "even-flow",
       "path": "songs/Even-Flow.md",
       "title": "Even Flow",
-      "body_sha256": "7835ccdb04fdaab2805d78f7d172ffa08040102b3f0d8960244edb3a3b91dc70",
+      "body_sha256": "535c67e6ecf28efbc257f7ff896915077f8877cf1c653023349bf9dbd3753d97",
       "metadata": {
         "artist": "Pearl Jam",
         "performance_key": "Dm",
@@ -1894,7 +1970,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Even-Flow.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Even Flow",
       "notion_performance_key_candidate": null
@@ -2181,7 +2259,7 @@
       "id": "fire-on-the-mountain",
       "path": "songs/Fire-On-The-Mountain.md",
       "title": "Fire On The Mountain",
-      "body_sha256": "9128f8f277830c078e7bf6787558de25f8e2e32167675fbb45faf0c585317d3b",
+      "body_sha256": "e3f7cfee8d0b9d3dc6db75a641a867d510d85aef9cadcbf7f0239dc34a6d613c",
       "metadata": {
         "artist": "Grateful Dead",
         "performance_key": "B",
@@ -2192,7 +2270,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Fire-On-The-Mountain.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Fire on the Mountain",
       "notion_performance_key_candidate": null
@@ -2201,7 +2281,7 @@
       "id": "fly-away",
       "path": "songs/Fly-Away.md",
       "title": "Fly Away",
-      "body_sha256": "15af199b649ee25a1856b4d6cf62a4e231978cd8884364474bce6bac47b32b4d",
+      "body_sha256": "2f2003f939917fc32b8bef45f997505570a68f994a93e2034a21c19416327dfa",
       "metadata": {
         "artist": "Lenny Kravitz",
         "performance_key": "G",
@@ -2222,7 +2302,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Fly-Away.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Fly Away",
       "notion_performance_key_candidate": null
@@ -2231,7 +2313,7 @@
       "id": "follow-me",
       "path": "songs/Follow-Me.md",
       "title": "Follow Me",
-      "body_sha256": "a7c81b72060ddb82903a9934af44e0f63714d8407d072bb657ad0ae7939c6f22",
+      "body_sha256": "8e4dd1790c2d6eb6e9bfa1d60456350f2490e04c724e48f8e1ab85f24ba2f518",
       "metadata": {
         "artist": "Uncle Kracker",
         "performance_key": "F",
@@ -2254,7 +2336,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Follow-Me.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -2287,7 +2371,7 @@
       "id": "free-fallin",
       "path": "songs/Free-Fallin.md",
       "title": "Free Fallin",
-      "body_sha256": "6ff8e5c130c7ec6839bff4bea073ba51124b59a3a1efe34d35a0946f9dbc9e2b",
+      "body_sha256": "282edd5fc8d1efb4f9820e46886c8c4e5386c896b004b3666266976a391ae2e4",
       "metadata": {
         "artist": "Tom Petty",
         "performance_key": "F",
@@ -2306,7 +2390,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Free-Fallin.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Free Fallin'",
       "notion_performance_key_candidate": null
@@ -2362,7 +2448,7 @@
       "id": "gimme-all-your-lovin",
       "path": "songs/Gimme-All-Your-Lovin.md",
       "title": "Gimme All Your Lovin",
-      "body_sha256": "7b259bf6dce8dbebe0ff4e31523c0f04e8a95dca26a91610c54bbad768c3f3eb",
+      "body_sha256": "277bd5bc870634675431b78f60c0678443e00a7db866665859314b93a7e11af0",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "C",
@@ -2383,7 +2469,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Gimme-All-Your-Lovin.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": "Gimme All Your Lovin' (C)",
       "notion_performance_key_candidate": "C"
@@ -2392,7 +2480,7 @@
       "id": "gimme-shelter",
       "path": "songs/Gimme-Shelter.md",
       "title": "Gimme Shelter",
-      "body_sha256": "81ec90f18fa7b3d4c5034a976b8d3dfafa9d28b3b4ad5c4b6995c1d46d4296ac",
+      "body_sha256": "1b99c80f0bd02bbf539583bfb36d625857f63dc90af713035902830995dacdc8",
       "metadata": {
         "artist": "The Rolling Stones",
         "performance_key": "C#m",
@@ -2414,7 +2502,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Gimme-Shelter.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Gimme Shelter",
       "notion_performance_key_candidate": null
@@ -2451,7 +2541,7 @@
       "id": "give-me-one-reason",
       "path": "songs/Give-Me-One-Reason.md",
       "title": "Give Me One Reason",
-      "body_sha256": "6553592f10c00588b77a310ea2d9ef5ac0d7bf2df9ae47f232f77d2eeeb73e22",
+      "body_sha256": "b0c4678115bf223c8c85619ca3e44b09aafade1fc1b48b6169fc65d6a240329d",
       "metadata": {
         "artist": "Tracy Chapman",
         "performance_key": "F#",
@@ -2473,7 +2563,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Give-Me-One-Reason.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Give Me One Reason",
       "notion_performance_key_candidate": null
@@ -2482,7 +2574,7 @@
       "id": "givin-the-dog-a-bone",
       "path": "songs/Givin-The-Dog-A-Bone.md",
       "title": "Givin The Dog A Bone",
-      "body_sha256": "ede25b5cf445f029110ff019f5339115f1255165d39da09062534f695b989545",
+      "body_sha256": "efdf438b499b3f8537d51b5e44c4e53b2ecf90281f6881da19ea971c00b0fb13",
       "metadata": {
         "artist": "AC/DC",
         "performance_key": "A",
@@ -2505,7 +2597,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Givin-The-Dog-A-Bone.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Givin' The Dog A Bone",
       "notion_performance_key_candidate": null
@@ -2514,7 +2608,7 @@
       "id": "glycerine",
       "path": "songs/Glycerine.md",
       "title": "Glycerine",
-      "body_sha256": "8675d0b469a61babd1cb15faac505c82d1c144875947a7e41a8cc0a270a7e00a",
+      "body_sha256": "6748ab9d4d814ab2a243d3134d9b818c99514d04f653074ab3e00607e9e17c57",
       "metadata": {
         "artist": "Bush",
         "performance_key": "F",
@@ -2533,7 +2627,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Glycerine.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "Glycerine",
       "notion_performance_key_candidate": null
@@ -2574,13 +2670,15 @@
       "id": "going-down-the-road-feeling-bad",
       "path": "songs/Going-Down-The-Road-Feeling-Bad.md",
       "title": "Going Down The Road Feeling Bad {short=\"Going Down The Road\"}",
-      "body_sha256": "50e7efa8a812409e3a924042d5bb7548d2c996fc83ecb67fbf1a0a324f2adb0f",
+      "body_sha256": "0ca236f712313e7d2c460337b1dbbc60d84e922c78dc619ee02ef6953d67448b",
       "metadata": {
         "artist": "Grateful Dead",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Going-Down-The-Road-Feeling-Bad.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -2589,7 +2687,7 @@
       "id": "gone-gone-gone",
       "path": "songs/Gone-Gone-Gone.md",
       "title": "Gone Gone Gone",
-      "body_sha256": "3e54e4265c726498dd8efdb40b6f0cf66fef35a8a26314eed937ed911d0239b2",
+      "body_sha256": "78c2f7c02fbf6fe2c1a5681824f0470f885c76dda0f0ee96a87580d0e6b35d0f",
       "metadata": {
         "artist": "Phillip Phillips",
         "performance_key": "F#",
@@ -2612,7 +2710,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Gone-Gone-Gone.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "Gone Gone Gone",
       "notion_performance_key_candidate": null
@@ -2621,7 +2721,7 @@
       "id": "gone-shootin",
       "path": "songs/Gone-Shootin.md",
       "title": "Gone Shootin",
-      "body_sha256": "f6b3ee429207aa4839bad88e6b45bf6c52bbae6e289da8b91ab4746179aa0da7",
+      "body_sha256": "66e0dc3ee0ded98d55a351d6198ba5c3f52045682b6b5bd80c39f21d3a9e92cc",
       "metadata": {
         "artist": "AC/DC",
         "performance_key": "F#",
@@ -2643,7 +2743,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Gone-Shootin.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Gone Shootin'",
       "notion_performance_key_candidate": null
@@ -2652,7 +2754,7 @@
       "id": "good-times-bad-times",
       "path": "songs/Good-Times-Bad-Times.md",
       "title": "Good Times Bad Times",
-      "body_sha256": "7014bfdf15bf34ddcb071aa627076710752e6ac4a93c89713305005c48f6fe5f",
+      "body_sha256": "c53bc4ee87c10c1da571eeb12f07187dbce0d232a5f8d6f06879fd3ceb53d4ef",
       "metadata": {
         "artist": "Led Zeppelin",
         "performance_key": "F#m",
@@ -2671,7 +2773,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Good-Times-Bad-Times.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Good Times, Bad Times",
       "notion_performance_key_candidate": null
@@ -2680,7 +2784,7 @@
       "id": "gravity",
       "path": "songs/Gravity.md",
       "title": "Gravity",
-      "body_sha256": "6a6c89138a3c0ee20a584ca58afaa6a7b99634d07c9a3d70f01066988b379fe8",
+      "body_sha256": "38ec4d7f53f72af7a8c694e66445538e8f2ff9059f4207ffcbd9b51c1c6aebb3",
       "metadata": {
         "artist": "John Mayer",
         "performance_key": "G",
@@ -2691,7 +2795,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Gravity.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Gravity",
       "notion_performance_key_candidate": null
@@ -2725,7 +2831,7 @@
       "id": "hang-you-from-the-heavens",
       "path": "songs/Hang-You-From-The-Heavens.md",
       "title": "Hang You From The Heavens {short=\"Hang You ... Heavens\"}",
-      "body_sha256": "59dbba2a8918e86c3ce0d07685e284d3b7bce4878f65e7f388372a9af333c615",
+      "body_sha256": "bfcb4dbac016daebb780fcdf1d4645ce8f59c3b4d93d3d004d6f329533af95d5",
       "metadata": {
         "artist": "The Dead Weather",
         "performance_key": "Em",
@@ -2748,7 +2854,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Hang-You-From-The-Heavens.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -2829,13 +2937,15 @@
       "id": "have-a-drink-on-me",
       "path": "songs/Have-A-Drink-On-Me.md",
       "title": "Have A Drink On",
-      "body_sha256": "618a5e2575463d9c80b8da93795bddcf91201e9f71197146bb4699f398d6c4af",
+      "body_sha256": "007b605eb5904c201e6acb994b0132b5551b3e77aebcae887524ba3032d21c63",
       "metadata": {
         "artist": "AC/DC",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Have-A-Drink-On-Me.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Have a Drink on Me",
       "notion_performance_key_candidate": null
@@ -2873,7 +2983,7 @@
       "id": "heart-shaped-box",
       "path": "songs/Heart-Shaped-Box.md",
       "title": "Heart Shaped Box",
-      "body_sha256": "6fadb890eeff8e454576a3c395bf8814ff18cc47807855f9b3cc5e04ff799bbe",
+      "body_sha256": "6369b5d59a89f6da1924b3017c8b4cee876667888d705666e6318a120ad76d99",
       "metadata": {
         "artist": "Nirvana",
         "performance_key": "C#",
@@ -2895,7 +3005,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Heart-Shaped-Box.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Heart Shaped Box",
       "notion_performance_key_candidate": null
@@ -2904,7 +3016,7 @@
       "id": "higher-ground",
       "path": "songs/Higher-Ground.md",
       "title": "Higher Ground",
-      "body_sha256": "06eee836c5c1a607c673954bf52140e283150833d09112977dd37372fec64bab",
+      "body_sha256": "27bc5bb05b2181eb47af4d9fda4071e1b15f8d0fa5df69801ad7744365765600",
       "metadata": {
         "artist": "Red Hot Chili Peppers",
         "performance_key": "E",
@@ -2923,7 +3035,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Higher-Ground.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Higher Ground (E)",
       "notion_performance_key_candidate": "E"
@@ -2932,7 +3046,7 @@
       "id": "higher",
       "path": "songs/Higher.md",
       "title": "Higher",
-      "body_sha256": "3022f69945b4be2fe1cbe1f52590ef942c73543a4c2278c62c487e53007b0c29",
+      "body_sha256": "a20646851ee42ca579d00af3fcf8393b7545862a69b275769b55d51b93c76428",
       "metadata": {
         "artist": "Creed",
         "performance_key": "D",
@@ -2943,7 +3057,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Higher.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Higher",
       "notion_performance_key_candidate": null
@@ -2952,7 +3068,7 @@
       "id": "highway-to-hell",
       "path": "songs/Highway-To-Hell.md",
       "title": "Highway To Hell",
-      "body_sha256": "8ff2bf948ba6d92ed09fae4e573ff05e1e3dc2d06b3589cbb97b63d36f760c02",
+      "body_sha256": "dc2c7caae54af25ae3d2255819fe1795973037adcf78cfc34e869376c1990bf2",
       "metadata": {
         "artist": "AC/DC",
         "performance_key": "A",
@@ -2971,7 +3087,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Highway-To-Hell.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Highway to Hell",
       "notion_performance_key_candidate": null
@@ -2980,7 +3098,7 @@
       "id": "hit-me-with-your-best-shot",
       "path": "songs/Hit-Me-With-Your-Best-Shot.md",
       "title": "Hit Me With Your Best Shot {short=\"Hit Me ... Best Shot\"}",
-      "body_sha256": "56305cec49d54364bca84b563e2318fe0f4e8e4c2f17a9f12a83be1f412ad27a",
+      "body_sha256": "331a4ba7e04d93b49ae0cbea2c1de1d69aa5f68867ce463a9aa46c63e18e2f0d",
       "metadata": {
         "artist": "Pat Benatar",
         "performance_key": "B",
@@ -2999,7 +3117,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Hit-Me-With-Your-Best-Shot.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -3040,13 +3160,15 @@
       "id": "home-live",
       "path": "songs/Home-Live.md",
       "title": "Home Live",
-      "body_sha256": "f45958ab3a4dec6c3ae9cf390dbbe5f7731b86e58c54f0e9010647f9da961cd5",
+      "body_sha256": "bcbaaa5a0bd647bbaaf90502917756b779e61de07804e1811d36113d4edc00b8",
       "metadata": {
         "artist": "Phillip Phillips",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Home-Live.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -3055,7 +3177,7 @@
       "id": "home",
       "path": "songs/Home.md",
       "title": "Home",
-      "body_sha256": "48baab5b5135b89d20e89a9a9ae4b93f42fc52f8a23cbcbb7e0033fec008844c",
+      "body_sha256": "d5d7aded70caa7d5976c6f4dfb67b5b6dcc729a6c09ccd18ed9ed36f7e71d332",
       "metadata": {
         "artist": "Daughtry",
         "performance_key": "F#",
@@ -3066,7 +3188,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Home.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -3075,7 +3199,7 @@
       "id": "hunger-strike",
       "path": "songs/Hunger-Strike.md",
       "title": "Hunger Strike",
-      "body_sha256": "1a586af94ac7ab2b2ca58e4a87dd829848ec1af377c3049f22a6f40c9bc27139",
+      "body_sha256": "e1e82355ab0fd14820514fa67364b134bf26c0ede1a17222fc0b79d228a04308",
       "metadata": {
         "artist": "Temple of the Dog",
         "performance_key": "G",
@@ -3094,7 +3218,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Hunger-Strike.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Hunger Strike",
       "notion_performance_key_candidate": null
@@ -3103,7 +3229,7 @@
       "id": "i-don-t-wanna-be",
       "path": "songs/I-Don-t-Wanna-Be.md",
       "title": "I Don t Wanna Be",
-      "body_sha256": "36f0b49aa1730c36edb0f15da81fb94b0eb4b9a19fc92662935d950f75c2b1a0",
+      "body_sha256": "7e6b6d9ae9effa5dfbfc8e836385d576d7c1860541401100d115d39f438d4b9c",
       "metadata": {
         "artist": "Gavin DeGraw",
         "reference_title": "I Don't Wanna Be",
@@ -3118,7 +3244,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/I-Don-t-Wanna-Be.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "I Don\u2019t Wanna Be",
       "notion_performance_key_candidate": null
@@ -3127,7 +3255,7 @@
       "id": "i-kissed-a-girl",
       "path": "songs/I-Kissed-a-Girl.md",
       "title": "I Kissed a Girl",
-      "body_sha256": "4de43e1a302b0a03c4f5ecfdc141b8b0ee7806de321b42f94d9fd783c47389e8",
+      "body_sha256": "fd864ebf275de02bfbeae96022294e56672ee7c909305a5d4d493f62bf9b5f23",
       "metadata": {
         "artist": "Katy Perry",
         "performance_key": "A",
@@ -3150,7 +3278,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/I-Kissed-a-Girl.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "I Kissed a Girl (A)",
       "notion_performance_key_candidate": "A"
@@ -3263,7 +3393,7 @@
       "id": "i-m-bad-i-m-nationwide",
       "path": "songs/I-m-Bad-I-m-Nationwide.md",
       "title": "I'm Bad I'm Nationwide {short=\"I'm Nationwide\"}",
-      "body_sha256": "6906038f7a65f1de4fe2fa25d35a9546d06dc0c818b0db7fbeda32cd97da5556",
+      "body_sha256": "6547fe3fe39d1988ff8369708aea48364976a257f10af2dcfb772cdc614c0a4d",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "C",
@@ -3285,7 +3415,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/I-m-Bad-I-m-Nationwide.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -3326,7 +3458,7 @@
       "id": "in-your-eyes",
       "path": "songs/In-Your-Eyes.md",
       "title": "In Your Eyes",
-      "body_sha256": "e20774d2c7cba9a16a69f35f574409d1562266cd3a2f262ce21e2deadd390fc3",
+      "body_sha256": "6b958fc235c31b126c00ad18858af56b76e36da82f18d290665c5ff4e62ab6ee",
       "metadata": {
         "artist": "Peter Gabriel",
         "performance_key": "D",
@@ -3345,7 +3477,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/In-Your-Eyes.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "In Your Eyes",
       "notion_performance_key_candidate": null
@@ -3418,7 +3552,7 @@
       "id": "jailbreak",
       "path": "songs/Jailbreak.md",
       "title": "Jailbreak",
-      "body_sha256": "447f97236bc688e5857ccb9ca0ea68c672804de584cf4023a1b398b211c51854",
+      "body_sha256": "a19d684900b2863718eea2c66854bcfe2620845cf99b65c479298aba1044806c",
       "metadata": {
         "artist": "Thin Lizzy",
         "performance_key": "Eb",
@@ -3438,7 +3572,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Jailbreak.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Jailbreak",
       "notion_performance_key_candidate": null
@@ -3447,7 +3583,7 @@
       "id": "jesus-left-chicago",
       "path": "songs/Jesus-Left-Chicago.md",
       "title": "Jesus Left Chicago",
-      "body_sha256": "2d490fee3633b9b1651b33537087bd33330f9a059ec2a828c9d0d8e1bfeb7e86",
+      "body_sha256": "1df5b1005104507fdf1afeeb3d56fb255a05ab5b61478e9489ed7de23d2ac4e1",
       "metadata": {
         "artist": "ZZ Top",
         "reference_title": "Jesus Left Chicago",
@@ -3462,7 +3598,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Jesus-Left-Chicago.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Jesus Left Chicago",
       "notion_performance_key_candidate": null
@@ -3471,7 +3609,7 @@
       "id": "jolene",
       "path": "songs/Jolene.md",
       "title": "Jolene",
-      "body_sha256": "05aacb20020884ee69048dbc79ddbf32464ca2c8d5684495c75acf439fc0022f",
+      "body_sha256": "957a490b455256ff0525d262aa198e2a4c9df940b83025f17eeb28c8f4a62038",
       "metadata": {
         "artist": "Dolly Parton",
         "performance_key": "C#m",
@@ -3490,7 +3628,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Jolene.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Jolene",
       "notion_performance_key_candidate": null
@@ -3542,7 +3682,7 @@
       "id": "juicebox",
       "path": "songs/Juicebox.md",
       "title": "Juicebox",
-      "body_sha256": "aad36ac1260f4d54bd83dca10695e3ee7e554b47ee81cea581001966ad4055c2",
+      "body_sha256": "de3a3b715b2a2d24299b7eb26e7887833bcfd108fd548249efcf9b6859a3c2a9",
       "metadata": {
         "artist": "The Strokes",
         "performance_key": "F",
@@ -3565,7 +3705,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Juicebox.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Juicebox",
       "notion_performance_key_candidate": null
@@ -3617,7 +3759,7 @@
       "id": "just-a-girl",
       "path": "songs/Just-A-Girl.md",
       "title": "Just A Girl",
-      "body_sha256": "9c471601ab8447aa8ffdd9a48436409707ced94fa434b3c1230c677a7bca18de",
+      "body_sha256": "8f681a7ccfa553a5b3b96f4a72541f9574a560494020bb77e82720b619327a19",
       "metadata": {
         "artist": "No Doubt",
         "performance_key": "D",
@@ -3640,7 +3782,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Just-A-Girl.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "Just A Girl",
       "notion_performance_key_candidate": null
@@ -3649,7 +3793,7 @@
       "id": "just-got-paid",
       "path": "songs/Just-Got-Paid.md",
       "title": "Just Got Paid",
-      "body_sha256": "a5d24dbccf72eefe55d363225b96dd83e305ecd5a8963cc6beffc5f69c290d0d",
+      "body_sha256": "dbd234b1c49cb1d33e2e4d83be1b6cc5f8a9b2385d464ba8096ea780dbcad253",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "Em",
@@ -3668,7 +3812,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Just-Got-Paid.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Just Got Paid",
       "notion_performance_key_candidate": null
@@ -3677,7 +3823,7 @@
       "id": "just-like-heaven",
       "path": "songs/Just-Like-Heaven.md",
       "title": "Just Like Heaven",
-      "body_sha256": "7e5ce5ba5450efe3ad89a450217fda3d2c05148ce3a53b3ad8df54a58291d2fa",
+      "body_sha256": "c08f0040d07d5e93a963851a4b632a43feee0056500b53c2dd93c318854ad6e8",
       "metadata": {
         "artist": "The Cure",
         "performance_key": "A",
@@ -3700,7 +3846,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Just-Like-Heaven.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Just Like Heaven",
       "notion_performance_key_candidate": null
@@ -3709,7 +3857,7 @@
       "id": "just-what-i-needed",
       "path": "songs/Just-What-I-Needed.md",
       "title": "Just What I Needed",
-      "body_sha256": "66ced4a7ee8d20a9f7418cc265bbeed1c2a5e3de4aefa09aedcab9593f71902e",
+      "body_sha256": "2c5adfe33ac483ccc67b550b1626773217515a40a9c374b87c1cec8a0ce37935",
       "metadata": {
         "artist": "The Cars",
         "performance_key": "E",
@@ -3731,7 +3879,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Just-What-I-Needed.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Just What I Needed",
       "notion_performance_key_candidate": null
@@ -3740,7 +3890,7 @@
       "id": "killing-in-the-name",
       "path": "songs/Killing-In-The-Name.md",
       "title": "Killing In The Name",
-      "body_sha256": "b9608d1d22cc97198055a79c1f9223105445c7b651d6cdd682282d9af320a057",
+      "body_sha256": "98c63eecbc53b84f9d4a8d9c02c022ed997ffa3671f183212f7f041bd9d610f0",
       "metadata": {
         "artist": "Rage Against the Machine",
         "performance_key": "D",
@@ -3759,7 +3909,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Killing-In-The-Name.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Killing in The Name",
       "notion_performance_key_candidate": null
@@ -3816,7 +3968,7 @@
       "id": "la-grange",
       "path": "songs/La-Grange.md",
       "title": "La Grange",
-      "body_sha256": "c197a424e39aec1b3ba2a31f344603a987aee83fb5fe5d8e157c626ab747c023",
+      "body_sha256": "50b9828f9c3c6513cbe740b3b98a8644c97ba175a5869d9809eafd1a50a79261",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "A",
@@ -3835,7 +3987,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/La-Grange.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": "La Grange (A)",
       "notion_performance_key_candidate": "A"
@@ -3844,7 +3998,7 @@
       "id": "last-nite",
       "path": "songs/Last-Nite.md",
       "title": "Last Nite",
-      "body_sha256": "030f46aae16f377d6767bc6c0328cdb333ad15fdd38506ed7af2f89d8d5ef5be",
+      "body_sha256": "b580d361d6e1ccd331c207e4e1c60d801a0e94e18ea066ed59e1873bc879839e",
       "metadata": {
         "artist": "The Strokes",
         "performance_key": "C",
@@ -3863,7 +4017,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Last-Nite.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Last Nite",
       "notion_performance_key_candidate": null
@@ -3872,7 +4028,7 @@
       "id": "let-me-put-my-love-into-you",
       "path": "songs/Let-Me-Put-My-Love-Into-You.md",
       "title": "Let Me Put My Love Into You  {short=\"Let Me Put ... You\"}",
-      "body_sha256": "e0b161d0cf13521bd624b90378c992a5b8e27464ffcb5255e10d59f8e39088c1",
+      "body_sha256": "0ecc51785c6def6ca222953bf51de0a791a77d87f69b4fa68d615e947e2f2f06",
       "metadata": {
         "artist": "AC/DC",
         "performance_key": "Em",
@@ -3891,7 +4047,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Let-Me-Put-My-Love-Into-You.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Let Me Put My Love Into You",
       "notion_performance_key_candidate": null
@@ -3932,7 +4090,7 @@
       "id": "let-s-go-crazy",
       "path": "songs/Let-s-Go-Crazy.md",
       "title": "Let's Go Crazy",
-      "body_sha256": "6506e9bbdf81c6dccfd503483fe15549d61503325acffc77338f0e0e6d1d3406",
+      "body_sha256": "76df226e8f59bd382afb593396555bc1c8cc63765ceda39bac0eda5352a9e9d1",
       "metadata": {
         "artist": "Prince",
         "performance_key": "F#",
@@ -3952,7 +4110,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Let-s-Go-Crazy.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Let's Go Crazy (F#)",
       "notion_performance_key_candidate": "F#"
@@ -3989,7 +4149,7 @@
       "id": "life-during-wartime",
       "path": "songs/Life-During-Wartime.md",
       "title": "Life During Wartime",
-      "body_sha256": "df6b2fbad6153ceee5d5e89a84330710c0a6441ed9d47ae5f47fcfd55d848633",
+      "body_sha256": "7d6354230a58f10f9038aef69df4018612e5ea334dd33bb4441c6d0a34ec20c9",
       "metadata": {
         "artist": "Talking Heads",
         "bpm": "132.9",
@@ -4006,7 +4166,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Life-During-Wartime.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Life During Wartime",
       "notion_performance_key_candidate": null
@@ -4015,7 +4177,7 @@
       "id": "lightning-crashes",
       "path": "songs/Lightning-Crashes.md",
       "title": "Lightning Crashes",
-      "body_sha256": "dcbc35361e428e297c2e461ff0ff89400eda89c1645172ca58878fea2b24108b",
+      "body_sha256": "2ebc99cdc4e7239dafc6fdeea9afa6c082bf2ee95f390c2cc4f2eb6281c216be",
       "metadata": {
         "artist": "Live",
         "performance_key": "F#",
@@ -4035,7 +4197,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Lightning-Crashes.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Lightning Crashes",
       "notion_performance_key_candidate": null
@@ -4044,7 +4208,7 @@
       "id": "like-a-stone",
       "path": "songs/Like-A-Stone.md",
       "title": "Like A Stone",
-      "body_sha256": "6602661b2e6f86767d13fd4ad08c71d8899a4119a1348a3bba4c7d790405ea0b",
+      "body_sha256": "24c367cca311cefb740b86bf9ef683f6e1eea27b3b7373ab12474e4479891281",
       "metadata": {
         "artist": "Audioslave",
         "performance_key": "Gm",
@@ -4067,7 +4231,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Like-A-Stone.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Like A Stone",
       "notion_performance_key_candidate": null
@@ -4076,7 +4242,7 @@
       "id": "little-less-conversation",
       "path": "songs/Little-Less-Conversation.md",
       "title": "Little Less Conversation {short=\"Lil' Less Conversation\"}",
-      "body_sha256": "029b7f60c748830627627c339a678c4428689391d52f7a2aa3d87310d5e23c88",
+      "body_sha256": "b0ad1d0f20556e937c272f38986b52ffc83894150118715e21697dbb2ad78697",
       "metadata": {
         "artist": "Elvis Presley",
         "performance_key": "Em",
@@ -4087,7 +4253,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Little-Less-Conversation.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4096,7 +4264,7 @@
       "id": "little-lover",
       "path": "songs/Little-Lover.md",
       "title": "Little Lover",
-      "body_sha256": "678fab3b247f90c98820dc586482063074811d93f5980a8f6d8b42a438fb19f3",
+      "body_sha256": "ac5340bc6eaf202d167c6e70d49fedfd3035a7ebe68bade3d5e0a72cc1531824",
       "metadata": {
         "artist": "AC/DC",
         "bpm": "106",
@@ -4114,7 +4282,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Little-Lover.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "Little Lover",
       "notion_performance_key_candidate": null
@@ -4123,7 +4293,7 @@
       "id": "little-sister",
       "path": "songs/Little-Sister.md",
       "title": "Little Sister",
-      "body_sha256": "4c620ca4430012af937dec94627d0d7a54c35355a660990c2ca9660da6f87659",
+      "body_sha256": "a98bffae95bd77de49f3541a776b9e93844fa36d93d08ee2cfa306574811d352",
       "metadata": {
         "artist": "Elvis Presley",
         "performance_key": "E",
@@ -4146,7 +4316,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Little-Sister.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Little Sister (E)",
       "notion_performance_key_candidate": "E"
@@ -4155,7 +4327,7 @@
       "id": "livin-after-midnight",
       "path": "songs/Livin-After-Midnight.md",
       "title": "Livin After Midnight",
-      "body_sha256": "d418d4aa02ad9ec14cd3433a9e195d12c449c76036ea701e0acaa32e924ee0e9",
+      "body_sha256": "6ccc5d492fdc6cba5a702b5445999fd65fd64193f61beb47840899c14b40b0c6",
       "metadata": {
         "artist": "Judas Priest",
         "reference_title": "Livin\u2019 After Midnight",
@@ -4170,7 +4342,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Livin-After-Midnight.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "Livin' After Midnight",
       "notion_performance_key_candidate": null
@@ -4207,7 +4381,7 @@
       "id": "lonely-is-the-night",
       "path": "songs/Lonely-Is-the-Night.md",
       "title": "Lonely Is the Night",
-      "body_sha256": "e038626801a740178975999eebf080780bf3d32f42a2287e0fbe9aafb5e977f6",
+      "body_sha256": "59c1688a0acfd879bb38857db03c11a9a9f8424b00e66386c1fc8fa39561269b",
       "metadata": {
         "artist": "Billy Squier",
         "performance_key": "E",
@@ -4226,7 +4400,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Lonely-Is-the-Night.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Lonely Is the Night (E)",
       "notion_performance_key_candidate": "E"
@@ -4235,7 +4411,7 @@
       "id": "long-train-runnin",
       "path": "songs/Long-Train-Runnin.md",
       "title": "Long Train Runnin",
-      "body_sha256": "3fffdadc9f8ba9220efccc70669953072ed7a703634e9ef76b68d4ef9946233f",
+      "body_sha256": "fcf8560d8f6f087e2b76d00162e79dfbc57f34a2c263d3be0a3d86002d24842c",
       "metadata": {
         "artist": "The Doobie Brothers",
         "performance_key": "Gm",
@@ -4257,7 +4433,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Long-Train-Runnin.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Long Train Runnin\u2019",
       "notion_performance_key_candidate": null
@@ -4266,7 +4444,7 @@
       "id": "love-rollercoaster",
       "path": "songs/Love-Rollercoaster.md",
       "title": "Love Rollercoaster",
-      "body_sha256": "dde660c5cc14e3b199348c3f70260112a04ae51b5005775513f11881bb384e91",
+      "body_sha256": "05e13807f7e3ecb0c3b46c7ee0f91ac59d84c461d7757c0da81c64d7b4789bed",
       "metadata": {
         "artist": "Ohio Players",
         "performance_key": "G",
@@ -4288,7 +4466,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Love-Rollercoaster.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4325,7 +4505,7 @@
       "id": "love-train",
       "path": "songs/Love-Train.md",
       "title": "Love Train",
-      "body_sha256": "917e4525062533bb12bc081ada1aa7e6ecf4cd223a0d6f941a023cf93e870d66",
+      "body_sha256": "6a00598a51318e70168d3c8154339872ce4f50071ac0ef91eefaa4384836ee9a",
       "metadata": {
         "artist": "Wolfmother",
         "performance_key": "C",
@@ -4348,7 +4528,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Love-Train.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4357,7 +4539,7 @@
       "id": "lovesong",
       "path": "songs/Lovesong.md",
       "title": "Lovesong",
-      "body_sha256": "7ec2faedf483938c55c8669e3f9734c94e88af9bf3213085985cb7e2799fc8fe",
+      "body_sha256": "fef18fb01e5627f0678fb4ba2e80c92ec75fced58042dac7d77ffa6ad3c62a58",
       "metadata": {
         "artist": "The Cure",
         "performance_key": "Am",
@@ -4376,7 +4558,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Lovesong.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Lovesong",
       "notion_performance_key_candidate": null
@@ -4385,7 +4569,7 @@
       "id": "low",
       "path": "songs/Low.md",
       "title": "Low",
-      "body_sha256": "1bf6c09a6f9356b6deb34aa5160d3e9fd864434498322c7ecef27aa5c459a18c",
+      "body_sha256": "d2a86b9934ecf60edf76a1c5242676d3988930aa38b2a3abb4d4f32a918f2f27",
       "metadata": {
         "artist": "Cracker",
         "performance_key": "Em",
@@ -4396,7 +4580,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Low.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Low",
       "notion_performance_key_candidate": null
@@ -4405,7 +4591,7 @@
       "id": "major-tom",
       "path": "songs/Major-Tom.md",
       "title": "Major Tom",
-      "body_sha256": "5d27c73c34a26696498fa3e5e07f544fbb479c21aacd3a825256d7ddde8a508a",
+      "body_sha256": "1117ba8378228e88b6f3fa7ac25d9cef83d3e9652e11eb0219fe1b15fa537976",
       "metadata": {
         "artist": "Peter Schilling",
         "performance_key": "Em",
@@ -4416,7 +4602,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Major-Tom.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4425,7 +4613,7 @@
       "id": "man-in-the-box",
       "path": "songs/Man-In-The-Box.md",
       "title": "Man In The Box",
-      "body_sha256": "1275948ab511c1aa4764ec47eb891e49b7945e988b106c774d18a062d464f064",
+      "body_sha256": "a1024037493a0a5ef53359c6806f8f89710afa8b1556e386822262e932e4408c",
       "metadata": {
         "artist": "Alice in Chains",
         "performance_key": "Ebm",
@@ -4444,7 +4632,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Man-In-The-Box.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Man In The Box",
       "notion_performance_key_candidate": null
@@ -4509,7 +4699,7 @@
       "id": "mary-jane-s-last-dance",
       "path": "songs/Mary-Jane-s-Last-Dance.md",
       "title": "Mary Jane's Last Dance",
-      "body_sha256": "f64cf8145419d5b6aa3b51a3424509d5a3f3f463a1b113c13bca730ad1aabcaf",
+      "body_sha256": "9c577fda0c19e907e47b32370725bfd1073647c9e5f3d2c84b91e102edc85c43",
       "metadata": {
         "artist": "Tom Petty",
         "performance_key": "Am",
@@ -4525,7 +4715,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Mary-Jane-s-Last-Dance.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": "Mary Jane's Last Dance (Am)",
       "notion_performance_key_candidate": "Am"
@@ -4534,7 +4726,7 @@
       "id": "melissa",
       "path": "songs/Melissa.md",
       "title": "Melissa",
-      "body_sha256": "9a263658e7cf86abf807a65c7af853bd4d8a23f9bf5e8c0fb8c934a87747d7c2",
+      "body_sha256": "c9d58b778477ba2b6a74621efdb3a5ea963855db4a0dd35bf04206117dae75bc",
       "metadata": {
         "artist": "The Allman Brothers Band",
         "performance_key": "E",
@@ -4556,7 +4748,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Melissa.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "Melissa",
       "notion_performance_key_candidate": null
@@ -4565,7 +4759,7 @@
       "id": "melt-with-you",
       "path": "songs/Melt-With-You.md",
       "title": "Melt With You",
-      "body_sha256": "6b684a07a15d8b41f4b13e764231a6359aab3582e3b2c4d07de4f27780e3b4ed",
+      "body_sha256": "22381917e8300c3d6592bc29a214b5762e23460193caa99fdeb87caf03de5bb9",
       "metadata": {
         "artist": "Modern English",
         "performance_key": "C",
@@ -4576,7 +4770,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Melt-With-You.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4625,7 +4821,7 @@
       "id": "moves-like-jagger",
       "path": "songs/Moves-Like-Jagger.md",
       "title": "Moves Like Jagger",
-      "body_sha256": "040d5a56e85e73d2a3a3613181fa100d2547d8d0415fed7a1b705e1bb28e8906",
+      "body_sha256": "63efae7bfb482395a2eb7d2b1de03fd98bbac685699820501014eed5a858eb6a",
       "metadata": {
         "artist": "Maroon 5 feat. Christina Aguilera",
         "reference_title": "Moves Like Jagger",
@@ -4639,7 +4835,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Moves-Like-Jagger.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Moves Like Jagger",
       "notion_performance_key_candidate": null
@@ -4676,7 +4874,7 @@
       "id": "my-hero",
       "path": "songs/My-Hero.md",
       "title": "My Hero",
-      "body_sha256": "1ceca8f49af78b80dabf5dedfa2e02b548f2a576c8bdad1f5682e6dc1bc6b290",
+      "body_sha256": "ba13f600ff3c21d7385bb4b4d8852c07f051e326e4106626afb269699e791de1",
       "metadata": {
         "artist": "Foo Fighters",
         "performance_key": "E",
@@ -4699,7 +4897,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/My-Hero.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "My Hero",
       "notion_performance_key_candidate": null
@@ -4708,7 +4908,7 @@
       "id": "my-own-worst-enemy",
       "path": "songs/My-Own-Worst-Enemy.md",
       "title": "My Own Worst Enemy {short=\"Own Worst Enemy\"}",
-      "body_sha256": "0fe42aa8dab819075753371ca014d3d0182227f7b02f767c382f17b0b52beccd",
+      "body_sha256": "07f05194bc6ccc757741a6da23a8314217fbf1adf150c0ed85bb63be83f1a8cd",
       "metadata": {
         "artist": "Lit",
         "performance_key": "E",
@@ -4730,7 +4930,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/My-Own-Worst-Enemy.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4739,7 +4941,7 @@
       "id": "mysterious-ways",
       "path": "songs/Mysterious-Ways.md",
       "title": "Mysterious Ways",
-      "body_sha256": "c7093fe70c2a135822eb3d6b6b7fc233cd408aa61e6a84aa9ec309326daf292d",
+      "body_sha256": "68a523cfd8dd753d47ffd48e84bed0fd026d3593f97cb417aaf7902f7501c675",
       "metadata": {
         "artist": "U2",
         "performance_key": "Bbm",
@@ -4758,7 +4960,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Mysterious-Ways.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Mysterious Ways",
       "notion_performance_key_candidate": null
@@ -4767,7 +4971,7 @@
       "id": "never-let-you-go",
       "path": "songs/Never-Let-You-Go.md",
       "title": "Never Let You Go",
-      "body_sha256": "cbd0b6c3720411600f5c05741e853a25482e2638ff19016a92b6a3bd102bb579",
+      "body_sha256": "422d36b12e72549fe32381857180dafb50ecd06ae9620e789746a6435a365418",
       "metadata": {
         "artist": "Third Eye Blind",
         "performance_key": "E",
@@ -4790,7 +4994,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Never-Let-You-Go.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Never Let You Go",
       "notion_performance_key_candidate": null
@@ -4799,7 +5005,7 @@
       "id": "new-year-s-day",
       "path": "songs/New-Year-s-Day.md",
       "title": "New Year's Day",
-      "body_sha256": "28247ce58c8711a7cb2b1549df1a575c59c82dc4bd7b86aba26aa5ee2bdaa3d9",
+      "body_sha256": "7d36777b5bb5f72fe0319925bc6bcb443f96a3d8e8c08711b66365e44df0aa24",
       "metadata": {
         "artist": "U2",
         "performance_key": "Ebm",
@@ -4818,7 +5024,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/New-Year-s-Day.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "New Year's Day",
       "notion_performance_key_candidate": null
@@ -4827,7 +5035,7 @@
       "id": "no-one-knows",
       "path": "songs/No-One-Knows.md",
       "title": "No One Knows",
-      "body_sha256": "d5e20ecb2a8f94d5e1f9a2a307d64c8b4031c4a86927fc8e018bb1a3b7b4c7f0",
+      "body_sha256": "c173e2f4a949344334436b46f5a2df5afc7c7945c66aed6d68312c3dfc41c8ec",
       "metadata": {
         "artist": "Queens of the Stone Age",
         "performance_key": "Cm",
@@ -4846,7 +5054,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/No-One-Knows.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "No One Knows",
       "notion_performance_key_candidate": null
@@ -4855,7 +5065,7 @@
       "id": "no-rain",
       "path": "songs/No-Rain.md",
       "title": "No Rain",
-      "body_sha256": "b39181b44abd99f836e197667494fc122bfd508258e2d41368d554452d88b410",
+      "body_sha256": "41299671b183a1c2c24c2ff043b8a18d2e6701937d5911c31d2e0b64ca1a57f7",
       "metadata": {
         "artist": "Blind Melon",
         "performance_key": "A",
@@ -4874,7 +5084,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/No-Rain.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "No Rain",
       "notion_performance_key_candidate": null
@@ -4931,7 +5143,7 @@
       "id": "numb",
       "path": "songs/Numb.md",
       "title": "Numb",
-      "body_sha256": "69a717aad30ad3e161db013db8564a810e476792255bb87f82446717b70bede1",
+      "body_sha256": "8c6aa5908ef7d85de3b453fb42f8779aa310af6f320c801d5477d8ef3c59a708",
       "metadata": {
         "artist": "Linkin Park",
         "performance_key": "F#m",
@@ -4950,7 +5162,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Numb.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4959,7 +5173,7 @@
       "id": "one",
       "path": "songs/One.md",
       "title": "One",
-      "body_sha256": "6e7a0151d4b3ee34826a0a19a1a03d7598e4c60be0d1a21f1d9f38440bdd0e2b",
+      "body_sha256": "63310479a31980da0f8a823a0dad7830c7f2641bc597df48f05f0818701caa65",
       "metadata": {
         "artist": "U2",
         "performance_key": "Am",
@@ -4970,7 +5184,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/One.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "One",
       "notion_performance_key_candidate": null
@@ -4979,7 +5195,7 @@
       "id": "outshined",
       "path": "songs/Outshined.md",
       "title": "Outshined",
-      "body_sha256": "33ea52f29ff75128ddae5a6a1e9c51fce245aa876b24832ae2929d85f6b84115",
+      "body_sha256": "ee45ca4bb3e37647d4d40c26be435ef0753606267420294d7591ee5f9510e93b",
       "metadata": {
         "artist": "Soundgarden",
         "performance_key": "D",
@@ -4990,7 +5206,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Outshined.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -4999,7 +5217,7 @@
       "id": "outside",
       "path": "songs/Outside.md",
       "title": "Outside",
-      "body_sha256": "90fc0ac581810cef9710e642ef9f0ec2e57ecf2a3040ebdbc45c3277859de469",
+      "body_sha256": "c26a433dabbcc08d40d226aceb75175807085333394438c1fb6daa1df6c984f9",
       "metadata": {
         "artist": "Staind",
         "performance_key": "F#",
@@ -5021,7 +5239,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Outside.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -5030,7 +5250,7 @@
       "id": "overkill",
       "path": "songs/Overkill.md",
       "title": "Overkill",
-      "body_sha256": "62b1dd656b693cb79f35115586418e4a4e86176a2d7398675b85268192f85e78",
+      "body_sha256": "3e1aa0104e875939cb6fbb1152eec93b60afafa7e6826d5eb86a73f98658fae0",
       "metadata": {
         "artist": "Men at Work",
         "performance_key": "E",
@@ -5049,7 +5269,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Overkill.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -5058,7 +5280,7 @@
       "id": "panama",
       "path": "songs/Panama.md",
       "title": "Panama",
-      "body_sha256": "6824ad9c197f5787fbb653ec069a4af20bfe84c662251ae25f5dede5e4086b02",
+      "body_sha256": "d10061ea1d66b4a59edd6ce9770d64aa946a23a7dc047a82afeec0db865a6ae9",
       "metadata": {
         "artist": "Van Halen",
         "performance_key": "Eb",
@@ -5077,7 +5299,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Panama.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Panama",
       "notion_performance_key_candidate": null
@@ -5086,7 +5310,7 @@
       "id": "paradise-city",
       "path": "songs/Paradise-City.md",
       "title": "Paradise City",
-      "body_sha256": "e4be1a3fcbb6badb1b468d5adf9600dbdd88936daef6c1f54d43a4f78433b5ab",
+      "body_sha256": "7852f8812ea7bbc6eeb4460478572b9648483f74b709704a828390183ccdc064",
       "metadata": {
         "artist": "Guns N' Roses",
         "performance_key": "F#",
@@ -5109,7 +5333,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Paradise-City.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Paradise City",
       "notion_performance_key_candidate": null
@@ -5118,7 +5344,7 @@
       "id": "paralyzer",
       "path": "songs/Paralyzer.md",
       "title": "Paralyzer",
-      "body_sha256": "fd49ef40b7513430e25648ac3f238e740438b0db3bfaaba4c6e0817e277ad218",
+      "body_sha256": "9b5a11ebabbd528ea69e757c96806aef4ab03e6568e7d3e367252e80dcd31afe",
       "metadata": {
         "artist": "Finger Eleven",
         "performance_key": "Em",
@@ -5138,7 +5364,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Paralyzer.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Paralyzer",
       "notion_performance_key_candidate": null
@@ -5257,7 +5485,7 @@
       "id": "pompeii",
       "path": "songs/Pompeii.md",
       "title": "Pompeii",
-      "body_sha256": "eafb5dacb58d33aa63e66cf92b4b8a3533561433240ca51a4b7204ad26d8d5d3",
+      "body_sha256": "83d739a02384c0db01f79f110b0094aabce75b29e9a65b38f0ee44019d2d9479",
       "metadata": {
         "artist": "Bastille",
         "performance_key": "A",
@@ -5280,7 +5508,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Pompeii.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Pompeii",
       "notion_performance_key_candidate": null
@@ -5289,7 +5519,7 @@
       "id": "possum-kingdom",
       "path": "songs/Possum-Kingdom.md",
       "title": "Possum Kingdom",
-      "body_sha256": "444e828a88c02ea406f364b9dc10789b444bb8ab80d7b92868a87adadb5bae48",
+      "body_sha256": "c5395ac81b36dc56bd80f03acd1498d35bea088fce87a2d11c794388d28af687",
       "metadata": {
         "artist": "Toadies",
         "performance_key": "E",
@@ -5308,7 +5538,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Possum-Kingdom.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -5317,7 +5549,7 @@
       "id": "pride",
       "path": "songs/Pride.md",
       "title": "Pride",
-      "body_sha256": "06b97f1bfd48ebb28d905fde7f143fe4e572d6d85e57d264f0b1a851d36b6995",
+      "body_sha256": "149dfb909c7c38371b6e75a3ed5bb1ff6825c83e634f3dedf2af0fac79400baa",
       "metadata": {
         "artist": "U2",
         "reference_title": "Pride",
@@ -5331,7 +5563,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Pride.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Pride",
       "notion_performance_key_candidate": null
@@ -5340,7 +5574,7 @@
       "id": "psycho-killer",
       "path": "songs/Psycho-Killer.md",
       "title": "Psycho Killer",
-      "body_sha256": "006b933d62a42d6e8c64f2e856f785b187adcbb0d51c194a8e8f2a97c633da82",
+      "body_sha256": "c48b9fa431fbc1853e9f0d48370b3781d7a821a0c475be9082182e23283657d0",
       "metadata": {
         "artist": "Talking Heads",
         "performance_key": "Am",
@@ -5359,7 +5593,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Psycho-Killer.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Psycho Killer",
       "notion_performance_key_candidate": null
@@ -5393,7 +5629,7 @@
       "id": "radioactive",
       "path": "songs/Radioactive.md",
       "title": "Radioactive",
-      "body_sha256": "59425ecf8de9956d944c4ed9756ffd48cd2c0d9aff1e6502bb5dcfcfdb74d909",
+      "body_sha256": "aad32a74e8be997f83c696fadb6fe3f12a89662de5b2abbc6745cb7c3779b176",
       "metadata": {
         "artist": "Imagine Dragons",
         "performance_key": "Bm",
@@ -5412,7 +5648,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Radioactive.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": "Radioactive",
       "notion_performance_key_candidate": null
@@ -5477,13 +5715,15 @@
       "id": "redemption-song-live",
       "path": "songs/Redemption-Song-Live.md",
       "title": "Redemption Song",
-      "body_sha256": "8095a95e6d070e468616d10be901a137277a82aa4aa28f6c551170f60327bac2",
+      "body_sha256": "e07dbb5ef86f32d0853a750520409ef29d45a75076f957ca94d203550baa6044",
       "metadata": {
         "artist": "Ziggy Marley & Lauryn Hill",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Redemption-Song-Live.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Redemption Song",
       "notion_performance_key_candidate": null
@@ -5492,7 +5732,7 @@
       "id": "ride-on",
       "path": "songs/Ride-On.md",
       "title": "Ride On",
-      "body_sha256": "ea66b64b37c0207c4c530398927788ba8379b426ca4e58c9c9a113cdd18ad36c",
+      "body_sha256": "181ed1e505623943083f43e089d95fc93d9842ef4d8d5a5ea9552cecc0a724f2",
       "metadata": {
         "artist": "AC/DC",
         "performance_key": "F",
@@ -5515,7 +5755,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Ride-On.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "Ride On",
       "notion_performance_key_candidate": null
@@ -5524,7 +5766,7 @@
       "id": "ring-of-fire",
       "path": "songs/Ring-Of-Fire.md",
       "title": "Ring Of Fire",
-      "body_sha256": "737a7ab9b3eaff73f1e06c33a67f1fbcf836ca619ab3da0150afa66636cef70f",
+      "body_sha256": "4ca7f51c1541cd27755bc7e6a84550984a594a58624f0bbcd53cc9c8785c3dad",
       "metadata": {
         "artist": "Social Distortion",
         "performance_key": "Bb",
@@ -5547,7 +5789,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Ring-Of-Fire.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Ring of Fire",
       "notion_performance_key_candidate": null
@@ -5556,7 +5800,7 @@
       "id": "roadhouse-blues",
       "path": "songs/Roadhouse-Blues.md",
       "title": "Roadhouse Blues",
-      "body_sha256": "d084688fb058ec01cf476d1c875b08564a6c63b2541a88df95929906de35ee2f",
+      "body_sha256": "e293c567fca59164b4f634065f916b68d201be185b8908a575257509cdc3a30a",
       "metadata": {
         "artist": "The Doors",
         "performance_key": "E",
@@ -5579,7 +5823,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Roadhouse-Blues.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Roadhouse Blues",
       "notion_performance_key_candidate": null
@@ -5588,13 +5834,15 @@
       "id": "rock-and-roll-ain-t-noise-pollution",
       "path": "songs/Rock-and-Roll-Ain-t-Noise-Pollution.md",
       "title": "Rock n Roll Ain t Noise Pollution {short=\"Rock ... Pollution\"}",
-      "body_sha256": "1929753d02b542d2daef7eb32dd41f61274d419ef8c305684d8605ab1129a086",
+      "body_sha256": "92b89488a1abb27d9e1ac5d653d54f7d6971f12f359c9716843d36af2e9f4480",
       "metadata": {
         "artist": "AC/DC",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Rock-and-Roll-Ain-t-Noise-Pollution.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -5603,13 +5851,15 @@
       "id": "rock-n-roll",
       "path": "songs/Rock-n-Roll.md",
       "title": "Rock n Roll",
-      "body_sha256": "863d6d4b273bbad5c1feaeda1779ef1070495aae579e39ccee6beb7aee4acb2a",
+      "body_sha256": "f96eb9c4605f5243a3d673c8d2506789a60be7e43330597808323a058c955b4a",
       "metadata": {
         "artist": "Led Zeppelin",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Rock-n-Roll.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -5618,7 +5868,7 @@
       "id": "rooster",
       "path": "songs/Rooster.md",
       "title": "Rooster",
-      "body_sha256": "c538d765af66c8221bbc35de8ea76530bf654466f6cf27f557e8469c2f6a2f91",
+      "body_sha256": "dd5996599092ec2ead80515d535e0661bcbf933fd3a261aaf5fe42c510540539",
       "metadata": {
         "artist": "Alice in Chains",
         "performance_key": "Fm",
@@ -5637,7 +5887,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Rooster.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Rooster",
       "notion_performance_key_candidate": null
@@ -5646,7 +5898,7 @@
       "id": "runnin-with-the-devil",
       "path": "songs/Runnin-With-The-Devil.md",
       "title": "Runnin With The Devil",
-      "body_sha256": "271751afc095461c87a0d037cfeb26147cc508245777c6bed35c2790908fcd34",
+      "body_sha256": "6961870c3c33c82610a6c65c2ca4684bb3d7846106616fd934c00fbf953e1211",
       "metadata": {
         "artist": "Van Halen",
         "performance_key": "Eb",
@@ -5669,7 +5921,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Runnin-With-The-Devil.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Runnin\u2019 with the Devil",
       "notion_performance_key_candidate": null
@@ -5795,7 +6049,7 @@
       "id": "sex-on-fire",
       "path": "songs/Sex-on-Fire.md",
       "title": "Sex on Fire",
-      "body_sha256": "7bb922fee945ac0e0b9bc9b181696a701fdb8383f13dfd8b72c7d7cc83275060",
+      "body_sha256": "60cf861a2d74526873a78f6cb5e72ce5f5c4c2985f629b2a60f84213b87b68ba",
       "metadata": {
         "artist": "Kings of Leon",
         "performance_key": "E",
@@ -5814,7 +6068,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Sex-on-Fire.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Sex on Fire",
       "notion_performance_key_candidate": null
@@ -5846,7 +6102,7 @@
       "id": "sharp-dressed-man",
       "path": "songs/Sharp-Dressed-Man.md",
       "title": "Sharp Dressed Man",
-      "body_sha256": "e9e24423824a85e5f19d74f11fe8d10da820b117820dbde2e977cad51880bc51",
+      "body_sha256": "e17025a52ac994bf4c319f8b694b1b1a55c7cbb09d5f98446664bf3ff75fa59c",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "C",
@@ -5865,7 +6121,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Sharp-Dressed-Man.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": "Sharp Dressed Man (C)",
       "notion_performance_key_candidate": "C"
@@ -5874,7 +6132,7 @@
       "id": "she-sells-sanctuary",
       "path": "songs/She-Sells-Sanctuary.md",
       "title": "She Sells Sanctuary",
-      "body_sha256": "e1f032b68ec3fb250e8bcf8dfb2edca07c4f5deff6fb3bbc116a77178ff2d9d8",
+      "body_sha256": "936cc7570c2a55401abe900201107efa884ae68a828dfe02123be7eb355cf418",
       "metadata": {
         "artist": "The Cult",
         "performance_key": "C#",
@@ -5893,7 +6151,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/She-Sells-Sanctuary.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "She Sells Sanctuary",
       "notion_performance_key_candidate": null
@@ -5922,7 +6182,7 @@
       "id": "shining-star",
       "path": "songs/Shining-Star.md",
       "title": "Shining Star",
-      "body_sha256": "4a0a4491485cfd9bfc0d787523822d28d2abca2ab2e2339655961b3fc1a990b2",
+      "body_sha256": "ea60cb35b4963ff02e3551b8160c9945c1ed799c28ca8a026f41f0af48be6aae",
       "metadata": {
         "artist": "Earth, Wind & Fire",
         "performance_key": "Em",
@@ -5944,7 +6204,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Shining-Star.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -6028,7 +6290,7 @@
       "id": "smells-like-teen-spirit",
       "path": "songs/Smells-Like-Teen-Spirit.md",
       "title": "Smells Like Teen Spirit",
-      "body_sha256": "9652f07e33ee86b5c64da18cd6ead133286d89bf587ed0e66134f665c3b2ef24",
+      "body_sha256": "15a8a60c4da079cf0be4be88a88256349991c2e42064c95c3e676cf9694024e5",
       "metadata": {
         "artist": "Nirvana",
         "performance_key": "Fm",
@@ -6047,7 +6309,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Smells-Like-Teen-Spirit.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Smells Like Teen Spirit",
       "notion_performance_key_candidate": null
@@ -6056,7 +6320,7 @@
       "id": "so-lonely",
       "path": "songs/So-Lonely.md",
       "title": "So Lonely",
-      "body_sha256": "feca55ef9d76720abe614efeb2573c49af1d6192679b9c77aa9fdd1e3a0253fb",
+      "body_sha256": "477dc7f4a94f5e72474f6c8dcb38846892d7ead82f4323c293c4ddfe52a904eb",
       "metadata": {
         "artist": "The Police",
         "performance_key": "C",
@@ -6075,7 +6339,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/So-Lonely.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "So Lonely",
       "notion_performance_key_candidate": null
@@ -6111,7 +6377,7 @@
       "id": "song-2",
       "path": "songs/Song-2.md",
       "title": "Song 2",
-      "body_sha256": "a9caf51dab9fb16db9fea3698705f71e3d186fd34f86eca97580c592dcba365e",
+      "body_sha256": "32efb8f93793d4b726ce09b9dbae6853f59129a08aea92f7aec945a8b10613b2",
       "metadata": {
         "artist": "Blur",
         "performance_key": "Fm",
@@ -6130,7 +6396,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Song-2.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Song 2",
       "notion_performance_key_candidate": null
@@ -6193,7 +6461,7 @@
       "id": "steady-as-she-goes",
       "path": "songs/Steady-As-She-Goes.md",
       "title": "Steady As She Goes",
-      "body_sha256": "ac9399343d641de6bae6d22c2297c5d025f4dc8b7ff229dffb34646d7902f9fe",
+      "body_sha256": "7fee9428a05f30469382e1bd774058980f50a72160e8a93cb9ffe72b5d00b557",
       "metadata": {
         "artist": "The Raconteurs",
         "reference_title": "Steady as She Goes",
@@ -6208,7 +6476,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Steady-As-She-Goes.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Steady As She Goes",
       "notion_performance_key_candidate": null
@@ -6217,7 +6487,7 @@
       "id": "sullivan-street",
       "path": "songs/Sullivan-Street.md",
       "title": "Sullivan Street",
-      "body_sha256": "d1f0a1c3b392ec6ab4f450278e23479144799df1e492957595e2915a88cd5725",
+      "body_sha256": "e811773ebbbfa0de88554564a9a5edf0d0d3337ef72093f3337bb4ef39feeaf0",
       "metadata": {
         "artist": "Counting Crows",
         "performance_key": "D",
@@ -6240,7 +6510,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Sullivan-Street.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Sullivan Street",
       "notion_performance_key_candidate": null
@@ -6277,7 +6549,7 @@
       "id": "sweet-emotion",
       "path": "songs/Sweet-Emotion.md",
       "title": "Sweet Emotion",
-      "body_sha256": "51a660f6ddd95acf09bda2f88819ebb504e2b13c2d9963b8447ae746d00ee4fc",
+      "body_sha256": "ba191859516df2c3d2a4cf9e9dd00bd1e8f10f7c52fc97dd1601cddaae05c1ee",
       "metadata": {
         "artist": "Aerosmith",
         "performance_key": "A",
@@ -6297,7 +6569,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Sweet-Emotion.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Sweet Emotion",
       "notion_performance_key_candidate": null
@@ -6334,7 +6608,7 @@
       "id": "tnt",
       "path": "songs/TNT.md",
       "title": "TNT",
-      "body_sha256": "be79d8af3c95105eb7096c189c1c5980d6802119573540111f2fe590f927345b",
+      "body_sha256": "36b3e34ebc860f822fd0ae629eace829ce638cfe1aa946a14a32d811b74b7f29",
       "metadata": {
         "artist": "AC/DC",
         "bpm": "126.8",
@@ -6351,7 +6625,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/TNT.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-aligned"
       },
       "notion_title": "TNT",
       "notion_performance_key_candidate": null
@@ -6360,7 +6636,7 @@
       "id": "take-me-out",
       "path": "songs/Take-Me-Out.md",
       "title": "Take Me Out",
-      "body_sha256": "11678dc825811f1de2707f2e376569f956041bb8a823c1954fba7fcdd35716bf",
+      "body_sha256": "69a765de4c1e688ba3c2e2ac478388a44943816ae52027a9246e33a76708dcdb",
       "metadata": {
         "artist": "Franz Ferdinand",
         "performance_key": "Em",
@@ -6379,7 +6655,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Take-Me-Out.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -6463,7 +6741,7 @@
       "id": "that-s-the-way-i-like-it",
       "path": "songs/That-s-The-Way-I-Like-It.md",
       "title": "That's The Way I Like It {short=\"That's The Way\"}",
-      "body_sha256": "dd11d5192b17be7c34bd895bdb65d6fb807a6e42af2f12a636066d6e8dce226c",
+      "body_sha256": "414118238955e8fd67c67ce77c4b88e82c4d7a63081be8161eb55be618a6ce7f",
       "metadata": {
         "artist": "KC & the Sunshine Band",
         "performance_key": "Cm",
@@ -6482,7 +6760,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/That-s-The-Way-I-Like-It.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-model"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -6523,7 +6803,7 @@
       "id": "the-distance",
       "path": "songs/The-Distance.md",
       "title": "The Distance",
-      "body_sha256": "b5181d98b55cdbed6f92ea6de2ac031fe7230894e2660c2d64f6693955408b60",
+      "body_sha256": "12e1d73d267f4686184b050b0f892b5e0623e564194b8772f9550df4e01db1fb",
       "metadata": {
         "artist": "CAKE",
         "performance_key": "E",
@@ -6542,7 +6822,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/The-Distance.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "The Distance",
       "notion_performance_key_candidate": null
@@ -6582,7 +6864,7 @@
       "id": "the-scientist",
       "path": "songs/The-Scientist.md",
       "title": "The Scientist",
-      "body_sha256": "03c6455824d185ef8a08ec20e50074270bc380115070a906a94ab846e6ed8a02",
+      "body_sha256": "9f57b9328dfd63ff570f2893e7d98f6914ce55abd5aee0256697ee6408352ca1",
       "metadata": {
         "artist": "Coldplay",
         "performance_key": "F",
@@ -6601,7 +6883,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/The-Scientist.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "The Scientist",
       "notion_performance_key_candidate": null
@@ -6610,7 +6894,7 @@
       "id": "thinking-out-loud",
       "path": "songs/Thinking-Out-Loud.md",
       "title": "Thinking Out Loud",
-      "body_sha256": "7470472207d99101867d27645179547445ce2cfc3222dde5f37ec19afeb9f5d6",
+      "body_sha256": "34572b0d66298eb98f126d24a2fb37dcfbfa45e897182b42064ad8afa8a9b3ac",
       "metadata": {
         "artist": "Ed Sheeran",
         "reference_title": "Thinking Out Loud",
@@ -6624,7 +6908,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Thinking-Out-Loud.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -6633,13 +6919,15 @@
       "id": "this-is-how-you-remind-me",
       "path": "songs/This-Is-How-You-Remind-Me.md",
       "title": "This Is How You Remind Me {short=\"This ... Remind Me\"}",
-      "body_sha256": "b3206a782698c8d9a5129b6eff567f8c87e556076ed17c7d050af55ee169f12d",
+      "body_sha256": "4a5c023fb654cfbcf833589f11072131b4d3a71e003bacbf9e55107141d09ca8",
       "metadata": {
         "artist": "Nickelback",
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/This-Is-How-You-Remind-Me.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -6676,7 +6964,7 @@
       "id": "tom-sawyer",
       "path": "songs/Tom-Sawyer.md",
       "title": "Tom Sawyer",
-      "body_sha256": "1d9cc0fd469bcfd1a8f7c26e4f55556a6f742a8bc2b0afca0637f474dbbab32d",
+      "body_sha256": "8d170365d8621c2f738f8f20e60c96981e6edff0b20c83f0f8897a7cf91d924b",
       "metadata": {
         "artist": "Rush",
         "performance_key": "Bm",
@@ -6695,7 +6983,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Tom-Sawyer.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Tom Sawyer",
       "notion_performance_key_candidate": null
@@ -6704,7 +6994,7 @@
       "id": "touch-too-much",
       "path": "songs/Touch-Too-Much.md",
       "title": "Touch Too Much",
-      "body_sha256": "3952c564fb5d848e0341c8b1dd332eeedfd4ab9fe880737f07e772c209d4e444",
+      "body_sha256": "d8964d221d790436d3f274b37078ee84c8fcccabcccc9f8689e19e0081c53825",
       "metadata": {
         "artist": "AC/DC",
         "reference_title": "Touch Too Much",
@@ -6719,7 +7009,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Touch-Too-Much.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Touch Too Much",
       "notion_performance_key_candidate": null
@@ -6728,7 +7020,7 @@
       "id": "troublemaker",
       "path": "songs/TroubleMaker.md",
       "title": "TroubleMaker",
-      "body_sha256": "d492bf23f646d8b06c6d0cbbeeddce86ee8a90d6d9dad652c2653aafac38b30b",
+      "body_sha256": "2fb2b7648f4b6d4489990c06050aa5fbfda06549b2189f0d89aa1b8c7a879a07",
       "metadata": {
         "artist": "Weezer",
         "performance_key": "Ab",
@@ -6739,7 +7031,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/TroubleMaker.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -6776,7 +7070,7 @@
       "id": "tush",
       "path": "songs/Tush.md",
       "title": "Tush",
-      "body_sha256": "3d48e2a86e1a31661970b1e461fc404ffed5ed352ab1e759b7635cc37407ea3c",
+      "body_sha256": "7d1381c8416a8a763402aab21ff604be6328bffa06f397c9da9657908b8f0858",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "G",
@@ -6795,7 +7089,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Tush.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": "Tush (G)",
       "notion_performance_key_candidate": "G"
@@ -6884,7 +7180,7 @@
       "id": "use-somebody",
       "path": "songs/Use-Somebody.md",
       "title": "Use Somebody",
-      "body_sha256": "6704906d6e6e666b792606b38a1739ac7072f8a64c3fc30b000cabfa5d08e05a",
+      "body_sha256": "5a1b981e299f2d9d1c0d4c46fb75a532f6ce76aaa12e6335370cb0a0786ef150",
       "metadata": {
         "artist": "Kings of Leon",
         "performance_key": "C",
@@ -6906,7 +7202,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Use-Somebody.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Use Somebody",
       "notion_performance_key_candidate": null
@@ -6946,7 +7244,7 @@
       "id": "vasoline",
       "path": "songs/Vasoline.md",
       "title": "Vasoline",
-      "body_sha256": "4a372e2c1e23c7b40f1e2a146ae55d87061c832bbc8cb3ffb826f967b2abb451",
+      "body_sha256": "54c4aaa13a96c1b522812c7cb474a796ab106ed0e535e81c767d2e6bd06318a3",
       "metadata": {
         "artist": "Stone Temple Pilots",
         "performance_key": "Gm",
@@ -6969,7 +7267,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Vasoline.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -6978,7 +7278,7 @@
       "id": "vertigo",
       "path": "songs/Vertigo.md",
       "title": "Vertigo",
-      "body_sha256": "ff67c529e15406bd843217cba04182d74dad6c5bf3e9ade4c1f27b8e6907f99b",
+      "body_sha256": "4fb19f38e0238513a3bd9f9651137f9164a90548f058dd7a529aa375a4d1c9e7",
       "metadata": {
         "artist": "U2",
         "performance_key": "A",
@@ -7001,7 +7301,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Vertigo.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Vertigo",
       "notion_performance_key_candidate": null
@@ -7010,7 +7312,7 @@
       "id": "wagon-wheel",
       "path": "songs/Wagon-Wheel.md",
       "title": "Wagon Wheel",
-      "body_sha256": "7476d48fe651255dd8b069e1a4a495ecea85d053b12bf302b180a257d03009f3",
+      "body_sha256": "95a940671db00a5e514c6c589182610e1d19a4f1c644e90c4688cc4f02fd9a67",
       "metadata": {
         "artist": "Darius Rucker",
         "performance_key": "A",
@@ -7029,7 +7331,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Wagon-Wheel.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Wagon Wheel",
       "notion_performance_key_candidate": null
@@ -7038,7 +7342,7 @@
       "id": "waitin-for-the-bus",
       "path": "songs/Waitin-for-the-Bus.md",
       "title": "Waitin for the Bus",
-      "body_sha256": "71eff86745973e24ff67176575b390d9cdbdd496e75da89eb26b8a0c76259668",
+      "body_sha256": "9919f1988f13f8f5447680d5ff9bb1da934b5b2ab0f391fd882de7638bf2ea74",
       "metadata": {
         "artist": "ZZ Top",
         "performance_key": "Am",
@@ -7058,7 +7362,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Waitin-for-the-Bus.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Waitin' for the Bus",
       "notion_performance_key_candidate": null
@@ -7067,7 +7373,7 @@
       "id": "walk-this-way",
       "path": "songs/Walk-This-Way.md",
       "title": "Walk This Way",
-      "body_sha256": "2befea00dc7de53c7edb21d776caaac2a5c549fdd71d97085b06c6d100c0bd6d",
+      "body_sha256": "4b7868d36daa229c9918611096e59904b334d0e2f17356189fa1e22e1380afa1",
       "metadata": {
         "artist": "Aerosmith",
         "performance_key": "F",
@@ -7087,7 +7393,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Walk-This-Way.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Walk this Way",
       "notion_performance_key_candidate": null
@@ -7096,7 +7404,7 @@
       "id": "walk",
       "path": "songs/Walk.md",
       "title": "Walk",
-      "body_sha256": "e94917979e44d8c858da8537af97249af30965a27b092f58baac8757e2b1d19e",
+      "body_sha256": "fb0a2563c7705efe10e91558913b7c2b720169009a5f4f47fd15595dda3fedbd",
       "metadata": {
         "artist": "Foo Fighters",
         "performance_key": "A",
@@ -7118,7 +7426,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Walk.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -7159,7 +7469,7 @@
       "id": "welcome-to-the-jungle",
       "path": "songs/Welcome-To-The-Jungle.md",
       "title": "Welcome To The Jungle {short=\"Welcome 2 Jungle\"}",
-      "body_sha256": "5a42a8f829faa502f97b41f847b87d5ec5e9a25ad6a072c5fe2c3c49748f1cf7",
+      "body_sha256": "5c8709dcd6ddeecde6c68395a27231a3cf1b2d3ae4caa6059eb52423a0a4b2c4",
       "metadata": {
         "artist": "Guns N' Roses",
         "performance_key": "Eb",
@@ -7181,7 +7491,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Welcome-To-The-Jungle.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
@@ -7222,7 +7534,7 @@
       "id": "wheels",
       "path": "songs/Wheels.md",
       "title": "Wheels",
-      "body_sha256": "feeacd9c4230c2d7176f64fee8dabfc4fc3e746b0dbddc852b821e5db084be51",
+      "body_sha256": "017480754229757836f37a1bb1f6b7a67571a1e2fc2189365f0c7e74e08c450b",
       "metadata": {
         "artist": "Foo Fighters",
         "performance_key": "A",
@@ -7233,7 +7545,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Wheels.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Wheels",
       "notion_performance_key_candidate": null
@@ -7242,7 +7556,7 @@
       "id": "when-i-come-around",
       "path": "songs/When-I-Come-Around.md",
       "title": "When I Come Around",
-      "body_sha256": "81d3b2251cb4ba8965d5e15160853a359a739d3a877e98604389769bf23f4070",
+      "body_sha256": "2ab0f310a6876b39e820dadfe8aa5fecc26ce9a3c4939298b374f06443286277",
       "metadata": {
         "artist": "Green Day",
         "performance_key": "F#",
@@ -7265,7 +7579,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/When-I-Come-Around.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "When I Come Around",
       "notion_performance_key_candidate": null
@@ -7274,7 +7590,7 @@
       "id": "when-i-m-gone",
       "path": "songs/When-I-m-Gone.md",
       "title": "When I'm Gone",
-      "body_sha256": "780bcd0e6f48480ee68440a715bc802d335469403ff9f6721f2e1b7547a9e52a",
+      "body_sha256": "1775cb176e4ae93979b14b1da46c2133af18bbd1e164560a2d5e74d237f553c9",
       "metadata": {
         "artist": "3 Doors Down",
         "performance_key": "Am",
@@ -7294,7 +7610,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/When-I-m-Gone.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "When I'm Gone",
       "notion_performance_key_candidate": null
@@ -7443,7 +7761,7 @@
       "id": "wine-wine-wine",
       "path": "songs/Wine-Wine-Wine.md",
       "title": "Wine Wine Wine",
-      "body_sha256": "fe0667516f8466c6700ed75faf8be5118f901310350318fe506da6b297c863f3",
+      "body_sha256": "e6e3730ba877a76dbe8d542011aeb4f7876f6749984e60dcddc427732a974c0b",
       "metadata": {
         "artist": "The Nightcaps",
         "performance_key": "A",
@@ -7454,7 +7772,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Wine-Wine-Wine.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Wine Wine Wine",
       "notion_performance_key_candidate": null
@@ -7463,7 +7783,7 @@
       "id": "with-arms-wide-open",
       "path": "songs/With-Arms-Wide-Open.md",
       "title": "With Arms Wide Open",
-      "body_sha256": "c299ddc45fc10ecb46342ad8c4c2503b8062f6c0140539b631852d410dfe0009",
+      "body_sha256": "1667621e07a476565bd45b348992e9bdd09f1871190bf8f6712af29975c3ec87",
       "metadata": {
         "artist": "Creed",
         "performance_key": "C",
@@ -7486,7 +7806,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/With-Arms-Wide-Open.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "With Arms Wide Open",
       "notion_performance_key_candidate": null
@@ -7495,7 +7817,7 @@
       "id": "with-or-without-you",
       "path": "songs/With-Or-Without-You.md",
       "title": "With Or Without You",
-      "body_sha256": "06f63b656314b15602425b02bf9c8c3e63542bb841510ab485abbfa523694073",
+      "body_sha256": "095548d2a73879ae53ef8ede88c95825cbb8301ea3a38a09df36e28dd9d6bc62",
       "metadata": {
         "artist": "U2",
         "performance_key": "D",
@@ -7514,7 +7836,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/With-Or-Without-You.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "With or Without You (D)",
       "notion_performance_key_candidate": "D"
@@ -7523,7 +7847,7 @@
       "id": "woman",
       "path": "songs/Woman.md",
       "title": "Woman",
-      "body_sha256": "3790bdb2cd3aaedc7801a1540af775f1139a37cc2dbce261fd6dc819f09982a3",
+      "body_sha256": "f00dcef21a2c80be1a0326bffd40ae479768a5499003f32da8946ea3f5d3256e",
       "metadata": {
         "artist": "Wolfmother",
         "performance_key": "Em",
@@ -7534,7 +7858,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Woman.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Woman",
       "notion_performance_key_candidate": null
@@ -7543,7 +7869,7 @@
       "id": "wonderwall",
       "path": "songs/Wonderwall.md",
       "title": "Wonderwall",
-      "body_sha256": "6fc0f908e3ffe2f32751b19360bebfa60f1a91ac66428fe3d0fb638416aa90d8",
+      "body_sha256": "cca3f2c997f945f1c40f507cb07c231cf79e6b68267510f61f6d7698cffce8d5",
       "metadata": {
         "artist": "Oasis",
         "performance_key": "F#m",
@@ -7562,7 +7888,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Wonderwall.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Wonderwall",
       "notion_performance_key_candidate": null
@@ -7571,7 +7899,7 @@
       "id": "word-up",
       "path": "songs/Word-Up.md",
       "title": "Word Up",
-      "body_sha256": "cbc0809cb2e8cf5714d74d1d7b2294a159a323a6628251cf84b49cffd1b48e0e",
+      "body_sha256": "f82dbe80d3294ff1f0c8da6cdaad787dbafc798d08688404b22a36e2f7cd8a36",
       "metadata": {
         "artist": "Gun",
         "performance_key": "F#",
@@ -7594,7 +7922,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Word-Up.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "notion-assisted"
       },
       "notion_title": "Word Up (F#)",
       "notion_performance_key_candidate": "F#"
@@ -7603,7 +7933,7 @@
       "id": "yellow-ledbetter",
       "path": "songs/Yellow-Ledbetter.md",
       "title": "Yellow Ledbetter",
-      "body_sha256": "7e456176b9a79055369e37fcb35b8c4fd973b8da2386566c74898c22cdc838ea",
+      "body_sha256": "f69f3fbe831a9ad30dcacaae06581765ff721e6c339293f6cd7d6b01260b47da",
       "metadata": {
         "artist": "Pearl Jam",
         "performance_key": "E",
@@ -7626,7 +7956,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/Yellow-Ledbetter.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "expert-reviewed-notion"
       },
       "notion_title": "Yellow Ledbetter",
       "notion_performance_key_candidate": null
@@ -7635,7 +7967,7 @@
       "id": "you-found-me",
       "path": "songs/You-Found-Me.md",
       "title": "You Found Me",
-      "body_sha256": "6de6d756683f6d5fb9e435e944ac41d08457be06b330d94ef40fac1411b5e7c7",
+      "body_sha256": "bf28fb8d423a38b6fe325d81765bf584cc8d338eceea350511e1f8d462905314",
       "metadata": {
         "artist": "The Fray",
         "performance_key": "B",
@@ -7658,7 +7990,9 @@
         "provenance_status": "legacy-imported",
         "legacy_source_commit": "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659",
         "legacy_source_path": "lead-sheet/You-Found-Me.md",
-        "metadata_review_status": "reviewed"
+        "metadata_review_status": "reviewed",
+        "structure_status": "estimated",
+        "structure_source": "model-estimated"
       },
       "notion_title": null,
       "notion_performance_key_candidate": null
