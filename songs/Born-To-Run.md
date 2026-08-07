@@ -54,9 +54,7 @@ Oh, will you walk with me out on the wire?  'Cause, baby, I'm just a scared and 
 But I gotta know how it feels.  I wanna know if love is wild, babe, I want to know if love is  
 -realllllllllll ... Oh, can you show me? ..   
   
-### Intro Vamp  8x  
-  
-### Sax Solo  12x  
+### Intro Vamp  8x  Sax Solo  12x
   
 ### Bridge 1  16x  
 
