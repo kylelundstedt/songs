@@ -37,7 +37,9 @@ It's a death trap, it's a suicide rap
 We gotta get out while we're young  
 'Cause tramps like us; Baby, we were born to runnnn    
   
-### Intro Vamp  8x  Yes, girl, we were 
+### Intro Vamp  8x  
+
+Yes, girl, we were  
   
 ### Verse  8x  
 
