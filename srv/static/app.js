@@ -19,6 +19,16 @@
     document.documentElement.dataset.formFactor = detectFormFactor();
   }
 
+  function setupFlashMessage() {
+    let message='';
+    try { message=sessionStorage.getItem('songs-flash-warning')||''; sessionStorage.removeItem('songs-flash-warning'); } catch {}
+    if(!message)return;
+    const notice=document.createElement('div');
+    notice.className='flash-warning'; notice.setAttribute('role','alert'); notice.textContent=message;
+    document.body.append(notice);
+    setTimeout(()=>notice.remove(),12000);
+  }
+
   function expandFlowNodes(source) {
     const expanded = [];
     for (const node of [...source.children].filter(node => node.tagName !== 'H1')) {
@@ -458,7 +468,12 @@
         const response = await fetch(`/api/songs/${encodeURIComponent(songID)}/markdown`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({markdown:textarea.value,expected_hash:expectedHash})});
         if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to save Markdown');
         const result = await response.json();
-        initialMarkdown=textarea.value; saved=true; saving=false; save.disabled=false; close.disabled=false; save.textContent='Reload page'; status.textContent=result.warning || 'Markdown saved, committed, pushed, and indexed. Reload to see the updated lead sheet.';
+        initialMarkdown=textarea.value; saved=true; saving=false; status.textContent=result.warning || 'Markdown saved. Reloading…';
+        try {
+          if(result.warning)sessionStorage.setItem('songs-flash-warning',result.warning);
+          else sessionStorage.removeItem('songs-flash-warning');
+        } catch {}
+        location.reload();
       } catch (error) {
         saving=false; textarea.disabled=false; save.disabled=false; cancel.disabled=false; close.disabled=false; status.textContent=error.message;
       }
@@ -616,7 +631,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupTheme(); setupSearch(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();
