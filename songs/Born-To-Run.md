@@ -63,9 +63,7 @@ Girls comb their hair in rear-view mirrors, and the boys try to look so hard
 The amusement park rises bold and stark, kids are huddled on the beach in a mist  
 I wanna die with you, Wendy, on the streets tonight in an everlasting kiss  
   
-### Bridge 2  17x  
-
-_pause at the end_  1-2-3-4!  
+### Bridge 2  17x  _pause at the end_  1-2-3-4!  
   
 ### Verse  8x  
 
