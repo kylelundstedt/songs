@@ -1,0 +1,6166 @@
+{
+  "schema_version": "1.0",
+  "method": "deterministic conservative reconciliation; full dates required for automatic cross-page event grouping",
+  "source_candidate_index": [
+    {
+      "source_type": "github",
+      "source_id": "loosely-covered/set_list_ty_caton_2017_06@b49889703b9c20b387fb30b91874f0e4a4e9cbeb",
+      "source_record_ref": {
+        "input_file": "candidates/github-set-lists-matched.json",
+        "collection_key": "candidates",
+        "object_id": "loosely-covered/set_list_ty_caton_2017_06@b49889703b9c20b387fb30b91874f0e4a4e9cbeb"
+      },
+      "source_reference": {
+        "repository": "loosely-covered/set_list_ty_caton_2017_06",
+        "commit_sha": "b49889703b9c20b387fb30b91874f0e4a4e9cbeb",
+        "default_branch": "master"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2017-06",
+      "date_exact": null,
+      "title_raw": "2017-06 Ty Caton",
+      "venue_raw": "Ty Caton",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Valerie",
+        "1979",
+        "Redemption-Song-Live",
+        "Give-Me-One-Reason",
+        "Ramble-On",
+        "Times-Like-These",
+        "Mercy",
+        "Let-s-Get-It-On",
+        "Have-A-Drink-On-Me",
+        "Say-It-Ain-t-So",
+        "What-I-Got",
+        "In-The-Midnight-Hour",
+        "Hit-Me-With-Your-Best-Shot",
+        "Under-The-Bridge",
+        "Just-A-Girl",
+        "Interstate-Love-Song",
+        "Thinking-Out-Loud",
+        "Criminal",
+        "Home-Live",
+        "Santeria",
+        "Purple-Rain",
+        "The-Middle",
+        "The-Big-Bang",
+        "Short-Skirt",
+        "Rebel-Yell",
+        "Kiss",
+        "Exs-And-Ohs",
+        "Play-That-Funky-Music",
+        "Faith",
+        "Always-On-The-Run",
+        "Shine",
+        "Wicked-Game"
+      ],
+      "song_count": 32,
+      "song_match_count": 32,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "github",
+      "source_id": "loosely-covered/set_list_jack_london_2017_06@d1dd110820e106c6f684320793275bc339f50b25",
+      "source_record_ref": {
+        "input_file": "candidates/github-set-lists-matched.json",
+        "collection_key": "candidates",
+        "object_id": "loosely-covered/set_list_jack_london_2017_06@d1dd110820e106c6f684320793275bc339f50b25"
+      },
+      "source_reference": {
+        "repository": "loosely-covered/set_list_jack_london_2017_06",
+        "commit_sha": "d1dd110820e106c6f684320793275bc339f50b25",
+        "default_branch": "master"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2017-06",
+      "date_exact": null,
+      "title_raw": "2017-06 Jack London",
+      "venue_raw": "Jack London",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Jump",
+        "Stayin-Alive",
+        "Santeria",
+        "Miss-You",
+        "The-Middle",
+        "1979",
+        "Locked-Out-Of-Heaven",
+        "I-Want-You-To",
+        "Short-Skirt",
+        "Valerie",
+        "Hard-To-Handle",
+        "Exs-And-Ohs",
+        "Faith",
+        "What-I-Got",
+        "In-The-Midnight-Hour",
+        "Let-s-Get-It-On",
+        "Mercy",
+        "Hash-Pipe",
+        "Kiss",
+        "Thank-You-Falettinme-Be-Mice-Elf-Agin",
+        "Play-That-Funky-Music",
+        "Uptown-Funk",
+        "Brick-House",
+        "Love-Shack",
+        "That-s-The-Way-I-Like-It",
+        "Shake-Shake-Shake",
+        "Get-Lucky",
+        "I-Want-You-Back",
+        "Superstition-Single-Version",
+        "Folsom-Prison-Blues",
+        "Rebel-Yell",
+        "Purple-Rain",
+        "Bad-Romance",
+        "You-Shook-Me-All-Night-Long"
+      ],
+      "song_count": 34,
+      "song_match_count": 34,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "github",
+      "source_id": "loosely-covered/set_list_nicholson_ranch_2017_06@fa917c3208fa76d1113efe65096bfdc9bb8f7cd0",
+      "source_record_ref": {
+        "input_file": "candidates/github-set-lists-matched.json",
+        "collection_key": "candidates",
+        "object_id": "loosely-covered/set_list_nicholson_ranch_2017_06@fa917c3208fa76d1113efe65096bfdc9bb8f7cd0"
+      },
+      "source_reference": {
+        "repository": "loosely-covered/set_list_nicholson_ranch_2017_06",
+        "commit_sha": "fa917c3208fa76d1113efe65096bfdc9bb8f7cd0",
+        "default_branch": "master"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2017-11-02",
+      "date_exact": "2017-11-02",
+      "title_raw": "20171102 Nicholson",
+      "venue_raw": "Nicholson",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Under-The-Bridge",
+        "Times-Like-These",
+        "Ramble-On",
+        "Interstate-Love-Song",
+        "Superstition-Single-Version",
+        "Kryptonite",
+        "Short-Skirt",
+        "Faith",
+        "The-Middle",
+        "Jolene",
+        "Come-Together",
+        "Shine",
+        "1979"
+      ],
+      "song_count": 13,
+      "song_match_count": 13,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "github",
+      "source_id": "loosely-covered/set_list_hopmonk_2017_11@3e0c9454037f37d8068cfcfb47003caa1b7f3e24",
+      "source_record_ref": {
+        "input_file": "candidates/github-set-lists-matched.json",
+        "collection_key": "candidates",
+        "object_id": "loosely-covered/set_list_hopmonk_2017_11@3e0c9454037f37d8068cfcfb47003caa1b7f3e24"
+      },
+      "source_reference": {
+        "repository": "loosely-covered/set_list_hopmonk_2017_11",
+        "commit_sha": "3e0c9454037f37d8068cfcfb47003caa1b7f3e24",
+        "default_branch": "master"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2017-11-10",
+      "date_exact": "2017-11-10",
+      "title_raw": "20171110 Hopmonk",
+      "venue_raw": "Hopmonk",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Where-the-Streets-Have-No-Names",
+        "Miss-You",
+        "Faith",
+        "The-Middle",
+        "I-Want-You-To",
+        "Santeria",
+        "Folsom-Prison-Blues",
+        "What-I-Got",
+        "In-The-Midnight-Hour",
+        "Short-Skirt",
+        "Hard-To-Handle",
+        "Superstition-Single-Version",
+        "I-Wish",
+        "Kiss",
+        "Thank-You-Falettinme-Be-Mice-Elf-Agin",
+        "Play-That-Funky-Music",
+        "Brick-House",
+        "Uptown-Funk",
+        "Love-Shack",
+        "That-s-The-Way-I-Like-It",
+        "Shake-Shake-Shake",
+        "Get-Lucky",
+        "Let-s-Get-It-On",
+        "Valerie",
+        "Mercy",
+        "Seven-Nation-Army",
+        "Hash-Pipe",
+        "Bad-Romance",
+        "Jump",
+        "Rebel-Yell",
+        "Purple-Rain",
+        "Are-You-Gonna-Go-My-Way"
+      ],
+      "song_count": 32,
+      "song_match_count": 32,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "github",
+      "source_id": "loosely-covered/set_list_bv_2018_02@915c30bb695cd80ed125d4656c481c02d934a60b",
+      "source_record_ref": {
+        "input_file": "candidates/github-set-lists-matched.json",
+        "collection_key": "candidates",
+        "object_id": "loosely-covered/set_list_bv_2018_02@915c30bb695cd80ed125d4656c481c02d934a60b"
+      },
+      "source_reference": {
+        "repository": "loosely-covered/set_list_bv_2018_02",
+        "commit_sha": "915c30bb695cd80ed125d4656c481c02d934a60b",
+        "default_branch": "master"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2018-02-24",
+      "date_exact": "2018-02-24",
+      "title_raw": "20180224 BV",
+      "venue_raw": "BV",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Valerie",
+        "Hard-To-Handle",
+        "The-Middle",
+        "I-Want-You-To",
+        "Bad-Romance",
+        "Where-the-Streets-Have-No-Names",
+        "Miss-You",
+        "Santeria",
+        "Faith",
+        "Hash-Pipe",
+        "Superstition-Single-Version",
+        "Simple-Man",
+        "Love-Shack",
+        "I-Wish",
+        "Play-That-Funky-Music",
+        "Thank-You-Falettinme-Be-Mice-Elf-Agin",
+        "I-Will-Survive",
+        "That-s-The-Way-I-Like-It",
+        "Shake-Shake-Shake",
+        "Get-Lucky",
+        "Short-Skirt",
+        "Sweet-Home-Alabama",
+        "All-Summer-Long",
+        "Rebel-Yell",
+        "Jump",
+        "Kiss",
+        "Uptown-Funk",
+        "What-I-Got",
+        "In-The-Midnight-Hour",
+        "Brick-House",
+        "Folsom-Prison-Blues",
+        "Are-You-Gonna-Go-My-Way",
+        "Exs-And-Ohs",
+        "Seven-Nation-Army",
+        "Mercy",
+        "You-Oughta-Know",
+        "Purple-Rain"
+      ],
+      "song_count": 37,
+      "song_match_count": 37,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "github",
+      "source_id": "loosely-covered/set_list_nicholson_2018_06@a8c66e776803b09e37cbdc5269cf1cd2f0529c8b",
+      "source_record_ref": {
+        "input_file": "candidates/github-set-lists-matched.json",
+        "collection_key": "candidates",
+        "object_id": "loosely-covered/set_list_nicholson_2018_06@a8c66e776803b09e37cbdc5269cf1cd2f0529c8b"
+      },
+      "source_reference": {
+        "repository": "loosely-covered/set_list_nicholson_2018_06",
+        "commit_sha": "a8c66e776803b09e37cbdc5269cf1cd2f0529c8b",
+        "default_branch": "master"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2018-06-09",
+      "date_exact": "2018-06-09",
+      "title_raw": "20180609 Nicholson",
+      "venue_raw": "Nicholson",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Valerie",
+        "Hard-To-Handle",
+        "The-Middle",
+        "I-Want-You-To",
+        "Bad-Romance",
+        "Where-the-Streets-Have-No-Names",
+        "Miss-You",
+        "Santeria",
+        "Faith",
+        "Hash-Pipe",
+        "Superstition-Single-Version",
+        "Simple-Man",
+        "Love-Shack",
+        "I-Wish",
+        "Play-That-Funky-Music",
+        "Thank-You-Falettinme-Be-Mice-Elf-Agin",
+        "I-Will-Survive",
+        "That-s-The-Way-I-Like-It",
+        "Shake-Shake-Shake",
+        "Get-Lucky",
+        "Short-Skirt",
+        "Sweet-Home-Alabama",
+        "All-Summer-Long",
+        "Rebel-Yell",
+        "Jump",
+        "Kiss",
+        "Uptown-Funk",
+        "What-I-Got",
+        "In-The-Midnight-Hour",
+        "Brick-House",
+        "Folsom-Prison-Blues",
+        "Are-You-Gonna-Go-My-Way",
+        "Exs-And-Ohs",
+        "Seven-Nation-Army",
+        "Mercy",
+        "You-Oughta-Know",
+        "Purple-Rain"
+      ],
+      "song_count": 37,
+      "song_match_count": 37,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "notion",
+      "source_id": "28b46aa1-262b-804d-b4c3-ea5e7766d7ec",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
+      },
+      "source_reference": {
+        "page_id": "28b46aa1-262b-804d-b4c3-ea5e7766d7ec",
+        "source_created_time": "2025-10-13T21:50:00.000Z",
+        "source_last_edited_time": "2026-08-06T00:42:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2025-10-13",
+      "date_exact": "2025-10-13",
+      "title_raw": "9Tease Stripped",
+      "venue_raw": "Castello Golightly",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Rebel-Yell",
+        "Miss-You",
+        "Hard-To-Handle",
+        "Are-You-Gonna-Go-My-Way",
+        "Kryptonite",
+        "Thank-You",
+        "Cheap-Sunglasses",
+        "Cumbersome",
+        "Under-The-Bridge",
+        "Word-Up",
+        "Interstate-Love-Song",
+        "Seven-Nation-Army",
+        "Black-Hole-Sun",
+        "Melissa",
+        "Ramble-On",
+        "Shine",
+        "Elderly-Woman",
+        "Wicked-Game",
+        "Everlong",
+        "Drive",
+        "Higher",
+        "Santeria",
+        "Times-Like-These",
+        "Plush",
+        "Psycho-Killer",
+        "Wagon-Wheel",
+        "Wicked-Garden",
+        "Can-t-Stop",
+        "You-Wreck-Me",
+        "American-Idiot",
+        "Wanted-Dead-Or-Alive",
+        "Cheap-Sunglasses",
+        "1979",
+        "Killing-In-The-Name",
+        "Sex-on-Fire",
+        "Just-What-I-Needed",
+        "Breakdown",
+        "Long-Train-Runnin",
+        "Just-Like-Heaven",
+        "Say-It-Ain-t-So",
+        "Born-To-Run",
+        "Fast-As-You",
+        "The-Middle",
+        "Come-Together",
+        "Simple-Man",
+        "Lonely-Is-the-Night",
+        "Livin-After-Midnight",
+        "Mary-Jane-s-Last-Dance",
+        "Californication"
+      ],
+      "song_count": 58,
+      "song_match_count": 49,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "333f84b7-9df4-4535-9286-37900c93ac83",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "333f84b7-9df4-4535-9286-37900c93ac83"
+      },
+      "source_reference": {
+        "page_id": "333f84b7-9df4-4535-9286-37900c93ac83",
+        "source_created_time": "2023-11-24T23:32:00.000Z",
+        "source_last_edited_time": "2024-05-12T03:04:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-11-25",
+      "date_exact": "2023-11-25",
+      "title_raw": "FF: Vintage Space",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Miss-You",
+        "Valerie",
+        "Crazy",
+        "Locked-Out-Of-Heaven",
+        "Feels-Sheriff",
+        "Superstition-Single-Version",
+        "Juice-Dance",
+        "I-Want-You-Back",
+        "Kiss",
+        "Uptown-Funk",
+        "I-Will-Survive",
+        "Brick-House"
+      ],
+      "song_count": 21,
+      "song_match_count": 12,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "cdffff1f-9682-434c-9f26-74d2e3c852d1",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "cdffff1f-9682-434c-9f26-74d2e3c852d1"
+      },
+      "source_reference": {
+        "page_id": "cdffff1f-9682-434c-9f26-74d2e3c852d1",
+        "source_created_time": "2023-11-15T06:45:00.000Z",
+        "source_last_edited_time": "2026-06-07T04:41:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2023-12-01",
+      "date_exact": "2023-12-01",
+      "title_raw": "SF: 12-13-25",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Valerie",
+        "Superstition-Single-Version",
+        "Use-Me",
+        "Brick-House",
+        "Crazy",
+        "Juice-Dance",
+        "Locked-Out-Of-Heaven",
+        "Feels-Sheriff",
+        "Uptown-Funk",
+        "I-Want-You-Back",
+        "Kiss",
+        "Fuck-You",
+        "Love-Shack",
+        "I-Will-Survive",
+        "Purple-Rain",
+        "Miss-You",
+        "Walk-This-Way",
+        "You-Oughta-Know"
+      ],
+      "song_count": 27,
+      "song_match_count": 18,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "fd92ce08-dc81-418e-af8b-c999f9384e0a",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "fd92ce08-dc81-418e-af8b-c999f9384e0a"
+      },
+      "source_reference": {
+        "page_id": "fd92ce08-dc81-418e-af8b-c999f9384e0a",
+        "source_created_time": "2023-11-07T04:09:00.000Z",
+        "source_last_edited_time": "2023-11-07T04:09:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-09-24",
+      "date_exact": "2023-09-24",
+      "title_raw": "LC Acou: BV xmas",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Valerie",
+        "Little-Sister",
+        "Baby-I-Love-You",
+        "Can-t-You-See",
+        "Soulshine",
+        "Breakdown",
+        "Doin-Time",
+        "Heard-It-In-A-Love-Song",
+        "Nothing-Compares-2-U",
+        "Turn-The-Page",
+        "Crazy",
+        "Exs-And-Ohs",
+        "You-Wreck-Me",
+        "Mary-Jane-s-Last-Dance",
+        "Ramble-On",
+        "What-I-Got",
+        "Use-Me",
+        "Mercy",
+        "Locked-Out-Of-Heaven",
+        "I-Will-Survive",
+        "Superstition-Single-Version",
+        "Kiss",
+        "Angel-From-Montgomery",
+        "Fast-As-You",
+        "Shine"
+      ],
+      "song_count": 34,
+      "song_match_count": 25,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "5b9b4243-c90c-4130-a5cd-02eabde767cf",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "5b9b4243-c90c-4130-a5cd-02eabde767cf"
+      },
+      "source_reference": {
+        "page_id": "5b9b4243-c90c-4130-a5cd-02eabde767cf",
+        "source_created_time": "2023-09-11T20:31:00.000Z",
+        "source_last_edited_time": "2023-09-11T20:31:00.000Z"
+      },
+      "status": "unsupported",
+      "confidence": "low",
+      "date_raw": "2021-01-01",
+      "date_exact": "2021-01-01",
+      "title_raw": null,
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [],
+      "song_count": 0,
+      "song_match_count": 0,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Page body is empty."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "94c064c9-03e5-4047-aed7-922ddeab6e06",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "94c064c9-03e5-4047-aed7-922ddeab6e06"
+      },
+      "source_reference": {
+        "page_id": "94c064c9-03e5-4047-aed7-922ddeab6e06",
+        "source_created_time": "2023-08-16T04:19:00.000Z",
+        "source_last_edited_time": "2023-10-07T03:47:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-10-07",
+      "date_exact": "2023-10-07",
+      "title_raw": "Oktoberfest 10/7/2023",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Valerie",
+        "Use-Me",
+        "Miss-You",
+        "Some-Kind-Of-Wonderful",
+        "Locked-Out-Of-Heaven",
+        "Feels-Sheriff",
+        "I-Want-You-Back",
+        "Crazy",
+        "Baby-I-Love-You",
+        "Superstition-Single-Version",
+        "Uptown-Funk",
+        "Kiss",
+        "I-Will-Survive",
+        "Fuck-You",
+        "Purple-Rain",
+        "You-Oughta-Know"
+      ],
+      "song_count": 26,
+      "song_match_count": 16,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "8c909721-6696-4046-939f-372acfef2e9b",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "8c909721-6696-4046-939f-372acfef2e9b"
+      },
+      "source_reference": {
+        "page_id": "8c909721-6696-4046-939f-372acfef2e9b",
+        "source_created_time": "2023-08-04T20:44:00.000Z",
+        "source_last_edited_time": "2023-09-13T19:08:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-08-24",
+      "date_exact": "2023-08-24",
+      "title_raw": "LC Acou: Murphys",
+      "venue_raw": "Murphy's",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Valerie",
+        "I-Want-You-To",
+        "Mercy",
+        "Santeria",
+        "Exs-And-Ohs",
+        "Crazy",
+        "Just-A-Girl",
+        "I-Will-Survive",
+        "Locked-Out-Of-Heaven",
+        "You-Oughta-Know",
+        "Cumbersome",
+        "Times-Like-These",
+        "Interstate-Love-Song",
+        "Plush",
+        "Creep",
+        "Inside-Out",
+        "Wicked-Game",
+        "Can-t-You-See",
+        "Heard-It-In-A-Love-Song",
+        "You-Wreck-Me",
+        "Little-Sister",
+        "Turn-The-Page",
+        "Fast-As-You",
+        "Guitars-and-Cadillacs",
+        "Folsom-Prison-Blues",
+        "Jump-Jive-Wail",
+        "Breakdown"
+      ],
+      "song_count": 31,
+      "song_match_count": 27,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "b003defc-e7cf-47b5-add8-5ccee34f9b71",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "b003defc-e7cf-47b5-add8-5ccee34f9b71"
+      },
+      "source_reference": {
+        "page_id": "b003defc-e7cf-47b5-add8-5ccee34f9b71",
+        "source_created_time": "2023-07-05T00:26:00.000Z",
+        "source_last_edited_time": "2023-12-03T19:26:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-12-03",
+      "date_exact": "2023-12-03",
+      "title_raw": "LC Acou: BV Party",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Valerie",
+        "Crazy",
+        "Exs-And-Ohs",
+        "Mercy",
+        "The-Middle",
+        "Kiss",
+        "Locked-Out-Of-Heaven",
+        "What-I-Got",
+        "I-Will-Survive",
+        "Doin-Time",
+        "I-Want-You-To",
+        "Angel-From-Montgomery",
+        "Brown-Eyed-Girl",
+        "Santeria",
+        "Folsom-Prison-Blues",
+        "Wagon-Wheel",
+        "Mary-Jane-s-Last-Dance",
+        "Can-t-You-See",
+        "Breakdown",
+        "Heard-It-In-A-Love-Song",
+        "Turn-The-Page",
+        "Fast-As-You",
+        "Crawling-Back-To-You",
+        "Margaritaville",
+        "Little-Sister",
+        "Peaceful-Easy-Feelin",
+        "Guitars-and-Cadillacs",
+        "Wicked-Game",
+        "Going-Down-The-Road-Feeling-Bad",
+        "Feeling-Alright",
+        "La-Grange",
+        "Cheap-Sunglasses",
+        "Just-Got-Paid"
+      ],
+      "song_count": 44,
+      "song_match_count": 33,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "89e74478-afb2-442b-9b35-f4bd20d86bce",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "89e74478-afb2-442b-9b35-f4bd20d86bce"
+      },
+      "source_reference": {
+        "page_id": "89e74478-afb2-442b-9b35-f4bd20d86bce",
+        "source_created_time": "2023-06-30T16:43:00.000Z",
+        "source_last_edited_time": "2023-07-01T20:33:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-07-01",
+      "date_exact": "2023-07-01",
+      "title_raw": "LC Elec:  Raymond",
+      "venue_raw": "Wedding",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Valerie",
+        "Can-t-You-See",
+        "Santeria",
+        "Mercy",
+        "Miss-You",
+        "Exs-And-Ohs",
+        "Heard-It-In-A-Love-Song",
+        "Crazy",
+        "Hard-To-Handle",
+        "Use-Me",
+        "Mary-Jane-s-Last-Dance",
+        "Fast-As-You",
+        "Born-To-Run",
+        "Just-A-Girl",
+        "Let-s-Get-It-On",
+        "Turn-The-Page",
+        "I-Will-Survive",
+        "What-I-Got",
+        "Little-Sister",
+        "The-Middle",
+        "Locked-Out-Of-Heaven",
+        "You-Wreck-Me",
+        "Love-Shack",
+        "Superstition-Single-Version",
+        "Tush",
+        "Uptown-Funk",
+        "Jump",
+        "Kiss",
+        "You-Oughta-Know",
+        "Rebel-Yell",
+        "White-Wedding",
+        "Guitars-and-Cadillacs"
+      ],
+      "song_count": 39,
+      "song_match_count": 32,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "bd420cab-fcb4-4add-9d78-529665541b0b",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "bd420cab-fcb4-4add-9d78-529665541b0b"
+      },
+      "source_reference": {
+        "page_id": "bd420cab-fcb4-4add-9d78-529665541b0b",
+        "source_created_time": "2023-06-16T18:48:00.000Z",
+        "source_last_edited_time": "2023-07-04T00:27:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-07-01",
+      "date_exact": "2023-07-01",
+      "title_raw": "LC Elec:  Raymond - Start/Stop Notes",
+      "venue_raw": "Wedding",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Valerie",
+        "Can-t-You-See",
+        "Santeria",
+        "Mercy",
+        "Miss-You",
+        "Exs-And-Ohs",
+        "Heard-It-In-A-Love-Song",
+        "Crazy",
+        "Hard-To-Handle",
+        "Use-Me",
+        "Mary-Jane-s-Last-Dance",
+        "Fast-As-You",
+        "Born-To-Run",
+        "Just-A-Girl",
+        "Let-s-Get-It-On",
+        "Turn-The-Page",
+        "I-Will-Survive",
+        "White-Wedding",
+        "What-I-Got",
+        "Little-Sister",
+        "The-Middle",
+        "Locked-Out-Of-Heaven",
+        "You-Wreck-Me",
+        "Love-Shack",
+        "Superstition-Single-Version",
+        "Tush",
+        "Uptown-Funk",
+        "Jump",
+        "Kiss",
+        "You-Oughta-Know",
+        "Rebel-Yell",
+        "Guitars-and-Cadillacs"
+      ],
+      "song_count": 39,
+      "song_match_count": 32,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "840d3d08-7198-45c5-8b45-6a9b9b1eefac",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "840d3d08-7198-45c5-8b45-6a9b9b1eefac"
+      },
+      "source_reference": {
+        "page_id": "840d3d08-7198-45c5-8b45-6a9b9b1eefac",
+        "source_created_time": "2023-06-01T00:47:00.000Z",
+        "source_last_edited_time": "2023-06-01T01:19:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2021-01-01",
+      "date_exact": "2021-01-01",
+      "title_raw": "Naz Pahtay",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Born-To-Run",
+        "1979",
+        "Santeria",
+        "Ramble-On",
+        "Superstition-Single-Version",
+        "The-Middle",
+        "Shine",
+        "Guitars-and-Cadillacs",
+        "Fast-As-You",
+        "Can-t-You-See",
+        "You-Wreck-Me",
+        "Little-Sister",
+        "Turn-The-Page",
+        "Elderly-Woman",
+        "Kryptonite",
+        "Wicked-Game"
+      ],
+      "song_count": 17,
+      "song_match_count": 16,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "e234682c-c893-4528-9377-43a8b988507d",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "e234682c-c893-4528-9377-43a8b988507d"
+      },
+      "source_reference": {
+        "page_id": "e234682c-c893-4528-9377-43a8b988507d",
+        "source_created_time": "2023-03-26T17:55:00.000Z",
+        "source_last_edited_time": "2024-04-18T05:50:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-09-21",
+      "date_exact": "2023-09-21",
+      "title_raw": "JLL - LC Electric 6/27",
+      "venue_raw": "Jack London Saloon",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Kiss",
+        "Rebel-Yell",
+        "Miss-You",
+        "Purple-Rain",
+        "Mercy",
+        "Ramble-On",
+        "Love-Shack",
+        "I-Will-Survive",
+        "Just-A-Girl",
+        "You-Oughta-Know",
+        "Exs-And-Ohs",
+        "Valerie",
+        "Soulshine",
+        "Folsom-Prison-Blues",
+        "The-Middle",
+        "Can-t-You-See",
+        "Heard-It-In-A-Love-Song",
+        "You-Wreck-Me",
+        "Fast-As-You",
+        "Mary-Jane-s-Last-Dance",
+        "Turn-The-Page",
+        "Little-Sister",
+        "Gimme-Three-Steps",
+        "Hard-To-Handle"
+      ],
+      "song_count": 35,
+      "song_match_count": 24,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "8406e30d-d95e-4a02-b716-d2363b8d2b6a",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "8406e30d-d95e-4a02-b716-d2363b8d2b6a"
+      },
+      "source_reference": {
+        "page_id": "8406e30d-d95e-4a02-b716-d2363b8d2b6a",
+        "source_created_time": "2023-03-26T17:53:00.000Z",
+        "source_last_edited_time": "2023-09-13T19:08:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-07-15",
+      "date_exact": "2023-07-15",
+      "title_raw": "LC Elec:  Ellen’s Wedding",
+      "venue_raw": "Wedding",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Miss-You",
+        "You-Wreck-Me",
+        "Santeria",
+        "Born-To-Run",
+        "The-Middle",
+        "Superstition-Single-Version",
+        "Short-Skirt",
+        "Rebel-Yell",
+        "Kiss",
+        "White-Wedding",
+        "The-Middle",
+        "Hard-To-Handle",
+        "Purple-Rain",
+        "Soulshine",
+        "Can-t-You-See",
+        "Heard-It-In-A-Love-Song",
+        "You-Wreck-Me",
+        "Mary-Jane-s-Last-Dance",
+        "Fast-As-You",
+        "Little-Sister",
+        "Guitars-and-Cadillacs",
+        "Turn-The-Page",
+        "Feeling-Alright",
+        "Gimme-Three-Steps",
+        "Jump-Jive-Wail",
+        "Breakdown",
+        "Love-Shack",
+        "Exs-And-Ohs",
+        "I-Will-Survive"
+      ],
+      "song_count": 36,
+      "song_match_count": 29,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "b3c0c774-dd52-4f2a-bd48-edb092f027f0",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "b3c0c774-dd52-4f2a-bd48-edb092f027f0"
+      },
+      "source_reference": {
+        "page_id": "b3c0c774-dd52-4f2a-bd48-edb092f027f0",
+        "source_created_time": "2023-03-26T17:51:00.000Z",
+        "source_last_edited_time": "2023-07-07T17:24:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-04-13",
+      "date_exact": "2023-04-13",
+      "title_raw": "JLL - LC Acoustic",
+      "venue_raw": "Jack London Saloon",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Thank-You",
+        "Elderly-Woman",
+        "Black",
+        "Interstate-Love-Song",
+        "Kryptonite",
+        "Everlong",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "Miss-You",
+        "Under-The-Bridge",
+        "Ramble-On",
+        "Santeria",
+        "Hard-To-Handle",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Superstition-Single-Version",
+        "Turn-The-Page",
+        "Heard-It-In-A-Love-Song",
+        "Can-t-You-See",
+        "Little-Sister",
+        "Breakdown",
+        "You-Wreck-Me",
+        "Fast-As-You"
+      ],
+      "song_count": 27,
+      "song_match_count": 25,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "2f7f9435-a568-4116-9b63-2eb56580cce5",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "2f7f9435-a568-4116-9b63-2eb56580cce5"
+      },
+      "source_reference": {
+        "page_id": "2f7f9435-a568-4116-9b63-2eb56580cce5",
+        "source_created_time": "2023-03-10T21:06:00.000Z",
+        "source_last_edited_time": "2023-06-11T00:54:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2023-06-10",
+      "date_exact": "2023-06-10",
+      "title_raw": "LC Elec:  Nicholson",
+      "venue_raw": "Nicholson Ranch",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Valerie",
+        "The-Middle",
+        "I-Want-You-To",
+        "Mercy",
+        "Santeria",
+        "Miss-You",
+        "Exs-And-Ohs",
+        "Hard-To-Handle",
+        "Crazy",
+        "Born-To-Run",
+        "Just-A-Girl",
+        "Jump",
+        "What-I-Got",
+        "Locked-Out-Of-Heaven",
+        "You-Oughta-Know",
+        "Love-Shack",
+        "Superstition-Single-Version",
+        "Uptown-Funk",
+        "White-Wedding",
+        "Kiss",
+        "Let-s-Get-It-On",
+        "I-Will-Survive",
+        "Rebel-Yell",
+        "Are-You-Gonna-Go-My-Way",
+        "Word-Up",
+        "Seven-Nation-Army",
+        "I-Want-You-Back"
+      ],
+      "song_count": 31,
+      "song_match_count": 27,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "6a710d6b-1b24-48ff-8823-d4d6423db113",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "6a710d6b-1b24-48ff-8823-d4d6423db113"
+      },
+      "source_reference": {
+        "page_id": "6a710d6b-1b24-48ff-8823-d4d6423db113",
+        "source_created_time": "2023-01-01T00:59:00.000Z",
+        "source_last_edited_time": "2023-01-01T00:59:00.000Z"
+      },
+      "status": "unsupported",
+      "confidence": "low",
+      "date_raw": null,
+      "date_exact": null,
+      "title_raw": null,
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [],
+      "song_count": 0,
+      "song_match_count": 0,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Page body is empty."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "8365fac7-c739-4a65-8b84-ddea34f4e0ac",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "8365fac7-c739-4a65-8b84-ddea34f4e0ac"
+      },
+      "source_reference": {
+        "page_id": "8365fac7-c739-4a65-8b84-ddea34f4e0ac",
+        "source_created_time": "2022-12-15T22:35:00.000Z",
+        "source_last_edited_time": "2023-09-13T19:08:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-12-20",
+      "date_exact": "2022-12-20",
+      "title_raw": "GDE Holiday Jam",
+      "venue_raw": "Castello Golightly",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Miss-You",
+        "Fast-As-You",
+        "Soulshine",
+        "Born-To-Run",
+        "Superstition-Single-Version",
+        "Rebel-Yell"
+      ],
+      "song_count": 12,
+      "song_match_count": 6,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "b4c394be-47e3-4daa-8e08-325c6b81b3b3",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "b4c394be-47e3-4daa-8e08-325c6b81b3b3"
+      },
+      "source_reference": {
+        "page_id": "b4c394be-47e3-4daa-8e08-325c6b81b3b3",
+        "source_created_time": "2022-12-13T21:54:00.000Z",
+        "source_last_edited_time": "2023-08-16T04:19:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-12-31",
+      "date_exact": "2022-12-31",
+      "title_raw": "NYE 22",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Use-Me",
+        "Miss-You",
+        "Locked-Out-Of-Heaven",
+        "Feels-Sheriff",
+        "I-Want-You-Back",
+        "Crazy",
+        "Baby-I-Love-You",
+        "Superstition-Single-Version",
+        "Uptown-Funk",
+        "Kiss",
+        "I-Will-Survive",
+        "Purple-Rain",
+        "Fuck-You",
+        "You-Oughta-Know"
+      ],
+      "song_count": 24,
+      "song_match_count": 14,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "4b1bafe4-7163-46d5-9eda-eabbd079f053",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "4b1bafe4-7163-46d5-9eda-eabbd079f053"
+      },
+      "source_reference": {
+        "page_id": "4b1bafe4-7163-46d5-9eda-eabbd079f053",
+        "source_created_time": "2022-10-10T19:53:00.000Z",
+        "source_last_edited_time": "2022-10-15T20:34:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-10-15",
+      "date_exact": "2022-10-15",
+      "title_raw": "LCA: Annadel Estate Winery",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Wicked-Game",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "What-I-Got",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "Under-The-Bridge",
+        "Ramble-On",
+        "Superstition-Single-Version",
+        "Badfish",
+        "Shine",
+        "Californication",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Wicked-Garden",
+        "Nothing-Compares-2-U"
+      ],
+      "song_count": 28,
+      "song_match_count": 28,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "e07c69c5-4c52-4a28-a9cf-cc76e627a30a",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "e07c69c5-4c52-4a28-a9cf-cc76e627a30a"
+      },
+      "source_reference": {
+        "page_id": "e07c69c5-4c52-4a28-a9cf-cc76e627a30a",
+        "source_created_time": "2022-09-05T20:29:00.000Z",
+        "source_last_edited_time": "2022-09-05T20:42:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-09-25T15:30:00.000-07:00",
+      "date_exact": "2022-09-25",
+      "title_raw": "Last Sunday (R&B) - LC Electric - Set up inside",
+      "venue_raw": "Reel and Brand",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Feeling-Alright",
+        "Little-Sister",
+        "Miss-You",
+        "Breakdown",
+        "Wine-Wine-Wine",
+        "Can-t-You-See",
+        "Turn-The-Page",
+        "You-Wreck-Me",
+        "Wicked-Game",
+        "Gimme-Three-Steps",
+        "Valerie",
+        "Mercy",
+        "Exs-And-Ohs",
+        "Angel-From-Montgomery",
+        "Just-A-Girl",
+        "You-Oughta-Know",
+        "Folsom-Prison-Blues",
+        "Soulshine"
+      ],
+      "song_count": 25,
+      "song_match_count": 18,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "ac25109e-1ce6-4977-98ed-e653c5b532b7",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "ac25109e-1ce6-4977-98ed-e653c5b532b7"
+      },
+      "source_reference": {
+        "page_id": "ac25109e-1ce6-4977-98ed-e653c5b532b7",
+        "source_created_time": "2022-09-05T20:23:00.000Z",
+        "source_last_edited_time": "2023-04-10T00:34:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-08-20T12:30:00.000-07:00",
+      "date_exact": "2022-08-20",
+      "title_raw": "LC Acou: Ellen (JR)’s party - 8/20/22",
+      "venue_raw": "Ellen's House",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Wicked-Game",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "What-I-Got",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "White-Wedding",
+        "Love-Shack",
+        "Mercy",
+        "Exs-And-Ohs",
+        "Nothing-Compares-2-U",
+        "You-Oughta-Know",
+        "Purple-Rain",
+        "I-Want-You-To",
+        "Valerie",
+        "Under-The-Bridge",
+        "Ramble-On",
+        "Superstition-Single-Version",
+        "Badfish",
+        "Shine",
+        "Californication",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Play-That-Funky-Music",
+        "Wicked-Garden",
+        "Can-t-You-See",
+        "Little-Sister",
+        "Breakdown",
+        "You-Wreck-Me",
+        "Fast-As-You",
+        "Heard-It-In-A-Love-Song",
+        "Turn-The-Page",
+        "Soulshine"
+      ],
+      "song_count": 47,
+      "song_match_count": 45,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "e76d122c-1e14-4994-9ea3-e00bd2c5c99c",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "e76d122c-1e14-4994-9ea3-e00bd2c5c99c"
+      },
+      "source_reference": {
+        "page_id": "e76d122c-1e14-4994-9ea3-e00bd2c5c99c",
+        "source_created_time": "2022-09-05T20:20:00.000Z",
+        "source_last_edited_time": "2022-09-05T20:23:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": null,
+      "date_exact": null,
+      "title_raw": "LC Acou: JLL - 9/22/22",
+      "venue_raw": "Ellen's House",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Wicked-Game",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "What-I-Got",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "White-Wedding",
+        "Love-Shack",
+        "Mercy",
+        "Exs-And-Ohs",
+        "Nothing-Compares-2-U",
+        "You-Oughta-Know",
+        "Purple-Rain",
+        "I-Want-You-To",
+        "Valerie",
+        "Under-The-Bridge",
+        "Ramble-On",
+        "Superstition-Single-Version",
+        "Badfish",
+        "Shine",
+        "Californication",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Play-That-Funky-Music",
+        "Wicked-Garden",
+        "Can-t-You-See",
+        "Little-Sister",
+        "Breakdown",
+        "You-Wreck-Me",
+        "Fast-As-You",
+        "Heard-It-In-A-Love-Song",
+        "Turn-The-Page",
+        "Soulshine"
+      ],
+      "song_count": 47,
+      "song_match_count": 45,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "a6ee9eaf-088e-4a58-9a30-1db86fcfba49",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "a6ee9eaf-088e-4a58-9a30-1db86fcfba49"
+      },
+      "source_reference": {
+        "page_id": "a6ee9eaf-088e-4a58-9a30-1db86fcfba49",
+        "source_created_time": "2022-08-31T18:44:00.000Z",
+        "source_last_edited_time": "2022-08-31T18:44:00.000Z"
+      },
+      "status": "unsupported",
+      "confidence": "low",
+      "date_raw": "2022-01-01",
+      "date_exact": "2022-01-01",
+      "title_raw": "LC",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [],
+      "song_count": 0,
+      "song_match_count": 0,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Page body is empty."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "da8f45af-060b-46ef-a9e8-90fbc77b53b7",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "da8f45af-060b-46ef-a9e8-90fbc77b53b7"
+      },
+      "source_reference": {
+        "page_id": "da8f45af-060b-46ef-a9e8-90fbc77b53b7",
+        "source_created_time": "2022-08-30T05:03:00.000Z",
+        "source_last_edited_time": "2022-10-12T02:17:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-10-01",
+      "date_exact": "2022-10-01",
+      "title_raw": "FF: Crooked Goat & Campo Fina",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Locked-Out-Of-Heaven",
+        "Valerie",
+        "Miss-You",
+        "Fuck-You",
+        "Some-Kind-Of-Wonderful",
+        "You-Oughta-Know",
+        "Superstition-Single-Version",
+        "Crazy",
+        "Juice-Dance",
+        "Feels-Sheriff",
+        "I-Want-You-Back",
+        "Kiss",
+        "Uptown-Funk",
+        "I-Will-Survive",
+        "You-Shook-Me-All-Night-Long"
+      ],
+      "song_count": 27,
+      "song_match_count": 15,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "f5ba4bef-1cd7-4342-ba31-21328730d4dc",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "f5ba4bef-1cd7-4342-ba31-21328730d4dc"
+      },
+      "source_reference": {
+        "page_id": "f5ba4bef-1cd7-4342-ba31-21328730d4dc",
+        "source_created_time": "2022-08-19T05:52:00.000Z",
+        "source_last_edited_time": "2022-08-22T17:24:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-08-28",
+      "date_exact": "2022-08-28",
+      "title_raw": "Last Sunday (R&B) - LC Electric 7/28",
+      "venue_raw": "Reel and Brand",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Can-t-You-See",
+        "Gimme-Three-Steps",
+        "You-Wreck-Me",
+        "Fast-As-You",
+        "Little-Sister",
+        "Feeling-Alright",
+        "Soulshine",
+        "Miss-You",
+        "Folsom-Prison-Blues",
+        "Rebel-Yell",
+        "Hard-To-Handle",
+        "Santeria",
+        "Valerie",
+        "Mercy",
+        "Exs-And-Ohs",
+        "Angel-From-Montgomery",
+        "Just-A-Girl",
+        "You-Oughta-Know"
+      ],
+      "song_count": 24,
+      "song_match_count": 18,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "283640bb-c477-4377-9efe-c67a601f21ea",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "283640bb-c477-4377-9efe-c67a601f21ea"
+      },
+      "source_reference": {
+        "page_id": "283640bb-c477-4377-9efe-c67a601f21ea",
+        "source_created_time": "2022-08-18T18:55:00.000Z",
+        "source_last_edited_time": "2023-01-01T01:02:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-09-22T17:30:00.000-07:00",
+      "date_exact": "2022-09-22",
+      "title_raw": "NYE 22 print",
+      "venue_raw": "Jack London Saloon",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Use-Me",
+        "Miss-You",
+        "Juice",
+        "Locked-Out-Of-Heaven",
+        "I-Want-You-Back",
+        "Crazy",
+        "Free-Fallin",
+        "Fuck-You",
+        "You-Oughta-Know",
+        "Rebel-Yell",
+        "Baby-I-Love-You",
+        "Fast-As-You",
+        "Superstition-Single-Version",
+        "Uptown-Funk",
+        "Kiss",
+        "I-Will-Survive",
+        "Purple-Rain"
+      ],
+      "song_count": 28,
+      "song_match_count": 17,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "9a74f7c5-9016-4e68-903c-60cbb9afa617",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "9a74f7c5-9016-4e68-903c-60cbb9afa617"
+      },
+      "source_reference": {
+        "page_id": "9a74f7c5-9016-4e68-903c-60cbb9afa617",
+        "source_created_time": "2022-08-17T22:12:00.000Z",
+        "source_last_edited_time": "2022-08-27T16:38:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-08-27",
+      "date_exact": "2022-08-27",
+      "title_raw": "FF: Red & White Ball 8/27",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Locked-Out-Of-Heaven",
+        "Fuck-You",
+        "Uptown-Funk",
+        "Miss-You",
+        "Crazy",
+        "Superstition-Single-Version",
+        "I-Wish",
+        "Juice-Dance",
+        "I-Want-You-Back",
+        "Kiss",
+        "I-Will-Survive",
+        "Let-s-Go-Crazy",
+        "You-Shook-Me-All-Night-Long"
+      ],
+      "song_count": 23,
+      "song_match_count": 13,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "31c5bb73-effb-4fc6-828f-994ab4677da7",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "31c5bb73-effb-4fc6-828f-994ab4677da7"
+      },
+      "source_reference": {
+        "page_id": "31c5bb73-effb-4fc6-828f-994ab4677da7",
+        "source_created_time": "2022-07-18T23:38:00.000Z",
+        "source_last_edited_time": "2022-07-19T02:18:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-07-08",
+      "date_exact": "2022-07-08",
+      "title_raw": "Acoustic 90s-ish List (for Ted)",
+      "venue_raw": "Kenwood Residence (Neat Chateau St Jean)",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "With-Or-Without-You",
+        "Purple-Rain",
+        "Shine",
+        "Higher",
+        "Higher-Ground",
+        "Wicked-Game",
+        "Under-The-Bridge",
+        "Californication",
+        "Ramble-On",
+        "Badfish",
+        "Santeria",
+        "Hard-To-Handle",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Wicked-Garden",
+        "Superstition-Single-Version",
+        "Inside-Out",
+        "Drive",
+        "Wagon-Wheel",
+        "Can-t-Stop"
+      ],
+      "song_count": 35,
+      "song_match_count": 32,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "e4b46d6b-00bd-4472-8947-6803c92ae4b7",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "e4b46d6b-00bd-4472-8947-6803c92ae4b7"
+      },
+      "source_reference": {
+        "page_id": "e4b46d6b-00bd-4472-8947-6803c92ae4b7",
+        "source_created_time": "2022-06-13T02:21:00.000Z",
+        "source_last_edited_time": "2022-08-17T02:40:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-07-09",
+      "date_exact": "2022-07-09",
+      "title_raw": "FF: Nicholson Pigs n Pinot 7/9",
+      "venue_raw": "Nicholson Ranch",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Some-Kind-Of-Wonderful",
+        "Valerie",
+        "Baby-I-Love-You",
+        "Fuck-You",
+        "Uptown-Funk",
+        "You-Oughta-Know",
+        "Let-s-Go-Crazy",
+        "Use-Me",
+        "Juice-Dance",
+        "Feels-Sheriff",
+        "Locked-Out-Of-Heaven",
+        "Crazy",
+        "Superstition-Single-Version",
+        "I-Wish",
+        "I-Want-You-Back",
+        "Kiss",
+        "I-Will-Survive",
+        "You-Shook-Me-All-Night-Long",
+        "Purple-Rain"
+      ],
+      "song_count": 26,
+      "song_match_count": 19,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "d796e81f-e56f-4457-91a4-8afd60f59e9c",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "d796e81f-e56f-4457-91a4-8afd60f59e9c"
+      },
+      "source_reference": {
+        "page_id": "d796e81f-e56f-4457-91a4-8afd60f59e9c",
+        "source_created_time": "2022-06-13T02:13:00.000Z",
+        "source_last_edited_time": "2022-06-14T18:25:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-06-16",
+      "date_exact": "2022-06-16",
+      "title_raw": "JLL - LC Acoustic 6/16",
+      "venue_raw": "Jack London Saloon",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "With-Or-Without-You",
+        "Miss-You",
+        "Under-The-Bridge",
+        "Ramble-On",
+        "Badfish",
+        "Santeria",
+        "Hard-To-Handle",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Wicked-Garden",
+        "Superstition-Single-Version",
+        "Valerie",
+        "Mercy",
+        "Exs-And-Ohs",
+        "Angel-From-Montgomery",
+        "I-Want-You-To",
+        "Criminal",
+        "Just-A-Girl",
+        "Inside-Out",
+        "Nothing-Compares-2-U",
+        "You-Oughta-Know"
+      ],
+      "song_count": 35,
+      "song_match_count": 34,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "749fde84-3489-400e-9c6f-c804cca3e3fa",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "749fde84-3489-400e-9c6f-c804cca3e3fa"
+      },
+      "source_reference": {
+        "page_id": "749fde84-3489-400e-9c6f-c804cca3e3fa",
+        "source_created_time": "2022-06-06T17:51:00.000Z",
+        "source_last_edited_time": "2022-06-19T03:32:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-06-26",
+      "date_exact": "2022-06-26",
+      "title_raw": "Last Sunday (R&B) - LC Electric 6/26",
+      "venue_raw": "Reel and Brand",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Jump-Jive-Wail",
+        "Can-t-You-See",
+        "Gimme-Three-Steps",
+        "You-Wreck-Me",
+        "Fast-As-You",
+        "Little-Sister",
+        "Feeling-Alright",
+        "Soulshine",
+        "Miss-You",
+        "Folsom-Prison-Blues",
+        "Rebel-Yell",
+        "Badfish",
+        "Santeria",
+        "Born-To-Run",
+        "The-Middle",
+        "Hard-To-Handle",
+        "Rebel-Yell",
+        "Valerie",
+        "Mercy",
+        "Exs-And-Ohs",
+        "Angel-From-Montgomery",
+        "I-Want-You-To",
+        "Just-A-Girl",
+        "Inside-Out",
+        "You-Oughta-Know"
+      ],
+      "song_count": 30,
+      "song_match_count": 25,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "42f1f331-a66f-4ca2-a738-e390d7d84c5d",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
+      },
+      "source_reference": {
+        "page_id": "42f1f331-a66f-4ca2-a738-e390d7d84c5d",
+        "source_created_time": "2022-05-28T19:51:00.000Z",
+        "source_last_edited_time": "2022-07-08T23:07:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-07-08",
+      "date_exact": "2022-07-08",
+      "title_raw": "Kenwood Party - LC Acoustic 7/8",
+      "venue_raw": "Kenwood Residence (Neat Chateau St Jean)",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "With-Or-Without-You",
+        "Miss-You",
+        "Ramble-On",
+        "Badfish",
+        "Santeria",
+        "Hard-To-Handle",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Wicked-Garden",
+        "Superstition-Single-Version",
+        "Inside-Out",
+        "Valerie",
+        "Mercy",
+        "Exs-And-Ohs",
+        "Angel-From-Montgomery",
+        "I-Want-You-To",
+        "Criminal",
+        "Just-A-Girl",
+        "Nothing-Compares-2-U",
+        "You-Oughta-Know"
+      ],
+      "song_count": 39,
+      "song_match_count": 33,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "e9041404-722b-44d6-8f91-84fce0688a11",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "e9041404-722b-44d6-8f91-84fce0688a11"
+      },
+      "source_reference": {
+        "page_id": "e9041404-722b-44d6-8f91-84fce0688a11",
+        "source_created_time": "2022-05-07T00:51:00.000Z",
+        "source_last_edited_time": "2022-06-20T19:28:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-10-09",
+      "date_exact": "2022-10-09",
+      "title_raw": "LC Elec: Glen Ellen Fair",
+      "venue_raw": "Downtown Glen Ellen",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Jump",
+        "Born-To-Run",
+        "Where-the-Streets-Have-No-Names",
+        "The-Middle",
+        "Say-It-Ain-t-So",
+        "Miss-You",
+        "Rebel-Yell",
+        "Are-You-Gonna-Go-My-Way",
+        "Fast-As-You",
+        "Gimme-Three-Steps",
+        "Can-t-You-See"
+      ],
+      "song_count": 13,
+      "song_match_count": 11,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "e472acb0-56ed-498c-9ed6-b95c557f9014",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "e472acb0-56ed-498c-9ed6-b95c557f9014"
+      },
+      "source_reference": {
+        "page_id": "e472acb0-56ed-498c-9ed6-b95c557f9014",
+        "source_created_time": "2022-04-06T21:55:00.000Z",
+        "source_last_edited_time": "2022-04-06T22:00:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-10-02",
+      "date_exact": "2021-10-02",
+      "title_raw": "FF: Sarah’s 50th (candidate)",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Valerie",
+        "Baby-I-Love-You",
+        "Fuck-You",
+        "Let-s-Go-Crazy",
+        "Juice-Dance",
+        "Feels-Sheriff",
+        "Crazy",
+        "I-Will-Survive",
+        "Locked-Out-Of-Heaven",
+        "Superstition-Single-Version",
+        "I-Wish",
+        "Uptown-Funk",
+        "Kiss"
+      ],
+      "song_count": 16,
+      "song_match_count": 13,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "7e0be840-413e-468e-90f0-b8a4eabff48a",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "7e0be840-413e-468e-90f0-b8a4eabff48a"
+      },
+      "source_reference": {
+        "page_id": "7e0be840-413e-468e-90f0-b8a4eabff48a",
+        "source_created_time": "2022-04-06T21:54:00.000Z",
+        "source_last_edited_time": "2022-04-06T21:55:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-10-02",
+      "date_exact": "2021-10-02",
+      "title_raw": "Sarah 50th Bday",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Are-You-Gonna-Be-My-Girl",
+        "Tush",
+        "Gimme-Three-Steps",
+        "Gimme-All-Your-Lovin",
+        "Always-On-The-Run",
+        "Jump",
+        "Jump-Jive-Wail",
+        "Short-Skirt",
+        "Santeria",
+        "Word-Up",
+        "Folsom-Prison-Blues",
+        "You-Wreck-Me",
+        "Miss-You",
+        "Fast-As-You",
+        "Breakdown",
+        "Mary-Jane-s-Last-Dance",
+        "Guitars-and-Cadillacs",
+        "Wine-Wine-Wine",
+        "Dancing-With-Myself",
+        "Are-You-Gonna-Go-My-Way",
+        "What-I-Got",
+        "Just-What-I-Needed",
+        "Little-Sister",
+        "Rebel-Yell",
+        "White-Wedding",
+        "Where-the-Streets-Have-No-Names",
+        "Born-To-Run",
+        "Badfish",
+        "Kryptonite",
+        "You-Shook-Me-All-Night-Long",
+        "Lonely-Is-the-Night"
+      ],
+      "song_count": 38,
+      "song_match_count": 31,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "8ce8bc35-3718-4133-84e5-53f5eb08339b",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "8ce8bc35-3718-4133-84e5-53f5eb08339b"
+      },
+      "source_reference": {
+        "page_id": "8ce8bc35-3718-4133-84e5-53f5eb08339b",
+        "source_created_time": "2022-04-04T18:29:00.000Z",
+        "source_last_edited_time": "2022-06-20T19:15:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2022-08-04",
+      "date_exact": "2022-08-04",
+      "title_raw": "SleaZZy Tom",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Breakdown",
+        "Mary-Jane-s-Last-Dance",
+        "You-Wreck-Me",
+        "Sharp-Dressed-Man",
+        "Cheap-Sunglasses",
+        "Tush",
+        "La-Grange",
+        "I-m-Bad-I-m-Nationwide",
+        "Gimme-All-Your-Lovin"
+      ],
+      "song_count": 19,
+      "song_match_count": 9,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "202e6f13-b36b-4eea-a87e-8e30265dbef6",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "202e6f13-b36b-4eea-a87e-8e30265dbef6"
+      },
+      "source_reference": {
+        "page_id": "202e6f13-b36b-4eea-a87e-8e30265dbef6",
+        "source_created_time": "2022-03-29T02:21:00.000Z",
+        "source_last_edited_time": "2022-05-04T20:49:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2022-05-04",
+      "date_exact": "2022-05-04",
+      "title_raw": "DG/ET -  LC Acoustic",
+      "venue_raw": "Murphy's",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Thank-You",
+        "Everlong",
+        "Interstate-Love-Song",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Kryptonite",
+        "Plush",
+        "Times-Like-These",
+        "Under-The-Bridge",
+        "Wicked-Game",
+        "Rebel-Yell",
+        "Purple-Rain",
+        "Valerie",
+        "Nothing-Compares-2-U",
+        "Exs-And-Ohs",
+        "Mercy",
+        "Angel-From-Montgomery",
+        "Kiss",
+        "What-I-Got",
+        "I-Will-Survive",
+        "Santeria",
+        "I-Want-You-To"
+      ],
+      "song_count": 23,
+      "song_match_count": 22,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "435d0a5d-7572-4520-a8f7-d7d4873f4d8c",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "435d0a5d-7572-4520-a8f7-d7d4873f4d8c"
+      },
+      "source_reference": {
+        "page_id": "435d0a5d-7572-4520-a8f7-d7d4873f4d8c",
+        "source_created_time": "2021-12-09T02:56:00.000Z",
+        "source_last_edited_time": "2021-12-29T22:18:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2021-12-31",
+      "date_exact": "2021-12-31",
+      "title_raw": "NYE 2021 - SZ Ideas",
+      "venue_raw": "Castello Golightly",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Miss-You",
+        "Use-Me",
+        "Superstition-Single-Version",
+        "I-Wish",
+        "Kiss",
+        "Hard-To-Handle",
+        "Mary-Had-A-Little-Lamb",
+        "Purple-Rain",
+        "Mary-Jane-s-Last-Dance",
+        "Tush",
+        "Gimme-Three-Steps",
+        "Born-To-Run",
+        "Santeria",
+        "What-I-Got",
+        "Badfish"
+      ],
+      "song_count": 17,
+      "song_match_count": 15,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "notion",
+      "source_id": "634925dc-1c91-4087-bea1-7e86dc41a179",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "634925dc-1c91-4087-bea1-7e86dc41a179"
+      },
+      "source_reference": {
+        "page_id": "634925dc-1c91-4087-bea1-7e86dc41a179",
+        "source_created_time": "2021-11-04T17:37:00.000Z",
+        "source_last_edited_time": "2021-11-20T03:05:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-11-19T19:00:00.000-08:00",
+      "date_exact": "2021-11-19",
+      "title_raw": "Reel & Brand - LC Acoustic",
+      "venue_raw": "Reel and Brand",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Shine",
+        "Can-t-You-See",
+        "Interstate-Love-Song",
+        "Wicked-Game",
+        "Under-The-Bridge",
+        "Breakdown",
+        "Ramble-On",
+        "Plush",
+        "Heard-It-In-A-Love-Song",
+        "Badfish",
+        "Little-Sister",
+        "Californication",
+        "Nothing-Compares-2-U",
+        "Rebel-Yell",
+        "Gimme-Three-Steps",
+        "Miss-You",
+        "Superstition-Single-Version",
+        "Hard-To-Handle",
+        "Everlong",
+        "Fast-As-You",
+        "Born-To-Run",
+        "You-Wreck-Me",
+        "1979",
+        "I-Want-You-To",
+        "Guitars-and-Cadillacs",
+        "The-Middle",
+        "Santeria",
+        "Feeling-Alright"
+      ],
+      "song_count": 31,
+      "song_match_count": 28,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "54662544-15de-49d0-b2ed-2e7cc6555dc1",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "54662544-15de-49d0-b2ed-2e7cc6555dc1"
+      },
+      "source_reference": {
+        "page_id": "54662544-15de-49d0-b2ed-2e7cc6555dc1",
+        "source_created_time": "2021-08-28T21:28:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:52:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-10-02",
+      "date_exact": "2021-10-02",
+      "title_raw": "Oktoberfest - FF",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Some-Kind-Of-Wonderful",
+        "You-Oughta-Know",
+        "Valerie",
+        "Baby-I-Love-You",
+        "Fuck-You",
+        "Billie-Jean",
+        "Let-s-Go-Crazy",
+        "Uptown-Funk",
+        "Juice-Dance",
+        "Feels-Sheriff",
+        "Crazy",
+        "Locked-Out-Of-Heaven",
+        "Use-Me",
+        "Superstition-Single-Version",
+        "I-Wish",
+        "I-Want-You-Back",
+        "Kiss",
+        "I-Will-Survive",
+        "You-Shook-Me-All-Night-Long",
+        "Purple-Rain"
+      ],
+      "song_count": 26,
+      "song_match_count": 20,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e"
+      },
+      "source_reference": {
+        "page_id": "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e",
+        "source_created_time": "2021-07-19T18:07:00.000Z",
+        "source_last_edited_time": "2021-08-04T03:23:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2021-08-05",
+      "date_exact": "2021-08-05",
+      "title_raw": "Berry Bros Guitar Notes",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Gimme-Three-Steps",
+        "Fast-As-You",
+        "Miss-You",
+        "Little-Sister",
+        "Jump-Jive-Wail",
+        "You-Wreck-Me",
+        "Guitars-and-Cadillacs"
+      ],
+      "song_count": 11,
+      "song_match_count": 7,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "d1e998f9-e5bb-4588-a2ff-6d4902f8fac8",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "d1e998f9-e5bb-4588-a2ff-6d4902f8fac8"
+      },
+      "source_reference": {
+        "page_id": "d1e998f9-e5bb-4588-a2ff-6d4902f8fac8",
+        "source_created_time": "2021-07-18T23:18:00.000Z",
+        "source_last_edited_time": "2021-09-18T22:15:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2021-08-05",
+      "date_exact": "2021-08-05",
+      "title_raw": "City Party - Berry Brothers",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Gimme-Three-Steps",
+        "Fast-As-You",
+        "Miss-You",
+        "Little-Sister",
+        "Jump-Jive-Wail",
+        "You-Wreck-Me",
+        "Guitars-and-Cadillacs",
+        "Feeling-Alright"
+      ],
+      "song_count": 12,
+      "song_match_count": 8,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "notion",
+      "source_id": "3675b233-e08e-45c2-a3dd-2d3936c72ad6",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "3675b233-e08e-45c2-a3dd-2d3936c72ad6"
+      },
+      "source_reference": {
+        "page_id": "3675b233-e08e-45c2-a3dd-2d3936c72ad6",
+        "source_created_time": "2021-07-04T19:43:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:51:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2021-08-05",
+      "date_exact": "2021-08-05",
+      "title_raw": "City Party - FF",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Let-s-Go-Crazy",
+        "Uptown-Funk",
+        "Some-Kind-Of-Wonderful",
+        "Baby-I-Love-You",
+        "Valerie",
+        "Juice-Dance",
+        "Feels-Sheriff",
+        "Crazy",
+        "Use-Me",
+        "Superstition-Single-Version",
+        "I-Wish",
+        "I-Want-You-Back",
+        "Kiss",
+        "I-Will-Survive",
+        "Fuck-You",
+        "Billie-Jean",
+        "You-Shook-Me-All-Night-Long"
+      ],
+      "song_count": 20,
+      "song_match_count": 17,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "notion",
+      "source_id": "28f25265-6d1a-45d5-ac9d-ae02c07534a7",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "28f25265-6d1a-45d5-ac9d-ae02c07534a7"
+      },
+      "source_reference": {
+        "page_id": "28f25265-6d1a-45d5-ac9d-ae02c07534a7",
+        "source_created_time": "2021-07-04T02:14:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:51:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-09-23",
+      "date_exact": "2021-09-23",
+      "title_raw": "Jack London - LC Acoustic",
+      "venue_raw": "Jack London Saloon",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Wicked-Game",
+        "Wicked-Garden",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "White-Wedding",
+        "Under-The-Bridge",
+        "Ramble-On",
+        "Superstition-Single-Version",
+        "Badfish",
+        "Shine",
+        "Nothing-Compares-2-U",
+        "Inside-Out",
+        "Find-Yourself",
+        "Californication",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Dancing-With-Myself"
+      ],
+      "song_count": 31,
+      "song_match_count": 31,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "a6cf6ba4-5273-40da-a5cf-1375937bed5f",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "a6cf6ba4-5273-40da-a5cf-1375937bed5f"
+      },
+      "source_reference": {
+        "page_id": "a6cf6ba4-5273-40da-a5cf-1375937bed5f",
+        "source_created_time": "2021-07-04T00:00:00.000Z",
+        "source_last_edited_time": "2021-08-06T19:33:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-10-02",
+      "date_exact": "2021-10-02",
+      "title_raw": "Oktoberfest 2021 - LC Electric",
+      "venue_raw": "Sonoma Plaza",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Are-You-Gonna-Be-My-Girl",
+        "Tush",
+        "Gimme-Three-Steps",
+        "Gimme-All-Your-Lovin",
+        "Always-On-The-Run",
+        "Jump",
+        "Jump-Jive-Wail",
+        "Short-Skirt",
+        "Santeria",
+        "Word-Up",
+        "Folsom-Prison-Blues",
+        "You-Wreck-Me",
+        "Miss-You",
+        "Fast-As-You",
+        "Breakdown",
+        "Mary-Jane-s-Last-Dance",
+        "Guitars-and-Cadillacs",
+        "Wine-Wine-Wine",
+        "Dancing-With-Myself",
+        "Are-You-Gonna-Go-My-Way",
+        "What-I-Got",
+        "Just-What-I-Needed",
+        "Little-Sister",
+        "Rebel-Yell",
+        "White-Wedding",
+        "Where-the-Streets-Have-No-Names",
+        "Born-To-Run",
+        "Badfish",
+        "Kryptonite",
+        "You-Shook-Me-All-Night-Long",
+        "Lonely-Is-the-Night"
+      ],
+      "song_count": 38,
+      "song_match_count": 31,
+      "ordering_ambiguous": false,
+      "ambiguities": [
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "4a943883-cd15-490f-8aaf-f6f72e9d654b",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "4a943883-cd15-490f-8aaf-f6f72e9d654b"
+      },
+      "source_reference": {
+        "page_id": "4a943883-cd15-490f-8aaf-f6f72e9d654b",
+        "source_created_time": "2021-07-02T05:45:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:53:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-07-10",
+      "date_exact": "2021-07-10",
+      "title_raw": "MattMere Wedding - FF",
+      "venue_raw": "Castello Golightly",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Baby-I-Love-You",
+        "Some-Kind-Of-Wonderful",
+        "Valerie",
+        "Crazy",
+        "Fuck-You",
+        "Let-s-Get-It-On",
+        "Play-That-Funky-Music",
+        "Miss-You",
+        "Where-the-Streets-Have-No-Names",
+        "Love-Shack",
+        "Jump",
+        "Rebel-Yell",
+        "Dancing-With-Myself",
+        "White-Wedding",
+        "Feels-Sheriff",
+        "Juice-Dance",
+        "I-Wish",
+        "Use-Me",
+        "Superstition-Single-Version",
+        "I-Will-Survive",
+        "I-Want-You-Back",
+        "Kiss",
+        "Locked-Out-Of-Heaven",
+        "Billie-Jean",
+        "Uptown-Funk",
+        "Purple-Rain"
+      ],
+      "song_count": 27,
+      "song_match_count": 26,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "9c0d19df-67b5-44bb-830b-c8d3088e9899",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "9c0d19df-67b5-44bb-830b-c8d3088e9899"
+      },
+      "source_reference": {
+        "page_id": "9c0d19df-67b5-44bb-830b-c8d3088e9899",
+        "source_created_time": "2021-07-02T05:45:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:55:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-06-19T19:00:00.000-07:00",
+      "date_exact": "2021-06-19",
+      "title_raw": "Murphy's - LC Acoustic",
+      "venue_raw": "Murphy's",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Black",
+        "Elderly-Woman",
+        "Cumbersome",
+        "Thank-You",
+        "Wicked-Game",
+        "Wicked-Garden",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "What-I-Got",
+        "Everlong",
+        "Times-Like-These",
+        "Kiss",
+        "Rebel-Yell",
+        "Folsom-Prison-Blues",
+        "White-Wedding",
+        "Under-The-Bridge",
+        "Ramble-On",
+        "Superstition-Single-Version",
+        "Badfish",
+        "Shine",
+        "Nothing-Compares-2-U",
+        "Inside-Out",
+        "Find-Yourself",
+        "Californication",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Born-To-Run",
+        "The-Middle",
+        "1979",
+        "Play-That-Funky-Music",
+        "Dancing-With-Myself",
+        "One",
+        "Where-the-Streets-Have-No-Names",
+        "Turn-The-Page",
+        "Can-t-You-See",
+        "Guitars-and-Cadillacs",
+        "Little-Sister",
+        "Breakdown",
+        "You-Wreck-Me"
+      ],
+      "song_count": 44,
+      "song_match_count": 41,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order.",
+        "Some labels are title-like but do not match a Lead Sheets title or carry a link."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "07919a2a-28f0-4c25-877a-7aaa7e3b83eb",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "07919a2a-28f0-4c25-877a-7aaa7e3b83eb"
+      },
+      "source_reference": {
+        "page_id": "07919a2a-28f0-4c25-877a-7aaa7e3b83eb",
+        "source_created_time": "2021-07-02T05:45:00.000Z",
+        "source_last_edited_time": "2021-07-02T05:45:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-04-03",
+      "date_exact": "2021-04-03",
+      "title_raw": "Taylor's Birthday",
+      "venue_raw": "Castello Golightly",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Kryptonite",
+        "Plush",
+        "Elderly-Woman",
+        "Interstate-Love-Song",
+        "Ramble-On",
+        "The-Middle",
+        "1979",
+        "Inside-Out",
+        "Everlong",
+        "Cumbersome",
+        "Times-Like-These",
+        "Wicked-Garden",
+        "Nothing-Compares-2-U",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Black",
+        "Under-The-Bridge",
+        "Thank-You",
+        "Black-Hole-Sun",
+        "Shine",
+        "Californication",
+        "Find-Yourself",
+        "Born-To-Run",
+        "Folsom-Prison-Blues",
+        "Kiss",
+        "Rebel-Yell",
+        "Badfish",
+        "What-I-Got",
+        "Superstition-Single-Version",
+        "Patience",
+        "Wicked-Game"
+      ],
+      "song_count": 32,
+      "song_match_count": 32,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "0d5c361e-24e3-4ad9-af08-c4639f54c7d8",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "0d5c361e-24e3-4ad9-af08-c4639f54c7d8"
+      },
+      "source_reference": {
+        "page_id": "0d5c361e-24e3-4ad9-af08-c4639f54c7d8",
+        "source_created_time": "2021-07-02T05:45:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:54:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-04-10",
+      "date_exact": "2021-04-10",
+      "title_raw": "Reel and Brand - LC Acoustic",
+      "venue_raw": "Reel and Brand",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Cumbersome",
+        "Ramble-On",
+        "Everlong",
+        "Black",
+        "Times-Like-These",
+        "Thank-You",
+        "Californication",
+        "Nothing-Compares-2-U",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Shine",
+        "Born-To-Run",
+        "Find-Yourself",
+        "Wicked-Garden",
+        "1979",
+        "Elderly-Woman",
+        "Badfish",
+        "Kryptonite",
+        "Interstate-Love-Song",
+        "Plush",
+        "Under-The-Bridge",
+        "Wicked-Game",
+        "Inside-Out",
+        "What-I-Got",
+        "Folsom-Prison-Blues",
+        "Where-the-Streets-Have-No-Names",
+        "Rebel-Yell",
+        "The-Middle",
+        "Superstition-Single-Version",
+        "Kiss"
+      ],
+      "song_count": 31,
+      "song_match_count": 31,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "203dc7bc-0118-4c36-91a9-054982d8cb04",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "203dc7bc-0118-4c36-91a9-054982d8cb04"
+      },
+      "source_reference": {
+        "page_id": "203dc7bc-0118-4c36-91a9-054982d8cb04",
+        "source_created_time": "2021-07-02T05:45:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:50:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2021-08-07",
+      "date_exact": "2021-08-07",
+      "title_raw": "Banned",
+      "venue_raw": "Wölffer Estate",
+      "band_explicit": null,
+      "band_proposal": null,
+      "song_ids": [
+        "Miss-You",
+        "The-Middle",
+        "Roadhouse-Blues",
+        "Wagon-Wheel",
+        "Folsom-Prison-Blues",
+        "Hard-To-Handle",
+        "Little-Sister",
+        "Heard-It-In-A-Love-Song",
+        "Life-During-Wartime",
+        "Just-What-I-Needed",
+        "Gimme-Three-Steps",
+        "Rebel-Yell",
+        "Mustang-Sally",
+        "Peaceful-Easy-Feelin",
+        "Can-t-You-See",
+        "Santeria",
+        "Wicked-Game",
+        "Tush",
+        "Jolene",
+        "Valerie"
+      ],
+      "song_count": 28,
+      "song_match_count": 20,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "notion",
+      "source_id": "2f2e676d-93f8-4a8b-b50a-97818cb391db",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "2f2e676d-93f8-4a8b-b50a-97818cb391db"
+      },
+      "source_reference": {
+        "page_id": "2f2e676d-93f8-4a8b-b50a-97818cb391db",
+        "source_created_time": "2021-07-02T05:45:00.000Z",
+        "source_last_edited_time": "2022-06-13T02:27:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-02-20",
+      "date_exact": "2021-02-20",
+      "title_raw": "Murphy's - LC",
+      "venue_raw": null,
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Kryptonite",
+        "Plush",
+        "Elderly-Woman",
+        "Interstate-Love-Song",
+        "Ramble-On",
+        "The-Middle",
+        "1979",
+        "Inside-Out",
+        "Everlong",
+        "Cumbersome",
+        "Times-Like-These",
+        "Wicked-Garden",
+        "Nothing-Compares-2-U",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Black",
+        "Under-The-Bridge",
+        "Thank-You",
+        "Black-Hole-Sun",
+        "Shine",
+        "Californication",
+        "Find-Yourself",
+        "Born-To-Run",
+        "Folsom-Prison-Blues",
+        "Kiss",
+        "Rebel-Yell",
+        "Badfish",
+        "What-I-Got",
+        "Superstition-Single-Version",
+        "Patience",
+        "Wicked-Game"
+      ],
+      "song_count": 32,
+      "song_match_count": 32,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "notion",
+      "source_id": "4d71271e-456b-4577-b5ae-2b975f0d2388",
+      "source_record_ref": {
+        "input_file": "candidates/notion-set-lists-matched.json",
+        "collection_key": "gigs",
+        "object_id": "4d71271e-456b-4577-b5ae-2b975f0d2388"
+      },
+      "source_reference": {
+        "page_id": "4d71271e-456b-4577-b5ae-2b975f0d2388",
+        "source_created_time": "2021-07-02T05:45:00.000Z",
+        "source_last_edited_time": "2021-11-13T21:55:00.000Z"
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2021-05-15",
+      "date_exact": "2021-05-15",
+      "title_raw": "Murphy's - LC Acoustic",
+      "venue_raw": "Murphy's",
+      "band_explicit": null,
+      "band_proposal": {
+        "value": "Loosely Covered",
+        "confidence": "medium",
+        "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+      },
+      "song_ids": [
+        "Black",
+        "Cumbersome",
+        "Elderly-Woman",
+        "Everlong",
+        "Folsom-Prison-Blues",
+        "Kryptonite",
+        "Plush",
+        "Rebel-Yell",
+        "Times-Like-These",
+        "Under-The-Bridge",
+        "Wicked-Game",
+        "Thank-You",
+        "Black-Hole-Sun",
+        "Interstate-Love-Song",
+        "Santeria",
+        "Amber",
+        "Nothing-Compares-2-U",
+        "Angel-From-Montgomery",
+        "Creep",
+        "Doin-Time",
+        "Exs-And-Ohs",
+        "Kiss",
+        "Mercy",
+        "Valerie",
+        "What-I-Got",
+        "You-Oughta-Know",
+        "I-Will-Survive",
+        "All-About-That-Bass",
+        "1979",
+        "Born-To-Run",
+        "Love-Shack",
+        "I-Want-You-To",
+        "Doin-Time"
+      ],
+      "song_count": 33,
+      "song_match_count": 33,
+      "ordering_ambiguous": true,
+      "ambiguities": [
+        "Source contains Notion columns; preorder follows API tree and may not equal intended visual/performance order."
+      ]
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "loosely-covered-2015-09",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "loosely-covered-2015-09"
+      },
+      "source_reference": {
+        "candidate_id": "loosely-covered-2015-09",
+        "sources": [
+          {
+            "path": "Band/Loosely Covered/LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+            "sha256": "4ad8393d751bff2d07fef9775f0f9550b27229d35394cccf7da2e3348ab7267d",
+            "size_bytes": 303059,
+            "format": "pages",
+            "modified_at": "2015-09-19T16:26:00",
+            "band": "Loosely Covered",
+            "filename": "LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2015-09",
+      "date_exact": null,
+      "title_raw": "Acoustic at Hopmonk",
+      "venue_raw": "Acoustic at Hopmonk",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Cumbersome",
+        "Ramble-On",
+        "Interstate-Love-Song",
+        "Short-Skirt",
+        "Kryptonite",
+        "Times-Like-These",
+        "Seven-Nation-Army",
+        "Santeria",
+        "Black",
+        "Everlong",
+        "Drive",
+        "Wagon-Wheel",
+        "Radioactive",
+        "Say-It-Ain-t-So",
+        "Black-Hole-Sun",
+        "Shine",
+        "Californication",
+        "Sullivan-Street"
+      ],
+      "song_count": 18,
+      "song_match_count": 18,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "loosely-covered-2016-05",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "loosely-covered-2016-05"
+      },
+      "source_reference": {
+        "candidate_id": "loosely-covered-2016-05",
+        "sources": [
+          {
+            "path": "Band/Loosely Covered/LC Set List - 2016-05 Prestwood.pages",
+            "sha256": "0a6d4eceaaec3bc21db45af54a0b49284f3b22df49f186a81a41afa8e2406813",
+            "size_bytes": 265841,
+            "format": "pages",
+            "modified_at": "2017-03-28T18:21:16",
+            "band": "Loosely Covered",
+            "filename": "LC Set List - 2016-05 Prestwood.pages",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2016-05",
+      "date_exact": null,
+      "title_raw": "Prestwood",
+      "venue_raw": "Prestwood",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Valerie",
+        "Hard-To-Handle",
+        "Santeria",
+        "Short-Skirt",
+        "The-Distance",
+        "Miss-You",
+        "Mercy",
+        "Locked-Out-Of-Heaven",
+        "Are-You-Gonna-Go-My-Way",
+        "Rebel-Yell",
+        "Bad-Romance",
+        "I-Want-You-Back"
+      ],
+      "song_count": 12,
+      "song_match_count": 12,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "loosely-covered-2017-10",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "loosely-covered-2017-10"
+      },
+      "source_reference": {
+        "candidate_id": "loosely-covered-2017-10",
+        "sources": [
+          {
+            "path": "Band/Loosely Covered/LC Set List - 2017-10 SVSA.pages",
+            "sha256": "8b490115b54fac22175a61e9129c8f995c5f41ccd06d213c3dac36a111f6bf39",
+            "size_bytes": 215476,
+            "format": "pages",
+            "modified_at": "2017-10-07T13:57:02",
+            "band": "Loosely Covered",
+            "filename": "LC Set List - 2017-10 SVSA.pages",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "extracted",
+      "confidence": "medium",
+      "date_raw": "2017-10",
+      "date_exact": null,
+      "title_raw": "SVSA",
+      "venue_raw": "SVSA",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Where-the-Streets-Have-No-Names",
+        "Exs-And-Ohs",
+        "Faith",
+        "Miss-You",
+        "The-Middle",
+        "I-Want-You-To",
+        "Santeria",
+        "Folsom-Prison-Blues",
+        "What-I-Got",
+        "Locked-Out-Of-Heaven",
+        "Short-Skirt",
+        "Hard-To-Handle",
+        "Superstition-Single-Version",
+        "Kiss",
+        "Thank-You",
+        "Play-That-Funky-Music",
+        "Brick-House",
+        "Uptown-Funk",
+        "Love-Shack",
+        "I-Want-You-Back",
+        "Let-s-Get-It-On",
+        "Valerie",
+        "Mercy",
+        "Seven-Nation-Army",
+        "Hash-Pipe",
+        "Bad-Romance",
+        "Stayin-Alive",
+        "Jump",
+        "You-Shook-Me-All-Night-Long",
+        "Rebel-Yell",
+        "Are-You-Gonna-Go-My-Way",
+        "Purple-Rain"
+      ],
+      "song_count": 33,
+      "song_match_count": 32,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "unsupported-a433e9e4ce",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "unsupported-a433e9e4ce"
+      },
+      "source_reference": {
+        "candidate_id": "unsupported-a433e9e4ce",
+        "sources": [
+          {
+            "path": "Band/Loosely Covered/LC Set List - 2015-10 Halloween at Rossi's.pages",
+            "sha256": "1458904e1b072537773afc2055081fc4122ffd22bc3536723d4a0bf268779b0f",
+            "size_bytes": 170313,
+            "format": "pages",
+            "modified_at": "2016-04-24T15:57:36",
+            "band": "Loosely Covered",
+            "filename": "LC Set List - 2015-10 Halloween at Rossi's.pages",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "unsupported",
+      "confidence": "none",
+      "date_raw": null,
+      "date_exact": null,
+      "title_raw": null,
+      "venue_raw": null,
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [],
+      "song_count": 0,
+      "song_match_count": 0,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "unsupported-ce2e85390f",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "unsupported-ce2e85390f"
+      },
+      "source_reference": {
+        "candidate_id": "unsupported-ce2e85390f",
+        "sources": [
+          {
+            "path": "Band/Loosely Covered/LC Set List - 2017-06 Nicholson.pages",
+            "sha256": "76ea849c663d34629ec1dc81aac1085b35593b8ecc7bc9f530db0c435f7f7c4e",
+            "size_bytes": 214245,
+            "format": "pages",
+            "modified_at": "2017-10-07T13:37:22",
+            "band": "Loosely Covered",
+            "filename": "LC Set List - 2017-06 Nicholson.pages",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "unsupported",
+      "confidence": "none",
+      "date_raw": null,
+      "date_exact": null,
+      "title_raw": null,
+      "venue_raw": null,
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [],
+      "song_count": 0,
+      "song_match_count": 0,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "loosely-covered-2016-07-08-stonetree",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "loosely-covered-2016-07-08-stonetree"
+      },
+      "source_reference": {
+        "candidate_id": "loosely-covered-2016-07-08-stonetree",
+        "sources": [
+          {
+            "path": "Band/Loosely Covered/LC Set LIst - 2016-07-08 Stonetree.xlsx",
+            "sha256": "790efae29450a62a354064d2d4a8b60900e8f8679c3e6fe81a5f9d2b5d2a0951",
+            "size_bytes": 9629,
+            "format": "xlsx",
+            "modified_at": "2016-07-09T09:11:16",
+            "band": "Loosely Covered",
+            "filename": "LC Set LIst - 2016-07-08 Stonetree.xlsx",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2016-07-08",
+      "date_exact": "2016-07-08",
+      "title_raw": "Stonetree",
+      "venue_raw": "Stonetree",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Faith",
+        "Hard-To-Handle",
+        "Santeria",
+        "Short-Skirt",
+        "The-Middle",
+        "Under-The-Bridge",
+        "Interstate-Love-Song",
+        "Kiss",
+        "Let-s-Get-It-On",
+        "Love-Shack",
+        "Mercy",
+        "Valerie",
+        "You-Oughta-Know",
+        "Miss-You",
+        "Thank-You-Falettinme-Be-Mice-Elf-Agin",
+        "Blister-In-The-Sun",
+        "Cumbersome",
+        "Drive",
+        "Everlong",
+        "Folsom-Prison-Blues",
+        "I-Will-Survive",
+        "Kryptonite",
+        "Play-That-Funky-Music",
+        "Purple-Rain",
+        "Ramble-On",
+        "Rebel-Yell",
+        "Say-It-Ain-t-So",
+        "Seven-Nation-Army",
+        "Shine",
+        "Superstition-Single-Version",
+        "Californication"
+      ],
+      "song_count": 33,
+      "song_match_count": 31,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "loosely-covered-2017-04-01-siff",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "loosely-covered-2017-04-01-siff"
+      },
+      "source_reference": {
+        "candidate_id": "loosely-covered-2017-04-01-siff",
+        "sources": [
+          {
+            "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf",
+            "sha256": "9e97e23ad8f7f8711c3b7d8a9c6278bef273e364a25951e9f1da0e9b52474b96",
+            "size_bytes": 21126,
+            "format": "pdf",
+            "modified_at": "2017-03-31T17:13:20",
+            "band": "Loosely Covered",
+            "filename": "LC Set List - 2017-04-01 SIFF.pdf",
+            "paired_representations": [
+              "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages"
+            ]
+          }
+        ],
+        "related_artifacts": [
+          {
+            "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages",
+            "sha256": "cc082d497fb72503ede2e3af6d91918375ba36da82f1d544c44f5c52069b5c38",
+            "size_bytes": 79472,
+            "format": "pages",
+            "modified_at": "2017-06-16T19:35:22",
+            "band": "Loosely Covered",
+            "filename": "LC Set List - 2017-04-01 SIFF.pages",
+            "paired_representations": [
+              "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf"
+            ]
+          }
+        ]
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2017-04-01",
+      "date_exact": "2017-04-01",
+      "title_raw": "SIFF",
+      "venue_raw": "SIFF",
+      "band_explicit": "Loosely Covered",
+      "band_proposal": null,
+      "song_ids": [
+        "Jump",
+        "Santeria",
+        "Miss-You",
+        "The-Middle",
+        "Locked-Out-Of-Heaven",
+        "I-Want-You-To",
+        "Short-Skirt",
+        "Valerie",
+        "Hard-To-Handle",
+        "Exs-And-Ohs",
+        "Faith",
+        "What-I-Got",
+        "Let-s-Get-It-On",
+        "Mercy",
+        "Kiss",
+        "Thank-You-Falettinme-Be-Mice-Elf-Agin",
+        "Play-That-Funky-Music",
+        "Uptown-Funk",
+        "Brick-House",
+        "Love-Shack",
+        "That-s-The-Way-I-Like-It",
+        "Shake-Shake-Shake",
+        "Get-Lucky",
+        "I-Want-You-Back",
+        "Superstition-Single-Version",
+        "Folsom-Prison-Blues",
+        "Rebel-Yell",
+        "Purple-Rain",
+        "Bad-Romance"
+      ],
+      "song_count": 30,
+      "song_match_count": 29,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "unsupported-smileys-2005-01-14",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "unsupported-smileys-2005-01-14"
+      },
+      "source_reference": {
+        "candidate_id": "unsupported-smileys-2005-01-14",
+        "sources": [
+          {
+            "path": "Band/The Smileys/2005-01-14 Ireland's 32/Song List - Ireland's 32.doc",
+            "sha256": "f3a95d6b55d508ab8a21cc788a4f92e7c2b91e1be964d374dae36df096b3ab94",
+            "size_bytes": 24576,
+            "format": "doc",
+            "modified_at": "2008-01-26T22:21:32",
+            "band": "The Smileys",
+            "filename": "Song List - Ireland's 32.doc",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "unsupported",
+      "confidence": "none",
+      "date_raw": "2005-01-14",
+      "date_exact": "2005-01-14",
+      "title_raw": "Ireland's 32",
+      "venue_raw": "Ireland's 32",
+      "band_explicit": "The Smileys",
+      "band_proposal": null,
+      "song_ids": [],
+      "song_count": 0,
+      "song_match_count": 0,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "smileys-2005-03-26-easter-pageant",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "smileys-2005-03-26-easter-pageant"
+      },
+      "source_reference": {
+        "candidate_id": "smileys-2005-03-26-easter-pageant",
+        "sources": [
+          {
+            "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pages/",
+            "sha256": "662faab48d7fd6f2197779b43628c2f136bdaa825b01c92d9db56a593c1dca3d",
+            "size_bytes": 28912,
+            "format": "pages_package",
+            "modified_at": "2024-02-21T22:05:48",
+            "band": "The Smileys",
+            "filename": "Set List.pages",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": [
+          {
+            "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pdf",
+            "sha256": "6eef3f3877cce91c2cffc98927a87cb695d6552b6f15dadd3bf42ee6869f28ce",
+            "size_bytes": 34654,
+            "format": "pdf",
+            "modified_at": "2008-01-26T22:21:34",
+            "band": "The Smileys",
+            "filename": "Set List.pdf",
+            "paired_representations": []
+          }
+        ]
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2005-03-26",
+      "date_exact": "2005-03-26",
+      "title_raw": "Easter Pageant",
+      "venue_raw": "Easter Pageant",
+      "band_explicit": "The Smileys",
+      "band_proposal": null,
+      "song_ids": [
+        "Inside-Out",
+        "Fly-Away",
+        "I-Don-t-Wanna-Be",
+        "Gimme-Shelter",
+        "Shine",
+        "What-I-Got",
+        "Mary-Jane-s-Last-Dance",
+        "Brick-House",
+        "Just-What-I-Needed",
+        "White-Wedding",
+        "Hash-Pipe",
+        "Any-Way-You-Want-It",
+        "Sweet-Emotion",
+        "Sweet-Home-Alabama"
+      ],
+      "song_count": 28,
+      "song_match_count": 14,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    },
+    {
+      "source_type": "icloud",
+      "source_id": "wait-for-the-shake-2006-01-25",
+      "source_record_ref": {
+        "input_file": "candidates/icloud-set-lists-matched.json",
+        "collection_key": "gig_candidates",
+        "object_id": "wait-for-the-shake-2006-01-25"
+      },
+      "source_reference": {
+        "candidate_id": "wait-for-the-shake-2006-01-25",
+        "sources": [
+          {
+            "path": "Band/Wait for the Shake/Set List 2006-01-25.pages/",
+            "sha256": "92bb0493635aa59c0986b8c02f64530c96d85fd5bbe450724ff683436606e3dd",
+            "size_bytes": 37991,
+            "format": "pages_package",
+            "modified_at": "2024-02-21T22:05:22",
+            "band": "Wait for the Shake",
+            "filename": "Set List 2006-01-25.pages",
+            "paired_representations": []
+          }
+        ],
+        "related_artifacts": []
+      },
+      "status": "extracted",
+      "confidence": "high",
+      "date_raw": "2006-01-25",
+      "date_exact": "2006-01-25",
+      "title_raw": null,
+      "venue_raw": null,
+      "band_explicit": "Wait for the Shake",
+      "band_proposal": null,
+      "song_ids": [
+        "Inside-Out",
+        "Kryptonite",
+        "Shine",
+        "Word-Up",
+        "Hard-To-Handle",
+        "I-Don-t-Wanna-Be",
+        "Santeria",
+        "What-I-Got",
+        "Interstate-Love-Song",
+        "Are-You-Gonna-Be-My-Girl",
+        "Sweet-Home-Alabama"
+      ],
+      "song_count": 17,
+      "song_match_count": 11,
+      "ordering_ambiguous": false,
+      "ambiguities": []
+    }
+  ],
+  "icloud_artifact_dispositions": [
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+        "sha256": "4ad8393d751bff2d07fef9775f0f9550b27229d35394cccf7da2e3348ab7267d",
+        "size_bytes": 303059,
+        "format": "pages",
+        "modified_at": "2015-09-19T16:26:00",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2015-09 Acoustic at Hopmonk.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2015-09",
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg"
+      },
+      "confidence": "medium"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2016-05 Prestwood.pages",
+        "sha256": "0a6d4eceaaec3bc21db45af54a0b49284f3b22df49f186a81a41afa8e2406813",
+        "size_bytes": 265841,
+        "format": "pages",
+        "modified_at": "2017-03-28T18:21:16",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2016-05 Prestwood.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2016-05",
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg"
+      },
+      "confidence": "medium"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-10 SVSA.pages",
+        "sha256": "8b490115b54fac22175a61e9129c8f995c5f41ccd06d213c3dac36a111f6bf39",
+        "size_bytes": 215476,
+        "format": "pages",
+        "modified_at": "2017-10-07T13:57:02",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-10 SVSA.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2017-10",
+      "evidence": {
+        "method": "targeted preview OCR",
+        "member": "preview.jpg"
+      },
+      "confidence": "medium"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2015-10 Halloween at Rossi's.pages",
+        "sha256": "1458904e1b072537773afc2055081fc4122ffd22bc3536723d4a0bf268779b0f",
+        "size_bytes": 170313,
+        "format": "pages",
+        "modified_at": "2016-04-24T15:57:36",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2015-10 Halloween at Rossi's.pages",
+        "paired_representations": []
+      },
+      "disposition": "unsupported",
+      "candidate_id": null,
+      "evidence": {
+        "method": "IWA package inspection",
+        "finding": "no reliable preview transcription"
+      },
+      "confidence": "none"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-06 Nicholson.pages",
+        "sha256": "76ea849c663d34629ec1dc81aac1085b35593b8ecc7bc9f530db0c435f7f7c4e",
+        "size_bytes": 214245,
+        "format": "pages",
+        "modified_at": "2017-10-07T13:37:22",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-06 Nicholson.pages",
+        "paired_representations": []
+      },
+      "disposition": "unsupported",
+      "candidate_id": null,
+      "evidence": {
+        "method": "IWA package inspection",
+        "finding": "no reliable preview transcription"
+      },
+      "confidence": "none"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set LIst - 2016-07-08 Stonetree.xlsx",
+        "sha256": "790efae29450a62a354064d2d4a8b60900e8f8679c3e6fe81a5f9d2b5d2a0951",
+        "size_bytes": 9629,
+        "format": "xlsx",
+        "modified_at": "2016-07-09T09:11:16",
+        "band": "Loosely Covered",
+        "filename": "LC Set LIst - 2016-07-08 Stonetree.xlsx",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2016-07-08-stonetree",
+      "evidence": {
+        "method": "openpyxl",
+        "sheet": "Sheet1"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf",
+        "sha256": "9e97e23ad8f7f8711c3b7d8a9c6278bef273e364a25951e9f1da0e9b52474b96",
+        "size_bytes": 21126,
+        "format": "pdf",
+        "modified_at": "2017-03-31T17:13:20",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-04-01 SIFF.pdf",
+        "paired_representations": [
+          "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages"
+        ]
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "loosely-covered-2017-04-01-siff",
+      "evidence": {
+        "method": "PyMuPDF",
+        "pages": [
+          1
+        ]
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pages",
+        "sha256": "cc082d497fb72503ede2e3af6d91918375ba36da82f1d544c44f5c52069b5c38",
+        "size_bytes": 79472,
+        "format": "pages",
+        "modified_at": "2017-06-16T19:35:22",
+        "band": "Loosely Covered",
+        "filename": "LC Set List - 2017-04-01 SIFF.pages",
+        "paired_representations": [
+          "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf"
+        ]
+      },
+      "disposition": "duplicate_representation",
+      "candidate_id": "loosely-covered-2017-04-01-siff",
+      "evidence": {
+        "canonical_source": "Band/Loosely Covered/LC Set List - 2017-04-01 SIFF.pdf",
+        "basis": "manifest paired_representations; same event/date"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/Master Set List 2020-12.pdf",
+        "sha256": "9c3a84bcb230ec43225d68b7d58cbb06013bcbe4fc849448f3911bce94681f1e",
+        "size_bytes": 492103,
+        "format": "pdf",
+        "modified_at": "2020-12-07T16:48:34",
+        "band": "Loosely Covered",
+        "filename": "Master Set List 2020-12.pdf",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "PyMuPDF",
+        "finding": "284-page master catalog/lead-sheet collection"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/Master-Set-List.pdf",
+        "sha256": "ef69f0546e603c21488d20963a4bbb1f77af044a838c9e3e9ffef035a80d255a",
+        "size_bytes": 453183,
+        "format": "pdf",
+        "modified_at": "2020-09-25T18:04:24",
+        "band": "Loosely Covered",
+        "filename": "Master-Set-List.pdf",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "PyMuPDF",
+        "finding": "283-page master catalog/lead-sheet collection"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Loosely Covered/Nicholson-Set-List.pdf",
+        "sha256": "46f58f53e6bc432ddddc583567d1f13a98455b413bd036c06391f5582b892560",
+        "size_bytes": 95279,
+        "format": "pdf",
+        "modified_at": "2020-09-25T18:02:04",
+        "band": "Loosely Covered",
+        "filename": "Nicholson-Set-List.pdf",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "PyMuPDF",
+        "finding": "46-page catalog contents followed by lead sheets, not a gig running order"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/The Smileys/2005-01-14 Ireland's 32/Song List - Ireland's 32.doc",
+        "sha256": "f3a95d6b55d508ab8a21cc788a4f92e7c2b91e1be964d374dae36df096b3ab94",
+        "size_bytes": 24576,
+        "format": "doc",
+        "modified_at": "2008-01-26T22:21:32",
+        "band": "The Smileys",
+        "filename": "Song List - Ireland's 32.doc",
+        "paired_representations": []
+      },
+      "disposition": "unsupported",
+      "candidate_id": null,
+      "evidence": {
+        "method": "olefile stream inspection",
+        "finding": "legacy DOC parser unavailable"
+      },
+      "confidence": "none"
+    },
+    {
+      "source": {
+        "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pages/",
+        "sha256": "662faab48d7fd6f2197779b43628c2f136bdaa825b01c92d9db56a593c1dca3d",
+        "size_bytes": 28912,
+        "format": "pages_package",
+        "modified_at": "2024-02-21T22:05:48",
+        "band": "The Smileys",
+        "filename": "Set List.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "smileys-2005-03-26-easter-pageant",
+      "evidence": {
+        "method": "index.xml.gz XML parse"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pdf",
+        "sha256": "6eef3f3877cce91c2cffc98927a87cb695d6552b6f15dadd3bf42ee6869f28ce",
+        "size_bytes": 34654,
+        "format": "pdf",
+        "modified_at": "2008-01-26T22:21:34",
+        "band": "The Smileys",
+        "filename": "Set List.pdf",
+        "paired_representations": []
+      },
+      "disposition": "duplicate_representation",
+      "candidate_id": "smileys-2005-03-26-easter-pageant",
+      "evidence": {
+        "canonical_source": "Band/The Smileys/2005-03-26 Easter Pageant/Set List.pages/",
+        "basis": "same dated directory and matching set/song text"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Wait for the Shake/Set List 2006-01-25.pages/",
+        "sha256": "92bb0493635aa59c0986b8c02f64530c96d85fd5bbe450724ff683436606e3dd",
+        "size_bytes": 37991,
+        "format": "pages_package",
+        "modified_at": "2024-02-21T22:05:22",
+        "band": "Wait for the Shake",
+        "filename": "Set List 2006-01-25.pages",
+        "paired_representations": []
+      },
+      "disposition": "canonical_gig",
+      "candidate_id": "wait-for-the-shake-2006-01-25",
+      "evidence": {
+        "method": "index.xml.gz XML parse"
+      },
+      "confidence": "high"
+    },
+    {
+      "source": {
+        "path": "Band/Wait for the Shake/Song List 2005-11-17.xls",
+        "sha256": "641a81f36f00655ee670383d2a453bb43325e5f1182335e8325de892405eb6ef",
+        "size_bytes": 51200,
+        "format": "xls",
+        "modified_at": "2008-01-26T22:24:30",
+        "band": "Wait for the Shake",
+        "filename": "Song List 2005-11-17.xls",
+        "paired_representations": []
+      },
+      "disposition": "excluded_non_gig_catalog",
+      "candidate_id": null,
+      "evidence": {
+        "method": "xlrd",
+        "finding": "multi-row Song/Artist/member/status/votes catalog; no set order"
+      },
+      "confidence": "high"
+    }
+  ],
+  "event_groups": [
+    {
+      "event_group_id": "event-001",
+      "primary_source_id": "07919a2a-28f0-4c25-877a-7aaa7e3b83eb",
+      "date_exact": "2021-04-03",
+      "date_raw_values": [
+        "2021-04-03"
+      ],
+      "title_raw_values": [
+        "Taylor's Birthday"
+      ],
+      "venue_raw_values": [
+        "Castello Golightly"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "07919a2a-28f0-4c25-877a-7aaa7e3b83eb"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-002",
+      "primary_source_id": "0d5c361e-24e3-4ad9-af08-c4639f54c7d8",
+      "date_exact": "2021-04-10",
+      "date_raw_values": [
+        "2021-04-10"
+      ],
+      "title_raw_values": [
+        "Reel and Brand - LC Acoustic"
+      ],
+      "venue_raw_values": [
+        "Reel and Brand"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "0d5c361e-24e3-4ad9-af08-c4639f54c7d8"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-003",
+      "primary_source_id": "202e6f13-b36b-4eea-a87e-8e30265dbef6",
+      "date_exact": "2022-05-04",
+      "date_raw_values": [
+        "2022-05-04"
+      ],
+      "title_raw_values": [
+        "DG/ET -  LC Acoustic"
+      ],
+      "venue_raw_values": [
+        "Murphy's"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "202e6f13-b36b-4eea-a87e-8e30265dbef6"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-004",
+      "primary_source_id": "203dc7bc-0118-4c36-91a9-054982d8cb04",
+      "date_exact": "2021-08-07",
+      "date_raw_values": [
+        "2021-08-07"
+      ],
+      "title_raw_values": [
+        "Banned"
+      ],
+      "venue_raw_values": [
+        "Wölffer Estate"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "203dc7bc-0118-4c36-91a9-054982d8cb04"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-005",
+      "primary_source_id": "283640bb-c477-4377-9efe-c67a601f21ea",
+      "date_exact": "2022-09-22",
+      "date_raw_values": [
+        "2022-09-22T17:30:00.000-07:00"
+      ],
+      "title_raw_values": [
+        "NYE 22 print"
+      ],
+      "venue_raw_values": [
+        "Jack London Saloon"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "283640bb-c477-4377-9efe-c67a601f21ea"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-006",
+      "primary_source_id": "28b46aa1-262b-804d-b4c3-ea5e7766d7ec",
+      "date_exact": "2025-10-13",
+      "date_raw_values": [
+        "2025-10-13"
+      ],
+      "title_raw_values": [
+        "9Tease Stripped"
+      ],
+      "venue_raw_values": [
+        "Castello Golightly"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-007",
+      "primary_source_id": "28f25265-6d1a-45d5-ac9d-ae02c07534a7",
+      "date_exact": "2021-09-23",
+      "date_raw_values": [
+        "2021-09-23"
+      ],
+      "title_raw_values": [
+        "Jack London - LC Acoustic"
+      ],
+      "venue_raw_values": [
+        "Jack London Saloon"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "28f25265-6d1a-45d5-ac9d-ae02c07534a7"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-008",
+      "primary_source_id": "2f2e676d-93f8-4a8b-b50a-97818cb391db",
+      "date_exact": "2021-02-20",
+      "date_raw_values": [
+        "2021-02-20"
+      ],
+      "title_raw_values": [
+        "Murphy's - LC"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "2f2e676d-93f8-4a8b-b50a-97818cb391db"
+      ],
+      "canonical_matches": [
+        {
+          "canonical_set": "sets/2021-02-20-murphys.md",
+          "basis": {
+            "same_full_date": "2021-02-20",
+            "song_similarity": {
+              "overlap": 1.0,
+              "sequence": 1.0
+            }
+          }
+        }
+      ],
+      "import_disposition": "existing_canonical",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review",
+        "matches existing canonical set; do not import duplicate"
+      ]
+    },
+    {
+      "event_group_id": "event-009",
+      "primary_source_id": "2f7f9435-a568-4116-9b63-2eb56580cce5",
+      "date_exact": "2023-06-10",
+      "date_raw_values": [
+        "2023-06-10"
+      ],
+      "title_raw_values": [
+        "LC Elec:  Nicholson"
+      ],
+      "venue_raw_values": [
+        "Nicholson Ranch"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "2f7f9435-a568-4116-9b63-2eb56580cce5"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-010",
+      "primary_source_id": "31c5bb73-effb-4fc6-828f-994ab4677da7",
+      "date_exact": "2022-07-08",
+      "date_raw_values": [
+        "2022-07-08"
+      ],
+      "title_raw_values": [
+        "Acoustic 90s-ish List (for Ted)"
+      ],
+      "venue_raw_values": [
+        "Kenwood Residence (Neat Chateau St Jean)"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "31c5bb73-effb-4fc6-828f-994ab4677da7"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "appears in possible-duplicate pair; resolve event identity before import",
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-011",
+      "primary_source_id": "333f84b7-9df4-4535-9286-37900c93ac83",
+      "date_exact": "2023-11-25",
+      "date_raw_values": [
+        "2023-11-25"
+      ],
+      "title_raw_values": [
+        "FF: Vintage Space"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "333f84b7-9df4-4535-9286-37900c93ac83"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-012",
+      "primary_source_id": "3675b233-e08e-45c2-a3dd-2d3936c72ad6",
+      "date_exact": "2021-08-05",
+      "date_raw_values": [
+        "2021-08-05"
+      ],
+      "title_raw_values": [
+        "City Party - FF"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "3675b233-e08e-45c2-a3dd-2d3936c72ad6"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-013",
+      "primary_source_id": "42f1f331-a66f-4ca2-a738-e390d7d84c5d",
+      "date_exact": "2022-07-08",
+      "date_raw_values": [
+        "2022-07-08"
+      ],
+      "title_raw_values": [
+        "Kenwood Party - LC Acoustic 7/8"
+      ],
+      "venue_raw_values": [
+        "Kenwood Residence (Neat Chateau St Jean)"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "appears in possible-duplicate pair; resolve event identity before import",
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-014",
+      "primary_source_id": "435d0a5d-7572-4520-a8f7-d7d4873f4d8c",
+      "date_exact": "2021-12-31",
+      "date_raw_values": [
+        "2021-12-31"
+      ],
+      "title_raw_values": [
+        "NYE 2021 - SZ Ideas"
+      ],
+      "venue_raw_values": [
+        "Castello Golightly"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "435d0a5d-7572-4520-a8f7-d7d4873f4d8c"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-015",
+      "primary_source_id": "4a943883-cd15-490f-8aaf-f6f72e9d654b",
+      "date_exact": "2021-07-10",
+      "date_raw_values": [
+        "2021-07-10"
+      ],
+      "title_raw_values": [
+        "MattMere Wedding - FF"
+      ],
+      "venue_raw_values": [
+        "Castello Golightly"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "4a943883-cd15-490f-8aaf-f6f72e9d654b"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-016",
+      "primary_source_id": "4b1bafe4-7163-46d5-9eda-eabbd079f053",
+      "date_exact": "2022-10-15",
+      "date_raw_values": [
+        "2022-10-15"
+      ],
+      "title_raw_values": [
+        "LCA: Annadel Estate Winery"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "4b1bafe4-7163-46d5-9eda-eabbd079f053"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-017",
+      "primary_source_id": "4d71271e-456b-4577-b5ae-2b975f0d2388",
+      "date_exact": "2021-05-15",
+      "date_raw_values": [
+        "2021-05-15"
+      ],
+      "title_raw_values": [
+        "Murphy's - LC Acoustic"
+      ],
+      "venue_raw_values": [
+        "Murphy's"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "4d71271e-456b-4577-b5ae-2b975f0d2388"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-018",
+      "primary_source_id": "54662544-15de-49d0-b2ed-2e7cc6555dc1",
+      "date_exact": "2021-10-02",
+      "date_raw_values": [
+        "2021-10-02"
+      ],
+      "title_raw_values": [
+        "Oktoberfest - FF"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "54662544-15de-49d0-b2ed-2e7cc6555dc1"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "appears in possible-duplicate pair; resolve event identity before import",
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-019",
+      "primary_source_id": "5b9b4243-c90c-4130-a5cd-02eabde767cf",
+      "date_exact": "2021-01-01",
+      "date_raw_values": [
+        "2021-01-01"
+      ],
+      "title_raw_values": [
+        "None"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "5b9b4243-c90c-4130-a5cd-02eabde767cf"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "unsupported source extraction",
+        "missing or blank gig title",
+        "no canonical-song evidence"
+      ]
+    },
+    {
+      "event_group_id": "event-020",
+      "primary_source_id": "634925dc-1c91-4087-bea1-7e86dc41a179",
+      "date_exact": "2021-11-19",
+      "date_raw_values": [
+        "2021-11-19T19:00:00.000-08:00"
+      ],
+      "title_raw_values": [
+        "Reel & Brand - LC Acoustic"
+      ],
+      "venue_raw_values": [
+        "Reel and Brand"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "634925dc-1c91-4087-bea1-7e86dc41a179"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-021",
+      "primary_source_id": "6a710d6b-1b24-48ff-8823-d4d6423db113",
+      "date_exact": null,
+      "date_raw_values": [
+        "None"
+      ],
+      "title_raw_values": [
+        "None"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "6a710d6b-1b24-48ff-8823-d4d6423db113"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "unsupported source extraction",
+        "partial or missing date; not eligible for automatic historical-gig merging",
+        "missing or blank gig title",
+        "no canonical-song evidence"
+      ]
+    },
+    {
+      "event_group_id": "event-022",
+      "primary_source_id": "749fde84-3489-400e-9c6f-c804cca3e3fa",
+      "date_exact": "2022-06-26",
+      "date_raw_values": [
+        "2022-06-26"
+      ],
+      "title_raw_values": [
+        "Last Sunday (R&B) - LC Electric 6/26"
+      ],
+      "venue_raw_values": [
+        "Reel and Brand"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "749fde84-3489-400e-9c6f-c804cca3e3fa"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-023",
+      "primary_source_id": "7e0be840-413e-468e-90f0-b8a4eabff48a",
+      "date_exact": "2021-10-02",
+      "date_raw_values": [
+        "2021-10-02"
+      ],
+      "title_raw_values": [
+        "Sarah 50th Bday"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "7e0be840-413e-468e-90f0-b8a4eabff48a"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "appears in possible-duplicate pair; resolve event identity before import"
+      ]
+    },
+    {
+      "event_group_id": "event-024",
+      "primary_source_id": "8365fac7-c739-4a65-8b84-ddea34f4e0ac",
+      "date_exact": "2022-12-20",
+      "date_raw_values": [
+        "2022-12-20"
+      ],
+      "title_raw_values": [
+        "GDE Holiday Jam"
+      ],
+      "venue_raw_values": [
+        "Castello Golightly"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "8365fac7-c739-4a65-8b84-ddea34f4e0ac"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-025",
+      "primary_source_id": "8406e30d-d95e-4a02-b716-d2363b8d2b6a",
+      "date_exact": "2023-07-15",
+      "date_raw_values": [
+        "2023-07-15"
+      ],
+      "title_raw_values": [
+        "LC Elec:  Ellen’s Wedding"
+      ],
+      "venue_raw_values": [
+        "Wedding"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "8406e30d-d95e-4a02-b716-d2363b8d2b6a"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-026",
+      "primary_source_id": "840d3d08-7198-45c5-8b45-6a9b9b1eefac",
+      "date_exact": "2021-01-01",
+      "date_raw_values": [
+        "2021-01-01"
+      ],
+      "title_raw_values": [
+        "Naz Pahtay"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "840d3d08-7198-45c5-8b45-6a9b9b1eefac"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-027",
+      "primary_source_id": "89e74478-afb2-442b-9b35-f4bd20d86bce",
+      "date_exact": "2023-07-01",
+      "date_raw_values": [
+        "2023-07-01"
+      ],
+      "title_raw_values": [
+        "LC Elec:  Raymond",
+        "LC Elec:  Raymond - Start/Stop Notes"
+      ],
+      "venue_raw_values": [
+        "Wedding"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          },
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "89e74478-afb2-442b-9b35-f4bd20d86bce",
+        "bd420cab-fcb4-4add-9d78-529665541b0b"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-028",
+      "primary_source_id": "8c909721-6696-4046-939f-372acfef2e9b",
+      "date_exact": "2023-08-24",
+      "date_raw_values": [
+        "2023-08-24"
+      ],
+      "title_raw_values": [
+        "LC Acou: Murphys"
+      ],
+      "venue_raw_values": [
+        "Murphy's"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "8c909721-6696-4046-939f-372acfef2e9b"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-029",
+      "primary_source_id": "8ce8bc35-3718-4133-84e5-53f5eb08339b",
+      "date_exact": "2022-08-04",
+      "date_raw_values": [
+        "2022-08-04"
+      ],
+      "title_raw_values": [
+        "SleaZZy Tom"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "8ce8bc35-3718-4133-84e5-53f5eb08339b"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-030",
+      "primary_source_id": "94c064c9-03e5-4047-aed7-922ddeab6e06",
+      "date_exact": "2023-10-07",
+      "date_raw_values": [
+        "2023-10-07"
+      ],
+      "title_raw_values": [
+        "Oktoberfest 10/7/2023"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "94c064c9-03e5-4047-aed7-922ddeab6e06"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-031",
+      "primary_source_id": "9a74f7c5-9016-4e68-903c-60cbb9afa617",
+      "date_exact": "2022-08-27",
+      "date_raw_values": [
+        "2022-08-27"
+      ],
+      "title_raw_values": [
+        "FF: Red & White Ball 8/27"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "9a74f7c5-9016-4e68-903c-60cbb9afa617"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-032",
+      "primary_source_id": "9c0d19df-67b5-44bb-830b-c8d3088e9899",
+      "date_exact": "2021-06-19",
+      "date_raw_values": [
+        "2021-06-19T19:00:00.000-07:00"
+      ],
+      "title_raw_values": [
+        "Murphy's - LC Acoustic"
+      ],
+      "venue_raw_values": [
+        "Murphy's"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "9c0d19df-67b5-44bb-830b-c8d3088e9899"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-033",
+      "primary_source_id": "a6cf6ba4-5273-40da-a5cf-1375937bed5f",
+      "date_exact": "2021-10-02",
+      "date_raw_values": [
+        "2021-10-02"
+      ],
+      "title_raw_values": [
+        "Oktoberfest 2021 - LC Electric"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "a6cf6ba4-5273-40da-a5cf-1375937bed5f"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "appears in possible-duplicate pair; resolve event identity before import"
+      ]
+    },
+    {
+      "event_group_id": "event-034",
+      "primary_source_id": "a6ee9eaf-088e-4a58-9a30-1db86fcfba49",
+      "date_exact": "2022-01-01",
+      "date_raw_values": [
+        "2022-01-01"
+      ],
+      "title_raw_values": [
+        "LC"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "a6ee9eaf-088e-4a58-9a30-1db86fcfba49"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "unsupported source extraction",
+        "no canonical-song evidence"
+      ]
+    },
+    {
+      "event_group_id": "event-035",
+      "primary_source_id": "ac25109e-1ce6-4977-98ed-e653c5b532b7",
+      "date_exact": "2022-08-20",
+      "date_raw_values": [
+        "2022-08-20T12:30:00.000-07:00"
+      ],
+      "title_raw_values": [
+        "LC Acou: Ellen (JR)’s party - 8/20/22"
+      ],
+      "venue_raw_values": [
+        "Ellen's House"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "ac25109e-1ce6-4977-98ed-e653c5b532b7"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-036",
+      "primary_source_id": "b003defc-e7cf-47b5-add8-5ccee34f9b71",
+      "date_exact": "2023-12-03",
+      "date_raw_values": [
+        "2023-12-03"
+      ],
+      "title_raw_values": [
+        "LC Acou: BV Party"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "b003defc-e7cf-47b5-add8-5ccee34f9b71"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-037",
+      "primary_source_id": "b3c0c774-dd52-4f2a-bd48-edb092f027f0",
+      "date_exact": "2023-04-13",
+      "date_raw_values": [
+        "2023-04-13"
+      ],
+      "title_raw_values": [
+        "JLL - LC Acoustic"
+      ],
+      "venue_raw_values": [
+        "Jack London Saloon"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "b3c0c774-dd52-4f2a-bd48-edb092f027f0"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-038",
+      "primary_source_id": "b4c394be-47e3-4daa-8e08-325c6b81b3b3",
+      "date_exact": "2022-12-31",
+      "date_raw_values": [
+        "2022-12-31"
+      ],
+      "title_raw_values": [
+        "NYE 22"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "b4c394be-47e3-4daa-8e08-325c6b81b3b3"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-039",
+      "primary_source_id": "cdffff1f-9682-434c-9f26-74d2e3c852d1",
+      "date_exact": "2023-12-01",
+      "date_raw_values": [
+        "2023-12-01"
+      ],
+      "title_raw_values": [
+        "SF: 12-13-25"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "cdffff1f-9682-434c-9f26-74d2e3c852d1"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-040",
+      "primary_source_id": "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e",
+      "date_exact": "2021-08-05",
+      "date_raw_values": [
+        "2021-08-05"
+      ],
+      "title_raw_values": [
+        "Berry Bros Guitar Notes",
+        "City Party - Berry Brothers"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e",
+        "d1e998f9-e5bb-4588-a2ff-6d4902f8fac8"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-041",
+      "primary_source_id": "d796e81f-e56f-4457-91a4-8afd60f59e9c",
+      "date_exact": "2022-06-16",
+      "date_raw_values": [
+        "2022-06-16"
+      ],
+      "title_raw_values": [
+        "JLL - LC Acoustic 6/16"
+      ],
+      "venue_raw_values": [
+        "Jack London Saloon"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "d796e81f-e56f-4457-91a4-8afd60f59e9c"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-042",
+      "primary_source_id": "da8f45af-060b-46ef-a9e8-90fbc77b53b7",
+      "date_exact": "2022-10-01",
+      "date_raw_values": [
+        "2022-10-01"
+      ],
+      "title_raw_values": [
+        "FF: Crooked Goat & Campo Fina"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "da8f45af-060b-46ef-a9e8-90fbc77b53b7"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-043",
+      "primary_source_id": "e07c69c5-4c52-4a28-a9cf-cc76e627a30a",
+      "date_exact": "2022-09-25",
+      "date_raw_values": [
+        "2022-09-25T15:30:00.000-07:00"
+      ],
+      "title_raw_values": [
+        "Last Sunday (R&B) - LC Electric - Set up inside"
+      ],
+      "venue_raw_values": [
+        "Reel and Brand"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "e07c69c5-4c52-4a28-a9cf-cc76e627a30a"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-044",
+      "primary_source_id": "e234682c-c893-4528-9377-43a8b988507d",
+      "date_exact": "2023-09-21",
+      "date_raw_values": [
+        "2023-09-21"
+      ],
+      "title_raw_values": [
+        "JLL - LC Electric 6/27"
+      ],
+      "venue_raw_values": [
+        "Jack London Saloon"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "e234682c-c893-4528-9377-43a8b988507d"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-045",
+      "primary_source_id": "e472acb0-56ed-498c-9ed6-b95c557f9014",
+      "date_exact": "2021-10-02",
+      "date_raw_values": [
+        "2021-10-02"
+      ],
+      "title_raw_values": [
+        "FF: Sarah’s 50th (candidate)"
+      ],
+      "venue_raw_values": [
+        "Sonoma Plaza"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "e472acb0-56ed-498c-9ed6-b95c557f9014"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "appears in possible-duplicate pair; resolve event identity before import",
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-046",
+      "primary_source_id": "e4b46d6b-00bd-4472-8947-6803c92ae4b7",
+      "date_exact": "2022-07-09",
+      "date_raw_values": [
+        "2022-07-09"
+      ],
+      "title_raw_values": [
+        "FF: Nicholson Pigs n Pinot 7/9"
+      ],
+      "venue_raw_values": [
+        "Nicholson Ranch"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "e4b46d6b-00bd-4472-8947-6803c92ae4b7"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-047",
+      "primary_source_id": "e76d122c-1e14-4994-9ea3-e00bd2c5c99c",
+      "date_exact": null,
+      "date_raw_values": [
+        "None"
+      ],
+      "title_raw_values": [
+        "LC Acou: JLL - 9/22/22"
+      ],
+      "venue_raw_values": [
+        "Ellen's House"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "e76d122c-1e14-4994-9ea3-e00bd2c5c99c"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "partial or missing date; not eligible for automatic historical-gig merging",
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-048",
+      "primary_source_id": "e9041404-722b-44d6-8f91-84fce0688a11",
+      "date_exact": "2022-10-09",
+      "date_raw_values": [
+        "2022-10-09"
+      ],
+      "title_raw_values": [
+        "LC Elec: Glen Ellen Fair"
+      ],
+      "venue_raw_values": [
+        "Downtown Glen Ellen"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "e9041404-722b-44d6-8f91-84fce0688a11"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-049",
+      "primary_source_id": "f5ba4bef-1cd7-4342-ba31-21328730d4dc",
+      "date_exact": "2022-08-28",
+      "date_raw_values": [
+        "2022-08-28"
+      ],
+      "title_raw_values": [
+        "Last Sunday (R&B) - LC Electric 7/28"
+      ],
+      "venue_raw_values": [
+        "Reel and Brand"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "f5ba4bef-1cd7-4342-ba31-21328730d4dc"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-050",
+      "primary_source_id": "fd92ce08-dc81-418e-af8b-c999f9384e0a",
+      "date_exact": "2023-09-24",
+      "date_raw_values": [
+        "2023-09-24"
+      ],
+      "title_raw_values": [
+        "LC Acou: BV xmas"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [],
+        "proposals": [
+          {
+            "value": "Loosely Covered",
+            "confidence": "medium",
+            "basis": "title abbreviation LC corroborated by explicit Loosely Covered labels in other sources; proposal only"
+          }
+        ]
+      },
+      "representation_source_ids": [
+        "fd92ce08-dc81-418e-af8b-c999f9384e0a"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "Notion column-order ambiguity; order requires review"
+      ]
+    },
+    {
+      "event_group_id": "event-051",
+      "primary_source_id": "loosely-covered-2015-09",
+      "date_exact": null,
+      "date_raw_values": [
+        "2015-09"
+      ],
+      "title_raw_values": [
+        "Acoustic at Hopmonk"
+      ],
+      "venue_raw_values": [
+        "Acoustic at Hopmonk"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered-2015-09"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "partial or missing date; not eligible for automatic historical-gig merging"
+      ]
+    },
+    {
+      "event_group_id": "event-052",
+      "primary_source_id": "loosely-covered-2016-05",
+      "date_exact": null,
+      "date_raw_values": [
+        "2016-05"
+      ],
+      "title_raw_values": [
+        "Prestwood"
+      ],
+      "venue_raw_values": [
+        "Prestwood"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered-2016-05"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "partial or missing date; not eligible for automatic historical-gig merging"
+      ]
+    },
+    {
+      "event_group_id": "event-053",
+      "primary_source_id": "loosely-covered-2016-07-08-stonetree",
+      "date_exact": "2016-07-08",
+      "date_raw_values": [
+        "2016-07-08"
+      ],
+      "title_raw_values": [
+        "Stonetree"
+      ],
+      "venue_raw_values": [
+        "Stonetree"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered-2016-07-08-stonetree"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-054",
+      "primary_source_id": "loosely-covered-2017-04-01-siff",
+      "date_exact": "2017-04-01",
+      "date_raw_values": [
+        "2017-04-01"
+      ],
+      "title_raw_values": [
+        "SIFF"
+      ],
+      "venue_raw_values": [
+        "SIFF"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered-2017-04-01-siff"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-055",
+      "primary_source_id": "loosely-covered-2017-10",
+      "date_exact": null,
+      "date_raw_values": [
+        "2017-10"
+      ],
+      "title_raw_values": [
+        "SVSA"
+      ],
+      "venue_raw_values": [
+        "SVSA"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered-2017-10"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "partial or missing date; not eligible for automatic historical-gig merging"
+      ]
+    },
+    {
+      "event_group_id": "event-056",
+      "primary_source_id": "loosely-covered/set_list_bv_2018_02@915c30bb695cd80ed125d4656c481c02d934a60b",
+      "date_exact": "2018-02-24",
+      "date_raw_values": [
+        "2018-02-24"
+      ],
+      "title_raw_values": [
+        "20180224 BV"
+      ],
+      "venue_raw_values": [
+        "BV"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered/set_list_bv_2018_02@915c30bb695cd80ed125d4656c481c02d934a60b"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-057",
+      "primary_source_id": "loosely-covered/set_list_hopmonk_2017_11@3e0c9454037f37d8068cfcfb47003caa1b7f3e24",
+      "date_exact": "2017-11-10",
+      "date_raw_values": [
+        "2017-11-10"
+      ],
+      "title_raw_values": [
+        "20171110 Hopmonk"
+      ],
+      "venue_raw_values": [
+        "Hopmonk"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered/set_list_hopmonk_2017_11@3e0c9454037f37d8068cfcfb47003caa1b7f3e24"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-058",
+      "primary_source_id": "loosely-covered/set_list_jack_london_2017_06@d1dd110820e106c6f684320793275bc339f50b25",
+      "date_exact": null,
+      "date_raw_values": [
+        "2017-06"
+      ],
+      "title_raw_values": [
+        "2017-06 Jack London"
+      ],
+      "venue_raw_values": [
+        "Jack London"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered/set_list_jack_london_2017_06@d1dd110820e106c6f684320793275bc339f50b25"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "partial or missing date; not eligible for automatic historical-gig merging"
+      ]
+    },
+    {
+      "event_group_id": "event-059",
+      "primary_source_id": "loosely-covered/set_list_nicholson_2018_06@a8c66e776803b09e37cbdc5269cf1cd2f0529c8b",
+      "date_exact": "2018-06-09",
+      "date_raw_values": [
+        "2018-06-09"
+      ],
+      "title_raw_values": [
+        "20180609 Nicholson"
+      ],
+      "venue_raw_values": [
+        "Nicholson"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered/set_list_nicholson_2018_06@a8c66e776803b09e37cbdc5269cf1cd2f0529c8b"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-060",
+      "primary_source_id": "loosely-covered/set_list_nicholson_ranch_2017_06@fa917c3208fa76d1113efe65096bfdc9bb8f7cd0",
+      "date_exact": "2017-11-02",
+      "date_raw_values": [
+        "2017-11-02"
+      ],
+      "title_raw_values": [
+        "20171102 Nicholson"
+      ],
+      "venue_raw_values": [
+        "Nicholson"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered/set_list_nicholson_ranch_2017_06@fa917c3208fa76d1113efe65096bfdc9bb8f7cd0"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-061",
+      "primary_source_id": "loosely-covered/set_list_ty_caton_2017_06@b49889703b9c20b387fb30b91874f0e4a4e9cbeb",
+      "date_exact": null,
+      "date_raw_values": [
+        "2017-06"
+      ],
+      "title_raw_values": [
+        "2017-06 Ty Caton"
+      ],
+      "venue_raw_values": [
+        "Ty Caton"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "loosely-covered/set_list_ty_caton_2017_06@b49889703b9c20b387fb30b91874f0e4a4e9cbeb"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "partial or missing date; not eligible for automatic historical-gig merging"
+      ]
+    },
+    {
+      "event_group_id": "event-062",
+      "primary_source_id": "smileys-2005-03-26-easter-pageant",
+      "date_exact": "2005-03-26",
+      "date_raw_values": [
+        "2005-03-26"
+      ],
+      "title_raw_values": [
+        "Easter Pageant"
+      ],
+      "venue_raw_values": [
+        "Easter Pageant"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "The Smileys"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "smileys-2005-03-26-easter-pageant"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "import_ready",
+      "review_blockers": []
+    },
+    {
+      "event_group_id": "event-063",
+      "primary_source_id": "unsupported-a433e9e4ce",
+      "date_exact": null,
+      "date_raw_values": [
+        "None"
+      ],
+      "title_raw_values": [
+        "None"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "unsupported-a433e9e4ce"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "unsupported source extraction",
+        "partial or missing date; not eligible for automatic historical-gig merging",
+        "missing or blank gig title",
+        "no canonical-song evidence"
+      ]
+    },
+    {
+      "event_group_id": "event-064",
+      "primary_source_id": "unsupported-ce2e85390f",
+      "date_exact": null,
+      "date_raw_values": [
+        "None"
+      ],
+      "title_raw_values": [
+        "None"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Loosely Covered"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "unsupported-ce2e85390f"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "unsupported source extraction",
+        "partial or missing date; not eligible for automatic historical-gig merging",
+        "missing or blank gig title",
+        "no canonical-song evidence"
+      ]
+    },
+    {
+      "event_group_id": "event-065",
+      "primary_source_id": "unsupported-smileys-2005-01-14",
+      "date_exact": "2005-01-14",
+      "date_raw_values": [
+        "2005-01-14"
+      ],
+      "title_raw_values": [
+        "Ireland's 32"
+      ],
+      "venue_raw_values": [
+        "Ireland's 32"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "The Smileys"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "unsupported-smileys-2005-01-14"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "unsupported source extraction",
+        "no canonical-song evidence"
+      ]
+    },
+    {
+      "event_group_id": "event-066",
+      "primary_source_id": "wait-for-the-shake-2006-01-25",
+      "date_exact": "2006-01-25",
+      "date_raw_values": [
+        "2006-01-25"
+      ],
+      "title_raw_values": [
+        "None"
+      ],
+      "venue_raw_values": [
+        "None"
+      ],
+      "band_evidence": {
+        "explicit_values": [
+          "Wait for the Shake"
+        ],
+        "proposals": []
+      },
+      "representation_source_ids": [
+        "wait-for-the-shake-2006-01-25"
+      ],
+      "canonical_matches": [],
+      "import_disposition": "review_blocked",
+      "review_blockers": [
+        "missing or blank gig title"
+      ]
+    }
+  ],
+  "related_supporting_pages": [
+    {
+      "kind": "related_supporting_page",
+      "source_ids": [
+        "bd420cab-fcb4-4add-9d78-529665541b0b",
+        "89e74478-afb2-442b-9b35-f4bd20d86bce"
+      ],
+      "basis": {
+        "same_full_date": "2023-07-01",
+        "same_normalized_venue": "wedding",
+        "song_similarity": {
+          "overlap": 1.0,
+          "sequence": 0.562
+        },
+        "document_role_title": true
+      }
+    },
+    {
+      "kind": "related_supporting_page",
+      "source_ids": [
+        "d1e998f9-e5bb-4588-a2ff-6d4902f8fac8",
+        "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e"
+      ],
+      "basis": {
+        "same_full_date": "2021-08-05",
+        "same_normalized_venue": "sonoma plaza",
+        "song_similarity": {
+          "overlap": 1.0,
+          "sequence": 1.0
+        },
+        "document_role_title": true
+      }
+    }
+  ],
+  "possible_duplicates": [
+    {
+      "source_ids": [
+        "42f1f331-a66f-4ca2-a738-e390d7d84c5d",
+        "31c5bb73-effb-4fc6-828f-994ab4677da7"
+      ],
+      "basis": {
+        "same_full_date": "2022-07-08",
+        "same_venue": true,
+        "same_title_core": false,
+        "song_similarity": {
+          "overlap": 0.688,
+          "sequence": 0.344
+        }
+      },
+      "disposition": "review; not auto-merged"
+    },
+    {
+      "source_ids": [
+        "54662544-15de-49d0-b2ed-2e7cc6555dc1",
+        "e472acb0-56ed-498c-9ed6-b95c557f9014"
+      ],
+      "basis": {
+        "same_full_date": "2021-10-02",
+        "same_venue": true,
+        "same_title_core": false,
+        "song_similarity": {
+          "overlap": 1.0,
+          "sequence": 0.0
+        }
+      },
+      "disposition": "review; not auto-merged"
+    },
+    {
+      "source_ids": [
+        "a6cf6ba4-5273-40da-a5cf-1375937bed5f",
+        "7e0be840-413e-468e-90f0-b8a4eabff48a"
+      ],
+      "basis": {
+        "same_full_date": "2021-10-02",
+        "same_venue": true,
+        "same_title_core": false,
+        "song_similarity": {
+          "overlap": 1.0,
+          "sequence": 1.0
+        }
+      },
+      "disposition": "review; not auto-merged"
+    }
+  ],
+  "template_reuse": [
+    {
+      "source_ids": [
+        "loosely-covered/set_list_nicholson_2018_06@a8c66e776803b09e37cbdc5269cf1cd2f0529c8b",
+        "loosely-covered/set_list_bv_2018_02@915c30bb695cd80ed125d4656c481c02d934a60b"
+      ],
+      "dates": [
+        "2018-06-09",
+        "2018-02-24"
+      ],
+      "song_similarity": {
+        "overlap": 1.0,
+        "sequence": 1.0
+      },
+      "disposition": "template_reuse_not_duplicate_gig"
+    },
+    {
+      "source_ids": [
+        "2f2e676d-93f8-4a8b-b50a-97818cb391db",
+        "07919a2a-28f0-4c25-877a-7aaa7e3b83eb"
+      ],
+      "dates": [
+        "2021-02-20",
+        "2021-04-03"
+      ],
+      "song_similarity": {
+        "overlap": 1.0,
+        "sequence": 1.0
+      },
+      "disposition": "template_reuse_not_duplicate_gig"
+    }
+  ],
+  "canonical_sets_index": [
+    {
+      "path": "sets/2021-02-20-murphys.md",
+      "date": "2021-02-20",
+      "title": "Murphys",
+      "song_ids": [
+        "Kryptonite",
+        "Plush",
+        "Elderly-Woman",
+        "Interstate-Love-Song",
+        "Ramble-On",
+        "The-Middle",
+        "1979",
+        "Inside-Out",
+        "Everlong",
+        "Cumbersome",
+        "Times-Like-These",
+        "Wicked-Garden",
+        "Nothing-Compares-2-U",
+        "Hard-To-Handle",
+        "Short-Skirt",
+        "Santeria",
+        "Black",
+        "Under-The-Bridge",
+        "Thank-You",
+        "Black-Hole-Sun",
+        "Shine",
+        "Californication",
+        "Find-Yourself",
+        "Born-To-Run",
+        "Folsom-Prison-Blues",
+        "Kiss",
+        "Rebel-Yell",
+        "Badfish",
+        "What-I-Got",
+        "Superstition-Single-Version",
+        "Patience",
+        "Wicked-Game"
+      ]
+    }
+  ],
+  "input_fingerprints": {
+    "candidates/github-set-lists-matched.json": "aef5ab62e2d4407e2bd565fd37db33042c3e41ab2ebcbb5a9bc664dbc4fe40d2",
+    "candidates/notion-set-lists-matched.json": "06672759e400893668c99af4a69fdde898c4a006dab77754e8a57246373adac3",
+    "candidates/icloud-set-lists-matched.json": "4fbf00ae28f6033d68194e92030e4a826e5125144dd1f85aac4892dc5656ddf2",
+    "manifests/icloud-artifacts.jsonl": "42a2ec24eff4c3d01686e4a8c9933b8c6a8ff62d56f441f0fbc795f07e2105fc"
+  },
+  "counts": {
+    "source_candidates": 68,
+    "unique_event_groups": 66,
+    "exact_duplicate_representations": 2,
+    "related_supporting_pages": 2,
+    "possible_duplicates": 3,
+    "template_reuse": 2,
+    "existing_canonical_matches": 1,
+    "import_ready_candidates": 19,
+    "review_blocked_candidates": 46
+  }
+}
