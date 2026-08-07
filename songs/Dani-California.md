@@ -1,15 +1,19 @@
 ---
 artist: "Red Hot Chili Peppers"
+original_key: "Dm"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.833"
+original_key_source: "https://www.deezer.com/track/680516"
+original_bpm: "95.9"
 reference_title: "Dani California"
 reference_artist: "Red Hot Chili Peppers"
 reference_album: "Stadium Arcadium (disc 1∶ Jupiter)"
-reference_duration_seconds: 282.0
-original_bpm: "95.9"
+reference_duration_seconds: "282.0"
 deezer_track_id: "680516"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36842371"
 lyrics_reference_url: "https://lrclib.net/api/get/36842371"
-metadata_confidence: 0.942
+metadata_confidence: "0.942"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Dani-California.md"

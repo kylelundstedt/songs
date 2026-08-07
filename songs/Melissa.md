@@ -1,15 +1,19 @@
 ---
 artist: "The Allman Brothers Band"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.913"
+original_key_source: "https://www.deezer.com/track/530974791"
+original_bpm: "166.04"
 reference_title: "Melissa"
 reference_artist: "The Allman Brothers"
 reference_album: "FluxBlog's Survey Mixes (1972)"
-reference_duration_seconds: 235.0
-original_bpm: "166.04"
+reference_duration_seconds: "235.0"
 deezer_track_id: "530974791"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37170537"
 lyrics_reference_url: "https://lrclib.net/api/get/37170537"
-metadata_confidence: 0.981
+metadata_confidence: "0.981"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Melissa.md"

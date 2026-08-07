@@ -1,16 +1,20 @@
 ---
 artist: "Dwight Yoakam"
+original_key: "A"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.906"
+original_key_source: "https://www.deezer.com/track/6631880"
+original_bpm: "126.05"
 reference_title: "Fast As You"
 reference_artist: "Dwight Yoakam"
 reference_album: "Dwight Yoakam"
-reference_duration_seconds: 287.359417
+reference_duration_seconds: "287.359417"
 recording_mbid: "cea7406a-b140-484c-a6fd-3e0edc176894"
-original_bpm: "126.05"
 deezer_track_id: "6631880"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "18415416"
 lyrics_reference_url: "https://lrclib.net/api/get/18415416"
-metadata_confidence: 0.9572
+metadata_confidence: "0.9572"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Fast-As-You.md"

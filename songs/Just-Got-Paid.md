@@ -1,13 +1,17 @@
 ---
 artist: "ZZ Top"
+original_key: "Em"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.88"
+original_key_source: "https://www.deezer.com/track/3809227202"
 reference_title: "Just Got Paid"
 reference_artist: "ZZ Top"
 reference_album: "The Best of ZZ Top [Disc 1]"
-reference_duration_seconds: 269.0
+reference_duration_seconds: "269.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37395013"
 lyrics_reference_url: "https://lrclib.net/api/get/37395013"
-metadata_confidence: 0.8693
+metadata_confidence: "0.8693"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Just-Got-Paid.md"

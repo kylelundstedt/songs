@@ -1,14 +1,18 @@
 ---
 artist: "The Marshall Tucker Band"
 performance_key: "D"
+original_key: "D"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.849"
+original_key_source: "https://www.deezer.com/track/3217360611"
 reference_title: "Can't You See"
 reference_artist: "The Marshall Tucker Band"
 reference_album: "Can't You See / See You Later I'm Gone"
-reference_duration_seconds: 365.0
+reference_duration_seconds: "365.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37124614"
 lyrics_reference_url: "https://lrclib.net/api/get/37124614"
-metadata_confidence: 0.886
+metadata_confidence: "0.886"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Can-t-You-See.md"

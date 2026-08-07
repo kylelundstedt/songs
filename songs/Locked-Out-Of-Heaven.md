@@ -1,14 +1,18 @@
 ---
 artist: "Bruno Mars"
 performance_key: "C"
+original_key: "Dm"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.97"
+original_key_source: "https://www.deezer.com/track/62724015"
 reference_title: "Locked Out Of Heaven"
 reference_artist: "Bruno Mars"
 reference_album: "The Official Uk Top 40 Singles Chart 25-11-2012"
-reference_duration_seconds: 234.0
+reference_duration_seconds: "234.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37169456"
 lyrics_reference_url: "https://lrclib.net/api/get/37169456"
-metadata_confidence: 0.9233
+metadata_confidence: "0.9233"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Locked-Out-Of-Heaven.md"

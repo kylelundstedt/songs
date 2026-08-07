@@ -1,16 +1,20 @@
 ---
 artist: "Uncle Kracker"
+original_key: "F"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.918"
+original_key_source: "https://www.deezer.com/track/3819653"
+original_bpm: "104.9"
 reference_title: "Follow Me"
 reference_artist: "Uncle Kracker"
 reference_album: "Cowboy Country"
-reference_duration_seconds: 215.0
+reference_duration_seconds: "215.0"
 recording_mbid: "18ea1a62-57cc-48f3-a1f6-3f54455a1fff"
-original_bpm: "104.9"
 deezer_track_id: "3819653"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37015309"
 lyrics_reference_url: "https://lrclib.net/api/get/37015309"
-metadata_confidence: 0.9674
+metadata_confidence: "0.9674"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Follow-Me.md"

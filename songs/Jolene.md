@@ -1,5 +1,9 @@
 ---
 artist: "Dolly Parton"
+original_key: "C#m"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.843"
+original_key_source: "https://www.deezer.com/track/114422238"
 reference_title: "Jolene"
 reference_artist: "Dolly Parton"
 reference_album: "Dolly Parton Gold: Greatest Hits"

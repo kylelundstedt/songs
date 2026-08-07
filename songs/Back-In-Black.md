@@ -1,14 +1,18 @@
 ---
 artist: "AC/DC"
 performance_key: "E"
+original_key: "E"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.99"
+original_key_source: "https://www.deezer.com/track/92720188"
 reference_title: "Back In Black"
 reference_artist: "AC/DC"
 reference_album: "AC/DC — Singles"
-reference_duration_seconds: 256.0
+reference_duration_seconds: "256.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37478166"
 lyrics_reference_url: "https://lrclib.net/api/get/37478166"
-metadata_confidence: 0.9266
+metadata_confidence: "0.9266"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Back-In-Black.md"

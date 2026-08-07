@@ -1,5 +1,9 @@
 ---
 artist: "Blur"
+original_key: "Fm"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.93"
+original_key_source: "https://www.deezer.com/track/3102130"
 reference_title: "Song 2"
 reference_artist: "Blur"
 reference_album: "Contact, Volume 4: Overtime!"

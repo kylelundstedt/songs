@@ -1,14 +1,18 @@
 ---
 artist: "Aerosmith"
+original_key: "A"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.903"
+original_key_source: "https://www.deezer.com/track/2061076857"
 reference_title: "Sweet Emotion"
 reference_artist: "Aerosmith"
 reference_album: "Aerosmith / Get Your Wings / Toys in the Attic"
-reference_duration_seconds: 276.0
+reference_duration_seconds: "276.0"
 deezer_track_id: "2061076857"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36956109"
 lyrics_reference_url: "https://lrclib.net/api/get/36956109"
-metadata_confidence: 0.9537
+metadata_confidence: "0.9537"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Sweet-Emotion.md"

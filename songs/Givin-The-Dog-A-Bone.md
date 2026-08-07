@@ -1,16 +1,20 @@
 ---
 artist: "AC/DC"
+original_key: "A"
+original_key_kind: "analysis-consensus"
+original_key_confidence: "0.98"
+original_key_source: "https://acousticbrainz.org/api/v1/cf61eb88-be62-494c-badc-0a27d8d10736/low-level"
+original_bpm: "132.5"
 reference_title: "Givin The Dog A Bone"
 reference_artist: "AC/DC"
 reference_album: "Back in Black (DuoDisc remaster)"
-reference_duration_seconds: 211.0
+reference_duration_seconds: "211.0"
 recording_mbid: "cf61eb88-be62-494c-badc-0a27d8d10736"
-original_bpm: "132.5"
 deezer_track_id: "92720042"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37483239"
 lyrics_reference_url: "https://lrclib.net/api/get/37483239"
-metadata_confidence: 0.9425
+metadata_confidence: "0.9425"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Givin-The-Dog-A-Bone.md"

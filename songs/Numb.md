@@ -1,13 +1,17 @@
 ---
 artist: "Linkin Park"
+original_key: "F#m"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.98"
+original_key_source: "https://www.deezer.com/track/14629005"
 reference_title: "Numb (Numb)"
 reference_artist: "Linkin Park"
 reference_album: "Meteora"
-reference_duration_seconds: 187.0
+reference_duration_seconds: "187.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36067637"
 lyrics_reference_url: "https://lrclib.net/api/get/36067637"
-metadata_confidence: 0.8916
+metadata_confidence: "0.8916"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Numb.md"

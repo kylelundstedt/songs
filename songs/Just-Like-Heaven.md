@@ -1,16 +1,20 @@
 ---
 artist: "The Cure"
+original_key: "A"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.913"
+original_key_source: "https://www.deezer.com/track/409670332"
+original_bpm: "150.34"
 reference_title: "Just Like Heaven"
 reference_artist: "The Cure"
 reference_album: "Pop Británico"
-reference_duration_seconds: 211.0
+reference_duration_seconds: "211.0"
 recording_mbid: "773c2eb7-f868-44bc-b7d5-59ef96bf2788"
-original_bpm: "150.34"
 deezer_track_id: "409670332"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36843917"
 lyrics_reference_url: "https://lrclib.net/api/get/36843917"
-metadata_confidence: 0.996
+metadata_confidence: "0.996"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Just-Like-Heaven.md"

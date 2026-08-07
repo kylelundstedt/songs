@@ -1,14 +1,18 @@
 ---
 artist: "Bob Seger & the Silver Bullet Band"
 performance_key: "Em"
+original_key: "A"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.89"
+original_key_source: "https://www.deezer.com/track/1445506702"
 reference_title: "Turn the Page"
 reference_artist: "Bob Seger & the Silver Bullet Band"
 reference_album: "Live Hits!"
-reference_duration_seconds: 329.0
+reference_duration_seconds: "329.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37309026"
 lyrics_reference_url: "https://lrclib.net/api/get/37309026"
-metadata_confidence: 0.9423
+metadata_confidence: "0.9423"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Turn-The-Page.md"

@@ -1,16 +1,20 @@
 ---
 artist: "Sly & the Family Stone"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.841"
+original_key_source: "https://www.deezer.com/track/851908"
+original_bpm: "106"
 reference_title: "Thank You (Falettinme Be Mice"
 reference_artist: "Sly & The Family Stone"
 reference_album: "The Rolling Stone Magazines 50"
-reference_duration_seconds: 289.705938
+reference_duration_seconds: "289.705938"
 recording_mbid: "98c251f0-5880-4c56-acd6-d5233d367b9e"
-original_bpm: "106"
 deezer_track_id: "851908"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "18410748"
 lyrics_reference_url: "https://lrclib.net/api/get/18410748"
-metadata_confidence: 0.7984
+metadata_confidence: "0.7984"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Thank-You-Falettinme-Be-Mice-Elf-Agin.md"

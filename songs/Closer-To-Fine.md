@@ -1,16 +1,20 @@
 ---
 artist: "Indigo Girls"
+original_key: "A"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.913"
+original_key_source: "https://www.deezer.com/track/626288"
+original_bpm: "196.9"
 reference_title: "Closer to Fine"
 reference_artist: "Indigo Girls"
 reference_album: "Timeless Pop Classics"
-reference_duration_seconds: 242.0
+reference_duration_seconds: "242.0"
 recording_mbid: "d73a88c9-798d-4ae0-b2f6-0416942f4b49"
-original_bpm: "196.9"
 deezer_track_id: "626288"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37018257"
 lyrics_reference_url: "https://lrclib.net/api/get/37018257"
-metadata_confidence: 0.9899
+metadata_confidence: "0.9899"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Closer-To-Fine.md"

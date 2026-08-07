@@ -1,16 +1,20 @@
 ---
 artist: "Guns N' Roses"
+original_key: "F#"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.837"
+original_key_source: "https://acousticbrainz.org/api/v1/1b30f476-f94d-4e92-8587-c3d9327f1fb9/low-level"
+original_bpm: "100.11"
 reference_title: "Paradise City"
 reference_artist: "Guns N' Roses"
 reference_album: "NME- Greatest Songs of All Time"
-reference_duration_seconds: 406.0
+reference_duration_seconds: "406.0"
 recording_mbid: "1b30f476-f94d-4e92-8587-c3d9327f1fb9"
-original_bpm: "100.11"
 deezer_track_id: "518458142"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36936759"
 lyrics_reference_url: "https://lrclib.net/api/get/36936759"
-metadata_confidence: 0.9511
+metadata_confidence: "0.9511"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Paradise-City.md"

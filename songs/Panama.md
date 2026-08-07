@@ -1,13 +1,17 @@
 ---
 artist: "Van Halen"
+original_key: "Eb"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.825"
+original_key_source: "https://www.deezer.com/track/97098412"
 reference_title: "Panama"
 reference_artist: "Van Halen"
 reference_album: "Get Psyched"
-reference_duration_seconds: 212.0
+reference_duration_seconds: "212.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36958419"
 lyrics_reference_url: "https://lrclib.net/api/get/36958419"
-metadata_confidence: 0.8442
+metadata_confidence: "0.8442"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Panama.md"

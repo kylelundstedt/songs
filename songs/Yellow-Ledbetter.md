@@ -1,16 +1,20 @@
 ---
 artist: "Pearl Jam"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.917"
+original_key_source: "https://www.deezer.com/track/7675322"
+original_bpm: "140.6"
 reference_title: "Yellow Ledbetter"
 reference_artist: "Pearl Jam"
 reference_album: "Greatest Hits"
-reference_duration_seconds: 303.0
+reference_duration_seconds: "303.0"
 recording_mbid: "bea7e034-2e5e-4618-913f-91a6a7098a9f"
-original_bpm: "140.6"
 deezer_track_id: "7675322"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37457755"
 lyrics_reference_url: "https://lrclib.net/api/get/37457755"
-metadata_confidence: 0.9289
+metadata_confidence: "0.9289"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Yellow-Ledbetter.md"

@@ -1,13 +1,17 @@
 ---
 artist: "AC/DC"
+original_key: "A"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.99"
+original_key_source: "https://www.deezer.com/track/92719900"
 reference_title: "Highway to Hell"
 reference_artist: "AC/DC"
 reference_album: "All"
-reference_duration_seconds: 208.0
+reference_duration_seconds: "208.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36967325"
 lyrics_reference_url: "https://lrclib.net/api/get/36967325"
-metadata_confidence: 0.8547
+metadata_confidence: "0.8547"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Highway-To-Hell.md"

@@ -1,5 +1,9 @@
 ---
 artist: "Otis Redding"
+original_key: "G"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.99"
+original_key_source: "https://www.deezer.com/track/495824392"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Sittin-On-The-Dock-Of-The-Bay.md"

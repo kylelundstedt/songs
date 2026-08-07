@@ -1,13 +1,17 @@
 ---
 artist: "Jimmy Buffett"
+original_key: "D"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.916"
+original_key_source: "https://www.deezer.com/track/2491667"
 reference_title: "Margaritaville"
 reference_artist: "Jimmy Buffett"
 reference_album: "Songs You Know By Heart∶ Jimmy Buffett's Greatest Hits"
-reference_duration_seconds: 250.0
+reference_duration_seconds: "250.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37289363"
 lyrics_reference_url: "https://lrclib.net/api/get/37289363"
-metadata_confidence: 0.9571
+metadata_confidence: "0.9571"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Margaritaville.md"

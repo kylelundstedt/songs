@@ -1,16 +1,20 @@
 ---
 artist: "The Doors"
+original_key: "E"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.98"
+original_key_source: "https://acousticbrainz.org/api/v1/e45c3c28-92d8-4ea5-b2a9-d04c3d81975c/low-level"
+original_bpm: "123.78"
 reference_title: "Roadhouse Blues"
 reference_artist: "The Doors"
 reference_album: "Live In New York Highlights"
-reference_duration_seconds: 392.0
+reference_duration_seconds: "392.0"
 recording_mbid: "e45c3c28-92d8-4ea5-b2a9-d04c3d81975c"
-original_bpm: "123.78"
 deezer_track_id: "17326265"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36977750"
 lyrics_reference_url: "https://lrclib.net/api/get/36977750"
-metadata_confidence: 0.811
+metadata_confidence: "0.811"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Roadhouse-Blues.md"

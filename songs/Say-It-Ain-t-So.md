@@ -1,13 +1,17 @@
 ---
 artist: "Weezer"
+original_key: "Eb"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.905"
+original_key_source: "https://www.deezer.com/track/2542120"
 reference_title: "Say It Ain't So"
 reference_artist: "Weezer"
 reference_album: "Weezer Essentials"
-reference_duration_seconds: 259.0
+reference_duration_seconds: "259.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36953128"
 lyrics_reference_url: "https://lrclib.net/api/get/36953128"
-metadata_confidence: 0.9348
+metadata_confidence: "0.9348"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Say-It-Ain-t-So.md"

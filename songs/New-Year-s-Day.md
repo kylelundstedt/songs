@@ -1,13 +1,17 @@
 ---
 artist: "U2"
+original_key: "Ebm"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.97"
+original_key_source: "https://www.deezer.com/track/1579267"
 reference_title: "New Year's Day"
 reference_artist: "U2"
 reference_album: "U218 Singles"
-reference_duration_seconds: 338.0
+reference_duration_seconds: "338.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36944136"
 lyrics_reference_url: "https://lrclib.net/api/get/36944136"
-metadata_confidence: 0.932
+metadata_confidence: "0.932"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/New-Year-s-Day.md"

@@ -1,13 +1,17 @@
 ---
 artist: "Lynyrd Skynyrd"
+original_key: "G"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.91"
+original_key_source: "https://www.deezer.com/track/24949681"
 reference_title: "Sweet Home Alabama"
 reference_artist: "Lynyrd Skynyrd"
 reference_album: "Bayern 1 – Die Oldie‐WM"
-reference_duration_seconds: 285.0
+reference_duration_seconds: "285.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36957190"
 lyrics_reference_url: "https://lrclib.net/api/get/36957190"
-metadata_confidence: 0.9653
+metadata_confidence: "0.9653"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Sweet-Home-Alabama.md"

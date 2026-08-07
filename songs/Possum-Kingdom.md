@@ -1,13 +1,17 @@
 ---
 artist: "Toadies"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.878"
+original_key_source: "https://www.deezer.com/track/7376280"
 reference_title: "Possum Kingdom"
 reference_artist: "Toadies"
 reference_album: "ESPN X-Games, Volume 1∶ Music From The Edge"
-reference_duration_seconds: 307.0
+reference_duration_seconds: "307.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "35142592"
 lyrics_reference_url: "https://lrclib.net/api/get/35142592"
-metadata_confidence: 0.9898
+metadata_confidence: "0.9898"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Possum-Kingdom.md"

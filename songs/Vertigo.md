@@ -1,16 +1,20 @@
 ---
 artist: "U2"
+original_key: "A"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.879"
+original_key_source: "https://www.deezer.com/track/2315240"
+original_bpm: "140.2"
 reference_title: "Vertigo"
 reference_artist: "U2"
 reference_album: "Vertigo CD Single"
-reference_duration_seconds: 191.0
+reference_duration_seconds: "191.0"
 recording_mbid: "69ce8e41-a8a0-419a-9dec-9539754392fe"
-original_bpm: "140.2"
 deezer_track_id: "2315240"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37016732"
 lyrics_reference_url: "https://lrclib.net/api/get/37016732"
-metadata_confidence: 0.9653
+metadata_confidence: "0.9653"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Vertigo.md"

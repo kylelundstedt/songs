@@ -1,6 +1,10 @@
 ---
 artist: "Michael Jackson"
 performance_key: "F#m"
+original_key: "F#m"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.917"
+original_key_source: "https://www.deezer.com/track/4603408"
 reference_title: "Billie Jean"
 reference_artist: "Michael Jackson"
 reference_album: "The Essential Michael Jackson"

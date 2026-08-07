@@ -1,16 +1,20 @@
 ---
 artist: "Amy Winehouse"
 performance_key: "E"
+original_key: "Eb"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.96"
+original_key_source: "https://www.deezer.com/track/71238373"
+original_bpm: "96.4"
 reference_title: "Valerie"
 reference_artist: "Amy Winehouse"
 reference_album: "Back To Black + Instrumentals"
-reference_duration_seconds: 234.0
-original_bpm: "96.4"
+reference_duration_seconds: "234.0"
 deezer_track_id: "71238373"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36998682"
 lyrics_reference_url: "https://lrclib.net/api/get/36998682"
-metadata_confidence: 0.9201
+metadata_confidence: "0.9201"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Valerie.md"

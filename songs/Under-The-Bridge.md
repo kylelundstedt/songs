@@ -1,14 +1,18 @@
 ---
 artist: "Red Hot Chili Peppers"
 performance_key: "E"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.912"
+original_key_source: "https://www.deezer.com/track/785176"
 reference_title: "Under the Bridge"
 reference_artist: "Red Hot Chili Peppers"
 reference_album: "All"
-reference_duration_seconds: 264.0
+reference_duration_seconds: "264.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36975019"
 lyrics_reference_url: "https://lrclib.net/api/get/36975019"
-metadata_confidence: 0.9191
+metadata_confidence: "0.9191"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Under-The-Bridge.md"

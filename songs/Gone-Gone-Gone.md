@@ -1,16 +1,20 @@
 ---
 artist: "Phillip Phillips"
+original_key: "F#"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.905"
+original_key_source: "https://www.deezer.com/track/67592080"
+original_bpm: "118.1"
 reference_title: "Gone, Gone, Gone"
 reference_artist: "Phillip Phillips"
 reference_album: "Summer Music for Kids"
-reference_duration_seconds: 209.0
+reference_duration_seconds: "209.0"
 recording_mbid: "ddba9035-19ec-4bd2-a0a2-014e76ab7b6f"
-original_bpm: "118.1"
 deezer_track_id: "67592080"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36940626"
 lyrics_reference_url: "https://lrclib.net/api/get/36940626"
-metadata_confidence: 0.9665
+metadata_confidence: "0.9665"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Gone-Gone-Gone.md"

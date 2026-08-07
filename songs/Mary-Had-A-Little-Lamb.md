@@ -1,13 +1,17 @@
 ---
 artist: "Stevie Ray Vaughan"
+original_key: "Ab"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.96"
+original_key_source: "https://www.deezer.com/track/848664"
 reference_title: "Mary Had a Little Lamb"
 reference_artist: "Stevie Ray Vaughan"
 reference_album: "Texas Flood (Legacy Edition)"
-reference_duration_seconds: 169.0
+reference_duration_seconds: "169.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37470122"
 lyrics_reference_url: "https://lrclib.net/api/get/37470122"
-metadata_confidence: 0.8799
+metadata_confidence: "0.8799"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Mary-Had-A-Little-Lamb.md"

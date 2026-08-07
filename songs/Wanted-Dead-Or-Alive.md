@@ -1,16 +1,20 @@
 ---
 artist: "Bon Jovi"
+original_key: "G"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.825"
+original_key_source: "https://www.deezer.com/track/538586992"
+original_bpm: "150.89"
 reference_title: "Wanted Dead Or Alive"
 reference_artist: "Bon Jovi"
 reference_album: "All"
-reference_duration_seconds: 309.0
+reference_duration_seconds: "309.0"
 recording_mbid: "2965e31d-a530-4952-be45-df1e48e4b80f"
-original_bpm: "150.89"
 deezer_track_id: "538586992"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36975674"
 lyrics_reference_url: "https://lrclib.net/api/get/36975674"
-metadata_confidence: 0.9201
+metadata_confidence: "0.9201"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Wanted-Dead-Or-Alive.md"

@@ -1,16 +1,20 @@
 ---
 artist: "The Dead Weather"
+original_key: "Em"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.92"
+original_key_source: "https://acousticbrainz.org/api/v1/e6d49e37-1e0f-4b74-9c88-c021fe152ee4/low-level"
+original_bpm: "127.2"
 reference_title: "Hang You from the Heavens"
 reference_artist: "Dead Weather"
 reference_album: "Dead Weather (Single)"
-reference_duration_seconds: 216.973056
+reference_duration_seconds: "216.973056"
 recording_mbid: "e6d49e37-1e0f-4b74-9c88-c021fe152ee4"
-original_bpm: "127.2"
 deezer_track_id: "3783637"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "18330433"
 lyrics_reference_url: "https://lrclib.net/api/get/18330433"
-metadata_confidence: 0.8054
+metadata_confidence: "0.8054"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Hang-You-From-The-Heavens.md"

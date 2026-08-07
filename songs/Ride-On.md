@@ -1,16 +1,20 @@
 ---
 artist: "AC/DC"
+original_key: "F"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.881"
+original_key_source: "https://www.deezer.com/track/92723014"
+original_bpm: "105.7"
 reference_title: "Ride On"
 reference_artist: "AC/DC"
 reference_album: "The Collection - Dirty Deeds Done Dirt Cheap"
-reference_duration_seconds: 354.0
+reference_duration_seconds: "354.0"
 recording_mbid: "bc498e36-925d-4d8a-941a-c410a354cf08"
-original_bpm: "105.7"
 deezer_track_id: "92723014"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36839721"
 lyrics_reference_url: "https://lrclib.net/api/get/36839721"
-metadata_confidence: 0.9558
+metadata_confidence: "0.9558"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Ride-On.md"

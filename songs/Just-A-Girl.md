@@ -1,16 +1,20 @@
 ---
 artist: "No Doubt"
+original_key: "D"
+original_key_kind: "analysis-consensus"
+original_key_confidence: "0.98"
+original_key_source: "https://acousticbrainz.org/api/v1/17f8a51b-782b-4b78-9cc3-2ff23360edbc/low-level"
+original_bpm: "107.9"
 reference_title: "Just A Girl"
 reference_artist: "No Doubt"
 reference_album: "Girl Power 2022"
-reference_duration_seconds: 206.0
+reference_duration_seconds: "206.0"
 recording_mbid: "17f8a51b-782b-4b78-9cc3-2ff23360edbc"
-original_bpm: "107.9"
 deezer_track_id: "24246271"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37003794"
 lyrics_reference_url: "https://lrclib.net/api/get/37003794"
-metadata_confidence: 0.977
+metadata_confidence: "0.977"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Just-A-Girl.md"

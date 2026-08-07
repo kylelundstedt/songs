@@ -1,5 +1,9 @@
 ---
 artist: "Bob Marley & The Wailers"
+original_key: "F#m"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.849"
+original_key_source: "https://www.deezer.com/track/975413432"
 reference_title: "I Shot The Sheriff"
 reference_artist: "Bob Marley"
 reference_album: "Songs Of Freedom Cd2"

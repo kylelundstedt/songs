@@ -1,6 +1,10 @@
 ---
 artist: "The B-52's"
 performance_key: "C"
+original_key: "C"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.88"
+original_key_source: "https://www.deezer.com/track/3929350"
 reference_title: "Love Shack"
 reference_artist: "The B-52's"
 reference_album: "Party Like It's 1989"

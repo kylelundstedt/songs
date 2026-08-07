@@ -1,14 +1,18 @@
 ---
 artist: "The White Stripes"
 performance_key: "E"
+original_key: "Em"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.786"
+original_key_source: "https://www.deezer.com/track/1153182282"
 reference_title: "Seven Nation Army"
 reference_artist: "The White Stripes"
 reference_album: "2003! Songs of the Year"
-reference_duration_seconds: 232.0
+reference_duration_seconds: "232.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36954792"
 lyrics_reference_url: "https://lrclib.net/api/get/36954792"
-metadata_confidence: 0.9823
+metadata_confidence: "0.9823"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Seven-Nation-Army.md"

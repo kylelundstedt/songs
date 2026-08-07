@@ -1,13 +1,17 @@
 ---
 artist: "Bob Marley & The Wailers"
+original_key: "C#"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.82"
+original_key_source: "https://www.deezer.com/track/530300621"
 reference_title: "No Woman, No Cry"
 reference_artist: "Bob Marley & The Wailers"
 reference_album: "18 Greatest Hits"
-reference_duration_seconds: 431.0
+reference_duration_seconds: "431.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36981500"
 lyrics_reference_url: "https://lrclib.net/api/get/36981500"
-metadata_confidence: 0.9158
+metadata_confidence: "0.9158"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/No-Woman-No-Cry.md"

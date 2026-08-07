@@ -1,14 +1,18 @@
 ---
 artist: "Billy Idol"
 performance_key: "E"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.918"
+original_key_source: "https://www.deezer.com/track/2367708895"
 reference_title: "Dancing With Myself"
 reference_artist: "Billy Idol"
 reference_album: "Greatest Hits 2001"
-reference_duration_seconds: 360.0
+reference_duration_seconds: "360.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36955993"
 lyrics_reference_url: "https://lrclib.net/api/get/36955993"
-metadata_confidence: 0.8961
+metadata_confidence: "0.8961"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Dancing-With-Myself.md"

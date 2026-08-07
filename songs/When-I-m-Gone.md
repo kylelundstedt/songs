@@ -1,14 +1,18 @@
 ---
 artist: "3 Doors Down"
+original_key: "Am"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.826"
+original_key_source: "https://acousticbrainz.org/api/v1/3f539d0f-4df9-4c06-9635-3c8807ead993/low-level"
 reference_title: "When I'm Gone"
 reference_artist: "3 Doors Down"
 reference_album: "Universal Smash Hits 2"
-reference_duration_seconds: 255.0
+reference_duration_seconds: "255.0"
 recording_mbid: "3f539d0f-4df9-4c06-9635-3c8807ead993"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37468903"
 lyrics_reference_url: "https://lrclib.net/api/get/37468903"
-metadata_confidence: 0.9925
+metadata_confidence: "0.9925"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/When-I-m-Gone.md"

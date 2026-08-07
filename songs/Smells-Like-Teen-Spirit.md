@@ -1,13 +1,17 @@
 ---
 artist: "Nirvana"
+original_key: "Fm"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.904"
+original_key_source: "https://www.deezer.com/track/13693497"
 reference_title: "Smells Like Teen Spirit"
 reference_artist: "Nirvana"
 reference_album: "Nevermind (24kt Gold Remastered)"
-reference_duration_seconds: 302.0
+reference_duration_seconds: "302.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36961307"
 lyrics_reference_url: "https://lrclib.net/api/get/36961307"
-metadata_confidence: 0.9805
+metadata_confidence: "0.9805"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Smells-Like-Teen-Spirit.md"

@@ -1,14 +1,18 @@
 ---
 artist: "ZZ Top"
+original_key: "Am"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.826"
+original_key_source: "https://www.deezer.com/track/3788188052"
 reference_title: "Waitin' For The Bus"
 reference_artist: "ZZ Top"
 reference_album: "Tres Hombres (2026 UHQR)"
-reference_duration_seconds: 173.0
+reference_duration_seconds: "173.0"
 recording_mbid: "a2715906-cada-414b-99ef-d88c7c6286c7"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36923208"
 lyrics_reference_url: "https://lrclib.net/api/get/36923208"
-metadata_confidence: 0.9598
+metadata_confidence: "0.9598"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Waitin-for-the-Bus.md"

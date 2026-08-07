@@ -1,13 +1,17 @@
 ---
 artist: "Nirvana"
+original_key: "Em"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.93"
+original_key_source: "https://www.deezer.com/track/1543592132"
 reference_title: "Come As You Are"
 reference_artist: "Nirvana"
 reference_album: "Nirvana (Vinyl)"
-reference_duration_seconds: 219.0
+reference_duration_seconds: "219.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36945873"
 lyrics_reference_url: "https://lrclib.net/api/get/36945873"
-metadata_confidence: 0.9739
+metadata_confidence: "0.9739"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Come-As-You-Are.md"

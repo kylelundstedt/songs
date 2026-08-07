@@ -1,13 +1,17 @@
 ---
 artist: "Oasis"
+original_key: "F#m"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.95"
+original_key_source: "https://www.deezer.com/track/985745702"
 reference_title: "Wonderwall"
 reference_artist: "Oasis"
 reference_album: "Top 200 Hits of the 90's"
-reference_duration_seconds: 259.0
+reference_duration_seconds: "259.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37020413"
 lyrics_reference_url: "https://lrclib.net/api/get/37020413"
-metadata_confidence: 0.9803
+metadata_confidence: "0.9803"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Wonderwall.md"

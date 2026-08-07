@@ -1,15 +1,19 @@
 ---
 artist: "Guns N' Roses"
+original_key: "Eb"
+original_key_kind: "expert-reviewed-estimate"
+original_key_confidence: "0.94"
+original_key_source: "https://www.deezer.com/track/518458092"
+original_bpm: "123.05"
 reference_title: "Welcome To The Jungle"
 reference_artist: "Guns N' Roses"
 reference_album: "Greatest Hits [24-48]"
-reference_duration_seconds: 273.0
-original_bpm: "123.05"
+reference_duration_seconds: "273.0"
 deezer_track_id: "518458092"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37076799"
 lyrics_reference_url: "https://lrclib.net/api/get/37076799"
-metadata_confidence: 0.872
+metadata_confidence: "0.872"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Welcome-To-The-Jungle.md"

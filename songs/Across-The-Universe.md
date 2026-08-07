@@ -1,16 +1,20 @@
 ---
 artist: "Fiona Apple"
+original_key: "E"
+original_key_kind: "analysis-consensus"
+original_key_confidence: "0.98"
+original_key_source: "https://acousticbrainz.org/api/v1/2469b6a3-c031-4ae9-810b-62762b9dae58/low-level"
+original_bpm: "130"
 reference_title: "Across the Universe"
 reference_artist: "Fiona Apple"
 reference_album: "(Single) Across the Universe"
-reference_duration_seconds: 309.0
+reference_duration_seconds: "309.0"
 recording_mbid: "2469b6a3-c031-4ae9-810b-62762b9dae58"
-original_bpm: "130"
 deezer_track_id: "13157466"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "34604869"
 lyrics_reference_url: "https://lrclib.net/api/get/34604869"
-metadata_confidence: 0.9512
+metadata_confidence: "0.9512"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Across-The-Universe.md"

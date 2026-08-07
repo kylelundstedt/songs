@@ -1,5 +1,9 @@
 ---
 artist: "Grateful Dead"
+original_key: "B"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.819"
+original_key_source: "https://www.deezer.com/track/74933024"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Fire-On-The-Mountain.md"

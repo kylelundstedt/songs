@@ -1,13 +1,17 @@
 ---
 artist: "Men at Work"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.834"
+original_key_source: "https://www.deezer.com/track/8164927"
 reference_title: "Overkill"
 reference_artist: "Men At Work"
 reference_album: "TM Series 1731"
-reference_duration_seconds: 224.0
+reference_duration_seconds: "224.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37469832"
 lyrics_reference_url: "https://lrclib.net/api/get/37469832"
-metadata_confidence: 0.983
+metadata_confidence: "0.983"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Overkill.md"

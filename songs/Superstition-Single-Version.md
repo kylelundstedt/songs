@@ -1,6 +1,10 @@
 ---
 artist: "Stevie Wonder"
 performance_key: "E"
+original_key: "Ebm"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.82"
+original_key_source: "https://www.deezer.com/track/596034702"
 reference_title: "Superstition"
 reference_artist: "Stevie Wonder"
 reference_album: "Motown 40 Forever - Disc Two"

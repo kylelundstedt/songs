@@ -1,14 +1,18 @@
 ---
 artist: "Lenny Kravitz"
 performance_key: "E"
+original_key: "Em"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.836"
+original_key_source: "https://www.deezer.com/track/3107395"
 reference_title: "Are You Gonna Go My Way"
 reference_artist: "Lenny Kravitz"
 reference_album: "Now That's What I Call Rock Anthems Disc 3"
-reference_duration_seconds: 212.0
+reference_duration_seconds: "212.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37516740"
 lyrics_reference_url: "https://lrclib.net/api/get/37516740"
-metadata_confidence: 0.8525
+metadata_confidence: "0.8525"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Are-You-Gonna-Go-My-Way.md"

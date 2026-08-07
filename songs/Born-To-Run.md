@@ -1,14 +1,18 @@
 ---
 artist: "Bruce Springsteen"
 performance_key: "E"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.912"
+original_key_source: "https://www.deezer.com/track/132635408"
 reference_title: "Born To Run"
 reference_artist: "Bruce Springsteen"
 reference_album: "Bruce (The Boss) Springsteen - 50 Tracks Part I in DTS-HD (op verzoek)"
-reference_duration_seconds: 270.0
+reference_duration_seconds: "270.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37017251"
 lyrics_reference_url: "https://lrclib.net/api/get/37017251"
-metadata_confidence: 0.9362
+metadata_confidence: "0.9362"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Born-To-Run.md"

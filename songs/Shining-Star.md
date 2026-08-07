@@ -1,15 +1,19 @@
 ---
 artist: "Earth, Wind & Fire"
+original_key: "Em"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.885"
+original_key_source: "https://www.deezer.com/track/15636886"
+original_bpm: "102.3"
 reference_title: "Shining Star"
 reference_artist: "Earth, Wind & Fire"
 reference_album: "1975! Songs of the Year"
-reference_duration_seconds: 170.0
-original_bpm: "102.3"
+reference_duration_seconds: "170.0"
 deezer_track_id: "15636886"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36957418"
 lyrics_reference_url: "https://lrclib.net/api/get/36957418"
-metadata_confidence: 0.9868
+metadata_confidence: "0.9868"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Shining-Star.md"

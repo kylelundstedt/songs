@@ -1,14 +1,18 @@
 ---
 artist: "The Cure"
 performance_key: "A"
+original_key: "A"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.839"
+original_key_source: "https://www.deezer.com/track/2349357025"
 reference_title: "Boys Don't Cry"
 reference_artist: "The Cure"
 reference_album: "boys don't cry LP80"
-reference_duration_seconds: 155.0
+reference_duration_seconds: "155.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36857985"
 lyrics_reference_url: "https://lrclib.net/api/get/36857985"
-metadata_confidence: 0.9858
+metadata_confidence: "0.9858"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Boys-Don-t-Cry.md"

@@ -1,15 +1,19 @@
 ---
 artist: "The Rolling Stones"
+original_key: "C#m"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.89"
+original_key_source: "https://www.deezer.com/track/9914834"
+original_bpm: "118.5"
 reference_title: "Gimme Shelter"
 reference_artist: "Rolling Stones"
 reference_album: "Gimme Shelter"
-reference_duration_seconds: 270.0
-original_bpm: "118.5"
+reference_duration_seconds: "270.0"
 deezer_track_id: "9914834"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36957137"
 lyrics_reference_url: "https://lrclib.net/api/get/36957137"
-metadata_confidence: 0.8822
+metadata_confidence: "0.8822"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Gimme-Shelter.md"

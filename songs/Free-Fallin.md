@@ -1,13 +1,17 @@
 ---
 artist: "Tom Petty"
+original_key: "F"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.921"
+original_key_source: "https://www.deezer.com/track/2303727"
 reference_title: "Free Fallin’"
 reference_artist: "Tom Petty"
 reference_album: "Anthology: Through the Years"
-reference_duration_seconds: 250.0
+reference_duration_seconds: "250.0"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "37504344"
 lyrics_reference_url: "https://lrclib.net/api/get/37504344"
-metadata_confidence: 0.9271
+metadata_confidence: "0.9271"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Free-Fallin.md"

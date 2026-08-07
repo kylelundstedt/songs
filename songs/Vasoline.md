@@ -1,16 +1,20 @@
 ---
 artist: "Stone Temple Pilots"
+original_key: "Gm"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.818"
+original_key_source: "https://acousticbrainz.org/api/v1/856d1c2f-644e-4bcd-9750-a8aa07eada85/low-level"
+original_bpm: "168.1"
 reference_title: "Vasoline"
 reference_artist: "Stone Temple Pilots"
 reference_album: "null"
-reference_duration_seconds: 175.0
+reference_duration_seconds: "175.0"
 recording_mbid: "856d1c2f-644e-4bcd-9750-a8aa07eada85"
-original_bpm: "168.1"
 deezer_track_id: "3907794"
 lyrics_reference_provider: "LRCLIB"
 lyrics_reference_id: "36842786"
 lyrics_reference_url: "https://lrclib.net/api/get/36842786"
-metadata_confidence: 0.9727
+metadata_confidence: "0.9727"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Vasoline.md"

@@ -1,6 +1,10 @@
 ---
 artist: "Pearl Jam"
 performance_key: "E"
+original_key: "E"
+original_key_kind: "preview-analysis-estimate"
+original_key_confidence: "0.846"
+original_key_source: "https://www.deezer.com/track/7675132"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/Black.md"
