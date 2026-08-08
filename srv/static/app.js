@@ -374,7 +374,7 @@
   }
 
   function setupSetArrangement() {
-    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),arrange=panel?.querySelector('[data-set-arrange]'),cancel=panel?.querySelector('[data-set-cancel]'),save=panel?.querySelector('[data-set-save]'),status=panel?.querySelector('[data-offline-status]');
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),removeMode=panel?.querySelector('[data-set-remove-mode]'),arrange=panel?.querySelector('[data-set-arrange]'),cancel=panel?.querySelector('[data-set-cancel]'),save=panel?.querySelector('[data-set-save]'),status=panel?.querySelector('[data-offline-status]');
     if(!panel||!list||!arrange||!cancel||!save)return;
     let original=[],dragging=null,layoutFrame=0;
     const entries=()=>[...list.querySelectorAll('[data-set-item]')];
@@ -382,12 +382,12 @@
     const relayout=()=>{if(!layoutFrame)layoutFrame=requestAnimationFrame(async()=>{layoutFrame=0;await fitSetSheet(panel);});};
     const finishDrag=()=>{dragging?.classList.remove('is-dragging');list.querySelectorAll('.is-drop-target').forEach(entry=>entry.classList.remove('is-drop-target'));dragging=null;};
     arrange.addEventListener('click',()=>{
-      original=entries(); panel.dataset.arranging='true'; panel.dataset.arrangeBreaks=panel.dataset.setBreaks||'';
+      original=entries(); delete panel.dataset.removing; if(removeMode){removeMode.textContent='Remove songs';removeMode.disabled=true;} panel.dataset.arranging='true'; panel.dataset.arrangeBreaks=panel.dataset.setBreaks||'';
       arrange.hidden=true; if(add)add.disabled=true; cancel.hidden=false; save.hidden=false; status.textContent='Drag songs within or across columns, then save.'; relayout();
     });
     cancel.addEventListener('click',()=>{
       finishDrag(); original.forEach(entry=>list.append(entry)); renumber(); delete panel.dataset.arranging; delete panel.dataset.arrangeBreaks;
-      arrange.hidden=false; if(add)add.disabled=false; cancel.hidden=true; save.hidden=true; status.textContent=''; relayout();
+      arrange.hidden=false; if(add)add.disabled=false; if(removeMode)removeMode.disabled=false; cancel.hidden=true; save.hidden=true; status.textContent=''; relayout();
     });
     list.addEventListener('pointerdown',event=>{
       const handle=event.target.closest('.set-drag-handle'); if(!handle||panel.dataset.arranging!=='true')return;
@@ -422,8 +422,8 @@
   }
 
   function setupSetItemEditing() {
-    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),pageStatus=panel?.querySelector('[data-offline-status]');
-    if(!panel||!list||!add)return;
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),removeMode=panel?.querySelector('[data-set-remove-mode]'),pageStatus=panel?.querySelector('[data-offline-status]');
+    if(!panel||!list||!add||!removeMode)return;
     let catalog=null,expectedHash='';
     const dialog=document.createElement('dialog');
     dialog.className='shelley-dialog set-item-dialog';
@@ -439,8 +439,14 @@
     };
     search.addEventListener('input',renderSongs);
     search.addEventListener('keydown',event=>{if(event.key==='ArrowDown'&&options.options.length){event.preventDefault();options.focus();options.selectedIndex=0;}});
+    removeMode.addEventListener('click',()=>{
+      const active=panel.dataset.removing!=='true';
+      if(active){panel.dataset.removing='true';removeMode.textContent='Done removing';pageStatus.textContent='Choose Delete beside any song you want to remove.';}
+      else{delete panel.dataset.removing;removeMode.textContent='Remove songs';pageStatus.textContent='';}
+    });
     add.addEventListener('click',async()=>{
       if(panel.dataset.arranging==='true')return;
+      delete panel.dataset.removing;removeMode.textContent='Remove songs';pageStatus.textContent='';
       form.reset();options.innerHTML='';columns.innerHTML='';expectedHash=panel.dataset.setHash;save.disabled=true;cancel.disabled=false;close.disabled=false;status.textContent='Loading song catalog…';
       const marked=[...list.querySelectorAll('[data-column-break-before="true"]')].length;
       for(let index=1;index<=marked+1;index++){const option=document.createElement('option');option.value=String(index);option.textContent=marked?`Set ${index}`:'End of Set List';columns.append(option);}
@@ -458,7 +464,7 @@
       } catch(error){status.textContent=error.message;save.disabled=false;cancel.disabled=false;close.disabled=false;}
     });
     list.addEventListener('click',async event=>{
-      const button=event.target.closest('[data-set-delete]');if(!button||panel.dataset.arranging==='true')return;
+      const button=event.target.closest('[data-set-delete]');if(!button||panel.dataset.arranging==='true'||panel.dataset.removing!=='true')return;
       const entry=button.closest('[data-set-item]'),title=entry.querySelector('.set-entry-title a,.set-entry-title > span')?.textContent.trim()||'this song';
       if(!confirm(`Delete “${title}” from this Set List?`))return;
       button.disabled=true;pageStatus.textContent=`Deleting ${title}…`;
@@ -645,7 +651,7 @@
       const editingSet=button.dataset.markdownKind==='set';
       resourceKind=editingSet?'sets':'songs'; resourceID=editingSet?button.dataset.markdownId:currentVisibleSongID();
       expectedHash=''; initialMarkdown=''; saved=false; saving=false;
-      help.innerHTML=editingSet?'Edit Set List details and numbered song entries. Use <code>&lt;!-- column-break --&gt;</code> on its own line to begin the next Set column.':'Edit the song file for structure and phrasing. You need TWO SPACES at the line\'s end to create a rendered NEW line. Use <code>&lt;!-- column-break --&gt;</code> on its own line to start the second tablet column.';
+      help.innerHTML=editingSet?'Edit Set List details and numbered song entries. Add a heading such as <code>## Set 1 — Slow</code> immediately before that Set\'s first song. Put <code>&lt;!-- column-break --&gt;</code> immediately before each later Set heading.':'Edit the song file for structure and phrasing. You need TWO SPACES at the line\'s end to create a rendered NEW line. Use <code>&lt;!-- column-break --&gt;</code> on its own line to start the second tablet column.';
       label.textContent=editingSet?'Set List Markdown':'Lead-sheet Markdown';
       textarea.value=''; textarea.disabled=true; save.disabled=true; cancel.disabled=false; close.disabled=false; save.textContent='Save Markdown';
       status.textContent='Loading canonical Markdown…'; syncEditorViewport(); dialog.showModal();

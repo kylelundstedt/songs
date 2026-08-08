@@ -163,18 +163,22 @@ func TestParseSetItemDetails(t *testing.T) {
 
 func TestReorderSetMarkdownPreservesItemDetailsAndBreaks(t *testing.T) {
 	set := &SetList{Items: []SetItem{
-		{Position: 1, Label: "One", Target: "../songs/one.md", Suffix: "— singer: Kyle"},
+		{Position: 1, Label: "One", Target: "../songs/one.md", Suffix: "— singer: Kyle", ColumnHeading: "Set 1 — Slow"},
 		{Position: 2, Label: "Two", Target: "../songs/two.md", Suffix: "— singer: Kiana — note: Count in"},
-		{Position: 3, Label: "Three", Target: "../songs/three.md"},
+		{Position: 3, Label: "Three", Target: "../songs/three.md", ColumnBreakBefore: true, ColumnHeading: "Set 2 — Fast"},
 	}}
-	current := "---\ntitle: Test\n---\n\n# Test\n\n1. [One](../songs/one.md) — singer: Kyle\n<!-- column-break -->\n2. [Two](../songs/two.md) — singer: Kiana — note: Count in\n3. [Three](../songs/three.md)\n"
+	current := "---\ntitle: Test\n---\n\n# Test\n\n## Set 1 — Slow\n1. [One](../songs/one.md) — singer: Kyle\n2. [Two](../songs/two.md) — singer: Kiana — note: Count in\n<!-- column-break -->\n## Set 2 — Fast\n3. [Three](../songs/three.md)\n"
 	updated, err := reorderSetMarkdown(current, set, []int{2, 1, 3}, []int{2})
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := "1. [Two](../songs/two.md) — singer: Kiana — note: Count in\n2. [One](../songs/one.md) — singer: Kyle\n<!-- column-break -->\n3. [Three](../songs/three.md)"
+	want := "## Set 1 — Slow\n1. [Two](../songs/two.md) — singer: Kiana — note: Count in\n2. [One](../songs/one.md) — singer: Kyle\n<!-- column-break -->\n## Set 2 — Fast\n3. [Three](../songs/three.md)"
 	if !strings.Contains(updated, want) {
 		t.Fatalf("updated markdown missing reordered list:\n%s", updated)
+	}
+	deleted, err := deleteSetItemMarkdown(current, set, 1)
+	if err != nil || !strings.Contains(deleted, "## Set 1 — Slow\n1. [Two](../songs/two.md)") || !strings.Contains(deleted, "<!-- column-break -->\n## Set 2 — Fast") {
+		t.Fatalf("heading did not survive deletion of its first song: err=%v\n%s", err, deleted)
 	}
 	unsafe := strings.Replace(current, "<!-- column-break -->", "Band announcement", 1)
 	if _, err := reorderSetMarkdown(unsafe, set, []int{1, 2, 3}, nil); err == nil {
@@ -435,7 +439,7 @@ func TestSetOrderWorkflow(t *testing.T) {
 		t.Fatal(err)
 	}
 	setPath := filepath.Join(server.RepoRoot, "sets", "test-set.md")
-	setBody := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n1. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in\n<!-- column-break -->\n2. [Second Song](../songs/Second-Song.md) — singer: Kiana\n"
+	setBody := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n## Set 1 — Slow\n1. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in\n<!-- column-break -->\n## Set 2 — Fast\n2. [Second Song](../songs/Second-Song.md) — singer: Kiana\n"
 	if err := os.WriteFile(setPath, []byte(setBody), 0o644); err != nil {
 		t.Fatal(err)
 	}
@@ -450,8 +454,8 @@ func TestSetOrderWorkflow(t *testing.T) {
 		t.Fatal(err)
 	}
 	set := server.setsByID["test-set"]
-	if len(set.Items) != 2 || !set.Items[1].ColumnBreakBefore {
-		t.Fatalf("column break was not indexed: %#v", set.Items)
+	if len(set.Items) != 2 || !set.Items[1].ColumnBreakBefore || set.Items[0].ColumnHeading != "Set 1 — Slow" || set.Items[1].ColumnHeading != "Set 2 — Fast" {
+		t.Fatalf("column headings or break were not indexed: %#v", set.Items)
 	}
 	payload, _ := json.Marshal(setOrderRequest{ExpectedHash: set.Hash, Order: []int{2, 1}, Breaks: []int{1}})
 	req := httptest.NewRequest(http.MethodPut, "/api/sets/test-set/order", strings.NewReader(string(payload)))
@@ -467,7 +471,7 @@ func TestSetOrderWorkflow(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := "1. [Second Song](../songs/Second-Song.md) — singer: Kiana\n<!-- column-break -->\n2. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in"
+	want := "## Set 1 — Slow\n1. [Second Song](../songs/Second-Song.md) — singer: Kiana\n<!-- column-break -->\n## Set 2 — Fast\n2. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in"
 	if !strings.Contains(string(updated), want) {
 		t.Fatalf("unexpected set markdown:\n%s", updated)
 	}

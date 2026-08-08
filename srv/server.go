@@ -54,6 +54,7 @@ type SetItem struct {
 	Note              string
 	Unresolved        bool
 	ColumnBreakBefore bool
+	ColumnHeading     string
 	Song              *Song
 }
 
@@ -186,10 +187,11 @@ type lyricsDraft struct {
 }
 
 var (
-	errSongChanged   = errors.New("the song changed while you were editing; reload and try again")
-	errSongUnchanged = errors.New("the Markdown has no changes to save")
-	h1Pattern        = regexp.MustCompile(`(?m)^#\s+(.+?)\s*$`)
-	setItemPattern   = regexp.MustCompile(`^\s*\d+\.\s+\[([^]]+)\]\(([^)]+)\)\s*(.*)$`)
+	errSongChanged    = errors.New("the song changed while you were editing; reload and try again")
+	errSongUnchanged  = errors.New("the Markdown has no changes to save")
+	h1Pattern         = regexp.MustCompile(`(?m)^#\s+(.+?)\s*$`)
+	setHeadingPattern = regexp.MustCompile(`^\s*##\s+(.+?)\s*$`)
+	setItemPattern    = regexp.MustCompile(`^\s*\d+\.\s+\[([^]]+)\]\(([^)]+)\)\s*(.*)$`)
 )
 
 func parseSetItemDetails(raw string) (singer, note string) {
@@ -398,10 +400,21 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 		}
 		lines := strings.Split(string(body), "\n")
 		pendingColumnBreak := false
+		pendingColumnHeading := ""
 		columnBreakCount := 0
 		for _, line := range lines {
 			if strings.EqualFold(strings.TrimSpace(line), "<!-- column-break -->") {
 				pendingColumnBreak = len(set.Items) > 0
+				continue
+			}
+			if heading := setHeadingPattern.FindStringSubmatch(line); len(heading) == 2 {
+				if len(set.Items) > 0 && !pendingColumnBreak {
+					return fmt.Errorf("set %s has a Set heading that is not immediately after a column break", rel)
+				}
+				if pendingColumnHeading != "" {
+					return fmt.Errorf("set %s has multiple headings for one Set column", rel)
+				}
+				pendingColumnHeading = strings.TrimSpace(heading[1])
 				continue
 			}
 			m := setItemPattern.FindStringSubmatch(line)
@@ -429,8 +442,12 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 			if unresolved {
 				set.UnresolvedCount++
 			}
-			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Target: targetRef, Suffix: strings.TrimSpace(m[3]), Singer: singer, Note: note, Unresolved: unresolved, ColumnBreakBefore: pendingColumnBreak, Song: song})
+			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Target: targetRef, Suffix: strings.TrimSpace(m[3]), Singer: singer, Note: note, Unresolved: unresolved, ColumnBreakBefore: pendingColumnBreak, ColumnHeading: pendingColumnHeading, Song: song})
 			pendingColumnBreak = false
+			pendingColumnHeading = ""
+		}
+		if pendingColumnHeading != "" {
+			return fmt.Errorf("set %s has a Set heading without a following song", rel)
 		}
 		sets = append(sets, set)
 		byID[id] = set
@@ -1369,15 +1386,16 @@ func (s *Server) HandleUpdateSetMarkdown(w http.ResponseWriter, r *http.Request)
 }
 
 type canonicalSetItem struct {
-	Label  string
-	Target string
-	Suffix string
+	Label   string
+	Target  string
+	Suffix  string
+	Heading string
 }
 
 func canonicalSetItems(set *SetList) []canonicalSetItem {
 	items := make([]canonicalSetItem, len(set.Items))
 	for index, item := range set.Items {
-		items[index] = canonicalSetItem{Label: item.Label, Target: item.Target, Suffix: item.Suffix}
+		items[index] = canonicalSetItem{Label: item.Label, Target: item.Target, Suffix: item.Suffix, Heading: item.ColumnHeading}
 	}
 	return items
 }
@@ -1390,6 +1408,29 @@ func setColumnBreakOffsets(set *SetList) []int {
 		}
 	}
 	return breaks
+}
+
+func setColumnHeadingLabels(set *SetList) []string {
+	headings := make([]string, len(setColumnBreakOffsets(set))+1)
+	column := 0
+	for _, item := range set.Items {
+		if item.ColumnBreakBefore {
+			column++
+		}
+		if item.ColumnHeading != "" && column < len(headings) {
+			headings[column] = item.ColumnHeading
+		}
+	}
+	return headings
+}
+
+func applySetColumnHeadings(items []canonicalSetItem, breaks []int, headings []string) {
+	starts := append([]int{0}, breaks...)
+	for column, start := range starts {
+		if column < len(headings) && start < len(items) {
+			items[start].Heading = headings[column]
+		}
+	}
 }
 
 func rewriteSetItemsMarkdown(current string, items []canonicalSetItem, breaks []int) (string, error) {
@@ -1411,6 +1452,15 @@ func rewriteSetItemsMarkdown(current string, items []canonicalSetItem, breaks []
 		if breakSet[index] {
 			replacement = append(replacement, "<!-- column-break -->")
 		}
+		if item.Heading != "" {
+			if index != 0 && !breakSet[index] {
+				return "", errors.New("each Set heading must begin a Set column")
+			}
+			if strings.ContainsAny(item.Heading, "\r\n") || len(item.Heading) > 200 {
+				return "", errors.New("Set heading is invalid")
+			}
+			replacement = append(replacement, "## "+item.Heading)
+		}
 		line := fmt.Sprintf("%d. [%s](%s)", index+1, item.Label, item.Target)
 		if item.Suffix != "" {
 			line += " " + item.Suffix
@@ -1429,6 +1479,16 @@ func rewriteSetItemsMarkdown(current string, items []canonicalSetItem, breaks []
 			last = index
 		}
 	}
+	if first >= 0 {
+		for first > 0 {
+			previous := strings.TrimSpace(lines[first-1])
+			if previous == "" || setHeadingPattern.MatchString(lines[first-1]) {
+				first--
+				continue
+			}
+			break
+		}
+	}
 	if first < 0 {
 		if len(replacement) == 0 {
 			return normalized, nil
@@ -1438,7 +1498,7 @@ func rewriteSetItemsMarkdown(current string, items []canonicalSetItem, breaks []
 	}
 	for _, line := range lines[first : last+1] {
 		trimmed := strings.TrimSpace(line)
-		if trimmed == "" || setItemPattern.MatchString(line) || strings.EqualFold(trimmed, "<!-- column-break -->") {
+		if trimmed == "" || setItemPattern.MatchString(line) || setHeadingPattern.MatchString(line) || strings.EqualFold(trimmed, "<!-- column-break -->") {
 			continue
 		}
 		return "", errors.New("set list contains unsupported Markdown between songs; replace it with singer/note fields or column-break comments before editing songs")
@@ -1463,6 +1523,7 @@ func reorderSetMarkdown(current string, set *SetList, order, breaks []int) (stri
 		item := set.Items[position-1]
 		items = append(items, canonicalSetItem{Label: item.Label, Target: item.Target, Suffix: item.Suffix})
 	}
+	applySetColumnHeadings(items, breaks, setColumnHeadingLabels(set))
 	return rewriteSetItemsMarkdown(current, items, breaks)
 }
 
@@ -1511,6 +1572,9 @@ func deleteSetItemMarkdown(current string, set *SetList, position int) (string, 
 	}
 	removeAt := position - 1
 	items := canonicalSetItems(set)
+	if items[removeAt].Heading != "" && removeAt+1 < len(items) && !set.Items[removeAt+1].ColumnBreakBefore {
+		items[removeAt+1].Heading = items[removeAt].Heading
+	}
 	items = append(items[:removeAt], items[removeAt+1:]...)
 	breaks := setColumnBreakOffsets(set)
 	adjusted := make([]int, 0, len(breaks))
