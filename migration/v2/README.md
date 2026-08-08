@@ -22,3 +22,9 @@ python3 scripts/build_v2_baseline.py --check
 
 The recorded `verification.output_sha256` is the SHA-256 of the canonical JSON
 render with that field set to `null`, avoiding a self-referential hash.
+
+## Renderer and fit baseline
+
+`renderer/` contains the TASK-002 Apex render corpus, song-only HTML fixtures,
+Chromium-emulation fit captures, deterministic fit summary, and screenshots.
+Physical Safari/iPad validation remains pending; see `renderer/README.md`.

@@ -1,0 +1,275 @@
+{
+  "baseline": {
+    "commit": "546f59b41d9e9bcf0e81b543c27900a31e26c9e6",
+    "ref": "v1"
+  },
+  "browser_engine": {
+    "device_pixel_ratio": 1,
+    "max_touch_points": 5,
+    "name": "Chromium",
+    "note": "Recorded Chromium emulation; the Safari compatibility token in the user agent is not Safari evidence.",
+    "platform": "Linux x86_64",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+    "version": "151.0.7922.72"
+  },
+  "captures": [
+    {
+      "bytes": 232425,
+      "path": "migration/v2/renderer/browser-fit/ipad-portrait.json",
+      "sha256": "3aacb35bded3d7dd7bec29621a6b1d32de4c58b672834e40c2932b0c354eca11"
+    },
+    {
+      "bytes": 231273,
+      "path": "migration/v2/renderer/browser-fit/ipad-landscape.json",
+      "sha256": "fc55ffef1bc3a9ee543e6f13dc42398c6756d069671327f256bf2c9443e09074"
+    },
+    {
+      "bytes": 191015,
+      "path": "migration/v2/renderer/browser-fit/phone.json",
+      "sha256": "de41c7122f28dd6493ca2f180c137941b4ef569ca93815265be7c8a9cc445999"
+    }
+  ],
+  "generator": {
+    "command": "python3 scripts/build_v2_browser_fit_baseline.py",
+    "name": "scripts/build_v2_browser_fit_baseline.py",
+    "version": "1"
+  },
+  "measurement_surface": "v1 verifySetFits-compatible hidden lead-sheet panel",
+  "physical_ipad": {
+    "note": "A physical-iPad run is still required; Chromium emulation is not Safari or physical-device proof.",
+    "status": "pending"
+  },
+  "profiles": [
+    {
+      "auto_font_size_distribution": {
+        "19": 1,
+        "20": 1,
+        "21": 289
+      },
+      "column_count_distribution": {
+        "2": 291
+      },
+      "failure_ids": [],
+      "font_size_distribution": {
+        "19": 1,
+        "20": 1,
+        "21": 289
+      },
+      "form_factor": "tablet",
+      "line_height_distribution": {
+        "1.16": 2,
+        "1.2": 1,
+        "1.24": 288
+      },
+      "name": "ipad-portrait",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "tablet",
+        "inner_height": 1366,
+        "inner_width": 1024,
+        "max_touch_points": 5,
+        "platform": "Linux x86_64",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 1366,
+        "mobile": false,
+        "touch": true,
+        "width": 1024
+      },
+      "result_count": 291,
+      "status_distribution": {
+        "fit": 291
+      },
+      "unique_song_count": 291
+    },
+    {
+      "auto_font_size_distribution": {
+        "16": 4,
+        "17": 1,
+        "18": 3,
+        "19": 6,
+        "20": 7,
+        "21": 270
+      },
+      "column_count_distribution": {
+        "2": 291
+      },
+      "failure_ids": [
+        "can-t-stop",
+        "paradise-city"
+      ],
+      "font_size_distribution": {
+        "16": 4,
+        "17": 1,
+        "18": 3,
+        "19": 6,
+        "20": 7,
+        "21": 270
+      },
+      "form_factor": "tablet",
+      "line_height_distribution": {
+        "1.12": 15,
+        "1.16": 17,
+        "1.2": 10,
+        "1.24": 249
+      },
+      "name": "ipad-landscape",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "tablet",
+        "inner_height": 1024,
+        "inner_width": 1366,
+        "max_touch_points": 5,
+        "platform": "Linux x86_64",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 1024,
+        "mobile": false,
+        "touch": true,
+        "width": 1366
+      },
+      "result_count": 291,
+      "status_distribution": {
+        "fit": 289,
+        "needs-editing": 2
+      },
+      "unique_song_count": 291
+    },
+    {
+      "auto_font_size_distribution": {
+        "20": 291
+      },
+      "column_count_distribution": {
+        "1": 291
+      },
+      "failure_ids": [],
+      "font_size_distribution": {
+        "20": 291
+      },
+      "form_factor": "phone",
+      "line_height_distribution": {
+        "1.24": 291
+      },
+      "name": "phone",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "phone",
+        "inner_height": 844,
+        "inner_width": 390,
+        "max_touch_points": 5,
+        "platform": "Linux x86_64",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 844,
+        "mobile": true,
+        "touch": true,
+        "width": 390
+      },
+      "result_count": 291,
+      "status_distribution": {
+        "scrollable": 291
+      },
+      "unique_song_count": 291
+    }
+  ],
+  "schema_version": "1",
+  "screenshots": [
+    {
+      "bytes": 399570,
+      "dimensions": {
+        "height": 1366,
+        "width": 1024
+      },
+      "measurement_surface": "v1 /song/paradise-city route after DOMContentLoaded fitAll",
+      "observed_fit": {
+        "body_px": 19,
+        "column_count": 2,
+        "line_height": 1.12
+      },
+      "path": "migration/v2/renderer/screenshots/ipad-portrait-paradise-city.png",
+      "profile": "ipad-portrait",
+      "sha256": "93953a872c9d891c243c48a21b0f54789a65b64047afbaafa3e3ad180b7f8ce1",
+      "song_id": "paradise-city",
+      "source_path": "songs/Paradise-City.md",
+      "source_sha256": "7add96f7a98590a5576aacc12447c068cf1fa0a765993366ea360b74d80c9428",
+      "status": "fit"
+    },
+    {
+      "bytes": 314808,
+      "dimensions": {
+        "height": 1024,
+        "width": 1366
+      },
+      "measurement_surface": "v1 /song/paradise-city route after DOMContentLoaded fitAll",
+      "observed_fit": {
+        "body_px": 16,
+        "column_count": 2,
+        "line_height": 1.12
+      },
+      "path": "migration/v2/renderer/screenshots/ipad-landscape-paradise-city-needs-editing.png",
+      "profile": "ipad-landscape",
+      "sha256": "63133b6e40b259b32c6d3e06e7e5abcd0398c5db2829e29818fb40f282de08a9",
+      "song_id": "paradise-city",
+      "source_path": "songs/Paradise-City.md",
+      "source_sha256": "7add96f7a98590a5576aacc12447c068cf1fa0a765993366ea360b74d80c9428",
+      "status": "needs-editing"
+    },
+    {
+      "bytes": 85544,
+      "dimensions": {
+        "height": 844,
+        "width": 390
+      },
+      "measurement_surface": "v1 /song/1979 route after DOMContentLoaded fitAll",
+      "observed_fit": {
+        "body_px": 20,
+        "column_count": 1,
+        "line_height": 1.24
+      },
+      "path": "migration/v2/renderer/screenshots/phone-1979-scrollable.png",
+      "profile": "phone",
+      "sha256": "1a1774797a0af098955798f65f9e38bbbd03f047e33b8e1561b35dc21c002dba",
+      "song_id": "1979",
+      "source_path": "songs/1979.md",
+      "source_sha256": "5a60f9e8a2a20ad2c025d09bf80ebf7d1dd09740893589ef4dbf180110587111",
+      "status": "scrollable"
+    }
+  ],
+  "validation": {
+    "allowed_phone_body_px": [
+      20
+    ],
+    "allowed_phone_column_counts": [
+      1
+    ],
+    "allowed_statuses": [
+      "fit",
+      "needs-editing",
+      "scrollable"
+    ],
+    "allowed_tablet_body_px": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "allowed_tablet_column_counts": [
+      2
+    ],
+    "consistent_profile_identity": true,
+    "exact_baseline": true,
+    "exact_requested_profiles": true,
+    "paths_and_source_hashes_match_renderer_baseline": true
+  },
+  "verification": {
+    "output_sha256": "d74412c2931d40868f18b9f118d687827ddb06a73e7e23aa3e0b2c5edcecd6eb"
+  }
+}

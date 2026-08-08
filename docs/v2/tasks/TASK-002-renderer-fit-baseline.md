@@ -2,7 +2,7 @@
 
 - **Priority:** P0
 - **Phase:** 0
-- **Status:** Ready
+- **Status:** Done (browser emulation recorded; physical-iPad validation remains pending)
 
 ## Objective
 
@@ -44,6 +44,16 @@ Do not rewrite the fitter or introduce the v2 renderer in this task.
 - A deterministic check command fails when baseline artifacts drift.
 - Current v1 deployment and canonical corpus remain untouched.
 
+## Completed evidence
+
+- `migration/v2/renderer/renderer-baseline.json`: 291/291 tagged songs rendered successfully with Apex 1.1.14.
+- Four deterministic song-only semantic fixtures cover available features; H2 and no-section-heading sheets are absent from v1 and recorded as explicit coverage gaps.
+- `migration/v2/renderer/browser-fit/`: three raw Chromium-emulation captures with all 291 songs.
+- `migration/v2/renderer/browser-fit-summary.json`: deterministic validation and distributions.
+- `migration/v2/renderer/screenshots/`: portrait, landscape failure, and phone fixtures.
+- Portrait: 291 fit; landscape: 289 fit and 2 need editing (`can-t-stop`, `paradise-city`); phone: 291 scrollable.
+- Physical Safari/iPad validation is explicitly pending and is not implied by Chromium emulation.
+
 ## Verification commands
 
 The implementation should provide focused commands shaped like:
@@ -51,5 +61,7 @@ The implementation should provide focused commands shaped like:
 ```sh
 python3 scripts/build_v2_renderer_baseline.py
 python3 scripts/build_v2_renderer_baseline.py --check
-python3 -m unittest tests/test_build_v2_renderer_baseline.py
+python3 scripts/build_v2_browser_fit_baseline.py
+python3 scripts/build_v2_browser_fit_baseline.py --check
+python3 -m unittest tests/test_build_v2_renderer_baseline.py tests/test_build_v2_browser_fit_baseline.py
 ```
