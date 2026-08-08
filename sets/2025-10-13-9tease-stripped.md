@@ -18,7 +18,7 @@ source_type: "notion"
 source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 ---
 
-# 9Tease Stripped
+# 9Tease Stripped  
 ## Set 1 - Slow  
 
 1. [Plush](../songs/Plush.md)
