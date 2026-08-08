@@ -37,9 +37,9 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 16. [3 AM](../songs/3-am.md)
 17. [Kryptonite](../songs/Kryptonite.md)
 18. [Breakdown](../songs/Breakdown.md)
+<!-- column-break -->
 19. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
 20. [You're So Bad](../songs/you-re-so-bad.md)
-<!-- column-break -->
 21. [Mary Jane's Last Dance](../songs/Mary-Jane-s-Last-Dance.md)
 22. [Cumbersome](../songs/Cumbersome.md)
 23. [Word Up](../songs/Word-Up.md)
@@ -60,8 +60,8 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 38. [You Wreck Me](../songs/You-Wreck-Me.md)
 39. [American Idiot](../songs/American-Idiot.md)
 40. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
-<!-- column-break -->
 41. [If You Could Only See](../songs/if-you-could-only-see.md)
+<!-- column-break -->
 42. [Killing in The Name](../songs/Killing-In-The-Name.md)
 43. [Sex on Fire](../songs/Sex-on-Fire.md)
 44. [Iris](../songs/iris.md)
