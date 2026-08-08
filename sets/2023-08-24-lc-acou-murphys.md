@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2023-08-24-lc-acou-murphys"
-title: "LC Acou: Murphys"
+title: "LC Acoustic"
+gig_name: "Murphy's"
 date: "2023-08-24"
 date_precision: "day"
 location: "Murphy's"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 4 unresolved item(s)"
 status: draft
 draft_id: "sld-751888a3bf13"
 review_required: true
@@ -15,12 +18,11 @@ unresolved_items:
   - "sld-751888a3bf13-item-01-025"
   - "sld-751888a3bf13-item-01-028"
   - "sld-751888a3bf13-item-01-030"
-review_note: "candidate requires review; 4 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "8c909721-6696-4046-939f-372acfef2e9b"
 ---
 
-# LC Acou: Murphys
+# LC Acoustic
 
 1. [Valerie](../songs/Valerie.md)
 2. [I Want You To](../songs/I-Want-You-To.md)

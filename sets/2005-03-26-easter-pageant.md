@@ -2,11 +2,14 @@
 schema_version: 1
 id: "2005-03-26-easter-pageant"
 title: "Easter Pageant"
+gig_name: "Easter Pageant"
 date: "2005-03-26"
 date_precision: "day"
-location: "Easter Pageant"
+location: ""
 band: "The Smileys"
-band_review: ""
+band_review: "confirmed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 14 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-9a48fdd488f5"
 review_required: true
@@ -25,7 +28,6 @@ unresolved_items:
   - "sld-9a48fdd488f5-item-03-003"
   - "sld-9a48fdd488f5-item-03-007"
   - "sld-9a48fdd488f5-item-03-008"
-review_note: "candidate requires review; 14 unresolved item(s)"
 source_type: "icloud"
 source_id: "smileys-2005-03-26-easter-pageant"
 ---

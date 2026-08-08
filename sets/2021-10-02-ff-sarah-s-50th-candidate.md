@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2021-10-02-ff-sarah-s-50th-candidate"
-title: "FF: Sarah’s 50th (candidate)"
+title: "Funk Fatale"
+gig_name: "Sarah’s 50th (candidate)"
 date: "2021-10-02"
 date_precision: "day"
 location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 3 unresolved item(s)"
 status: draft
 draft_id: "sld-7a7c79cfde93"
 review_required: true
@@ -14,12 +17,11 @@ unresolved_items:
   - "sld-7a7c79cfde93-item-01-001"
   - "sld-7a7c79cfde93-item-01-002"
   - "sld-7a7c79cfde93-item-01-006"
-review_note: "candidate requires review; 3 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "e472acb0-56ed-498c-9ed6-b95c557f9014"
 ---
 
-# FF: Sarah’s 50th (candidate)
+# Funk Fatale
 
 1. [Levitating](unresolved:levitating) — match: unresolved?
 2. [Untitled](unresolved:untitled) — singer?: Rachel — match: unresolved?

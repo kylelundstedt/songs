@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2021-08-05-berry-bros-guitar-notes"
-title: "Berry Bros Guitar Notes"
+title: "Berry Brothers"
+gig_name: "Guitar Notes"
 date: "2021-08-05"
 date_precision: "day"
 location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+band: "Berry Brothers"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 4 unresolved item(s)"
 status: draft
 draft_id: "sld-8d130fac962a"
 review_required: true
@@ -15,12 +18,11 @@ unresolved_items:
   - "sld-8d130fac962a-item-03-006"
   - "sld-8d130fac962a-item-03-007"
   - "sld-8d130fac962a-item-03-008"
-review_note: "candidate requires review; 4 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "d5bd4abc-155b-4f79-ae65-c8f0176d7c0e"
 ---
 
-# Berry Bros Guitar Notes
+# Berry Brothers
 
 1. [Gimme Three Steps](../songs/Gimme-Three-Steps.md)
 2. [Fast As You](../songs/Fast-As-You.md)

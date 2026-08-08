@@ -1,23 +1,25 @@
 ---
 schema_version: 1
 id: "2022-06-16-jll-lc-acoustic-6-16"
-title: "JLL - LC Acoustic 6/16"
+title: "LC Acoustic"
+gig_name: "Jack London Lodge"
 date: "2022-06-16"
 date_precision: "day"
-location: "Jack London Saloon"
+location: "Jack London Lodge"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 1 unresolved item(s)"
 status: draft
 draft_id: "sld-6e47ecfb4617"
 review_required: true
 unresolved_items:
   - "sld-6e47ecfb4617-item-01-032"
-review_note: "candidate requires review; 1 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "d796e81f-e56f-4457-91a4-8afd60f59e9c"
 ---
 
-# JLL - LC Acoustic 6/16
+# LC Acoustic
 
 1. [Black](../songs/Black.md)
 2. [Elderly Woman](../songs/Elderly-Woman.md)

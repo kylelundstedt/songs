@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-10-01-ff-crooked-goat-campo-fina"
-title: "FF: Crooked Goat & Campo Fina"
+title: "Funk Fatale"
+gig_name: "Crooked Goat & Campo Fina"
 date: "2022-10-01"
 date_precision: "day"
-location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+location: "Crooked Goat & Campo Fina"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 12 unresolved item(s)"
 status: draft
 draft_id: "sld-6af7d8dfc58f"
 review_required: true
@@ -23,12 +26,11 @@ unresolved_items:
   - "sld-6af7d8dfc58f-item-01-016"
   - "sld-6af7d8dfc58f-item-01-021"
   - "sld-6af7d8dfc58f-item-01-022"
-review_note: "candidate requires review; 12 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "da8f45af-060b-46ef-a9e8-90fbc77b53b7"
 ---
 
-# FF: Crooked Goat & Campo Fina
+# Funk Fatale
 
 1. [Untitled](unresolved:untitled) — singer?: Rachel — match: unresolved?
 2. [Locked Out of Heaven (C) (Jess)](../songs/Locked-Out-Of-Heaven.md)

@@ -1,23 +1,25 @@
 ---
 schema_version: 1
 id: "2022-05-04-dg-et-lc-acoustic"
-title: "DG/ET -  LC Acoustic"
+title: "LC Acoustic"
+gig_name: "DG/ET"
 date: "2022-05-04"
 date_precision: "day"
 location: "Murphy's"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 1 unresolved item(s)"
 status: draft
 draft_id: "sld-c1b95679b9fd"
 review_required: true
 unresolved_items:
   - "sld-c1b95679b9fd-item-01-013"
-review_note: "candidate requires review; 1 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "202e6f13-b36b-4eea-a87e-8e30265dbef6"
 ---
 
-# DG/ET -  LC Acoustic
+# LC Acoustic
 
 1. [Thank You](../songs/Thank-You.md)
 2. [Everlong](../songs/Everlong.md)

@@ -1,24 +1,26 @@
 ---
 schema_version: 1
 id: "2022-10-09-lc-elec-glen-ellen-fair"
-title: "LC Elec: Glen Ellen Fair"
+title: "LC Electric"
+gig_name: "Glen Ellen Fair"
 date: "2022-10-09"
 date_precision: "day"
 location: "Downtown Glen Ellen"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 2 unresolved item(s)"
 status: draft
 draft_id: "sld-f3787fb9a3b4"
 review_required: true
 unresolved_items:
   - "sld-f3787fb9a3b4-item-01-009"
   - "sld-f3787fb9a3b4-item-01-013"
-review_note: "candidate requires review; 2 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "e9041404-722b-44d6-8f91-84fce0688a11"
 ---
 
-# LC Elec: Glen Ellen Fair
+# LC Electric
 
 1. [Jump (C) kyle](../songs/Jump.md)
 2. [Born To Run (E) kyle](../songs/Born-To-Run.md)

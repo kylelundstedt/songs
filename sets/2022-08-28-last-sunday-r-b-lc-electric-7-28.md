@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-08-28-last-sunday-r-b-lc-electric-7-28"
-title: "Last Sunday (R&B) - LC Electric 7/28"
+title: "LC Electric"
+gig_name: "Last Sunday (R&B)"
 date: "2022-08-28"
 date_precision: "day"
-location: "Reel and Brand"
+location: "Reel & Brand"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 6 unresolved item(s)"
 status: draft
 draft_id: "sld-af1699a60102"
 review_required: true
@@ -17,12 +20,11 @@ unresolved_items:
   - "sld-af1699a60102-item-01-021"
   - "sld-af1699a60102-item-01-022"
   - "sld-af1699a60102-item-01-024"
-review_note: "candidate requires review; 6 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "f5ba4bef-1cd7-4342-ba31-21328730d4dc"
 ---
 
-# Last Sunday (R&B) - LC Electric 7/28
+# LC Electric
 
 1. [Can't You See](../songs/Can-t-You-See.md)
 2. [Gimme Three Steps](../songs/Gimme-Three-Steps.md)

@@ -1,22 +1,24 @@
 ---
 schema_version: 1
 id: "2015-09-acoustic-at-hopmonk"
-title: "Acoustic at Hopmonk"
+title: "LC Acoustic"
+gig_name: "HopMonk Tavern"
 date: "2015-09"
 date_precision: "month"
-location: "Acoustic at Hopmonk"
+location: "HopMonk Tavern"
 band: "Loosely Covered"
-band_review: ""
+band_review: "confirmed"
+metadata_review: "proposed"
+review_note: "metadata proposed"
 status: draft
 draft_id: "sld-9870ac809443"
 review_required: false
 unresolved_items: []
-review_note: "admitted publication-ready candidate"
 source_type: "icloud"
 source_id: "loosely-covered-2015-09"
 ---
 
-# Acoustic at Hopmonk
+# LC Acoustic
 
 1. [Cumbersome](../songs/Cumbersome.md)
 2. [Ramble On](../songs/Ramble-On.md)

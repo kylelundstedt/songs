@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-07-09-ff-nicholson-pigs-n-pinot-7-9"
-title: "FF: Nicholson Pigs n Pinot 7/9"
+title: "Funk Fatale"
+gig_name: "Nicholson Pigs n Pinot"
 date: "2022-07-09"
 date_precision: "day"
 location: "Nicholson Ranch"
-band: ""
-band_review: "unresolved"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 7 unresolved item(s)"
 status: draft
 draft_id: "sld-43c0390f575d"
 review_required: true
@@ -18,12 +21,11 @@ unresolved_items:
   - "sld-43c0390f575d-item-01-009"
   - "sld-43c0390f575d-item-01-011"
   - "sld-43c0390f575d-item-01-014"
-review_note: "candidate requires review; 7 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "e4b46d6b-00bd-4472-8947-6803c92ae4b7"
 ---
 
-# FF: Nicholson Pigs n Pinot 7/9
+# Funk Fatale
 
 1. [SweetestTaboo](unresolved:sweetesttaboo) — match: unresolved?
 2. [Dreams](unresolved:dreams) — singer?: Rachel / Jess — match: unresolved?

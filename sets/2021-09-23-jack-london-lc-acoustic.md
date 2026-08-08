@@ -1,22 +1,24 @@
 ---
 schema_version: 1
 id: "2021-09-23-jack-london-lc-acoustic"
-title: "Jack London - LC Acoustic"
+title: "LC Acoustic"
+gig_name: "Jack London Lodge"
 date: "2021-09-23"
 date_precision: "day"
-location: "Jack London Saloon"
+location: "Jack London Lodge"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-e8c85310800f"
 review_required: true
 unresolved_items: []
-review_note: "candidate requires review; band proposed"
 source_type: "notion"
 source_id: "28f25265-6d1a-45d5-ac9d-ae02c07534a7"
 ---
 
-# Jack London - LC Acoustic
+# LC Acoustic
 
 1. [Black](../songs/Black.md)
 2. [Elderly Woman](../songs/Elderly-Woman.md)

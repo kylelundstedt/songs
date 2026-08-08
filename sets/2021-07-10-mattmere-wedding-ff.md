@@ -1,23 +1,25 @@
 ---
 schema_version: 1
 id: "2021-07-10-mattmere-wedding-ff"
-title: "MattMere Wedding - FF"
+title: "Funk Fatale"
+gig_name: "MattMere Wedding"
 date: "2021-07-10"
 date_precision: "day"
 location: "Castello Golightly"
-band: ""
-band_review: "unresolved"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 1 unresolved item(s)"
 status: draft
 draft_id: "sld-f8c1780d59ee"
 review_required: true
 unresolved_items:
   - "sld-f8c1780d59ee-item-01-005"
-review_note: "candidate requires review; 1 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "4a943883-cd15-490f-8aaf-f6f72e9d654b"
 ---
 
-# MattMere Wedding - FF
+# Funk Fatale
 
 1. [Baby I Love You](../songs/Baby-I-Love-You.md)
 2. [Some Kind of Wonderful](../songs/Some-Kind-Of-Wonderful.md)

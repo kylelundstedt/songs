@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-07-08-kenwood-party-lc-acoustic-7-8"
-title: "Kenwood Party - LC Acoustic 7/8"
+title: "LC Acoustic"
+gig_name: "Kenwood Party"
 date: "2022-07-08"
 date_precision: "day"
-location: "Kenwood Residence (Neat Chateau St Jean)"
+location: "Kenwood Residence (near Château St. Jean)"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 6 unresolved item(s)"
 status: draft
 draft_id: "sld-da86cc1507ac"
 review_required: true
@@ -17,12 +20,11 @@ unresolved_items:
   - "sld-da86cc1507ac-item-01-037"
   - "sld-da86cc1507ac-item-01-038"
   - "sld-da86cc1507ac-item-01-039"
-review_note: "candidate requires review; 6 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 ---
 
-# Kenwood Party - LC Acoustic 7/8
+# LC Acoustic
 
 1. [Black](../songs/Black.md)
 2. [Elderly Woman](../songs/Elderly-Woman.md)

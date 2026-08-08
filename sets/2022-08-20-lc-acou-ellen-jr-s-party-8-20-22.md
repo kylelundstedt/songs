@@ -1,24 +1,26 @@
 ---
 schema_version: 1
 id: "2022-08-20-lc-acou-ellen-jr-s-party-8-20-22"
-title: "LC Acou: Ellen (JR)’s party - 8/20/22"
+title: "LC Acoustic"
+gig_name: "Ellen (JR)’s party"
 date: "2022-08-20"
 date_precision: "day"
 location: "Ellen's House"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 2 unresolved item(s)"
 status: draft
 draft_id: "sld-23a5bfb70115"
 review_required: true
 unresolved_items:
   - "sld-23a5bfb70115-item-01-038"
   - "sld-23a5bfb70115-item-01-047"
-review_note: "candidate requires review; 2 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "ac25109e-1ce6-4977-98ed-e653c5b532b7"
 ---
 
-# LC Acou: Ellen (JR)’s party - 8/20/22
+# LC Acoustic
 
 1. [Black (E) *](../songs/Black.md)
 2. [Elderly Woman (D) *](../songs/Elderly-Woman.md)

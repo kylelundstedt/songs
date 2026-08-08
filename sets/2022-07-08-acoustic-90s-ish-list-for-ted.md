@@ -2,11 +2,14 @@
 schema_version: 1
 id: "2022-07-08-acoustic-90s-ish-list-for-ted"
 title: "Acoustic 90s-ish List (for Ted)"
+gig_name: "Acoustic 90s-ish List (for Ted)"
 date: "2022-07-08"
 date_precision: "day"
-location: "Kenwood Residence (Neat Chateau St Jean)"
-band: ""
-band_review: "unresolved"
+location: "Kenwood Residence (near Château St. Jean)"
+band: "Loosely Covered"
+band_review: "proposed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 3 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-b8195c489ac8"
 review_required: true
@@ -14,7 +17,6 @@ unresolved_items:
   - "sld-b8195c489ac8-item-01-030"
   - "sld-b8195c489ac8-item-01-031"
   - "sld-b8195c489ac8-item-01-032"
-review_note: "candidate requires review; 3 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "31c5bb73-effb-4fc6-828f-994ab4677da7"
 ---

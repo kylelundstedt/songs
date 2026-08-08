@@ -1,22 +1,24 @@
 ---
 schema_version: 1
 id: "2021-04-10-reel-and-brand-lc-acoustic"
-title: "Reel and Brand - LC Acoustic"
+title: "LC Acoustic"
+gig_name: "Reel & Brand"
 date: "2021-04-10"
 date_precision: "day"
-location: "Reel and Brand"
+location: "Reel & Brand"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-9082ccc7e9de"
 review_required: true
 unresolved_items: []
-review_note: "candidate requires review; band proposed"
 source_type: "notion"
 source_id: "0d5c361e-24e3-4ad9-af08-c4639f54c7d8"
 ---
 
-# Reel and Brand - LC Acoustic
+# LC Acoustic
 
 1. [Cumbersome](../songs/Cumbersome.md)
 2. [Ramble On](../songs/Ramble-On.md)

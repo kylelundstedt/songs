@@ -1,24 +1,26 @@
 ---
 schema_version: 1
 id: "undated-lc-acou-jll-9-22-22"
-title: "LC Acou: JLL - 9/22/22"
-date: ""
-date_precision: "unknown"
-location: "Ellen's House"
+title: "LC Acoustic"
+gig_name: "Jack London Lodge"
+date: "2022-09-22"
+date_precision: "day"
+location: "Jack London Lodge"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 2 unresolved item(s)"
 status: draft
 draft_id: "sld-0a934a30e194"
 review_required: true
 unresolved_items:
   - "sld-0a934a30e194-item-01-038"
   - "sld-0a934a30e194-item-01-047"
-review_note: "candidate requires review; 2 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "e76d122c-1e14-4994-9ea3-e00bd2c5c99c"
 ---
 
-# LC Acou: JLL - 9/22/22
+# LC Acoustic
 
 1. [Black (E) *](../songs/Black.md)
 2. [Elderly Woman (D) *](../songs/Elderly-Woman.md)

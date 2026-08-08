@@ -2,11 +2,14 @@
 schema_version: 1
 id: "2021-10-02-sarah-50th-bday"
 title: "Sarah 50th Bday"
+gig_name: "Sarah 50th Bday"
 date: "2021-10-02"
 date_precision: "day"
 location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+band: "Loosely Covered"
+band_review: "proposed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 7 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-7d957d802b1b"
 review_required: true
@@ -18,7 +21,6 @@ unresolved_items:
   - "sld-7d957d802b1b-item-01-036"
   - "sld-7d957d802b1b-item-01-037"
   - "sld-7d957d802b1b-item-01-038"
-review_note: "candidate requires review; 7 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "7e0be840-413e-468e-90f0-b8a4eabff48a"
 ---

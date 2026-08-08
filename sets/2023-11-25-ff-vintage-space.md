@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2023-11-25-ff-vintage-space"
-title: "FF: Vintage Space"
+title: "Funk Fatale"
+gig_name: "Vintage Space"
 date: "2023-11-25"
 date_precision: "day"
-location: ""
-band: ""
-band_review: "unresolved"
+location: "Vintage Space"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 9 unresolved item(s)"
 status: draft
 draft_id: "sld-6483d333b07e"
 review_required: true
@@ -20,12 +23,11 @@ unresolved_items:
   - "sld-6483d333b07e-item-02-004"
   - "sld-6483d333b07e-item-02-005"
   - "sld-6483d333b07e-item-03-002"
-review_note: "candidate requires review; 9 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "333f84b7-9df4-4535-9286-37900c93ac83"
 ---
 
-# FF: Vintage Space
+# Funk Fatale
 
 1. [Miss You](../songs/Miss-You.md)
 2. [Valerie](../songs/Valerie.md)

@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2006-01-25-wait-for-the-shake-set-list-2006-01-25"
-title: "Wait for the Shake — Set List 2006-01-25"
+title: "Wait for the Shake"
+gig_name: "Wait for the Shake"
 date: "2006-01-25"
 date_precision: "day"
 location: ""
 band: "Wait for the Shake"
-band_review: ""
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 6 unresolved item(s)"
 status: draft
 draft_id: "sld-7ee0e92035ae"
 review_required: true
@@ -17,12 +20,11 @@ unresolved_items:
   - "sld-7ee0e92035ae-item-01-006"
   - "sld-7ee0e92035ae-item-01-010"
   - "sld-7ee0e92035ae-item-01-012"
-review_note: "candidate requires review; 6 unresolved item(s)"
 source_type: "icloud"
 source_id: "wait-for-the-shake-2006-01-25"
 ---
 
-# Wait for the Shake — Set List 2006-01-25
+# Wait for the Shake
 
 1. [Remedy](unresolved:remedy) — match: unresolved?
 2. [Inside Out](../songs/Inside-Out.md)

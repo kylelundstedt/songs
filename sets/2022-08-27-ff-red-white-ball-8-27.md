@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-08-27-ff-red-white-ball-8-27"
-title: "FF: Red & White Ball 8/27"
+title: "Funk Fatale"
+gig_name: "Red & White Ball"
 date: "2022-08-27"
 date_precision: "day"
 location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 10 unresolved item(s)"
 status: draft
 draft_id: "sld-2b8e46978dae"
 review_required: true
@@ -21,12 +24,11 @@ unresolved_items:
   - "sld-2b8e46978dae-item-01-012"
   - "sld-2b8e46978dae-item-01-013"
   - "sld-2b8e46978dae-item-01-014"
-review_note: "candidate requires review; 10 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "9a74f7c5-9016-4e68-903c-60cbb9afa617"
 ---
 
-# FF: Red & White Ball 8/27
+# Funk Fatale
 
 1. [Locked Out of Heaven (C) (Jess)](../songs/Locked-Out-Of-Heaven.md)
 2. [SweetestTaboo (Am) (Rachel)](unresolved:sweetesttaboo) — match: unresolved?

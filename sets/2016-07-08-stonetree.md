@@ -2,18 +2,20 @@
 schema_version: 1
 id: "2016-07-08-stonetree"
 title: "Stonetree"
+gig_name: "Stonetree"
 date: "2016-07-08"
 date_precision: "day"
 location: "Stonetree"
 band: "Loosely Covered"
-band_review: ""
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 2 unresolved item(s)"
 status: draft
 draft_id: "sld-d1a834f513cc"
 review_required: true
 unresolved_items:
   - "sld-d1a834f513cc-item-01-012"
   - "sld-d1a834f513cc-item-01-014"
-review_note: "candidate requires review; 2 unresolved item(s)"
 source_type: "icloud"
 source_id: "loosely-covered-2016-07-08-stonetree"
 ---

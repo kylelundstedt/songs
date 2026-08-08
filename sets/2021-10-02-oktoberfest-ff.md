@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2021-10-02-oktoberfest-ff"
-title: "Oktoberfest - FF"
+title: "Funk Fatale"
+gig_name: "Oktoberfest"
 date: "2021-10-02"
 date_precision: "day"
 location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 6 unresolved item(s)"
 status: draft
 draft_id: "sld-f6cf2cef784e"
 review_required: true
@@ -17,12 +20,11 @@ unresolved_items:
   - "sld-f6cf2cef784e-item-01-004"
   - "sld-f6cf2cef784e-item-01-005"
   - "sld-f6cf2cef784e-item-01-011"
-review_note: "candidate requires review; 6 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "54662544-15de-49d0-b2ed-2e7cc6555dc1"
 ---
 
-# Oktoberfest - FF
+# Funk Fatale
 
 1. [SweetestTaboo](unresolved:sweetesttaboo) — singer?: Rachel — match: unresolved?
 2. [Lovergirl](unresolved:lovergirl) — singer?: Jess — match: unresolved?

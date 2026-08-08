@@ -142,6 +142,7 @@ def write_if_changed(path: Path, content: str) -> bool:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="validate only; do not write")
+    parser.add_argument("--refresh-existing-drafts", action="store_true", help="replace files carrying a matching draft_id; normally existing imported Set Lists are preserved")
     args = parser.parse_args()
     data = json.loads(INPUT.read_text(encoding="utf-8"))
     drafts = sorted(data["publication_ready"] + data["review_required"], key=lambda d: d["draft_id"])
@@ -194,9 +195,9 @@ def main() -> None:
             if not args.check:
                 path.write_text(content, encoding="utf-8")
                 changed += 1
-        elif known_paths.get(draft["draft_id"]) == name and not args.check:
-            # Files carrying the same draft_id are generated migration output and
-            # may be refreshed. Unrelated/pre-existing Set Lists are never changed.
+        elif known_paths.get(draft["draft_id"]) == name and args.refresh_existing_drafts and not args.check:
+            # Explicit refresh is limited to files carrying the same draft_id.
+            # The default preserves later metadata cleanup and in-app edits.
             if write_if_changed(path, content):
                 changed += 1
 

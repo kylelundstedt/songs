@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2023-12-03-lc-acou-bv-party"
-title: "LC Acou: BV Party"
+title: "LC Acoustic"
+gig_name: "BV Party"
 date: "2023-12-03"
 date_precision: "day"
-location: ""
+location: "Buena Vista Winery"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 11 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-d911f41c7ae0"
 review_required: true
@@ -22,12 +25,11 @@ unresolved_items:
   - "sld-d911f41c7ae0-item-01-036"
   - "sld-d911f41c7ae0-item-01-039"
   - "sld-d911f41c7ae0-item-01-044"
-review_note: "candidate requires review; 11 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "b003defc-e7cf-47b5-add8-5ccee34f9b71"
 ---
 
-# LC Acou: BV Party
+# LC Acoustic
 
 1. [Valerie](../songs/Valerie.md)
 2. [Crazy (Cm) (acoustic)](../songs/Crazy.md)

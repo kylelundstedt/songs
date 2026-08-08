@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2023-07-15-lc-elec-ellen-s-wedding"
-title: "LC Elec:  Ellen’s Wedding"
+title: "LC Electric"
+gig_name: "Ellen’s Wedding"
 date: "2023-07-15"
 date_precision: "day"
-location: "Wedding"
+location: ""
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 7 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-d862f710a634"
 review_required: true
@@ -18,12 +21,11 @@ unresolved_items:
   - "sld-d862f710a634-item-01-019"
   - "sld-d862f710a634-item-01-020"
   - "sld-d862f710a634-item-01-036"
-review_note: "candidate requires review; 7 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "8406e30d-d95e-4a02-b716-d2363b8d2b6a"
 ---
 
-# LC Elec:  Ellen’s Wedding
+# LC Electric
 
 1. [Miss You](../songs/Miss-You.md)
 2. [@you wreck me](../songs/You-Wreck-Me.md)

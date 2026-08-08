@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2023-07-01-lc-elec-raymond"
-title: "LC Elec:  Raymond"
+title: "LC Electric"
+gig_name: "Raymond"
 date: "2023-07-01"
 date_precision: "day"
-location: "Wedding"
+location: ""
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 7 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-9d1b98ca1443"
 review_required: true
@@ -18,12 +21,11 @@ unresolved_items:
   - "sld-9d1b98ca1443-item-02-002"
   - "sld-9d1b98ca1443-item-02-007"
   - "sld-9d1b98ca1443-item-02-008"
-review_note: "candidate requires review; 7 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "89e74478-afb2-442b-9b35-f4bd20d86bce"
 ---
 
-# LC Elec:  Raymond
+# LC Electric
 
 1. [Valerie (E) - Rae](../songs/Valerie.md)
 2. [Can't You See (D) - JMB](../songs/Can-t-You-See.md)

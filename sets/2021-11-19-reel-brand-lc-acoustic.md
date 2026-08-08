@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2021-11-19-reel-brand-lc-acoustic"
-title: "Reel & Brand - LC Acoustic"
+title: "LC Acoustic"
+gig_name: "Reel & Brand"
 date: "2021-11-19"
 date_precision: "day"
-location: "Reel and Brand"
+location: "Reel & Brand"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 3 unresolved item(s)"
 status: draft
 draft_id: "sld-c56dbe03b66d"
 review_required: true
@@ -14,12 +17,11 @@ unresolved_items:
   - "sld-c56dbe03b66d-item-01-008"
   - "sld-c56dbe03b66d-item-01-014"
   - "sld-c56dbe03b66d-item-02-009"
-review_note: "candidate requires review; 3 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "634925dc-1c91-4087-bea1-7e86dc41a179"
 ---
 
-# Reel & Brand - LC Acoustic
+# LC Acoustic
 
 1. [Shine](../songs/Shine.md)
 2. [Can't You See (D) JMB](../songs/Can-t-You-See.md)

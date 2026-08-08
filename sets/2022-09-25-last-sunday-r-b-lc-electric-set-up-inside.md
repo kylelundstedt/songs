@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-09-25-last-sunday-r-b-lc-electric-set-up-inside"
-title: "Last Sunday (R&B) - LC Electric - Set up inside"
+title: "LC Electric"
+gig_name: "Last Sunday (R&B) — Set up inside"
 date: "2022-09-25"
 date_precision: "day"
-location: "Reel and Brand"
+location: "Reel & Brand"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 7 unresolved item(s)"
 status: draft
 draft_id: "sld-1c7a49676430"
 review_required: true
@@ -18,12 +21,11 @@ unresolved_items:
   - "sld-1c7a49676430-item-01-020"
   - "sld-1c7a49676430-item-01-021"
   - "sld-1c7a49676430-item-01-023"
-review_note: "candidate requires review; 7 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "e07c69c5-4c52-4a28-a9cf-cc76e627a30a"
 ---
 
-# Last Sunday (R&B) - LC Electric - Set up inside
+# LC Electric
 
 1. [Feeling Alright](../songs/Feeling-Alright.md)
 2. [Little Sister](../songs/Little-Sister.md)

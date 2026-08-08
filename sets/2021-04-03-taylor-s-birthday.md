@@ -2,16 +2,18 @@
 schema_version: 1
 id: "2021-04-03-taylor-s-birthday"
 title: "Taylor's Birthday"
+gig_name: "Taylor's Birthday"
 date: "2021-04-03"
 date_precision: "day"
 location: "Castello Golightly"
-band: ""
-band_review: "unresolved"
+band: "Loosely Covered"
+band_review: "proposed"
+metadata_review: "proposed"
+review_note: "candidate requires review; metadata proposed"
 status: draft
 draft_id: "sld-708ea4def782"
 review_required: true
 unresolved_items: []
-review_note: "candidate requires review; band unresolved"
 source_type: "notion"
 source_id: "07919a2a-28f0-4c25-877a-7aaa7e3b83eb"
 ---

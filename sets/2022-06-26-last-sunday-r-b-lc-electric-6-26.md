@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-06-26-last-sunday-r-b-lc-electric-6-26"
-title: "Last Sunday (R&B) - LC Electric 6/26"
+title: "LC Electric"
+gig_name: "Last Sunday (R&B)"
 date: "2022-06-26"
 date_precision: "day"
-location: "Reel and Brand"
+location: "Reel & Brand"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 5 unresolved item(s)"
 status: draft
 draft_id: "sld-eb710ce9c275"
 review_required: true
@@ -16,12 +19,11 @@ unresolved_items:
   - "sld-eb710ce9c275-item-01-008"
   - "sld-eb710ce9c275-item-01-027"
   - "sld-eb710ce9c275-item-01-029"
-review_note: "candidate requires review; 5 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "749fde84-3489-400e-9c6f-c804cca3e3fa"
 ---
 
-# Last Sunday (R&B) - LC Electric 6/26
+# LC Electric
 
 1. [Jump, Jive, an' Wail](../songs/Jump-Jive-Wail.md) — match: normalized?
 2. [Can't You See](../songs/Can-t-You-See.md)

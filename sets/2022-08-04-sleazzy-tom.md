@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2022-08-04-sleazzy-tom"
-title: "SleaZZy Tom"
+title: "Sleazzy Top"
+gig_name: ""
 date: "2022-08-04"
 date_precision: "day"
 location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+band: "Sleazzy Top"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 10 unresolved item(s)"
 status: draft
 draft_id: "sld-2c12effa2f02"
 review_required: true
@@ -21,12 +24,11 @@ unresolved_items:
   - "sld-2c12effa2f02-item-01-015"
   - "sld-2c12effa2f02-item-01-016"
   - "sld-2c12effa2f02-item-01-017"
-review_note: "candidate requires review; 10 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "8ce8bc35-3718-4133-84e5-53f5eb08339b"
 ---
 
-# SleaZZy Tom
+# Sleazzy Top
 
 1. [Untitled](unresolved:untitled) — match: unresolved?
 2. [Untitled](unresolved:untitled) — match: unresolved?

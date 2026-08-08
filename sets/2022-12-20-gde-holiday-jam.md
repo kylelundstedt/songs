@@ -2,11 +2,14 @@
 schema_version: 1
 id: "2022-12-20-gde-holiday-jam"
 title: "GDE Holiday Jam"
+gig_name: "GDE Holiday Jam"
 date: "2022-12-20"
 date_precision: "day"
 location: "Castello Golightly"
-band: ""
-band_review: "unresolved"
+band: "Various"
+band_review: "proposed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 6 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-faa53a88990f"
 review_required: true
@@ -17,7 +20,6 @@ unresolved_items:
   - "sld-faa53a88990f-item-01-010"
   - "sld-faa53a88990f-item-01-011"
   - "sld-faa53a88990f-item-01-012"
-review_note: "candidate requires review; 6 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "8365fac7-c739-4a65-8b84-ddea34f4e0ac"
 ---

@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2023-09-24-lc-acou-bv-xmas"
-title: "LC Acou: BV xmas"
+title: "LC Acoustic"
+gig_name: "BV Xmas"
 date: "2023-09-24"
 date_precision: "day"
-location: ""
+location: "Buena Vista Winery"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 9 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-5092bbcad997"
 review_required: true
@@ -20,12 +23,11 @@ unresolved_items:
   - "sld-5092bbcad997-item-02-007"
   - "sld-5092bbcad997-item-02-013"
   - "sld-5092bbcad997-item-02-016"
-review_note: "candidate requires review; 9 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "fd92ce08-dc81-418e-af8b-c999f9384e0a"
 ---
 
-# LC Acou: BV xmas
+# LC Acoustic
 
 1. [Valerie](../songs/Valerie.md)
 2. [Little Sister](../songs/Little-Sister.md)

@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2021-08-05-city-party-ff"
-title: "City Party - FF"
+title: "Funk Fatale"
+gig_name: "City Party"
 date: "2021-08-05"
 date_precision: "day"
 location: "Sonoma Plaza"
-band: ""
-band_review: "unresolved"
+band: "Funk Fatale"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 3 unresolved item(s)"
 status: draft
 draft_id: "sld-7ba83c483831"
 review_required: true
@@ -14,12 +17,11 @@ unresolved_items:
   - "sld-7ba83c483831-item-02-002"
   - "sld-7ba83c483831-item-05-002"
   - "sld-7ba83c483831-item-06-011"
-review_note: "candidate requires review; 3 unresolved item(s); band unresolved"
 source_type: "notion"
 source_id: "3675b233-e08e-45c2-a3dd-2d3936c72ad6"
 ---
 
-# City Party - FF
+# Funk Fatale
 
 1. [Let's Go Crazy](../songs/Let-s-Go-Crazy.md)
 2. [Uptown Funk](../songs/Uptown-Funk.md)

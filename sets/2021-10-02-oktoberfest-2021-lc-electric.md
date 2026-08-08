@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2021-10-02-oktoberfest-2021-lc-electric"
-title: "Oktoberfest 2021 - LC Electric"
+title: "LC Electric"
+gig_name: "Oktoberfest 2021"
 date: "2021-10-02"
 date_precision: "day"
 location: "Sonoma Plaza"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review; 7 unresolved item(s)"
 status: draft
 draft_id: "sld-44a5d183c349"
 review_required: true
@@ -18,12 +21,11 @@ unresolved_items:
   - "sld-44a5d183c349-item-01-036"
   - "sld-44a5d183c349-item-01-037"
   - "sld-44a5d183c349-item-01-038"
-review_note: "candidate requires review; 7 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "a6cf6ba4-5273-40da-a5cf-1375937bed5f"
 ---
 
-# Oktoberfest 2021 - LC Electric
+# LC Electric
 
 1. [Are You Gonna Be My Girl (A) - DLG](../songs/Are-You-Gonna-Be-My-Girl.md)
 2. [Tush (G) - DLG](../songs/Tush.md)

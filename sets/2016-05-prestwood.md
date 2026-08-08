@@ -2,16 +2,18 @@
 schema_version: 1
 id: "2016-05-prestwood"
 title: "Prestwood"
+gig_name: "Prestwood"
 date: "2016-05"
 date_precision: "month"
 location: "Prestwood"
 band: "Loosely Covered"
-band_review: ""
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "admitted publication-ready candidate"
 status: draft
 draft_id: "sld-3e066c0cd11e"
 review_required: false
 unresolved_items: []
-review_note: "admitted publication-ready candidate"
 source_type: "icloud"
 source_id: "loosely-covered-2016-05"
 ---

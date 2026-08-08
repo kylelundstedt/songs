@@ -2,16 +2,18 @@
 schema_version: 1
 id: "2025-10-13-9tease-stripped"
 title: "9Tease Stripped"
+gig_name: ""
 date: "2025-10-13"
 date_precision: "day"
 location: "Castello Golightly"
-band: ""
-band_review: "unresolved"
+band: "9Tease Stripped"
+band_review: "confirmed"
+metadata_review: "confirmed"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-82d724e0933f"
 review_required: true
 unresolved_items: []
-review_note: "candidate requires review; band unresolved"
 source_type: "notion"
 source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 ---

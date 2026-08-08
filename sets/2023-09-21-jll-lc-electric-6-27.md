@@ -1,12 +1,15 @@
 ---
 schema_version: 1
 id: "2023-09-21-jll-lc-electric-6-27"
-title: "JLL - LC Electric 6/27"
-date: "2023-09-21"
+title: "LC Electric"
+gig_name: "Jack London Lodge"
+date: "2023-06-27"
 date_precision: "day"
-location: "Jack London Saloon"
+location: "Jack London Lodge"
 band: "Loosely Covered"
-band_review: "proposed"
+band_review: "confirmed"
+metadata_review: "proposed"
+review_note: "candidate requires review; 11 unresolved item(s); metadata proposed"
 status: draft
 draft_id: "sld-ed4d0450c248"
 review_required: true
@@ -22,12 +25,11 @@ unresolved_items:
   - "sld-ed4d0450c248-item-01-032"
   - "sld-ed4d0450c248-item-01-034"
   - "sld-ed4d0450c248-item-01-035"
-review_note: "candidate requires review; 11 unresolved item(s); band proposed"
 source_type: "notion"
 source_id: "e234682c-c893-4528-9377-43a8b988507d"
 ---
 
-# JLL - LC Electric 6/27
+# LC Electric
 
 1. [Kiss](../songs/Kiss.md)
 2. [Rebel Yell](../songs/Rebel-Yell.md)
