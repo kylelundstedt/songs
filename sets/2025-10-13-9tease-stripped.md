@@ -40,6 +40,8 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 17. [Kryptonite](../songs/Kryptonite.md)
 18. [Breakdown](../songs/Breakdown.md)
 <!-- column-break -->
+## Set 2 - Medium
+
 19. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
 20. [You're So Bad](../songs/you-re-so-bad.md)
 21. [Mary Jane's Last Dance](../songs/Mary-Jane-s-Last-Dance.md)
@@ -64,6 +66,8 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 40. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
 41. [If You Could Only See](../songs/if-you-could-only-see.md)
 <!-- column-break -->
+## Set 3 - Fast
+
 42. [Killing in The Name](../songs/Killing-In-The-Name.md)
 43. [Sex on Fire](../songs/Sex-on-Fire.md)
 44. [Iris](../songs/iris.md)
