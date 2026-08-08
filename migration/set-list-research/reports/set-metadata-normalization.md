@@ -74,7 +74,7 @@ The decisions in [`set-metadata-decisions.json`](../set-metadata-decisions.json)
 | `2023-11-25-ff-vintage-space.md` | Funk Fatale | Vintage Space | 2023-11-25 (day) | Vintage Space | Funk Fatale (confirmed) | confirmed | Explicit FF abbreviation maps to Funk Fatale; location is explicit in title. |
 | `2023-12-01-sf-12-13-25.md` | Funk Fatale | SF | 2025-12-13 (day) | — | Funk Fatale (proposed) | proposed | Title supplies proposed 2025-12-13 date; FF-like repertoire supports only a proposed band. |
 | `2023-12-03-lc-acou-bv-party.md` | LC Acoustic | BV Party | 2023-12-03 (day) | Buena Vista Winery | Loosely Covered (confirmed) | proposed | Normalize LC acoustic configuration; BV expansion is proposed. |
-| `2025-10-13-9tease-stripped.md` | 9Tease Stripped | — | 2025-10-13 (day) | Castello Golightly | 9Tease Stripped (confirmed) | confirmed | User-confirmed 9Tease Stripped mapping. |
+| `2025-10-13-9tease-stripped.md` | 9Tease Stripped | — | 2026-08-05 (day) | Castello Golightly | 9Tease Stripped (confirmed) | confirmed | User-confirmed 9Tease Stripped mapping and 2026-08-05 performance date. |
 | `undated-lc-acou-jll-9-22-22.md` | LC Acoustic | Jack London Lodge | 2022-09-22 (day) | Jack London Lodge | Loosely Covered (confirmed) | confirmed | Explicit user-confirmed mapping for this draft. |
 
 ## Key user-confirmed mappings
