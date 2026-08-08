@@ -32,3 +32,9 @@ Physical Safari/iPad validation remains pending; see `renderer/README.md`.
 ## V1 route baseline
 
 The TASK-003 HTTP contract is recorded in [`routes/route-baseline.json`](routes/route-baseline.json).
+
+## Backup and restore baseline
+
+TASK-004's deterministic ephemeral backup/restore drill is documented in
+[`backup-restore/README.md`](backup-restore/README.md), with checked-in evidence
+in [`backup-restore/backup-restore-baseline.json`](backup-restore/backup-restore-baseline.json).

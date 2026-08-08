@@ -2,7 +2,7 @@
 
 - **Priority:** P1
 - **Phase:** 0
-- **Status:** Ready
+- **Status:** Done
 
 ## Objective
 
@@ -41,6 +41,17 @@ Do not alter or stop the deployed v1 service, push restored content, or treat a 
 - Corrupted, incomplete, and wrong-baseline backups fail closed with useful errors.
 - Backup artifacts contain no secrets, machine-specific paths, timestamps, or mutable production files.
 - A deterministic `--check` command detects evidence drift.
+
+## Completed evidence
+
+- A Git bundle containing `refs/tags/v1` restores two clean detached checkouts at the exact commit.
+- Python's SQLite online backup API captures the isolated WAL database while the tagged source server remains running.
+- All 351 canonical Markdown files restore byte-for-byte.
+- Restored SQLite passes quick, integrity, and foreign-key checks with one migration, 291 song rows, and 60 Set List rows.
+- Source, rendered HTML, schema, and timestamp-excluding semantic projection hashes match TASK-001/002 evidence.
+- Five focused restored-server routes match TASK-003 exactly.
+- Missing corpus content, corrupt SQLite, corrupt Git bundle, wrong baseline, and missing components all fail closed.
+- V1 SQLite is confirmed as rebuildable cache state; V2's durable ledger and unsynced IndexedDB recovery remain explicit requirements.
 
 ## Verification commands
 

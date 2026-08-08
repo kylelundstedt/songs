@@ -3,8 +3,8 @@
 - **Baseline:** Git tag `v1` at commit `546f59b41d9e9bcf0e81b543c27900a31e26c9e6` (`546f59b`), not the mutable worktree.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 0 — protect the v1 baseline and resolve discovery gates.
-- **Completed:** V2 proposal/control plane; TASK-001 corpus manifest; TASK-002 renderer/browser-fit baseline; TASK-003 legacy-route baseline.
-- **Current task:** [TASK-004](tasks/TASK-004-backup-restore-baseline.md), prove exact corpus and operational-state recovery in a clean environment.
+- **Completed:** V2 proposal/control plane; TASK-001 corpus manifest; TASK-002 renderer/browser-fit; TASK-003 route contract; TASK-004 backup/restore drill.
+- **Current task:** [TASK-005](tasks/TASK-005-sync-feasibility-spike.md), prove the idempotent operation ledger, two-device conflicts, Git materialization, and failed-push recovery.
 
 ## Completed evidence
 
@@ -33,6 +33,15 @@ TASK-003 freezes the v1 HTTP and offline route contract:
 - ten destructive or remote executions are excluded, while safe authentication/validation boundaries are recorded;
 - v1 edge behavior includes case-sensitive IDs, trailing-slash 404s, encoded-ID resolution, path-cleaning redirects, and a browsable `/static/` directory.
 
+TASK-004 proves clean backup and restoration:
+
+- an exact `v1` Git bundle restores two clean checkouts at `546f59b`;
+- SQLite's online backup API captures a running WAL database without copying live DB/WAL files;
+- all 351 Markdown files, 291 song-index rows, and 60 Set List rows restore and verify;
+- five focused routes match TASK-003 after restore;
+- five missing/corrupt/wrong-baseline cases fail closed;
+- v1 SQLite is rebuildable cache state, while V2 must protect its future durable ledger and unsynced client drafts.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -44,12 +53,13 @@ python3 scripts/build_v2_baseline.py --check
 python3 scripts/build_v2_renderer_baseline.py --check
 python3 scripts/build_v2_browser_fit_baseline.py --check
 python3 scripts/build_v2_route_baseline.py --check
+python3 scripts/build_v2_backup_restore_baseline.py --check
 go test ./...
 git diff --check
 ```
 
 ## Next tasks
 
-1. Complete TASK-004 backup/restore baseline.
-2. Run sync and atomic-bootstrap feasibility spikes.
+1. Complete TASK-005 sync feasibility spike.
+2. Measure atomic bootstrap and browser storage behavior.
 3. Perform the Phase 0 exit review and estimate Phase 1 from measured evidence.
