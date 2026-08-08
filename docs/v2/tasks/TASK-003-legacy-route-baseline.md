@@ -2,7 +2,7 @@
 
 - **Priority:** P1
 - **Phase:** 0
-- **Status:** Ready
+- **Status:** Done
 
 ## Objective
 
@@ -37,6 +37,15 @@ Record representative and generated cases for:
 - Redirect, missing-resource, case, trailing-slash, and encoded-ID behavior is visible.
 - Assertions avoid volatile build times, database timestamps, and machine-specific ports.
 - A deterministic `--check` command detects route-contract drift.
+
+## Completed evidence
+
+- `migration/v2/routes/route-baseline.json` inventories all 27 v1 registrations.
+- 1,158 isolated requests include 1,113 canonical corpus routes.
+- All 291 song pages/JSON/Markdown and all 60 Set List/page/Live/Markdown/offline families return 200.
+- Ten authenticated mutation or valid provider/LLM executions are explicitly excluded; nine safe unauthenticated mutation probes return 401.
+- Edge fixtures preserve case sensitivity, encoded IDs, trailing slashes, aliases, method behavior, path cleaning, authentication boundaries, and static-directory behavior.
+- The generator builds and runs only a fresh `git archive v1` tree with isolated SQLite state and no redirect following.
 
 ## Verification commands
 

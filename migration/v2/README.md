@@ -28,3 +28,7 @@ render with that field set to `null`, avoiding a self-referential hash.
 `renderer/` contains the TASK-002 Apex render corpus, song-only HTML fixtures,
 Chromium-emulation fit captures, deterministic fit summary, and screenshots.
 Physical Safari/iPad validation remains pending; see `renderer/README.md`.
+
+## V1 route baseline
+
+The TASK-003 HTTP contract is recorded in [`routes/route-baseline.json`](routes/route-baseline.json).

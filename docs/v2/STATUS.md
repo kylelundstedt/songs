@@ -3,8 +3,8 @@
 - **Baseline:** Git tag `v1` at commit `546f59b41d9e9bcf0e81b543c27900a31e26c9e6` (`546f59b`), not the mutable worktree.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 0 — protect the v1 baseline and resolve discovery gates.
-- **Completed:** V2 proposal and control plane; TASK-001 deterministic v1 corpus manifest; TASK-002 renderer and browser-fit baseline.
-- **Current task:** [TASK-003](tasks/TASK-003-legacy-route-baseline.md), freeze the public and offline route contract before v2 routing work.
+- **Completed:** V2 proposal/control plane; TASK-001 corpus manifest; TASK-002 renderer/browser-fit baseline; TASK-003 legacy-route baseline.
+- **Current task:** [TASK-004](tasks/TASK-004-backup-restore-baseline.md), prove exact corpus and operational-state recovery in a clean environment.
 
 ## Completed evidence
 
@@ -25,6 +25,14 @@ TASK-002 freezes Apex 1.1.14 and the v1 browser fitter:
 - `can-t-stop` and `paradise-city` are the two landscape `needs-editing` cases;
 - physical Safari/iPad validation remains pending and is not inferred from Chromium.
 
+TASK-003 freezes the v1 HTTP and offline route contract:
+
+- all 27 registered routes are classified and covered by fixtures or explicit exclusions;
+- 1,158 isolated requests include 1,113 canonical song/Set List route records;
+- every canonical family returns 200 for all 291 songs and 60 Set Lists;
+- ten destructive or remote executions are excluded, while safe authentication/validation boundaries are recorded;
+- v1 edge behavior includes case-sensitive IDs, trailing-slash 404s, encoded-ID resolution, path-cleaning redirects, and a browsable `/static/` directory.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -35,13 +43,13 @@ python3 -m unittest discover -s tests
 python3 scripts/build_v2_baseline.py --check
 python3 scripts/build_v2_renderer_baseline.py --check
 python3 scripts/build_v2_browser_fit_baseline.py --check
+python3 scripts/build_v2_route_baseline.py --check
 go test ./...
 git diff --check
 ```
 
 ## Next tasks
 
-1. Complete TASK-003 legacy-route baseline.
-2. Exercise backup and restore.
-3. Run sync and atomic-bootstrap feasibility spikes.
-4. Perform the Phase 0 exit review and estimate Phase 1 from measured evidence.
+1. Complete TASK-004 backup/restore baseline.
+2. Run sync and atomic-bootstrap feasibility spikes.
+3. Perform the Phase 0 exit review and estimate Phase 1 from measured evidence.
