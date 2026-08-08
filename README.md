@@ -24,7 +24,7 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 - A Set-column heading uses `## Set 1 — Slow` immediately before its first song; later headings follow a standalone `<!-- column-break -->`.
 - Individual Set Lists can be edited as canonical Markdown or maintained with Add song, Remove songs, and drag-to-reorder controls; every save validates, commits, pushes, and reindexes.
 
-See [Phase 0–1 results](docs/PHASES-0-1.md) and the [full implementation proposal](docs/PROPOSAL.md).
+See [Phase 0–1 results](docs/PHASES-0-1.md), the [v1 implementation proposal](docs/PROPOSAL.md), and the [v2 architecture and product proposal](docs/V2-PROPOSAL.md).
 
 ## Run locally
 
@@ -62,7 +62,8 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 ## Documentation
 
 - [Phase 0–1 implementation report](docs/PHASES-0-1.md)
-- [Implementation proposal](docs/PROPOSAL.md)
+- [V2 architecture and product proposal](docs/V2-PROPOSAL.md)
+- [V1 implementation proposal](docs/PROPOSAL.md)
 - [Lyrics provider policy](docs/LYRICS-PROVIDERS.md)
 - [Focused Shelley edits](docs/SHELLEY-EDITS.md)
 - [Legacy migration instructions](docs/legacy-migration.md)
