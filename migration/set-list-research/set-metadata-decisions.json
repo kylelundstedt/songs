@@ -1337,14 +1337,14 @@
       },
       "title": "9Tease Stripped",
       "gig_name": "",
-      "date": "2025-10-13",
+      "date": "2026-08-05",
       "date_precision": "day",
       "location": "Castello Golightly",
       "band": "9Tease Stripped",
       "band_review": "confirmed",
       "metadata_review": "confirmed",
-      "rationale": "User-confirmed 9Tease Stripped mapping.",
-      "body_after_h1_sha256": "0cbda303e435c5dcc9e15a1e81b3d813c8be44c3b07017dead190ad36d2f47c5",
+      "rationale": "User-confirmed 9Tease Stripped mapping and 2026-08-05 performance date.",
+      "body_after_h1_sha256": "6d016f45c5a562ff5c29e093294b1d186e6c513069db82a491ab78a3867edc1a",
       "review_note": "candidate requires review"
     },
     {
