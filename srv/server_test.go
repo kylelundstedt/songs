@@ -27,7 +27,7 @@ func fixtureServer(t *testing.T) *Server {
 	if err := os.WriteFile(filepath.Join(root, "songs", "Test-Song.md"), []byte(song), 0o644); err != nil {
 		t.Fatal(err)
 	}
-	set := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n1. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in\n"
+	set := "---\ntitle: Test Set\ndate: 2026-08-06\nlocation: Test Room\n---\n\n# Test Set\n\n## Set 1 — Slow\n1. [Test Song](../songs/Test-Song.md) — singer: Alex — note: Count in\n"
 	if err := os.WriteFile(filepath.Join(root, "sets", "test-set.md"), []byte(set), 0o644); err != nil {
 		t.Fatal(err)
 	}
@@ -100,6 +100,9 @@ func TestCatalogAndRoutes(t *testing.T) {
 			}
 			if !strings.Contains(w.Body.String(), tt.contains) {
 				t.Fatalf("body missing %q", tt.contains)
+			}
+			if tt.name == "set" && !strings.Contains(w.Body.String(), `<h2 class="set-column-heading">Set 1 — Slow</h2><button class="set-drag-handle"`) {
+				t.Fatalf("set heading is not rendered as a standalone row before the first song: %s", w.Body.String())
 			}
 		})
 	}
