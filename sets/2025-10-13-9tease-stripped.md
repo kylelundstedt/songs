@@ -19,7 +19,6 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 ---
 
 # 9Tease Stripped
-
 1. [Plush](../songs/Plush.md)
 2. [Wicked Game](../songs/Wicked-Game.md)
 3. [Times Like These](../songs/Times-Like-These.md)
@@ -76,7 +75,6 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 52. [Fast As You](../songs/Fast-As-You.md)
 53. [American Girl](../songs/american-girl.md)
 54. [The Middle](../songs/The-Middle.md)
-55. [Come Together](../songs/Come-Together.md)
-56. [Lonely Is the Night](../songs/Lonely-Is-the-Night.md)
-57. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
-58. [Californication](../songs/Californication.md)
+55. [Lonely Is the Night](../songs/Lonely-Is-the-Night.md)
+56. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
+57. [Californication](../songs/Californication.md)
