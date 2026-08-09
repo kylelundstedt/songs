@@ -1,0 +1,306 @@
+{
+  "baseline": {
+    "commit": "546f59b41d9e9bcf0e81b543c27900a31e26c9e6",
+    "ref": "v1"
+  },
+  "browser_engine": {
+    "name": "Chromium",
+    "platform": "Linux x86_64",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+  },
+  "captures": [
+    {
+      "bytes": 6773,
+      "path": "ipad-portrait.json",
+      "profile": "ipad-portrait",
+      "sha256": "7844cb223742da4ff7d3c4636632771e08389a4a8023706ba79b44dbe9358c1a"
+    },
+    {
+      "bytes": 6783,
+      "path": "ipad-landscape.json",
+      "profile": "ipad-landscape",
+      "sha256": "1e52d69d13a4e8508b277455a0001efe008f442f2d00f7c644c3fca5d51046c2"
+    },
+    {
+      "bytes": 6749,
+      "path": "phone.json",
+      "profile": "phone",
+      "sha256": "0db84f760ce323bc52830b35a48452c71583b2933d03011fbd41b6b7364c42d2"
+    }
+  ],
+  "generation": "v1-6d7881af4c153b3b4555f87c",
+  "physical_safari_ipad": {
+    "note": "Chromium emulation and these captures do not prove physical Safari/iPad quota, eviction, persistence, or background-suspension behavior.",
+    "status": "pending"
+  },
+  "profiles": [
+    {
+      "durations_ms": {
+        "corrupt": 22.299999982118607,
+        "idempotent_retry": 0,
+        "interrupted": 21.599999994039536,
+        "success": 90.5
+      },
+      "logical_outcome": {
+        "activation_pointer_transition_exactly_one": true,
+        "active_pointer_survived_failures": true,
+        "all_documents_readable": true,
+        "checksum_failure": true,
+        "conflict_preserved": true,
+        "idempotent_retry": true,
+        "interruption_failure": true,
+        "orphan_cleanup": true,
+        "pending_writes_preserved": true,
+        "previous_active_survived_failures": true,
+        "schema_upgrade": true,
+        "service_worker": true,
+        "single_active_snapshot_and_pointer_authority": true
+      },
+      "name": "ipad-portrait",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "tablet",
+        "inner_height": 1366,
+        "inner_width": 1024,
+        "max_touch_points": 5
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 1366,
+        "mobile": false,
+        "touch": true,
+        "width": 1024
+      },
+      "service_worker": {
+        "cache_matches_expected": true,
+        "cache_name": "v2-bootstrap-shell-3",
+        "expected_cache_name": "v2-bootstrap-shell-3",
+        "registered": true,
+        "supported": true
+      },
+      "storage": {
+        "after": {
+          "persist_result": false,
+          "persisted": false,
+          "quota": 10739420928,
+          "usage": 2002688
+        },
+        "after_headroom": 10737418240,
+        "after_headroom_source_bytes_ratio": 14449.920788934674,
+        "before": {
+          "persist_result": false,
+          "persisted": false,
+          "quota": 10737418240,
+          "usage": 0
+        },
+        "usage_delta": 2002688
+      }
+    },
+    {
+      "durations_ms": {
+        "corrupt": 29.900000005960464,
+        "idempotent_retry": 0,
+        "interrupted": 28.200000017881393,
+        "success": 117
+      },
+      "logical_outcome": {
+        "activation_pointer_transition_exactly_one": true,
+        "active_pointer_survived_failures": true,
+        "all_documents_readable": true,
+        "checksum_failure": true,
+        "conflict_preserved": true,
+        "idempotent_retry": true,
+        "interruption_failure": true,
+        "orphan_cleanup": true,
+        "pending_writes_preserved": true,
+        "previous_active_survived_failures": true,
+        "schema_upgrade": true,
+        "service_worker": true,
+        "single_active_snapshot_and_pointer_authority": true
+      },
+      "name": "ipad-landscape",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "tablet",
+        "inner_height": 1024,
+        "inner_width": 1366,
+        "max_touch_points": 5
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 1024,
+        "mobile": false,
+        "touch": true,
+        "width": 1366
+      },
+      "service_worker": {
+        "cache_matches_expected": true,
+        "cache_name": "v2-bootstrap-shell-3",
+        "expected_cache_name": "v2-bootstrap-shell-3",
+        "registered": true,
+        "supported": true
+      },
+      "storage": {
+        "after": {
+          "persist_result": false,
+          "persisted": false,
+          "quota": 10739849619,
+          "usage": 2431379
+        },
+        "after_headroom": 10737418240,
+        "after_headroom_source_bytes_ratio": 14449.920788934674,
+        "before": {
+          "persist_result": false,
+          "persisted": false,
+          "quota": 10739486081,
+          "usage": 2067841
+        },
+        "usage_delta": 363538
+      }
+    },
+    {
+      "durations_ms": {
+        "corrupt": 31.69999998807907,
+        "idempotent_retry": 0,
+        "interrupted": 15.599999994039536,
+        "success": 115.2999999821186
+      },
+      "logical_outcome": {
+        "activation_pointer_transition_exactly_one": true,
+        "active_pointer_survived_failures": true,
+        "all_documents_readable": true,
+        "checksum_failure": true,
+        "conflict_preserved": true,
+        "idempotent_retry": true,
+        "interruption_failure": true,
+        "orphan_cleanup": true,
+        "pending_writes_preserved": true,
+        "previous_active_survived_failures": true,
+        "schema_upgrade": true,
+        "service_worker": true,
+        "single_active_snapshot_and_pointer_authority": true
+      },
+      "name": "phone",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "phone",
+        "inner_height": 844,
+        "inner_width": 390,
+        "max_touch_points": 5
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 844,
+        "mobile": true,
+        "touch": true,
+        "width": 390
+      },
+      "service_worker": {
+        "cache_matches_expected": true,
+        "cache_name": "v2-bootstrap-shell-3",
+        "expected_cache_name": "v2-bootstrap-shell-3",
+        "registered": true,
+        "supported": true
+      },
+      "storage": {
+        "after": {
+          "persist_result": false,
+          "persisted": false,
+          "quota": 10741851762,
+          "usage": 4433522
+        },
+        "after_headroom": 10737418240,
+        "after_headroom_source_bytes_ratio": 14449.920788934674,
+        "before": {
+          "persist_result": false,
+          "persisted": false,
+          "quota": 10739849619,
+          "usage": 2431379
+        },
+        "usage_delta": 2002143
+      }
+    }
+  ],
+  "schema_version": "1",
+  "storage_note": "usage and quota are origin-wide browser estimates. Raw before/after values and deltas are recorded observations; they do not isolate this IndexedDB database or profile from prior same-origin data.",
+  "storage_quota": {
+    "ipad-landscape": {
+      "after": {
+        "persist_result": false,
+        "persisted": false,
+        "quota": 10739849619,
+        "usage": 2431379
+      },
+      "after_headroom": 10737418240,
+      "after_headroom_source_bytes_ratio": 14449.920788934674,
+      "before": {
+        "persist_result": false,
+        "persisted": false,
+        "quota": 10739486081,
+        "usage": 2067841
+      },
+      "usage_delta": 363538
+    },
+    "ipad-portrait": {
+      "after": {
+        "persist_result": false,
+        "persisted": false,
+        "quota": 10739420928,
+        "usage": 2002688
+      },
+      "after_headroom": 10737418240,
+      "after_headroom_source_bytes_ratio": 14449.920788934674,
+      "before": {
+        "persist_result": false,
+        "persisted": false,
+        "quota": 10737418240,
+        "usage": 0
+      },
+      "usage_delta": 2002688
+    },
+    "phone": {
+      "after": {
+        "persist_result": false,
+        "persisted": false,
+        "quota": 10741851762,
+        "usage": 4433522
+      },
+      "after_headroom": 10737418240,
+      "after_headroom_source_bytes_ratio": 14449.920788934674,
+      "before": {
+        "persist_result": false,
+        "persisted": false,
+        "quota": 10739849619,
+        "usage": 2431379
+      },
+      "usage_delta": 2002143
+    }
+  },
+  "timing_ms": {
+    "maximum": 117,
+    "minimum": 0,
+    "values_by_profile": {
+      "ipad-landscape": {
+        "corrupt": 29.900000005960464,
+        "idempotent_retry": 0,
+        "interrupted": 28.200000017881393,
+        "success": 117
+      },
+      "ipad-portrait": {
+        "corrupt": 22.299999982118607,
+        "idempotent_retry": 0,
+        "interrupted": 21.599999994039536,
+        "success": 90.5
+      },
+      "phone": {
+        "corrupt": 31.69999998807907,
+        "idempotent_retry": 0,
+        "interrupted": 15.599999994039536,
+        "success": 115.2999999821186
+      }
+    }
+  },
+  "verification": {
+    "output_sha256": "15a035abac71f2e28e9f6cf3ee0b2aa2f4bf99cff33e1c924a3695e9cf73766a"
+  }
+}

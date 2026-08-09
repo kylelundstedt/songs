@@ -1,0 +1,38 @@
+{
+  "assets": {
+    "harness/app.js": {
+      "bytes": 20618,
+      "sha256": "f37cc8c791f528e0dc246fb56e97f47b899d6ab7b28e418887cbab9ea8a01d90"
+    },
+    "harness/index.html": {
+      "bytes": 233,
+      "sha256": "01d721baea9c1ce79184cc9418eba7672d5aa6c48f7626443f5c38773bf709db"
+    },
+    "harness/sw.js": {
+      "bytes": 897,
+      "sha256": "9d8c91f46c24ffd067953d5c9c945305f27ee284331de66fc37f89caf62ccee0"
+    }
+  },
+  "baseline": {
+    "commit": "546f59b41d9e9bcf0e81b543c27900a31e26c9e6",
+    "ref": "v1"
+  },
+  "generation": "v1-6d7881af4c153b3b4555f87c",
+  "generator": {
+    "name": "scripts/build_v2_bootstrap_baseline.py",
+    "version": "1"
+  },
+  "payload": {
+    "chunk_count": 12,
+    "manifest_path": "payload/manifest.json",
+    "manifest_sha256": "384b46e4b11a2500e1c7e5aab3ae4c887d64bb69b2b6405c461195a6f30887de",
+    "snapshot_digest": "6d7881af4c153b3b4555f87c7bafea6ae482ec1f8511208fd7c406b1de4db4ae",
+    "source_chunk_target_bytes": 65536
+  },
+  "schema_version": "1",
+  "verification": {
+    "documents": 351,
+    "output_sha256": "e5a4ba5d5267bc7d25863f8eeb28fdc904455e668f81bb08d1c950edc24a508e",
+    "source_bytes": 743078
+  }
+}

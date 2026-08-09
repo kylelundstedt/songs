@@ -3,8 +3,8 @@
 - **Baseline:** Git tag `v1` at commit `546f59b41d9e9bcf0e81b543c27900a31e26c9e6` (`546f59b`), not the mutable worktree.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 0 — protect the v1 baseline and resolve discovery gates.
-- **Completed:** V2 proposal/control plane; TASK-001 corpus; TASK-002 renderer/fit; TASK-003 routes; TASK-004 recovery; TASK-005 sync feasibility.
-- **Current task:** [TASK-006](tasks/TASK-006-atomic-bootstrap-storage.md), measure full-library browser bootstrap, atomic activation, interruption recovery, and storage headroom.
+- **Completed:** V2 proposal/control plane; TASK-001 corpus; TASK-002 renderer/fit; TASK-003 routes; TASK-004 recovery; TASK-005 sync; TASK-006 atomic bootstrap/storage.
+- **Current task:** [TASK-007](tasks/TASK-007-phase-0-exit-review.md), consolidate measured feasibility results, remaining risks, and the Phase 1 implementation estimate.
 
 ## Completed evidence
 
@@ -52,6 +52,16 @@ TASK-005 proves the proposed sync core is feasible with strict conditions:
 - 23 publication attempts and 38 audit events reconstruct the tested transitions;
 - production still requires HTTP/auth/ACL, a multi-process publication lease, Apex validation, and explicit delete/rename reconciliation.
 
+TASK-006 proves atomic full-library browser bootstrap in Chromium:
+
+- a 12-chunk deterministic payload contains all 351 documents and 743,078 source bytes;
+- 13 logical proofs pass in portrait, landscape, and phone profiles;
+- interrupted/corrupt staging never changes the prior active pointer or pending local work;
+- IndexedDB v1→v2 upgrade preserves outbox/drafts and adds conflicts;
+- successful activation changes one pointer once, retains rollback data, and verifies all document hashes;
+- local-loopback bootstrap measured 90.5–117 ms with roughly 10 GiB reported headroom;
+- Chromium did not grant persistent storage, and physical Safari/iPad eviction/background behavior remains unverified.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -65,6 +75,8 @@ python3 scripts/build_v2_browser_fit_baseline.py --check
 python3 scripts/build_v2_route_baseline.py --check
 python3 scripts/build_v2_backup_restore_baseline.py --check
 python3 scripts/build_v2_sync_spike_evidence.py --check
+python3 scripts/build_v2_bootstrap_baseline.py --check
+python3 scripts/build_v2_bootstrap_browser_summary.py --check
 go test ./internal/syncspike/...
 go test ./...
 git diff --check
@@ -72,6 +84,6 @@ git diff --check
 
 ## Next tasks
 
-1. Complete TASK-006 atomic bootstrap and browser-storage measurements.
-2. Perform the Phase 0 exit review and estimate Phase 1 from measured evidence.
-3. Schedule physical Safari/iPad and rehearsal validation before writable-client cutover.
+1. Complete TASK-007 Phase 0 exit review and measured Phase 1 estimate.
+2. Begin the read-only V2 vertical slice if the exit review finds no architectural blocker.
+3. Schedule physical Safari/iPad, rehearsal, and gig validation before writable-client cutover.

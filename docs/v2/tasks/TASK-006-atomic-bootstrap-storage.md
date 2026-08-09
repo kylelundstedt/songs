@@ -2,7 +2,7 @@
 
 - **Priority:** P1
 - **Phase:** 0
-- **Status:** Ready
+- **Status:** Done (Chromium observations recorded; physical Safari/iPad validation pending)
 
 ## Objective
 
@@ -48,6 +48,20 @@ Do not begin the production UI rewrite or claim Chromium emulation proves Safari
 - Machine-readable evidence is deterministic; runtime timing/quota measurements are clearly identified as recorded observations.
 - Physical Safari/iPad quota, eviction, background suspension, and persistence tests remain explicit acceptance gaps.
 
+## Completed evidence
+
+- A deterministic 12-chunk payload contains all 351 tagged documents and 743,078 source bytes.
+- Generation `v1-6d7881af4c153b3b4555f87c` and its snapshot digest derive from exact paths, hashes, and source bytes.
+- All 13 logical bootstrap proofs pass in Chromium at tablet portrait, tablet landscape, and phone profiles.
+- Interrupted and checksum-failed stages leave the prior active snapshot, pointer, outbox, draft, and conflict placeholder intact.
+- V1→V2 IndexedDB upgrade adds only the conflict store and preserves pending writes.
+- Successful activation changes the active-generation pointer exactly once, retains the prior snapshot for rollback, and makes all 351 verified documents readable.
+- A repeated bootstrap is idempotent with no second pointer transition; orphan staging data is removed without touching active or pending state.
+- Local-loopback full bootstrap measured 90.5–117 ms; these timings do not represent production network latency.
+- Chromium reported approximately 10 GiB of headroom, over 14,000× the tagged source size, but did not grant persistent storage in any profile.
+- Versioned service-worker shell cache `v2-bootstrap-shell-3` registered successfully; payload remained network-only for corruption testing.
+- Physical Safari/iPad quota, eviction, persistence, background suspension, and reopen validation remain pending.
+
 ## Verification commands
 
 The implementation should provide focused commands shaped like:
@@ -55,5 +69,7 @@ The implementation should provide focused commands shaped like:
 ```sh
 python3 scripts/build_v2_bootstrap_baseline.py
 python3 scripts/build_v2_bootstrap_baseline.py --check
-python3 -m unittest tests/test_build_v2_bootstrap_baseline.py
+python3 scripts/build_v2_bootstrap_browser_summary.py
+python3 scripts/build_v2_bootstrap_browser_summary.py --check
+python3 -m unittest tests/test_build_v2_bootstrap_baseline.py tests/test_build_v2_bootstrap_browser_summary.py
 ```

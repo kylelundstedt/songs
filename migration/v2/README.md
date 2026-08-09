@@ -44,3 +44,9 @@ in [`backup-restore/backup-restore-baseline.json`](backup-restore/backup-restore
 TASK-005's isolated durable-operation, SQLite, and local-Git proof is in
 [`sync-spike/README.md`](sync-spike/README.md), with deterministic evidence in
 [`sync-spike/sync-spike-evidence.json`](sync-spike/sync-spike-evidence.json).
+
+## Atomic bootstrap storage spike
+
+TASK-006's deterministic tagged payload and disposable IndexedDB/browser harness
+are in [`bootstrap/README.md`](bootstrap/README.md). Recorded browser observations
+are validated separately and do not constitute physical Safari/iPad proof.
