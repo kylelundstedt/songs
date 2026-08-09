@@ -575,6 +575,19 @@ Replace Go, Git-backed Markdown, rendering, frontend, and deployment at once—p
 
 **Verdict:** not justified unless the product direction changes to a multi-user commercial platform or a dedicated native iPad product.
 
+## Phase 0 exit addendum — August 9, 2026
+
+The original delivery sequence below is superseded where it conflicts with `docs/v2/PHASE-0-EXIT-REVIEW.md` and `docs/v2/PHASE-1-PLAN.md`.
+
+Measured Phase 0 evidence supports a controlled rewrite, but current `main` has materially diverged from the frozen `v1` corpus and physical Safari/iPad validation remains open. The revised sequence is:
+
+1. refresh and freeze current-content parity evidence while preserving `v1` separately as rollback;
+2. deliver an isolated read-only React/TypeScript PWA using authoritative Apex HTML;
+3. productionize the durable sync/publication/recovery kernel before exposing writes;
+4. pilot physical Safari/iPad behavior before any writable or default-route decision.
+
+A separate V2 origin is preferred while v1 remains deployed. If `/v2/` is used, the root v1 worker must explicitly bypass V2 routes and pass controller-handoff tests for existing clients; V2 still needs independent manifest, cache, and IndexedDB names. Durable ledger recovery is a prerequisite for writes rather than a late hardening task.
+
 ## Recommended delivery plan
 
 ### Phase 0 — Protect the v1 baseline and resolve discovery gates
@@ -723,6 +736,8 @@ A reasonable first commitment is **1–2 focused engineering weeks for Phase 0**
 A total rewrite should still be assumed to take longer than the controlled approach while increasing the chance of losing the best v1 behavior.
 
 ## Immediate next decisions
+
+The owner delegated conservative defaults for autonomous work; Decision 0006 records them. Single-owner/multi-device, React, full-library bootstrap, and published-by-default Live behavior are provisional implementation decisions. Exact physical iPad/Safari support and any local-stage-ready Live opt-in still require owner validation before pilot.
 
 Before implementation, make four explicit product decisions:
 

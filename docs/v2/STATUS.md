@@ -2,9 +2,9 @@
 
 - **Baseline:** Git tag `v1` at commit `546f59b41d9e9bcf0e81b543c27900a31e26c9e6` (`546f59b`), not the mutable worktree.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
-- **Phase:** Phase 0 — protect the v1 baseline and resolve discovery gates.
-- **Completed:** V2 proposal/control plane; TASK-001 corpus; TASK-002 renderer/fit; TASK-003 routes; TASK-004 recovery; TASK-005 sync; TASK-006 atomic bootstrap/storage.
-- **Current task:** [TASK-007](tasks/TASK-007-phase-0-exit-review.md), consolidate measured feasibility results, remaining risks, and the Phase 1 implementation estimate.
+- **Phase:** Phase 0 closure — architecture feasible; current-content evidence refresh still required.
+- **Completed:** V2 proposal/control plane; TASK-001 through TASK-007, including the conditional Phase 0 exit review.
+- **Current task:** [TASK-008](tasks/TASK-008-current-content-baseline.md), reconcile latest `main`, freeze current content, and refresh parity evidence before Phase 1.
 
 ## Completed evidence
 
@@ -62,6 +62,15 @@ TASK-006 proves atomic full-library browser bootstrap in Chromium:
 - local-loopback bootstrap measured 90.5–117 ms with roughly 10 GiB reported headroom;
 - Chromium did not grant persistent storage, and physical Safari/iPad eviction/background behavior remains unverified.
 
+TASK-007 completed the exit review with a conditional go:
+
+- the controlled rewrite and isolated read-only PWA remain approved;
+- current `main` at review commit `17c326c` contains 339 songs and 34 Set Lists, so the `v1` payload is rollback evidence rather than a truthful current-content source;
+- TASK-008 must reconcile and freeze current content before Phase 1 parity work;
+- Phase 1 software is estimated at 23–39 focused engineering days after the 4–7 day current-baseline closure;
+- writable production use remains blocked on authorization, a fenced publication lease, Apex validation, durable V2 recovery, and physical Safari/iPad gates;
+- detailed findings and plans are in `docs/v2/PHASE-0-EXIT-REVIEW.md` and `docs/v2/PHASE-1-PLAN.md`.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -77,13 +86,16 @@ python3 scripts/build_v2_backup_restore_baseline.py --check
 python3 scripts/build_v2_sync_spike_evidence.py --check
 python3 scripts/build_v2_bootstrap_baseline.py --check
 python3 scripts/build_v2_bootstrap_browser_summary.py --check
+python3 scripts/build_v2_phase0_exit_review.py --check
 go test ./internal/syncspike/...
 go test ./...
+go vet ./...
 git diff --check
 ```
 
 ## Next tasks
 
-1. Complete TASK-007 Phase 0 exit review and measured Phase 1 estimate.
-2. Begin the read-only V2 vertical slice if the exit review finds no architectural blocker.
-3. Schedule physical Safari/iPad, rehearsal, and gig validation before writable-client cutover.
+1. Complete TASK-008 current-content reconciliation and baseline refresh.
+2. Begin Phase 1 P1-002 typed read model/identity projection from the frozen current baseline.
+3. Continue autonomously through the Phase 1 software checkpoint.
+4. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.

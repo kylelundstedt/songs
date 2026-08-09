@@ -4,9 +4,13 @@ A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
 **Live app:** https://kgl-songs.exe.xyz/
 
-## Phase status
+## Project status
 
-Phases 0 and 1 are implemented as of August 6, 2026:
+The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
+
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. Current-content parity must be refreshed in TASK-008 before that slice begins; writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
+
+The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 
 - 284 legacy Markdown lead sheets migrated byte-for-byte into `songs/`.
 - The 32-song Murphys set migrated into `sets/2021-02-20-murphys.md`.
@@ -24,7 +28,7 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 - A Set-column heading uses `## Set 1 — Slow` immediately before its first song; later headings follow a standalone `<!-- column-break -->`.
 - Individual Set Lists can be edited as canonical Markdown or maintained with Add song, Remove songs, and drag-to-reorder controls; every save validates, commits, pushes, and reindexes.
 
-See [Phase 0–1 results](docs/PHASES-0-1.md), the [v1 implementation proposal](docs/PROPOSAL.md), and the [v2 architecture and product proposal](docs/V2-PROPOSAL.md).
+See the [historical v1 Phase 0–1 results](docs/PHASES-0-1.md), [V2 Phase 0 exit review](docs/v2/PHASE-0-EXIT-REVIEW.md), [Phase 1 plan](docs/v2/PHASE-1-PLAN.md), [v1 implementation proposal](docs/PROPOSAL.md), and [v2 architecture and product proposal](docs/V2-PROPOSAL.md).
 
 ## Run locally
 
@@ -61,7 +65,9 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 
 ## Documentation
 
-- [Phase 0–1 implementation report](docs/PHASES-0-1.md)
+- [Historical v1 Phase 0–1 implementation report](docs/PHASES-0-1.md)
+- [V2 Phase 0 exit review](docs/v2/PHASE-0-EXIT-REVIEW.md)
+- [V2 Phase 1 plan](docs/v2/PHASE-1-PLAN.md)
 - [V2 architecture and product proposal](docs/V2-PROPOSAL.md)
 - [V1 implementation proposal](docs/PROPOSAL.md)
 - [Lyrics provider policy](docs/LYRICS-PROVIDERS.md)

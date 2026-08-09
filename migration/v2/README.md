@@ -23,6 +23,21 @@ python3 scripts/build_v2_baseline.py --check
 The recorded `verification.output_sha256` is the SHA-256 of the canonical JSON
 render with that field set to `null`, avoiding a self-referential hash.
 
+## Phase 0 exit observation
+
+`phase-0-exit-review.json` is a bounded, reproducible observation of current
+`main` at commit `17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5`. It records corpus drift from
+`v1`, current identity/link/status counts, and an isolated Apex render check.
+It does not replace the immutable v1 artifacts or the current-content baseline
+to be frozen by TASK-008.
+
+Regenerate or verify it with:
+
+```sh
+python3 scripts/build_v2_phase0_exit_review.py
+python3 scripts/build_v2_phase0_exit_review.py --check
+```
+
 ## Renderer and fit baseline
 
 `renderer/` contains the TASK-002 Apex render corpus, song-only HTML fixtures,

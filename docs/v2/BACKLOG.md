@@ -10,4 +10,7 @@ Phase 0 protects the tagged v1 corpus and removes the unknowns that could invali
 | Done | [TASK-004 — backup and restore baseline](tasks/TASK-004-backup-restore-baseline.md) | Exact Git bundle and online SQLite backup restore cleanly; corpus, DB, routes, and five failure modes verify. |
 | Done | [TASK-005 — sync feasibility spike](tasks/TASK-005-sync-feasibility-spike.md) | 20 proofs establish idempotent operations, cursor acknowledgement, explicit conflicts, durable publication recovery, and external reconciliation. |
 | Done | [TASK-006 — atomic bootstrap and storage](tasks/TASK-006-atomic-bootstrap-storage.md) | 13 Chromium proofs establish atomic activation, interruption/corruption recovery, upgrade preservation, idempotent retry, and measured headroom. |
-| P0 | [TASK-007 — Phase 0 exit review](tasks/TASK-007-phase-0-exit-review.md) | All feasibility evidence is reconciled into go/no-go findings, remaining risks, product/device gaps, and a measured Phase 1 plan. |
+| Done | [TASK-007 — Phase 0 exit review](tasks/TASK-007-phase-0-exit-review.md) | Conditional go: architecture feasible, read-only slice approved, writable/cutover blocked, and current baseline refresh required. |
+| P0 | [TASK-008 — current-content baseline](tasks/TASK-008-current-content-baseline.md) | Latest `main` is reconciled and frozen; current corpus/render/route/recovery/bootstrap/identity evidence is reproducible without changing `v1`. |
+
+Phase 1 packet definitions, estimates, dependencies, rollback points, and model routing are in [`PHASE-1-PLAN.md`](PHASE-1-PLAN.md).

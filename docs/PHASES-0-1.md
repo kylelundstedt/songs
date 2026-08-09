@@ -1,5 +1,7 @@
 # Phases 0–1 implementation report
 
+> **Historical v1 report.** These phase names describe the August 6, 2026 v1 migration/prototype work, not the V2 delivery phases. Current V2 status and evidence are under `docs/v2/`.
+
 Completed August 6, 2026.
 
 ## Display decision

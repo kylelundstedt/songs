@@ -2,7 +2,7 @@
 
 - **Priority:** P0
 - **Phase:** 0
-- **Status:** Ready
+- **Status:** Done — conditional go; Phase 0 remains open for TASK-008 current-baseline closure
 
 ## Objective
 
@@ -43,11 +43,31 @@ Do not begin the production writable client in this task.
 - The recommendation states whether implementation can continue autonomously and where owner/device input becomes mandatory.
 - Status, backlog, architecture summary, and decision records agree.
 
+## Completed evidence
+
+- `docs/v2/PHASE-0-EXIT-REVIEW.md` records the evidence matrix, risk disposition, architecture corrections, product defaults, and go/no-go decision.
+- `docs/v2/PHASE-1-PLAN.md` defines one current-baseline prerequisite plus eight read-only delivery packets, rollback points, model routing, and a 23–39 focused-engineering-day Phase 1 software range.
+- `migration/v2/phase-0-exit-review.json` mechanically pins the current-main observation, corpus/diff/link/identity counts, and 339-song Apex result to commit `17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5`.
+- The review therefore keeps `v1` as rollback evidence but rejects it as the user-visible Phase 1 content source.
+- The controlled rewrite and read-only slice receive a conditional go; writable production use, Safari/iPad readiness claims, root-route changes, and cutover remain no-go.
+- Decisions 0003–0006 capture derived sync/publication requirements, atomic browser snapshot requirements, the conditional Phase 0 exit, and delegated product defaults.
+- TASK-008 is the mandatory next task; physical owner/device input is not required until the later pilot gate.
+
 ## Verification commands
 
 ```sh
 python3 -m unittest discover -s tests
+python3 scripts/build_v2_baseline.py --check
+python3 scripts/build_v2_renderer_baseline.py --check
+python3 scripts/build_v2_browser_fit_baseline.py --check
+python3 scripts/build_v2_route_baseline.py --check
+python3 scripts/build_v2_backup_restore_baseline.py --check
+python3 scripts/build_v2_sync_spike_evidence.py --check
+python3 scripts/build_v2_bootstrap_baseline.py --check
+python3 scripts/build_v2_bootstrap_browser_summary.py --check
+python3 scripts/build_v2_phase0_exit_review.py --check
 go test ./...
 go test -race ./internal/syncspike/...
+go vet ./...
 git diff --check
 ```
