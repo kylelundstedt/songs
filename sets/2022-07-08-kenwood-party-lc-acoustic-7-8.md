@@ -9,12 +9,11 @@ location: "Kenwood Residence (near Château St. Jean)"
 band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 1 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-da86cc1507ac"
 review_required: true
-unresolved_items:
-  - "sld-da86cc1507ac-item-01-033"
+unresolved_items: []
 source_type: "notion"
 source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 ---
@@ -53,10 +52,9 @@ source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 30. [I Want You To](../songs/I-Want-You-To.md)
 31. [Criminal](../songs/Criminal.md)
 32. [Just A Girl](../songs/Just-A-Girl.md)
-33. [Untitled](unresolved:untitled) — match: unresolved?
-34. [Nothing Compares 2 U (C)??](../songs/Nothing-Compares-2-U.md)
-35. [You Oughta Know](../songs/You-Oughta-Know.md)
-36. [She Talks to Angels](../songs/she-talks-to-angels.md)
-37. [Crash Into Me](../songs/crash-into-me.md)
-38. [Torn](../songs/torn.md)
-39. [if you could only see](../songs/if-you-could-only-see.md)
+33. [Nothing Compares 2 U (C)??](../songs/Nothing-Compares-2-U.md)
+34. [You Oughta Know](../songs/You-Oughta-Know.md)
+35. [She Talks to Angels](../songs/she-talks-to-angels.md)
+36. [Crash Into Me](../songs/crash-into-me.md)
+37. [Torn](../songs/torn.md)
+38. [if you could only see](../songs/if-you-could-only-see.md)

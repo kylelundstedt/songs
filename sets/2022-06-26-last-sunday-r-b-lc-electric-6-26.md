@@ -9,12 +9,11 @@ location: "Reel & Brand"
 band: "LC Electric"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 1 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-eb710ce9c275"
 review_required: true
-unresolved_items:
-  - "sld-eb710ce9c275-item-01-027"
+unresolved_items: []
 source_type: "notion"
 source_id: "749fde84-3489-400e-9c6f-c804cca3e3fa"
 ---
@@ -47,7 +46,6 @@ source_id: "749fde84-3489-400e-9c6f-c804cca3e3fa"
 24. [Angel From Montgomery](../songs/Angel-From-Montgomery.md)
 25. [I Want You To](../songs/I-Want-You-To.md)
 26. [Just A Girl](../songs/Just-A-Girl.md)
-27. [Untitled](unresolved:untitled) — match: unresolved?
-28. [Inside Out](../songs/Inside-Out.md)
-29. [Stop Draggin’ My Heart Around](../songs/stop-draggin-my-heart-around.md)
-30. [You Oughta Know](../songs/You-Oughta-Know.md)
+27. [Inside Out](../songs/Inside-Out.md)
+28. [Stop Draggin’ My Heart Around](../songs/stop-draggin-my-heart-around.md)
+29. [You Oughta Know](../songs/You-Oughta-Know.md)
