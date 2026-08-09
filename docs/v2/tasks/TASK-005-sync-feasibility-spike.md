@@ -2,7 +2,7 @@
 
 - **Priority:** P0
 - **Phase:** 0
-- **Status:** Ready
+- **Status:** Done
 
 ## Objective
 
@@ -47,6 +47,18 @@ Do not expose a production API, modify the canonical corpus, push to a real remo
 - A failed remote push leaves a durable retryable publication record; retry reaches the expected remote commit exactly once.
 - Validation or Git failures never discard accepted application operations.
 - The prototype and evidence are deterministic, isolated, tested, and disposable.
+
+## Completed evidence
+
+- `internal/syncspike` implements the disposable SQLite ledger and isolated Git materializer with no HTTP surface.
+- Thirteen device operations produce 15 durable revisions/events with exact full and partial replay behavior.
+- Read-only pulls plus monotonic cursor acknowledgements recover safely from a lost response.
+- Two conflicts preserve candidates and both resolve without deleting history.
+- Twenty publication/reconciliation proofs cover eligibility, validation, commit failure, push rejection, remote-accepted/finalization-loss repair, old-publication acknowledgement, remote drift, reconciliation, and post-reconciliation publication.
+- Nine deterministic isolated Git commits include two external commits; submitted legacy bodies remain byte-identical and identity remains in sidecars.
+- SQLite records 23 publication attempts and 38 reconstructable audit events and passes full integrity/foreign-key checks.
+- The architecture is feasible only if the demonstrated CAS, cursor acknowledgement, durable retry state, isolated Git worktree, reconciliation gate, and production-grade publication lease remain first-class components.
+- HTTP/auth/ACL, distributed locking, external delete/rename reconciliation, Apex parity, and automatic merging remain outside this spike.
 
 ## Verification commands
 

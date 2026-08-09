@@ -1,0 +1,717 @@
+{
+  "database": {
+    "audit_reconstruction": [
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "1",
+        "detail": "{}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-seed-a",
+        "revision_id": "rev-22adb46dca1656f9215c3937",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "2",
+        "detail": "{}",
+        "device_id": "device-b",
+        "document_id": "song-b",
+        "operation_id": "op-seed-b",
+        "revision_id": "rev-0c85e8a6f85f04a61572d0e3",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_created",
+        "actor": "",
+        "audit_id": "3",
+        "detail": "{\"base\":\"\",\"class\":\"retryable\",\"commit\":\"657ed4c78ae917cb6f45411e33852d3da5bb2832\",\"detail\":\"local commit durable before push\",\"expected_published_revision\":\"\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-22adb46dca1656f9215c3937",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_pushed",
+        "actor": "",
+        "audit_id": "4",
+        "detail": "{\"base\":\"\",\"class\":\"none\",\"commit\":\"657ed4c78ae917cb6f45411e33852d3da5bb2832\",\"detail\":\"remote accepted\",\"expected_published_revision\":\"\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-22adb46dca1656f9215c3937",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_created",
+        "actor": "",
+        "audit_id": "5",
+        "detail": "{\"base\":\"657ed4c78ae917cb6f45411e33852d3da5bb2832\",\"class\":\"retryable\",\"commit\":\"297fcdaa871688fcea276cef4c68936d19fbe969\",\"detail\":\"local commit durable before push\",\"expected_published_revision\":\"\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-0c85e8a6f85f04a61572d0e3",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_pushed",
+        "actor": "",
+        "audit_id": "6",
+        "detail": "{\"base\":\"657ed4c78ae917cb6f45411e33852d3da5bb2832\",\"class\":\"none\",\"commit\":\"297fcdaa871688fcea276cef4c68936d19fbe969\",\"detail\":\"remote accepted\",\"expected_published_revision\":\"\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-0c85e8a6f85f04a61572d0e3",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "7",
+        "detail": "{}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-edit",
+        "revision_id": "rev-a9e47231a3b7ade94c1b1351",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "8",
+        "detail": "{}",
+        "device_id": "device-b",
+        "document_id": "song-b",
+        "operation_id": "op-b-edit",
+        "revision_id": "rev-db547b44ad593dbcaee1dd9e",
+        "source_commit": ""
+      },
+      {
+        "action": "conflict",
+        "actor": "",
+        "audit_id": "9",
+        "detail": "{\"conflict_id\":\"conf-32d3f9d95e43535ca92319b7\"}",
+        "device_id": "device-b",
+        "document_id": "song-a",
+        "operation_id": "op-b-stale-a",
+        "revision_id": "rev-2d7876c0ba690c201e71f61b",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_ineligible",
+        "actor": "",
+        "audit_id": "10",
+        "detail": "{\"base\":\"297fcdaa871688fcea276cef4c68936d19fbe969\",\"class\":\"terminal\",\"commit\":\"\",\"detail\":\"only the current revision is publishable\",\"expected_published_revision\":\"rev-22adb46dca1656f9215c3937\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-2d7876c0ba690c201e71f61b",
+        "source_commit": ""
+      },
+      {
+        "action": "conflict_resolved",
+        "actor": "",
+        "audit_id": "11",
+        "detail": "{\"conflict_id\":\"conf-32d3f9d95e43535ca92319b7\"}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-resolve",
+        "revision_id": "rev-e31a0d6434f47148ef332364",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "12",
+        "detail": "{}",
+        "device_id": "device-b",
+        "document_id": "song-b",
+        "operation_id": "op-b-invalid",
+        "revision_id": "rev-98dfd60ba545bcd0596d1343",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_validation_failed",
+        "actor": "",
+        "audit_id": "13",
+        "detail": "{\"base\":\"297fcdaa871688fcea276cef4c68936d19fbe969\",\"class\":\"terminal\",\"commit\":\"\",\"detail\":\"H1 title does not match revision title\",\"expected_published_revision\":\"rev-0c85e8a6f85f04a61572d0e3\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-98dfd60ba545bcd0596d1343",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "14",
+        "detail": "{}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-commit-recovery",
+        "revision_id": "rev-ef7058b8230cba383142b950",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_failed",
+        "actor": "",
+        "audit_id": "15",
+        "detail": "{\"base\":\"297fcdaa871688fcea276cef4c68936d19fbe969\",\"class\":\"retryable\",\"commit\":\"\",\"detail\":\"injected commit failure\",\"expected_published_revision\":\"rev-22adb46dca1656f9215c3937\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-ef7058b8230cba383142b950",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_created",
+        "actor": "",
+        "audit_id": "16",
+        "detail": "{\"base\":\"297fcdaa871688fcea276cef4c68936d19fbe969\",\"class\":\"retryable\",\"commit\":\"2bc2fd6a693c947952040da6c3e7989096436300\",\"detail\":\"local commit durable before push\",\"expected_published_revision\":\"rev-22adb46dca1656f9215c3937\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-ef7058b8230cba383142b950",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_pushed",
+        "actor": "",
+        "audit_id": "17",
+        "detail": "{\"base\":\"297fcdaa871688fcea276cef4c68936d19fbe969\",\"class\":\"none\",\"commit\":\"2bc2fd6a693c947952040da6c3e7989096436300\",\"detail\":\"remote accepted\",\"expected_published_revision\":\"rev-22adb46dca1656f9215c3937\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-ef7058b8230cba383142b950",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "18",
+        "detail": "{}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-push-recovery",
+        "revision_id": "rev-8e5c16f575de43f6a04b466b",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_created",
+        "actor": "",
+        "audit_id": "19",
+        "detail": "{\"base\":\"2bc2fd6a693c947952040da6c3e7989096436300\",\"class\":\"retryable\",\"commit\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"detail\":\"local commit durable before push\",\"expected_published_revision\":\"rev-ef7058b8230cba383142b950\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-8e5c16f575de43f6a04b466b",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_push_failed",
+        "actor": "",
+        "audit_id": "20",
+        "detail": "{\"base\":\"2bc2fd6a693c947952040da6c3e7989096436300\",\"class\":\"retryable\",\"commit\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"detail\":\"injected push failure\",\"expected_published_revision\":\"rev-ef7058b8230cba383142b950\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-8e5c16f575de43f6a04b466b",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_pushed",
+        "actor": "",
+        "audit_id": "21",
+        "detail": "{\"base\":\"2bc2fd6a693c947952040da6c3e7989096436300\",\"class\":\"none\",\"commit\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"detail\":\"remote accepted\",\"expected_published_revision\":\"rev-ef7058b8230cba383142b950\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-8e5c16f575de43f6a04b466b",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_idempotent",
+        "actor": "",
+        "audit_id": "22",
+        "detail": "{\"base\":\"2bc2fd6a693c947952040da6c3e7989096436300\",\"class\":\"none\",\"commit\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"detail\":\"verified/acknowledged existing remote publication\",\"expected_published_revision\":\"rev-ef7058b8230cba383142b950\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-8e5c16f575de43f6a04b466b",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "23",
+        "detail": "{}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-finalization-loss",
+        "revision_id": "rev-dd7c4b9233b492eaf7fb8df3",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_created",
+        "actor": "",
+        "audit_id": "24",
+        "detail": "{\"base\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"class\":\"retryable\",\"commit\":\"f81d7366395832667bb342d85e4551e064e0d199\",\"detail\":\"local commit durable before push\",\"expected_published_revision\":\"rev-8e5c16f575de43f6a04b466b\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-dd7c4b9233b492eaf7fb8df3",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_finalization_lost",
+        "actor": "",
+        "audit_id": "25",
+        "detail": "{\"base\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"class\":\"retryable\",\"commit\":\"f81d7366395832667bb342d85e4551e064e0d199\",\"detail\":\"remote accepted; injected SQLite finalization loss\",\"expected_published_revision\":\"rev-8e5c16f575de43f6a04b466b\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-dd7c4b9233b492eaf7fb8df3",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_pushed",
+        "actor": "",
+        "audit_id": "26",
+        "detail": "{\"base\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"class\":\"none\",\"commit\":\"f81d7366395832667bb342d85e4551e064e0d199\",\"detail\":\"repaired remote-accepted publication finalization\",\"expected_published_revision\":\"rev-8e5c16f575de43f6a04b466b\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-dd7c4b9233b492eaf7fb8df3",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "27",
+        "detail": "{}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-later-publication",
+        "revision_id": "rev-3262fab17c22399d0d5ccb2e",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_created",
+        "actor": "",
+        "audit_id": "28",
+        "detail": "{\"base\":\"f81d7366395832667bb342d85e4551e064e0d199\",\"class\":\"retryable\",\"commit\":\"33dbd1fd8a89fc3f268f8779dc95bf7abe754f88\",\"detail\":\"local commit durable before push\",\"expected_published_revision\":\"rev-dd7c4b9233b492eaf7fb8df3\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-3262fab17c22399d0d5ccb2e",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_pushed",
+        "actor": "",
+        "audit_id": "29",
+        "detail": "{\"base\":\"f81d7366395832667bb342d85e4551e064e0d199\",\"class\":\"none\",\"commit\":\"33dbd1fd8a89fc3f268f8779dc95bf7abe754f88\",\"detail\":\"remote accepted\",\"expected_published_revision\":\"rev-dd7c4b9233b492eaf7fb8df3\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-3262fab17c22399d0d5ccb2e",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_acknowledged",
+        "actor": "",
+        "audit_id": "30",
+        "detail": "{\"base\":\"00b83f0a99405e5ae41f9770fc79019899945023\",\"class\":\"none\",\"commit\":\"f81d7366395832667bb342d85e4551e064e0d199\",\"detail\":\"acknowledged remote ancestor without rewinding newer pointer or baseline\",\"expected_published_revision\":\"rev-8e5c16f575de43f6a04b466b\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-dd7c4b9233b492eaf7fb8df3",
+        "source_commit": ""
+      },
+      {
+        "action": "applied",
+        "actor": "",
+        "audit_id": "31",
+        "detail": "{}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-unpublished",
+        "revision_id": "rev-1f2de566e8ff0a534e9c4c13",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_remote_drift",
+        "actor": "",
+        "audit_id": "32",
+        "detail": "{\"base\":\"33dbd1fd8a89fc3f268f8779dc95bf7abe754f88\",\"class\":\"retryable\",\"commit\":\"\",\"detail\":\"remote head drift requires reconciliation before publication\",\"expected_published_revision\":\"rev-3262fab17c22399d0d5ccb2e\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-1f2de566e8ff0a534e9c4c13",
+        "source_commit": ""
+      },
+      {
+        "action": "external_reconciled",
+        "actor": "External Editor",
+        "audit_id": "33",
+        "detail": "{\"conflict_id\":\"conf-5040c3a913311b0df9a1f0ac\"}",
+        "device_id": "external",
+        "document_id": "song-a",
+        "operation_id": "external-049966863581618f41496923",
+        "revision_id": "rev-362962953b50f4c493e67c95",
+        "source_commit": "8d3a525144b9822ff7317f8570d6891ec871306e"
+      },
+      {
+        "action": "publication_ineligible",
+        "actor": "",
+        "audit_id": "34",
+        "detail": "{\"base\":\"8d3a525144b9822ff7317f8570d6891ec871306e\",\"class\":\"terminal\",\"commit\":\"\",\"detail\":\"document with an open conflict is not publishable\",\"expected_published_revision\":\"rev-362962953b50f4c493e67c95\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-1f2de566e8ff0a534e9c4c13",
+        "source_commit": ""
+      },
+      {
+        "action": "conflict_resolved",
+        "actor": "",
+        "audit_id": "35",
+        "detail": "{\"conflict_id\":\"conf-5040c3a913311b0df9a1f0ac\"}",
+        "device_id": "device-a",
+        "document_id": "song-a",
+        "operation_id": "op-a-external-resolve",
+        "revision_id": "rev-16ac8cde5fc0823d828d0661",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_commit_created",
+        "actor": "",
+        "audit_id": "36",
+        "detail": "{\"base\":\"8d3a525144b9822ff7317f8570d6891ec871306e\",\"class\":\"retryable\",\"commit\":\"5cbf211a2d5f7310bc124d29d2d0fe8e3eb988a3\",\"detail\":\"local commit durable before push\",\"expected_published_revision\":\"rev-362962953b50f4c493e67c95\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-16ac8cde5fc0823d828d0661",
+        "source_commit": ""
+      },
+      {
+        "action": "publication_pushed",
+        "actor": "",
+        "audit_id": "37",
+        "detail": "{\"base\":\"8d3a525144b9822ff7317f8570d6891ec871306e\",\"class\":\"none\",\"commit\":\"5cbf211a2d5f7310bc124d29d2d0fe8e3eb988a3\",\"detail\":\"remote accepted\",\"expected_published_revision\":\"rev-362962953b50f4c493e67c95\"}",
+        "device_id": "",
+        "document_id": "",
+        "operation_id": "",
+        "revision_id": "rev-16ac8cde5fc0823d828d0661",
+        "source_commit": ""
+      },
+      {
+        "action": "external_reconciled",
+        "actor": "External Editor",
+        "audit_id": "38",
+        "detail": "{}",
+        "device_id": "external",
+        "document_id": "song-a",
+        "operation_id": "external-b02e0c436ccc7e6fd6f04bd5",
+        "revision_id": "rev-d9e0ece941a8d21d235ecef3",
+        "source_commit": "68b7656b24d14205001ff90336c9ca2af99f1707"
+      }
+    ],
+    "counts": {
+      "audit_events": 38,
+      "conflicts": 2,
+      "device_cursors": 2,
+      "documents": 2,
+      "events": 15,
+      "external_imports": 2,
+      "operations": 13,
+      "publication_attempts": 23,
+      "publications": 10,
+      "revisions": 15
+    },
+    "foreign_key_check_ok": true,
+    "integrity_check_ok": true
+  },
+  "external_reconciliation": {
+    "audit_source_actor": "External Editor",
+    "conflict_result": "conflict",
+    "conflict_source_commit": "8d3a525144b9822ff7317f8570d6891ec871306e",
+    "direct_result": "imported",
+    "direct_source_commit": "68b7656b24d14205001ff90336c9ca2af99f1707",
+    "published_pointer_immediately_after_reconciliation": "rev-362962953b50f4c493e67c95",
+    "published_pointer_moved_to_external_before_resolution": true,
+    "sidecar_changed_but_body_imported": true
+  },
+  "git": {
+    "deterministic_author": "Songs V2 Sync Spike",
+    "identity_not_injected_into_body": true,
+    "later_body_byte_identical": true,
+    "later_body_sha256": "c17e0e1544043166a5c2fe146eb73f5929a93719c20aa23d39adf26296280052",
+    "remote_commit_count": 9,
+    "remote_head": "68b7656b24d14205001ff90336c9ca2af99f1707",
+    "safety_controls_verified": true,
+    "seed_body_byte_identical": true,
+    "seed_body_sha256": "d321d434037c190500ca2caa9d1967bda32aa0edc5bb81b9784d7b516fc923c4",
+    "sidecar_content_hash": "c17e0e1544043166a5c2fe146eb73f5929a93719c20aa23d39adf26296280052",
+    "sidecar_identity": "song-a",
+    "sidecar_revision": "rev-16ac8cde5fc0823d828d0661"
+  },
+  "limitations_and_rejected_alternatives": [
+    "No HTTP/auth/ACL implementation: this is intentionally an internal spike.",
+    "The in-process mutex is not a multi-process or distributed publication lease.",
+    "No CRDT: stale lead-sheet writes preserve both revisions for explicit resolution.",
+    "External deletion and rename reconciliation are outside this edit-focused spike.",
+    "No production remote or canonical corpus access: Git uses ephemeral bare repositories and worktrees.",
+    "The materializer validates a minimal UTF-8/NUL/H1-title contract; Apex parity is outside this spike."
+  ],
+  "proofs": {
+    "both_conflicts_resolved": true,
+    "conflict_candidate_rejected": true,
+    "cursor_acknowledged_resume": true,
+    "cursor_response_loss_safe": true,
+    "exact_replay": true,
+    "external_actor_durable": true,
+    "external_published_pointer_proven": true,
+    "external_sidecar_claim_not_trusted": true,
+    "finalization_loss_repaired_once": true,
+    "git_body_later_preserved": true,
+    "git_body_seed_preserved": true,
+    "git_safety": true,
+    "integrity": true,
+    "old_remote_acknowledged_without_rewind": true,
+    "post_reconcile_publish_once": true,
+    "publication_open_conflict_rejected": true,
+    "remote_drift_recorded": true,
+    "remote_history_consistent": true,
+    "sidecar_identity_outside_body": true,
+    "typed_direct_import": true
+  },
+  "protocol": {
+    "batch": "PushBatch is a non-atomic list of independently idempotent operations",
+    "conflicts": "known same-document base required; stale candidates and resolved history are durable",
+    "cursors": "read-only Pull plus monotonic AckCursor",
+    "operations": "(device_id, operation_id) identity; kind and conflict target participate in payload hash",
+    "publication": "serialized isolated materialization with durable retry state and reconciliation baseline",
+    "schema_migration": "sync-spike-2"
+  },
+  "publication": {
+    "commit_failure_recovery": [
+      {
+        "base": "297fcdaa871688fcea276cef4c68936d19fbe969",
+        "class": "retryable",
+        "commit": "",
+        "detail": "injected commit failure",
+        "expected_published_revision": "rev-22adb46dca1656f9215c3937",
+        "state": "commit_failed"
+      },
+      {
+        "base": "297fcdaa871688fcea276cef4c68936d19fbe969",
+        "class": "retryable",
+        "commit": "2bc2fd6a693c947952040da6c3e7989096436300",
+        "detail": "local commit durable before push",
+        "expected_published_revision": "rev-22adb46dca1656f9215c3937",
+        "state": "commit_created"
+      },
+      {
+        "base": "297fcdaa871688fcea276cef4c68936d19fbe969",
+        "class": "none",
+        "commit": "2bc2fd6a693c947952040da6c3e7989096436300",
+        "detail": "remote accepted",
+        "expected_published_revision": "rev-22adb46dca1656f9215c3937",
+        "state": "pushed"
+      }
+    ],
+    "commit_recovery_commit": "2bc2fd6a693c947952040da6c3e7989096436300",
+    "finalization_expected_predecessor": "rev-8e5c16f575de43f6a04b466b",
+    "finalization_loss_commit": "f81d7366395832667bb342d85e4551e064e0d199",
+    "finalization_loss_recovery": [
+      {
+        "base": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "class": "retryable",
+        "commit": "f81d7366395832667bb342d85e4551e064e0d199",
+        "detail": "local commit durable before push",
+        "expected_published_revision": "rev-8e5c16f575de43f6a04b466b",
+        "state": "commit_created"
+      },
+      {
+        "base": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "class": "retryable",
+        "commit": "f81d7366395832667bb342d85e4551e064e0d199",
+        "detail": "remote accepted; injected SQLite finalization loss",
+        "expected_published_revision": "rev-8e5c16f575de43f6a04b466b",
+        "state": "finalization_lost"
+      },
+      {
+        "base": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "class": "none",
+        "commit": "f81d7366395832667bb342d85e4551e064e0d199",
+        "detail": "repaired remote-accepted publication finalization",
+        "expected_published_revision": "rev-8e5c16f575de43f6a04b466b",
+        "state": "pushed"
+      },
+      {
+        "base": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "class": "none",
+        "commit": "f81d7366395832667bb342d85e4551e064e0d199",
+        "detail": "acknowledged remote ancestor without rewinding newer pointer or baseline",
+        "expected_published_revision": "rev-8e5c16f575de43f6a04b466b",
+        "state": "acknowledged"
+      }
+    ],
+    "finalization_remote_count_after_push": 5,
+    "finalization_remote_count_after_repair": 5,
+    "finalization_remote_count_before": 4,
+    "later_publication_commit": "33dbd1fd8a89fc3f268f8779dc95bf7abe754f88",
+    "merged_commit": "5cbf211a2d5f7310bc124d29d2d0fe8e3eb988a3",
+    "old_publication_acknowledgement": "acknowledged",
+    "post_reconcile_remote_count_after": 8,
+    "post_reconcile_remote_count_before": 7,
+    "push_failure_recovery": [
+      {
+        "base": "2bc2fd6a693c947952040da6c3e7989096436300",
+        "class": "retryable",
+        "commit": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "detail": "local commit durable before push",
+        "expected_published_revision": "rev-ef7058b8230cba383142b950",
+        "state": "commit_created"
+      },
+      {
+        "base": "2bc2fd6a693c947952040da6c3e7989096436300",
+        "class": "retryable",
+        "commit": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "detail": "injected push failure",
+        "expected_published_revision": "rev-ef7058b8230cba383142b950",
+        "state": "push_failed"
+      },
+      {
+        "base": "2bc2fd6a693c947952040da6c3e7989096436300",
+        "class": "none",
+        "commit": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "detail": "remote accepted",
+        "expected_published_revision": "rev-ef7058b8230cba383142b950",
+        "state": "pushed"
+      },
+      {
+        "base": "2bc2fd6a693c947952040da6c3e7989096436300",
+        "class": "none",
+        "commit": "00b83f0a99405e5ae41f9770fc79019899945023",
+        "detail": "verified/acknowledged existing remote publication",
+        "expected_published_revision": "rev-ef7058b8230cba383142b950",
+        "state": "idempotent"
+      }
+    ],
+    "push_recovery_commit": "00b83f0a99405e5ae41f9770fc79019899945023",
+    "remote_drift": [
+      {
+        "base": "33dbd1fd8a89fc3f268f8779dc95bf7abe754f88",
+        "class": "retryable",
+        "commit": "",
+        "detail": "remote head drift requires reconciliation before publication",
+        "expected_published_revision": "rev-3262fab17c22399d0d5ccb2e",
+        "state": "remote_drift"
+      },
+      {
+        "base": "8d3a525144b9822ff7317f8570d6891ec871306e",
+        "class": "terminal",
+        "commit": "",
+        "detail": "document with an open conflict is not publishable",
+        "expected_published_revision": "rev-362962953b50f4c493e67c95",
+        "state": "ineligible"
+      }
+    ],
+    "seed_commits": [
+      "657ed4c78ae917cb6f45411e33852d3da5bb2832",
+      "297fcdaa871688fcea276cef4c68936d19fbe969"
+    ],
+    "validation": [
+      {
+        "base": "297fcdaa871688fcea276cef4c68936d19fbe969",
+        "class": "terminal",
+        "commit": "",
+        "detail": "H1 title does not match revision title",
+        "expected_published_revision": "rev-0c85e8a6f85f04a61572d0e3",
+        "state": "validation_failed"
+      }
+    ]
+  },
+  "recommendation": {
+    "feasible": true,
+    "statement": "Feasible only with the demonstrated ledger, CAS, cursor acknowledgement, isolated Git, reconciliation, and retry invariants retained as production components."
+  },
+  "scenario": {
+    "conflicts": {
+      "external": "conf-5040c3a913311b0df9a1f0ac",
+      "open_after_proof": 0,
+      "stale": "conf-32d3f9d95e43535ca92319b7"
+    },
+    "operations": {
+      "different_payload_rejected": true,
+      "full_replay_sequences": [
+        3,
+        4
+      ],
+      "operation_count": 13,
+      "partial_replay_sequence": 4,
+      "same_payload_exact_outcome": true
+    },
+    "pull": {
+      "ack_after_resume": 5,
+      "ack_before_response_loss": 2,
+      "device_b_ack": 2,
+      "initial_ack": 2,
+      "lost_response_cursor": 3,
+      "resumed_from_ack_sequences": [
+        3,
+        4,
+        5
+      ]
+    },
+    "revisions": {
+      "commit_recovery": "rev-ef7058b8230cba383142b950",
+      "direct_import": "rev-d9e0ece941a8d21d235ecef3",
+      "external_candidate": "rev-362962953b50f4c493e67c95",
+      "external_resolution": "rev-16ac8cde5fc0823d828d0661",
+      "finalization_loss": "rev-dd7c4b9233b492eaf7fb8df3",
+      "later_publication": "rev-3262fab17c22399d0d5ccb2e",
+      "push_recovery": "rev-8e5c16f575de43f6a04b466b",
+      "seed_a": "rev-22adb46dca1656f9215c3937",
+      "seed_b": "rev-0c85e8a6f85f04a61572d0e3",
+      "stale_candidate": "rev-2d7876c0ba690c201e71f61b",
+      "stale_resolution": "rev-e31a0d6434f47148ef332364",
+      "unpublished": "rev-1f2de566e8ff0a534e9c4c13"
+    },
+    "sequences": {
+      "commit_recovery": 8,
+      "different_documents": [
+        3,
+        4
+      ],
+      "direct_external_import": 15,
+      "external_conflict": 13,
+      "external_resolution": 14,
+      "finalization_loss": 10,
+      "later_publication": 11,
+      "push_recovery": 9,
+      "seed": [
+        1,
+        2
+      ],
+      "stale_conflict": 5,
+      "stale_resolution": 6,
+      "unpublished": 12,
+      "validation_failure": 7
+    }
+  },
+  "schema_version": "1.0",
+  "scope": {
+    "canonical_corpus_modified": false,
+    "fixture_source": "two small embedded representative legacy Markdown byte strings",
+    "http_api_exposed": false,
+    "non_production": true,
+    "remote": "isolated local bare repository only",
+    "task": "TASK-005 sync feasibility spike"
+  }
+}

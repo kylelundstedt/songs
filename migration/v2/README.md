@@ -38,3 +38,9 @@ The TASK-003 HTTP contract is recorded in [`routes/route-baseline.json`](routes/
 TASK-004's deterministic ephemeral backup/restore drill is documented in
 [`backup-restore/README.md`](backup-restore/README.md), with checked-in evidence
 in [`backup-restore/backup-restore-baseline.json`](backup-restore/backup-restore-baseline.json).
+
+## Sync feasibility spike
+
+TASK-005's isolated durable-operation, SQLite, and local-Git proof is in
+[`sync-spike/README.md`](sync-spike/README.md), with deterministic evidence in
+[`sync-spike/sync-spike-evidence.json`](sync-spike/sync-spike-evidence.json).
