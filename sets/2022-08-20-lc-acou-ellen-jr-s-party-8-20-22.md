@@ -9,13 +9,11 @@ location: "Ellen's House"
 band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 2 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-23a5bfb70115"
 review_required: true
-unresolved_items:
-  - "sld-23a5bfb70115-item-01-038"
-  - "sld-23a5bfb70115-item-01-047"
+unresolved_items: []
 source_type: "notion"
 source_id: "ac25109e-1ce6-4977-98ed-e653c5b532b7"
 ---
@@ -59,7 +57,7 @@ source_id: "ac25109e-1ce6-4977-98ed-e653c5b532b7"
 35. [1979](../songs/1979.md)
 36. [Play That Funky Music](../songs/Play-That-Funky-Music.md)
 37. [Wicked Garden](../songs/Wicked-Garden.md)
-38. [She Talks to Angels](unresolved:she-talks-to-angels) — match: unresolved?
+38. [She Talks to Angels](../songs/she-talks-to-angels.md)
 39. [Can't You See](../songs/Can-t-You-See.md)
 40. [Little Sister](../songs/Little-Sister.md)
 41. [Breakdown](../songs/Breakdown.md)
@@ -68,4 +66,4 @@ source_id: "ac25109e-1ce6-4977-98ed-e653c5b532b7"
 44. [Heard It in a Love Song](../songs/Heard-It-In-A-Love-Song.md)
 45. [Turn The Page](../songs/Turn-The-Page.md)
 46. [Soulshine](../songs/Soulshine.md)
-47. [The Living Years](unresolved:the-living-years) — match: unresolved?
+47. [The Living Years](../songs/the-living-years.md)

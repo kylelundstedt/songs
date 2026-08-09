@@ -9,17 +9,12 @@ location: "Kenwood Residence (near Château St. Jean)"
 band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 6 unresolved item(s)"
+review_note: "candidate requires review; 1 unresolved item(s)"
 status: draft
 draft_id: "sld-da86cc1507ac"
 review_required: true
 unresolved_items:
-  - "sld-da86cc1507ac-item-01-015"
   - "sld-da86cc1507ac-item-01-033"
-  - "sld-da86cc1507ac-item-01-036"
-  - "sld-da86cc1507ac-item-01-037"
-  - "sld-da86cc1507ac-item-01-038"
-  - "sld-da86cc1507ac-item-01-039"
 source_type: "notion"
 source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 ---
@@ -40,7 +35,7 @@ source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 12. [Folsom Prison Blues](../songs/Folsom-Prison-Blues.md)
 13. [With or Without You](../songs/With-Or-Without-You.md)
 14. [Miss You](../songs/Miss-You.md)
-15. [Under The Bridge (E) or Californication](unresolved:under-the-bridge-e-or-californication) — match: unresolved?
+15. [Under The Bridge (E) or Californication](../songs/under-the-bridge-californication.md)
 16. [Ramble On](../songs/Ramble-On.md)
 17. [Badfish](../songs/Badfish.md)
 18. [Santeria](../songs/Santeria.md)
@@ -61,7 +56,7 @@ source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 33. [Untitled](unresolved:untitled) — match: unresolved?
 34. [Nothing Compares 2 U (C)??](../songs/Nothing-Compares-2-U.md)
 35. [You Oughta Know](../songs/You-Oughta-Know.md)
-36. [She Talks to Angels](unresolved:she-talks-to-angels) — match: unresolved?
-37. [Crash Into Me](unresolved:crash-into-me) — match: unresolved?
-38. [Torn](unresolved:torn) — match: unresolved?
-39. [if you could only see](unresolved:if-you-could-only-see) — match: unresolved?
+36. [She Talks to Angels](../songs/she-talks-to-angels.md)
+37. [Crash Into Me](../songs/crash-into-me.md)
+38. [Torn](../songs/torn.md)
+39. [if you could only see](../songs/if-you-could-only-see.md)

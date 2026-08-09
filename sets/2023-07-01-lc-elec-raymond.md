@@ -9,18 +9,11 @@ location: ""
 band: "LC Electric"
 band_review: "confirmed"
 metadata_review: "proposed"
-review_note: "candidate requires review; 7 unresolved item(s); metadata proposed"
+review_note: "candidate requires review; metadata proposed"
 status: draft
 draft_id: "sld-9d1b98ca1443"
 review_required: true
-unresolved_items:
-  - "sld-9d1b98ca1443-item-01-004"
-  - "sld-9d1b98ca1443-item-01-013"
-  - "sld-9d1b98ca1443-item-01-020"
-  - "sld-9d1b98ca1443-item-02-001"
-  - "sld-9d1b98ca1443-item-02-002"
-  - "sld-9d1b98ca1443-item-02-007"
-  - "sld-9d1b98ca1443-item-02-008"
+unresolved_items: []
 source_type: "notion"
 source_id: "89e74478-afb2-442b-9b35-f4bd20d86bce"
 ---
@@ -30,7 +23,7 @@ source_id: "89e74478-afb2-442b-9b35-f4bd20d86bce"
 1. [Valerie (E) - Rae](../songs/Valerie.md)
 2. [Can't You See (D) - JMB](../songs/Can-t-You-See.md)
 3. [Santeria (E) - Kyle](../songs/Santeria.md)
-4. [When You Get Back (Gm) - Matt](unresolved:when-you-get-back) — match: unresolved?
+4. [When You Get Back (Gm) - Matt](../songs/when-you-get-back.md)
 5. [Mercy (G) - Rae](../songs/Mercy.md)
 6. [Miss You (Am) - Kyle](../songs/Miss-You.md)
 7. [Ex's And Oh's (Em) - Rae](../songs/Exs-And-Ohs.md) — match: normalized?
@@ -39,22 +32,22 @@ source_id: "89e74478-afb2-442b-9b35-f4bd20d86bce"
 10. [Hard To Handle (B) - Kyle](../songs/Hard-To-Handle.md)
 11. [Use Me (E) - Rae](../songs/Use-Me.md)
 12. [Mary Jane's Last Dance (Am) - JMB](../songs/Mary-Jane-s-Last-Dance.md)
-13. [Hollywood Nights (E) - Kyle](unresolved:hollywood-nights) — match: unresolved?
+13. [Hollywood Nights (E) - Kyle](../songs/hollywood-nights.md)
 14. [Fast As You - JMB](../songs/Fast-As-You.md)
 15. [Born To Run (E) - Kyle](../songs/Born-To-Run.md)
 16. [Just A Girl (D) - Rae](../songs/Just-A-Girl.md)
 17. [Let's Get It On (E) - Rae/Kyle](../songs/Let-s-Get-It-On.md)
 18. [Turn The Page (Em) - JMB](../songs/Turn-The-Page.md)
 19. [I Will Survive (Am) - Rae](../songs/I-Will-Survive.md)
-20. [One Way Out (A) - JMB](unresolved:one-way-out) — match: unresolved?
-21. [Liza Jane](unresolved:liza-jane) — match: unresolved?
-22. [Two Tickets to Paradise (D) - Kyle](unresolved:two-tickets-to-paradise) — match: unresolved?
+20. [One Way Out (A) - JMB](../songs/one-way-out.md)
+21. [Liza Jane](../songs/liza-jane.md)
+22. [Two Tickets to Paradise (D) - Kyle](../songs/two-tickets-to-paradise.md)
 23. [What I Got (D) - Rae](../songs/What-I-Got.md)
 24. [Little Sister (E) - JMB](../songs/Little-Sister.md)
 25. [The Middle (D) - Kyle](../songs/The-Middle.md)
 26. [Locked Out of Heaven (C) - Rae](../songs/Locked-Out-Of-Heaven.md)
-27. [American Girl (D) - JMB](unresolved:american-girl) — match: unresolved?
-28. [Levitating (Am) - Rae](unresolved:levitating) — match: unresolved?
+27. [American Girl (D) - JMB](../songs/american-girl.md)
+28. [Levitating (Am) - Rae](../songs/levitating.md)
 29. [You Wreck Me (D) - JMB](../songs/You-Wreck-Me.md)
 30. [Love Shack (C) - Charlie/Rae/Kyle](../songs/Love-Shack.md)
 31. [Superstition (E) - Rae](../songs/Superstition-Single-Version.md)

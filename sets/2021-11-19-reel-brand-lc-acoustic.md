@@ -9,14 +9,11 @@ location: "Reel & Brand"
 band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 3 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-c56dbe03b66d"
 review_required: true
-unresolved_items:
-  - "sld-c56dbe03b66d-item-01-008"
-  - "sld-c56dbe03b66d-item-01-014"
-  - "sld-c56dbe03b66d-item-02-009"
+unresolved_items: []
 source_type: "notion"
 source_id: "634925dc-1c91-4087-bea1-7e86dc41a179"
 ---
@@ -30,13 +27,13 @@ source_id: "634925dc-1c91-4087-bea1-7e86dc41a179"
 5. [Under The Bridge](../songs/Under-The-Bridge.md)
 6. [Breakdown (A) JMB](../songs/Breakdown.md)
 7. [Ramble On](../songs/Ramble-On.md)
-8. [You Don't Know How It Feels (E) (E) JMB](unresolved:you-don-t-know-how-it-feels) — match: unresolved?
+8. [You Don't Know How It Feels (E) (E) JMB](../songs/you-don-t-know-how-it-feels.md)
 9. [Plush](../songs/Plush.md)
 10. [Heard It in a Love Song JMB](../songs/Heard-It-In-A-Love-Song.md)
 11. [Badfish](../songs/Badfish.md)
 12. [Little Sister (E) JMB](../songs/Little-Sister.md)
 13. [Californication](../songs/Californication.md)
-14. [Lonely Boy to Folsom Prison Blues (E) JMB to Dancing With Myself](unresolved:lonely-boy-to-folsom-prison-blues-e-jmb-to-dancing-with-myself) — match: unresolved?
+14. [Lonely Boy to Folsom Prison Blues (E) JMB to Dancing With Myself](../songs/lonely-boy-folsom-prison-blues-dancing-with-myself.md)
 15. [Nothing Compares 2 U](../songs/Nothing-Compares-2-U.md)
 16. [Rebel Yell (Bm) JMB](../songs/Rebel-Yell.md)
 17. [Gimme Three Steps JMB](../songs/Gimme-Three-Steps.md)
@@ -48,7 +45,7 @@ source_id: "634925dc-1c91-4087-bea1-7e86dc41a179"
 23. [Born To Run](../songs/Born-To-Run.md)
 24. [You Wreck Me (D) JMB](../songs/You-Wreck-Me.md)
 25. [1979](../songs/1979.md)
-26. [American Girl (D) JMB](unresolved:american-girl) — match: unresolved?
+26. [American Girl (D) JMB](../songs/american-girl.md)
 27. [I Want You To](../songs/I-Want-You-To.md)
 28. [Guitars and Cadillacs (A) JMB](../songs/Guitars-and-Cadillacs.md)
 29. [The Middle](../songs/The-Middle.md)

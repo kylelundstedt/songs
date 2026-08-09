@@ -9,18 +9,11 @@ location: "Sonoma Plaza"
 band: "Loosely Covered"
 band_review: "proposed"
 metadata_review: "proposed"
-review_note: "candidate requires review; 7 unresolved item(s); metadata proposed"
+review_note: "candidate requires review; metadata proposed"
 status: draft
 draft_id: "sld-7d957d802b1b"
 review_required: true
-unresolved_items:
-  - "sld-7d957d802b1b-item-01-014"
-  - "sld-7d957d802b1b-item-01-019"
-  - "sld-7d957d802b1b-item-01-021"
-  - "sld-7d957d802b1b-item-01-029"
-  - "sld-7d957d802b1b-item-01-036"
-  - "sld-7d957d802b1b-item-01-037"
-  - "sld-7d957d802b1b-item-01-038"
+unresolved_items: []
 source_type: "notion"
 source_id: "7e0be840-413e-468e-90f0-b8a4eabff48a"
 ---
@@ -40,14 +33,14 @@ source_id: "7e0be840-413e-468e-90f0-b8a4eabff48a"
 11. [Folsom Prison Blues (E) - DLG](../songs/Folsom-Prison-Blues.md)
 12. [You Wreck Me (D) - JMB](../songs/You-Wreck-Me.md)
 13. [Miss You (Am) - DLG](../songs/Miss-You.md)
-14. [American Girl (D) - JMB](unresolved:american-girl) — match: unresolved?
+14. [American Girl (D) - JMB](../songs/american-girl.md)
 15. [Fast As You - JMB](../songs/Fast-As-You.md)
 16. [Breakdown (A) - JMB](../songs/Breakdown.md)
 17. [Mary Jane's Last Dance (Am) - JMB](../songs/Mary-Jane-s-Last-Dance.md)
 18. [Guitars and Cadillacs (A) - JMB](../songs/Guitars-and-Cadillacs.md)
-19. [Call Me The Breeze (A) - JMB](unresolved:call-me-the-breeze) — match: unresolved?
+19. [Call Me The Breeze (A) - JMB](../songs/call-me-the-breeze.md)
 20. [Wine Wine Wine - JMB](../songs/Wine-Wine-Wine.md)
-21. [One Way Out (A) - JMB](unresolved:one-way-out) — match: unresolved?
+21. [One Way Out (A) - JMB](../songs/one-way-out.md)
 22. [Dancing With Myself (E) - KGL](../songs/Dancing-With-Myself.md)
 23. [Are You Gonna Go My Way (E) - DLG](../songs/Are-You-Gonna-Go-My-Way.md)
 24. [What I Got (D) - KGL](../songs/What-I-Got.md)
@@ -55,13 +48,13 @@ source_id: "7e0be840-413e-468e-90f0-b8a4eabff48a"
 26. [Little Sister (E) - JMB](../songs/Little-Sister.md)
 27. [Rebel Yell (Bm) - DLG](../songs/Rebel-Yell.md)
 28. [White Wedding (Bm) - DLG](../songs/White-Wedding.md)
-29. [Brown Sugar (C) - JMB](unresolved:brown-sugar) — match: unresolved?
+29. [Brown Sugar (C) - JMB](../songs/brown-sugar.md)
 30. [Where the Streets Have No Name (D) - KGL](../songs/Where-the-Streets-Have-No-Names.md) — match: normalized?
 31. [Born To Run (E) - KGL](../songs/Born-To-Run.md)
 32. [Badfish (D) - KGL](../songs/Badfish.md)
 33. [Kryptonite (Bm) - DLG](../songs/Kryptonite.md)
 34. [You Shook Me All Night Long (G) - kGL](../songs/You-Shook-Me-All-Night-Long.md)
 35. [Lonely Is the Night (E) - KGL](../songs/Lonely-Is-the-Night.md)
-36. [@moving on over - JMB](unresolved:moving-on-over) — match: unresolved?
-37. [@born to be wild - jmb](unresolved:born-to-be-wild) — match: unresolved?
-38. [@keep your hands to yourself - JMB](unresolved:keep-your-hands-to-yourself) — match: unresolved?
+36. [@moving on over - JMB](../songs/move-it-on-over.md)
+37. [@born to be wild - jmb](../songs/born-to-be-wild.md)
+38. [@keep your hands to yourself - JMB](../songs/keep-your-hands-to-yourself.md)

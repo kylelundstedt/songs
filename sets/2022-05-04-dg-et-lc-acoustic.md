@@ -9,12 +9,11 @@ location: "Murphy's"
 band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 1 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-c1b95679b9fd"
 review_required: true
-unresolved_items:
-  - "sld-c1b95679b9fd-item-01-013"
+unresolved_items: []
 source_type: "notion"
 source_id: "202e6f13-b36b-4eea-a87e-8e30265dbef6"
 ---
@@ -33,7 +32,7 @@ source_id: "202e6f13-b36b-4eea-a87e-8e30265dbef6"
 10. [Wicked Game](../songs/Wicked-Game.md)
 11. [Rebel Yell](../songs/Rebel-Yell.md)
 12. [Purple Rain](../songs/Purple-Rain.md)
-13. [Shallow](unresolved:shallow) — match: unresolved?
+13. [Shallow](../songs/shallow.md)
 14. [Valerie](../songs/Valerie.md)
 15. [Nothing Compares 2 U](../songs/Nothing-Compares-2-U.md)
 16. [Ex's And Oh's](../songs/Exs-And-Ohs.md) — match: normalized?

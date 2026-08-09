@@ -9,14 +9,11 @@ location: "Murphy's"
 band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 3 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-e4d49cf6c304"
 review_required: true
-unresolved_items:
-  - "sld-e4d49cf6c304-item-01-037"
-  - "sld-e4d49cf6c304-item-01-041"
-  - "sld-e4d49cf6c304-item-01-042"
+unresolved_items: []
 source_type: "notion"
 source_id: "9c0d19df-67b5-44bb-830b-c8d3088e9899"
 ---
@@ -59,11 +56,11 @@ source_id: "9c0d19df-67b5-44bb-830b-c8d3088e9899"
 34. [One](../songs/One.md)
 35. [Where the Streets Have No Name](../songs/Where-the-Streets-Have-No-Names.md) — match: normalized?
 36. [Turn The Page](../songs/Turn-The-Page.md)
-37. [Walls](unresolved:walls) — match: unresolved?
+37. [Walls](../songs/walls.md)
 38. [Can't You See](../songs/Can-t-You-See.md)
 39. [Guitars and Cadillacs](../songs/Guitars-and-Cadillacs.md)
 40. [Little Sister](../songs/Little-Sister.md)
-41. [One Way Out](unresolved:one-way-out) — match: unresolved?
-42. [American Girl](unresolved:american-girl) — match: unresolved?
+41. [One Way Out](../songs/one-way-out.md)
+42. [American Girl](../songs/american-girl.md)
 43. [Breakdown](../songs/Breakdown.md)
 44. [You Wreck Me](../songs/You-Wreck-Me.md)
