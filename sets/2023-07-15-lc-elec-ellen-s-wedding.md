@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "2023-07-15-lc-elec-ellen-s-wedding"
-title: "LC Electric"
+title: "LC Electric — Ellen's Wedding"
 gig_name: "Ellen’s Wedding"
 date: "2023-07-15"
 date_precision: "day"
 location: ""
-band: "Loosely Covered"
+band: "LC Electric"
 band_review: "confirmed"
 metadata_review: "proposed"
 review_note: "candidate requires review; 7 unresolved item(s); metadata proposed"
@@ -25,7 +25,7 @@ source_type: "notion"
 source_id: "8406e30d-d95e-4a02-b716-d2363b8d2b6a"
 ---
 
-# LC Electric
+# LC Electric — Ellen's Wedding
 
 1. [Miss You](../songs/Miss-You.md)
 2. [@you wreck me](../songs/You-Wreck-Me.md)

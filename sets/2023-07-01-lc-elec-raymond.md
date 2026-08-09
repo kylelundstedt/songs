@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "2023-07-01-lc-elec-raymond"
-title: "LC Electric"
+title: "LC Electric — Raymond"
 gig_name: "Raymond"
 date: "2023-07-01"
 date_precision: "day"
 location: ""
-band: "Loosely Covered"
+band: "LC Electric"
 band_review: "confirmed"
 metadata_review: "proposed"
 review_note: "candidate requires review; 7 unresolved item(s); metadata proposed"
@@ -25,7 +25,7 @@ source_type: "notion"
 source_id: "89e74478-afb2-442b-9b35-f4bd20d86bce"
 ---
 
-# LC Electric
+# LC Electric — Raymond
 
 1. [Valerie (E) - Rae](../songs/Valerie.md)
 2. [Can't You See (D) - JMB](../songs/Can-t-You-See.md)

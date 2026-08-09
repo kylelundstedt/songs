@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "2023-06-10-lc-elec-nicholson"
-title: "LC Electric"
+title: "LC Electric — Nicholson Ranch"
 gig_name: "Nicholson"
 date: "2023-06-10"
 date_precision: "day"
 location: "Nicholson Ranch"
-band: "Loosely Covered"
+band: "LC Electric"
 band_review: "confirmed"
 metadata_review: "confirmed"
 review_note: "candidate requires review; 4 unresolved item(s)"
@@ -22,7 +22,7 @@ source_type: "notion"
 source_id: "2f7f9435-a568-4116-9b63-2eb56580cce5"
 ---
 
-# LC Electric
+# LC Electric — Nicholson Ranch
 
 1. [When You Get Back](unresolved:when-you-get-back) — match: unresolved?
 2. [Valerie](../songs/Valerie.md)

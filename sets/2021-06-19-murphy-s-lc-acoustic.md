@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "2021-06-19-murphy-s-lc-acoustic"
-title: "LC Acoustic"
+title: "LC Acoustic — Murphy's"
 gig_name: "Murphy's"
 date: "2021-06-19"
 date_precision: "day"
 location: "Murphy's"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
 review_note: "candidate requires review; 3 unresolved item(s)"
@@ -21,7 +21,7 @@ source_type: "notion"
 source_id: "9c0d19df-67b5-44bb-830b-c8d3088e9899"
 ---
 
-# LC Acoustic
+# LC Acoustic — Murphy's
 
 1. [Black (E) *](../songs/Black.md)
 2. [Elderly Woman (D) *](../songs/Elderly-Woman.md)

@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "2022-05-04-dg-et-lc-acoustic"
-title: "LC Acoustic"
+title: "LC Acoustic — DG/ET at Murphy's"
 gig_name: "DG/ET"
 date: "2022-05-04"
 date_precision: "day"
 location: "Murphy's"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
 review_note: "candidate requires review; 1 unresolved item(s)"
@@ -19,7 +19,7 @@ source_type: "notion"
 source_id: "202e6f13-b36b-4eea-a87e-8e30265dbef6"
 ---
 
-# LC Acoustic
+# LC Acoustic — DG/ET at Murphy's
 
 1. [Thank You](../songs/Thank-You.md)
 2. [Everlong](../songs/Everlong.md)

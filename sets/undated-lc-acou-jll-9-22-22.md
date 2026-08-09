@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "undated-lc-acou-jll-9-22-22"
-title: "LC Acoustic"
+title: "LC Acoustic — Jack London Lodge"
 gig_name: "Jack London Lodge"
 date: "2022-09-22"
 date_precision: "day"
 location: "Jack London Lodge"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
 review_note: "candidate requires review; 2 unresolved item(s)"
@@ -20,7 +20,7 @@ source_type: "notion"
 source_id: "e76d122c-1e14-4994-9ea3-e00bd2c5c99c"
 ---
 
-# LC Acoustic
+# LC Acoustic — Jack London Lodge
 
 1. [Black (E) *](../songs/Black.md)
 2. [Elderly Woman (D) *](../songs/Elderly-Woman.md)

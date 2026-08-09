@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "2022-10-15-lca-annadel-estate-winery"
-title: "LC Acoustic"
+title: "LC Acoustic — Annadel Estate Winery"
 gig_name: "Annadel Estate Winery"
 date: "2022-10-15"
 date_precision: "day"
 location: "Annadel Estate Winery"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
 review_note: "candidate requires review"
@@ -18,7 +18,7 @@ source_type: "notion"
 source_id: "4b1bafe4-7163-46d5-9eda-eabbd079f053"
 ---
 
-# LC Acoustic
+# LC Acoustic — Annadel Estate Winery
 
 1. [Black (E) *](../songs/Black.md)
 2. [Elderly Woman (D) *](../songs/Elderly-Woman.md)
