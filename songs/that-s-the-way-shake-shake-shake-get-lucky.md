@@ -10,9 +10,9 @@ arrangement_status: proposed-pending-review
 # That's the Way / Shake, Shake, Shake / Get Lucky
 
 ### Medley order
-1. [That's the Way (I Like It)](That-s-The-Way-I-Like-It.md)
-2. [Shake, Shake, Shake](Shake-Shake-Shake.md)
-3. [Get Lucky](Get-Lucky.md)
+1. [That's the Way (I Like It)](/song/that-s-the-way-i-like-it)
+2. [Shake, Shake, Shake](/song/shake-shake-shake)
+3. [Get Lucky](/song/get-lucky)
 
 ### Arrangement note
 Perform in the listed order. Confirm transition bars, keys, and ending at rehearsal.

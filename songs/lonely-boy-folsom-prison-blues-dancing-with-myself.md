@@ -10,9 +10,9 @@ arrangement_status: proposed-pending-review
 # Lonely Boy / Folsom Prison Blues / Dancing With Myself
 
 ### Medley order
-1. [Lonely Boy](lonely-boy.md)
-2. [Folsom Prison Blues](Folsom-Prison-Blues.md)
-3. [Dancing With Myself](Dancing-With-Myself.md)
+1. [Lonely Boy](/song/lonely-boy)
+2. [Folsom Prison Blues](/song/folsom-prison-blues)
+3. [Dancing With Myself](/song/dancing-with-myself)
 
 ### Arrangement note
 Perform in the listed order. Confirm transition bars and final ending at rehearsal.

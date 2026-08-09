@@ -10,8 +10,8 @@ arrangement_status: proposed-pending-review
 # What I Got / Folsom Prison Blues
 
 ### Medley order
-1. [What I Got](What-I-Got.md)
-2. [Folsom Prison Blues](Folsom-Prison-Blues.md)
+1. [What I Got](/song/what-i-got)
+2. [Folsom Prison Blues](/song/folsom-prison-blues)
 
 ### Arrangement note
 Perform in the listed order. Confirm the key change and transition bars at rehearsal.

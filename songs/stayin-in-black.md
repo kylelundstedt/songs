@@ -10,8 +10,8 @@ arrangement_status: proposed-pending-review
 # Stayin' in Black
 
 ### Medley order
-1. [Stayin' Alive](Stayin-Alive.md)
-2. [Back in Black](Back-In-Black.md)
+1. [Stayin' Alive](/song/stayin-alive)
+2. [Back in Black](/song/back-in-black)
 
 ### Arrangement note
 Mashup the linked songs; preserve the established band arrangement and transitions.
