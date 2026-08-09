@@ -1,7 +1,7 @@
 ---
 schema_version: 1
 id: "2022-06-26-last-sunday-r-b-lc-electric-6-26"
-title: "LC Electric — Last Sunday at Reel & Brand"
+title: "LC Electric — Reel & Brand"
 gig_name: "Last Sunday (R&B)"
 date: "2022-06-26"
 date_precision: "day"
@@ -23,7 +23,7 @@ source_type: "notion"
 source_id: "749fde84-3489-400e-9c6f-c804cca3e3fa"
 ---
 
-# LC Electric — Last Sunday at Reel & Brand
+# LC Electric — Reel & Brand
 
 1. [Jump, Jive, an' Wail](../songs/Jump-Jive-Wail.md) — match: normalized?
 2. [Can't You See](../songs/Can-t-You-See.md)
