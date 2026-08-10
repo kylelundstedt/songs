@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-008.
-- **Current task:** [TASK-009](tasks/TASK-009-typed-read-model.md), consume the frozen corpus/identity sidecars into a lossless typed read model.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-009.
+- **Current task:** [TASK-010](tasks/TASK-010-read-only-bootstrap-api.md), expose the frozen typed projection as a versioned read-only manifest/chunk API.
 
 ## Completed evidence
 
@@ -84,6 +84,15 @@ TASK-008 froze current content and cleared the software prerequisite for Phase 1
 - separate-origin Chromium evidence exercises the actual frozen v1 worker and a synthetic V2 namespace reservation; the real V2 shell/public port is still a P1-004 gate;
 - source tag `v2-phase1-content-2026-08-10` and evidence tag `v2-phase1-evidence-2026-08-10` are now the only authorized Phase 1 inputs.
 
+TASK-009 completed the typed read-model foundation:
+
+- `@songs-v2/read-model` verifies annotated tags and imports only pinned Git objects, with replacement objects disabled;
+- all 373 documents, 36 frozen-snapshot section projections, 1,076 Set Entries, 373 slug routes, and 748,034 canonical bytes project deterministically;
+- exact source text/base64, complete front matter, every Set List body line, identity source, annotation, fingerprint occurrence, and resolved target are retained;
+- source targets are independently resolved from Markdown and checked against manifest, sidecar, and actual lead-sheet identity;
+- deterministic full-corpus and representative fixtures pass nine TypeScript tests, including hostile archive, YAML, target, source, and identity cases;
+- the package is ready for TASK-010's generated manifest/chunk API and does not add rendering, mutation, sync, publication, or route-cutover behavior.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -109,6 +118,8 @@ python3 scripts/build_v2_current_bootstrap_baseline.py --check
 python3 scripts/build_v2_current_bootstrap_browser_summary.py --check
 python3 scripts/build_v2_current_contracts.py --check
 python3 scripts/build_v2_current_coexistence_summary.py --check
+npm --prefix v2 ci
+make v2-check
 go test ./internal/syncspike/...
 go test ./...
 go vet ./...
@@ -117,8 +128,7 @@ git diff --check
 
 ## Next tasks
 
-1. Complete TASK-009 typed read model and frozen identity projection.
-2. Build the versioned read-only bootstrap API from the typed model.
-3. Build the isolated React/Vite shell on reserved port 8001.
-4. Continue autonomously through the Phase 1 software checkpoint.
-5. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.
+1. Build TASK-010's versioned read-only bootstrap API from the frozen typed model.
+2. Build the isolated React/Vite shell on reserved port 8001.
+3. Continue autonomously through the Phase 1 software checkpoint.
+4. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.

@@ -2,7 +2,7 @@
 
 - **Priority:** P0
 - **Phase:** 1 read-only vertical slice
-- **Status:** Ready
+- **Status:** Done on August 10, 2026
 - **Estimate:** 2–4 focused engineering days
 
 ## Objective
@@ -35,3 +35,14 @@ submission, Git publication, or route cutover.
 - parser failures are typed and never silently drop source content;
 - deterministic TypeScript tests cover representative legacy and current files;
 - the resulting package is suitable for the versioned read-only bootstrap API.
+
+## Completed evidence
+
+- `v2/packages/read-model` defines immutable TypeScript projections and a Node-only Git import adapter while keeping rendering and mutation out of scope;
+- both annotated tag objects and peeled commits are verified, replacement objects are disabled, contracts are read from the pinned evidence commit, and canonical bytes are read only through `git archive` of the pinned source commit;
+- all 373 documents, 339 lead sheets, 34 Set Lists, 36 frozen-snapshot Set section projections, 1,076 Set Entries, 373 slug routes, and 748,034 source bytes project exactly once;
+- canonical UTF-8 text and base64 bytes round-trip exactly, every Set List body line is retained, and strict failsafe YAML preserves lexical scalars and unknown metadata;
+- Set Entry target paths are independently resolved from Markdown and checked against both manifest links and sidecars before immutable lead-sheet IDs are accepted;
+- deterministic fixtures include a complete import report and representative legacy, declared-ID, and three-section projections;
+- nine TypeScript tests cover full-corpus determinism plus hostile source, identity, target, YAML, archive, and tag-baseline failures;
+- adversarial architecture and code reviews found no remaining material issues.

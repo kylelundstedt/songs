@@ -8,7 +8,7 @@ A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
 The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
 
-V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 completed the prerequisite on August 10, 2026: source tag `v2-phase1-content-2026-08-10` freezes 339 songs and 34 Set Lists, while evidence tag `v2-phase1-evidence-2026-08-10` freezes identity sidecars and current parity evidence. Phase 1 typed read-model work is now authorized; writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 completed the prerequisite on August 10, 2026: source tag `v2-phase1-content-2026-08-10` freezes 339 songs and 34 Set Lists, while evidence tag `v2-phase1-evidence-2026-08-10` freezes identity sidecars and current parity evidence. TASK-009 now projects all 373 documents and 1,076 Set Entries losslessly through `@songs-v2/read-model`; TASK-010's read-only bootstrap API is next. Writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
 
 The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 
@@ -36,6 +36,10 @@ See the [historical v1 Phase 0–1 results](docs/PHASES-0-1.md), [V2 Phase 0 exi
 make test
 make build
 ./srv/songs -listen :8000 -repo .
+
+# Verify the Phase 1 TypeScript read model
+npm --prefix v2 ci
+make v2-check
 ```
 
 The service expects Apex on `PATH` and stores its rebuildable SQLite index under `var/`. Markdown in Git remains canonical.
@@ -47,6 +51,7 @@ songs/                         canonical migrated lead sheets
 sets/                          canonical Markdown set lists
 migration/notion-candidates/   review-only Notion exports
 migration/                     migration manifests and reports
+v2/packages/read-model/        frozen typed read model and deterministic fixtures
 scripts/                       Notion export tooling
 tools/                         legacy migration tooling
 srv/                           Go server, templates, PWA assets

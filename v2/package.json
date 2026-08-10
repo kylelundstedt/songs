@@ -1,0 +1,15 @@
+{
+  "name": "songs-v2",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @songs-v2/read-model",
+    "check": "npm run check --workspace @songs-v2/read-model",
+    "test": "npm run test --workspace @songs-v2/read-model",
+    "fixtures": "npm run fixtures --workspace @songs-v2/read-model",
+    "fixtures:generate": "npm run fixtures:generate --workspace @songs-v2/read-model"
+  }
+}

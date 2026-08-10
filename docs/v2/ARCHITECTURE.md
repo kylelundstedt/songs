@@ -64,4 +64,6 @@ The controlled rewrite remains approved. The strict Phase 0 exit is conditional 
 
 TASK-008 is complete. Source tag `v2-phase1-content-2026-08-10` freezes canonical content/server behavior, while evidence tag `v2-phase1-evidence-2026-08-10` freezes the parity artifacts under `migration/v2/current/`. Together they are the only authorized inputs for Phase 1.
 
-Phase 1 now proceeds with the typed read model and an isolated read-only React/TypeScript PWA on the separate V2 origin. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.
+TASK-009 is complete. `@songs-v2/read-model` projects those pinned Git objects into lossless typed documents, frozen-snapshot Set section keys, and immutable Set Entry identities. It retains exact canonical bytes and does not establish a local renderer or writable identity source. TASK-010 may now generate the versioned read-only bootstrap API from this package.
+
+Phase 1 now proceeds with the read-only bootstrap API and an isolated React/TypeScript PWA on the separate V2 origin. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.

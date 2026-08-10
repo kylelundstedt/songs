@@ -51,6 +51,8 @@ class CurrentBaselineTests(unittest.TestCase):
             ["git", "-C", str(ROOT), "rev-parse", f"{EVIDENCE_REF}^{{commit}}"], text=True
         ).strip()
         self.assertEqual(actual, EVIDENCE_COMMIT)
+        # The evidence tag pins TASK-008 artifacts and contracts. Downstream task
+        # specifications may record their own implementation after that tag.
         protected = [
             "migration/v2/current",
             "scripts/build_v2_current_backup_restore_baseline.py",
@@ -67,7 +69,6 @@ class CurrentBaselineTests(unittest.TestCase):
             "scripts/v2_current_config.py",
             "docs/v2/decisions/0007-phase1-baseline-origin.md",
             "docs/v2/tasks/TASK-008-current-content-baseline.md",
-            "docs/v2/tasks/TASK-009-typed-read-model.md",
         ]
         result = subprocess.run(
             ["git", "-C", str(ROOT), "diff", "--exit-code", EVIDENCE_REF, "--", *protected],

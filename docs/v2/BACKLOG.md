@@ -12,6 +12,7 @@ Phase 0 software feasibility and current-content closure are complete. Phase 1 n
 | Done | [TASK-006 — atomic bootstrap and storage](tasks/TASK-006-atomic-bootstrap-storage.md) | 13 Chromium proofs establish atomic activation, interruption/corruption recovery, upgrade preservation, idempotent retry, and measured headroom. |
 | Done | [TASK-007 — Phase 0 exit review](tasks/TASK-007-phase-0-exit-review.md) | Conditional go: architecture feasible, read-only slice approved, writable/cutover blocked, and current baseline refresh required. |
 | Done | [TASK-008 — current-content baseline](tasks/TASK-008-current-content-baseline.md) | Source tag `v2-phase1-content-2026-08-10` freezes 373 documents; evidence tag `v2-phase1-evidence-2026-08-10` freezes renderer/fit, route/policy, recovery, bootstrap, identity, and coexistence artifacts while preserving `v1`. |
-| P0 | [TASK-009 — typed read model](tasks/TASK-009-typed-read-model.md) | All frozen documents and Set Entries project losslessly with stable IDs, typed failures, deterministic fixtures, and unchanged canonical bytes. |
+| Done | [TASK-009 — typed read model](tasks/TASK-009-typed-read-model.md) | All 373 frozen documents, 36 section projections, and 1,076 Set Entries project losslessly from pinned tags with typed failures and deterministic fixtures. |
+| P0 | [TASK-010 — versioned read-only bootstrap API](tasks/TASK-010-read-only-bootstrap-api.md) | Immutable manifest/chunk DTOs include complete typed projections, source/Apex hashes, private-read authorization, and fail-closed JSON errors without changing v1 routes. |
 
 Phase 1 packet definitions, estimates, dependencies, rollback points, and model routing are in [`PHASE-1-PLAN.md`](PHASE-1-PLAN.md).

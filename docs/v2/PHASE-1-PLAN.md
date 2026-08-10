@@ -55,6 +55,8 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-002 — Typed read model and frozen identity projection
 
+- **Status:** Done on August 10, 2026
+
 - **Estimate:** 2–4 days
 - **Dependencies:** P1-001
 - **Work:** implement typed `LeadSheet`, `SetList`, `SetSection`, and `SetEntry` projections that consume the immutable document and Set Entry sidecars frozen by TASK-008.
@@ -64,6 +66,8 @@ The range assumes agent-assisted implementation with small commits and determini
 - **Model routing:** Predictable for fixtures, Terra for schema/lossless projection, Sol review.
 
 ### P1-003 — Read-only V2 bootstrap API
+
+- **Status:** Ready; tracked as TASK-010
 
 - **Estimate:** 2–3 days
 - **Dependencies:** P1-002
