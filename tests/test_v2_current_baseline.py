@@ -13,6 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT_REF = "v2-phase1-content-2026-08-10"
 CURRENT_COMMIT = "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5"
+EVIDENCE_REF = "v2-phase1-evidence-2026-08-10"
+EVIDENCE_COMMIT = "5ea535b53b94445084586828389f44c1a5136877"
 CURRENT = ROOT / "migration/v2/current"
 SUMMARY_SCRIPT = ROOT / "scripts/build_v2_current_bootstrap_browser_summary.py"
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -43,6 +45,36 @@ class CurrentBaselineTests(unittest.TestCase):
             subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "v1^{commit}"], text=True).strip(),
             "546f59b41d9e9bcf0e81b543c27900a31e26c9e6",
         )
+
+    def test_evidence_tag_pins_task8_package(self) -> None:
+        actual = subprocess.check_output(
+            ["git", "-C", str(ROOT), "rev-parse", f"{EVIDENCE_REF}^{{commit}}"], text=True
+        ).strip()
+        self.assertEqual(actual, EVIDENCE_COMMIT)
+        protected = [
+            "migration/v2/current",
+            "scripts/build_v2_current_backup_restore_baseline.py",
+            "scripts/build_v2_current_baseline.py",
+            "scripts/build_v2_current_bootstrap_baseline.py",
+            "scripts/build_v2_current_bootstrap_browser_summary.py",
+            "scripts/build_v2_current_browser_fit_baseline.py",
+            "scripts/build_v2_current_coexistence_summary.py",
+            "scripts/build_v2_current_contracts.py",
+            "scripts/build_v2_current_renderer_baseline.py",
+            "scripts/build_v2_current_route_baseline.py",
+            "scripts/serve_v2_current_coexistence_harness.py",
+            "scripts/serve_v2_current_fit_harness.py",
+            "scripts/v2_current_config.py",
+            "docs/v2/decisions/0007-phase1-baseline-origin.md",
+            "docs/v2/tasks/TASK-008-current-content-baseline.md",
+            "docs/v2/tasks/TASK-009-typed-read-model.md",
+        ]
+        result = subprocess.run(
+            ["git", "-C", str(ROOT), "diff", "--exit-code", EVIDENCE_REF, "--", *protected],
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_corpus_and_identity_sidecars_cover_frozen_source(self) -> None:
         corpus = json.loads((CURRENT / "corpus-manifest.json").read_text(encoding="utf-8"))
