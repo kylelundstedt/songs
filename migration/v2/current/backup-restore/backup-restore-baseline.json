@@ -1,0 +1,166 @@
+{
+  "schema_version": "1",
+  "baseline": {
+    "ref": "v2-phase1-content-2026-08-10",
+    "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5"
+  },
+  "generator": {
+    "name": "scripts/build_v2_current_backup_restore_baseline.py",
+    "version": "1",
+    "command": "python3 scripts/build_v2_current_backup_restore_baseline.py"
+  },
+  "prior_artifacts": {
+    "task_001": true,
+    "task_002": true,
+    "task_003": true,
+    "corpus_files": 373,
+    "renderer_songs": 339,
+    "route_records": 1198
+  },
+  "drill": {
+    "git_bundle": {
+      "source_ref": "refs/tags/v2-phase1-content-2026-08-10",
+      "verified": true,
+      "clean_checkouts": 2,
+      "exact_tag_commit": true,
+      "archive_file_mtimes_preserved": true
+    },
+    "online_backup": {
+      "sqlite_connection_backup_api": true,
+      "source_server_running_during_backup": true,
+      "source_was_wal": true,
+      "separate_backup_database": true,
+      "ephemeral_manifest_sha256_values_verified": true,
+      "raw_live_db_copy_used_as_backup": false
+    },
+    "restore_order": [
+      "verify Git bundle",
+      "restore clean tagged checkout",
+      "verify online-backup component hashes",
+      "restore database copy",
+      "verify SQLite and semantic projection",
+      "start tagged server",
+      "verify focused routes"
+    ],
+    "safety_properties": [
+      "canonical songs/sets were not modified",
+      "deployed services were not stopped",
+      "restored content was not pushed",
+      "no external network/provider calls",
+      "machine paths, ports, timestamps, and ephemeral binary hashes omitted"
+    ]
+  },
+  "corpus": {
+    "files": 373,
+    "songs": 339,
+    "sets": 34,
+    "byte_for_byte": true,
+    "restored_files_byte_for_byte": true,
+    "manifest": "migration/v2/current/corpus-manifest.json"
+  },
+  "sqlite": {
+    "quick_check": true,
+    "integrity_check": true,
+    "foreign_key_check": true,
+    "schema_hash": "6065d70a1d097cbd15f860c844aaf6af20fce20b02bd5c1932bbdf25ef44593c",
+    "projection_hash": "c8ae95d9be4bda8e444fc776ae5eb41ea310ee27f13f4e2cf502b78ae3ded39d",
+    "schema_object_count": 4,
+    "migration_count": 1,
+    "song_index_count": 339,
+    "set_index_count": 34,
+    "page_size": 4096,
+    "page_count": 244
+  },
+  "schema": {
+    "schema_hash": "6065d70a1d097cbd15f860c844aaf6af20fce20b02bd5c1932bbdf25ef44593c",
+    "schema_object_count": 4,
+    "migration_count": 1,
+    "song_index_count": 339,
+    "set_index_count": 34,
+    "page_size": 4096,
+    "page_count": 244
+  },
+  "deterministic_hashes": {
+    "schema_hash": "6065d70a1d097cbd15f860c844aaf6af20fce20b02bd5c1932bbdf25ef44593c",
+    "semantic_projection_hash": "c8ae95d9be4bda8e444fc776ae5eb41ea310ee27f13f4e2cf502b78ae3ded39d",
+    "renderer_baseline_output_sha256": "b22196c63be5da3249cea980faf40528e367c47acabd58285e2714ceb456ebdb",
+    "route_baseline_output_sha256": "2b6143651d5130cad7d5cc087f868aea25c7e9f012fbe74192370b416b7e9279"
+  },
+  "focused_routes": {
+    "normalization_contract": "TASK-003: RFC3339 operational/build timestamps, temporary Shelley URL, and loopback ephemeral port normalized; Date/Content-Length/Last-Modified ignored",
+    "records": [
+      {
+        "id": "catalog",
+        "status": 200,
+        "body_sha256": "7b91d37efea9ed0bee9c049030edc275757459670809b1761a7c6afb290062af",
+        "semantic": {
+          "json_type": "array",
+          "count": 339,
+          "ids_sha256": "609126938b832f95fcc6ae47831c314983e4875bb1fcc5c5e5d082551c973db2"
+        },
+        "matches_baseline": true
+      },
+      {
+        "id": "song/1979",
+        "status": 200,
+        "body_sha256": "4f8900b593b6088927440d9fdc26df039bec2139973a1a2281a95157c2e8c33a",
+        "semantic": {
+          "html_title": "1979 · Songs"
+        },
+        "matches_baseline": true
+      },
+      {
+        "id": "set/2005-03-26-easter-pageant",
+        "status": 200,
+        "body_sha256": "11e652aa83906f5f3aed975a0136d86f3543c84b6e2dcad9672fa34fa0357b1c",
+        "semantic": {
+          "html_title": "Easter Pageant · Songs"
+        },
+        "matches_baseline": true
+      },
+      {
+        "id": "live/2005-03-26-easter-pageant",
+        "status": 200,
+        "body_sha256": "60cf7db9cc8153a8cfee00295a0cd3327ce137e7a932388147a662400870b1ca",
+        "semantic": {
+          "html_title": "Easter Pageant · Live"
+        },
+        "matches_baseline": true
+      },
+      {
+        "id": "offline/2005-03-26-easter-pageant",
+        "status": 200,
+        "body_sha256": "166922b9e0c551efabce37cde2b6ccbb79a580a4d53b8a4a0a8177c3df3db7cf",
+        "semantic": {
+          "set": "2005-03-26-easter-pageant",
+          "hash": "2644178094fd36047df512044f88502afef7fd50ad9b1b23f15bef590e63d069",
+          "urls": 36,
+          "json_keys": [
+            "hash",
+            "set",
+            "urls"
+          ]
+        },
+        "matches_baseline": true
+      }
+    ]
+  },
+  "failure_evidence": {
+    "missing_canonical_file": true,
+    "corrupt_sqlite_backup": true,
+    "corrupt_git_bundle": true,
+    "wrong_baseline_commit": true,
+    "missing_backup_component": true
+  },
+  "v1_operational_state": {
+    "sqlite_role": "rebuildable index/cache",
+    "has_draft_outbox_conflict_ledger": false,
+    "critical_backup": "Git canonical Markdown and exact tag",
+    "v2_durable_ledger_requirement": "V2 must provide durable server-side ledger backups for drafts, outbox, conflicts, and revisions",
+    "unsynced_indexeddb_drafts": "require client export/recovery until synchronized"
+  },
+  "verification": {
+    "record_count": 5,
+    "output_sha256": "d38a992aba69d745f70861f58608569b508dfa39339deefbb71bd5bb1090efbd"
+  }
+}

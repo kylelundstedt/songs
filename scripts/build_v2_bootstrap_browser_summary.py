@@ -8,9 +8,12 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable
 
+BASELINE_REF = 'v1'
 BASELINE_COMMIT = '546f59b41d9e9bcf0e81b543c27900a31e26c9e6'
 SCHEMA_VERSION = '1'
+DOCUMENTS = 351
 SOURCE_BYTES = 743078
+REQUIRE_EVIDENCE_BINDING = False
 HEADROOM_MULTIPLIER = 10
 BASELINE = Path('migration/v2/bootstrap/bootstrap-baseline.json')
 RAW = Path('migration/v2/bootstrap/browser-observations')
@@ -59,14 +62,23 @@ def scenario_consistent(data: dict[str, Any], path: Path) -> None:
     if success.get('pointer_transitions') != 1 or retry.get('pointer_transitions') != 1: fail(f'{path}: retry caused another pointer transition')
     if retry.get('documents_by_generation', {}).get(data.get('generation')) != success.get('documents_by_generation', {}).get(data.get('generation')): fail(f'{path}: idempotent retry changed active documents')
     verification = scenario.get('document_verification')
-    if not isinstance(verification, dict) or verification.get('count') != 351 or verification.get('hashes_valid') is not True or verification.get('snapshot_digest') != verification.get('expected_snapshot_digest'): fail(f'{path}: captured document verification is invalid')
+    if not isinstance(verification, dict) or verification.get('count') != DOCUMENTS or verification.get('hashes_valid') is not True or verification.get('snapshot_digest') != verification.get('expected_snapshot_digest'): fail(f'{path}: captured document verification is invalid')
 
 def validate(path: Path, expected: tuple[str, int, int, str], baseline: dict[str, Any], identity: dict[str, Any] | None) -> tuple[dict[str, Any], dict[str, Any]]:
     name, width, height, form_factor = expected
     data = load(path)
     if data.get('schema_version') != SCHEMA_VERSION: fail(f'{path}: schema_version must be {SCHEMA_VERSION}')
-    if data.get('baseline') != {'ref': 'v1', 'commit': BASELINE_COMMIT}: fail(f'{path}: exact baseline required')
+    if data.get('baseline') != {'ref': BASELINE_REF, 'commit': BASELINE_COMMIT}: fail(f'{path}: exact baseline required')
     if data.get('generation') != baseline['generation']: fail(f'{path}: generation differs from deterministic payload')
+    if REQUIRE_EVIDENCE_BINDING:
+        expected_binding = {
+            'bootstrap_baseline_output_sha256': baseline['verification']['output_sha256'],
+            'payload_manifest_sha256': baseline['payload']['manifest_sha256'],
+            'harness_assets': baseline['assets'],
+            'harness_source_commit': baseline['harness_source']['commit'],
+        }
+        if data.get('evidence_binding') != expected_binding:
+            fail(f'{path}: observation is not bound to the exact bootstrap baseline/harness')
     requested = {'width': width, 'height': height, 'device_scale_factor': 1, 'mobile': name == 'phone', 'touch': True}
     profile = data.get('profile')
     if not isinstance(profile, dict) or profile.get('name') != name or profile.get('requested') != requested: fail(f'{path}: requested profile does not match {name}')
@@ -78,7 +90,7 @@ def validate(path: Path, expected: tuple[str, int, int, str], baseline: dict[str
     proof = data.get('scenario_proof')
     if not isinstance(proof, dict) or any(proof.get(key) is not True for key in REQUIRED_PROOFS): fail(f'{path}: scenario proof is incomplete or false')
     scenario_consistent(data, path)
-    if data.get('documents') != 351 or data.get('source_bytes') != SOURCE_BYTES: fail(f'{path}: corpus result must be 351 documents / {SOURCE_BYTES} bytes')
+    if data.get('documents') != DOCUMENTS or data.get('source_bytes') != SOURCE_BYTES: fail(f'{path}: corpus result must be {DOCUMENTS} documents / {SOURCE_BYTES} bytes')
     durations = data.get('durations_ms')
     if not isinstance(durations, dict): fail(f'{path}: durations_ms required')
     for key in ('interrupted', 'corrupt', 'success', 'idempotent_retry'): nonnegative(durations.get(key), f'durations_ms.{key}', path)
@@ -98,7 +110,7 @@ def validate(path: Path, expected: tuple[str, int, int, str], baseline: dict[str
 
 def build(repo: Path, raw: Path = RAW) -> bytes:
     baseline = load(repo / BASELINE)
-    if baseline.get('baseline') != {'ref': 'v1', 'commit': BASELINE_COMMIT}: fail('bootstrap baseline is not exact v1')
+    if baseline.get('baseline') != {'ref': BASELINE_REF, 'commit': BASELINE_COMMIT}: fail('bootstrap baseline is not exact required baseline')
     records, profiles, identity = [], [], None
     for expected in PROFILES:
         path = raw / f'{expected[0]}.json'
@@ -115,6 +127,13 @@ def build(repo: Path, raw: Path = RAW) -> bytes:
         'physical_safari_ipad': {'status': 'pending', 'note': 'Chromium emulation and these captures do not prove physical Safari/iPad quota, eviction, persistence, or background-suspension behavior.'},
         'verification': {'output_sha256': None},
     }
+    if REQUIRE_EVIDENCE_BINDING:
+        result['bootstrap_evidence_binding'] = {
+            'bootstrap_baseline_output_sha256': baseline['verification']['output_sha256'],
+            'payload_manifest_sha256': baseline['payload']['manifest_sha256'],
+            'harness_assets': baseline['assets'],
+            'harness_source_commit': baseline['harness_source']['commit'],
+        }
     result['verification']['output_sha256'] = sha(canonical(result))
     return canonical(result)
 

@@ -1,0 +1,137 @@
+{
+  "baseline": {
+    "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5",
+    "ref": "v2-phase1-content-2026-08-10"
+  },
+  "chunks": [
+    {
+      "doc_count": 32,
+      "file_bytes": 93179,
+      "first_path": "sets/2005-03-26-easter-pageant.md",
+      "index": 0,
+      "last_path": "sets/2023-08-24-lc-acou-murphys.md",
+      "path": "chunk-000.json",
+      "sha256": "602ca32fc2b06e3a2a832a2f065fe52c27293793541e501ea8dc3405e195e7e7",
+      "source_bytes": 64968
+    },
+    {
+      "doc_count": 30,
+      "file_bytes": 91977,
+      "first_path": "sets/2025-10-13-9tease-stripped.md",
+      "index": 1,
+      "last_path": "songs/Betterman.md",
+      "path": "chunk-001.json",
+      "sha256": "3290d4e55208dc3d2b94a25742b7ed06a82f586d535fbc332ba48c5637caa818",
+      "source_bytes": 64661
+    },
+    {
+      "doc_count": 29,
+      "file_bytes": 91242,
+      "first_path": "songs/Billie-Jean.md",
+      "index": 2,
+      "last_path": "songs/Cumbersome.md",
+      "path": "chunk-002.json",
+      "sha256": "cf5251f148ac60689a21ed8f656e872f0dd31fc350b74656fded24e5eefe8da0",
+      "source_bytes": 64317
+    },
+    {
+      "doc_count": 31,
+      "file_bytes": 92205,
+      "first_path": "songs/Dancing-With-Myself.md",
+      "index": 3,
+      "last_path": "songs/Gimme-All-Your-Lovin.md",
+      "path": "chunk-003.json",
+      "sha256": "4e53ed348ed85e37ed090715466c37f533dec36f76f7943d0a19b618d69910db",
+      "source_bytes": 64750
+    },
+    {
+      "doc_count": 31,
+      "file_bytes": 91843,
+      "first_path": "songs/Gimme-Shelter.md",
+      "index": 4,
+      "last_path": "songs/I-Want-You-Back.md",
+      "path": "chunk-004.json",
+      "sha256": "df91c17fdbb1778da3a51457d4316fb02b3164916e3cb419202ed51c700828ec",
+      "source_bytes": 64418
+    },
+    {
+      "doc_count": 31,
+      "file_bytes": 91361,
+      "first_path": "songs/I-Want-You-To.md",
+      "index": 5,
+      "last_path": "songs/Lightning-Crashes.md",
+      "path": "chunk-005.json",
+      "sha256": "4bf5fc5c83f3e8baa56fe9cc29f703e894bf8b52d1bcaaed10d1bf7199fe1e21",
+      "source_bytes": 64108
+    },
+    {
+      "doc_count": 31,
+      "file_bytes": 90985,
+      "first_path": "songs/Like-A-Stone.md",
+      "index": 6,
+      "last_path": "songs/No-Rain.md",
+      "path": "chunk-006.json",
+      "sha256": "52395e5fd13411a773e81e3d468d271bcf3dedc51268d8b2196cfd43427a933f",
+      "source_bytes": 63801
+    },
+    {
+      "doc_count": 30,
+      "file_bytes": 90970,
+      "first_path": "songs/No-Woman-No-Cry.md",
+      "index": 7,
+      "last_path": "songs/Runnin-With-The-Devil.md",
+      "path": "chunk-007.json",
+      "sha256": "88fea18ce5797418d670e3f3a342a07c65627b2eb12220aa9c15a769a8e98dd3",
+      "source_bytes": 63979
+    },
+    {
+      "doc_count": 32,
+      "file_bytes": 92435,
+      "first_path": "songs/Santeria.md",
+      "index": 8,
+      "last_path": "songs/The-Distance.md",
+      "path": "chunk-008.json",
+      "sha256": "859bf1c08998c2b977623818a8a0fdd6f0d7b704770de12e40d3ac3847718da8",
+      "source_bytes": 64722
+    },
+    {
+      "doc_count": 29,
+      "file_bytes": 90180,
+      "first_path": "songs/The-Middle.md",
+      "index": 9,
+      "last_path": "songs/Where-the-Streets-Have-No-Names.md",
+      "path": "chunk-009.json",
+      "sha256": "55d660e150bbf7a10bb4da35224c5d22f1cc930f8d5351e39a4cf76e5a2522e6",
+      "source_bytes": 63479
+    },
+    {
+      "doc_count": 36,
+      "file_bytes": 92901,
+      "first_path": "songs/White-Wedding.md",
+      "index": 10,
+      "last_path": "songs/levitating.md",
+      "path": "chunk-010.json",
+      "sha256": "93bf73b99e78daf735f99e1a1aa7cd92d8616b8e1c3fa8c4466659de1e987a26",
+      "source_bytes": 64516
+    },
+    {
+      "doc_count": 31,
+      "file_bytes": 59832,
+      "first_path": "songs/listen-to-the-music.md",
+      "index": 11,
+      "last_path": "songs/you-really-got-me.md",
+      "path": "chunk-011.json",
+      "sha256": "2ab8863998e8751326650622eeefe17e99c6b45ef97d321b998243641cf4b229",
+      "source_bytes": 40315
+    }
+  ],
+  "corpus": {
+    "bytes": 748034,
+    "documents": 373,
+    "sets": 34,
+    "songs": 339
+  },
+  "generation": "phase1-71b444b3ba71803abd7a22ba",
+  "schema_version": "1",
+  "snapshot_digest": "71b444b3ba71803abd7a22ba19095715010c1bebe7acd1626cf5887005c757d1"
+}

@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import shutil
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -64,6 +66,20 @@ class BrowserFitBaselineTests(unittest.TestCase):
 
     def test_physical_ipad_is_pending(self) -> None:
         self.assertEqual(self.summary["physical_ipad"]["status"], "pending")
+
+    def test_geometry_contradiction_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            captures = root / "browser-fit"
+            screenshots = root / "screenshots"
+            shutil.copytree(ROOT / "migration/v2/renderer/browser-fit", captures)
+            shutil.copytree(ROOT / "migration/v2/renderer/screenshots", screenshots)
+            path = captures / "ipad-portrait.json"
+            data = json.loads(path.read_text(encoding="utf-8"))
+            data["results"][0]["columns"][0]["scroll_height"] = data["results"][0]["columns"][0]["client_height"] + 100
+            path.write_text(json.dumps(data), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "fit status is inconsistent with geometry"):
+                browser_fit.build(ROOT, ROOT / "migration/v2/renderer/renderer-baseline.json", captures, screenshots)
 
     def test_generator_check(self) -> None:
         result = subprocess.run([sys.executable, str(SCRIPT), "--check"], cwd=ROOT, text=True, capture_output=True)

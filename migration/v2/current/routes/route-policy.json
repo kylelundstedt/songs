@@ -1,0 +1,274 @@
+{
+  "schema_version": "1",
+  "baseline": {
+    "ref": "v2-phase1-content-2026-08-10",
+    "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5"
+  },
+  "source_route_baseline_sha256": "2b6143651d5130cad7d5cc087f868aea25c7e9f012fbe74192370b416b7e9279",
+  "identity_sidecars_sha256": "0a4b95ae549aaf41286d41754d08cb4f66256abf84f39b30015d656014d640b6",
+  "slug_route_count": 373,
+  "policy": {
+    "parallel_default": "v1 remains on the default origin; V2 is opt-in on its isolated origin",
+    "redirect_timing": "redirects are policy targets only and are not activated before cutover approval",
+    "edge_behavior_retired": [
+      "browsable /static/ directory index",
+      "arbitrary offline fallback of every failed GET to /",
+      "authoring/provider controls in Live mode"
+    ]
+  },
+  "counts": {
+    "registered_routes": 27,
+    "preserve": 12,
+    "redirect": 1,
+    "retire": 1,
+    "defer": 13
+  },
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/{$}",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/",
+      "rationale": "V2 pilot origin root opens its read-only dashboard while v1 remains default on its own origin"
+    },
+    {
+      "method": "GET",
+      "path": "/songs",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/songs",
+      "rationale": "canonical library bookmark"
+    },
+    {
+      "method": "GET",
+      "path": "/songs/new",
+      "legacy_classification": "read",
+      "decision": "redirect",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/songs",
+      "rationale": "Phase 1 is read-only and exposes no draft form"
+    },
+    {
+      "method": "POST",
+      "path": "/songs",
+      "legacy_classification": "mutation-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "song creation is outside the read-only slice"
+    },
+    {
+      "method": "GET",
+      "path": "/set-lists",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/set-lists",
+      "rationale": "canonical Set List library bookmark"
+    },
+    {
+      "method": "GET",
+      "path": "/about",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/about",
+      "rationale": "product and build information remains available"
+    },
+    {
+      "method": "GET",
+      "path": "/song/{id}",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/song/{slug}",
+      "rationale": "legacy bookmark slug resolves through identity-sidecars slug_routes to an immutable lead-sheet ID"
+    },
+    {
+      "method": "GET",
+      "path": "/sets/{id}",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/sets/{slug}",
+      "rationale": "legacy bookmark slug resolves through identity-sidecars slug_routes to an immutable Set List ID"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sets/{id}/markdown",
+      "legacy_classification": "read-authenticated",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "authenticated authoring source is outside Phase 1"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/sets/{id}/markdown",
+      "legacy_classification": "mutation-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "Set List writes require the production sync gate"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/sets/{id}/order",
+      "legacy_classification": "mutation-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "Set Entry reorder requires stable IDs and production sync"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sets/{id}/items",
+      "legacy_classification": "mutation-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "Set Entry creation requires the writable slice"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/sets/{id}/items/{position}",
+      "legacy_classification": "mutation-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "position-based deletion is replaced by stable Set Entry IDs"
+    },
+    {
+      "method": "GET",
+      "path": "/sets/{id}/live",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/sets/{slug}/live",
+      "rationale": "performance bookmark slug resolves through identity sidecars before locked Live navigation"
+    },
+    {
+      "method": "GET",
+      "path": "/api/lyrics/search",
+      "legacy_classification": "provider-boundary",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "remote provider workflows are not part of offline Phase 1"
+    },
+    {
+      "method": "POST",
+      "path": "/api/lyrics/import",
+      "legacy_classification": "provider-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "provider import is a later writable workflow"
+    },
+    {
+      "method": "GET",
+      "path": "/api/catalog",
+      "legacy_classification": "read",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "legacy catalog remains on v1; V2 introduces a new versioned bootstrap contract without redirecting JSON clients"
+    },
+    {
+      "method": "GET",
+      "path": "/api/songs/{id}",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/api/songs/{id}",
+      "rationale": "legacy read clients remain supported during parallel operation"
+    },
+    {
+      "method": "GET",
+      "path": "/api/songs/{id}/markdown",
+      "legacy_classification": "read-authenticated",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "authenticated authoring source is outside Phase 1"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/songs/{id}/markdown",
+      "legacy_classification": "mutation-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "lead-sheet writing is later than the first writable Set List slice"
+    },
+    {
+      "method": "GET",
+      "path": "/api/offline/sets/{id}",
+      "legacy_classification": "read",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/api/offline/sets/{id}",
+      "rationale": "v1 offline snapshots remain available during parallel operation"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shelley/edit",
+      "legacy_classification": "provider-excluded",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "LLM editing is not a core offline workflow"
+    },
+    {
+      "method": "GET",
+      "path": "/api/shelley/jobs/{id}",
+      "legacy_classification": "read-authenticated",
+      "decision": "defer",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "Shelley jobs remain a legacy/provider workflow"
+    },
+    {
+      "method": "POST",
+      "path": "/api/reindex",
+      "legacy_classification": "mutation-excluded",
+      "decision": "retire",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": null,
+      "rationale": "V2 internal projection rebuilds are not a client-facing mutation route"
+    },
+    {
+      "method": "GET",
+      "path": "/manifest.webmanifest",
+      "legacy_classification": "static",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/manifest.webmanifest",
+      "rationale": "each origin serves its own manifest"
+    },
+    {
+      "method": "GET",
+      "path": "/sw.js",
+      "legacy_classification": "static",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/sw.js",
+      "rationale": "each origin serves a same-origin worker with independent scope/storage names"
+    },
+    {
+      "method": "*",
+      "path": "/static/",
+      "legacy_classification": "static",
+      "decision": "preserve",
+      "parallel_operation": "legacy route remains on v1 default origin",
+      "target": "/static/<asset>",
+      "rationale": "exact assets remain; directory listing behavior is retired"
+    }
+  ],
+  "verification": {
+    "output_sha256": "979436d9f100d9dfc83226abd6a8c36e322b4b4f9526cfea97181ee304e7140b"
+  }
+}

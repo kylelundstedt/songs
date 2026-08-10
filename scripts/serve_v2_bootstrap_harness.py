@@ -28,8 +28,8 @@ class Handler(SimpleHTTPRequestHandler):
         response=json.dumps({'stored':target.name},separators=(',',':')).encode();self.send_response(201);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(response)));self.end_headers();self.wfile.write(response)
     def log_message(self,fmt,*args): print('%s - %s'%(self.address_string(),fmt%args))
 def main()->int:
-    p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=8765);p.add_argument('--output-dir',type=Path,required=True);a=p.parse_args()
-    root=Path(__file__).resolve().parents[1]/'migration/v2/bootstrap'; Handler.root=root;Handler.output=a.output_dir.resolve()
+    p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=8765);p.add_argument('--root-dir',type=Path);p.add_argument('--output-dir',type=Path,required=True);a=p.parse_args()
+    default_root=Path(__file__).resolve().parents[1]/'migration/v2/bootstrap'; Handler.root=(a.root_dir or default_root).resolve();Handler.output=a.output_dir.resolve()
     mimetypes.add_type('application/javascript','.js'); server=ThreadingHTTPServer(('127.0.0.1',a.port),Handler)
     print(f'http://127.0.0.1:{a.port}/harness/?profile=ipad-portrait');server.serve_forever();return 0
 if __name__=='__main__':raise SystemExit(main())

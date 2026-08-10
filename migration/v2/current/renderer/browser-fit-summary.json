@@ -1,0 +1,279 @@
+{
+  "baseline": {
+    "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5",
+    "ref": "v2-phase1-content-2026-08-10"
+  },
+  "browser_engine": {
+    "device_pixel_ratio": 1,
+    "max_touch_points": 5,
+    "name": "Chromium",
+    "note": "Recorded Chromium emulation; the Safari compatibility token in the user agent is not Safari evidence.",
+    "platform": "Linux x86_64",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+    "version": "151.0.7922.72"
+  },
+  "captures": [
+    {
+      "bytes": 175601,
+      "path": "migration/v2/current/renderer/browser-fit/ipad-portrait.json",
+      "sha256": "c47a54149645a8c416117ab91b955e630ca03ef78e45496e335b0381d8aa5332"
+    },
+    {
+      "bytes": 174286,
+      "path": "migration/v2/current/renderer/browser-fit/ipad-landscape.json",
+      "sha256": "8fb3163f1730f919f3158077a053ac65333da637d77c71d522d861993afbcb7e"
+    },
+    {
+      "bytes": 150003,
+      "path": "migration/v2/current/renderer/browser-fit/phone.json",
+      "sha256": "e212471dba2066a7a3849bc0bd0aaebced10935886d012187bf5434e00673a6f"
+    }
+  ],
+  "generator": {
+    "command": "python3 scripts/build_v2_current_browser_fit_baseline.py",
+    "name": "scripts/build_v2_current_browser_fit_baseline.py",
+    "version": "1"
+  },
+  "measurement_surface": "frozen current /song/{id} lead-sheet panel after SongsApp.fitSheet",
+  "physical_ipad": {
+    "note": "A physical-iPad run is still required; Chromium emulation is not Safari or physical-device proof.",
+    "status": "pending"
+  },
+  "profiles": [
+    {
+      "auto_font_size_distribution": {
+        "19": 1,
+        "20": 1,
+        "21": 337
+      },
+      "column_count_distribution": {
+        "2": 339
+      },
+      "failure_ids": [],
+      "font_size_distribution": {
+        "19": 1,
+        "20": 1,
+        "21": 337
+      },
+      "form_factor": "tablet",
+      "line_height_distribution": {
+        "1.12": 2,
+        "1.16": 3,
+        "1.2": 1,
+        "1.24": 333
+      },
+      "name": "ipad-portrait",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "tablet",
+        "inner_height": 1366,
+        "inner_width": 1024,
+        "max_touch_points": 5,
+        "platform": "Linux x86_64",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 1366,
+        "mobile": false,
+        "touch": true,
+        "width": 1024
+      },
+      "result_count": 339,
+      "status_distribution": {
+        "fit": 339
+      },
+      "unique_song_count": 339
+    },
+    {
+      "auto_font_size_distribution": {
+        "16": 5,
+        "17": 3,
+        "18": 7,
+        "19": 5,
+        "20": 15,
+        "21": 304
+      },
+      "column_count_distribution": {
+        "2": 339
+      },
+      "failure_ids": [
+        "can-t-stop",
+        "father-of-mine",
+        "love-shack",
+        "paradise-city",
+        "troublemaker"
+      ],
+      "font_size_distribution": {
+        "16": 5,
+        "17": 3,
+        "18": 7,
+        "19": 5,
+        "20": 15,
+        "21": 304
+      },
+      "form_factor": "tablet",
+      "line_height_distribution": {
+        "1.12": 31,
+        "1.16": 20,
+        "1.2": 11,
+        "1.24": 277
+      },
+      "name": "ipad-landscape",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "tablet",
+        "inner_height": 1024,
+        "inner_width": 1366,
+        "max_touch_points": 5,
+        "platform": "Linux x86_64",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 1024,
+        "mobile": false,
+        "touch": true,
+        "width": 1366
+      },
+      "result_count": 339,
+      "status_distribution": {
+        "fit": 334,
+        "needs-editing": 5
+      },
+      "unique_song_count": 339
+    },
+    {
+      "auto_font_size_distribution": {
+        "20": 339
+      },
+      "column_count_distribution": {
+        "1": 339
+      },
+      "failure_ids": [],
+      "font_size_distribution": {
+        "20": 339
+      },
+      "form_factor": "phone",
+      "line_height_distribution": {
+        "1.24": 339
+      },
+      "name": "phone",
+      "observed": {
+        "device_pixel_ratio": 1,
+        "form_factor": "phone",
+        "inner_height": 844,
+        "inner_width": 390,
+        "max_touch_points": 5,
+        "platform": "Linux x86_64",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+      },
+      "requested": {
+        "device_scale_factor": 1,
+        "height": 844,
+        "mobile": true,
+        "touch": true,
+        "width": 390
+      },
+      "result_count": 339,
+      "status_distribution": {
+        "scrollable": 339
+      },
+      "unique_song_count": 339
+    }
+  ],
+  "schema_version": "1",
+  "screenshots": [
+    {
+      "bytes": 311625,
+      "dimensions": {
+        "height": 1366,
+        "width": 1024
+      },
+      "measurement_surface": "frozen current /song/father-of-mine route after DOMContentLoaded fitAll",
+      "observed_fit": {
+        "body_px": 21,
+        "column_count": 2,
+        "line_height": 1.16
+      },
+      "path": "migration/v2/current/renderer/screenshots/ipad-portrait-father-of-mine.png",
+      "profile": "ipad-portrait",
+      "sha256": "5278204d60aa8640f34845b718d548174a935bbf3f2b457d56f5330f95ba530e",
+      "song_id": "father-of-mine",
+      "source_path": "songs/father-of-mine.md",
+      "source_sha256": "d1edc8338e834a26629bfebe6a9641df5185b01f9b693168e90170d3116dd3ab",
+      "status": "fit"
+    },
+    {
+      "bytes": 239955,
+      "dimensions": {
+        "height": 1024,
+        "width": 1366
+      },
+      "measurement_surface": "frozen current /song/father-of-mine route after DOMContentLoaded fitAll",
+      "observed_fit": {
+        "body_px": 16,
+        "column_count": 2,
+        "line_height": 1.12
+      },
+      "path": "migration/v2/current/renderer/screenshots/ipad-landscape-father-of-mine-needs-editing.png",
+      "profile": "ipad-landscape",
+      "sha256": "6b3bd1e356941e5d0a9ae0bb0e4fcf48415976deee1b57729105cd642433d9b6",
+      "song_id": "father-of-mine",
+      "source_path": "songs/father-of-mine.md",
+      "source_sha256": "d1edc8338e834a26629bfebe6a9641df5185b01f9b693168e90170d3116dd3ab",
+      "status": "needs-editing"
+    },
+    {
+      "bytes": 85542,
+      "dimensions": {
+        "height": 844,
+        "width": 390
+      },
+      "measurement_surface": "frozen current /song/1979 route after DOMContentLoaded fitAll",
+      "observed_fit": {
+        "body_px": 20,
+        "column_count": 1,
+        "line_height": 1.24
+      },
+      "path": "migration/v2/current/renderer/screenshots/phone-1979-scrollable.png",
+      "profile": "phone",
+      "sha256": "117aea823177bf059989d04585c9215eabc191803da468b621e68d3346f06932",
+      "song_id": "1979",
+      "source_path": "songs/1979.md",
+      "source_sha256": "5a60f9e8a2a20ad2c025d09bf80ebf7d1dd09740893589ef4dbf180110587111",
+      "status": "scrollable"
+    }
+  ],
+  "validation": {
+    "allowed_phone_body_px": [
+      20
+    ],
+    "allowed_phone_column_counts": [
+      1
+    ],
+    "allowed_statuses": [
+      "fit",
+      "needs-editing",
+      "scrollable"
+    ],
+    "allowed_tablet_body_px": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "allowed_tablet_column_counts": [
+      2
+    ],
+    "consistent_profile_identity": true,
+    "exact_baseline": true,
+    "exact_requested_profiles": true,
+    "paths_and_source_hashes_match_renderer_baseline": true
+  },
+  "verification": {
+    "output_sha256": "c3110457cd1a68e7cbe55bd49c21b571c808390e32e1ef3728484adf9f5114e1"
+  }
+}

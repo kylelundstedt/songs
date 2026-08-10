@@ -8,7 +8,7 @@ A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
 The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
 
-V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. Current-content parity must be refreshed in TASK-008 before that slice begins; writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 completed the prerequisite on August 10, 2026: source tag `v2-phase1-content-2026-08-10` freezes 339 songs and 34 Set Lists, while evidence tag `v2-phase1-evidence-2026-08-10` freezes identity sidecars and current parity evidence. Phase 1 typed read-model work is now authorized; writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
 
 The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 
@@ -68,6 +68,7 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 - [Historical v1 Phase 0–1 implementation report](docs/PHASES-0-1.md)
 - [V2 Phase 0 exit review](docs/v2/PHASE-0-EXIT-REVIEW.md)
 - [V2 Phase 1 plan](docs/v2/PHASE-1-PLAN.md)
+- [V2 Phase 1 frozen current baseline](migration/v2/current/README.md)
 - [V2 architecture and product proposal](docs/V2-PROPOSAL.md)
 - [V1 implementation proposal](docs/PROPOSAL.md)
 - [Lyrics provider policy](docs/LYRICS-PROVIDERS.md)

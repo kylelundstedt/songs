@@ -1,6 +1,6 @@
 # Phase 1 Plan — Isolated Read-Only V2 Vertical Slice
 
-Phase 1 begins only after TASK-008 freezes current content and refreshes parity evidence. Its goal is the smallest production-shaped offline PWA that proves browse, search, Set List viewing, and locked Live mode without introducing user writes.
+Phase 1's TASK-008 prerequisite completed on August 10, 2026. Read-only delivery reads canonical bytes from source tag `v2-phase1-content-2026-08-10` and contracts/artifacts from evidence tag `v2-phase1-evidence-2026-08-10`. The goal is the smallest production-shaped offline PWA that proves browse, search, Set List viewing, and locked Live mode without introducing user writes.
 
 ## Boundary
 
@@ -43,6 +43,8 @@ The range assumes agent-assisted implementation with small commits and determini
 ## Work packets
 
 ### Prerequisite P1-001 / TASK-008 — Current baseline and coexistence contract
+
+- **Status:** Done on August 10, 2026
 
 - **Estimate:** included in TASK-008, 4–7 days
 - **Dependencies:** none

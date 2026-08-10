@@ -1,0 +1,3395 @@
+{
+  "schema_version": "1",
+  "baseline": {
+    "ref": "v2-phase1-content-2026-08-10",
+    "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5"
+  },
+  "generator": {
+    "name": "scripts/build_v2_current_renderer_baseline.py",
+    "version": "1",
+    "command": "python3 scripts/build_v2_current_renderer_baseline.py"
+  },
+  "apex": {
+    "executable_path": "resolved-from-PATH:apex",
+    "version_output": "Apex 1.1.14\nCopyright (c) 2026 Brett Terpstra\nLicensed under MIT License",
+    "sha256": "dbe29df956939a0133e17ed558b8be5901fd20757cbc065161c290b6fa136a14",
+    "flags": [
+      "--no-plugins",
+      "--no-unsafe",
+      "--aria",
+      "--mode",
+      "unified",
+      "--to",
+      "html"
+    ]
+  },
+  "renderer": {
+    "command_template": [
+      "apex",
+      "--no-plugins",
+      "--no-unsafe",
+      "--aria",
+      "--mode",
+      "unified",
+      "--to",
+      "html",
+      "<tagged-song-markdown-path>"
+    ],
+    "working_directory": "fresh git archive root",
+    "input_encoding": "UTF-8",
+    "output_encoding": "UTF-8",
+    "error_policy": "fail on nonzero exit or non-UTF-8 output"
+  },
+  "renderer_implementation": {
+    "path": "srv/server.go",
+    "sha256": "6c345558b3b22c7ffb20e6a1dcc8ce69124973bb301bffe1c91980cbe44fd291",
+    "bytes": 83519
+  },
+  "presentation_inputs": {
+    "css_path": "srv/static/style.css",
+    "font_families": [
+      "ui-monospace,SFMono-Regular,Menlo,monospace",
+      "ui-sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    ],
+    "templates": [
+      "srv/templates/song.html",
+      "srv/templates/live.html"
+    ]
+  },
+  "assets": [
+    {
+      "path": "srv/static/app.js",
+      "sha256": "300d6b5851e30dc8e0d827d815d4e0396f815b65d2d767b225538f049a579ea4",
+      "bytes": 52754
+    },
+    {
+      "path": "srv/static/icon.svg",
+      "sha256": "d2aed68dc7825a911fa28028419b080fa32ad038d5f0b160df09b1a815571e55",
+      "bytes": 249
+    },
+    {
+      "path": "srv/static/manifest.webmanifest",
+      "sha256": "b2654bb707d26cecaaaef44a7df04e750a825a6e8bec77869e31750f7ad873d3",
+      "bytes": 357
+    },
+    {
+      "path": "srv/static/style.css",
+      "sha256": "69fae3ae9116683d5d20e8c5e1154ae726c0a0f083c6780467c555ae5869258d",
+      "bytes": 29426
+    },
+    {
+      "path": "srv/static/sw.js",
+      "sha256": "b3ce5af38a6a017863b698b152390c8dcb1fffb677118b9441c76e28899b3ada",
+      "bytes": 1583
+    },
+    {
+      "path": "srv/templates/live.html",
+      "sha256": "f036dbac6e9962dd94c8c5a97c7dd2c6146c3ae71a02c02ad300a75fd696200b",
+      "bytes": 4328
+    },
+    {
+      "path": "srv/templates/song.html",
+      "sha256": "a8beba5232bf5181ff07fbcc3f86611dd5bb326a28cbccc2ab04fb4169d70024",
+      "bytes": 3615
+    }
+  ],
+  "fitter": {
+    "constants": {
+      "min_px": 16,
+      "preferred_px": 21,
+      "manual_min_px": 12,
+      "manual_max_px": 32,
+      "line_height_candidates": [
+        1.24,
+        1.2,
+        1.16,
+        1.12
+      ],
+      "phone": {
+        "font_px": 20,
+        "line_height": 1.24,
+        "columns": 1,
+        "outcome": "scrollable"
+      },
+      "tablet": {
+        "columns": 2,
+        "font_range_px": [
+          16,
+          21
+        ],
+        "failure_font_px": 16,
+        "failure_line_height": 1.12
+      }
+    },
+    "viewport_profiles": [
+      {
+        "name": "ipad-portrait",
+        "width": 1024,
+        "height": 1366,
+        "form_factor": "tablet"
+      },
+      {
+        "name": "ipad-landscape",
+        "width": 1366,
+        "height": 1024,
+        "form_factor": "tablet"
+      },
+      {
+        "name": "phone",
+        "width": 390,
+        "height": 844,
+        "form_factor": "phone"
+      }
+    ],
+    "browser_fit": {
+      "status": "recorded-separate-artifact",
+      "artifact": "migration/v2/current/renderer/browser-fit-summary.json",
+      "profiles": [
+        {
+          "name": "ipad-portrait",
+          "status": "recorded"
+        },
+        {
+          "name": "ipad-landscape",
+          "status": "recorded"
+        },
+        {
+          "name": "phone",
+          "status": "recorded"
+        }
+      ]
+    },
+    "physical_ipad": {
+      "status": "pending",
+      "note": "Browser emulation is not physical-iPad validation."
+    }
+  },
+  "corpus": {
+    "song_count": 339,
+    "render_count": 339,
+    "success_count": 339,
+    "failure_count": 0,
+    "renders": [
+      {
+        "path": "songs/1979.md",
+        "source_sha256": "5a60f9e8a2a20ad2c025d09bf80ebf7d1dd09740893589ef4dbf180110587111",
+        "source_bytes": 2027,
+        "rendered_html_sha256": "ca2fe4cbc5b1a5608367f02c39b5a4b49b0dfe27226a995ef3e9b331d525614a",
+        "rendered_html_bytes": 1686,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/3-am.md",
+        "source_sha256": "f35161e63cb41f28a159cf924bee6ef40fa483e3af44add2e2d766de8f9031bf",
+        "source_bytes": 1411,
+        "rendered_html_sha256": "529cae76a2efbbc1a2529ac40125ebcd4c6b43ccb9bdb93343cd20122c373be9",
+        "rendered_html_bytes": 1440,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/6th-Avenue-Heartache.md",
+        "source_sha256": "d72209c8e6e4ea34a7e13471a4c341e5e48be2fcc4ab3eac47cbb4782f084535",
+        "source_bytes": 2672,
+        "rendered_html_sha256": "1e3b64a438435fdc3b8d0578b0b57a55d5edc78ba2d62a921d39e1d193d7db8f",
+        "rendered_html_bytes": 2250,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/777.md",
+        "source_sha256": "2a85c455a5928b040bbe6e87d32d2484bac2e162a7249f2942cd61a7c5eab46e",
+        "source_bytes": 1983,
+        "rendered_html_sha256": "7adb3a29975dfcf6abd93b7af0c113e4316894e9489c43ac7a5d1f114b5d1d37",
+        "rendered_html_bytes": 2209,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/8675309.md",
+        "source_sha256": "1fa22da5ebc6cbd0a1fc618fb67f7490ed25af2d72dbbb43152f71ac42da1848",
+        "source_bytes": 1569,
+        "rendered_html_sha256": "162bf177e1d5e421e7a858c9a043ec48e6ba533b3ae9b386873bfaddcfed7ee3",
+        "rendered_html_bytes": 1205,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Across-The-Universe.md",
+        "source_sha256": "3de94afe50069d61dec4d47951c365861c0af1854f638b97f9362dbcdf881981",
+        "source_bytes": 1970,
+        "rendered_html_sha256": "e0e2135a88f7de6b5c8bb58a9befd0c043eb9abfc81adc6f23d400b885424b67",
+        "rendered_html_bytes": 1369,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/All-About-That-Bass.md",
+        "source_sha256": "83f05c2dfd2160377418727ada37b38d0b989f58c7ed8a5838f22f58065f8bf2",
+        "source_bytes": 2578,
+        "rendered_html_sha256": "2a3de58971bd0d54742cc2e8c79c27c181939d554ab06b14387de3f197869035",
+        "rendered_html_bytes": 2134,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/All-Summer-Long.md",
+        "source_sha256": "cbac2e5f490426a7a3e20a26b8ac456527973806234e4e3c307d5f7d0c4cdd55",
+        "source_bytes": 2750,
+        "rendered_html_sha256": "cd0321c9029b42187028a91f8f77946eb3d4f4377508d174791d06dcbbfe212f",
+        "rendered_html_bytes": 2424,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/All-These-Things-That-I-ve-Done.md",
+        "source_sha256": "b19e4742ade1856cd9a9ec8d83884f5efc9301dc3b8f7eb72c92bc3eece3c178",
+        "source_bytes": 2680,
+        "rendered_html_sha256": "a7ece092a26abbd036c3c24391ac912015cbd7354727b13796c8ac59d1f475d6",
+        "rendered_html_bytes": 2340,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Allison.md",
+        "source_sha256": "a7a3850592843891d505f114c7ccb2069f1214b08292281b2e5c22bdd4bdf230",
+        "source_bytes": 1690,
+        "rendered_html_sha256": "38fa5bbf6fefe7ff6032b684030b3223bd5ef7dc3c7eb36b5041c8989ef14c98",
+        "rendered_html_bytes": 1292,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Always-On-The-Run.md",
+        "source_sha256": "90dedf6a2e32be0468927edb3c47baa786993903ff1f23d267414a976ced772b",
+        "source_bytes": 1681,
+        "rendered_html_sha256": "f2558d5364548f7edbf4e27cee6ef284eb17979b0ee559b5bd32fa98cf6eaa89",
+        "rendered_html_bytes": 1356,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Amber.md",
+        "source_sha256": "f1e1ae43f75c68869b87c26a3f7e903765b8a5249f38849cc5d15157174f0b14",
+        "source_bytes": 1820,
+        "rendered_html_sha256": "5829f50bfc3235d62e485ee6a4820aaa26317dc13a83303d9b1df74649b6acb9",
+        "rendered_html_bytes": 1265,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/American-Idiot.md",
+        "source_sha256": "7e21bd3940a1b7d3444c175cc7568ae26662b48ab8748da4e59679ef1e40b8fd",
+        "source_bytes": 2052,
+        "rendered_html_sha256": "a19063cc6392d9f9ad4aea6c5c68854d78194bb14664395e35f257cd3472fe06",
+        "rendered_html_bytes": 1673,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Angel-From-Montgomery.md",
+        "source_sha256": "f99910020f7f7575ea35eae8ca3aa1266c5e33325ce4887e9ec8a60f0625112e",
+        "source_bytes": 2213,
+        "rendered_html_sha256": "e99a492d4826e43cba89d9f55e2d478ec8dd2f400c7fc370ebcc898741d59074",
+        "rendered_html_bytes": 1708,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Animal.md",
+        "source_sha256": "4066a4ef4744b4d12cc7ecdcd5c67024f74554f836fd42f628661cfec526c9ee",
+        "source_bytes": 2570,
+        "rendered_html_sha256": "2f0b336047b326b6e5d829831c3143df85d090156159ab34f71f000a1b31a370",
+        "rendered_html_bytes": 2230,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Any-Way-You-Want-It.md",
+        "source_sha256": "8483a8a97bc79c3dc4fbf7167bb8a5a048ec7e84d29eafda3368acf038c2ad1a",
+        "source_bytes": 2453,
+        "rendered_html_sha256": "b4530a5f357e749e848d4252c21a9984d27fed1c22d0c8321d18b650d2c5ed68",
+        "rendered_html_bytes": 2110,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Are-You-Gonna-Be-My-Girl.md",
+        "source_sha256": "e6a8b5136eb8f4a945f5ae26530ed1aa760dc7e8fb76080ad7f2bb581f1d647c",
+        "source_bytes": 2459,
+        "rendered_html_sha256": "02ea0fef39ab2ed35ad38cfb5b3858bb0ce587fd0780a4fa023a5cb7d7b30c78",
+        "rendered_html_bytes": 1979,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Are-You-Gonna-Go-My-Way.md",
+        "source_sha256": "18325e5f553cbc43d5c5aa9a42fc71a84da3b4e7a52a13bf7cf7014e6ce23bfe",
+        "source_bytes": 1751,
+        "rendered_html_sha256": "7fbcc91dbc0e6af76b9390182c67b146a20614a172f1fc25c6e2bb6f23a8a965",
+        "rendered_html_bytes": 1435,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Baby-I-Love-You.md",
+        "source_sha256": "676a134ecb3ac243ea77ddb0f6f82c37967f932eaed0ec212c4a51fc022fd74c",
+        "source_bytes": 2220,
+        "rendered_html_sha256": "38565a6a1550cc907aee3debd3cd37d2aca80be55a2daf90337ff2c82034e0c6",
+        "rendered_html_bytes": 1769,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Back-In-Black.md",
+        "source_sha256": "6019e8840c9acd8d0a66c5a85eea8d6c8716acfd8f4487d959403e596ead71ae",
+        "source_bytes": 2375,
+        "rendered_html_sha256": "dacc1e16c415cfdf59bcd567b9f5628f7c6cf31f4a8dc13b13e2c3002622b1a9",
+        "rendered_html_bytes": 2154,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Bad-Romance.md",
+        "source_sha256": "4aa4c6b4516fa3be51b24f79980443a5c264430b69009978e2c6156196ac8d58",
+        "source_bytes": 2707,
+        "rendered_html_sha256": "7f31b813baea3a1960af79a3a33ffe7e82e4a5de5695932b863a94f83398c200",
+        "rendered_html_bytes": 2402,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Bad-Things.md",
+        "source_sha256": "8bdff080cf44a91f6e7d3cdc84f08186bf8e3fb4caa348de70716bfda38c4e9b",
+        "source_bytes": 1822,
+        "rendered_html_sha256": "0f4976e64239678b65d1e3e6bd2154577f7a675f8cc8b0b306fcdc9fd709735b",
+        "rendered_html_bytes": 1253,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Badfish.md",
+        "source_sha256": "d1f96bf2ace3f306f07a4d43a50da9c972a1f8bd63d313a14b5256dd61d0095f",
+        "source_bytes": 1781,
+        "rendered_html_sha256": "e81ded5b18abec34e6866843eed2b8eb92bc4b7f9f2011acd76ea6a226b94785",
+        "rendered_html_bytes": 1631,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Bang-a-Gong-Get-It-On.md",
+        "source_sha256": "ff2734f213023d7f365d603c3fe7495ea4e85f5d901df31e0c8403d00c76b05e",
+        "source_bytes": 1813,
+        "rendered_html_sha256": "5d457de387c57825a1f57b115aff7c3ac3328d23c87fcb04f091d3ac9f599cee",
+        "rendered_html_bytes": 1701,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Beer-Drinkers-n-Hell-Raisers.md",
+        "source_sha256": "742d1859b710579e79078b14928f09735f339c501515ac62badff3a18e7d0829",
+        "source_bytes": 1271,
+        "rendered_html_sha256": "45fc035b8a5513c4d940157c01cc91b84d189de1e90af1c03161a33b01641572",
+        "rendered_html_bytes": 1216,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Behind-Blue-Eyes.md",
+        "source_sha256": "f68b255291f9b8d2eb9a64f4e9fc2b2adb5d2b8284960116182e71dc6ccd871d",
+        "source_bytes": 1922,
+        "rendered_html_sha256": "c505308b080adfddb1569e5ce5718843b01e676b3a45de74d14a5dba414001cc",
+        "rendered_html_bytes": 1509,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Bent.md",
+        "source_sha256": "52166e1dd6d1c2320e6bdebcf6296c8cdba8415658badbf9739ad1e17dd60363",
+        "source_bytes": 2483,
+        "rendered_html_sha256": "3a6ea1ce39e72188e02ebac9a22605dd0dc74efd712193793c62153c69382958",
+        "rendered_html_bytes": 2173,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Betterman.md",
+        "source_sha256": "ee241941f290493be9792c7d23e9c0c1a10a186d3a62a88cb5605a4a8cf7e85b",
+        "source_bytes": 1862,
+        "rendered_html_sha256": "b969a13136e4d3b83e4a2ce047a369a7e5cef33b95a6b8140bb9816ba47fa723",
+        "rendered_html_bytes": 1538,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Billie-Jean.md",
+        "source_sha256": "0bb91ed71e1fe6903ddce0a9b74dee33a1c437e0d1d575a10881021683ab052d",
+        "source_bytes": 2500,
+        "rendered_html_sha256": "bdb98109f8cd0fb3e0a51c9fd5ff8f1ae507a31017f5e6d422fe89b658a23c2c",
+        "rendered_html_bytes": 2220,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Black-Hole-Sun.md",
+        "source_sha256": "a88e6b0f9657e0ac51c9696bc2e1dcc1afb9d6e60a3bc5f2af41a3ad8ef2b2bc",
+        "source_bytes": 1752,
+        "rendered_html_sha256": "8b63479bfa626ffed34550a92e2a6d0d165d2f894d50a0d9602b8416d6a6a273",
+        "rendered_html_bytes": 1497,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Black.md",
+        "source_sha256": "051051278565bd4b68c9e8ca7642c5256b73c25fbe0abc6ca4cd76146bd3a72c",
+        "source_bytes": 1745,
+        "rendered_html_sha256": "36f372465242b802b26f8624532998cfa98964bd3622668f5f47c5e5e966cb4c",
+        "rendered_html_bytes": 1683,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Blister-In-The-Sun.md",
+        "source_sha256": "2db54547a95ff02ee3a8ae2c7e630210f1d120e40804072df4b5302881eb4109",
+        "source_bytes": 2179,
+        "rendered_html_sha256": "a044864e6a18d94eb0a6e8defa3467ce103dc3752cde3d1f46d0ab3cab127efc",
+        "rendered_html_bytes": 1836,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Blue-Monday.md",
+        "source_sha256": "51b2506444a4a5176dda2744f1b8d7e867cf48bb1ae7275be38dcc393db6407d",
+        "source_bytes": 2047,
+        "rendered_html_sha256": "6d34bb0772b91cc83ec478726bacf8eaf6e6f6f8c5f8586cb71e2672707a3cfa",
+        "rendered_html_bytes": 1675,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Born-To-Run.md",
+        "source_sha256": "8a19c19caa70549e89e1dd8d85910481ae1e0ed45500cd9d1e521b113a3ffe12",
+        "source_bytes": 2993,
+        "rendered_html_sha256": "a55020c1bc4ceed085066a83606a6b236a510b4b27d832e1bbb1a612c0db51c6",
+        "rendered_html_bytes": 2699,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Boys-Don-t-Cry.md",
+        "source_sha256": "8eddc01724ced4c919755feb0f157a3848b1ce839c37e741bdc73c067262dc9f",
+        "source_bytes": 1868,
+        "rendered_html_sha256": "3d8df95e5c9932fe3cf42fbba87d795c768ec2c2305a82abf2b96df851734bd0",
+        "rendered_html_bytes": 1442,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Breakdown.md",
+        "source_sha256": "085844752f13e187b84b6fffb05a6ccd7e2ccd951ce23304c34d8a5b20b65834",
+        "source_bytes": 1623,
+        "rendered_html_sha256": "1750e7beea85954d22fd4f2e09bc644d8e8958d6e6e26c7890a6cbde2440ded3",
+        "rendered_html_bytes": 1053,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Brick-House.md",
+        "source_sha256": "d60799719682fa878356667a7ed2c3670d136fcf1da8cc3f77e7e68b9580c202",
+        "source_bytes": 2178,
+        "rendered_html_sha256": "3684c608353ab9185e74243896747a3403bfad1fec993bda579f667acd50d80c",
+        "rendered_html_bytes": 2069,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Brown-Eyed-Girl.md",
+        "source_sha256": "b17675a6ae0c6b58e790ec1fa8b0eaac8161233e1e695da7e3a531577226da91",
+        "source_bytes": 2435,
+        "rendered_html_sha256": "fe78c7dccff789f32298b95eea8c386f3c841166750723b94e212517df8cc8e0",
+        "rendered_html_bytes": 2079,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Budapest.md",
+        "source_sha256": "fb1da3abfed5543421a925c69f8bf9584647ceec1eeba6c469c2f625910709cb",
+        "source_bytes": 2237,
+        "rendered_html_sha256": "695505b4834ef3109ac3177ed61ceafbeaf2b34e8903b7abc4770ffa570b8118",
+        "rendered_html_bytes": 1936,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Californication.md",
+        "source_sha256": "628734281d171b6ed0a79231e01ee104ae0a8f75a0407fac31633221c72acf05",
+        "source_bytes": 2757,
+        "rendered_html_sha256": "c1837bae0d0121572153b81040a83fcbfcff96f5a0a3deeb906c7b75e7194cb7",
+        "rendered_html_bytes": 2557,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Can-t-Stop.md",
+        "source_sha256": "c7c39f69cfb84ca9463d8beb9ef4872830f4d0c2bd8e3ec17dea50fedbe7960b",
+        "source_bytes": 3812,
+        "rendered_html_sha256": "9a996bb3a95403e02eb62643af8fb1a1ba4d472797a0b06a6bf1705888c6ce95",
+        "rendered_html_bytes": 3628,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Can-t-You-See.md",
+        "source_sha256": "3cd7c0758813344a5078675016642e2d1359179625f8f8e8c5ab0a9f97a14645",
+        "source_bytes": 2416,
+        "rendered_html_sha256": "3955f5303e22412432a8aadaced7092fc9355c983fc26435f6fc263b55965729",
+        "rendered_html_bytes": 2212,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Chasing-Cars.md",
+        "source_sha256": "b47adcb99fcd0b1405f7c0349ef5d8ea42790ce80351fcd98f5bb10f352bc734",
+        "source_bytes": 2169,
+        "rendered_html_sha256": "9afc09d1ac31568afe87feed2daea67a664752fde922339e81bcb2747cb89621",
+        "rendered_html_bytes": 1661,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Cheap-Sunglasses.md",
+        "source_sha256": "0b9567206e693ae985916ea416104a9c77deee967bde1ebd9065bc1f762e267f",
+        "source_bytes": 1714,
+        "rendered_html_sha256": "5db05878aac73540fecfc0d9fb8c309e99361498a66832b44392d6c8990d4cb8",
+        "rendered_html_bytes": 1070,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Closer-To-Fine.md",
+        "source_sha256": "cf9dc6758b685ebd1888207c520c698078ddfc7f5737a97c5f5793659c9ee07e",
+        "source_bytes": 3192,
+        "rendered_html_sha256": "42c46beec2fd1219f894022388b3425f62cc2ddc9b5fa5f20fe99c83a6ebe0bb",
+        "rendered_html_bytes": 2747,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Closing-Time.md",
+        "source_sha256": "125df922f63dd7f97998dd264444a5f22b9afdf2da82c57aa1150658b261ec38",
+        "source_bytes": 2362,
+        "rendered_html_sha256": "9511aeac61785a163463d70741a5064ddaa6f97611b15eb30e83bf39800c0903",
+        "rendered_html_bytes": 1864,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Cold-Hard-Bitch.md",
+        "source_sha256": "562125c2c5ef9411a55c855e9c8d11ef8ae73d0944dccfd3bbf4c0b14ca2c368",
+        "source_bytes": 2206,
+        "rendered_html_sha256": "922ac51f41049ba53442b6ff11775996e4bde8a4a5676c459b2134db562f49ce",
+        "rendered_html_bytes": 1907,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Come-As-You-Are.md",
+        "source_sha256": "5d2adb616614ac461266b8167256453484e65023281b27991b41782216484c50",
+        "source_bytes": 1619,
+        "rendered_html_sha256": "6359fbbb7de07c49ae980897890619c6c2755fb0d10d6e559d83e6588e8a9d9b",
+        "rendered_html_bytes": 1222,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Come-Together.md",
+        "source_sha256": "a052207028a9d075b9fbe7f35cc5ad6a12a02a66d2c9011c9dd65ba626c1419e",
+        "source_bytes": 2021,
+        "rendered_html_sha256": "6c03e7c4a6d957285b13f6ca222001cd835b538e14c1727e4073780bccd2bf1a",
+        "rendered_html_bytes": 1648,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Counting-Blue-Cars.md",
+        "source_sha256": "3f6f12c19445a25b49ecb04e5980e3b6edf63667938017649784f7f14b6d3a55",
+        "source_bytes": 2202,
+        "rendered_html_sha256": "ce13dd045dc70f190667ce50d12d640c3d9ddbfce4261f20239a37aabcbe668b",
+        "rendered_html_bytes": 1861,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Crash.md",
+        "source_sha256": "3f406892ce43bb4444b46dd5ab912d6925e5566f333ea5274acbf793d63bf77c",
+        "source_bytes": 1680,
+        "rendered_html_sha256": "32eb2716188b768f0f31e514ddd723fa9f28db2a16316e04cdb6d63091221591",
+        "rendered_html_bytes": 1577,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Crawling-Back-To-You.md",
+        "source_sha256": "ffad8f94a1005823570d21939c167041ba5545f78be629da9a12509de44b2fec",
+        "source_bytes": 2020,
+        "rendered_html_sha256": "9a863d5ea2506df1901f5bbe3859e5b8c120bf9a58f6ea98c5561fe7551d5f11",
+        "rendered_html_bytes": 1827,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Crazy-Bitch.md",
+        "source_sha256": "cc7808bbeaafcce117b91b1b38d733c598e7361f7b95118719ba2664d2542c1f",
+        "source_bytes": 3015,
+        "rendered_html_sha256": "a33b5d38f67d34ce1307fa4f90f7d6fd110abf1d95b5edb6982016f50c530429",
+        "rendered_html_bytes": 2648,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Crazy.md",
+        "source_sha256": "3af9df49f9db1a5331ae09d790c600b752cad0aa16ab0870977f361f7b2779f9",
+        "source_bytes": 1751,
+        "rendered_html_sha256": "84474b86cad54c555e363223a249e5a6457ff6d4d23025b37f7415e3df6d4e0c",
+        "rendered_html_bytes": 1702,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Creep.md",
+        "source_sha256": "1f3b6e4b5ef5891a7354af0025aa7d84aa89a504ac13d0c5c89267bd516818b4",
+        "source_bytes": 1415,
+        "rendered_html_sha256": "bbc5333e0e293e307369854c0271a89e46a2ff8d9153f99f7c5121147def7794",
+        "rendered_html_bytes": 1392,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Criminal.md",
+        "source_sha256": "7287880ceae67216be5eb6b1e9a8a2a46c065751bfeeaeb68c4f05dbaaa1be12",
+        "source_bytes": 2665,
+        "rendered_html_sha256": "c36ad25b6d7a789c637f0ab87ddf4acc9f4abc7cdce43d472566fca981bd0cd8",
+        "rendered_html_bytes": 2231,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Cumbersome.md",
+        "source_sha256": "f13c49c8e05589decdefbab7ef3d984135fe524fe8b7619f5d0fb937b79340d4",
+        "source_bytes": 1744,
+        "rendered_html_sha256": "66ed5c612a7e6d23f704289148ebb8c10ee23d35c9650d55e02ea77c9a0d1886",
+        "rendered_html_bytes": 1400,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Dancing-With-Myself.md",
+        "source_sha256": "09f6578ed1feac8525e31fcb27bc05479045412e638f763075921f6413b2f160",
+        "source_bytes": 2496,
+        "rendered_html_sha256": "df89f1c2687c05b256e6c708fb0a79efab152f28dcdd5dd5a4909e553ef9e245",
+        "rendered_html_bytes": 2468,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Dani-California.md",
+        "source_sha256": "b3df7757f5e1d9733369eb385d31feae6dce83649c5ccb7257203d896d1a9c14",
+        "source_bytes": 2754,
+        "rendered_html_sha256": "c6381d7442cb706ebb182199ece6c2c7958e057bafdc8ce634ff45788434da21",
+        "rendered_html_bytes": 2362,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Dark-Necessities.md",
+        "source_sha256": "693d812c0683af0e11158fd365a63a9bb985492b2677c49f42182d4c89f165ed",
+        "source_bytes": 2635,
+        "rendered_html_sha256": "4aee4a2401160af4d7bbbb59fb9eaf9b35d692319c92703c8ff8ec0bae26df46",
+        "rendered_html_bytes": 2356,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Darling-Nikki.md",
+        "source_sha256": "10ca084f133b6592d09eb74504dd09788587de5abd5d1bc4daa04c280c8f7454",
+        "source_bytes": 1893,
+        "rendered_html_sha256": "5694b616630b073175c7be36a15766b867307e227c31f256068e7b455e1a0ee5",
+        "rendered_html_bytes": 1533,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Daughter.md",
+        "source_sha256": "746ef27e7abacc9cb8e97720776fb3512df82f7b9cd16c0e43972b27989766aa",
+        "source_bytes": 2479,
+        "rendered_html_sha256": "f87c933fd471eb43703ebb50389b11a8d8884c4d6d145c403293f9699b379dcf",
+        "rendered_html_bytes": 2126,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Demons.md",
+        "source_sha256": "6fce8988727b8589cafc7b8171178a9c2e07fbc61c1789d0cba932e40db54bce",
+        "source_bytes": 2512,
+        "rendered_html_sha256": "3d136896e41a8a2efe393d1147cc79f26919c41bea314b94699368dc609402ee",
+        "rendered_html_bytes": 2020,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Dock-Of-The-Bay.md",
+        "source_sha256": "2c88b2aa3e4f4e3689f5b47e972e4259bbf46a6ec085e2ab68f2ecbb5abe4099",
+        "source_bytes": 1565,
+        "rendered_html_sha256": "81dc55c340f071a09cac95ea013f9b8cf8ca62b72f164c9cad8290773294bfe7",
+        "rendered_html_bytes": 1487,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Doin-Time.md",
+        "source_sha256": "a179ae38090ee6f632ad8ac958c9977ad9ae022c43bd4a373507aa1884ea6cc6",
+        "source_bytes": 2223,
+        "rendered_html_sha256": "2acc3a8f1b10ddec6e74c0954d659f3d095d0e6a679cb2206d78bb99b4876565",
+        "rendered_html_bytes": 2180,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Don-t-Go-Back-To-Rockville.md",
+        "source_sha256": "72fc7b4826675e7c9dcbbc16b70c6e4e47ece0ba2a2b78ef0378dbbec529cbb5",
+        "source_bytes": 1984,
+        "rendered_html_sha256": "3982dae4065dd4e5da1c48fb14c296fb602744dba7b549808522c0e9682cf0b9",
+        "rendered_html_bytes": 1507,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Drive.md",
+        "source_sha256": "9ad7126d1c9763ebf57db620d7f8901b5cf2d27b1a332a8c4e4f6d4e9a39c06d",
+        "source_bytes": 1778,
+        "rendered_html_sha256": "bea2957c29e5f0d425ebfbd785ec44900eaa9ab0cbfd0455398038f59050ca7c",
+        "rendered_html_bytes": 1810,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Elderly-Woman.md",
+        "source_sha256": "81470b85b2df2749fb1bfb18c52e0102f240c8234918b522671d2cea5c11a8df",
+        "source_bytes": 1718,
+        "rendered_html_sha256": "5c746dd39769e93f902833c2257a3c9fd6d0e6cd15248b1e129af3870b907fb6",
+        "rendered_html_bytes": 1357,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Enter-Sandman.md",
+        "source_sha256": "2c42be048f22882ecc11fe5bc0b36e60cf82234121e8ad156949d96994ec459a",
+        "source_bytes": 2226,
+        "rendered_html_sha256": "18005f308da6562ff8b1489b028249b02d5767c82a991db1d2da25341147fc4c",
+        "rendered_html_bytes": 1831,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Even-Flow.md",
+        "source_sha256": "622313da3c875262af1aede4f933a832212f31d536b39c98aa918c1b052dae7f",
+        "source_bytes": 2113,
+        "rendered_html_sha256": "3c6706956c8a4e8df81157cabc1265549819b5ba77f475811073bca703aaf087",
+        "rendered_html_bytes": 1650,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Everlong.md",
+        "source_sha256": "490954361adfa84563105387eda2c62fe88aab0938ed6a5a53c9e76f39514f15",
+        "source_bytes": 1773,
+        "rendered_html_sha256": "39c974fa5a1951db47c35e978bcc4774ebfa86621ee37ce35b093ab00a8d8d86",
+        "rendered_html_bytes": 1295,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Every-Mother-s-Son.md",
+        "source_sha256": "41630f4052e8a8435bacc250b5a97bc21acd6a5eb84731ea77a8d689f13b948e",
+        "source_bytes": 2217,
+        "rendered_html_sha256": "2f554c933094df79cc3376fbfbbe5335e79cbc62e699e640813956660ff05b5d",
+        "rendered_html_bytes": 1789,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Exs-And-Ohs.md",
+        "source_sha256": "64986da94ca5d55674d81972e8879fb11f0319299e4c647159838e4244c1d6a4",
+        "source_bytes": 2084,
+        "rendered_html_sha256": "85bf0c6d56593d19a5e58ab9822e3b78c0a3b90576261ed2b3b89f64256f8ed2",
+        "rendered_html_bytes": 1657,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Face-In-The-Crowd.md",
+        "source_sha256": "c12638788c5cbf9178b8e5d7a60442362e2a5c682c693be8be2138ee082ae8bf",
+        "source_bytes": 1641,
+        "rendered_html_sha256": "910a2dff63fefbdd5f2fb6add9a5092dc0c7d92116eae2af9d96f96da28bac96",
+        "rendered_html_bytes": 1094,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Faith.md",
+        "source_sha256": "95fc3473c63a39711880862cf789bb2d5b705344d47251bcd70f5ccf91eca6ef",
+        "source_bytes": 1854,
+        "rendered_html_sha256": "37ac62e192e8539454a8e7b3cd438d794caec6cd2d9be910dc9919e0dfdda466",
+        "rendered_html_bytes": 1599,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Fast-As-You.md",
+        "source_sha256": "6a6446f751c1fdd809a586f7de691618ee70d7509e91bb99d3d4ea24c29759eb",
+        "source_bytes": 2113,
+        "rendered_html_sha256": "e9049839e43b3838995923a981454f9bcfebb4760a98e2dc57f2e0b46eade2b9",
+        "rendered_html_bytes": 1797,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Feeling-Alright.md",
+        "source_sha256": "cfbf50913232a1f67f6c787dec70636ef3d639cc4ec47a5b3d4d2d6320332bf6",
+        "source_bytes": 1832,
+        "rendered_html_sha256": "4c4dc9b8cc522e64b65c5aeaf29dab51c9afdae303a69a6456693388095df829",
+        "rendered_html_bytes": 1675,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Feels-Sheriff.md",
+        "source_sha256": "960b36380e2487610a38b3e4cb8a6431cf9b0bf826309bf2f3bdc77ffe0696ba",
+        "source_bytes": 2311,
+        "rendered_html_sha256": "e80688dca97037288bd34ae451e2cf5ea3e0538902f5b4400d42a9d3b2fc173c",
+        "rendered_html_bytes": 2434,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Feels.md",
+        "source_sha256": "3dddfa01b001153d5c53615ad19425207e0bfde538854d734abee656dc655cbc",
+        "source_bytes": 2414,
+        "rendered_html_sha256": "00aaf2aac62beeecf782402ac793531676c6f7249af5dfbe29b72e75b9fe31da",
+        "rendered_html_bytes": 2076,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Find-Yourself.md",
+        "source_sha256": "ed177a334364ad39c18d13cfe5635bcd672a9754f84490f1b47173dbe726eb47",
+        "source_bytes": 2252,
+        "rendered_html_sha256": "50786c7e10bfba5c17152d3b6835bd3225e94a023c0f0e8f7117659deec4dbd2",
+        "rendered_html_bytes": 1869,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Fire-On-The-Mountain.md",
+        "source_sha256": "c6a6d02248bf14fa67f8e8444ad63e35cd2b56557bceb6a0423a72b3a441874f",
+        "source_bytes": 1526,
+        "rendered_html_sha256": "55d86eab9e257bbac7cc98d9eaa7fc19e08f29ea23f91189228afa966d4b0354",
+        "rendered_html_bytes": 1301,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Fly-Away.md",
+        "source_sha256": "9ad1dd998b83bc96782963aa16fe8aa591ed038a3fded0904a1e6ee94cddcdaa",
+        "source_bytes": 2210,
+        "rendered_html_sha256": "818c908da0bdc3e7ee06984a3bde1f4f6c4c96ec2bb13276406fa9804276ed39",
+        "rendered_html_bytes": 1769,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Follow-Me.md",
+        "source_sha256": "38d53a609ff5ad79fab79617cb3390263ca5949fa5c46c2c19287dc8fb91859d",
+        "source_bytes": 2759,
+        "rendered_html_sha256": "9962ebfa949d4450cc09ae028174156e5435e87df3c64bc90984b5b10e341bc3",
+        "rendered_html_bytes": 2355,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Folsom-Prison-Blues.md",
+        "source_sha256": "a087af271e2d4a68c9a5af0ac1485dc17185d8eadda9669a64c0b80d851472e4",
+        "source_bytes": 1720,
+        "rendered_html_sha256": "9c15412cbbac4766e1b872c0132eb8b71d4ca2a92d99a8c647005a9cf809de83",
+        "rendered_html_bytes": 1462,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Free-Fallin.md",
+        "source_sha256": "50bc9f21c587ee106cb4f97f299c1f91bd1ddf32e1b90189622d684172de062c",
+        "source_bytes": 2429,
+        "rendered_html_sha256": "68cb98a5bc994797e819cc6720742466f346dd589794980a62a7f12e921cffe4",
+        "rendered_html_bytes": 2213,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Fuck-You.md",
+        "source_sha256": "195e1d217385913ac29d8ec487ca7f57982dacd48b7e27861d95e3f6f8453122",
+        "source_bytes": 2130,
+        "rendered_html_sha256": "817f3ac581db2ac9cf92d0a35a8654bc85b521d09ba8e84ad5935818d166bf09",
+        "rendered_html_bytes": 1945,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Get-Lucky.md",
+        "source_sha256": "8e464181061c3877d80ea592b4887333d8dc2456f1b7c97e7d63a7529426b09d",
+        "source_bytes": 1463,
+        "rendered_html_sha256": "d1eccc552521414e1ba8b28a05d0b9bf15a46f6ecc96d0dd1d9e9977ac4772e6",
+        "rendered_html_bytes": 1278,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Gimme-All-Your-Lovin.md",
+        "source_sha256": "3af747665ebbfc357903a981ed5cd00cc98b60f29db6fbcc82e59ad8842d50b4",
+        "source_bytes": 1646,
+        "rendered_html_sha256": "e669c8e41eecc7819356fd989e3671d51d35ccc773e9a6618e38dde73c6dba1e",
+        "rendered_html_bytes": 1046,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Gimme-Shelter.md",
+        "source_sha256": "73c70c0e736d302d4d9acc191ac63c1faf4208849ef7e8595c1f656b3436ac58",
+        "source_bytes": 2654,
+        "rendered_html_sha256": "f9dc93343aa75dc9a024c4d32772858135377775b7b75a770a2b6935080f0206",
+        "rendered_html_bytes": 2332,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Gimme-Three-Steps.md",
+        "source_sha256": "5d18c596b185c043e649b4ac572adaca01caff7d6c64960b4aaca642a5efcdb0",
+        "source_bytes": 2318,
+        "rendered_html_sha256": "27171fe5f3c4c5b2c5dda20a585bd5515766e97b602264b9193f07960c3e8079",
+        "rendered_html_bytes": 2077,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Give-Me-One-Reason.md",
+        "source_sha256": "d4ab429a2777e209ea505c5bc3d50af9d1047030f36f2cee7501df968f213db9",
+        "source_bytes": 2401,
+        "rendered_html_sha256": "fdcc34bdb1e36d7707d70ea46ad2ba443267c5c54fb507b655ae4e4884c26acc",
+        "rendered_html_bytes": 1909,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Givin-The-Dog-A-Bone.md",
+        "source_sha256": "131f997f41549a6a9a87ee8e977b079fbe5aa9baa29833d130fd7ba562f2bce3",
+        "source_bytes": 2799,
+        "rendered_html_sha256": "5710ee55eef3e217300556fbc11c475c64cb1ffaab41d45a126601964fb1eab6",
+        "rendered_html_bytes": 2450,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Glycerine.md",
+        "source_sha256": "872fc7dba60bb4bb6e686940720bff16317703e52aa497fb66da66855d364dfd",
+        "source_bytes": 2146,
+        "rendered_html_sha256": "99266793479decb940a231ff9d331a1e1c37048b6cae99ee325d52658caf0bd2",
+        "rendered_html_bytes": 1788,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/God-Of-Wine.md",
+        "source_sha256": "b1b17dcb87b1840b1dfd0885420a6cd2dac0a5c42a54dc0527a4a920b1733d0c",
+        "source_bytes": 2656,
+        "rendered_html_sha256": "d6566df7d7dc2a81471583318ab13fdb7a5ac12bdc291f1289558dba2b41425a",
+        "rendered_html_bytes": 2203,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Going-Down-The-Road-Feeling-Bad.md",
+        "source_sha256": "7c56362bad52e75284581b77c42656b7277f03dedf34d64b43f58a7be09d8001",
+        "source_bytes": 1372,
+        "rendered_html_sha256": "1839f08384cc4dc4856787d3dfd92dc9fb91dd5612f11dc55c6502168a605c01",
+        "rendered_html_bytes": 1411,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Gone-Gone-Gone.md",
+        "source_sha256": "4375aeef4cfc00a683b3dfd5753b80ae252199b8a15412f5f8781e84b094229c",
+        "source_bytes": 3215,
+        "rendered_html_sha256": "e91c11d959c0c34a6a6934d13e3ec22add8c03d25abf3258f0d81f93f822875a",
+        "rendered_html_bytes": 2896,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Gone-Shootin.md",
+        "source_sha256": "c465fa2f6b9849056c1903598171f4e606f30d72d400d35ca46d837fffe6a30c",
+        "source_bytes": 1728,
+        "rendered_html_sha256": "0ef6a223fc4e5c2f5e82ea18f1f5355e7c20794f41d26181c19da50edf152bf2",
+        "rendered_html_bytes": 1085,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Good-Times-Bad-Times.md",
+        "source_sha256": "448302ff98e4c071c28851533fe57315696a0749c85d805506e3d341d170e234",
+        "source_bytes": 1802,
+        "rendered_html_sha256": "32ab71f8fb7b94970af3d0e9d5abc06bcfb039b937f894aa23cf09dd30499481",
+        "rendered_html_bytes": 1272,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Gravity.md",
+        "source_sha256": "fff9480c50e1f47bf61bef21c088432e964978c1200f4fe7d11d2b9eda87d971",
+        "source_bytes": 1418,
+        "rendered_html_sha256": "bd001fee8e1867b65d6ea6b648e7c805bcee3abe17dc5779fc27cb00553d9778",
+        "rendered_html_bytes": 1209,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Guitars-and-Cadillacs.md",
+        "source_sha256": "3c0d6fcf51697a3f74318396429ecb8627075e303f5d7f1ad0a469ea7065084e",
+        "source_bytes": 1754,
+        "rendered_html_sha256": "36849ffb2b1a755edc94f7684754c2a57aca089b02a6a0ce53b93108b63de877",
+        "rendered_html_bytes": 1458,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Hang-You-From-The-Heavens.md",
+        "source_sha256": "a9366be2de914cefcbaec9b14399f7fcd4345d05cebc9747222291c33eced63b",
+        "source_bytes": 2223,
+        "rendered_html_sha256": "a3694db85ff92982829cd28133fee0de381a8481549107517f49a741fa7b7211",
+        "rendered_html_bytes": 1643,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Happy.md",
+        "source_sha256": "6ea036d4f895ca13f68cecef50c03d9d140d85580f6f56a472bde0f52cbaabc6",
+        "source_bytes": 1727,
+        "rendered_html_sha256": "15fd45d57ebc0504d890725a6df9f770793641d6763561720ef6659421997add",
+        "rendered_html_bytes": 1706,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Hard-To-Handle.md",
+        "source_sha256": "8f3528e4ce1611e647e0d6eec6ca917c828beaf268a49d0cc2cce2cf129d280a",
+        "source_bytes": 1627,
+        "rendered_html_sha256": "746b7df24d6db84b0b043df6afc5451079b347ffebd33cb63703ae4b98e9247e",
+        "rendered_html_bytes": 1647,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Hash-Pipe.md",
+        "source_sha256": "49f6b5dfa77026ef65b892349a4b44a0d2f4ae022a01a1709f50edc23c524122",
+        "source_bytes": 1706,
+        "rendered_html_sha256": "3dbf56ca95d10566c7cff676d7667b3a19cbef9f16a5db798b2518593d361f5b",
+        "rendered_html_bytes": 1241,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Have-A-Drink-On-Me.md",
+        "source_sha256": "baed8d76d58ad9daa1f0517299af63f11f6cdcb7623ffea45f7b165e89f88059",
+        "source_bytes": 1258,
+        "rendered_html_sha256": "2a8f070870686c8431a9c30034a91715f4a8c257a69c6b13e347f63cffc0fe5a",
+        "rendered_html_bytes": 1338,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Heard-It-In-A-Love-Song.md",
+        "source_sha256": "6ecb80f4156c72822593311a6e9d1b023689668bf814fe8aeecad299c5c74c46",
+        "source_bytes": 2435,
+        "rendered_html_sha256": "e6fec5817a1eb2e4005bbf5528ff6b3cead7ba79e60302f6a608a0b61cadc1d2",
+        "rendered_html_bytes": 2141,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Heart-Shaped-Box.md",
+        "source_sha256": "8a7928e5ec1dc75f39669f6343514c06b4f96f8791eed2b8deaad170c33d6e8e",
+        "source_bytes": 2393,
+        "rendered_html_sha256": "9c813d9f3562d7a2c0de1f52e4fd0144f32ffefa2a5f184d8111e51160db2ba0",
+        "rendered_html_bytes": 1971,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Higher-Ground.md",
+        "source_sha256": "e53fd5864266b008a21573d1f1e7d26c9bf4ae5f66425073e78e0dbd073b878d",
+        "source_bytes": 2232,
+        "rendered_html_sha256": "063fd5804ee35a63568b080417f8b92175c49ec2c1a756ae18fab55cd7eef533",
+        "rendered_html_bytes": 1908,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Higher.md",
+        "source_sha256": "d257a5c694469ed8666a6fbb4191ddecea2ccd5bc113f0d458aa13b7820a0cb8",
+        "source_bytes": 2033,
+        "rendered_html_sha256": "d5a673a1b31026c1f3a3d0f5a96a6941a85a26f878bb54eea47247099670a8b9",
+        "rendered_html_bytes": 1942,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Highway-To-Hell.md",
+        "source_sha256": "2c22c1306349969f0db42d9284855c42334ba2df4a3a3b1ab4a96df210da71e0",
+        "source_bytes": 1592,
+        "rendered_html_sha256": "4cbf73c8593e5903e95d7b99331b225d1119151106a6fd507e5db570e6762dbf",
+        "rendered_html_bytes": 1206,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Hit-Me-With-Your-Best-Shot.md",
+        "source_sha256": "750bc823fbf4d789844ca533cf7a5e76bcc696b7d8a88b0b6c6ee084d845a02d",
+        "source_bytes": 1947,
+        "rendered_html_sha256": "f7fa7ee812e816a9d35674ee39528d7771c5c32f32b4bc05acfeadc03e2b74b1",
+        "rendered_html_bytes": 1473,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Hold-My-Hand.md",
+        "source_sha256": "2489b5e76961c6a2bb6535b2bc047964da995a205ee39f2f5c3a14a566051ff4",
+        "source_bytes": 2576,
+        "rendered_html_sha256": "1fc507d9eaeeaa1b30d29627697ecfda5ce0a0144f2351a2a1731b5b1d642208",
+        "rendered_html_bytes": 2244,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Home-Live.md",
+        "source_sha256": "fe128b84cde4e826c022506ac19f27c0898905e9053ecf784238c1519b4cc065",
+        "source_bytes": 1079,
+        "rendered_html_sha256": "70c10e89b19f70d165ca93d077be10ead1921e8ae6894ce29f3c0b2b9d7bc9eb",
+        "rendered_html_bytes": 1007,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Home.md",
+        "source_sha256": "4cffa7f4a7e44c8cdf8fdcaa01518ce9594c79727bcc2f14b042fa3c3059d2cc",
+        "source_bytes": 2063,
+        "rendered_html_sha256": "c8b53c85e1f4471b330a2c740770f1dfdb7d21c558147da466fd928d0b3c37df",
+        "rendered_html_bytes": 1893,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Hunger-Strike.md",
+        "source_sha256": "1e16fab3a6262db7a45f8828a80d91befa155387ca93ac30f75a4dfb1b92b5da",
+        "source_bytes": 1548,
+        "rendered_html_sha256": "d58cdd942164b0dffa188e927eaacbbbded2730f2379ba769a6ffb409300d50e",
+        "rendered_html_bytes": 924,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-Don-t-Wanna-Be.md",
+        "source_sha256": "a9657eb4fd0f6259daae2abe17f8350da4559f0f2bec480afabfc66d2bbf1c7d",
+        "source_bytes": 2531,
+        "rendered_html_sha256": "d494ce4f6f117f4cbf0170dc3b3decf118f5f4c046bdc587b3c57730d6b8100a",
+        "rendered_html_bytes": 2369,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-Kissed-a-Girl.md",
+        "source_sha256": "8dd4654489806e5347dc331ef1e9a4d588a2f5e00fee3935ae832c5ad776749c",
+        "source_bytes": 2360,
+        "rendered_html_sha256": "363e49e3477b2ab15029c31c7bb65f3e9ed93db70b581e707f18c40e3f90f8d2",
+        "rendered_html_bytes": 1916,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-Shot-The-Sheriff.md",
+        "source_sha256": "3abb4b93993017fbe94d55df22a7ef75180c48d941c24deff771a7a396219922",
+        "source_bytes": 2539,
+        "rendered_html_sha256": "6f5bc0052773e03e143d4588d3030a59c7ba12904c543d8cd4f45b042db6c126",
+        "rendered_html_bytes": 2079,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-Want-You-Back.md",
+        "source_sha256": "be0b97561021514ae5015e9beeda2874b8180d76f392ca54980a998ce7e17109",
+        "source_bytes": 2286,
+        "rendered_html_sha256": "dc786a85b422dec82534e1677696bd94700c0680899c26b6d399b8ad7fa89f2d",
+        "rendered_html_bytes": 2140,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-Want-You-To.md",
+        "source_sha256": "03ffda6c63296dc5a0f05d2d5510b81493a8badd79ea444de1114d6b2e198003",
+        "source_bytes": 2109,
+        "rendered_html_sha256": "b018435188a405d0320e13cd318a815ac87af6e100795e52f5eecba1b58329fa",
+        "rendered_html_bytes": 2300,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-Will-Survive.md",
+        "source_sha256": "fd80c084d8eb0535c65a5a4235fae345116037762a8ddf42ef283ad4e99f0e2c",
+        "source_bytes": 2290,
+        "rendered_html_sha256": "609444b51ebd31c08a92e17cdda431c20f144b7e8a70935058dfc5d4149b07d5",
+        "rendered_html_bytes": 2420,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-Wish.md",
+        "source_sha256": "2aacd990c684665d6a2107156be1e8643bb3520cf0195f4f726594d1dbc6eabe",
+        "source_bytes": 2175,
+        "rendered_html_sha256": "5e430e51e9985c71b37106ef8eed023ef3ac4a271826d706ef122cfee8d55191",
+        "rendered_html_bytes": 2490,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/I-m-Bad-I-m-Nationwide.md",
+        "source_sha256": "c72da479eb0175d771fbecf0cf510ec4288efe57167c4d4ca7b24b8771b5925b",
+        "source_bytes": 1783,
+        "rendered_html_sha256": "92215637e2809e24bfece5619169e57f5a9165f33d84c73219dea8722616a668",
+        "rendered_html_bytes": 1172,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/In-The-Midnight-Hour.md",
+        "source_sha256": "a5e12506f516f2309373f460ab9b0f899e15d37609b4e223c61d7c927e22b335",
+        "source_bytes": 1960,
+        "rendered_html_sha256": "33d6794240ce72b61a8cc29e8292c67464c379bfb1812d09a0ac04dd67b7b4ec",
+        "rendered_html_bytes": 1349,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/In-Your-Eyes.md",
+        "source_sha256": "186ab2b5127b52cad4786682051bbb4403ab06d65c0dd90ff71c0be700a4fba9",
+        "source_bytes": 2402,
+        "rendered_html_sha256": "b2e411e502a359d0e45495ead6f43957a54726eb8b0dd78fe770850120c73fc1",
+        "rendered_html_bytes": 1999,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Inside-Out.md",
+        "source_sha256": "f6e7d66805c649299219df9d0460b62e23052034f15ac8dd9920b6d602a842af",
+        "source_bytes": 2023,
+        "rendered_html_sha256": "e5e56223bd11923db0cb16dbd5271280bccfab8e8b5a928f1e8067478e03877a",
+        "rendered_html_bytes": 1535,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Interstate-Love-Song.md",
+        "source_sha256": "d8296d09b1620f47def1752ac96efadd5772200661e3a915449bf4164c40d29c",
+        "source_bytes": 1647,
+        "rendered_html_sha256": "693392927133aa662d8c60ba90ee2e8a1da01b5c228d729ad8a3313fc0f930aa",
+        "rendered_html_bytes": 1128,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Jailbreak.md",
+        "source_sha256": "6680cba4ead28897f04ef2b1f9c19a01d29cd221eddec9e520c09fb731451d0e",
+        "source_bytes": 2447,
+        "rendered_html_sha256": "510dd15bb920f6b250a7f48a65aa6be6590d9c4cdf9aebdd13f92304a049c02c",
+        "rendered_html_bytes": 2101,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Jesus-Left-Chicago.md",
+        "source_sha256": "ed084c1e13d5d49de762627168c380e8b1f61e453ed9141836eeaa0aae141d0e",
+        "source_bytes": 1382,
+        "rendered_html_sha256": "79a5c38799db9b892e92b13e92cc1193c21d55a2ecc5b7f92a7db15b2053bdf8",
+        "rendered_html_bytes": 934,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Jolene.md",
+        "source_sha256": "049a2cc04d65d004d2ee23477425b37caf8fe4d3e15d437b0ab0e23a9db09a7e",
+        "source_bytes": 2078,
+        "rendered_html_sha256": "68a067135616b7450921019317389f415c81b5b54a1ab63e3fe9c74084b4800c",
+        "rendered_html_bytes": 1615,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Juice-Dance.md",
+        "source_sha256": "bbb3d26bab1c93f68b4e6ebc412d72d5ddd832adb1d2d9198c607f5fdf39cb22",
+        "source_bytes": 2163,
+        "rendered_html_sha256": "9722a96fdb5612c130c9c3efe30e91d74185813f33456b219cd596ea9974bc88",
+        "rendered_html_bytes": 2399,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Juice.md",
+        "source_sha256": "14d78ef9e114c04c32a754c605e87919a9b5ed1112953a60e2101f4525dbf3cd",
+        "source_bytes": 2330,
+        "rendered_html_sha256": "231d1ef48b076413f3e96b2b92e5d23299c97d9a1e67d6e7026c98f0fe78cb18",
+        "rendered_html_bytes": 2081,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Juicebox.md",
+        "source_sha256": "6f4418c335985c1e536fc10d9b51b01b45222aae73946095134825d826e29ecd",
+        "source_bytes": 2106,
+        "rendered_html_sha256": "c3d14efe08cf532ba30913d3c132f7e398ac00e0c57f851ee292a5099e388072",
+        "rendered_html_bytes": 1634,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Jump-Jive-Wail.md",
+        "source_sha256": "e2d8a366f3502197e8c870e83a8e6331b5cf4bbdf7338ef320631200601f85a1",
+        "source_bytes": 2593,
+        "rendered_html_sha256": "0609420746c95c1d32f687fc6f578e724a5df647adebfddf1a0fb4f54dd4540a",
+        "rendered_html_bytes": 2634,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Jump.md",
+        "source_sha256": "ffd4c8563c4e77d04f35917f9a82fe5bbf5cf36ededa51c548772874dfa1e93f",
+        "source_bytes": 1130,
+        "rendered_html_sha256": "25a9e169f6b76fcad5620ce16a02d137df0d3a6666c9e09b1c87031879434f4c",
+        "rendered_html_bytes": 1051,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Just-A-Girl.md",
+        "source_sha256": "ccd7a036fa91e7aa23e262532a9ec6ce8e8932bab0117f12bf5df2bb3353a753",
+        "source_bytes": 2349,
+        "rendered_html_sha256": "35d98cae3ddcfd4fc4f8701c3df46f53046ee915941c35e0eb32a9b7ffb16ec6",
+        "rendered_html_bytes": 1828,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Just-Got-Paid.md",
+        "source_sha256": "28505afb617d7ab5f6fc2a7745026940225bd4983a3eba6583793e80b50a687e",
+        "source_bytes": 1519,
+        "rendered_html_sha256": "d0af65467cfe1cd22484a211a7550d34b3c8b43286f7dbdf7fe7f45de8dc4317",
+        "rendered_html_bytes": 876,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Just-Like-Heaven.md",
+        "source_sha256": "0955124255fbf0abf1627c80e03ee416ffaf052fdb8d586651275acccdc04b39",
+        "source_bytes": 2117,
+        "rendered_html_sha256": "5d51af2f3ccbf66580bc62747c07c3f31791dd18236f90220880cee70c4ae4ed",
+        "rendered_html_bytes": 1638,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Just-What-I-Needed.md",
+        "source_sha256": "0adeffddfcb24b13ecf04f2f2a83e687eb16ac534712dfe6b5ccd34c9a0d3a6a",
+        "source_bytes": 2475,
+        "rendered_html_sha256": "7917576fde54c70c76e03b43feecfc1adc16137a39522a50c0530c7a90aa73e9",
+        "rendered_html_bytes": 2167,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Killing-In-The-Name.md",
+        "source_sha256": "fd2fa43e621c81c9079fe3a2f393a0f181eda55cbe0b7a6b92bc00e4388a8a77",
+        "source_bytes": 2208,
+        "rendered_html_sha256": "2f1f4676258bfd89ca20f702f8acde8d7adcd8f03329d8c9b42102f67a6ebd08",
+        "rendered_html_bytes": 1893,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Kiss.md",
+        "source_sha256": "124b35111fa9ce76b06782d4a4e9c009a7e17c70e04cbf8a43c29c26a9e7d9ec",
+        "source_bytes": 1532,
+        "rendered_html_sha256": "50e6482b1af4a560429282588a20375bec5b5848b0f70c8de8b6170640d64ae7",
+        "rendered_html_bytes": 1514,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Kryptonite.md",
+        "source_sha256": "03ca46cb67254a7f3ff009e5e8770537d08059d35382488602f6bb78a3364238",
+        "source_bytes": 1885,
+        "rendered_html_sha256": "aa7380638a3e6bfc8659102cfdd3a98c8a61f2e59a34f3702849853317f837d2",
+        "rendered_html_bytes": 1605,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/La-Grange.md",
+        "source_sha256": "f376ade7288d80328ca9324ece891ed8290ed1d69b47575e9ff2b65a4b310e5b",
+        "source_bytes": 1241,
+        "rendered_html_sha256": "c369ba38b84c98baa14b1133a75ffd899377f0bcc87e3f3291a4a830cad658df",
+        "rendered_html_bytes": 643,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Last-Nite.md",
+        "source_sha256": "f5d74ad90ce2dfd2db39a45dcb764907a53ce466219122e31932fd1499c3bd17",
+        "source_bytes": 2037,
+        "rendered_html_sha256": "d8aaa1cd3a81849f24ee6f245180b3f589e0435b1df293aef83cb62b8f243715",
+        "rendered_html_bytes": 1672,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Let-Me-Put-My-Love-Into-You.md",
+        "source_sha256": "b3a33b13c2bb65dd164a383a4fba45b294c2b3fb4da8e02f7d270862e744f7f2",
+        "source_bytes": 1824,
+        "rendered_html_sha256": "bea6fceeef5dc4a2b2d812c7a18c7837d0384e98d523172a9fd9f1a2d24cd121",
+        "rendered_html_bytes": 1488,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Let-s-Get-It-On.md",
+        "source_sha256": "3824f6eda9ff417cd620fa01b1c2cc97351fc5ef08988ba6646615e0e4d8956f",
+        "source_bytes": 2637,
+        "rendered_html_sha256": "c095ef32be9ebb56d330e17786c57cca04f0300b0f2ddde47cfaaa0387e50c71",
+        "rendered_html_bytes": 2363,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Let-s-Go-Crazy.md",
+        "source_sha256": "e85e02c398a891da7da26a670af27da3a5a78a5ededc83d893e8a2219aadc0c7",
+        "source_bytes": 2737,
+        "rendered_html_sha256": "abaaa33b588a22369208ce2269e5191e96c11cf468f940c6f8703b42f2c6f824",
+        "rendered_html_bytes": 2382,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Lets-Dance.md",
+        "source_sha256": "dcb32cceab8724bb859140806e8c82da3daf2b3c0a891d87de6f9520a972cdf4",
+        "source_bytes": 1776,
+        "rendered_html_sha256": "cacd7f5e419a6bf6587b5a3aecbf1d79fdbd457ee2a69306af0f8eabc69338fb",
+        "rendered_html_bytes": 1412,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Life-During-Wartime.md",
+        "source_sha256": "e9c23195ff13e98563d6d908bf5afc2500430900626b4f23a7238f07381c40e9",
+        "source_bytes": 2853,
+        "rendered_html_sha256": "0d83a7e9cfeb0d92fadd4dbcef5f60a1d7d1b867c4f7c93be56b97593c4f776f",
+        "rendered_html_bytes": 2659,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Lightning-Crashes.md",
+        "source_sha256": "8c3a5c8371c300b62fdb93b8c768c9a389c958f02d075e3cbbb1c57535b95db0",
+        "source_bytes": 2300,
+        "rendered_html_sha256": "2d6dd58494592869d156a5d9d30b0e9c1f09d7a8cb081fe335a3e473c405d4ee",
+        "rendered_html_bytes": 1893,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Like-A-Stone.md",
+        "source_sha256": "0ecf64550093dbf282b2b9da901b00aec15ee41e8127ebe2abb14933e322f13a",
+        "source_bytes": 1921,
+        "rendered_html_sha256": "6711549ff1a176f5502bfea14484c31cd5797642bf8b19029faa5ec5612d8e6c",
+        "rendered_html_bytes": 1386,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Little-Less-Conversation.md",
+        "source_sha256": "133c4757c52d033ed19d3c6ad3e05dba9ef8752425e5952c306ccb1c3d33cb18",
+        "source_bytes": 1876,
+        "rendered_html_sha256": "5c50ca8ff25d7bd3fa0e287a12068290a4a2e135daa5b4f33ddf8c66f0307bf4",
+        "rendered_html_bytes": 1694,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Little-Lover.md",
+        "source_sha256": "9ae688b334f0ae85f1338fc436089f58075893c45817648e65edb5e4d3ec18f7",
+        "source_bytes": 1781,
+        "rendered_html_sha256": "e8038d3c62d03e80224b75c153afbd1c76637d0fcf92334b1f5ab7d4bcc281a2",
+        "rendered_html_bytes": 1438,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Little-Sister.md",
+        "source_sha256": "2e3da6d9996456464765268cd9ec101ef99d75844e3ec77f606dab31317d6881",
+        "source_bytes": 2438,
+        "rendered_html_sha256": "ea12203ff545372de5e5acf886cc232087045365ffbb7e91d28b503a9fb9d449",
+        "rendered_html_bytes": 2085,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Livin-After-Midnight.md",
+        "source_sha256": "b236eb68300b4d77d2324094c35689f43f5d498b9601738277e6ce12e79260ad",
+        "source_bytes": 1920,
+        "rendered_html_sha256": "759eb5d20172f9279db81650a5a3f6b65470ca2bc9203aa75e48562fa15a31bb",
+        "rendered_html_bytes": 1662,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Locked-Out-Of-Heaven.md",
+        "source_sha256": "fdbe93225b339dea879c2ec08ab52ece2050271ed09806dddfdf8c277861d9d1",
+        "source_bytes": 1955,
+        "rendered_html_sha256": "656caa6767046cabb0e7777e96d343bed2278f92af1b82d443e1ac2f00cd5917",
+        "rendered_html_bytes": 1596,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Lonely-Is-the-Night.md",
+        "source_sha256": "48f0227ac09ad9c688d9ae7410b67715c05636a0ade523b00b773affa6c468c8",
+        "source_bytes": 2416,
+        "rendered_html_sha256": "34452eed87b69bc12c20af4342c4f4a71d7d29d9c955dc59402d117e5c488919",
+        "rendered_html_bytes": 2120,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Long-Train-Runnin.md",
+        "source_sha256": "2468e7ebbd3959f784e91185d908b85466a2146ce50955a9849bc4643434697b",
+        "source_bytes": 2422,
+        "rendered_html_sha256": "5b96b20feb57863eca172c407038ef4acb80db4ac2993ed9d8d4e0d1ffeb2219",
+        "rendered_html_bytes": 2067,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Love-Rollercoaster.md",
+        "source_sha256": "0b47b46f72130723af1671738be1b746a9415432619659675f5b561212366477",
+        "source_bytes": 1720,
+        "rendered_html_sha256": "375a07d52b27e885e9673b73a6f6324e144e622d9daa5b558aaa8fe1c65c3079",
+        "rendered_html_bytes": 1222,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Love-Shack.md",
+        "source_sha256": "68bfdd5ebab4a46819d89a0f020b2321514078441e750ad8871823da370f3646",
+        "source_bytes": 3225,
+        "rendered_html_sha256": "5f8d7a0fa92ba4fade34fd9beda2ff747637e80e017430233dd78da9e1f5d116",
+        "rendered_html_bytes": 3189,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Love-Train.md",
+        "source_sha256": "62d53a74b309ed751f47550cf6b2e8ed52525059f6f203a434559b06c8ed5deb",
+        "source_bytes": 1860,
+        "rendered_html_sha256": "d2d3220229a43d0b3de49324ec3fcb097a9283ff3573eb48589a0370d6240295",
+        "rendered_html_bytes": 1169,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Lovesong.md",
+        "source_sha256": "d56906b8689fcb41889f3b6b28fae8840f13faef6b1094f203eb804ee0793069",
+        "source_bytes": 1866,
+        "rendered_html_sha256": "ca4392e16ba25591896c678b7c04a9c6af00c2a1cf4b56973b2d28ed48815b91",
+        "rendered_html_bytes": 1455,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Low.md",
+        "source_sha256": "30cd612dff43b936b2a1747bb45b95150916ad72b2024053f467bf7c3fafdab5",
+        "source_bytes": 2006,
+        "rendered_html_sha256": "171ce9790b4dcb3ea88017103cf48bd88bbcf87362c8db19438768cc1698f1c5",
+        "rendered_html_bytes": 1931,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Major-Tom.md",
+        "source_sha256": "7d0ff19f764ff4bfb6757c168e0f2ca4586108185500803c952ac33ae94c15ad",
+        "source_bytes": 2091,
+        "rendered_html_sha256": "5715047251bf9344b94f222591e517b2366926d33f0ad0bf251bb104beab7d18",
+        "rendered_html_bytes": 2113,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Man-In-The-Box.md",
+        "source_sha256": "4448681b98c082b32e9fe83f236733df3b110b735b6e4cdb0a567589abfabca9",
+        "source_bytes": 1553,
+        "rendered_html_sha256": "32cf02303ec51ae5b2a83db6311623f706bf3c34d380843c5a6fd1ce58e32876",
+        "rendered_html_bytes": 1073,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Margaritaville.md",
+        "source_sha256": "49bbdc4aa14ec4e9f466fd97b53f8b9c7715df0cdf0d29eddb68131c16b507bb",
+        "source_bytes": 2101,
+        "rendered_html_sha256": "4b4e2bcab8e111a7037cfe035a3d570510f0baa1beb2e6e4b775af0d949f41fc",
+        "rendered_html_bytes": 1710,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Mary-Had-A-Little-Lamb.md",
+        "source_sha256": "4a0ba4fd5df1ed087bcf45fcd8763ed5c8ad5fe4d3a23ee16c4b0fbfab404598",
+        "source_bytes": 1238,
+        "rendered_html_sha256": "9d82dc5fa9bb3ad56e61816def7d3b04121c1f9865175b2ba5cd3ab1d9281c5e",
+        "rendered_html_bytes": 706,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Mary-Jane-s-Last-Dance.md",
+        "source_sha256": "0f317f144825e587eb96ce94a62338135a5c9f2d5876ddbbcab7dab4af1ea7d9",
+        "source_bytes": 2177,
+        "rendered_html_sha256": "d50d9eda56ad9d8180f09ec1ae0644599cb681469b59663d7af2f9992dda812b",
+        "rendered_html_bytes": 1837,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Melissa.md",
+        "source_sha256": "af6310f390e564802bad039286eb826d088dad44d0d7f4459e262845c511c81d",
+        "source_bytes": 1849,
+        "rendered_html_sha256": "c01172eb3460c2b68eaa56b9f9721bca8b4fe561bd02c3ea33ca60847f45e758",
+        "rendered_html_bytes": 1288,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Melt-With-You.md",
+        "source_sha256": "c317ca400ba17e119d6de0ee1e5029df8f7438cf96710dae391760d0424e2fa1",
+        "source_bytes": 2449,
+        "rendered_html_sha256": "68fab141bf08c184b6403d0564c641ff83d27a032b8ca3233dddd49da64d1a0a",
+        "rendered_html_bytes": 2398,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Mercy.md",
+        "source_sha256": "49a2efb3e51ea625ac94c61dcbcff3b6995975cc6136f2dc088cb3559f3c6e6d",
+        "source_bytes": 1703,
+        "rendered_html_sha256": "2ab35ec487bcc33ff554c092f4a63c8cbe856ee2191a01b9be18f351d6d01ec6",
+        "rendered_html_bytes": 1735,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Miss-You.md",
+        "source_sha256": "433f59be51c0366f2646261ad6f4d8aeb8922b1f47bd31128752b2c8a479fbb4",
+        "source_bytes": 2077,
+        "rendered_html_sha256": "a19d3448a6e862f67061d648c38e37d3dab92bad377599e5d5e63d93386b208d",
+        "rendered_html_bytes": 2164,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Moves-Like-Jagger.md",
+        "source_sha256": "76d4a5561812bdd7fcfe59b62b23d14e5e0121199cf32651f9c0cf718f2e2f8a",
+        "source_bytes": 2845,
+        "rendered_html_sha256": "ada6d15c00a857d92691f0623e3fa0b84036ecf17cd3d7c3e4cf5a8b54a3e6c5",
+        "rendered_html_bytes": 2690,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Mustang-Sally.md",
+        "source_sha256": "df13bccaf437edd8afafdc3e347d939bb36c87298659ac966515e8ca34699b1e",
+        "source_bytes": 2046,
+        "rendered_html_sha256": "f45adc606bdb79a4327da348475de6b5ba9e11eafd1dbfaed10407b984cff5d6",
+        "rendered_html_bytes": 1619,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/My-Hero.md",
+        "source_sha256": "80bddecd73bc917649f206c60f4af794613d88694af17a95db3be69afb5a04c2",
+        "source_bytes": 1774,
+        "rendered_html_sha256": "e8e6bfd17ff646d849a3f5e38c83d7e2d19c76695c3e86d6dcb830d1da2f0110",
+        "rendered_html_bytes": 1298,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/My-Own-Worst-Enemy.md",
+        "source_sha256": "bc639e8f35adf5db0a7f04fc60b8a9b75df27c89d302cc7984525d684779d658",
+        "source_bytes": 1997,
+        "rendered_html_sha256": "f56a125abfcf701c1dc60d1b9de75de8c0b3c75f22714be397908832580c3047",
+        "rendered_html_bytes": 1550,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Mysterious-Ways.md",
+        "source_sha256": "042d1b60b42cc6011eb0c270360b424ff6a988e5c4113fae5e8ae501f9600459",
+        "source_bytes": 2411,
+        "rendered_html_sha256": "248f2f184c9b2363b0f8d56166b8391a382cc13b1fe738b90027c791af2723a9",
+        "rendered_html_bytes": 2157,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Never-Let-You-Go.md",
+        "source_sha256": "6503fb82bac9760f7e3df6cc76c0c93580c116a4756dce38b3aebdbcca36e6f3",
+        "source_bytes": 2900,
+        "rendered_html_sha256": "b817d0ac677ed32e54815fc1ef985553849dc53d01ab2cf8ab5a53147ca7f6c7",
+        "rendered_html_bytes": 2474,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/New-Year-s-Day.md",
+        "source_sha256": "1a1775be4e56e8a8d805a44015113b42ec493ddda97fd624dff2fe99fd736d3e",
+        "source_bytes": 1600,
+        "rendered_html_sha256": "e13122b9e5fe07eb1daa3f0386ed24117b51e0a21e7c81a6ed878af479b66ac9",
+        "rendered_html_bytes": 1196,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/No-One-Knows.md",
+        "source_sha256": "8127ab9dc6bf5b660cb9df21c18afec0e8dc72098c61191357b73c2b621cb60a",
+        "source_bytes": 1654,
+        "rendered_html_sha256": "5896a4b924dfd6444bf5545abe550d910e8dba2b8d3c506acad41a67fdc9c3dc",
+        "rendered_html_bytes": 1210,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/No-Rain.md",
+        "source_sha256": "d266845490dda87f8297b97d3ff708377817d9f4f1f22cc871412b4dda1cf5d0",
+        "source_bytes": 1930,
+        "rendered_html_sha256": "e8f5f0e823c1e45122164e1274fd4edbd6cc3c631ce132ecb603f9b74f5e3df4",
+        "rendered_html_bytes": 1467,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/No-Woman-No-Cry.md",
+        "source_sha256": "72cd9034670f2e3994b27d6ec8ac5b5a832b5e4a5ad1027e47ef6d330e08189f",
+        "source_bytes": 2280,
+        "rendered_html_sha256": "de09c4909c7983b8e9f4845a1078fca2e9c06026a8bce96daef41fb8fa4b2863",
+        "rendered_html_bytes": 1845,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Nothing-Compares-2-U.md",
+        "source_sha256": "06b040a22379bac57b5127c02bd69fb950d8e3ad1f69fc731404bb2ff0b21ccc",
+        "source_bytes": 1528,
+        "rendered_html_sha256": "0dcc74955d22994d8838a5797f284c280934678e2e1b1c30c147c9355405e892",
+        "rendered_html_bytes": 1382,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Numb.md",
+        "source_sha256": "4fa26f7a6fb95ad42327b967ef3b9ce6eb569fe71087ab48258370dd1b3c8139",
+        "source_bytes": 2382,
+        "rendered_html_sha256": "da4a694bfc38ee90a9b32e6152eb6eee77bfcd77117ef2560aac5e417b1bf42d",
+        "rendered_html_bytes": 2005,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/One.md",
+        "source_sha256": "e16fd5ec3a5611a25c6cfd8d021286767ac72e7f0de90b59b84ed4de6ead3e01",
+        "source_bytes": 1850,
+        "rendered_html_sha256": "bf36dbac0c6150d423c1f8fdcc076fca11951c2aacdc06d7575d95a98f4cdfdd",
+        "rendered_html_bytes": 1778,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Outshined.md",
+        "source_sha256": "bfe2c34eec1ca325057f851288a62cdbcb38b2d4005ef5473393a9be852dc590",
+        "source_bytes": 2144,
+        "rendered_html_sha256": "158cbf941bf331be5d3ee759f46a098e37cdeff3f65691a55ac09198ebeac4ac",
+        "rendered_html_bytes": 2118,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Outside.md",
+        "source_sha256": "b0a1ec09fadfb407301dd078fda982034cf9e1d87e9d96b0719d7df45235f14b",
+        "source_bytes": 2071,
+        "rendered_html_sha256": "c892007dbc9c5dd88ac34bf86836626fad56cd8fbf0501286ddf810f4139ee41",
+        "rendered_html_bytes": 1640,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Overkill.md",
+        "source_sha256": "d45934cf39a0813f11a8b5a074181ea8d384dd9148d2a43c46fa3a4c4ea6abbe",
+        "source_bytes": 1890,
+        "rendered_html_sha256": "c1c8261ce741e0c303d301fce13c506bb7323ee7f29a495ad1448769545c16d8",
+        "rendered_html_bytes": 1422,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Panama.md",
+        "source_sha256": "a1a9022ef08d6c4f98bd0fbdea4001fb57243f06475ecdde69afd0496ba45f6d",
+        "source_bytes": 1850,
+        "rendered_html_sha256": "1ac6f2640a5490cd2a83a0358e2d212fbdfc25070843b793a7e9d7735194b9e3",
+        "rendered_html_bytes": 1523,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Paradise-City.md",
+        "source_sha256": "7add96f7a98590a5576aacc12447c068cf1fa0a765993366ea360b74d80c9428",
+        "source_bytes": 4081,
+        "rendered_html_sha256": "da2b987d98dbd1636a2bfd9d07adbfd6a9c41a9a918dd723feb304fd3dc5258b",
+        "rendered_html_bytes": 3793,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Paralyzer.md",
+        "source_sha256": "7c2aa94b3147221b3a3ea116d978cd5951e97370fc4ab8319511a83018ef87ab",
+        "source_bytes": 2507,
+        "rendered_html_sha256": "1d490f5b90958017be8b86cc1b2c62cb6c10034b763adf8f5ee7c6e11e27d35a",
+        "rendered_html_bytes": 1997,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Patience.md",
+        "source_sha256": "b084fd242bdd932d69fcd3587d0a359ddf11b1c3a5bc15b970e91f7dfa5cb473",
+        "source_bytes": 2064,
+        "rendered_html_sha256": "cdfea46efaac9cc3f35df5d8578a0b3e77e61441413bcc87c7326ef2ae248b71",
+        "rendered_html_bytes": 1665,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Peaceful-Easy-Feelin.md",
+        "source_sha256": "5aad27d398c3d934191e7d7fdaa8666d0084a1df3136aa9e2024ef0515b67d3c",
+        "source_bytes": 1508,
+        "rendered_html_sha256": "91bb68854051ad6b38d9354d1ae60bb3d672d85ebf4c9ccc00ca0ad5c17e577b",
+        "rendered_html_bytes": 1320,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Play-That-Funky-Music.md",
+        "source_sha256": "3df94324ebe7f4b5a8f8e5bb60c061cd5c38dfdf2bdc30862101272e65ed08e2",
+        "source_bytes": 2703,
+        "rendered_html_sha256": "23890a6280a5be3d436c0b490dca6307f1fad3c951f2983231ae6194d3a6b302",
+        "rendered_html_bytes": 2515,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Plush.md",
+        "source_sha256": "5472e0b20593bf420c328517b5ebab2c2150ed47d5f3e3deac09434dedaa92b6",
+        "source_bytes": 1692,
+        "rendered_html_sha256": "506f613758b702fbb7daefba36c0cb780dbad940fe7ace8c82906159affb7e42",
+        "rendered_html_bytes": 1371,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Pompeii.md",
+        "source_sha256": "c0926276b6cfcc9d2821c1c46b63c1814f55f82dfd656dd0b7ba35cfbb3c6564",
+        "source_bytes": 2897,
+        "rendered_html_sha256": "5b0a9732a38f6c6d2a444ddeac679a66e0bc36c0ad6ed5b939503f532c24ef9c",
+        "rendered_html_bytes": 2438,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Possum-Kingdom.md",
+        "source_sha256": "6d711793b05f3662d19a359dae87a2314ec7afdc30b4a6d25123baaac7b7cb64",
+        "source_bytes": 2009,
+        "rendered_html_sha256": "38a632909c73be524a13bf3efa145bc34425c8ff1fe7a9959c76b2ef027f2520",
+        "rendered_html_bytes": 1582,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Pride.md",
+        "source_sha256": "b1b3bc531625bdc34db7b32b73a290b731ac60d4c1cf9181bbd50a9f9a3d6ab7",
+        "source_bytes": 1479,
+        "rendered_html_sha256": "9efd82e582dada7be74d3ec9f076312c2823507d45bb773d800b10176bf69af7",
+        "rendered_html_bytes": 1205,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Psycho-Killer.md",
+        "source_sha256": "8a3eec868f77e712923ffa14dc38f6b26d691c54b89fc224d9dcd099bf3f7995",
+        "source_bytes": 2290,
+        "rendered_html_sha256": "8c2fae87aca7744455434c3ca2bb9af8abf4db719454d599e4fe0292fd71ee98",
+        "rendered_html_bytes": 1965,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Purple-Rain.md",
+        "source_sha256": "af798293c155f5f2c34225f8c6851fc87c1e8e9334653b9885270d97971e5a34",
+        "source_bytes": 1837,
+        "rendered_html_sha256": "76d0e4950523d93c804a15127c71bdd51953d3af4867c72bf39d71594b8c4bff",
+        "rendered_html_bytes": 1496,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Radioactive.md",
+        "source_sha256": "ebd0c46bebec0eb03d87489fc0dbd091eb4125bf00371372f888ce0ae313c656",
+        "source_bytes": 2270,
+        "rendered_html_sha256": "2bec7e15f4113d0dc0c2078e94aa205fa328609e7859b0b5f9a75bb74ad5f38d",
+        "rendered_html_bytes": 1898,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Ramble-On.md",
+        "source_sha256": "4489a603d26a6df5a2f06c27c2969fb302755d2cdb85b5b13af307dbdd28b260",
+        "source_bytes": 2421,
+        "rendered_html_sha256": "fddbf752370ed8aaa709f8b418671722a390e15e42f327ead4d0524a76d5cffe",
+        "rendered_html_bytes": 2153,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Rebel-Yell.md",
+        "source_sha256": "a0a12ba322567dd476604e196797ac396c147c2133277af41c8347e69d3d4ece",
+        "source_bytes": 2151,
+        "rendered_html_sha256": "3289ad70c822569333146f016038eddea1fc4e27aee5ce482b151f52e26f7dba",
+        "rendered_html_bytes": 1878,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Redemption-Song-Live.md",
+        "source_sha256": "9450b656b58df401478f01cd556e4b7c355f2a2bb9f55ac3939754212ca6ef53",
+        "source_bytes": 1937,
+        "rendered_html_sha256": "5693f6b657fc3bfc5985a89a10253076466e46c31ccdc05127fbd2ead6cbb139",
+        "rendered_html_bytes": 2033,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Ride-On.md",
+        "source_sha256": "4dcd1efef09d9a3ff46e5f2752df891476e8bae5de9c0f566915be2837d5c35b",
+        "source_bytes": 2177,
+        "rendered_html_sha256": "d0d74f3891f5cd3f034333e3f1e5dd86aa26aced65bafcc885ef36bc578e1f88",
+        "rendered_html_bytes": 1580,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Ring-Of-Fire.md",
+        "source_sha256": "1b283cf5653ad6d5ffe0b0e9a27cca44a48870d16b7df136674d666c4053f71b",
+        "source_bytes": 2333,
+        "rendered_html_sha256": "ecbae9fb53e8d898d33cef387d4b9ec5df99a799a58e8ef74931e666693fee69",
+        "rendered_html_bytes": 1797,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Roadhouse-Blues.md",
+        "source_sha256": "254817d99af1eb2d5b1adc0ca51daec22755a93a8e9606c776f56e3adcc33170",
+        "source_bytes": 2452,
+        "rendered_html_sha256": "9f14b74fa272c571f5f15ace97df50622c9e27cb9563ece159232924147a5a44",
+        "rendered_html_bytes": 1975,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Rock-and-Roll-Ain-t-Noise-Pollution.md",
+        "source_sha256": "14046f472036daa27ceaf1db7c7c6f8add30c75b8b9454224e67310fa49e1188",
+        "source_bytes": 1904,
+        "rendered_html_sha256": "336f654ca43e4e5e96d1ebdbc84667d4741e9c8e0ff072f7078457096911bc69",
+        "rendered_html_bytes": 2018,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Rock-n-Roll.md",
+        "source_sha256": "b50609bc83d99be45f1e51761890aff55285efdca719d5923af0878fb71fb573",
+        "source_bytes": 1318,
+        "rendered_html_sha256": "adeedf737c1bf977ba6a6ed6b8758280eb338447d09701a470bf07730e0a533a",
+        "rendered_html_bytes": 1260,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Rooster.md",
+        "source_sha256": "a014e302dda70d44c0626c218b67b25ba0444960eda27da773acb28b3dc79012",
+        "source_bytes": 1785,
+        "rendered_html_sha256": "effb3ff28b4c0083cb7676ed2d06c83077735d55633145dec176f68785ff99e1",
+        "rendered_html_bytes": 1291,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Runnin-With-The-Devil.md",
+        "source_sha256": "b8032fe276cee089b2096a309300cddec607a54340bfc1249039ef3e6c2b6013",
+        "source_bytes": 2169,
+        "rendered_html_sha256": "f812b10762ae964e31880bf3116013394c198fde5bbedd4dd388b3609e9160d6",
+        "rendered_html_bytes": 1722,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Santeria.md",
+        "source_sha256": "10ebb670d8acc226ecfc3fe5d78b8c129a8d13ee92ce7ba96880139a5d3d2b29",
+        "source_bytes": 2087,
+        "rendered_html_sha256": "60a2163fe5a2d0d3f8ee56518ba01613ff463c063f517c769a24b8c03827dd83",
+        "rendered_html_bytes": 1679,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Say-It-Ain-t-So.md",
+        "source_sha256": "7104e8cce0eea2e5cee1d3daa35032681c993fb6f8d05d0ff003fe59c48e888a",
+        "source_bytes": 1926,
+        "rendered_html_sha256": "74c4ce7d48e3cb631a8e314cdbf3adffac925eedd42a41ae526763f14c550286",
+        "rendered_html_bytes": 1699,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Seven-Nation-Army.md",
+        "source_sha256": "dfbc15daa13b56e7781e9038c346003b8003c341268e8f655f9fd8b52351ff7c",
+        "source_bytes": 2047,
+        "rendered_html_sha256": "51cc318d7cb273a5a701b35fc840a3b3a626209572df4efd428babafacc2ee2a",
+        "rendered_html_bytes": 1871,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Sex-And-Candy.md",
+        "source_sha256": "8aa4500caa1f8ca9f61c72bddeb02fd3df517f635cd292302c499e238df6f8b8",
+        "source_bytes": 2050,
+        "rendered_html_sha256": "60c3e5d7097cde1b492df8a794bc7c945e0e371f4003efa1d76991fa2dd341ca",
+        "rendered_html_bytes": 1591,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Sex-on-Fire.md",
+        "source_sha256": "e55fe230bb9442090629462283ef262d2c3ad7b27d5f8ce4ace56962f38019b4",
+        "source_bytes": 1736,
+        "rendered_html_sha256": "f9681c804b42f82de06e3203b1c87fd1d2b38616b506fa285d55f1723a1998a1",
+        "rendered_html_bytes": 1356,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Shake-Shake-Shake.md",
+        "source_sha256": "724cc6f4e6e07fa8165b5743644c3a8679bfabe24c5b79a642df897fced9be27",
+        "source_bytes": 1524,
+        "rendered_html_sha256": "7b144612f386b3313ffe876c983630b8601f7fcb9d645485324825fa0eff09ff",
+        "rendered_html_bytes": 1368,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Sharp-Dressed-Man.md",
+        "source_sha256": "9fbce7c6f0b64b06f1ee043fc8b1f43f088edb71554377b76e85239063d6a052",
+        "source_bytes": 1578,
+        "rendered_html_sha256": "13d1f6cbb3e887f28dcbf2565f155cbf2b33c81052b6147505fba0a0b6315fa0",
+        "rendered_html_bytes": 1007,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/She-Sells-Sanctuary.md",
+        "source_sha256": "7dcf124ecc0e93ef2b7ab2210ec96a47bdc20e8783874609847831857319e4bd",
+        "source_bytes": 2166,
+        "rendered_html_sha256": "2a0c8bc6bf90a42e42b13427cc04b054178219ba0eccb7a6643b51cc3628beac",
+        "rendered_html_bytes": 1854,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Shine.md",
+        "source_sha256": "4336d0930a39b24dfd8c72d6c39b901a094c0026e2a6fdf7a9b78fe324cf4ccb",
+        "source_bytes": 1547,
+        "rendered_html_sha256": "42094abd50e3f20222213e4121fe137598a6800d794c9e77ae2f5ee32b9573aa",
+        "rendered_html_bytes": 1644,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Shining-Star.md",
+        "source_sha256": "2ed1482faab07501dcc945d00320cbf5487bced6d4d1c68ff2c61a8e483de03f",
+        "source_bytes": 2261,
+        "rendered_html_sha256": "f8bc6121ca65743ad8f2991c89e8b11447e38c6165354f91b8b1735094503245",
+        "rendered_html_bytes": 1771,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Short-Skirt.md",
+        "source_sha256": "5e3e1ea49f7cbf74457d17a6d17ee1e65cfb520c01d932237c9ccccbdabb1337",
+        "source_bytes": 2397,
+        "rendered_html_sha256": "33f20c82124164ebd5fe9740b9eae719f36dc0b1eb66ec1b8226d788db251b64",
+        "rendered_html_bytes": 1952,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Simple-Man.md",
+        "source_sha256": "a15fe75e41de2c2c79c1164a8eafebeddfd959c02af2c13b03c5c65951a72b5d",
+        "source_bytes": 1997,
+        "rendered_html_sha256": "2906b1a349d38bfa9b7f8fb5d03d92c8cc8eb217be45e1d35c4764428160b6e5",
+        "rendered_html_bytes": 1962,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Sittin-On-The-Dock-Of-The-Bay.md",
+        "source_sha256": "a19938557509c06b18bcc2e84f69ca28c7ed810674745ef11f208b7782583c07",
+        "source_bytes": 1587,
+        "rendered_html_sha256": "32b99bf4358085a1a1f30c2df9dfe051306e608f073782b38a54a0cb2dcfaaef",
+        "rendered_html_bytes": 1566,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Smells-Like-Teen-Spirit.md",
+        "source_sha256": "b554497f1f870996856ca2bbaa2741f463312ae125c851c3a289a5aebbd35113",
+        "source_bytes": 2449,
+        "rendered_html_sha256": "fc7b4c65fad17507d11adbba6bc9234ec7c57a2c58b87890ea46dc75402070bc",
+        "rendered_html_bytes": 2121,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/So-Lonely.md",
+        "source_sha256": "b943a32f347ba4071a870ce8c50e4383a59b20565661bda37f17b1531a2e62a9",
+        "source_bytes": 2176,
+        "rendered_html_sha256": "72df56ac1b0cf9a94c9932b504a1b422709b77ea77bb488c88c369cbe6ecb715",
+        "rendered_html_bytes": 1784,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Some-Kind-Of-Wonderful.md",
+        "source_sha256": "27b95baafd30ad7b91add0800a3bb06fe9404042d85af68515463dbe50c53205",
+        "source_bytes": 2286,
+        "rendered_html_sha256": "27f7d6f2ecafc3cd17cb6f206d6b6c061a784098ca224a46232ca35da2c23c71",
+        "rendered_html_bytes": 2085,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Song-2.md",
+        "source_sha256": "bcc0547b9861f9625725318f392ba81938538178f55b6b220903f760dfccdf9e",
+        "source_bytes": 1420,
+        "rendered_html_sha256": "5d30397a9f7d97e9eb4631c391d665d5817441ba545fca5cfcbc9490616156bc",
+        "rendered_html_bytes": 957,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Soulshine.md",
+        "source_sha256": "fbba8aff5224b51fa07fb87f15ce3696c438bab6ff803eadee8d42b0b58c26c5",
+        "source_bytes": 2653,
+        "rendered_html_sha256": "a5d9790b71000ad5b7b58515742bb7597f2e6cd8ecaecb402586118ccf12fb70",
+        "rendered_html_bytes": 2307,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Stayin-Alive.md",
+        "source_sha256": "810a2f3fbeda5b64177bd028f8cff2282446b1b6c1dae9c6f52ece217ff0c0f4",
+        "source_bytes": 1882,
+        "rendered_html_sha256": "5c8ae98b7fd1cc87d28fecccfacf1e2e19b4d7a43ac7b7b7e32afac73137a4e0",
+        "rendered_html_bytes": 1779,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Steady-As-She-Goes.md",
+        "source_sha256": "4fcffb0c38f8337d5df587c86ba4e807e9dc67d6502e59cfa6bbec1aaae84cef",
+        "source_bytes": 2490,
+        "rendered_html_sha256": "9a44b918e4963ea6710b939216a80bdeac2a2da36449b684ad50ec5268bddbac",
+        "rendered_html_bytes": 2354,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Sullivan-Street.md",
+        "source_sha256": "70cc5308f734368a042250bf2f042db5bb3b91d1d053a51d5f263c18005bd14e",
+        "source_bytes": 2002,
+        "rendered_html_sha256": "b0497f0023c1ca65c7bf97fa334fc80461882c4f38c70321f814e34a25cbf8ee",
+        "rendered_html_bytes": 1378,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Superstition-Single-Version.md",
+        "source_sha256": "9a0c7ccb471fa9bd5a8a48bfdf587f81df5bf301f3eb15ac1f2bd14a00b7ee47",
+        "source_bytes": 1662,
+        "rendered_html_sha256": "ff46125120c898c6031b308eebaf511ff842852eb533a74579b2cd145558fb59",
+        "rendered_html_bytes": 1337,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Sweet-Emotion.md",
+        "source_sha256": "bac6a5858378446ec904577b35630f03d3a250122bbc90661fa830467fe10998",
+        "source_bytes": 1987,
+        "rendered_html_sha256": "8e361eb08892005fbf3c29a166d768e6a109796bfd83838e1ca0a7a3d87a6679",
+        "rendered_html_bytes": 1543,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Sweet-Home-Alabama.md",
+        "source_sha256": "16d3d29d236cea93e07da0b4c15902109b76c6a0988ba93bc7249464aaab1bc1",
+        "source_bytes": 2249,
+        "rendered_html_sha256": "28ab340991f2312a0372469d6eb7b62c9eca78181a7c5e6c3b743e8afa27cebc",
+        "rendered_html_bytes": 2049,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/TNT.md",
+        "source_sha256": "9251fa6e6d8653b0b83d8e5e3e29807cc0d845d37ad9c90615323128fa1c9037",
+        "source_bytes": 1705,
+        "rendered_html_sha256": "7a8c145bbfaf8eb88be94bb95f41ca5996d94a234effb1e09a93ae2b841f96a6",
+        "rendered_html_bytes": 1389,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Take-Me-Out.md",
+        "source_sha256": "6effafc74725076997a9c7e8bf3393137ecfca5354dbc1c7ece81485c033c45b",
+        "source_bytes": 2043,
+        "rendered_html_sha256": "80c145763cc379d7bf39a2f11be63de25ec7c0baf3a564f50524f91ef19c400f",
+        "rendered_html_bytes": 1615,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Tennessee-Whiskey.md",
+        "source_sha256": "dedf3b5ae1c5ac8c4ec9c089eb32d45d8b1c65aa51c1726c186b544796fd2ddd",
+        "source_bytes": 1763,
+        "rendered_html_sha256": "924ab5a7937fbe900ea6a0af0d47b064a18a2bd9397192103c61d5d0cd3cac20",
+        "rendered_html_bytes": 1521,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Thank-You-Falettinme-Be-Mice-Elf-Agin.md",
+        "source_sha256": "436956053028e23e8bb2a680afd919ffb0c34adaea7b2771052d4fd955c6b26a",
+        "source_bytes": 1990,
+        "rendered_html_sha256": "aa90cc0af1e50d3f1f3e49920ca5262bb885cf2675668ec0819a7df681d06aa2",
+        "rendered_html_bytes": 1590,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Thank-You.md",
+        "source_sha256": "647be9a4c02afe44b9e792f7051694e22b2bd36499f31a18e67d4a85607b8a3d",
+        "source_bytes": 1422,
+        "rendered_html_sha256": "b2036d25d9fc39de40e1999030635215823859ffef49018065ac7ad7f5c32ead",
+        "rendered_html_bytes": 1385,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/That-s-The-Way-I-Like-It.md",
+        "source_sha256": "bf3931ad34ec80ecca5e5f80cf221173867fac96ffb25fa6ff390a7ffe71b217",
+        "source_bytes": 2604,
+        "rendered_html_sha256": "199b2f8c7827d66ac9103254fdeb7681ed374a1ad47ba80bb6c2509f7f459571",
+        "rendered_html_bytes": 2242,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/The-Big-Bang.md",
+        "source_sha256": "2f4a3db1f22dc07d6b2e9da19533038fd8e28551055375e153eec6cc1f56b8c8",
+        "source_bytes": 2148,
+        "rendered_html_sha256": "7bd857a6a6d2299888798048ebaa4f1e5bb666c5307338d325e225a5aa761b08",
+        "rendered_html_bytes": 1726,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/The-Distance.md",
+        "source_sha256": "4d2001ac892e5c1f223c7c1b520b96adb610a4bee3afd7c95106a05567fce00c",
+        "source_bytes": 2888,
+        "rendered_html_sha256": "88a7cea66b456d5d21c1c3cfff28b92a8628e8739032957c0314b6b398a2e041",
+        "rendered_html_bytes": 2519,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/The-Middle.md",
+        "source_sha256": "01d3c4a546d58cb2b974d3dc33ee1f960136d86e18de7d017c3f526c6500e6d9",
+        "source_bytes": 1733,
+        "rendered_html_sha256": "bb49789346a2d122b746042bea3aef6ef1f605401aa351cd96c1db4ae18f1b48",
+        "rendered_html_bytes": 1307,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/The-Scientist.md",
+        "source_sha256": "658590592c04baa2d934edd677da4d7d741ff7c00776123ea5d6f0a679e4f2f2",
+        "source_bytes": 1917,
+        "rendered_html_sha256": "62bc2757ac5cb3721ea09583ecdb8d50033de3868cea2e5f1f76c08be4d30516",
+        "rendered_html_bytes": 1473,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Thinking-Out-Loud.md",
+        "source_sha256": "61cd921151cee6f1c769b90da21d5a8e528c02fd74ebfab0eff9abe7e1edce35",
+        "source_bytes": 2491,
+        "rendered_html_sha256": "d44caf06d7b3e76c4131b6bbfc9d978a9bdad50b70b6e723b74d681b09fe2a68",
+        "rendered_html_bytes": 2273,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/This-Is-How-You-Remind-Me.md",
+        "source_sha256": "e122359a41183fe3ad5f0cbd5cc7d47a246a2df26cbd9bfe25e43fdc7e0d77dd",
+        "source_bytes": 2440,
+        "rendered_html_sha256": "127d42a3f45cb7a960df2a58eb1a2f4733ff5967a9aebb1f3a254bfe26185456",
+        "rendered_html_bytes": 2685,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Times-Like-These.md",
+        "source_sha256": "e693f874735b91f83de37405f1f77458c04437b51e10981a20a8b884788ea9f0",
+        "source_bytes": 1629,
+        "rendered_html_sha256": "51953d4715db7b1c459c3348838de11bdf00cd06ace8ca0fb8e2cb9eb4c118cd",
+        "rendered_html_bytes": 1401,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Tom-Sawyer.md",
+        "source_sha256": "7a196423a7bda8a4f82ac60d84fbed6c814dde5480a4319c57b924a4cb8ea856",
+        "source_bytes": 2168,
+        "rendered_html_sha256": "beb254f6c68edd750644bac21d3470f8c0c919da1917202f5ecccfcc8f02fce6",
+        "rendered_html_bytes": 2033,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Touch-Too-Much.md",
+        "source_sha256": "65c4d53d8244f32975e8018415567c61610c8fb1106065084bcf50ceabf98658",
+        "source_bytes": 1990,
+        "rendered_html_sha256": "9e12e97dede12e7505e07811c6f9f8232b6f78f003f083604050548703f572c6",
+        "rendered_html_bytes": 1782,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/TroubleMaker.md",
+        "source_sha256": "4fd34b531ee076280939732f1f0692ea47e40c1ea12d8ef77384efc0dd60b3d8",
+        "source_bytes": 2643,
+        "rendered_html_sha256": "a08e72b5a28f4c8917325edf0bb5396a97c39be08f4e7291ab718dc8f21d6dce",
+        "rendered_html_bytes": 2737,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Turn-The-Page.md",
+        "source_sha256": "c7aba707df59c951fa46734e9191663f1e615753f961fcc1d26388b07dee1e0b",
+        "source_bytes": 2580,
+        "rendered_html_sha256": "5d4fb59c70143daa977d7f4354b5299b09c97d0535a5a5ea9e940f54273c30b0",
+        "rendered_html_bytes": 2335,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Tush.md",
+        "source_sha256": "96cdac6f50ecdb1d02adda7df2dd63578b457c4ddb1378e8e57acb67de42b78b",
+        "source_bytes": 1270,
+        "rendered_html_sha256": "0801869d723978e499e41a35214cbf64a8b8d117aa15c00b3c10dd4ddda73098",
+        "rendered_html_bytes": 729,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Under-The-Bridge.md",
+        "source_sha256": "18d544d50db6856b42161138a018feb2ad16abd5d2feab496855b57764199588",
+        "source_bytes": 2032,
+        "rendered_html_sha256": "973f570e54540fd080fd5bd87c7826742c017f532811a2a7ffdae1437085cbca",
+        "rendered_html_bytes": 1730,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Uptown-Funk.md",
+        "source_sha256": "63d6cbfce11a6aafe5e833af53ea01eb1bb20d02805e7366e1644513d60aaefb",
+        "source_bytes": 2128,
+        "rendered_html_sha256": "73d43593af221e25c87777e6fc8f5a0d2c5591102b9dcd39a2c318a68d828dda",
+        "rendered_html_bytes": 2043,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Use-Me.md",
+        "source_sha256": "dfe87db65e1ad0c2b49f80fc2f9edd8eb1ccf908e3c742ad2d26169e62f6968d",
+        "source_bytes": 2173,
+        "rendered_html_sha256": "c31e6ecc55019bfcc16b48466fb202206e48a6f7e27031609fe0fda7f327f55d",
+        "rendered_html_bytes": 1973,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Use-Somebody.md",
+        "source_sha256": "d27409f56bde47094506304ed0bdff08b0f107a04b8cfd81cada646c8963271e",
+        "source_bytes": 1908,
+        "rendered_html_sha256": "8eb052da8c7c022a7820f5139053f84af49f832877b0f5dffd6fc6f0ffe1e355",
+        "rendered_html_bytes": 1428,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Valerie.md",
+        "source_sha256": "4fdd0c8a372090acf27c3765893b072cf1c89503ec2147261ca7c9fc1a6c1374",
+        "source_bytes": 1810,
+        "rendered_html_sha256": "501466b883ae7d0491fa4da6d673b6cf374557dfbffb8b2f6ecad176e6016efa",
+        "rendered_html_bytes": 1415,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Vasoline.md",
+        "source_sha256": "71ecb923c6c527bff4169c85ba90e6183e445ae2efa5571b17734a3f5c2d384a",
+        "source_bytes": 1858,
+        "rendered_html_sha256": "7f2071d0435207cd1786ac9e53c03178bd1b81e6f321abd79aae9e81a8675fd4",
+        "rendered_html_bytes": 1224,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Vertigo.md",
+        "source_sha256": "12db69758c31979eae73d460717551b03e66bf9cab6bad153b119ffe812803b4",
+        "source_bytes": 2344,
+        "rendered_html_sha256": "46ff8f6c5a54e9f7287a591f043c194b9a438b1f210c13a82e128bbca10a6645",
+        "rendered_html_bytes": 1905,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Wagon-Wheel.md",
+        "source_sha256": "9cc66613fabed7a35ddc9df79f0f27b7f8cb7a166acaf28432c1616bd4608491",
+        "source_bytes": 2687,
+        "rendered_html_sha256": "c1909d750415af7f7db89a1086877c0c74656f2c0d24c91a9b9e58c8bc7565d9",
+        "rendered_html_bytes": 2372,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Waitin-for-the-Bus.md",
+        "source_sha256": "1b34df5239af87f0e838833fe9b71167dbb8bb97530394de887f7c4962ec81d5",
+        "source_bytes": 1333,
+        "rendered_html_sha256": "e9e53802260180a0e1e2dc5cb3160397d496c7cfdafb17db9e32a1b756be1a9d",
+        "rendered_html_bytes": 704,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Walk-This-Way.md",
+        "source_sha256": "b108ae6eff712b1aef470863d46e0b2a06e0e79013293a3d7b427b8c03cd0f44",
+        "source_bytes": 2920,
+        "rendered_html_sha256": "c1b07a0bf874a582610dff6afce1db490bcceefbf28fe1fc4d5f5e01a9d94d22",
+        "rendered_html_bytes": 2622,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Walk.md",
+        "source_sha256": "83bef4885af57a12fcd0c0dc31fefb965e9df587e3a58605c87ea5e2c06e322e",
+        "source_bytes": 2519,
+        "rendered_html_sha256": "9a97adb783e21de223ca0bf9c6bee98699707afe832e9d685d83d3c73f4fc326",
+        "rendered_html_bytes": 2147,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Wanted-Dead-Or-Alive.md",
+        "source_sha256": "55648e3b25600e9cc4e4c78b039cdd33eb4fbe5f5702839d002745317f302b49",
+        "source_bytes": 2165,
+        "rendered_html_sha256": "dd973bd2ec65b3d71f8174b74126f43b81ad057ec03ae8d8c7a00c96c3e5fe4f",
+        "rendered_html_bytes": 1902,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Welcome-To-The-Jungle.md",
+        "source_sha256": "773a371053d7fbedf3551e95082954d673abfd6173cc92e70ab4a6ad2b75904b",
+        "source_bytes": 2600,
+        "rendered_html_sha256": "d26b2649595dfffb43d2448419c97a9b028af18587f979778a7a8a5e9f8fc93f",
+        "rendered_html_bytes": 2111,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/What-I-Got.md",
+        "source_sha256": "4434c7aa56dc655730072869469c0a978e12228e882f5c8b9dc80477c40c3411",
+        "source_bytes": 2364,
+        "rendered_html_sha256": "eb728dc46c4c879efac665fd352f42e11e17fcbccd1a1a7c2f4109294ee44887",
+        "rendered_html_bytes": 1880,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Wheels.md",
+        "source_sha256": "581e68a52d1135d9c22812782b1124a6a0932c2b23e3c2924c53572ab5b9239e",
+        "source_bytes": 2314,
+        "rendered_html_sha256": "d0e19c8ac3b36960504cda96cbb2878a176d7d82d67c3df462828184a7bfb91f",
+        "rendered_html_bytes": 2331,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/When-I-Come-Around.md",
+        "source_sha256": "b44999dcd3078bf349001806d6c84fe0b1d9582c43f796eae467d5388ffa0ceb",
+        "source_bytes": 2112,
+        "rendered_html_sha256": "44d467c491530b66398a9368f579fc0ff858642b711f1ed269da908e92bef397",
+        "rendered_html_bytes": 1603,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/When-I-m-Gone.md",
+        "source_sha256": "bc29a780ae8906c44494558215553c6d6fb1e9e7a3558d067b22131aea3ec5a6",
+        "source_bytes": 2930,
+        "rendered_html_sha256": "9ab669d28f5a97b85cc7fff0b888aa38ad2c074e5879cdf3446cba2d3d7b9ba5",
+        "rendered_html_bytes": 2613,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Whenever-You-Come-Around.md",
+        "source_sha256": "1aa517866b099237994bce8d63df11d8a277006cec3d325dfb746193e75b86fb",
+        "source_bytes": 2113,
+        "rendered_html_sha256": "f401e6acdf5757e65d144004da0a07e2ab8b77712d876a75c807a200c0ed7bc2",
+        "rendered_html_bytes": 1655,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Where-the-Streets-Have-No-Names.md",
+        "source_sha256": "921624069d77850148eaddca7e7427f92667ae0bb6ce79eea501fca464b2c3cb",
+        "source_bytes": 2308,
+        "rendered_html_sha256": "bbba78ea7ed5566cedfe719f5e5eb1da6699995f8170fe6942ecca16ec0fbfc3",
+        "rendered_html_bytes": 2069,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/White-Wedding.md",
+        "source_sha256": "1457494693c81aefd90c297daa23cf1c69b2614af4d12b797111859f1ead5c10",
+        "source_bytes": 2230,
+        "rendered_html_sha256": "f3ec781f7bea90516a70d17911ef38c0267dcc778b7022ba3ee447adaf1478b1",
+        "rendered_html_bytes": 2163,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Wicked-Game.md",
+        "source_sha256": "be0143a1606ae3c803efe1217e39c8c9284156ba9a5af7e44bb189c24c05a9cc",
+        "source_bytes": 1909,
+        "rendered_html_sha256": "24d6df6a3e5727773bc8af51b5f45c1812cb8619899c3d864899f2d8d03bd79c",
+        "rendered_html_bytes": 1554,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Wicked-Garden.md",
+        "source_sha256": "b646333d001c5c299e6268ecceebe6d828029b258d55967f0fed966d496f1402",
+        "source_bytes": 1751,
+        "rendered_html_sha256": "0508bc9a1965fbfa37615d93413311bb8080b9cd3c46e6b22a3ee73a5e3171da",
+        "rendered_html_bytes": 1395,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Wine-Wine-Wine.md",
+        "source_sha256": "bb6c30752d59a549455ccf7c36865107186fbc2a9ceda10958b182cf60f0d810",
+        "source_bytes": 2062,
+        "rendered_html_sha256": "495a92243fc7480088091d73d882fdabf242657213d28b1987511831184e275c",
+        "rendered_html_bytes": 1898,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/With-Arms-Wide-Open.md",
+        "source_sha256": "02a620daff387d0aabfb0979a57f6cc3eb73b163d4d679ddd3b71ac8dc1d36f1",
+        "source_bytes": 2309,
+        "rendered_html_sha256": "30f784d0887dc1a3602612a04c4ec6fa4da6b06201eef6a037b11134b9789279",
+        "rendered_html_bytes": 1806,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/With-Or-Without-You.md",
+        "source_sha256": "a29f30e1fe6bcdfc6d0706bb38f1b77a979a32b79747e217ed573a92481c7697",
+        "source_bytes": 1866,
+        "rendered_html_sha256": "ceb67e1ba2dc4aaa86476d83bbe2892a3655a743347656e09374f6f177adcbe0",
+        "rendered_html_bytes": 1465,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Woman.md",
+        "source_sha256": "d76607f127dfd46d465b4c3dce4e18825bdee64baee3f5156b561fb9b6ffcde8",
+        "source_bytes": 1406,
+        "rendered_html_sha256": "1141329945d6ea9660ccba516295baa8fd181fe0babd2471f5b71928b0795eee",
+        "rendered_html_bytes": 1311,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Wonderwall.md",
+        "source_sha256": "ae9211f7441e43d6647738ecca15c515249abf3bb4a224b94839055d1ab0002e",
+        "source_bytes": 2345,
+        "rendered_html_sha256": "088c23732776a5d4ee71ad9d96fa6c927998081b98c02f4b5aac8b75f6a2c60f",
+        "rendered_html_bytes": 2041,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Word-Up.md",
+        "source_sha256": "1218f761db03c9451c9a19402e3677d313414866df2134767e8a6fad77af745e",
+        "source_bytes": 2824,
+        "rendered_html_sha256": "6ed79ad6336d89f8e605e3d31d1e46ecc131eb45d8143fe56817da439e602f99",
+        "rendered_html_bytes": 2448,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/Yellow-Ledbetter.md",
+        "source_sha256": "857acbbe0b25882bf7cd1668fbdaccf0dd1d5845eaedd3f6f715f5ab1f252c6b",
+        "source_bytes": 1987,
+        "rendered_html_sha256": "2b186df5a34a2a97c2c300e2c074014397fc771d12e0b7c9bfd4e06ba3357f43",
+        "rendered_html_bytes": 1418,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/You-Found-Me.md",
+        "source_sha256": "105fce235a0db2bd835e9dcf7bc0fefe305fb6404c2021a8b68b27800d1d957f",
+        "source_bytes": 2445,
+        "rendered_html_sha256": "f064ed570a0d23a67a990440da1811bf186c6834991d8c1e4598be44d80a968e",
+        "rendered_html_bytes": 1870,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/You-Oughta-Know.md",
+        "source_sha256": "446b4772b9fefbbb2bc61c702c08b9e791696b3b9d2be784d46ac9c29e4be98a",
+        "source_bytes": 2975,
+        "rendered_html_sha256": "cbd1c2bb4c17d7e5c741b9bfe6f954f21cb7d3f968efb7b27fcc4b6c55fd8db4",
+        "rendered_html_bytes": 2716,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/You-Shook-Me-All-Night-Long.md",
+        "source_sha256": "2e7383f7a84ff4fff2ca43ea6b8ac928ce23b874dddece18294f1d9ef24c5e9e",
+        "source_bytes": 2149,
+        "rendered_html_sha256": "f91f96bea7e2cdf47ce07a973afe0624d4fb9c5aedc48a97e7ac7f9424a42c6c",
+        "rendered_html_bytes": 1709,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/You-Wreck-Me.md",
+        "source_sha256": "99aa53073b1617bfa7068f5701c24bd65917b66ee5450fee5a7251ddaf49d4ab",
+        "source_bytes": 1927,
+        "rendered_html_sha256": "24b9df934b60e1c6ffdcea22cb693f65956a3036c7b03714b04d328797a6f138",
+        "rendered_html_bytes": 1532,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/about-damn-time.md",
+        "source_sha256": "f6289872f4b14421468ae79b790a45796fbfe369758596ab90248aecaf552dd7",
+        "source_bytes": 1602,
+        "rendered_html_sha256": "919ba8cc9b20676fb9ff41808d1d9e0869fb47f7475a82e26482c398d10d44dc",
+        "rendered_html_bytes": 1788,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/american-girl.md",
+        "source_sha256": "d757d673623ec88525511d3dfac6462f62eec660a35b17008ea41dffde1ccc7a",
+        "source_bytes": 987,
+        "rendered_html_sha256": "fa1fc17a8ed0e59c2fd11a76c691f92bea4872799796c5580961d2a1596acdd5",
+        "rendered_html_bytes": 984,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/baby-one-more-time.md",
+        "source_sha256": "652f18e7d8b7185fe11e2595903c7b13a23924bbbf5e8aab8115ddfe966c5552",
+        "source_bytes": 1462,
+        "rendered_html_sha256": "f41d4906b22986defe506cf15bf6ae692084701331bb9e84cfb8c5a9d2a6dbe3",
+        "rendered_html_bytes": 1606,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/ball-and-chain.md",
+        "source_sha256": "2c634ba5496b1ec3ab0252afe871d421ced48dc2857a8f3687650028af3bce43",
+        "source_bytes": 1542,
+        "rendered_html_sha256": "2f7ad3a01e31d0473d003ac40c7defc9ec2fbee57687347b777ad5b8226d1a4d",
+        "rendered_html_bytes": 1661,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/blue-suede-shoes.md",
+        "source_sha256": "b2992c365a37f41ec186aa5a7ccbaff958e18f83b89ce478525b31ea1249ca4c",
+        "source_bytes": 1409,
+        "rendered_html_sha256": "96953eedbe89148ef92ce8b47c45096ad256bd835b04d9397a721b632c38276e",
+        "rendered_html_bytes": 1505,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/born-to-be-wild.md",
+        "source_sha256": "563d4cca1a0ac679783bbc54e5614c2d8a124507ccc8315f39fb21c083a7b237",
+        "source_bytes": 835,
+        "rendered_html_sha256": "6eef1d9d66b13f5905437eb7c323b3c7cb87a69600a792b3318646b3ebdffd90",
+        "rendered_html_bytes": 903,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/bright-lights.md",
+        "source_sha256": "02af33823825f1521ab6974a408d06ea5110ac84a0c2c9cf8d5fad1229f499a3",
+        "source_bytes": 1548,
+        "rendered_html_sha256": "c632a94fc2a7c575335cd1fe2cc1e023998b31ae457edaa8381f8b7ec617f885",
+        "rendered_html_bytes": 1721,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/brown-sugar.md",
+        "source_sha256": "059c57ef28822d4ea2fefeebcf6321fd5740de9d246874b32d730e10eb1c87bd",
+        "source_bytes": 1438,
+        "rendered_html_sha256": "0c159ac870dca2318aed7465bc15db2db64094e131f5c9188e517108488e0b28",
+        "rendered_html_bytes": 1515,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/call-me-the-breeze.md",
+        "source_sha256": "c6f23bfaaa44569374d15704a2c56d48c49bffad80535548645181f2bb53f72a",
+        "source_bytes": 1322,
+        "rendered_html_sha256": "15c1ef4c41d7934ec38413214d582d7b5e04f8a035a00623890690cc38c2bc44",
+        "rendered_html_bytes": 1396,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/crash-into-me.md",
+        "source_sha256": "7bc52139dbb24939628bb6de7920f96c23c2a2099286a666e86b524857f066ae",
+        "source_bytes": 1824,
+        "rendered_html_sha256": "5e8dbc81bbb4b50c9bf042f0bd0f883515b7c06993eb9535051c6dcc6ae0a175",
+        "rendered_html_bytes": 2123,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/don-t-you-forget-about-me.md",
+        "source_sha256": "eea2734c01623b18836b7414bdf15d64ecef0fcb6c69634e9961743ef21ce517",
+        "source_bytes": 1810,
+        "rendered_html_sha256": "16e46a5c82a0a08263f15b9cc22242a11df697462e0d1990931bccd18a597109",
+        "rendered_html_bytes": 2046,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/father-of-mine.md",
+        "source_sha256": "d1edc8338e834a26629bfebe6a9641df5185b01f9b693168e90170d3116dd3ab",
+        "source_bytes": 2318,
+        "rendered_html_sha256": "30b28700aa00a72796e4d755963149fdeb8ac08ea56a51eec593dbdb80c56e0f",
+        "rendered_html_bytes": 2654,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/fire-woman.md",
+        "source_sha256": "a419c1de0a12f75799e4fe355d41612288fe911406c17ca4b5df83f1e97a1178",
+        "source_bytes": 2002,
+        "rendered_html_sha256": "fc41459a2fe5ac78bc64abcc0a09b90ef45e6d4a03584ca3f94de0df04be3993",
+        "rendered_html_bytes": 1499,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/flagpole-sitta.md",
+        "source_sha256": "b3eb2e97ec5b6a2863e3165e3043d0a7261333a1cf81194064a16df7b879bd73",
+        "source_bytes": 1738,
+        "rendered_html_sha256": "519f78188e577aa79d5b32b92872d85ce6fbbb1d5a61ef931357bbcf141c0a2a",
+        "rendered_html_bytes": 2008,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/fortunate-son.md",
+        "source_sha256": "1eb62bc8de590c2c3c89c52f5a4c3130235c0a8a55b403a9e333c509c4c43475",
+        "source_bytes": 1268,
+        "rendered_html_sha256": "faeeca4d1fd44e02a959b85f82dd3fed93f3752fe0a7a0b2e600c5e6a47d86c1",
+        "rendered_html_bytes": 1374,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/get-back.md",
+        "source_sha256": "760216370f09dcaf139bd7bdcdcb0ee53ac5c35c3afaa1ddfe17e4c7dab21c96",
+        "source_bytes": 817,
+        "rendered_html_sha256": "d8feca617e1a5b1000cb25fe7b2fbfecde07c716c38ecd76abf074d97dd7c41e",
+        "rendered_html_bytes": 799,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/gin-and-juice.md",
+        "source_sha256": "69aa6a0c8c9cdc8227fbdf3c2406253dd318fbb3f0da3668760f699ce5338ac1",
+        "source_bytes": 2770,
+        "rendered_html_sha256": "e1eb5bf10a6903381a910eca56bac6152a0079796602836fd7b231a5feb57e52",
+        "rendered_html_bytes": 2995,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/hollywood-nights.md",
+        "source_sha256": "ff749b074af6007e7265f16fefb1e770b6c44d565d49b73d9cfb1dc85a0a8e10",
+        "source_bytes": 2066,
+        "rendered_html_sha256": "3e570a418babcfb12ea9a0cca03dea119a76906e71af5b65f3f2761c8ba3d5cb",
+        "rendered_html_bytes": 2231,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/if-you-could-only-see.md",
+        "source_sha256": "85464cfad2d3935a5aa52277dfac603f848b856e345a4fcaeefb7cd817c1bced",
+        "source_bytes": 1496,
+        "rendered_html_sha256": "6962faf447553767d1b39d5eede3bae703e4f5a073455b9bd514ca8a85731c4b",
+        "rendered_html_bytes": 1580,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/iris.md",
+        "source_sha256": "c7d8d617daf459abd472a62d167258d4dfb72c3cf01c8fc44b11313819041b96",
+        "source_bytes": 988,
+        "rendered_html_sha256": "0ecae3962d80ea1707a30d5d7e283198a6c1c7126e82140af89f1a1a1c493509",
+        "rendered_html_bytes": 1039,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/keep-your-hands-to-yourself.md",
+        "source_sha256": "4bd50de73f9fa0adf8d631135692f2f225593d926774b1ab8d36354a9a8940fb",
+        "source_bytes": 1270,
+        "rendered_html_sha256": "9d3954af717efd43c25932f832e0d17b15ea6adf51f16bc19559ae04de2310a6",
+        "rendered_html_bytes": 1374,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/levitating.md",
+        "source_sha256": "bfd8e8b232f30867465cbe8b8abaf8b299b93372b74bd4ead7b18ab5c84c0966",
+        "source_bytes": 1819,
+        "rendered_html_sha256": "b3897ae1c1d9bb12d2c18f318e25ece40ead099bc85e153ce081e4938e7e885b",
+        "rendered_html_bytes": 2152,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/listen-to-the-music.md",
+        "source_sha256": "2c3ca8e5700bd5497b08854fb04271fec768800f30ba0519d45118c027934447",
+        "source_bytes": 2071,
+        "rendered_html_sha256": "10dc684b97d13126b7ee82086dd0f1c49d573d7c5bbee60847f67eed793c40e0",
+        "rendered_html_bytes": 2305,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/liza-jane.md",
+        "source_sha256": "aea38229294009723610b158bb45d939363bb7839f2e80fe95660af408c80ebc",
+        "source_bytes": 750,
+        "rendered_html_sha256": "e200357c7bbc21fa3ad0295024e3527b1c49c365183b49d55dedd9247df1583f",
+        "rendered_html_bytes": 730,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/lonely-boy-folsom-prison-blues-dancing-with-myself.md",
+        "source_sha256": "f287ea0017b98d34986f70454232b8ddbc5c705f7a1d13f81529504399442eb4",
+        "source_bytes": 596,
+        "rendered_html_sha256": "9581be02e41cffcfc9687bf556a0685b302f08edad84e99e7f1eefb92a55b752",
+        "rendered_html_bytes": 499,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/lonely-boy.md",
+        "source_sha256": "92b4c60cd55498f6372fce11be31a51fd1988d07b03f8b7920bef5965c4ff19a",
+        "source_bytes": 848,
+        "rendered_html_sha256": "449d21da748178b5e6dcb9bda3ceb57ded6b4ef0d0ad228a3317471342be2b56",
+        "rendered_html_bytes": 830,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/louie-louie.md",
+        "source_sha256": "7e5c49066d180faf45322b5db05a709a255b3c667d2350c0697d3a2e1e409e3b",
+        "source_bytes": 1362,
+        "rendered_html_sha256": "9539f58ab5f258d6091d27ad533b78a2ddb01c809ca94ed9e73fb81a560d948f",
+        "rendered_html_bytes": 1507,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/move-it-on-over.md",
+        "source_sha256": "7833a690136dc25623df087a6f71f34c9c882fc366c8090408eaebe8da550ef7",
+        "source_bytes": 1472,
+        "rendered_html_sha256": "f6ffc6cb59fda8216ebb7687323b228082ec1777ff942d5f4e6daace00c2c18c",
+        "rendered_html_bytes": 1531,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/one-way-out.md",
+        "source_sha256": "f4399bbe8a132561e1cf91b51af8cab1dfe49e88b77cfe0d53dc7927fa66c30e",
+        "source_bytes": 1249,
+        "rendered_html_sha256": "dae84ccea4b286f5634891898696ca10c4808b72cc44765f4373bc28efa2e39e",
+        "rendered_html_bytes": 1262,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/pump-it-up.md",
+        "source_sha256": "a2cdee8d2b781458f0eb4dc2b19855c2a884a24c028e6bff9e3fbf6862f8d6d0",
+        "source_bytes": 1414,
+        "rendered_html_sha256": "ca128651fda9c44dc136cdbe6be753f120e869879612e57658e293f81cb45a97",
+        "rendered_html_bytes": 1612,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/remedy.md",
+        "source_sha256": "9811277b21b891cf4ef54f5e4859c3d9d7bf2888b325f90ca706317fcd712f2a",
+        "source_bytes": 1729,
+        "rendered_html_sha256": "00a0a8a0d78c60d1e5993e631be172ed599bfe0191e705eb766c20aed78c0894",
+        "rendered_html_bytes": 1871,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/save-tonight.md",
+        "source_sha256": "40d913bc835f2e7569586e9107875d1f757599e2f76d6e3e4908de56a9ea3aad",
+        "source_bytes": 1718,
+        "rendered_html_sha256": "523764eff7da9ce9701b3f4210b28d51683ea04c3e4d3b324736a89a068cf3ec",
+        "rendered_html_bytes": 1934,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/shallow.md",
+        "source_sha256": "ef6ff39891e0db09eed314637e7bfca4c532fc48897c8dbfb68784cd950b37c5",
+        "source_bytes": 1304,
+        "rendered_html_sha256": "f10a671fcd3c7de732d62c87dfc5b310c3751857554bec495b9dd5a1eb19224e",
+        "rendered_html_bytes": 1433,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/she-talks-to-angels.md",
+        "source_sha256": "5f705a5e4600cc21dc68c5de4adc3029ba967754e67a27874caf26402fcfcc5f",
+        "source_bytes": 1810,
+        "rendered_html_sha256": "c1a78eac9f902c06c1cefcedbbfbd2860a06a7421e6684aa835b4aff7b5b35f2",
+        "rendered_html_bytes": 1979,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/stayin-in-black.md",
+        "source_sha256": "4cf17c665a821e03f28afbb18268c57f352cc8d1c8c36f49cc8aaaba12e86b90",
+        "source_bytes": 401,
+        "rendered_html_sha256": "8ee0bc8c0feef97cc4231e7ba810635d9c18a13a4772bcc2b7917e6a287c7c54",
+        "rendered_html_bytes": 354,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/stop-draggin-my-heart-around.md",
+        "source_sha256": "c13d50e544bea6313bc69f4576358f8fe9ed457baa3f0f5444f0711af4773698",
+        "source_bytes": 1453,
+        "rendered_html_sha256": "c68fd6d835fa291de7817ca5ec4c615b9f16f706a929fec0d96f1a1f05c1fe30",
+        "rendered_html_bytes": 1537,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/stray-cat-strut.md",
+        "source_sha256": "4d726ebb4cc761d0ed73a7529e8dbd1a47c9cdef4755cd6203b61dbe4f78dc89",
+        "source_bytes": 1060,
+        "rendered_html_sha256": "e8374a7398b1a5e91d3915fc57f6bbfec2aae15bb20bfd969fe94864fba630d5",
+        "rendered_html_bytes": 1107,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/stuck-in-a-moment-you-can-t-get-out-of.md",
+        "source_sha256": "3a5a338610022f002d20e74858838853fd7db172747a24b0fa9a49dc2792801f",
+        "source_bytes": 2172,
+        "rendered_html_sha256": "32a6d3630eafe9191c9cc585674cb8d00d351ef70387d383ec1258806529e2ac",
+        "rendered_html_bytes": 2399,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/tell-me-something-good.md",
+        "source_sha256": "2e63d60db78db4b38fc0bac3bda8575abf558a97692ef429decbf5a015370413",
+        "source_bytes": 1194,
+        "rendered_html_sha256": "8c5a7dd881a540e26308fd5bed2e2711c9ee66dea1b42313778f9178b66fe2d1",
+        "rendered_html_bytes": 1176,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/that-s-the-way-shake-shake-shake-get-lucky.md",
+        "source_sha256": "26d6b0225a46f5c27fc1138bb2175dfa350361ab95f1e39830a3e697e93b9232",
+        "source_bytes": 580,
+        "rendered_html_sha256": "fd1d3533ab67fa43013c5251498c47dc1b75c6055de29fdfd3723766c999f3fa",
+        "rendered_html_bytes": 497,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/the-living-years.md",
+        "source_sha256": "919214e04882dc04f1b60cb3e06fcd9b9a100c7850a70baf18da1dc2fdb8dcb3",
+        "source_bytes": 2304,
+        "rendered_html_sha256": "6b7bddd9b00b847ae2f543ddc6bde256dc95193a494f9ee5b90b92283b9640c7",
+        "rendered_html_bytes": 2596,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/the-one-i-love.md",
+        "source_sha256": "c168eddc9b83ac5309d4510e0cefe9fae386168d5e533521224d8c4b92503ffa",
+        "source_bytes": 1041,
+        "rendered_html_sha256": "2f60961fc99fdfe04376f849fcce968faa3aad4c7d745204bb3cf2435ad73039",
+        "rendered_html_bytes": 1101,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/torn.md",
+        "source_sha256": "98c13035fea437622395301e93d200d8b66e48ef3f0dea9b4ecb80edb3d06ba0",
+        "source_bytes": 1759,
+        "rendered_html_sha256": "e1e9ac07e47f7ebaca08b14cb222c39d0e36b527e2dfdb22a203cdb3f466ecd3",
+        "rendered_html_bytes": 2041,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/two-tickets-to-paradise.md",
+        "source_sha256": "bb13b8d88026e7317ba371f62f2ddb3f6769796ff5d332b391bdabb3c01779d1",
+        "source_bytes": 1117,
+        "rendered_html_sha256": "d880219acbc282b6593d9a065627b54b7872c68a516657df1c5d48db6f251de4",
+        "rendered_html_bytes": 1164,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/under-the-bridge-californication.md",
+        "source_sha256": "ab8bf460fcfdc8793a75b29d89c90559edceb6516e1f072ee8659996351e4311",
+        "source_bytes": 466,
+        "rendered_html_sha256": "4ca204963d4a0e6d5af427a022be8ab8551076af492c2c2b8a36596e8d644c47",
+        "rendered_html_bytes": 392,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/walls.md",
+        "source_sha256": "b73d0fac8c6c7f0167ff4996f8e67eba84a6e0a8345c868e9809e20ab0c366f6",
+        "source_bytes": 1255,
+        "rendered_html_sha256": "c6c7fb9fc8a07b9118ed88a7f7187de91203359a7f921d4ee80a2bb6af14f0fe",
+        "rendered_html_bytes": 1428,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/what-i-got-folsom-prison-blues.md",
+        "source_sha256": "360e24b998d46f6e1a97e2335f854a1fee1f568b27dc467a72d7668934db85fd",
+        "source_bytes": 462,
+        "rendered_html_sha256": "e8815a859bf1d42d0a2ac053860a16f33be6037780f9e7e0cdd0c03f855a619e",
+        "rendered_html_bytes": 390,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/what-i-got-in-the-midnight-hour.md",
+        "source_sha256": "38c8e2b99cbabd784852c3a1ee6cce37bc6e853589ccbb8cf459261c043fdb96",
+        "source_bytes": 461,
+        "rendered_html_sha256": "e31abbdd50528902d30a8b8a118ae2c1bca4fc5f9726983176216cf80088e6f5",
+        "rendered_html_bytes": 385,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/when-you-get-back.md",
+        "source_sha256": "4144b4a2db78ebad52b7337884756baaeca0cecd7ac9e35c9e492447769ba110",
+        "source_bytes": 2306,
+        "rendered_html_sha256": "25edcd4569ec8933c90344b624457ed5bd2b3bdba0ea103c5cc2b5e424c37950",
+        "rendered_html_bytes": 2529,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/you-ain-t-seen-nothing-yet.md",
+        "source_sha256": "0bc1914065a67f9d04501c576af664050b3d6ef9ffc75ebba6980c722c1e1d30",
+        "source_bytes": 2418,
+        "rendered_html_sha256": "265211ecfa1f226d992e942a037f27f494b82e39132ae30b07b2d53991ddbbcb",
+        "rendered_html_bytes": 2727,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/you-don-t-know-how-it-feels.md",
+        "source_sha256": "525753b79f8e6e3ee3e96a2ce31e6c09cffaf735aef8f9168f5e515c0c601c93",
+        "source_bytes": 1264,
+        "rendered_html_sha256": "c2c8976c329468d3ef9ba152aff8b3a83ab670da530fcf0a3fa1dcac1d0d521d",
+        "rendered_html_bytes": 1393,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/you-re-so-bad.md",
+        "source_sha256": "4b83fe4b62d65f59c6eb509bdc84158c4ea61d354a89e62bbb3474416ee6cfcc",
+        "source_bytes": 822,
+        "rendered_html_sha256": "14638dfa358baf8086da82941b68fbce4f4542e2ee7a34e751dfbbb76cf5653c",
+        "rendered_html_bytes": 852,
+        "success": true,
+        "error": null
+      },
+      {
+        "path": "songs/you-really-got-me.md",
+        "source_sha256": "1cdf18c61a2915a199a2603e1a796c40a507306906fbcd8078fce2c86d954e6c",
+        "source_bytes": 1457,
+        "rendered_html_sha256": "4056548aaca9f5f71e708bf14085a6b90fc7d899d440448187999bb90ae3ae09",
+        "rendered_html_bytes": 1646,
+        "success": true,
+        "error": null
+      }
+    ]
+  },
+  "representatives": [
+    {
+      "path": "songs/1979.md",
+      "kind": "song",
+      "source_sha256": "5a60f9e8a2a20ad2c025d09bf80ebf7d1dd09740893589ef4dbf180110587111",
+      "source_bytes": 2027,
+      "features": {
+        "bytes": 2027,
+        "lines": 75,
+        "nonblank_lines": 61,
+        "body_bytes": 1284,
+        "body_lines": 55,
+        "body_nonblank_lines": 41,
+        "h1_count": 1,
+        "h2_count": 0,
+        "h3_count": 11,
+        "section_heading_count": 11,
+        "column_break_count": 0,
+        "hard_break_count": 26,
+        "blockquote_count": 0,
+        "annotation_count": 0,
+        "front_matter": true,
+        "max_line_length": 84,
+        "density_score": 5124,
+        "body_max_line_length": 52,
+        "body_density_score": 2132,
+        "h2": false,
+        "h3": true,
+        "no_section_headings": false,
+        "column_break": false,
+        "hard_break": true,
+        "blockquote_or_annotation": false
+      },
+      "selection_reasons": [
+        "front_matter",
+        "h3",
+        "hard_break"
+      ],
+      "fixture": "html/songs--1979.html",
+      "rendered_html_sha256": "ca2fe4cbc5b1a5608367f02c39b5a4b49b0dfe27226a995ef3e9b331d525614a",
+      "rendered_html_bytes": 1686
+    },
+    {
+      "path": "songs/3-am.md",
+      "kind": "song",
+      "source_sha256": "f35161e63cb41f28a159cf924bee6ef40fa483e3af44add2e2d766de8f9031bf",
+      "source_bytes": 1411,
+      "features": {
+        "bytes": 1411,
+        "lines": 49,
+        "nonblank_lines": 41,
+        "body_bytes": 1176,
+        "body_lines": 38,
+        "body_nonblank_lines": 30,
+        "h1_count": 1,
+        "h2_count": 0,
+        "h3_count": 7,
+        "section_heading_count": 7,
+        "column_break_count": 0,
+        "hard_break_count": 17,
+        "blockquote_count": 0,
+        "annotation_count": 1,
+        "front_matter": true,
+        "max_line_length": 69,
+        "density_score": 2829,
+        "body_max_line_length": 69,
+        "body_density_score": 2070,
+        "h2": false,
+        "h3": true,
+        "no_section_headings": false,
+        "column_break": false,
+        "hard_break": true,
+        "blockquote_or_annotation": true
+      },
+      "selection_reasons": [
+        "blockquote_or_annotation"
+      ],
+      "fixture": "html/songs--3-am.html",
+      "rendered_html_sha256": "529cae76a2efbbc1a2529ac40125ebcd4c6b43ccb9bdb93343cd20122c373be9",
+      "rendered_html_bytes": 1440
+    },
+    {
+      "path": "songs/8675309.md",
+      "kind": "song",
+      "source_sha256": "1fa22da5ebc6cbd0a1fc618fb67f7490ed25af2d72dbbb43152f71ac42da1848",
+      "source_bytes": 1569,
+      "features": {
+        "bytes": 1569,
+        "lines": 69,
+        "nonblank_lines": 54,
+        "body_bytes": 902,
+        "body_lines": 48,
+        "body_nonblank_lines": 33,
+        "h1_count": 1,
+        "h2_count": 0,
+        "h3_count": 9,
+        "section_heading_count": 9,
+        "column_break_count": 1,
+        "hard_break_count": 22,
+        "blockquote_count": 0,
+        "annotation_count": 4,
+        "front_matter": true,
+        "max_line_length": 64,
+        "density_score": 3456,
+        "body_max_line_length": 50,
+        "body_density_score": 1650,
+        "h2": false,
+        "h3": true,
+        "no_section_headings": false,
+        "column_break": true,
+        "hard_break": true,
+        "blockquote_or_annotation": true
+      },
+      "selection_reasons": [
+        "column_break"
+      ],
+      "fixture": "html/songs--8675309.html",
+      "rendered_html_sha256": "162bf177e1d5e421e7a858c9a043ec48e6ba533b3ae9b386873bfaddcfed7ee3",
+      "rendered_html_bytes": 1205
+    },
+    {
+      "path": "songs/Paradise-City.md",
+      "kind": "song",
+      "source_sha256": "7add96f7a98590a5576aacc12447c068cf1fa0a765993366ea360b74d80c9428",
+      "source_bytes": 4081,
+      "features": {
+        "bytes": 4081,
+        "lines": 146,
+        "nonblank_lines": 123,
+        "body_bytes": 3138,
+        "body_lines": 120,
+        "body_nonblank_lines": 97,
+        "h1_count": 1,
+        "h2_count": 0,
+        "h3_count": 11,
+        "section_heading_count": 11,
+        "column_break_count": 0,
+        "hard_break_count": 84,
+        "blockquote_count": 0,
+        "annotation_count": 2,
+        "front_matter": true,
+        "max_line_length": 103,
+        "density_score": 12669,
+        "body_max_line_length": 75,
+        "body_density_score": 7275,
+        "h2": false,
+        "h3": true,
+        "no_section_headings": false,
+        "column_break": false,
+        "hard_break": true,
+        "blockquote_or_annotation": true
+      },
+      "selection_reasons": [
+        "likely_dense",
+        "longest_source"
+      ],
+      "fixture": "html/songs--Paradise-City.html",
+      "rendered_html_sha256": "da2b987d98dbd1636a2bfd9d07adbfd6a9c41a9a918dd723feb304fd3dc5258b",
+      "rendered_html_bytes": 3793
+    }
+  ],
+  "representative_coverage_gaps": [
+    "h2",
+    "no_section_headings"
+  ],
+  "verification": {
+    "record_count": 339,
+    "output_sha256": "b22196c63be5da3249cea980faf40528e367c47acabd58285e2714ceb456ebdb"
+  }
+}

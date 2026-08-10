@@ -586,6 +586,8 @@ Measured Phase 0 evidence supports a controlled rewrite, but current `main` has 
 3. productionize the durable sync/publication/recovery kernel before exposing writes;
 4. pilot physical Safari/iPad behavior before any writable or default-route decision.
 
+TASK-008 completed step 1 on August 10, 2026: source tag `v2-phase1-content-2026-08-10` freezes canonical/server bytes and evidence tag `v2-phase1-evidence-2026-08-10` freezes sidecars and parity artifacts. The parallel Phase 1 topology selects a separate V2 origin on explicit port 8001, so the v1 root worker remains unchanged.
+
 A separate V2 origin is preferred while v1 remains deployed. If `/v2/` is used, the root v1 worker must explicitly bypass V2 routes and pass controller-handoff tests for existing clients; V2 still needs independent manifest, cache, and IndexedDB names. Durable ledger recovery is a prerequisite for writes rather than a late hardening task.
 
 ## Recommended delivery plan

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1",
+  "baseline": {
+    "ref": "v2-phase1-content-2026-08-10",
+    "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5"
+  },
+  "decision": "separate-origin parallel deployment",
+  "origins": {
+    "v1": {
+      "public": "https://kgl-songs.exe.xyz/",
+      "local": "http://127.0.0.1:8000/",
+      "role": "default production and rollback"
+    },
+    "v2": {
+      "public": "https://kgl-songs.exe.xyz:8001/",
+      "local": "http://127.0.0.1:8001/",
+      "role": "opt-in Phase 1 pilot"
+    }
+  },
+  "names": {
+    "v1_manifest": "/manifest.webmanifest",
+    "v2_manifest": "/manifest.webmanifest",
+    "v1_service_worker": "/sw.js",
+    "v2_service_worker": "/sw.js",
+    "v1_cache_exact": "songs-shell-v28",
+    "v2_cache_prefix": "songs-v2-shell-",
+    "v2_test_cache_exact": "songs-v2-shell-coexistence-v1",
+    "v1_indexeddb": null,
+    "v2_indexeddb": "songs-v2"
+  },
+  "browser_test": {
+    "v1_origin": "http://127.0.0.1:8770",
+    "v2_origin": "http://127.0.0.1:8771",
+    "v1_implementation": "actual worker/assets proxied from the frozen source tag",
+    "v2_implementation": "synthetic reservation probe; production V2 shell does not exist yet"
+  },
+  "assertions": {
+    "origins_are_distinct": true,
+    "service_worker_control_cannot_cross_origin": true,
+    "cache_storage_is_origin_partitioned": true,
+    "indexeddb_is_origin_partitioned": true,
+    "v1_root_worker_change_required": false,
+    "default_routes_change_in_phase1": false
+  },
+  "browser_evidence": "migration/v2/current/coexistence/browser-summary.json",
+  "browser_evidence_scope": "actual frozen v1 worker plus synthetic V2 namespace reservation on two loopback origins; the future V2 shell/public port is a P1-004 acceptance test",
+  "fallback": "If the separate origin cannot be retained, stop and implement/test the documented root-worker bypass and controller handoff before /v2/ deployment.",
+  "verification": {
+    "output_sha256": "03c42b4441f952702dcb494a7ee027ae574bf61ccd459c51de35e0968debef6c"
+  }
+}

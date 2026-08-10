@@ -30,6 +30,9 @@ from urllib.parse import quote
 
 BASELINE_REF = "v1"
 BASELINE_COMMIT = "546f59b41d9e9bcf0e81b543c27900a31e26c9e6"
+BUNDLE_REF = "refs/tags/v1"
+GENERATOR_NAME = "scripts/build_v2_backup_restore_baseline.py"
+GENERATOR_COMMAND = "python3 scripts/build_v2_backup_restore_baseline.py"
 CORPUS_PATH = Path("migration/v2/v1-corpus-manifest.json")
 RENDERER_PATH = Path("migration/v2/renderer/renderer-baseline.json")
 ROUTE_PATH = Path("migration/v2/routes/route-baseline.json")
@@ -57,7 +60,9 @@ def render_with_verification(value: dict[str, Any]) -> str:
     return canonical_json(value)
 
 
-def verify_ref(repo_root: Path, ref: str = BASELINE_REF, expected: str = BASELINE_COMMIT) -> None:
+def verify_ref(repo_root: Path, ref: str | None = None, expected: str | None = None) -> None:
+    ref = ref or BASELINE_REF
+    expected = expected or BASELINE_COMMIT
     actual = subprocess.check_output(["git", "-C", str(repo_root), "rev-parse", f"{ref}^{{commit}}"], text=True, stderr=subprocess.PIPE).strip()
     if actual != expected:
         raise RuntimeError(f"baseline ref {ref} does not match required commit")
@@ -66,8 +71,8 @@ def verify_ref(repo_root: Path, ref: str = BASELINE_REF, expected: str = BASELIN
 def archive_tree_from_bundle(bundle: Path, destination: Path) -> None:
     """Clone the bundle, detach at the exact tag, and restore archive mtimes."""
     subprocess.run(["git", "clone", "--quiet", "--no-checkout", str(bundle), str(destination)], check=True, capture_output=True, text=True)
-    subprocess.run(["git", "-C", str(destination), "checkout", "--quiet", "--detach", "refs/tags/v1"], check=True, capture_output=True, text=True)
-    archive = subprocess.check_output(["git", "-C", str(destination), "archive", "--format=tar", "refs/tags/v1"])
+    subprocess.run(["git", "-C", str(destination), "checkout", "--quiet", "--detach", BUNDLE_REF], check=True, capture_output=True, text=True)
+    archive = subprocess.check_output(["git", "-C", str(destination), "archive", "--format=tar", BUNDLE_REF])
     with tempfile.TemporaryFile() as stream:
         stream.write(archive)
         stream.seek(0)
@@ -84,7 +89,7 @@ def archive_tree_from_bundle(bundle: Path, destination: Path) -> None:
 
 
 def create_bundle(repo_root: Path, path: Path) -> None:
-    subprocess.run(["git", "-C", str(repo_root), "bundle", "create", str(path), "refs/tags/v1"], check=True, capture_output=True, text=True)
+    subprocess.run(["git", "-C", str(repo_root), "bundle", "create", str(path), BUNDLE_REF], check=True, capture_output=True, text=True)
     verify_bundle(path, repo_root)
 
 
@@ -116,7 +121,9 @@ def verify_prior_artifacts(repo_root: Path) -> dict[str, Any]:
             raise RuntimeError("a prior baseline artifact has invalid verification output")
     records = {record["path"]: record for record in corpus["records"]}
     renders = renderer["corpus"]["renders"]
-    if len(records) != 351 or len(renders) != 291:
+    expected_files = corpus["corpus"]["counts"]["files"]
+    expected_songs = corpus["corpus"]["counts"]["songs"]
+    if len(records) != expected_files or len(renders) != expected_songs:
         raise RuntimeError("prior corpus or renderer artifact counts drifted")
     for render in renders:
         if records[render["path"]]["sha256"] != render["source_sha256"]:
@@ -480,15 +487,15 @@ def generate(repo_root: Path) -> str:
         output = {
             "schema_version": SCHEMA_VERSION,
             "baseline": {"ref": BASELINE_REF, "commit": BASELINE_COMMIT},
-            "generator": {"name": "scripts/build_v2_backup_restore_baseline.py", "version": GENERATOR_VERSION, "command": "python3 scripts/build_v2_backup_restore_baseline.py"},
+            "generator": {"name": GENERATOR_NAME, "version": GENERATOR_VERSION, "command": GENERATOR_COMMAND},
             "prior_artifacts": prior,
             "drill": {
-                "git_bundle": {"source_ref": "refs/tags/v1", "verified": True, "clean_checkouts": 2, "exact_tag_commit": True, "archive_file_mtimes_preserved": True},
+                "git_bundle": {"source_ref": BUNDLE_REF, "verified": True, "clean_checkouts": 2, "exact_tag_commit": True, "archive_file_mtimes_preserved": True},
                 "online_backup": {"sqlite_connection_backup_api": True, "source_server_running_during_backup": True, "source_was_wal": True, "separate_backup_database": True, "ephemeral_manifest_sha256_values_verified": True, "raw_live_db_copy_used_as_backup": False},
                 "restore_order": ["verify Git bundle", "restore clean tagged checkout", "verify online-backup component hashes", "restore database copy", "verify SQLite and semantic projection", "start tagged server", "verify focused routes"],
                 "safety_properties": ["canonical songs/sets were not modified", "deployed services were not stopped", "restored content was not pushed", "no external network/provider calls", "machine paths, ports, timestamps, and ephemeral binary hashes omitted"],
             },
-            "corpus": {**source_corpus, "restored_files_byte_for_byte": True, "manifest": "migration/v2/v1-corpus-manifest.json"},
+            "corpus": {**source_corpus, "restored_files_byte_for_byte": True, "manifest": str(CORPUS_PATH)},
             "sqlite": final_sqlite,
             "schema": {"schema_hash": restored_sqlite["schema_hash"], "schema_object_count": restored_sqlite["schema_object_count"], "migration_count": restored_sqlite["migration_count"], "song_index_count": restored_sqlite["song_index_count"], "set_index_count": restored_sqlite["set_index_count"], "page_size": restored_sqlite["page_size"], "page_count": restored_sqlite["page_count"]},
             "deterministic_hashes": {"schema_hash": restored_sqlite["schema_hash"], "semantic_projection_hash": restored_sqlite["projection_hash"], "renderer_baseline_output_sha256": load_json(repo_root / RENDERER_PATH)["verification"]["output_sha256"], "route_baseline_output_sha256": load_json(repo_root / ROUTE_PATH)["verification"]["output_sha256"]},

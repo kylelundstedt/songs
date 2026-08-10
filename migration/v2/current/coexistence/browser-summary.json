@@ -1,0 +1,68 @@
+{
+  "baseline": {
+    "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5",
+    "ref": "v2-phase1-content-2026-08-10"
+  },
+  "browser_engine": {
+    "name": "Chromium",
+    "platform": "Linux x86_64",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+  },
+  "captures": [
+    {
+      "bytes": 611,
+      "cache_names": [
+        "songs-shell-v28"
+      ],
+      "database_names": [],
+      "origin": "http://127.0.0.1:8770",
+      "path": "v1.json",
+      "role": "v1",
+      "service_worker": {
+        "controlled": true,
+        "scope": "http://127.0.0.1:8770/",
+        "script_url": "http://127.0.0.1:8770/sw.js"
+      },
+      "sha256": "6360c581ba56dec7d05d0e87280960331179dfd9c9a1d2997c817116105d8b03"
+    },
+    {
+      "bytes": 663,
+      "cache_names": [
+        "songs-v2-shell-coexistence-v1"
+      ],
+      "database_names": [
+        "songs-v2"
+      ],
+      "origin": "http://127.0.0.1:8771",
+      "path": "v2.json",
+      "role": "v2",
+      "service_worker": {
+        "controlled": true,
+        "scope": "http://127.0.0.1:8771/",
+        "script_url": "http://127.0.0.1:8771/sw.js"
+      },
+      "sha256": "7e4b8cb34fa146e0dc8659ed16ea93af53ce18c6f69e85a5e74a2e7c943001d0"
+    }
+  ],
+  "limitations": {
+    "physical_safari_ipad": "pending physical acceptance",
+    "production_v2_shell": "pending P1-004",
+    "public_proxy_port_8001": "pending P1-004"
+  },
+  "note": "Chromium loopback observation exercises the actual frozen v1 worker and a synthetic V2 namespace reservation. It proves the selected origin-partitioning mechanism, not the future V2 shell or public proxy deployment.",
+  "policy_sha256": "03c42b4441f952702dcb494a7ee027ae574bf61ccd459c51de35e0968debef6c",
+  "proof": {
+    "actual_frozen_v1_worker_observed": true,
+    "distinct_test_origins": true,
+    "independent_service_worker_scopes": true,
+    "separate_origin_requires_no_v1_root_worker_patch": true,
+    "v1_has_no_indexeddb": true,
+    "v1_sees_only_frozen_v1_cache": true,
+    "v2_sees_only_reserved_v2_cache": true,
+    "v2_sees_only_reserved_v2_indexeddb": true
+  },
+  "schema_version": "1",
+  "verification": {
+    "output_sha256": "6f58e85aaabbcb416bbf9e1c79492cf0f13fbe39a0cbaa402de64584919ee3ea"
+  }
+}

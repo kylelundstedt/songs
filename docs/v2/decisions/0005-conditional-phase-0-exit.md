@@ -14,3 +14,7 @@ Writable V2, physical readiness claims, default-route changes, and cutover remai
 ## Consequences
 
 The original proposal's phase numbering is superseded by the Phase 0 exit review and Phase 1 plan. Minimum identity/read API foundation is included inside the read-only vertical slice. Production sync hardening and writable Set List work follow as a separate phase.
+
+## Implementation note
+
+TASK-008 completed on August 10, 2026. Source tag `v2-phase1-content-2026-08-10` freezes canonical/server bytes; evidence tag `v2-phase1-evidence-2026-08-10` freezes `migration/v2/current/`, sidecars, and generators. Phase 1 read-only implementation is authorized only from those tags. Physical, writable, default-route, and cutover gates remain unchanged.

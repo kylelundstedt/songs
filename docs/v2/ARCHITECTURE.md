@@ -62,4 +62,6 @@ The August 9, 2026 exit review established the following measured conclusions an
 
 The controlled rewrite remains approved. The strict Phase 0 exit is conditional because the frozen `v1` evidence no longer matches current `main`, and physical Safari/iPad validation remains open.
 
-The next step is TASK-008: freeze current content and refresh parity evidence. After that, Phase 1 is an isolated read-only React/TypeScript PWA using authoritative Apex HTML. Writable-client work remains blocked by the production requirements above.
+TASK-008 is complete. Source tag `v2-phase1-content-2026-08-10` freezes canonical content/server behavior, while evidence tag `v2-phase1-evidence-2026-08-10` freezes the parity artifacts under `migration/v2/current/`. Together they are the only authorized inputs for Phase 1.
+
+Phase 1 now proceeds with the typed read model and an isolated read-only React/TypeScript PWA on the separate V2 origin. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.

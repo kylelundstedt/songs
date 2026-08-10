@@ -38,6 +38,15 @@ python3 scripts/build_v2_phase0_exit_review.py
 python3 scripts/build_v2_phase0_exit_review.py --check
 ```
 
+## Frozen Phase 1 current-content baseline
+
+`current/` contains TASK-008's separately frozen evidence package. Source tag
+`v2-phase1-content-2026-08-10` points to canonical/server commit
+`17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5`; evidence tag
+`v2-phase1-evidence-2026-08-10` points to the TASK-008 completion commit. Together
+they are the only authorized inputs for the Phase 1 read-only slice and do not
+replace or rewrite any v1 artifact. See [`current/README.md`](current/README.md).
+
 ## Renderer and fit baseline
 
 `renderer/` contains the TASK-002 Apex render corpus, song-only HTML fixtures,

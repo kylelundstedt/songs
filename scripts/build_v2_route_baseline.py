@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Generate the deterministic HTTP route contract for the pinned v1 server.
+"""Generate a deterministic HTTP route contract for a pinned baseline server.
 
-The server and all fixtures are built from a fresh ``git archive v1`` export.
-No working-tree corpus or server assets are read.  The generated document stores
-compact body evidence (byte counts and hashes) rather than repeating every
-canonical response body.
+Defaults preserve TASK-003's exact ``v1`` artifact. Current-content wrappers may
+set the baseline globals before generation; no working-tree corpus or server
+assets are read.
 """
 from __future__ import annotations
 
@@ -33,6 +32,10 @@ BASELINE_COMMIT = "546f59b41d9e9bcf0e81b543c27900a31e26c9e6"
 DEFAULT_OUTPUT = Path("migration/v2/routes/route-baseline.json")
 SCHEMA_VERSION = "1"
 GENERATOR_VERSION = "1"
+GENERATOR_NAME = "scripts/build_v2_route_baseline.py"
+GENERATOR_COMMAND = "python3 scripts/build_v2_route_baseline.py"
+EXPECTED_SONG_COUNT = 291
+EXPECTED_SET_COUNT = 60
 AUTH_HEADERS = {"X-ExeDev-UserID": "v2-route-baseline", "X-ExeDev-Email": "klundstedt@industryvault.com"}
 SELECTED_HEADERS = ("Content-Type", "Cache-Control", "Vary", "Location", "Allow", "Service-Worker-Allowed", "Content-Security-Policy", "X-Content-Type-Options", "Referrer-Policy")
 RFC3339_RE = re.compile(rb"\b\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?(?:Z|[+-]\d\d:\d\d)\b")
@@ -65,13 +68,16 @@ def render_with_verification(value: dict[str, Any]) -> str:
     return canonical_json(value)
 
 
-def verify_ref(repo_root: Path, ref: str = BASELINE_REF) -> None:
+def verify_ref(repo_root: Path, ref: str | None = None, expected_commit: str | None = None) -> None:
+    ref = ref or BASELINE_REF
+    expected_commit = expected_commit or BASELINE_COMMIT
     actual = subprocess.check_output(["git", "-C", str(repo_root), "rev-parse", f"{ref}^{{commit}}"], text=True, stderr=subprocess.PIPE).strip()
-    if actual != BASELINE_COMMIT:
-        raise RuntimeError(f"{ref} resolves to {actual}, expected {BASELINE_COMMIT}")
+    if actual != expected_commit:
+        raise RuntimeError(f"{ref} resolves to {actual}, expected {expected_commit}")
 
 
-def export_git_tree(repo_root: Path, ref: str = BASELINE_REF) -> tuple[tempfile.TemporaryDirectory[str], Path]:
+def export_git_tree(repo_root: Path, ref: str | None = None) -> tuple[tempfile.TemporaryDirectory[str], Path]:
+    ref = ref or BASELINE_REF
     archive = subprocess.check_output(["git", "-C", str(repo_root), "archive", "--format=tar", ref], stderr=subprocess.PIPE)
     temporary = tempfile.TemporaryDirectory(prefix="v2-route-baseline-")
     destination = Path(temporary.name)
@@ -452,13 +458,13 @@ def validate_record_contract(records: list[dict[str, Any]], songs: list[str], se
     set_ids_hash = sha256_bytes("\n".join(sets).encode())
     for case_id in ("root", "library"):
         semantic = by_id[case_id]["response"].get("semantic", {})
-        if semantic.get("song_link_count") != 291 or semantic.get("song_ids_sha256") != song_ids_hash:
+        if semantic.get("song_link_count") != len(songs) or semantic.get("song_ids_sha256") != song_ids_hash:
             raise RuntimeError(f"{case_id} does not expose the exact canonical song library")
     set_semantic = by_id["set-list"]["response"].get("semantic", {})
-    if set_semantic.get("set_link_count") != 60 or set_semantic.get("set_ids_sha256") != set_ids_hash:
+    if set_semantic.get("set_link_count") != len(sets) or set_semantic.get("set_ids_sha256") != set_ids_hash:
         raise RuntimeError("set-list does not expose the exact canonical Set List library")
     catalog_semantic = by_id["catalog"]["response"].get("semantic", {})
-    if catalog_semantic.get("count") != 291 or catalog_semantic.get("ids_sha256") != song_ids_hash:
+    if catalog_semantic.get("count") != len(songs) or catalog_semantic.get("ids_sha256") != song_ids_hash:
         raise RuntimeError("catalog IDs differ from the canonical tagged song IDs")
     if by_id["new-song-query"]["response"].get("semantic", {}).get("draft_title") != "Route Fixture":
         raise RuntimeError("new-song query no longer seeds the draft title")
@@ -534,8 +540,11 @@ def generate(repo_root: Path) -> str:
         if len(inventory) != len(EXPECTED_ROUTE_KEYS):
             raise RuntimeError(f"unexpected tagged route count: {len(inventory)}")
         songs, sets = corpus_ids(root)
-        if (len(songs), len(sets)) != (291, 60):
-            raise RuntimeError(f"unexpected tagged corpus counts: songs={len(songs)} sets={len(sets)}")
+        if (len(songs), len(sets)) != (EXPECTED_SONG_COUNT, EXPECTED_SET_COUNT):
+            raise RuntimeError(
+                f"unexpected baseline corpus counts: songs={len(songs)} sets={len(sets)}; "
+                f"expected songs={EXPECTED_SONG_COUNT} sets={EXPECTED_SET_COUNT}"
+            )
         work = Path(tempfile.mkdtemp(prefix="v2-route-runtime-"))
         try:
             server_proc, base, _port = build_and_start(root, work)
@@ -560,14 +569,17 @@ def generate(repo_root: Path) -> str:
                     "status_distribution": status_distribution,
                     "aggregate_record_hash": sha256_bytes(canonical_json(subset).encode()),
                 }
-            for route, expected in {"song": 291, "song-json": 291, "song-markdown": 291, "set": 60, "live": 60, "set-markdown": 60, "offline": 60}.items():
+            for route, expected in {
+                "song": len(songs), "song-json": len(songs), "song-markdown": len(songs),
+                "set": len(sets), "live": len(sets), "set-markdown": len(sets), "offline": len(sets),
+            }.items():
                 if families[route]["record_count"] != expected:
                     raise RuntimeError(f"family count mismatch for {route}")
             classifications = {f'{r["method"]} {r["path"]}': {"classification": r["classification"], "fixture_ids": r["fixture_ids"], "exclusion": r["exclusion"]} for r in inventory}
             coverage = {"registered_route_count": len(inventory), "classified_route_count": len(classifications), "routes_with_fixtures": sum(bool(r["fixture_ids"]) for r in inventory), "routes_with_exclusions": sum(r["exclusion"] is not None for r in inventory), "unclassified_routes": [], "canonical_request_count": len(canonical), "request_case_count": len(records)}
             output: dict[str, Any] = {
                 "schema_version": SCHEMA_VERSION, "baseline": {"ref": BASELINE_REF, "commit": BASELINE_COMMIT},
-                "generator": {"name": "scripts/build_v2_route_baseline.py", "version": GENERATOR_VERSION, "command": "python3 scripts/build_v2_route_baseline.py"},
+                "generator": {"name": GENERATOR_NAME, "version": GENERATOR_VERSION, "command": GENERATOR_COMMAND},
                 "server": {"go_version": subprocess.check_output(["go", "version"], text=True).strip(), "apex": apex_identity(), "startup": {"renders": True, "isolated_db": True, "loopback_only": True, "automatic_redirects": False}},
                 "corpus": {"song_count": len(songs), "set_count": len(sets), "song_ids_sha256": sha256_bytes("\n".join(songs).encode()), "set_ids_sha256": sha256_bytes("\n".join(sets).encode())},
                 "source_hashes": source_hashes(root), "asset_hashes": asset_hashes(root),

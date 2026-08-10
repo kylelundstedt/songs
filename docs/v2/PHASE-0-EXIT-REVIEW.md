@@ -4,6 +4,7 @@
 - **Rollback baseline:** tag `v1` at `546f59b41d9e9bcf0e81b543c27900a31e26c9e6`
 - **V2 evidence branch:** `v2`
 - **Decision:** conditional go for an isolated read-only V2 slice; no-go for writable production use or cutover
+- **Closure update (August 10, 2026):** TASK-008 froze canonical source as `v2-phase1-content-2026-08-10` and parity/identity evidence as `v2-phase1-evidence-2026-08-10`. Phase 1 read-only implementation may now begin; physical Safari/iPad acceptance and all writable/cutover gates remain open.
 
 ## Executive conclusion
 
@@ -131,6 +132,6 @@ At the observed commit, identity coverage is 55 of 339 songs and all 34 Set List
 
 ## Recommendation
 
-**Do not declare Phase 0 fully closed yet.** Complete TASK-008 to freeze current content and refresh parity evidence. After that task, begin the isolated read-only Phase 1 vertical slice autonomously.
+**TASK-008 is complete.** The current-content/software prerequisite is closed, and the isolated read-only Phase 1 vertical slice may begin autonomously from the frozen tag. Phase 0's strict physical-device criterion remains open, so this does not authorize iPad-readiness claims, writes, or cutover.
 
-No further owner input is needed for TASK-008 or the software packets preceding physical-device validation. Owner and target-device participation become mandatory before Phase 1 physical acceptance and before any writable or cutover decision.
+No further owner input is needed for the software packets preceding physical-device validation. Owner and target-device participation become mandatory before Phase 1 physical acceptance and before any writable or cutover decision.

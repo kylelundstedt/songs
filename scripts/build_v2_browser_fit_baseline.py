@@ -17,9 +17,15 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
 
+BASELINE_REF = "v1"
 BASELINE_COMMIT = "546f59b41d9e9bcf0e81b543c27900a31e26c9e6"
 SCHEMA_VERSION = "1"
 GENERATOR_VERSION = "1"
+GENERATOR_NAME = "scripts/build_v2_browser_fit_baseline.py"
+GENERATOR_COMMAND = "python3 scripts/build_v2_browser_fit_baseline.py"
+EXPECTED_SONG_COUNT = 291
+BIND_SCREENSHOT_METRICS = False
+SCREENSHOT_MEASUREMENT_SURFACE = "v1 /song/{id} route after DOMContentLoaded fitAll"
 DEFAULT_BASELINE = Path("migration/v2/renderer/renderer-baseline.json")
 DEFAULT_CAPTURE_DIR = Path("migration/v2/renderer/browser-fit")
 DEFAULT_SCREENSHOT_DIR = Path("migration/v2/renderer/screenshots")
@@ -115,8 +121,8 @@ def validate_capture(
     data = load_json(path)
     if data.get("schema_version") != SCHEMA_VERSION:
         fail(f"{path}: schema_version must be {SCHEMA_VERSION!r}")
-    if data.get("baseline") != {"ref": "v1", "commit": BASELINE_COMMIT}:
-        fail(f"{path}: baseline is not the exact v1 baseline")
+    if data.get("baseline") != {"ref": BASELINE_REF, "commit": BASELINE_COMMIT}:
+        fail(f"{path}: baseline is not the exact required baseline")
     surface = data.get("measurement_surface")
     if not isinstance(surface, str) or not surface:
         fail(f"{path}: measurement_surface is required")
@@ -148,11 +154,11 @@ def validate_capture(
     if identity is not None and current_identity != identity:
         fail(f"{path}: browser/profile identity differs from the other captures")
     results = data.get("results")
-    if not isinstance(results, list) or len(results) != 291:
-        fail(f"{path}: expected exactly 291 results")
+    if not isinstance(results, list) or len(results) != EXPECTED_SONG_COUNT:
+        fail(f"{path}: expected exactly {EXPECTED_SONG_COUNT} results")
     paths = [record.get("path") for record in results if isinstance(record, dict)]
-    if len(paths) != 291 or len(set(paths)) != 291 or set(paths) != expected_paths:
-        fail(f"{path}: results must contain the exact 291 unique baseline song paths")
+    if len(paths) != EXPECTED_SONG_COUNT or len(set(paths)) != EXPECTED_SONG_COUNT or set(paths) != expected_paths:
+        fail(f"{path}: results must contain the exact {EXPECTED_SONG_COUNT} unique baseline song paths")
     constants = baseline["fitter"]["constants"]
     allowed_lines = set(constants["line_height_candidates"])
     tablet = form_factor == "tablet"
@@ -173,6 +179,28 @@ def validate_capture(
             fail(f"{path}: invalid line_height for {song_path}")
         if record.get("column_count") not in allowed_columns:
             fail(f"{path}: invalid column_count for {song_path}")
+        viewport = record.get("viewport")
+        columns = record.get("columns")
+        metric_keys = ("client_width", "scroll_width", "client_height", "scroll_height")
+        if not isinstance(viewport, dict) or any(not isinstance(viewport.get(key), (int, float)) or viewport[key] < 0 for key in metric_keys):
+            fail(f"{path}: invalid viewport geometry for {song_path}")
+        if not isinstance(columns, list) or len(columns) != record["column_count"]:
+            fail(f"{path}: column geometry count mismatch for {song_path}")
+        if any(not isinstance(column, dict) or any(not isinstance(column.get(key), (int, float)) or column[key] < 0 for key in metric_keys) for column in columns):
+            fail(f"{path}: invalid column geometry for {song_path}")
+        horizontally_safe = viewport["scroll_width"] <= viewport["client_width"] + 1 and all(
+            column["scroll_width"] <= column["client_width"] + 1 for column in columns
+        )
+        vertically_safe = all(column["scroll_height"] <= column["client_height"] + 1 for column in columns)
+        status = record["status"]
+        if status == "fit" and (not tablet or not horizontally_safe or not vertically_safe):
+            fail(f"{path}: fit status is inconsistent with geometry for {song_path}")
+        if status == "needs-editing":
+            overflow = (not horizontally_safe) or (not vertically_safe)
+            if not tablet or record["body_px"] != constants["min_px"] or not overflow:
+                fail(f"{path}: needs-editing status lacks minimum-font overflow for {song_path}")
+        if status == "scrollable" and (tablet or not horizontally_safe):
+            fail(f"{path}: scrollable phone result has horizontal overflow for {song_path}")
     status_distribution = distribution(record["status"] for record in results)
     font_distribution = distribution(record["body_px"] for record in results)
     auto_font_distribution = distribution(record["auto_body_px"] for record in results)
@@ -181,12 +209,16 @@ def validate_capture(
     failures = sorted(record["id"] for record in results if record["status"] == "needs-editing")
     if failures != EXPECTED_FAILURES[name]:
         fail(f"{path}: failure IDs {failures!r} do not match {EXPECTED_FAILURES[name]!r}")
-    if name == "ipad-portrait" and status_distribution != {"fit": 291}:
-        fail(f"{path}: portrait must have 291 fit results")
-    if name == "ipad-landscape" and status_distribution != {"fit": 289, "needs-editing": 2}:
-        fail(f"{path}: landscape outcome differs")
-    if name == "phone" and status_distribution != {"scrollable": 291}:
-        fail(f"{path}: phone must have 291 scrollable results")
+    expected_distribution = (
+        {"scrollable": EXPECTED_SONG_COUNT}
+        if name == "phone"
+        else {
+            **({"fit": EXPECTED_SONG_COUNT - len(EXPECTED_FAILURES[name])} if EXPECTED_SONG_COUNT > len(EXPECTED_FAILURES[name]) else {}),
+            **({"needs-editing": len(EXPECTED_FAILURES[name])} if EXPECTED_FAILURES[name] else {}),
+        }
+    )
+    if status_distribution != expected_distribution:
+        fail(f"{path}: status distribution {status_distribution!r} differs from {expected_distribution!r}")
     capture_record = {
         "path": path.relative_to(repo_root).as_posix(),
         "sha256": sha256_bytes(path.read_bytes()),
@@ -211,13 +243,13 @@ def validate_capture(
 
 def build(repo_root: Path, baseline_path: Path, capture_dir: Path, screenshot_dir: Path) -> str:
     baseline = load_json(baseline_path)
-    if baseline.get("baseline") != {"ref": "v1", "commit": BASELINE_COMMIT}:
-        fail("renderer-baseline.json is not the exact v1 baseline")
+    if baseline.get("baseline") != {"ref": BASELINE_REF, "commit": BASELINE_COMMIT}:
+        fail("renderer-baseline.json is not the exact required baseline")
     renders = baseline.get("corpus", {}).get("renders", [])
     expected_hashes = {record["path"]: record["source_sha256"] for record in renders}
     expected_paths = set(expected_hashes)
-    if len(expected_paths) != 291 or any(not path.startswith("songs/") for path in expected_paths):
-        fail("renderer baseline must contain exactly 291 tagged songs")
+    if len(expected_paths) != EXPECTED_SONG_COUNT or any(not path.startswith("songs/") for path in expected_paths):
+        fail(f"renderer baseline must contain exactly {EXPECTED_SONG_COUNT} baseline songs")
     captures = []
     profiles = []
     surface = None
@@ -258,6 +290,10 @@ def build(repo_root: Path, baseline_path: Path, capture_dir: Path, screenshot_di
             fail(f"{path}: screenshot song {song_id} is absent from capture")
         if result["status"] != expected_status:
             fail(f"{path}: screenshot status does not match expected {expected_status}")
+        expected_metrics = {"body_px": body_px, "line_height": line_height, "column_count": column_count}
+        actual_metrics = {key: result[key] for key in ("body_px", "line_height", "column_count")}
+        if BIND_SCREENSHOT_METRICS and actual_metrics != expected_metrics:
+            fail(f"{path}: screenshot fit metrics {actual_metrics!r} do not match capture contract {expected_metrics!r}")
         requested = profile["requested"]
         if dimensions != (requested["width"], requested["height"]):
             fail(f"{path}: dimensions {dimensions!r} do not match requested viewport")
@@ -271,21 +307,17 @@ def build(repo_root: Path, baseline_path: Path, capture_dir: Path, screenshot_di
             "sha256": sha256_bytes(raw),
             "bytes": len(raw),
             "dimensions": {"width": dimensions[0], "height": dimensions[1]},
-            "measurement_surface": f"v1 /song/{song_id} route after DOMContentLoaded fitAll",
-            "observed_fit": {
-                "body_px": body_px,
-                "line_height": line_height,
-                "column_count": column_count,
-            },
+            "measurement_surface": SCREENSHOT_MEASUREMENT_SURFACE.format(id=song_id),
+            "observed_fit": actual_metrics if BIND_SCREENSHOT_METRICS else expected_metrics,
         })
     artifact = {
         "schema_version": SCHEMA_VERSION,
         "generator": {
-            "name": "scripts/build_v2_browser_fit_baseline.py",
+            "name": GENERATOR_NAME,
             "version": GENERATOR_VERSION,
-            "command": "python3 scripts/build_v2_browser_fit_baseline.py",
+            "command": GENERATOR_COMMAND,
         },
-        "baseline": {"ref": "v1", "commit": BASELINE_COMMIT},
+        "baseline": {"ref": BASELINE_REF, "commit": BASELINE_COMMIT},
         "measurement_surface": surface,
         "browser_engine": browser_engine,
         "captures": captures,

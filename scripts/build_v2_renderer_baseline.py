@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Build the deterministic renderer/source/asset portion of TASK-002.
+"""Build a deterministic renderer/source/asset baseline.
 
-Every input is read from a fresh archive of the pinned ``v1`` commit.  The
-working-tree songs, sets, templates, and assets are never consulted.
+Defaults preserve TASK-002's exact ``v1`` artifact. Current-content wrappers may
+set the baseline globals before calling the generator; every input still comes
+from a fresh Git archive rather than mutable working-tree corpus/assets.
 """
 from __future__ import annotations
 
@@ -24,6 +25,11 @@ BASELINE_REF = "v1"
 BASELINE_COMMIT = "546f59b41d9e9bcf0e81b543c27900a31e26c9e6"
 SCHEMA_VERSION = "1"
 GENERATOR_VERSION = "1"
+GENERATOR_NAME = "scripts/build_v2_renderer_baseline.py"
+GENERATOR_COMMAND = "python3 scripts/build_v2_renderer_baseline.py"
+EXPECTED_SONG_COUNT = 291
+RECORD_APEX_EXECUTABLE_PATH = True
+BROWSER_FIT_ARTIFACT = "migration/v2/renderer/browser-fit-summary.json"
 DEFAULT_OUTPUT = Path("migration/v2/renderer/renderer-baseline.json")
 FIXTURE_DIR = Path("migration/v2/renderer/html")
 APEX_FLAGS = ("--no-plugins", "--no-unsafe", "--aria", "--mode", "unified", "--to", "html")
@@ -317,8 +323,8 @@ def generate(repo_root: Path) -> tuple[str, dict[str, bytes], dict[str, Any]]:
     try:
         entries = source_entries(source_root)
         songs = [entry for entry in entries if entry["path"].startswith("songs/")]
-        if len(songs) != 291:
-            raise RuntimeError(f"expected 291 tagged songs, found {len(songs)}")
+        if len(songs) != EXPECTED_SONG_COUNT:
+            raise RuntimeError(f"expected {EXPECTED_SONG_COUNT} baseline songs, found {len(songs)}")
         renders = []
         for entry in songs:
             html = render_one(apex["executable_path"], source_root, entry["path"])
@@ -345,15 +351,18 @@ def generate(repo_root: Path) -> tuple[str, dict[str, bytes], dict[str, Any]]:
         style_text = (source_root / "srv/static/style.css").read_text(encoding="utf-8")
         font_families = sorted(set(re.findall(r"font-family:\s*([^;]+)", style_text)))
         server_bytes = (source_root / "srv/server.go").read_bytes()
+        recorded_apex = dict(apex)
+        if not RECORD_APEX_EXECUTABLE_PATH:
+            recorded_apex["executable_path"] = "resolved-from-PATH:apex"
         artifact: dict[str, Any] = {
             "schema_version": SCHEMA_VERSION,
             "baseline": {"ref": BASELINE_REF, "commit": BASELINE_COMMIT},
             "generator": {
-                "name": "scripts/build_v2_renderer_baseline.py",
+                "name": GENERATOR_NAME,
                 "version": GENERATOR_VERSION,
-                "command": "python3 scripts/build_v2_renderer_baseline.py",
+                "command": GENERATOR_COMMAND,
             },
-            "apex": {**apex, "flags": list(APEX_FLAGS)},
+            "apex": {**recorded_apex, "flags": list(APEX_FLAGS)},
             "renderer": {
                 "command_template": ["apex", *APEX_FLAGS, "<tagged-song-markdown-path>"],
                 "working_directory": "fresh git archive root",
@@ -377,7 +386,7 @@ def generate(repo_root: Path) -> tuple[str, dict[str, bytes], dict[str, Any]]:
                 "viewport_profiles": list(VIEWPORT_PROFILES),
                 "browser_fit": {
                     "status": "recorded-separate-artifact",
-                    "artifact": "migration/v2/renderer/browser-fit-summary.json",
+                    "artifact": BROWSER_FIT_ARTIFACT,
                     "profiles": [{"name": p["name"], "status": "recorded"} for p in VIEWPORT_PROFILES],
                 },
                 "physical_ipad": {"status": "pending", "note": "Browser emulation is not physical-iPad validation."},

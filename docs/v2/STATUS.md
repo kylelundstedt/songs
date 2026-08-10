@@ -1,10 +1,12 @@
 # V2 Status
 
-- **Baseline:** Git tag `v1` at commit `546f59b41d9e9bcf0e81b543c27900a31e26c9e6` (`546f59b`), not the mutable worktree.
+- **Rollback baseline:** Git tag `v1` at commit `546f59b41d9e9bcf0e81b543c27900a31e26c9e6` (`546f59b`).
+- **Phase 1 content source:** annotated tag `v2-phase1-content-2026-08-10` at `17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5` (`17c326c`).
+- **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
-- **Phase:** Phase 0 closure — architecture feasible; current-content evidence refresh still required.
-- **Completed:** V2 proposal/control plane; TASK-001 through TASK-007, including the conditional Phase 0 exit review.
-- **Current task:** [TASK-008](tasks/TASK-008-current-content-baseline.md), reconcile latest `main`, freeze current content, and refresh parity evidence before Phase 1.
+- **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-008.
+- **Current task:** [TASK-009](tasks/TASK-009-typed-read-model.md), consume the frozen corpus/identity sidecars into a lossless typed read model.
 
 ## Completed evidence
 
@@ -71,6 +73,17 @@ TASK-007 completed the exit review with a conditional go:
 - writable production use remains blocked on authorization, a fenced publication lease, Apex validation, durable V2 recovery, and physical Safari/iPad gates;
 - detailed findings and plans are in `docs/v2/PHASE-0-EXIT-REVIEW.md` and `docs/v2/PHASE-1-PLAN.md`.
 
+TASK-008 froze current content and cleared the software prerequisite for Phase 1:
+
+- current `main` was merged without conflict and frozen as annotated tag `v2-phase1-content-2026-08-10` at `17c326c`;
+- current evidence contains 373 documents, 339 songs, 34 Set Lists, and 748,034 source bytes;
+- lossless sidecars cover 284 legacy songs, all 1,076 Set Entries through order-independent fingerprints, and 373 legacy slug routes while canonical Markdown remains unchanged;
+- Apex renders 339/339 songs; Chromium records 339 portrait fits, 334 landscape fits plus five named failures, and 339 scrollable phone results;
+- 27 routes are covered through 1,198 requests and have explicit preserve/redirect/retire/defer policy;
+- current recovery and 12-chunk bootstrap evidence pass, including all 13 logical browser proofs;
+- separate-origin Chromium evidence exercises the actual frozen v1 worker and a synthetic V2 namespace reservation; the real V2 shell/public port is still a P1-004 gate;
+- source tag `v2-phase1-content-2026-08-10` and evidence tag `v2-phase1-evidence-2026-08-10` are now the only authorized Phase 1 inputs.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -87,6 +100,15 @@ python3 scripts/build_v2_sync_spike_evidence.py --check
 python3 scripts/build_v2_bootstrap_baseline.py --check
 python3 scripts/build_v2_bootstrap_browser_summary.py --check
 python3 scripts/build_v2_phase0_exit_review.py --check
+python3 scripts/build_v2_current_baseline.py --check
+python3 scripts/build_v2_current_renderer_baseline.py --check
+python3 scripts/build_v2_current_browser_fit_baseline.py --check
+python3 scripts/build_v2_current_route_baseline.py --check
+python3 scripts/build_v2_current_backup_restore_baseline.py --check
+python3 scripts/build_v2_current_bootstrap_baseline.py --check
+python3 scripts/build_v2_current_bootstrap_browser_summary.py --check
+python3 scripts/build_v2_current_contracts.py --check
+python3 scripts/build_v2_current_coexistence_summary.py --check
 go test ./internal/syncspike/...
 go test ./...
 go vet ./...
@@ -95,7 +117,8 @@ git diff --check
 
 ## Next tasks
 
-1. Complete TASK-008 current-content reconciliation and baseline refresh.
-2. Begin Phase 1 P1-002 typed read model/identity projection from the frozen current baseline.
-3. Continue autonomously through the Phase 1 software checkpoint.
-4. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.
+1. Complete TASK-009 typed read model and frozen identity projection.
+2. Build the versioned read-only bootstrap API from the typed model.
+3. Build the isolated React/Vite shell on reserved port 8001.
+4. Continue autonomously through the Phase 1 software checkpoint.
+5. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.
