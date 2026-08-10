@@ -1,4 +1,4 @@
-.PHONY: build test run clean migrate validate v2-check
+.PHONY: build test run clean migrate validate v2-check v2-api-build v2-api-run
 
 build:
 	go build -o srv/songs ./cmd/srv
@@ -11,6 +11,12 @@ v2-check:
 	npm --prefix v2 test
 	npm --prefix v2 run build
 	npm --prefix v2 run fixtures
+
+v2-api-build:
+	go build -o srv/songs-v2-api ./cmd/v2api
+
+v2-api-run: v2-api-build
+	./srv/songs-v2-api -listen :8001
 
 run: build
 	./srv/songs -listen :8000 -repo .

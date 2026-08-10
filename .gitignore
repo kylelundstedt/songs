@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 /var/
 /srv/songs
+/srv/songs-v2-api
 *.sqlite3
 .DS_Store
 

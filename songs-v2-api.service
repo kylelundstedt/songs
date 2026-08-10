@@ -1,0 +1,17 @@
+[Unit]
+Description=Songs V2 isolated read-only bootstrap API
+After=network-online.target
+
+[Service]
+Type=simple
+User=exedev
+Group=exedev
+WorkingDirectory=/home/exedev/songs-v2
+ExecStart=/home/exedev/songs-v2/srv/songs-v2-api -listen :8001
+Restart=always
+RestartSec=3
+Environment=HOME=/home/exedev
+Environment=USER=exedev
+
+[Install]
+WantedBy=multi-user.target

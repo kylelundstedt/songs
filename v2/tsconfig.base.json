@@ -13,6 +13,11 @@
     "declarationMap": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@songs-v2/read-model": ["packages/read-model/src/index.ts"],
+      "@songs-v2/read-model/git": ["packages/read-model/src/git-entry.ts"]
+    }
   }
 }

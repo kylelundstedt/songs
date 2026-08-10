@@ -16,11 +16,12 @@ class V2Phase0ExitReviewTests(unittest.TestCase):
         backlog = (ROOT / "docs/v2/BACKLOG.md").read_text(encoding="utf-8")
         task = (ROOT / "docs/v2/tasks/TASK-007-phase-0-exit-review.md").read_text(encoding="utf-8")
         self.assertIn("Phase 1 — isolated read-only", status)
-        self.assertIn("TASK-010", status)
+        self.assertIn("TASK-011", status)
         self.assertRegex(backlog, r"\| Done \| \[TASK-007")
         self.assertRegex(backlog, r"\| Done \| \[TASK-008")
         self.assertRegex(backlog, r"\| Done \| \[TASK-009")
-        self.assertRegex(backlog, r"\| P0 \| \[TASK-010")
+        self.assertRegex(backlog, r"\| Done \| \[TASK-010")
+        self.assertRegex(backlog, r"\| P0 \| \[TASK-011")
         self.assertIn("Status:** Done — conditional go", task)
 
     def test_exit_review_and_phase1_plan_record_gates(self) -> None:

@@ -6,10 +6,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --workspace @songs-v2/read-model",
-    "check": "npm run check --workspace @songs-v2/read-model",
-    "test": "npm run test --workspace @songs-v2/read-model",
-    "fixtures": "npm run fixtures --workspace @songs-v2/read-model",
-    "fixtures:generate": "npm run fixtures:generate --workspace @songs-v2/read-model"
+    "build": "npm run build --workspace @songs-v2/read-model && npm run build --workspace @songs-v2/bootstrap-api",
+    "check": "npm run check --workspace @songs-v2/read-model && npm run check --workspace @songs-v2/bootstrap-api",
+    "test": "npm run test --workspace @songs-v2/read-model && npm run test --workspace @songs-v2/bootstrap-api",
+    "fixtures": "npm run fixtures --workspace @songs-v2/read-model && npm run fixtures --workspace @songs-v2/bootstrap-api",
+    "fixtures:generate": "npm run fixtures:generate --workspace @songs-v2/read-model && npm run fixtures:generate --workspace @songs-v2/bootstrap-api"
   }
 }

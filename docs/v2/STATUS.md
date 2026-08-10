@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-009.
-- **Current task:** [TASK-010](tasks/TASK-010-read-only-bootstrap-api.md), expose the frozen typed projection as a versioned read-only manifest/chunk API.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-010.
+- **Current task:** [TASK-011](tasks/TASK-011-isolated-read-only-shell.md), build the isolated React/Vite read-only shell against the reviewed bootstrap API.
 
 ## Completed evidence
 
@@ -93,6 +93,15 @@ TASK-009 completed the typed read-model foundation:
 - deterministic full-corpus and representative fixtures pass nine TypeScript tests, including hostile archive, YAML, target, source, and identity cases;
 - the package is ready for TASK-010's generated manifest/chunk API and does not add rendering, mutation, sync, publication, or route-cutover behavior.
 
+TASK-010 completed the isolated read-only API:
+
+- generation is anchored to reviewed TASK-009 commit `2cbf78a` and reads only pinned TASK-008 source/evidence commits;
+- 12 deterministic chunks contain all 373 typed projections, 1,076 Set Entries, canonical source bytes, 339 verified Apex outputs, three fit profiles per lead sheet, and 373 slug routes;
+- manifest SHA `a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f` and generation `phase1-f9634173e25ef4ca4b8330a3` are reviewed runtime trust anchors;
+- TypeScript and Go reject fully re-signed semantic substitutions plus missing, unexpected, corrupt, duplicate, reordered, unsupported, or noncanonical assets;
+- `cmd/v2api` preloads embedded bytes and serves authenticated JSON-only manifest/chunk routes without Node, Git, Apex, filesystem, or importer work per request;
+- `songs-v2-api.service` runs separately on port 8001, while the frozen v1 `srv/` tree and default routes remain byte-identical to TASK-008.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -120,7 +129,9 @@ python3 scripts/build_v2_current_contracts.py --check
 python3 scripts/build_v2_current_coexistence_summary.py --check
 npm --prefix v2 ci
 make v2-check
+make v2-api-build
 go test ./internal/syncspike/...
+go test -race ./internal/v2bootstrap/...
 go test ./...
 go vet ./...
 git diff --check
@@ -128,7 +139,7 @@ git diff --check
 
 ## Next tasks
 
-1. Build TASK-010's versioned read-only bootstrap API from the frozen typed model.
-2. Build the isolated React/Vite shell on reserved port 8001.
+1. Build TASK-011's isolated React/Vite shell against the reviewed read-only API.
+2. Integrate atomic production IndexedDB snapshot activation and retained-generation recovery.
 3. Continue autonomously through the Phase 1 software checkpoint.
 4. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.

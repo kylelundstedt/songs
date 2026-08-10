@@ -67,7 +67,7 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-003 — Read-only V2 bootstrap API
 
-- **Status:** Ready; tracked as TASK-010
+- **Status:** Done on August 10, 2026; tracked as TASK-010
 
 - **Estimate:** 2–3 days
 - **Dependencies:** P1-002
@@ -78,6 +78,8 @@ The range assumes agent-assisted implementation with small commits and determini
 - **Model routing:** Terra implementation, Predictable fixtures, Sol security review.
 
 ### P1-004 — Isolated React/Vite shell
+
+- **Status:** Ready; tracked as TASK-011
 
 - **Estimate:** 2–3 days
 - **Dependencies:** P1-001 and P1-003 contract

@@ -8,7 +8,7 @@ A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
 The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
 
-V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 completed the prerequisite on August 10, 2026: source tag `v2-phase1-content-2026-08-10` freezes 339 songs and 34 Set Lists, while evidence tag `v2-phase1-evidence-2026-08-10` freezes identity sidecars and current parity evidence. TASK-009 now projects all 373 documents and 1,076 Set Entries losslessly through `@songs-v2/read-model`; TASK-010's read-only bootstrap API is next. Writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current 339-song/34-Set-List baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, and TASK-010 now serves the reviewed 12-chunk source/projection/Apex/fit snapshot through an isolated authenticated JSON API on port 8001. TASK-011's React/Vite read-only shell is next. Writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
 
 The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 
@@ -37,9 +37,12 @@ make test
 make build
 ./srv/songs -listen :8000 -repo .
 
-# Verify the Phase 1 TypeScript read model
+# Verify the Phase 1 TypeScript read model and bootstrap payload
 npm --prefix v2 ci
 make v2-check
+
+# Run the isolated read-only V2 API on port 8001
+make v2-api-run
 ```
 
 The service expects Apex on `PATH` and stores its rebuildable SQLite index under `var/`. Markdown in Git remains canonical.
@@ -52,6 +55,8 @@ sets/                          canonical Markdown set lists
 migration/notion-candidates/   review-only Notion exports
 migration/                     migration manifests and reports
 v2/packages/read-model/        frozen typed read model and deterministic fixtures
+v2/packages/bootstrap-api/     deterministic reviewed manifest/chunk generator
+internal/v2bootstrap/           embedded validator and authenticated JSON API
 scripts/                       Notion export tooling
 tools/                         legacy migration tooling
 srv/                           Go server, templates, PWA assets
