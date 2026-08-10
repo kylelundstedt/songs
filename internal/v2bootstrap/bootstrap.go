@@ -717,4 +717,5 @@ func (s *Snapshot) ChunkBytes(name string) ([]byte, bool) {
 	raw, ok := s.chunks[name]
 	return bytes.Clone(raw), ok
 }
-func (s *Snapshot) Handler() http.Handler { return &apiHandler{snapshot: s} }
+func (s *Snapshot) ManifestSHA256() string { return strings.Trim(s.manifestETag, "\"") }
+func (s *Snapshot) Handler() http.Handler  { return &apiHandler{snapshot: s} }

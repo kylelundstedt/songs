@@ -1,0 +1,320 @@
+{
+  "accessibility": {
+    "automated_axe_surfaces": [
+      "library",
+      "lead-sheet",
+      "set-list"
+    ],
+    "keyboard_focus_restoration": true,
+    "light_theme_token_contrast": [
+      {
+        "background": "--bg",
+        "foreground": "--accent",
+        "ratio": 6.955
+      },
+      {
+        "background": "--bg-strong",
+        "foreground": "--accent",
+        "ratio": 6.035
+      },
+      {
+        "background": "--surface",
+        "foreground": "--accent",
+        "ratio": 7.835
+      },
+      {
+        "background": "--bg",
+        "foreground": "--accent-strong",
+        "ratio": 8.921
+      },
+      {
+        "background": "--bg-strong",
+        "foreground": "--accent-strong",
+        "ratio": 7.74
+      },
+      {
+        "background": "--surface",
+        "foreground": "--accent-strong",
+        "ratio": 10.049
+      },
+      {
+        "background": "--bg",
+        "foreground": "--muted",
+        "ratio": 6.133
+      },
+      {
+        "background": "--bg-strong",
+        "foreground": "--muted",
+        "ratio": 5.321
+      },
+      {
+        "background": "--surface",
+        "foreground": "--muted",
+        "ratio": 6.909
+      }
+    ],
+    "minimum_small_text_ratio": 5.321,
+    "reduced_motion_media_query": true
+  },
+  "bootstrap": {
+    "chunks": 12,
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+  },
+  "browser": {
+    "name": "Chromium",
+    "profiles": [
+      {
+        "bytes": 1412,
+        "name": "desktop-library",
+        "observation": {
+          "api_resources": 13,
+          "authoring_controls": [],
+          "bootstrap_generation": "phase1-f9634173e25ef4ca4b8330a3",
+          "browser": {
+            "name": "Chromium",
+            "platform": "Linux x86_64",
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+            "version": "151.0.7922.72"
+          },
+          "cache_names": [
+            "songs-v2-shell-72d3106d38dfec5cc2eaf403"
+          ],
+          "capture_origin": "http://127.0.0.1:4174/",
+          "capture_topology": "production embedded shell/API via localhost reverse proxy injecting the same trusted headers documented by exe.dev for development",
+          "database_names": [],
+          "heading": "Your gig book, without the edit controls",
+          "inline_style_attributes": 0,
+          "metrics": [
+            "339",
+            "34",
+            "1,076",
+            "12/12"
+          ],
+          "observed": {
+            "device_pixel_ratio": 1,
+            "height": 900,
+            "max_touch_points": 0,
+            "scroll_height": 1597,
+            "scroll_width": 1280,
+            "width": 1280
+          },
+          "physical_safari_ipad": "pending",
+          "production_origin": "https://kgl-songs.exe.xyz:8001/",
+          "profile": "desktop-library",
+          "requested": {
+            "height": 900,
+            "mobile": false,
+            "touch": false,
+            "width": 1280
+          },
+          "route": "#/",
+          "schema_version": "1",
+          "service_worker": {
+            "controlled": true,
+            "scope": "http://127.0.0.1:4174/"
+          },
+          "shell_release": "shell-72d3106d38dfec5cc2eaf403",
+          "software_evidence_only": true
+        },
+        "path": "migration/v2/phase1/shell/browser-observations/desktop-library.json",
+        "sha256": "13aa9c5f3e4d78717722c98b032ce7c39f3646c2fe7c313111a30bac5a67be6e"
+      },
+      {
+        "bytes": 1430,
+        "name": "phone-lead-sheet",
+        "observation": {
+          "apex_columns": 1,
+          "authoring_controls": [],
+          "bootstrap_generation": "phase1-f9634173e25ef4ca4b8330a3",
+          "browser": {
+            "name": "Chromium",
+            "platform": "Linux x86_64",
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+            "version": "151.0.7922.72"
+          },
+          "cache_names": [
+            "songs-v2-shell-72d3106d38dfec5cc2eaf403"
+          ],
+          "capture_origin": "http://127.0.0.1:4174/",
+          "capture_topology": "production embedded shell/API via localhost reverse proxy injecting the same trusted headers documented by exe.dev for development",
+          "database_names": [],
+          "fit_labels": [
+            "Portrait fit",
+            "Landscape fit",
+            "Phone scrolls"
+          ],
+          "heading": "1979",
+          "inline_style_attributes": 0,
+          "observed": {
+            "device_pixel_ratio": 1,
+            "height": 844,
+            "max_touch_points": 5,
+            "scroll_height": 2205,
+            "scroll_width": 390,
+            "width": 390
+          },
+          "physical_safari_ipad": "pending",
+          "production_origin": "https://kgl-songs.exe.xyz:8001/",
+          "profile": "phone-lead-sheet",
+          "renderer_authority": "apex",
+          "requested": {
+            "height": 844,
+            "mobile": true,
+            "touch": true,
+            "width": 390
+          },
+          "route": "#/songs/1979",
+          "schema_version": "1",
+          "service_worker": {
+            "controlled": true,
+            "scope": "http://127.0.0.1:4174/"
+          },
+          "shell_release": "shell-72d3106d38dfec5cc2eaf403",
+          "software_evidence_only": true
+        },
+        "path": "migration/v2/phase1/shell/browser-observations/phone-lead-sheet.json",
+        "sha256": "0e43caf70f4494134e66ca2a28bf13c68fa670c2736749aea6875bc5e1222025"
+      },
+      {
+        "bytes": 1374,
+        "name": "tablet-landscape-set-list",
+        "observation": {
+          "authoring_controls": [],
+          "bootstrap_generation": "phase1-f9634173e25ef4ca4b8330a3",
+          "browser": {
+            "name": "Chromium",
+            "platform": "Linux x86_64",
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+            "version": "151.0.7922.72"
+          },
+          "cache_names": [
+            "songs-v2-shell-72d3106d38dfec5cc2eaf403"
+          ],
+          "capture_origin": "http://127.0.0.1:4174/",
+          "capture_topology": "production embedded shell/API via localhost reverse proxy injecting the same trusted headers documented by exe.dev for development",
+          "database_names": [],
+          "entries": 58,
+          "heading": "9Tease Stripped",
+          "inline_style_attributes": 0,
+          "observed": {
+            "device_pixel_ratio": 1,
+            "height": 1024,
+            "max_touch_points": 5,
+            "scroll_height": 4006,
+            "scroll_width": 1366,
+            "width": 1366
+          },
+          "physical_safari_ipad": "pending",
+          "production_origin": "https://kgl-songs.exe.xyz:8001/",
+          "profile": "tablet-landscape-set-list",
+          "requested": {
+            "height": 1024,
+            "mobile": false,
+            "touch": true,
+            "width": 1366
+          },
+          "route": "#/sets/2025-10-13-9tease-stripped",
+          "schema_version": "1",
+          "sections": 3,
+          "service_worker": {
+            "controlled": true,
+            "scope": "http://127.0.0.1:4174/"
+          },
+          "shell_release": "shell-72d3106d38dfec5cc2eaf403",
+          "software_evidence_only": true
+        },
+        "path": "migration/v2/phase1/shell/browser-observations/tablet-landscape-set-list.json",
+        "sha256": "10762f428aa6ed72be026ab8d79abc59359a7fed4ba8c394b193206ed93d4475"
+      }
+    ],
+    "version": "151.0.7922.72"
+  },
+  "limitations": {
+    "bootstrap_persistence": "P1-005; TASK-011 remains memory-only",
+    "physical_safari_ipad": "pending mandatory owner-device acceptance"
+  },
+  "proof": {
+    "all_documents_hidden_until_complete_verification": true,
+    "api_request_count": 13,
+    "authoritative_apex_only": true,
+    "indexeddb_not_opened": true,
+    "internal_apex_links_remain_in_v2": true,
+    "manifest_and_all_chunks_verified_in_browser": true,
+    "no_authoring_controls": true,
+    "no_horizontal_overflow": true,
+    "origin_bound_to_loopback": true,
+    "public_tls_and_private_login_gate": true,
+    "service_worker_bypasses_api": true,
+    "service_worker_controls_v2": true,
+    "v1_tree_unchanged": true,
+    "v2_cache_namespace_only": true
+  },
+  "public_proxy": {
+    "bytes": 988,
+    "observation": {
+      "origin_listener": {
+        "address": "127.0.0.1:8001",
+        "network_direct_header_spoofing": false,
+        "vm_internal_address_status": "connection-refused"
+      },
+      "plain_http_public_address": {
+        "status": 400
+      },
+      "private_proxy": "exe.dev private proxy requires VM access and injects X-ExeDev identity only after login",
+      "probe_method": "curl with --resolve to public DNS address, bypassing VM-internal hostname resolution",
+      "production_origin": "https://kgl-songs.exe.xyz:8001/",
+      "public_dns_ipv4": "161.210.92.174",
+      "schema_version": "1",
+      "tls": {
+        "certificate_common_name": "exe.xyz",
+        "hsts": true,
+        "negotiated": "TLSv1.3"
+      },
+      "unauthenticated_https": {
+        "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
+        "status": 307
+      },
+      "unauthenticated_https_with_forged_identity_header": {
+        "forged_header_reached_application": false,
+        "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
+        "status": 307
+      }
+    },
+    "path": "migration/v2/phase1/shell/browser-observations/public-proxy.json",
+    "sha256": "b1ee7094a9693f30cfbea6787a517a9116afb39bb78a486fbc67056f772654e6"
+  },
+  "schema_version": "1",
+  "screenshots": [
+    {
+      "bytes": 171339,
+      "path": "migration/v2/phase1/shell/screenshots/desktop-library.png",
+      "profile": "desktop-library",
+      "sha256": "e96e8bf1b14bca0dd4c19077a4dc85f584aabe65e0df7240192ec8191d7c2faa"
+    },
+    {
+      "bytes": 92380,
+      "path": "migration/v2/phase1/shell/screenshots/phone-lead-sheet.png",
+      "profile": "phone-lead-sheet",
+      "sha256": "d5bbb79549d104d28f7b03a37267d72baccc69b7d18b53ddc287aedd396f92a2"
+    },
+    {
+      "bytes": 92460,
+      "path": "migration/v2/phase1/shell/screenshots/tablet-landscape-set-list.png",
+      "profile": "tablet-landscape-set-list",
+      "sha256": "b4ebaac4e2eb5a5976dcbb84957a8c7e040170c41b5eee276ed6c96e294acc46"
+    }
+  ],
+  "shell": {
+    "asset_count": 6,
+    "asset_manifest_sha256": "50642922b9a7e021cb7357b2254bb52abd1083c70fc77807e33d7671e1affb2a",
+    "cache_prefix": "songs-v2-shell-",
+    "indexeddb_name": "songs-v2",
+    "release": "shell-72d3106d38dfec5cc2eaf403"
+  },
+  "task": "TASK-011",
+  "verification": {
+    "output_sha256": "b9d1927ccf5b097b0f6cf24f3f8635e179122ff7c6536c66d1f6ba5f6bed46fd"
+  }
+}

@@ -18,8 +18,8 @@ type errorEnvelope struct {
 
 func (h *apiHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	setAPIHeaders(w)
-	if strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) == "" {
-		writeAPIError(w, http.StatusUnauthorized, "UNAUTHENTICATED", "authentication required")
+	if !authenticatedProxyRequest(r) {
+		writeAPIError(w, http.StatusUnauthorized, "UNAUTHENTICATED", "authentication through the secure exe.dev proxy is required")
 		return
 	}
 	if r.Method != http.MethodGet {
@@ -46,6 +46,12 @@ func (h *apiHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	writeAPIError(w, http.StatusNotFound, "NOT_FOUND", "bootstrap resource not found")
+}
+
+func authenticatedProxyRequest(r *http.Request) bool {
+	proto := strings.TrimSpace(strings.Split(r.Header.Get("X-Forwarded-Proto"), ",")[0])
+	forwardedHost := strings.TrimSpace(strings.Split(r.Header.Get("X-Forwarded-Host"), ",")[0])
+	return strings.EqualFold(proto, "https") && forwardedHost != "" && strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) != ""
 }
 
 func setAPIHeaders(w http.ResponseWriter) {

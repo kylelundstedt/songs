@@ -8,7 +8,7 @@ A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
 The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
 
-V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current 339-song/34-Set-List baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, and TASK-010 now serves the reviewed 12-chunk source/projection/Apex/fit snapshot through an isolated authenticated JSON API on port 8001. TASK-011's React/Vite read-only shell is next. Writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, TASK-010 produced the reviewed bootstrap API, and TASK-011 now serves a verified read-only React/Vite shell on the isolated private TLS origin at port 8001. TASK-012's retained IndexedDB snapshot activation is next. Writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
 
 The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 
@@ -41,7 +41,7 @@ make build
 npm --prefix v2 ci
 make v2-check
 
-# Run the isolated read-only V2 API on port 8001
+# Run the isolated read-only V2 shell and API on port 8001
 make v2-api-run
 ```
 
@@ -56,7 +56,9 @@ migration/notion-candidates/   review-only Notion exports
 migration/                     migration manifests and reports
 v2/packages/read-model/        frozen typed read model and deterministic fixtures
 v2/packages/bootstrap-api/     deterministic reviewed manifest/chunk generator
+v2/packages/web/               isolated verified React/Vite read-only shell
 internal/v2bootstrap/           embedded validator and authenticated JSON API
+internal/v2shell/               embedded shell assets and strict static handler
 scripts/                       Notion export tooling
 tools/                         legacy migration tooling
 srv/                           Go server, templates, PWA assets

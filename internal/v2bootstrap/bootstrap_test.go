@@ -237,6 +237,8 @@ func TestHandlerUsesOnlyLoadedImmutableBytesAndReturnsJSONErrors(t *testing.T) {
 		req := httptest.NewRequest(method, path, nil)
 		if user != "" {
 			req.Header.Set("X-ExeDev-UserID", user)
+			req.Header.Set("X-Forwarded-Proto", "https")
+			req.Header.Set("X-Forwarded-Host", "v2.example:8001")
 		}
 		response := httptest.NewRecorder()
 		handler.ServeHTTP(response, req)
@@ -245,6 +247,13 @@ func TestHandlerUsesOnlyLoadedImmutableBytesAndReturnsJSONErrors(t *testing.T) {
 	unauth := request(http.MethodGet, "/api/v2/bootstrap/manifest", "")
 	if unauth.Code != http.StatusUnauthorized || unauth.Header().Get("Content-Type") != "application/json; charset=utf-8" || bytes.Contains(unauth.Body.Bytes(), []byte("<html")) {
 		t.Fatalf("unauth response=%d %s", unauth.Code, unauth.Body.String())
+	}
+	forgedRequest := httptest.NewRequest(http.MethodGet, "/api/v2/bootstrap/manifest", nil)
+	forgedRequest.Header.Set("X-ExeDev-UserID", "forged-direct-header")
+	forged := httptest.NewRecorder()
+	handler.ServeHTTP(forged, forgedRequest)
+	if forged.Code != http.StatusUnauthorized {
+		t.Fatalf("direct forged identity accepted: %d", forged.Code)
 	}
 	manifestResponse := request(http.MethodGet, "/api/v2/bootstrap/manifest", "user-1")
 	if manifestResponse.Code != http.StatusOK || !bytes.Equal(manifestResponse.Body.Bytes(), snapshot.manifest) {

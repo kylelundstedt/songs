@@ -6,10 +6,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --workspace @songs-v2/read-model && npm run build --workspace @songs-v2/bootstrap-api",
-    "check": "npm run check --workspace @songs-v2/read-model && npm run check --workspace @songs-v2/bootstrap-api",
-    "test": "npm run test --workspace @songs-v2/read-model && npm run test --workspace @songs-v2/bootstrap-api",
-    "fixtures": "npm run fixtures --workspace @songs-v2/read-model && npm run fixtures --workspace @songs-v2/bootstrap-api",
-    "fixtures:generate": "npm run fixtures:generate --workspace @songs-v2/read-model && npm run fixtures:generate --workspace @songs-v2/bootstrap-api"
+    "build": "npm run build --workspace @songs-v2/read-model && npm run build --workspace @songs-v2/bootstrap-api && npm run build --workspace @songs-v2/web",
+    "check": "npm run check --workspace @songs-v2/read-model && npm run check --workspace @songs-v2/bootstrap-api && npm run check --workspace @songs-v2/web",
+    "test": "npm run test --workspace @songs-v2/read-model && npm run test --workspace @songs-v2/bootstrap-api && npm run test --workspace @songs-v2/web",
+    "fixtures": "npm run fixtures --workspace @songs-v2/read-model && npm run fixtures --workspace @songs-v2/bootstrap-api && npm run fixtures --workspace @songs-v2/web",
+    "fixtures:generate": "npm run fixtures:generate --workspace @songs-v2/read-model && npm run fixtures:generate --workspace @songs-v2/bootstrap-api && npm run build --workspace @songs-v2/web"
   }
 }

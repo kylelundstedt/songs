@@ -79,7 +79,7 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-004 — Isolated React/Vite shell
 
-- **Status:** Ready; tracked as TASK-011
+- **Status:** Done on August 10, 2026; tracked as TASK-011
 
 - **Estimate:** 2–3 days
 - **Dependencies:** P1-001 and P1-003 contract
@@ -90,6 +90,8 @@ The range assumes agent-assisted implementation with small commits and determini
 - **Model routing:** Luna implementation, Predictable build fixtures, Terra deployment review.
 
 ### P1-005 — Production IndexedDB snapshot integration
+
+- **Status:** Ready; tracked as TASK-012
 
 - **Estimate:** 2–4 days
 - **Dependencies:** P1-003 and P1-004

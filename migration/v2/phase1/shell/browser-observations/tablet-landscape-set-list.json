@@ -1,0 +1,45 @@
+{
+  "authoring_controls": [],
+  "bootstrap_generation": "phase1-f9634173e25ef4ca4b8330a3",
+  "browser": {
+    "name": "Chromium",
+    "platform": "Linux x86_64",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+    "version": "151.0.7922.72"
+  },
+  "cache_names": [
+    "songs-v2-shell-72d3106d38dfec5cc2eaf403"
+  ],
+  "capture_origin": "http://127.0.0.1:4174/",
+  "capture_topology": "production embedded shell/API via localhost reverse proxy injecting the same trusted headers documented by exe.dev for development",
+  "database_names": [],
+  "entries": 58,
+  "heading": "9Tease Stripped",
+  "inline_style_attributes": 0,
+  "observed": {
+    "device_pixel_ratio": 1,
+    "height": 1024,
+    "max_touch_points": 5,
+    "scroll_height": 4006,
+    "scroll_width": 1366,
+    "width": 1366
+  },
+  "physical_safari_ipad": "pending",
+  "production_origin": "https://kgl-songs.exe.xyz:8001/",
+  "profile": "tablet-landscape-set-list",
+  "requested": {
+    "height": 1024,
+    "mobile": false,
+    "touch": true,
+    "width": 1366
+  },
+  "route": "#/sets/2025-10-13-9tease-stripped",
+  "schema_version": "1",
+  "sections": 3,
+  "service_worker": {
+    "controlled": true,
+    "scope": "http://127.0.0.1:4174/"
+  },
+  "shell_release": "shell-72d3106d38dfec5cc2eaf403",
+  "software_evidence_only": true
+}

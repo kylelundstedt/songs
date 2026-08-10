@@ -1,0 +1,29 @@
+{
+  "origin_listener": {
+    "address": "127.0.0.1:8001",
+    "network_direct_header_spoofing": false,
+    "vm_internal_address_status": "connection-refused"
+  },
+  "plain_http_public_address": {
+    "status": 400
+  },
+  "private_proxy": "exe.dev private proxy requires VM access and injects X-ExeDev identity only after login",
+  "probe_method": "curl with --resolve to public DNS address, bypassing VM-internal hostname resolution",
+  "production_origin": "https://kgl-songs.exe.xyz:8001/",
+  "public_dns_ipv4": "161.210.92.174",
+  "schema_version": "1",
+  "tls": {
+    "certificate_common_name": "exe.xyz",
+    "hsts": true,
+    "negotiated": "TLSv1.3"
+  },
+  "unauthenticated_https": {
+    "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
+    "status": 307
+  },
+  "unauthenticated_https_with_forged_identity_header": {
+    "forged_header_reached_application": false,
+    "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
+    "status": 307
+  }
+}

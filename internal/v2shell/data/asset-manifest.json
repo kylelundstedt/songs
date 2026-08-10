@@ -1,0 +1,55 @@
+{
+  "assets": [
+    {
+      "bytes": 13424,
+      "cache_control": "private, max-age=31536000, immutable",
+      "content_type": "text/css; charset=utf-8",
+      "path": "assets/index-Bb_-wwX_.css",
+      "sha256": "15f041a9baf9e9adf47b3f044929b5edffbdb46977d59b7d3e30d25f37c97100"
+    },
+    {
+      "bytes": 219955,
+      "cache_control": "private, max-age=31536000, immutable",
+      "content_type": "application/javascript; charset=utf-8",
+      "path": "assets/index-oDvr8QXe.js",
+      "sha256": "9b54af9c3b30bf1dab6e0c7d11243c4ca582f7502274022416a3e70117eadf22"
+    },
+    {
+      "bytes": 540,
+      "cache_control": "private, no-store",
+      "content_type": "image/svg+xml",
+      "path": "icon.svg",
+      "sha256": "d6ac2e6ad2a8bd18c4e1433ffb0f8736c3e806cdf9c459945e9f8cc997d2d216"
+    },
+    {
+      "bytes": 818,
+      "cache_control": "private, no-store",
+      "content_type": "text/html; charset=utf-8",
+      "path": "index.html",
+      "sha256": "8da1b4fbe4c733b64c23c72c76b8e6251c8609a0b249dec83817014001a00ed9"
+    },
+    {
+      "bytes": 399,
+      "cache_control": "private, no-store",
+      "content_type": "application/manifest+json",
+      "path": "manifest.webmanifest",
+      "sha256": "f9670593595ef95ce34ea6b0ac5472dffbe24ee0c0d2e44dd48e35a40207c460"
+    },
+    {
+      "bytes": 1287,
+      "cache_control": "private, no-store",
+      "content_type": "application/javascript; charset=utf-8",
+      "path": "sw.js",
+      "sha256": "d44e095b8031477abc497d06ec46c1b2d2ef701cf8a4ae76a20c882689366eb2"
+    }
+  ],
+  "bootstrap_manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+  "cache_prefix": "songs-v2-shell-",
+  "indexeddb_name": "songs-v2",
+  "kind": "songs-v2.shell.assets",
+  "release": "shell-72d3106d38dfec5cc2eaf403",
+  "schema_version": "1",
+  "verification": {
+    "output_sha256": "69c0f4bed3f61bbc655c5226f2e60176dd66da931fb44e066bc5b46a285cfbf3"
+  }
+}

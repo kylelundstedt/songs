@@ -10,9 +10,10 @@ import (
 	"time"
 
 	"songs.exe.dev/internal/v2bootstrap"
+	"songs.exe.dev/internal/v2shell"
 )
 
-var flagListenAddr = flag.String("listen", ":8001", "address for the isolated V2 read-only API")
+var flagListenAddr = flag.String("listen", "127.0.0.1:8001", "address for the isolated V2 read-only shell and API")
 
 func main() {
 	if err := run(); err != nil {
@@ -27,13 +28,17 @@ func run() error {
 	if err != nil {
 		return fmt.Errorf("load reviewed V2 bootstrap snapshot: %w", err)
 	}
+	shell, err := v2shell.LoadEmbedded(snapshot.Handler(), snapshot.ManifestSHA256())
+	if err != nil {
+		return fmt.Errorf("load reviewed V2 shell: %w", err)
+	}
 	server := &http.Server{
 		Addr:              *flagListenAddr,
-		Handler:           snapshot.Handler(),
+		Handler:           shell.Handler(),
 		ReadHeaderTimeout: 5 * time.Second,
 		IdleTimeout:       60 * time.Second,
 	}
-	slog.Info("starting isolated V2 read-only API", "addr", server.Addr, "generation", snapshot.Generation())
+	slog.Info("starting isolated V2 read-only shell", "addr", server.Addr, "generation", snapshot.Generation(), "shell_release", shell.Release())
 	if err := server.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		return err
 	}

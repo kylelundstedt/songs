@@ -68,4 +68,6 @@ TASK-009 is complete. `@songs-v2/read-model` projects those pinned Git objects i
 
 TASK-010 is complete. `@songs-v2/bootstrap-api` generates a reviewed manifest and 12 immutable chunks with complete typed projections, source bytes, source-bound Apex HTML, fit evidence, and slug routes. `cmd/v2api` validates the exact embedded manifest trust anchor once and serves authenticated JSON-only bytes on isolated port 8001 without changing the frozen v1 server.
 
-Phase 1 now proceeds with TASK-011's isolated React/TypeScript shell on the V2 origin. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.
+TASK-011 is complete. React/Vite shell release `shell-72d3106d38dfec5cc2eaf403` verifies the full TASK-010 snapshot before rendering read-only library, lead-sheet, Set List, and status surfaces. The V2 worker caches only isolated shell assets, bypasses the API, and reserves but does not open `songs-v2` IndexedDB. Chromium/software evidence passes; physical Safari/iPad acceptance remains pending.
+
+Phase 1 now proceeds with TASK-012's production IndexedDB staging, retained-generation recovery, and atomic activation on the V2 origin. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.

@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-010.
-- **Current task:** [TASK-011](tasks/TASK-011-isolated-read-only-shell.md), build the isolated React/Vite read-only shell against the reviewed bootstrap API.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-011.
+- **Current task:** [TASK-012](tasks/TASK-012-production-indexeddb-snapshot.md), integrate retained, atomic production IndexedDB snapshot activation.
 
 ## Completed evidence
 
@@ -102,6 +102,16 @@ TASK-010 completed the isolated read-only API:
 - `cmd/v2api` preloads embedded bytes and serves authenticated JSON-only manifest/chunk routes without Node, Git, Apex, filesystem, or importer work per request;
 - `songs-v2-api.service` runs separately on port 8001, while the frozen v1 `srv/` tree and default routes remain byte-identical to TASK-008.
 
+TASK-011 completed the isolated read-only shell:
+
+- deterministic React/Vite release `shell-72d3106d38dfec5cc2eaf403` is bound to the reviewed TASK-010 manifest and embedded behind a strict Go asset inventory/trust anchor;
+- all 373 documents remain hidden until the browser verifies the manifest, 12 chunks, sources, Apex outputs, fit records, routes, entries, and exact counts;
+- read-only library, lead-sheet, Set List, status, loading, authentication, corruption, offline, update, and not-found surfaces expose no renderer or mutation controls;
+- the worker controls only the isolated origin, caches only `songs-v2-shell-*`, bypasses the private API, and opens no IndexedDB database before TASK-012;
+- the origin binds loopback-only; the public port-8001 proxy provides TLS 1.3/private login and does not pass forged unauthenticated identity headers;
+- ten browser-unit/integration tests and three Chromium profile captures cover accessibility, focus, contrast, responsive overflow, Apex semantics/links, corruption races, auth redirects, and namespace isolation;
+- browser evidence is recorded under `migration/v2/phase1/shell/`; physical Safari/iPad acceptance remains pending.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -131,7 +141,7 @@ npm --prefix v2 ci
 make v2-check
 make v2-api-build
 go test ./internal/syncspike/...
-go test -race ./internal/v2bootstrap/...
+go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
 go test ./...
 go vet ./...
 git diff --check
@@ -139,7 +149,7 @@ git diff --check
 
 ## Next tasks
 
-1. Build TASK-011's isolated React/Vite shell against the reviewed read-only API.
-2. Integrate atomic production IndexedDB snapshot activation and retained-generation recovery.
+1. Build TASK-012's retained, atomic production IndexedDB snapshot activation.
+2. Add offline library/search/status behavior over the activated local snapshot.
 3. Continue autonomously through the Phase 1 software checkpoint.
 4. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.

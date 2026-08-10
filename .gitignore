@@ -11,4 +11,5 @@ __pycache__/
 
 # TypeScript workspaces
 /v2/node_modules/
+/v2/packages/*/node_modules/
 /v2/packages/*/dist/

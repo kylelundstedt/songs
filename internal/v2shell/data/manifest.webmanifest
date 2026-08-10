@@ -1,0 +1,18 @@
+{
+  "name": "KGL Songs V2",
+  "short_name": "KGL V2",
+  "description": "Verified read-only lead sheets and Set Lists.",
+  "start_url": "/#/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5efe2",
+  "theme_color": "#14232b",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

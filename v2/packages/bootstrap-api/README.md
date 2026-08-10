@@ -45,7 +45,7 @@ npm --prefix v2 run fixtures
 # Intentional regeneration after reviewed contract changes:
 npm --prefix v2 run fixtures:generate --workspace @songs-v2/bootstrap-api
 make v2-api-build
-./srv/songs-v2-api -listen :8001
+./srv/songs-v2-api -listen 127.0.0.1:8001
 ```
 
 API routes require the trusted exe.dev `X-ExeDev-UserID` identity header:
@@ -53,5 +53,6 @@ API routes require the trusted exe.dev `X-ExeDev-UserID` identity header:
 - `GET /api/v2/bootstrap/manifest`
 - `GET /api/v2/bootstrap/{generation}/chunks/chunk-NNN.json`
 
-All failures under the isolated API are versioned JSON. There is no HTML shell,
-mutation route, Git publication path, or v1 router dependency.
+All failures under the API namespace are versioned JSON. TASK-011 composes a
+separately verified static shell outside `/api/v2/`; API paths never fall back
+to that HTML. There is no mutation route or v1 router dependency.
