@@ -1,30 +1,24 @@
 ---
 schema_version: 1
 id: "2022-07-08-kenwood-party-lc-acoustic-7-8"
-title: "LC Acoustic"
+title: "LC Acoustic — Kenwood Party"
 gig_name: "Kenwood Party"
 date: "2022-07-08"
 date_precision: "day"
 location: "Kenwood Residence (near Château St. Jean)"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 6 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-da86cc1507ac"
 review_required: true
-unresolved_items:
-  - "sld-da86cc1507ac-item-01-015"
-  - "sld-da86cc1507ac-item-01-033"
-  - "sld-da86cc1507ac-item-01-036"
-  - "sld-da86cc1507ac-item-01-037"
-  - "sld-da86cc1507ac-item-01-038"
-  - "sld-da86cc1507ac-item-01-039"
+unresolved_items: []
 source_type: "notion"
 source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 ---
 
-# LC Acoustic
+# LC Acoustic — Kenwood Party
 
 1. [Black](../songs/Black.md)
 2. [Elderly Woman](../songs/Elderly-Woman.md)
@@ -40,7 +34,7 @@ source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 12. [Folsom Prison Blues](../songs/Folsom-Prison-Blues.md)
 13. [With or Without You](../songs/With-Or-Without-You.md)
 14. [Miss You](../songs/Miss-You.md)
-15. [Under The Bridge (E) or Californication](unresolved:under-the-bridge-e-or-californication) — match: unresolved?
+15. [Under The Bridge (E) or Californication](../songs/under-the-bridge-californication.md)
 16. [Ramble On](../songs/Ramble-On.md)
 17. [Badfish](../songs/Badfish.md)
 18. [Santeria](../songs/Santeria.md)
@@ -58,10 +52,9 @@ source_id: "42f1f331-a66f-4ca2-a738-e390d7d84c5d"
 30. [I Want You To](../songs/I-Want-You-To.md)
 31. [Criminal](../songs/Criminal.md)
 32. [Just A Girl](../songs/Just-A-Girl.md)
-33. [Untitled](unresolved:untitled) — match: unresolved?
-34. [Nothing Compares 2 U (C)??](../songs/Nothing-Compares-2-U.md)
-35. [You Oughta Know](../songs/You-Oughta-Know.md)
-36. [She Talks to Angels](unresolved:she-talks-to-angels) — match: unresolved?
-37. [Crash Into Me](unresolved:crash-into-me) — match: unresolved?
-38. [Torn](unresolved:torn) — match: unresolved?
-39. [if you could only see](unresolved:if-you-could-only-see) — match: unresolved?
+33. [Nothing Compares 2 U (C)??](../songs/Nothing-Compares-2-U.md)
+34. [You Oughta Know](../songs/You-Oughta-Know.md)
+35. [She Talks to Angels](../songs/she-talks-to-angels.md)
+36. [Crash Into Me](../songs/crash-into-me.md)
+37. [Torn](../songs/torn.md)
+38. [if you could only see](../songs/if-you-could-only-see.md)

@@ -1,12 +1,12 @@
 ---
 schema_version: 1
 id: "2021-05-15-murphy-s-lc-acoustic"
-title: "LC Acoustic"
+title: "LC Acoustic — Murphy's"
 gig_name: "Murphy's"
 date: "2021-05-15"
 date_precision: "day"
 location: "Murphy's"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
 review_note: "candidate requires review"
@@ -18,7 +18,7 @@ source_type: "notion"
 source_id: "4d71271e-456b-4577-b5ae-2b975f0d2388"
 ---
 
-# LC Acoustic
+# LC Acoustic — Murphy's
 
 1. [Black](../songs/Black.md)
 2. [Cumbersome](../songs/Cumbersome.md)

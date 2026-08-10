@@ -1,0 +1,49 @@
+---
+schema_version: 1
+id: "the-one-i-love"
+title: "The One I Love"
+artist: "R.E.M."
+provenance_status: provider-imported-pending-review
+source_provider: "LRCLIB"
+source_url: "https://lrclib.net/api/get/36535825"
+---
+
+# The One I Love
+
+### Verse 1
+This one goes out to the one I love  
+This one goes out to the one I've left behind  
+A simple prop to occupy my time  
+This one goes out to the one I love
+
+### Chorus
+Fire  
+Fire
+
+### Verse 2
+This one goes out to the one I love  
+This one goes out to the one I've left behind  
+A simple prop to occupy my time  
+This one goes out to the one I love
+
+### Chorus
+Fire  
+(She's comin' down on her own, now)  
+Fire  
+(She's comin' down on her own)
+
+### Verse 3
+This one goes out to the one I love  
+This one goes out to the one I've left behind  
+Another prop has occupied my time  
+This one goes out to the one I love
+
+### Outro
+Fire  
+(She's comin' down on her own, now)  
+Fire  
+(She's comin' down on her own)  
+Fire  
+(She's comin' down on her own, now)  
+Fire  
+(She's comin' down on her own)

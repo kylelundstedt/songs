@@ -1,26 +1,24 @@
 ---
 schema_version: 1
 id: "2023-04-13-jll-lc-acoustic"
-title: "LC Acoustic"
+title: "LC Acoustic — Jack London Lodge"
 gig_name: "Jack London Lodge"
 date: "2023-04-13"
 date_precision: "day"
 location: "Jack London Lodge"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 2 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-40c1eb9b606c"
 review_required: true
-unresolved_items:
-  - "sld-40c1eb9b606c-item-01-026"
-  - "sld-40c1eb9b606c-item-01-027"
+unresolved_items: []
 source_type: "notion"
 source_id: "b3c0c774-dd52-4f2a-bd48-edb092f027f0"
 ---
 
-# LC Acoustic
+# LC Acoustic — Jack London Lodge
 
 1. [Thank You](../songs/Thank-You.md)
 2. [Elderly Woman](../songs/Elderly-Woman.md)
@@ -47,5 +45,5 @@ source_id: "b3c0c774-dd52-4f2a-bd48-edb092f027f0"
 23. [Breakdown](../songs/Breakdown.md)
 24. [You Wreck Me](../songs/You-Wreck-Me.md)
 25. [Fast As You](../songs/Fast-As-You.md)
-26. [American Girl](unresolved:american-girl) — match: unresolved?
-27. [Liza Jane](unresolved:liza-jane) — match: unresolved?
+26. [American Girl](../songs/american-girl.md)
+27. [Liza Jane](../songs/liza-jane.md)

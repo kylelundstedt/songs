@@ -1,25 +1,24 @@
 ---
 schema_version: 1
 id: "2022-06-16-jll-lc-acoustic-6-16"
-title: "LC Acoustic"
+title: "LC Acoustic — Jack London Lodge"
 gig_name: "Jack London Lodge"
 date: "2022-06-16"
 date_precision: "day"
 location: "Jack London Lodge"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 1 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-6e47ecfb4617"
 review_required: true
-unresolved_items:
-  - "sld-6e47ecfb4617-item-01-032"
+unresolved_items: []
 source_type: "notion"
 source_id: "d796e81f-e56f-4457-91a4-8afd60f59e9c"
 ---
 
-# LC Acoustic
+# LC Acoustic — Jack London Lodge
 
 1. [Black](../songs/Black.md)
 2. [Elderly Woman](../songs/Elderly-Woman.md)
@@ -52,7 +51,6 @@ source_id: "d796e81f-e56f-4457-91a4-8afd60f59e9c"
 29. [I Want You To](../songs/I-Want-You-To.md)
 30. [Criminal](../songs/Criminal.md)
 31. [Just A Girl](../songs/Just-A-Girl.md)
-32. [Untitled](unresolved:untitled) — match: unresolved?
-33. [Inside Out](../songs/Inside-Out.md)
-34. [Nothing Compares 2 U (C)??](../songs/Nothing-Compares-2-U.md)
-35. [You Oughta Know](../songs/You-Oughta-Know.md)
+32. [Inside Out](../songs/Inside-Out.md)
+33. [Nothing Compares 2 U (C)??](../songs/Nothing-Compares-2-U.md)
+34. [You Oughta Know](../songs/You-Oughta-Know.md)

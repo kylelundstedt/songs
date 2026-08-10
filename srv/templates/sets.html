@@ -15,7 +15,7 @@
     <label><span>Sort by</span><select data-set-sort><option value="date" selected>Date</option><option value="title">Title</option></select></label>
     <label><span>Order</span><select data-set-order><option value="desc" selected>Reverse</option><option value="asc">Forward</option></select></label>
   </section>
-  {{if .Sets}}<div class="set-grid" data-set-list>{{range .Sets}}<a class="set-row" href="/sets/{{.ID}}" data-set-title="{{.Title}}" data-set-date="{{.Date}}"><strong>{{.Title}}</strong><span class="set-row-meta"><time datetime="{{.Date}}">{{if .Date}}{{.Date}}{{else}}Undated{{end}}</time>{{if eq .Status "draft"}}<span class="set-status-badge">Draft</span>{{end}}{{if .UnresolvedCount}}<span class="set-warning-badge">{{.UnresolvedCount}} unresolved</span>{{end}}</span></a>{{end}}</div>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
+  {{if .Sets}}<div class="set-grid" data-set-list>{{range .Sets}}<a class="set-row" href="/sets/{{.ID}}" data-set-title="{{.Title}}" data-set-date="{{.Date}}"><strong>{{.Title}}</strong><span class="set-row-meta"><time datetime="{{.Date}}">{{if .Date}}{{.Date}}{{else}}Undated{{end}}</time>{{if .UnresolvedCount}}<span class="set-warning-badge">{{.UnresolvedCount}} unresolved</span>{{end}}</span></a>{{end}}</div>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
 </main>
 <script src="/static/app.js" defer></script>
 </body></html>

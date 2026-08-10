@@ -9,12 +9,11 @@ location: ""
 band: ""
 band_review: ""
 metadata_review: "confirmed"
-review_note: "candidate requires review; 1 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-e0a5a3eee6e9"
 review_required: true
-unresolved_items:
-  - "sld-e0a5a3eee6e9-item-01-004"
+unresolved_items: []
 source_type: "notion"
 source_id: "840d3d08-7198-45c5-8b45-6a9b9b1eefac"
 ---
@@ -24,7 +23,7 @@ source_id: "840d3d08-7198-45c5-8b45-6a9b9b1eefac"
 1. [Born To Run](../songs/Born-To-Run.md)
 2. [1979](../songs/1979.md)
 3. [Santeria](../songs/Santeria.md)
-4. [Hollywood Nights (E)](unresolved:hollywood-nights) — match: unresolved?
+4. [Hollywood Nights (E)](../songs/hollywood-nights.md)
 5. [Ramble On](../songs/Ramble-On.md)
 6. [Superstition](../songs/Superstition-Single-Version.md)
 7. [The Middle](../songs/The-Middle.md)

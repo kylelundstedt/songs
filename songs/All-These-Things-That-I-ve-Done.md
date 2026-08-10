@@ -72,16 +72,7 @@ Yeah, you're gonna bring yourself down
 
 ### Breakdown 24x
 
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
-I got soul, but I'm not a soldier  
+I got soul, but I'm not a soldier  x10  
 
 ### Chorus 16x
 

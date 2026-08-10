@@ -9,13 +9,11 @@ location: "Stonetree"
 band: "Loosely Covered"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 2 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-d1a834f513cc"
 review_required: true
-unresolved_items:
-  - "sld-d1a834f513cc-item-01-012"
-  - "sld-d1a834f513cc-item-01-014"
+unresolved_items: []
 source_type: "icloud"
 source_id: "loosely-covered-2016-07-08-stonetree"
 ---
@@ -33,9 +31,9 @@ source_id: "loosely-covered-2016-07-08-stonetree"
 9. [Let's get it on](../songs/Let-s-Get-It-On.md)
 10. [Love Shack](../songs/Love-Shack.md)
 11. [Mercy](../songs/Mercy.md)
-12. [Stayin' In Black](unresolved:stayin-in-black) — match: unresolved?
+12. [Stayin' In Black](../songs/stayin-in-black.md)
 13. [Valerie](../songs/Valerie.md)
-14. [What I got / Midnight Hour](unresolved:what-i-got-midnight-hour) — match: unresolved?
+14. [What I got / Midnight Hour](../songs/what-i-got-in-the-midnight-hour.md)
 15. [You Oughta Know](../songs/You-Oughta-Know.md)
 16. [Miss You](../songs/Miss-You.md)
 17. [Thank you falettinme](../songs/Thank-You-Falettinme-Be-Mice-Elf-Agin.md)

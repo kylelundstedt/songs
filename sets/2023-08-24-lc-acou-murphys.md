@@ -1,28 +1,24 @@
 ---
 schema_version: 1
 id: "2023-08-24-lc-acou-murphys"
-title: "LC Acoustic"
+title: "LC Acoustic — Murphy's"
 gig_name: "Murphy's"
 date: "2023-08-24"
 date_precision: "day"
 location: "Murphy's"
-band: "Loosely Covered"
+band: "LC Acoustic"
 band_review: "confirmed"
 metadata_review: "confirmed"
-review_note: "candidate requires review; 4 unresolved item(s)"
+review_note: "candidate requires review"
 status: draft
 draft_id: "sld-751888a3bf13"
 review_required: true
-unresolved_items:
-  - "sld-751888a3bf13-item-01-021"
-  - "sld-751888a3bf13-item-01-025"
-  - "sld-751888a3bf13-item-01-028"
-  - "sld-751888a3bf13-item-01-030"
+unresolved_items: []
 source_type: "notion"
 source_id: "8c909721-6696-4046-939f-372acfef2e9b"
 ---
 
-# LC Acoustic
+# LC Acoustic — Murphy's
 
 1. [Valerie](../songs/Valerie.md)
 2. [I Want You To](../songs/I-Want-You-To.md)
@@ -44,14 +40,14 @@ source_id: "8c909721-6696-4046-939f-372acfef2e9b"
 18. [Can't You See](../songs/Can-t-You-See.md)
 19. [Heard It in a Love Song](../songs/Heard-It-In-A-Love-Song.md)
 20. [You Wreck Me](../songs/You-Wreck-Me.md)
-21. [Hollywood Nights](unresolved:hollywood-nights) — match: unresolved?
+21. [Hollywood Nights](../songs/hollywood-nights.md)
 22. [Little Sister](../songs/Little-Sister.md)
 23. [Turn The Page](../songs/Turn-The-Page.md)
 24. [Fast As You](../songs/Fast-As-You.md)
-25. [Liza Jane](unresolved:liza-jane) — match: unresolved?
+25. [Liza Jane](../songs/liza-jane.md)
 26. [Guitars and Cadillacs](../songs/Guitars-and-Cadillacs.md)
 27. [Folsom Prison Blues](../songs/Folsom-Prison-Blues.md)
-28. [Hands to Yourself](unresolved:hands-to-yourself) — match: unresolved?
+28. [Hands to Yourself](../songs/keep-your-hands-to-yourself.md)
 29. [Jump Jive](../songs/Jump-Jive-Wail.md) — match: normalized?
-30. [Blue Suede Shoes](unresolved:blue-suede-shoes) — match: unresolved?
+30. [Blue Suede Shoes](../songs/blue-suede-shoes.md)
 31. [Breakdown](../songs/Breakdown.md)
