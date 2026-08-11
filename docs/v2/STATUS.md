@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-013.
-- **Current task:** define and implement offline Set List detail and locked Live mode over the active snapshot.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-014.
+- **Current task:** P1-008 browser, accessibility, route, and failure hardening for the complete isolated read-only slice.
 
 ## Completed evidence
 
@@ -134,6 +134,18 @@ TASK-013 completed active-generation offline library/search/status behavior:
 - Chromium reloaded with the API process inactive, made zero `/api/v2/` requests, searched songs and Set Lists locally, and passed five axe surfaces, touch targets, contrast, reduced-motion, focus, and responsive overflow checks;
 - release `shell-89785e5935f3ee0eea606eca` and evidence are recorded under `migration/v2/phase1/library/`; physical Safari/iPad acceptance remains pending and mandatory.
 
+TASK-014 completed offline Set List detail and locked Live mode:
+
+- immutable performance models resolve all 34 Set Lists and 1,076 occurrence identities, preserving duplicates, sections, singer/note context, target paths, and frozen fit records;
+- exact active-pointer-only `#/sets/:slug/live` routes expose a performance-only surface with bounded occurrence navigation, progress announcements, memory-only Bright/Stage Dark themes, and no provider or authoring controls;
+- mounted Live mode revalidates the active physical pointer, stops on cross-tab drift, and requires verified reload rather than reopening stale selectors;
+- authoritative Apex HTML remains hidden source; the v1 automatic fitter is ported with exact sectionization, column breaks, balancing, tablet font/line search, phone scrolling, rendered-overflow checks, and readable fallback;
+- the Chromium corpus harness matches all 1,017 frozen status/body-size/line-height/column-count results: 339 portrait fits, 334 landscape fits plus five warnings, and 339 one-column phone results, with zero false fits;
+- actual latest-set Live traverses all 58 occurrences offline: 58 portrait fits and 57 landscape fits plus the expected Can’t Stop warning at occurrence 39; long phone sheets scroll with fixed 48px navigation controls;
+- direct Live reload and full navigation with the API process inactive make zero API/post-ready requests and do not write local presentation preferences;
+- 85 web tests plus Chromium axe, 48px touch-target, pointer-invalidation, and responsive-overflow evidence pass; keyboard/focus, strict Apex sanitization, reduced-motion CSS, and memory-only themes are covered by source contracts and unit tests;
+- release `shell-8e20346e9b3ac2579dee901a` and evidence are recorded under `migration/v2/phase1/live/`; physical Safari/iPad acceptance remains pending and mandatory.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -163,6 +175,7 @@ npm --prefix v2 ci
 make v2-check
 python3 scripts/build_v2_phase1_storage_evidence.py --check
 python3 scripts/build_v2_phase1_library_evidence.py --check
+python3 scripts/build_v2_phase1_live_evidence.py --check
 make v2-api-build
 go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
@@ -173,6 +186,6 @@ git diff --check
 
 ## Next tasks
 
-1. Build offline Set List detail and locked Live mode over the same active snapshot.
-2. Continue autonomously through the Phase 1 software checkpoint.
+1. Execute P1-008 browser, accessibility, route, update, and failure hardening across the complete isolated read-only slice.
+2. Build the P1-009 software checkpoint and physical-device acceptance package.
 3. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.

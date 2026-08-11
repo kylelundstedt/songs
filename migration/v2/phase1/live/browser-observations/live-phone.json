@@ -1,0 +1,44 @@
+{
+  "api_process": "inactive",
+  "axe_violations": [],
+  "columns": [
+    {
+      "client_height": 3121,
+      "client_width": 368,
+      "scroll_height": 3121,
+      "scroll_width": 368
+    }
+  ],
+  "fit": "scrollable",
+  "form_factor": "phone",
+  "navigation": {
+    "bottom": 836,
+    "position": "fixed",
+    "remains_visible_at_max_scroll": true,
+    "top": 776.40625
+  },
+  "profile": {
+    "device_pixel_ratio": 3,
+    "height": 844,
+    "max_touch_points": 5,
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
+    "width": 390
+  },
+  "progress": "Live progress: 39/58 — occurrence 39 of 58 — Can’t Stop",
+  "schema_version": "1",
+  "scroll_width": 390,
+  "stage": {
+    "client_height": 844,
+    "max_scroll_top": 2562,
+    "scroll_height": 3406
+  },
+  "surface": "phone-warning",
+  "targets": [
+    { "height": 48, "text": "Exit Live", "width": 78.03125 },
+    { "height": 48, "text": "Stage Dark", "width": 95.921875 },
+    { "height": 48, "text": "Previous", "width": 112 },
+    { "height": 48, "text": "Next", "width": 112 }
+  ],
+  "task": "TASK-014",
+  "title": "Can’t Stop"
+}

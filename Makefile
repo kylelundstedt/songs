@@ -14,6 +14,7 @@ v2-check:
 	python3 scripts/build_v2_phase1_shell_evidence.py --check
 	python3 scripts/build_v2_phase1_storage_evidence.py --check
 	python3 scripts/build_v2_phase1_library_evidence.py --check
+	python3 scripts/build_v2_phase1_live_evidence.py --check
 
 v2-api-build:
 	go build -o srv/songs-v2-api ./cmd/v2api

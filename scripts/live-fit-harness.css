@@ -1,0 +1,15 @@
+.fit-harness-stage {
+  position: static;
+  display: block;
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+.fit-harness-viewport { margin: 0; }
+.fit-harness-ipad-portrait { width: 968px; height: 1183px; }
+.fit-harness-ipad-landscape { width: 1310px; height: 834px; }
+.fit-harness-phone { width: 354px; height: 700px; }

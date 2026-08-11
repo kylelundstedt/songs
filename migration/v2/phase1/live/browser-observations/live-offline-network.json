@@ -1,0 +1,25 @@
+{
+  "api_process": "inactive",
+  "api_requests": [],
+  "bootstrap_generation": "phase1-f9634173e25ef4ca4b8330a3",
+  "cache_names": [
+    "songs-v2-shell-8e20346e9b3ac2579dee901a"
+  ],
+  "local_storage_keys": [],
+  "post_reload_live": {
+    "fit": "fit",
+    "progress": "Live progress: 1/58 — occurrence 1 of 58 — Plush",
+    "service_worker_controlled": true,
+    "title": "Plush"
+  },
+  "post_reload_requests": [
+    { "method": "GET", "path": "/", "status": 200, "type": "Document" },
+    { "method": "GET", "path": "/assets/index-BG_tISQy.js", "status": 200, "type": "Script" },
+    { "method": "GET", "path": "/assets/index-B4YJMNSu.css", "status": 200, "type": "Stylesheet" }
+  ],
+  "post_ready_navigation_requests": [],
+  "schema_version": "1",
+  "shell_asset_manifest_sha256": "95d7fbc2113afd99187a6549796a6beeffa7cc20c3a906c21ff8f56b6987582e",
+  "shell_release": "shell-8e20346e9b3ac2579dee901a",
+  "task": "TASK-014"
+}

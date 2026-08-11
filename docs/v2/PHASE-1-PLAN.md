@@ -115,6 +115,8 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-007 — Offline Set List detail and locked Live mode
 
+- **Status:** Done on August 11, 2026; tracked as TASK-014
+
 - **Estimate:** 3–5 days
 - **Dependencies:** P1-002, P1-005, P1-006
 - **Work:** Set List detail, local entry resolution, Apex HTML display, fitter port, previous/next controls, bright/dark themes, and performance-only Live surface.

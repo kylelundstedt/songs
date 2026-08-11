@@ -1,0 +1,42 @@
+{
+  "axe_violations": [],
+  "columns": [
+    {
+      "client_height": 690,
+      "label": "Can’t Stop fitted column 1",
+      "scroll_height": 869,
+      "tab_index": 0
+    },
+    {
+      "client_height": 690,
+      "label": "Can’t Stop fitted column 2",
+      "scroll_height": 890,
+      "tab_index": 0
+    }
+  ],
+  "fit": "needs-editing",
+  "inline_styles": [],
+  "presentation_links": [],
+  "progress": "Live progress: 39/58 — occurrence 39 of 58 — Can’t Stop",
+  "schema_version": "1",
+  "scroll_width": 1366,
+  "source": {
+    "connected_content": false,
+    "tag": "TEMPLATE"
+  },
+  "surface": "landscape-warning-dark",
+  "targets": [
+    { "height": 48, "text": "Exit Live", "width": 102.921875 },
+    { "height": 48, "text": "Bright", "width": 82.0625 },
+    { "height": 48, "text": "Previous", "width": 112 },
+    { "height": 48, "text": "Next", "width": 112 }
+  ],
+  "task": "TASK-014",
+  "theme": "dark",
+  "title": "Can’t Stop",
+  "warning": [
+    "Frozen warning: iPad landscape fit needs editing; Live may scroll at the 16px floor.",
+    "Runtime fit warning: this viewport needs scrolling at the readability floor."
+  ],
+  "width": 1366
+}

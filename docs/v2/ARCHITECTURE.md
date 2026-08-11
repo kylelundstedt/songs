@@ -74,4 +74,6 @@ TASK-012 is complete. Shell release `shell-48b974860e16510f36131506` stores revi
 
 TASK-013 is complete. Shell release `shell-89785e5935f3ee0eea606eca` constructs immutable indexes only for a verified snapshot matching the active IndexedDB pointer, searches reviewed song and Set List fields locally, exposes exact freshness/storage/reference/fit/exclusion diagnostics, and retains browse/search after a failed update when the active pointer remains valid. Chromium reloaded and searched with the API process inactive and made zero API requests; physical Safari/iPad acceptance remains pending.
 
-Phase 1 now proceeds with offline Set List detail and locked Live mode. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.
+TASK-014 is complete. Shell release `shell-8e20346e9b3ac2579dee901a` resolves every Set Entry occurrence into an immutable local performance sequence, exposes exact active-pointer-only locked Live routes, ports the proven Apex fitter, and provides bounded keyboard/touch navigation with memory-only Bright/Stage Dark themes. Chromium corpus, actual-route, offline, accessibility, and pointer-invalidation evidence pass; physical Safari/iPad acceptance remains pending.
+
+Phase 1 now proceeds with P1-008 browser, accessibility, route, update, and failure hardening. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.

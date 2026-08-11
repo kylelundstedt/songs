@@ -1,12 +1,24 @@
 import { Component, useEffect, useMemo, useRef, useState, type ErrorInfo, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
-import { BootstrapClientError, type LeadSheetDocument, type SetListDocument, type VerifiedSnapshot } from "./bootstrap/types";
+import { BootstrapClientError, type LeadSheetDocument, type VerifiedSnapshot } from "./bootstrap/types";
 import { type SnapshotProgress } from "./bootstrap/load";
 import { bootstrapRuntime, type BootstrapRuntimeStatus } from "./bootstrap/runtime";
 import { buildLibraryIndex, type LibraryIndex, type LibrarySet, type LibrarySong, type SetSearchField, type SongSearchField } from "./library";
-import { SONGS_STORAGE_NAME } from "./storage";
+import { LiveSetPage } from "./live/LiveSetPage";
+import { buildPerformanceSet, type PerformanceSet } from "./live/model";
+import { openSongsStorage, SONGS_STORAGE_NAME } from "./storage";
 import "./styles.css";
 
 const CACHE_PREFIX = "songs-v2-shell-";
+let deferredControllerReload = false;
+
+function rawHashPath(): string {
+  const raw = window.location.hash.slice(1) || "/";
+  return raw.startsWith("/") && !raw.includes("?") && !raw.includes("#") ? raw : "/not-found";
+}
+
+function exactLiveHash(): boolean {
+  return /^\/sets\/[^/]+\/live$/.test(rawHashPath());
+}
 
 type LoadState =
   | { readonly status: "loading"; readonly progress: SnapshotProgress }
@@ -14,10 +26,7 @@ type LoadState =
   | { readonly status: "error"; readonly error: BootstrapClientError };
 
 function useHashPath(): string {
-  const read = () => {
-    const raw = window.location.hash.slice(1) || "/";
-    try { return new URL(raw, window.location.origin).pathname; } catch { return "/not-found"; }
-  };
+  const read = () => rawHashPath();
   const [path, setPath] = useState(read);
   useEffect(() => {
     const update = () => setPath(read());
@@ -80,11 +89,30 @@ function useServiceWorker(activeManifestSha256?: string | null, offlineReady = f
   const [canApply, setCanApply] = useState(false);
   useEffect(() => {
     if (!("serviceWorker" in navigator)) { setState("unsupported"); return; }
-    const controllerChanged = () => window.location.reload();
+    const controllerChanged = () => {
+      if (exactLiveHash()) {
+        deferredControllerReload = true;
+        setMessage("A shell update is ready. Exit locked Live mode before reloading.");
+        return;
+      }
+      window.location.reload();
+    };
+    const routeChanged = () => {
+      if (deferredControllerReload && !exactLiveHash()) { window.location.reload(); return; }
+      if (!exactLiveHash()) {
+        if (currentRegistration === undefined) void ensureRegistration();
+        else void currentRegistration.update().catch(() => undefined);
+      }
+    };
     navigator.serviceWorker.addEventListener("controllerchange", controllerChanged);
+    window.addEventListener("hashchange", routeChanged);
     let alive = true;
-    navigator.serviceWorker.register("/sw.js", { scope: "/" }).then((next) => {
+    let currentRegistration: ServiceWorkerRegistration | undefined;
+    let registrationPending = false;
+    const acceptRegistration = (next: ServiceWorkerRegistration | undefined): void => {
       if (!alive) return;
+      if (next === undefined) { setState("unsupported"); return; }
+      currentRegistration = next;
       setRegistration(next);
       setState(next.waiting ? "update-available" : "current");
       next.addEventListener("updatefound", () => {
@@ -95,8 +123,21 @@ function useServiceWorker(activeManifestSha256?: string | null, offlineReady = f
           if (worker.state === "installed") setState(navigator.serviceWorker.controller === null ? "current" : "update-available");
         });
       });
-    }).catch(() => { if (alive) setState("unsupported"); });
-    return () => { alive = false; navigator.serviceWorker.removeEventListener("controllerchange", controllerChanged); };
+    };
+    const ensureRegistration = async (): Promise<void> => {
+      if (!alive || currentRegistration !== undefined || registrationPending) return;
+      registrationPending = true;
+      try { acceptRegistration(await navigator.serviceWorker.register("/sw.js", { scope: "/" })); }
+      catch { if (alive) setState("unsupported"); }
+      finally { registrationPending = false; }
+    };
+    if (exactLiveHash()) navigator.serviceWorker.getRegistration("/").then(acceptRegistration).catch(() => { if (alive) setState("unsupported"); });
+    else void ensureRegistration();
+    return () => {
+      alive = false;
+      navigator.serviceWorker.removeEventListener("controllerchange", controllerChanged);
+      window.removeEventListener("hashchange", routeChanged);
+    };
   }, []);
   useEffect(() => {
     let alive = true;
@@ -343,18 +384,18 @@ function LeadSheetPage({ song, snapshot }: { readonly song: LeadSheetDocument; r
   </article>;
 }
 
-function SetListPage({ setList, snapshot }: { readonly setList: SetListDocument; readonly snapshot: VerifiedSnapshot }) {
-  const entryById = new Map(setList.projection.entries.map((entry) => [entry.id, entry]));
+function SetListPage({ performanceSet }: { readonly performanceSet: PerformanceSet }) {
+  const setList = performanceSet.document;
+  const entryById = new Map(performanceSet.entries.map((entry) => [entry.entryId, entry]));
   return <article className="detail-page">
     <nav className="breadcrumbs" aria-label="Breadcrumb"><Link to="/sets">Set Lists</Link><span aria-hidden="true">/</span><span>{setList.projection.title}</span></nav>
-    <header className="detail-header"><div><p className="eyebrow">Read-only Set List</p><h1 tabIndex={-1} data-page-heading>{setList.projection.title}</h1><p className="artist">{[setList.projection.metadata.date, setList.projection.metadata.location].filter(Boolean).join(" · ")}</p></div><span className="set-total">{setList.projection.entries.length} songs</span></header>
+    <header className="detail-header"><div><p className="eyebrow">Read-only Set List</p><h1 tabIndex={-1} data-page-heading>{setList.projection.title}</h1><p className="artist">{[setList.projection.metadata.date, setList.projection.metadata.location].filter(Boolean).join(" · ")}</p></div><div className="set-detail-actions"><span className="set-total">{performanceSet.entries.length} songs</span><Link to={`/sets/${performanceSet.slug}/live`} className="primary-button live-launch">Open locked Live</Link></div></header>
     {setList.projection.metadata.reviewRequired && <p className="warning-banner">This frozen Set List is marked review required.</p>}
+    {performanceSet.warningOccurrences.length > 0 && <p className="warning-banner">{performanceSet.warningOccurrences.length} occurrence{performanceSet.warningOccurrences.length === 1 ? " has" : "s have"} an explicit iPad landscape fit warning. Live mode remains readable at the 16px floor with scrolling.</p>}
     <div className="set-sections">{setList.projection.sections.map((section) => <section key={section.projectionKey} className="set-section"><h2>{section.heading || `Set ${section.ordinal}`}</h2><ol>{section.entryIds.map((entryId) => {
       const entry = entryById.get(entryId);
       if (entry === undefined) return <li key={entryId} className="missing-entry">Missing frozen entry {entryId}</li>;
-      const target = snapshot.documentsById.get(entry.targetLeadSheetId);
-      const route = snapshot.songRouteById.get(entry.targetLeadSheetId);
-      return <li key={entry.id} className={entry.columnBreakBefore ? "column-break" : undefined}><span className="ordinal">{entry.ordinal}</span><div><strong>{route && target?.kind === "lead-sheet" ? <Link to={`/songs/${route.slug}`}>{entry.label}</Link> : entry.label}</strong>{entry.singer && <span className="entry-detail"><b>Singer</b> {entry.singer}</span>}{entry.note && <span className="entry-detail"><b>Note</b> {entry.note}</span>}</div></li>;
+      return <li key={entry.entryId} data-entry-id={entry.entryId} className={entry.columnBreakBefore ? "column-break" : undefined}><span className="ordinal">{entry.ordinal}</span><div><strong><Link to={`/songs/${entry.song.slug}`}>{entry.label}</Link></strong>{entry.singer && <span className="entry-detail"><b>Singer</b> {entry.singer}</span>}{entry.note && <span className="entry-detail"><b>Note</b> {entry.note}</span>}{entry.landscapeWarning && <span className="entry-detail live-fit-warning"><b>Fit</b> iPad landscape needs scrolling at the 16px floor</span>}</div></li>;
     })}</ol></section>)}</div>
   </article>;
 }
@@ -458,6 +499,18 @@ function decodedRouteSegment(value: string): string | undefined {
   try { return decodeURIComponent(value); } catch { return undefined; }
 }
 
+function exactSongSlug(path: string): string | undefined {
+  const match = /^\/songs\/([^/]+)$/.exec(path);
+  return match === null ? undefined : decodedRouteSegment(match[1]!);
+}
+
+function exactSetRoute(path: string): { readonly slug: string; readonly live: boolean } | undefined {
+  const match = /^\/sets\/([^/]+)(\/live)?$/.exec(path);
+  if (match === null) return undefined;
+  const slug = decodedRouteSegment(match[1]!);
+  return slug === undefined ? undefined : { slug, live: match[2] === "/live" };
+}
+
 function activeSnapshotFor(snapshot: VerifiedSnapshot, runtime: BootstrapRuntimeStatus): boolean {
   return runtime.source === "indexeddb" && runtime.activeGeneration === snapshot.manifest.generation;
 }
@@ -487,28 +540,78 @@ function InactiveSnapshotPage({ snapshot, runtime }: { readonly snapshot: Verifi
   </section>;
 }
 
-export function ReadyApp({ snapshot, online, update, runtime }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly runtime: BootstrapRuntimeStatus }) {
+type ActiveGenerationInspector = () => Promise<string | null>;
+
+async function inspectActiveStorageGeneration(): Promise<string | null> {
+  const storage = await openSongsStorage();
+  try { return (await storage.inspect()).activeGeneration; }
+  finally { storage.close(); }
+}
+
+export function GuardedLiveSetPage({ performanceSet, exitHref, expectedStorageGeneration, inspectActiveGeneration = inspectActiveStorageGeneration }: { readonly performanceSet: PerformanceSet; readonly exitHref: string; readonly expectedStorageGeneration?: string | null | undefined; readonly inspectActiveGeneration?: ActiveGenerationInspector }) {
+  const [guard, setGuard] = useState<"checking" | "active" | "stopped">("checking");
+  useEffect(() => {
+    let alive = true;
+    let checking = false;
+    const inspect = async (): Promise<void> => {
+      if (!alive || checking) return;
+      checking = true;
+      try {
+        const activeGeneration = await inspectActiveGeneration();
+        const matches = expectedStorageGeneration !== undefined
+          && expectedStorageGeneration !== null
+          && activeGeneration === expectedStorageGeneration;
+        if (alive) setGuard((current) => current === "stopped" ? "stopped" : matches ? "active" : "stopped");
+      } catch {
+        if (alive) setGuard("stopped");
+      } finally { checking = false; }
+    };
+    const visible = () => { if (document.visibilityState === "visible") void inspect(); };
+    const timer = window.setInterval(() => { void inspect(); }, 5_000);
+    document.addEventListener("visibilitychange", visible);
+    window.addEventListener("pageshow", inspect);
+    void inspect();
+    return () => {
+      alive = false;
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", visible);
+      window.removeEventListener("pageshow", inspect);
+    };
+  }, [expectedStorageGeneration, inspectActiveGeneration]);
+  if (guard === "checking") return <main className="locked-live-stage locked-live-theme-dark" aria-label="Locked Live mode checking"><section className="locked-live-panel locked-live-invalid" role="status"><p className="locked-live-eyebrow">Verifying active snapshot</p><h1 className="locked-live-title">Opening locked Live safely</h1><p>Confirming this tab still matches the active IndexedDB pointer generation.</p></section></main>;
+  if (guard === "stopped") return <main className="locked-live-stage locked-live-theme-dark" aria-label="Locked Live mode stopped"><section className="locked-live-panel locked-live-invalid" role="alert"><p className="locked-live-eyebrow">Active snapshot changed</p><h1 className="locked-live-title">Locked Live stopped safely</h1><p>This tab no longer matches the active IndexedDB pointer generation. Reload verified content before continuing.</p><button className="locked-live-nav-button" type="button" onClick={() => window.location.reload()}>Reload verified content</button></section></main>;
+  return <LiveSetPage key={performanceSet.id} performanceSet={performanceSet} exitHref={exitHref} />;
+}
+
+export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGeneration }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly runtime: BootstrapRuntimeStatus; readonly inspectActiveGeneration?: ActiveGenerationInspector }) {
   const path = useHashPath();
   const active = activeSnapshotFor(snapshot, runtime);
   const index = useMemo(() => active ? buildLibraryIndex(snapshot) : null, [active, snapshot]);
   const selectorsClosed = !active;
   const offlineReady = durableOfflineReady(snapshot, runtime);
+  const songSlug = exactSongSlug(path);
+  const setRoute = exactSetRoute(path);
+  const routedSet = useMemo(() => index === null || setRoute === undefined ? null : index.setBySlug(setRoute.slug), [index, setRoute?.slug]);
+  const routedPerformanceSet = useMemo(() => index === null || routedSet === null ? null : buildPerformanceSet(index, routedSet), [index, routedSet]);
   useEffect(() => { document.querySelector<HTMLElement>("[data-page-heading]")?.focus(); window.scrollTo({ top: 0, behavior: "auto" }); }, [path]);
   let page: ReactNode;
+  let livePage: ReactNode = null;
   if (path === "/status") page = <StatusPage index={index} snapshot={snapshot} online={online} update={update} runtime={runtime} />;
   else if (selectorsClosed || index === null) page = <InactiveSnapshotPage snapshot={snapshot} runtime={runtime} />;
   else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} />;
   else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} />;
   else if (path === "/sets") page = <SetsPage index={index} snapshot={snapshot} />;
-  else if (path.startsWith("/songs/")) {
-    const slug = decodedRouteSegment(path.slice(7));
-    const song = slug === undefined ? null : index.songBySlug(slug);
+  else if (songSlug !== undefined) {
+    const song = index.songBySlug(songSlug);
     page = song === null ? <NotFound /> : <LeadSheetPage song={song.document} snapshot={snapshot} />;
-  } else if (path.startsWith("/sets/")) {
-    const slug = decodedRouteSegment(path.slice(6));
-    const setList = slug === undefined ? null : index.setBySlug(slug);
-    page = setList === null ? <NotFound /> : <SetListPage setList={setList.document} snapshot={snapshot} />;
+  } else if (setRoute !== undefined) {
+    if (routedSet === null || routedPerformanceSet === null) page = <NotFound />;
+    else if (setRoute.live) {
+      livePage = <GuardedLiveSetPage performanceSet={routedPerformanceSet} exitHref={`#/sets/${routedSet.slug}`} expectedStorageGeneration={runtime.activeStorageGeneration} {...(inspectActiveGeneration === undefined ? {} : { inspectActiveGeneration })} />;
+      page = null;
+    } else page = <SetListPage performanceSet={routedPerformanceSet} />;
   } else page = <NotFound />;
+  if (livePage !== null) return <>{livePage}</>;
   return <><Header path={path} online={online} update={update} recoveryPending={selectorsClosed} /><main id="main">
     {active && !online && <div className="offline-banner" role="status">Offline — browse and search are local. {offlineReady ? "Using the active verified snapshot saved in IndexedDB." : "This active snapshot is not ready for offline restart."}</div>}
     {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}
@@ -535,7 +638,25 @@ export function App() {
   const [attempt, setAttempt] = useState(0);
   const [state, setState] = useState<LoadState>({ status: "loading", progress: { phase: "manifest", completed: 0, total: 1 } });
   const online = useOnline();
+  const previousOnline = useRef(online);
+  const deferredConnectivityRefresh = useRef(false);
   const update = useServiceWorker(state.status === "ready" ? state.runtime.manifestSha256 : null, state.status === "ready" && durableOfflineReady(state.snapshot, state.runtime));
+  useEffect(() => {
+    if (previousOnline.current === online) return;
+    previousOnline.current = online;
+    if (exactLiveHash()) deferredConnectivityRefresh.current = true;
+    else setAttempt((value) => value + 1);
+  }, [online]);
+  useEffect(() => {
+    const routeChanged = (): void => {
+      if (!exactLiveHash() && deferredConnectivityRefresh.current) {
+        deferredConnectivityRefresh.current = false;
+        setAttempt((value) => value + 1);
+      }
+    };
+    window.addEventListener("hashchange", routeChanged);
+    return () => window.removeEventListener("hashchange", routeChanged);
+  }, []);
   useEffect(() => {
     const controller = new AbortController();
     let alive = true;
@@ -545,7 +666,7 @@ export function App() {
       setState({ status: "error", error: error instanceof BootstrapClientError ? error : new BootstrapClientError("API_PROTOCOL_INVALID", "An unexpected bootstrap error occurred", error) });
     });
     return () => { alive = false; controller.abort(); };
-  }, [attempt, online]);
+  }, [attempt]);
   if (state.status === "ready") return <ReadyApp snapshot={state.snapshot} online={online} update={update} runtime={state.runtime} />;
   return <><Header path="/" online={online} update={update} /><main id="main">{state.status === "loading" ? <Loading progress={state.progress} /> : <ErrorState error={state.error} retry={() => setAttempt((value) => value + 1)} />}</main></>;
 }

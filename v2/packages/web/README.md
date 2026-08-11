@@ -1,6 +1,6 @@
 # KGL Songs V2 read-only shell
 
-React/Vite shell for TASK-011 through TASK-013. The production build is generated
+React/Vite shell for TASK-011 through TASK-014. The production build is generated
 deterministically into `internal/v2shell/data/` and embedded by `cmd/v2api` on
 the isolated port-8001 origin.
 

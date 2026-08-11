@@ -1,0 +1,10 @@
+{
+  "elapsed_ms": 956,
+  "heading": "Locked Live stopped safely",
+  "reload_control": "Reload verified content",
+  "schema_version": "1",
+  "stale_exit_link": false,
+  "stopped": true,
+  "surface": "pointer-invalidation",
+  "task": "TASK-014"
+}

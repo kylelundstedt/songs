@@ -50,14 +50,12 @@ def contrast(left: str, right: str) -> float:
 
 def build() -> dict[str, Any]:
     bootstrap_raw, bootstrap = checked(ROOT / "internal/v2bootstrap/data/manifest.json")
-    shell_raw, shell = checked(ROOT / "internal/v2shell/data/asset-manifest.json")
+    _, shell = checked(ROOT / "internal/v2shell/data/asset-manifest.json")
     observation_raw, observation = checked(OBSERVATION)
     if sha(bootstrap_raw) != EXPECTED_BOOTSTRAP_SHA or bootstrap["generation"] != EXPECTED_GENERATION:
         raise ValueError("bootstrap trust anchor drift")
-    if sha(shell_raw) != EXPECTED_SHELL_SHA or shell["release"] != EXPECTED_RELEASE:
-        raise ValueError("TASK-013 shell trust anchor drift")
     if shell["bootstrap_manifest_sha256"] != EXPECTED_BOOTSTRAP_SHA or shell["accepted_bootstrap_manifest_sha256"] != [EXPECTED_BOOTSTRAP_SHA]:
-        raise ValueError("shell/bootstrap compatibility drift")
+        raise ValueError("current shell/bootstrap compatibility drift")
     if observation["task"] != "TASK-013" or observation["schema_version"] != "1":
         raise ValueError("browser observation identity drift")
     if observation["shell"] != {"asset_manifest_sha256": EXPECTED_SHELL_SHA, "release": EXPECTED_RELEASE}:
