@@ -127,6 +127,8 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-008 — Browser, accessibility, and failure hardening
 
+- **Status:** Done on August 11, 2026; tracked as TASK-015
+
 - **Estimate:** 3–5 days
 - **Dependencies:** P1-004 through P1-007
 - **Work:** desktop/tablet/phone automation, offline/no-network assertions, update/interruption tests, route compatibility, keyboard/touch accessibility, and retained-snapshot recovery.

@@ -1,0 +1,618 @@
+{
+  "canonical_routes": [
+    {
+      "hash": "#/",
+      "name": "dashboard"
+    },
+    {
+      "hash": "#/songs",
+      "name": "songs"
+    },
+    {
+      "hash": "#/songs/1979",
+      "name": "song-1979"
+    },
+    {
+      "hash": "#/sets",
+      "name": "sets"
+    },
+    {
+      "hash": "#/sets/2025-10-13-9tease-stripped",
+      "name": "set-detail"
+    },
+    {
+      "hash": "#/sets/2025-10-13-9tease-stripped/live",
+      "name": "set-live"
+    },
+    {
+      "hash": "#/status",
+      "name": "status"
+    }
+  ],
+  "invalid_hashes": [
+    "#/no-such-route",
+    "#/songs/%",
+    "#/sets/2025-10-13-9tease-stripped/live/extra",
+    "#/sets/2025-10-13-9tease-stripped/live?unexpected=1",
+    "#https://example.test/sets/foo/live"
+  ],
+  "profiles": {
+    "desktop": {
+      "invalid_hash_routes": {
+        "#/no-such-route": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live/extra": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live?unexpected=1": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          },
+          "shell_fallback": false
+        },
+        "#/songs/%": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          },
+          "shell_fallback": false
+        },
+        "#https://example.test/sets/foo/live": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          },
+          "shell_fallback": false
+        }
+      },
+      "routes": {
+        "dashboard": {
+          "aria_current": [
+            {
+              "text": "Library",
+              "value": "page"
+            }
+          ],
+          "heading": "Your gig book, without the edit controls",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          }
+        },
+        "set-detail": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "9Tease Stripped",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          }
+        },
+        "set-live": {
+          "aria_current": [],
+          "heading": "Plush",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          }
+        },
+        "sets": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "Set Lists",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          }
+        },
+        "song-1979": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "1979",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          }
+        },
+        "songs": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "Songs",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          }
+        },
+        "status": {
+          "aria_current": [
+            {
+              "text": "Status",
+              "value": "page"
+            }
+          ],
+          "heading": "Snapshot status",
+          "overflow": {
+            "bodyScrollWidth": 1280,
+            "innerWidth": 1280,
+            "scrollWidth": 1280
+          }
+        }
+      }
+    },
+    "phone": {
+      "invalid_hash_routes": {
+        "#/no-such-route": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live/extra": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live?unexpected=1": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          },
+          "shell_fallback": false
+        },
+        "#/songs/%": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          },
+          "shell_fallback": false
+        },
+        "#https://example.test/sets/foo/live": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          },
+          "shell_fallback": false
+        }
+      },
+      "routes": {
+        "dashboard": {
+          "aria_current": [
+            {
+              "text": "Library",
+              "value": "page"
+            }
+          ],
+          "heading": "Your gig book, without the edit controls",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          }
+        },
+        "set-detail": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "9Tease Stripped",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          }
+        },
+        "set-live": {
+          "aria_current": [],
+          "heading": "Plush",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          }
+        },
+        "sets": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "Set Lists",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          }
+        },
+        "song-1979": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "1979",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          }
+        },
+        "songs": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "Songs",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          }
+        },
+        "status": {
+          "aria_current": [
+            {
+              "text": "Status",
+              "value": "page"
+            }
+          ],
+          "heading": "Snapshot status",
+          "overflow": {
+            "bodyScrollWidth": 390,
+            "innerWidth": 390,
+            "scrollWidth": 390
+          }
+        }
+      }
+    },
+    "tablet-landscape": {
+      "invalid_hash_routes": {
+        "#/no-such-route": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live/extra": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live?unexpected=1": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          },
+          "shell_fallback": false
+        },
+        "#/songs/%": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          },
+          "shell_fallback": false
+        },
+        "#https://example.test/sets/foo/live": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          },
+          "shell_fallback": false
+        }
+      },
+      "routes": {
+        "dashboard": {
+          "aria_current": [
+            {
+              "text": "Library",
+              "value": "page"
+            }
+          ],
+          "heading": "Your gig book, without the edit controls",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          }
+        },
+        "set-detail": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "9Tease Stripped",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          }
+        },
+        "set-live": {
+          "aria_current": [],
+          "heading": "Plush",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          }
+        },
+        "sets": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "Set Lists",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          }
+        },
+        "song-1979": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "1979",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          }
+        },
+        "songs": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "Songs",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          }
+        },
+        "status": {
+          "aria_current": [
+            {
+              "text": "Status",
+              "value": "page"
+            }
+          ],
+          "heading": "Snapshot status",
+          "overflow": {
+            "bodyScrollWidth": 1366,
+            "innerWidth": 1366,
+            "scrollWidth": 1366
+          }
+        }
+      }
+    },
+    "tablet-portrait": {
+      "invalid_hash_routes": {
+        "#/no-such-route": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live/extra": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          },
+          "shell_fallback": false
+        },
+        "#/sets/2025-10-13-9tease-stripped/live?unexpected=1": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          },
+          "shell_fallback": false
+        },
+        "#/songs/%": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          },
+          "shell_fallback": false
+        },
+        "#https://example.test/sets/foo/live": {
+          "heading": "Page not found",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          },
+          "shell_fallback": false
+        }
+      },
+      "routes": {
+        "dashboard": {
+          "aria_current": [
+            {
+              "text": "Library",
+              "value": "page"
+            }
+          ],
+          "heading": "Your gig book, without the edit controls",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          }
+        },
+        "set-detail": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "9Tease Stripped",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          }
+        },
+        "set-live": {
+          "aria_current": [],
+          "heading": "Plush",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          }
+        },
+        "sets": {
+          "aria_current": [
+            {
+              "text": "Set Lists",
+              "value": "page"
+            }
+          ],
+          "heading": "Set Lists",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          }
+        },
+        "song-1979": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "1979",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          }
+        },
+        "songs": {
+          "aria_current": [
+            {
+              "text": "Songs",
+              "value": "page"
+            }
+          ],
+          "heading": "Songs",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          }
+        },
+        "status": {
+          "aria_current": [
+            {
+              "text": "Status",
+              "value": "page"
+            }
+          ],
+          "heading": "Snapshot status",
+          "overflow": {
+            "bodyScrollWidth": 1024,
+            "innerWidth": 1024,
+            "scrollWidth": 1024
+          }
+        }
+      }
+    }
+  },
+  "schema_version": "1"
+}

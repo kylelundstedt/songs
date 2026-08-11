@@ -11,9 +11,11 @@ import {
   openSongsStorage,
   SongsStorageError,
   type ActivationOptions,
+  type ActivationResult,
   type BeginStageOptions,
   type GenerationInfo,
   type RecoveryOptions,
+  type RecoveryResult,
   type StorageInspection,
   type StoredGeneration,
 } from "../storage";
@@ -26,6 +28,18 @@ import {
 
 /** The release epoch understood by this shell. Newer persisted epochs are opaque. */
 export const BOOTSTRAP_RELEASE_EPOCH = 1 as const;
+export const ACTIVE_POINTER_CHANNEL = "songs-v2-active-pointer" as const;
+
+function announceActivePointerChange(activeGeneration: string, transitionCount: number): void {
+  if (typeof BroadcastChannel === "undefined") return;
+  try {
+    const channel = new BroadcastChannel(ACTIVE_POINTER_CHANNEL);
+    channel.postMessage({ activeGeneration, transitionCount });
+    channel.close();
+  } catch {
+    // Polling and foreground checks remain the fallback authority.
+  }
+}
 
 export type BootstrapUpdate = "current" | "activated" | "recovered" | "memory-only" | "failed-retained";
 export type BootstrapSource = "indexeddb" | "network" | "memory";
@@ -105,8 +119,8 @@ export interface BootstrapStorageRepository {
     artifacts: readonly { readonly path: string; readonly bytes: ArrayBuffer; readonly catalog?: ArtifactCatalog }[],
   ) => Promise<void>;
   readonly markVerified: <Catalog = unknown>(generation: string) => Promise<GenerationInfo<Catalog>>;
-  readonly activate: (generation: string, options?: ActivationOptions) => Promise<unknown>;
-  readonly recoverRetained: (generation: string, options?: RecoveryOptions) => Promise<unknown>;
+  readonly activate: (generation: string, options?: ActivationOptions) => Promise<ActivationResult>;
+  readonly recoverRetained: (generation: string, options?: RecoveryOptions) => Promise<RecoveryResult>;
   readonly readGeneration: <GenerationCatalog = unknown, ChunkCatalog = unknown, ArtifactCatalog = unknown>(generation: string) => Promise<StoredGeneration<GenerationCatalog, ChunkCatalog, ArtifactCatalog> | null>;
   readonly readActiveGeneration: <GenerationCatalog = unknown, ChunkCatalog = unknown, ArtifactCatalog = unknown>() => Promise<StoredGeneration<GenerationCatalog, ChunkCatalog, ArtifactCatalog> | null>;
   readonly readRetainedGeneration: <GenerationCatalog = unknown, ChunkCatalog = unknown, ArtifactCatalog = unknown>() => Promise<StoredGeneration<GenerationCatalog, ChunkCatalog, ArtifactCatalog> | null>;
@@ -432,6 +446,23 @@ function makeStatus(
   });
 }
 
+function requireActiveAuthority(verified: VerifiedStored, inspection: StorageInspection, transitionCount: number): void {
+  if (inspection.activeGeneration !== verified.stored.snapshot.generation || inspection.transitionCount !== transitionCount) {
+    throw new SongsStorageError("CAS_STALE", "The active pointer changed after snapshot verification", {
+      verifiedGeneration: verified.stored.snapshot.generation,
+      actualActiveGeneration: inspection.activeGeneration,
+      expectedTransitionCount: transitionCount,
+      actualTransitionCount: inspection.transitionCount,
+    });
+  }
+}
+
+async function finalActiveInspection(storage: BootstrapStorageRepository, verified: VerifiedStored, transitionCount: number): Promise<StorageInspection> {
+  const inspection = await storage.inspect();
+  requireActiveAuthority(verified, inspection, transitionCount);
+  return inspection;
+}
+
 function resumablePhysicalGeneration(
   inspection: StorageInspection | null,
   logicalGeneration: string,
@@ -489,14 +520,19 @@ function stageCatalog(manifest: BootstrapManifest, raw: Uint8Array, manifestSha2
   });
 }
 
-async function openStorage(options: BootstrapRuntimeOptions): Promise<BootstrapStorageRepository | null> {
-  if (options.storage !== undefined) return options.storage;
-  if (options.storageRepository !== undefined) return options.storageRepository;
+interface OpenStorageResult {
+  readonly storage: BootstrapStorageRepository | null;
+  readonly failure: unknown | null;
+}
+
+async function openStorage(options: BootstrapRuntimeOptions): Promise<OpenStorageResult> {
+  if (options.storage !== undefined) return { storage: options.storage, failure: null };
+  if (options.storageRepository !== undefined) return { storage: options.storageRepository, failure: null };
   const factory = options.storageFactory ?? openSongsStorage;
   try {
-    return await factory(options.indexedDB === undefined ? {} : { indexedDB: options.indexedDB });
-  } catch {
-    return null;
+    return { storage: await factory(options.indexedDB === undefined ? {} : { indexedDB: options.indexedDB }), failure: null };
+  } catch (error) {
+    return { storage: null, failure: error };
   }
 }
 
@@ -517,13 +553,16 @@ export async function bootstrapRuntime(options: BootstrapRuntimeOptions = {}): P
   if (origin === undefined) throw new Error("The V2 bootstrap origin is unavailable");
   const online = typeof options.online === "function" ? options.online() : (options.online ?? browserOnline());
   const trusts = options.acceptedTrusts ?? ACCEPTED_BOOTSTRAP_TRUST;
-  const storage = await openStorage(options);
+  const openedStorage = await openStorage(options);
+  const storage = openedStorage.storage;
 
   try {
     const persistence = await requestPersistence(options.storageManager ?? (globalThis.navigator as Navigator | undefined)?.storage);
     let inspection: StorageInspection | null = null;
     let local: LocalEvaluation | null = null;
-    let warning: string | null = storage === null ? "songs-v2 IndexedDB is unavailable" : null;
+    let warning: string | null = storage === null
+      ? `songs-v2 IndexedDB is unavailable${openedStorage.failure === null ? "" : `: ${openedStorage.failure instanceof SongsStorageError ? `${openedStorage.failure.code}: ` : ""}${errorMessage(openedStorage.failure)}`}`
+      : null;
 
     if (storage !== null) {
       try {
@@ -543,18 +582,20 @@ export async function bootstrapRuntime(options: BootstrapRuntimeOptions = {}): P
               const stored = await storage.readGeneration<RuntimeStageCatalog, unknown, RuntimeArtifactCatalog>(candidate.generation);
               if (stored === null) continue;
               await verifyStoredGeneration(stored, origin, trusts, true);
-              await storage.activate(candidate.generation, {
+              const activation = await storage.activate(candidate.generation, {
                 expectedActiveGeneration: inspection.activeGeneration,
                 expectedTransitionCount: inspection.transitionCount,
               });
+              if (activation.activated) announceActivePointerChange(candidate.generation, activation.transitionCount);
               const activatedStored = await storage.readActiveGeneration<RuntimeStageCatalog, unknown, RuntimeArtifactCatalog>();
               if (activatedStored === null) throw new Error("verified-stage recovery did not produce an active snapshot");
               const activated = await verifyStoredGeneration(activatedStored, origin, trusts);
-              const after = await storage.inspect();
+              await finalActiveInspection(storage, activated, activation.transitionCount);
               const cleanupWarning = await cleanup(storage);
+              const finalInspection = await finalActiveInspection(storage, activated, activation.transitionCount);
               return {
                 snapshot: activated.snapshot,
-                status: makeStatus("indexeddb", "available", "activated", activated.snapshot, after, { active: activated, retained: local.active }, activated.trust.manifestSha256, persistence, cleanupWarning),
+                status: makeStatus("indexeddb", "available", "activated", activated.snapshot, finalInspection, { active: activated, retained: local.active }, activated.trust.manifestSha256, persistence, cleanupWarning),
               };
             } catch (error) {
               warning = `verified-stage recovery failed: ${errorMessage(error)}`;
@@ -563,23 +604,25 @@ export async function bootstrapRuntime(options: BootstrapRuntimeOptions = {}): P
         }
 
         if (local.active !== null && (!online || local.active.trust.manifestSha256 === PREFERRED_BOOTSTRAP_TRUST.manifestSha256)) {
+          const finalInspection = await finalActiveInspection(storage, local.active, inspection.transitionCount);
           return {
             snapshot: local.active.snapshot,
-            status: makeStatus("indexeddb", "available", "current", local.active.snapshot, inspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, null),
+            status: makeStatus("indexeddb", "available", "current", local.active.snapshot, finalInspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, null),
           };
         }
 
         if (local.activeFailure?.kind === "accepted-corrupt" && local.retained !== null && inspection.activeGeneration !== null) {
           try {
-            await storage.recoverRetained(local.retained.stored.snapshot.generation, {
+            const recovery = await storage.recoverRetained(local.retained.stored.snapshot.generation, {
               expectedActiveGeneration: inspection.activeGeneration,
               expectedTransitionCount: inspection.transitionCount,
             });
+            if (recovery.recovered) announceActivePointerChange(local.retained.stored.snapshot.generation, recovery.transitionCount);
             const recoveredStored = await storage.readActiveGeneration<RuntimeStageCatalog, unknown, RuntimeArtifactCatalog>();
             if (recoveredStored === null) throw new Error("retained recovery did not produce an active snapshot");
             const recovered = await verifyStoredGeneration(recoveredStored, origin, trusts);
             const cleanupWarning = await cleanup(storage);
-            const after = await storage.inspect();
+            const after = await finalActiveInspection(storage, recovered, recovery.transitionCount);
             return {
               snapshot: recovered.snapshot,
               status: makeStatus("indexeddb", "available", "recovered", recovered.snapshot, after, { active: recovered, retained: null }, recovered.trust.manifestSha256, persistence, cleanupWarning),
@@ -621,10 +664,11 @@ export async function bootstrapRuntime(options: BootstrapRuntimeOptions = {}): P
       payload = await fetchManifest(options, origin);
       requireAcceptedNetworkTrust(payload.manifestSha256, trusts);
     } catch (error) {
-      if (local?.active !== null && local?.active !== undefined && inspection !== null) {
+      if (local?.active !== null && local?.active !== undefined && inspection !== null && storage !== null) {
+        const finalInspection = await finalActiveInspection(storage, local.active, inspection.transitionCount);
         return {
           snapshot: local.active.snapshot,
-          status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, inspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, `Snapshot update failed; the active verified generation was retained: ${errorMessage(error)}`),
+          status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, finalInspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, `Snapshot update failed; the active verified generation was retained: ${errorMessage(error)}`),
         };
       }
       throw error;
@@ -718,14 +762,20 @@ export async function bootstrapRuntime(options: BootstrapRuntimeOptions = {}): P
     } catch (error) {
       if (options.signal?.aborted) throw error;
       if (local?.active !== null && local?.active !== undefined && inspection !== null) {
-        return { snapshot: local.active.snapshot, status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, inspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, `Snapshot update failed; the active verified generation was retained: ${errorMessage(error)}`) };
+        const finalInspection = await finalActiveInspection(stageStorage, local.active, inspection.transitionCount);
+        return { snapshot: local.active.snapshot, status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, finalInspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, `Snapshot update failed; the active verified generation was retained: ${errorMessage(error)}`) };
       }
       throw error;
     }
 
     if (stagingFailed !== null || !stageStarted) {
       if (local?.active !== null && local?.active !== undefined && inspection !== null) {
-        return { snapshot: local.active.snapshot, status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, inspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, stagingFailed ?? warning) };
+        try {
+          const finalInspection = await finalActiveInspection(stageStorage, local.active, inspection.transitionCount);
+          return { snapshot: local.active.snapshot, status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, finalInspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, stagingFailed ?? warning) };
+        } catch (error) {
+          return { snapshot: networkSnapshot, status: makeStatus("memory", "available", "memory-only", networkSnapshot, await stageStorage.inspect(), { active: null, retained: local.retained }, networkManifestSha256, persistence, `${stagingFailed ?? warning ?? "songs-v2 staging failed"}; active authority changed: ${errorMessage(error)}`) };
+        }
       }
       return { snapshot: networkSnapshot, status: makeStatus("memory", "available", "memory-only", networkSnapshot, inspection, { active: null, retained: local?.retained ?? null }, networkManifestSha256, persistence, stagingFailed ?? warning) };
     }
@@ -735,10 +785,11 @@ export async function bootstrapRuntime(options: BootstrapRuntimeOptions = {}): P
       if (durable === null) throw new Error("the completed stage is missing");
       await verifyStoredGeneration(durable, origin, trusts, true);
       await stageStorage.markVerified(physicalGeneration);
-      await stageStorage.activate(physicalGeneration, {
+      const activation = await stageStorage.activate(physicalGeneration, {
         expectedActiveGeneration: expectedActive,
         expectedTransitionCount,
       });
+      if (activation.activated) announceActivePointerChange(physicalGeneration, activation.transitionCount);
       const activeStored = await stageStorage.readActiveGeneration<RuntimeStageCatalog, unknown, RuntimeArtifactCatalog>();
       if (activeStored === null) throw new Error("activation did not produce an active snapshot");
       const activated = await verifyStoredGeneration(activeStored, origin, trusts);
@@ -749,16 +800,21 @@ export async function bootstrapRuntime(options: BootstrapRuntimeOptions = {}): P
       } catch {
         // A corrupt retained generation is preserved but never exposed as verified.
       }
-      const after = await stageStorage.inspect();
+      await finalActiveInspection(stageStorage, activated, activation.transitionCount);
       const cleanupWarning = await cleanup(stageStorage);
-      const finalInspection = cleanupWarning === null ? await stageStorage.inspect() : after;
+      const finalInspection = await finalActiveInspection(stageStorage, activated, activation.transitionCount);
       return {
         snapshot: activated.snapshot,
         status: makeStatus("indexeddb", "available", "activated", activated.snapshot, finalInspection, { active: activated, retained }, activated.trust.manifestSha256, persistence, cleanupWarning),
       };
     } catch (error) {
       if (local?.active !== null && local?.active !== undefined && inspection !== null) {
-        return { snapshot: local.active.snapshot, status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, inspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, `Snapshot update persistence failed; the active verified generation was retained: ${errorMessage(error)}`) };
+        try {
+          const finalInspection = await finalActiveInspection(stageStorage, local.active, inspection.transitionCount);
+          return { snapshot: local.active.snapshot, status: makeStatus("indexeddb", "available", "failed-retained", local.active.snapshot, finalInspection, { active: local.active, retained: local.retained }, local.active.trust.manifestSha256, persistence, `Snapshot update persistence failed; the active verified generation was retained: ${errorMessage(error)}`) };
+        } catch (authorityError) {
+          return { snapshot: networkSnapshot, status: makeStatus("memory", "available", "memory-only", networkSnapshot, await stageStorage.inspect(), { active: null, retained: local.retained }, networkManifestSha256, persistence, `songs-v2 persistence failed: ${errorMessage(error)}; active authority changed: ${errorMessage(authorityError)}`) };
+        }
       }
       return { snapshot: networkSnapshot, status: makeStatus("memory", "available", "memory-only", networkSnapshot, inspection, { active: null, retained: local?.retained ?? null }, networkManifestSha256, persistence, `songs-v2 persistence failed: ${errorMessage(error)}`) };
     }

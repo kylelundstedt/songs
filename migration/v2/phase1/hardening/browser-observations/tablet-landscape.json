@@ -1,0 +1,6826 @@
+{
+  "accessibility": {
+    "axe": {
+      "dashboard": [],
+      "live": [],
+      "set-detail": [],
+      "set-live": [],
+      "song-1979": [],
+      "status": []
+    }
+  },
+  "bootstrap": {
+    "chunks": 12,
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+  },
+  "browser": {
+    "coarse_pointer": true,
+    "max_touch_points": 5,
+    "navigator_platform": "Linux x86_64",
+    "navigator_user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+    "product": "Chrome/151.0.7922.72",
+    "protocol_version": "1.3",
+    "revision": "@2903d8558c752b5a554a1a47b4ea7219ba1a31ef",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+  },
+  "initial_bootstrap": {
+    "active_pointer": {
+      "active": "phase1-f9634173e25ef4ca4b8330a3@a81aafbdef0d",
+      "chunks": 12,
+      "documents": 373,
+      "stores": [
+        "chunks",
+        "conflicts",
+        "documents",
+        "drafts",
+        "meta",
+        "outbox",
+        "snapshots"
+      ],
+      "transitions": 1,
+      "version": 2
+    },
+    "api_requests": [
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/manifest"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-000.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-001.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-002.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-003.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-004.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-005.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-006.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-007.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-008.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-009.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-010.json"
+      },
+      {
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:41521/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-011.json"
+      }
+    ],
+    "full": true
+  },
+  "invalid_hash_routes": {
+    "#/no-such-route": {
+      "heading": "Page not found",
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "shell_fallback": false
+    },
+    "#/sets/2025-10-13-9tease-stripped/live/extra": {
+      "heading": "Page not found",
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "shell_fallback": false
+    },
+    "#/sets/2025-10-13-9tease-stripped/live?unexpected=1": {
+      "heading": "Page not found",
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "shell_fallback": false
+    },
+    "#/songs/%": {
+      "heading": "Page not found",
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "shell_fallback": false
+    },
+    "#https://example.test/sets/foo/live": {
+      "heading": "Page not found",
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "shell_fallback": false
+    }
+  },
+  "isolation": {
+    "offline_unknown_path_shell_fallback": false,
+    "online_unknown_path_status": 404
+  },
+  "keyboard": {
+    "after": 0,
+    "arrow_right": true,
+    "before": 0,
+    "focused_column_page_down": true
+  },
+  "offline": {
+    "api_requests": {
+      "dashboard": 0,
+      "set-detail": 0,
+      "set-live": 0,
+      "sets": 0,
+      "song-1979": 0,
+      "songs": 0,
+      "status": 0
+    },
+    "cache_names": [
+      "songs-v2-shell-39849548e3b7192a1c76aa6e"
+    ],
+    "database_names": [
+      "songs-v2"
+    ],
+    "pointer": {
+      "active": "phase1-f9634173e25ef4ca4b8330a3@a81aafbdef0d",
+      "chunks": 12,
+      "documents": 373,
+      "stores": [
+        "chunks",
+        "conflicts",
+        "documents",
+        "drafts",
+        "meta",
+        "outbox",
+        "snapshots"
+      ],
+      "transitions": 1,
+      "version": 2
+    },
+    "routes": {
+      "dashboard": {
+        "from_service_worker": 3,
+        "heading": "Your gig book, without the edit controls",
+        "overflow": {
+          "bodyScrollWidth": 1366,
+          "innerWidth": 1366,
+          "scrollWidth": 1366
+        },
+        "post_ready_fetch_xhr": {
+          "fetch": [],
+          "xhr": []
+        }
+      },
+      "set-detail": {
+        "from_service_worker": 3,
+        "heading": "9Tease Stripped",
+        "overflow": {
+          "bodyScrollWidth": 1366,
+          "innerWidth": 1366,
+          "scrollWidth": 1366
+        },
+        "post_ready_fetch_xhr": {
+          "fetch": [],
+          "xhr": []
+        }
+      },
+      "set-live": {
+        "from_service_worker": 3,
+        "heading": "Plush",
+        "overflow": {
+          "bodyScrollWidth": 1366,
+          "innerWidth": 1366,
+          "scrollWidth": 1366
+        },
+        "post_ready_fetch_xhr": {
+          "fetch": [],
+          "xhr": []
+        }
+      },
+      "sets": {
+        "from_service_worker": 3,
+        "heading": "Set Lists",
+        "overflow": {
+          "bodyScrollWidth": 1366,
+          "innerWidth": 1366,
+          "scrollWidth": 1366
+        },
+        "post_ready_fetch_xhr": {
+          "fetch": [],
+          "xhr": []
+        }
+      },
+      "song-1979": {
+        "from_service_worker": 3,
+        "heading": "1979",
+        "overflow": {
+          "bodyScrollWidth": 1366,
+          "innerWidth": 1366,
+          "scrollWidth": 1366
+        },
+        "post_ready_fetch_xhr": {
+          "fetch": [],
+          "xhr": []
+        }
+      },
+      "songs": {
+        "from_service_worker": 3,
+        "heading": "Songs",
+        "overflow": {
+          "bodyScrollWidth": 1366,
+          "innerWidth": 1366,
+          "scrollWidth": 1366
+        },
+        "post_ready_fetch_xhr": {
+          "fetch": [],
+          "xhr": []
+        }
+      },
+      "status": {
+        "from_service_worker": 3,
+        "heading": "Snapshot status",
+        "overflow": {
+          "bodyScrollWidth": 1366,
+          "innerWidth": 1366,
+          "scrollWidth": 1366
+        },
+        "post_ready_fetch_xhr": {
+          "fetch": [],
+          "xhr": []
+        }
+      }
+    },
+    "service_worker": {
+      "compatibility": {
+        "accepted_bootstrap_manifest_sha256": [
+          "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+        ],
+        "release": "shell-39849548e3b7192a1c76aa6e"
+      },
+      "controlled": true,
+      "scope": "http://127.0.0.1:41521/",
+      "script_url": "http://127.0.0.1:41521/sw.js",
+      "state": "activated"
+    },
+    "zero_api_requests": true
+  },
+  "pointer_unchanged_after_routes": true,
+  "profile": {
+    "dpr": 1,
+    "height": 1024,
+    "mobile": false,
+    "name": "tablet-landscape",
+    "touch": true,
+    "width": 1366
+  },
+  "pwa_manifest": {
+    "scope": "/",
+    "start_url": "/#/"
+  },
+  "reduced_motion": {
+    "cssRule": true,
+    "matches": true,
+    "maxAnimationDuration": 0,
+    "maxTransitionDuration": 0
+  },
+  "routes": {
+    "dashboard": {
+      "aria_current": [
+        {
+          "text": "Library",
+          "value": "page"
+        }
+      ],
+      "controls": [
+        {
+          "className": "skip-link",
+          "disabled": false,
+          "name": "Skip to content",
+          "rect": {
+            "height": 41.375,
+            "left": 16,
+            "top": -62.474998474121094,
+            "width": 153.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "brand",
+          "disabled": false,
+          "name": "KGLSongsVerified read-only V2",
+          "rect": {
+            "height": 48,
+            "left": 115,
+            "top": 14,
+            "width": 210.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "icon-button",
+          "disabled": false,
+          "name": "Theme: system. Switch to light.",
+          "rect": {
+            "height": 44,
+            "left": 1207,
+            "top": 16,
+            "width": 44
+          },
+          "tag": "button"
+        },
+        {
+          "className": "active",
+          "disabled": false,
+          "name": "Library",
+          "rect": {
+            "height": 45,
+            "left": 115,
+            "top": 76,
+            "width": 89.703125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Songs",
+          "rect": {
+            "height": 45,
+            "left": 204.703125,
+            "top": 76,
+            "width": 81.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Set Lists",
+          "rect": {
+            "height": 45,
+            "left": 286.078125,
+            "top": 76,
+            "width": 102.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Status",
+          "rect": {
+            "height": 45,
+            "left": 388.21875,
+            "top": 76,
+            "width": 84.65625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "9Tease Stripped2026-08-05 · Castello Golightly58",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 660.953125,
+            "width": 1081.25
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "View all",
+          "rect": {
+            "height": 16,
+            "left": 643.5,
+            "top": 832,
+            "width": 59.953125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "...Baby One More TimeBritney SpearsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 871.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "1979The Smashing PumpkinsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 938.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "3 AMMatchbox TwentyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1005.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "6th Avenue HeartacheThe WallflowersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1072.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "777Silk SonicFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1139.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "867-5309Tommy TutoneFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1206.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "About Damn TimeLizzoFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1273.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Across The UniverseFiona AppleFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1340.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "All About That BassMeghan TrainorFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1407.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "All Summer LongKid RockFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1474.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "All These Things That I've Done {short=\"All These Things\"}The KillersFit checked",
+          "rect": {
+            "height": 80.90625,
+            "left": 142.375,
+            "top": 1541.1875,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "AllisonElvis Costello & The AttractionsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 142.375,
+            "top": 1623.09375,
+            "width": 559.484375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "View all",
+          "rect": {
+            "height": 16,
+            "left": 1165.265625,
+            "top": 832,
+            "width": 59.953125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "9Tease Stripped2026-08-05 · Castello Golightly58",
+          "rect": {
+            "height": 66,
+            "left": 775.796875,
+            "top": 871.1875,
+            "width": 447.828125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Murphy's2023-08-24 · Murphy's31",
+          "rect": {
+            "height": 66,
+            "left": 775.796875,
+            "top": 938.1875,
+            "width": 447.828125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Electric — Ellen's Wedding2023-07-1536",
+          "rect": {
+            "height": 66,
+            "left": 775.796875,
+            "top": 1005.1875,
+            "width": 447.828125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Electric — Raymond2023-07-0139",
+          "rect": {
+            "height": 66,
+            "left": 775.796875,
+            "top": 1072.1875,
+            "width": 447.828125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Electric — Nicholson Ranch2023-06-10 · Nicholson Ranch31",
+          "rect": {
+            "height": 66,
+            "left": 775.796875,
+            "top": 1139.1875,
+            "width": 447.828125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Jack London Lodge2023-04-13 · Jack London Lodge27",
+          "rect": {
+            "height": 66,
+            "left": 775.796875,
+            "top": 1206.1875,
+            "width": 447.828125
+          },
+          "tag": "a"
+        }
+      ],
+      "heading": "Your gig book, without the edit controls",
+      "headings": [
+        "Your gig book, without the edit controls",
+        "Active Set List",
+        "Songs",
+        "Set Lists"
+      ],
+      "internal_apex_hrefs": [],
+      "landmarks": [
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": "Primary",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "main"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "footer"
+        }
+      ],
+      "mutation_controls": [],
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "post_ready_fetch_xhr": {
+        "fetch": [],
+        "xhr": []
+      },
+      "route": "#/"
+    },
+    "set-detail": {
+      "aria_current": [
+        {
+          "text": "Set Lists",
+          "value": "page"
+        }
+      ],
+      "controls": [
+        {
+          "className": "skip-link",
+          "disabled": false,
+          "name": "Skip to content",
+          "rect": {
+            "height": 41.375,
+            "left": 16,
+            "top": -62.474998474121094,
+            "width": 153.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "brand",
+          "disabled": false,
+          "name": "KGLSongsVerified read-only V2",
+          "rect": {
+            "height": 48,
+            "left": 115,
+            "top": 14,
+            "width": 210.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "icon-button",
+          "disabled": false,
+          "name": "Theme: system. Switch to light.",
+          "rect": {
+            "height": 44,
+            "left": 1207,
+            "top": 16,
+            "width": 44
+          },
+          "tag": "button"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Library",
+          "rect": {
+            "height": 45,
+            "left": 115,
+            "top": 76,
+            "width": 89.703125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Songs",
+          "rect": {
+            "height": 45,
+            "left": 204.703125,
+            "top": 76,
+            "width": 81.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "active",
+          "disabled": false,
+          "name": "Set Lists",
+          "rect": {
+            "height": 45,
+            "left": 286.078125,
+            "top": 76,
+            "width": 102.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Status",
+          "rect": {
+            "height": 45,
+            "left": 388.21875,
+            "top": 76,
+            "width": 84.65625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Set Lists",
+          "rect": {
+            "height": 44,
+            "left": 115,
+            "top": 170,
+            "width": 58.15625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "primary-button live-launch",
+          "disabled": false,
+          "name": "Open locked Live",
+          "rect": {
+            "height": 46,
+            "left": 1061.9375,
+            "top": 322.4375,
+            "width": 189.0625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Plush",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 569.203125,
+            "width": 49.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wicked Game",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 622.984375,
+            "width": 122.15625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Times Like These",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 676.765625,
+            "width": 154.859375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Higher",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 730.546875,
+            "width": 60.46875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Drive",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 784.328125,
+            "width": 47.9375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Ramble On",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 838.109375,
+            "width": 98.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Thank You",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 891.890625,
+            "width": 93.203125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Rebel Yell",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 945.671875,
+            "width": 88.46875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Melissa",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 999.453125,
+            "width": 67.59375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Interstate Love Song",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1053.234375,
+            "width": 189.171875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Under The Bridge",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1107.015625,
+            "width": 158.203125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Miss You",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1160.796875,
+            "width": 78.53125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "If You Could Only See",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1214.578125,
+            "width": 192.890625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hard To Handle",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1268.359375,
+            "width": 137.828125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Are You Gonna Go My Way",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1322.140625,
+            "width": 237.46875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "3 AM",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1375.921875,
+            "width": 45.015625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Kryptonite",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1429.703125,
+            "width": 96.1875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Breakdown",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1483.484375,
+            "width": 101
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "She Sells Sanctuary",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1537.265625,
+            "width": 179.125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Demons",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1591.046875,
+            "width": 72.71875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Cheap Sunglasses",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1764.203125,
+            "width": 163.265625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You're So Bad",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1817.984375,
+            "width": 124.25
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Mary Jane's Last Dance",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1871.765625,
+            "width": 209.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Cumbersome",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1925.546875,
+            "width": 118.046875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Word Up",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 1979.328125,
+            "width": 77.4375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Seven Nation Army",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2033.109375,
+            "width": 173.265625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Black Hole Sun",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2086.890625,
+            "width": 134.765625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Shine",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2140.671875,
+            "width": 50.640625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Elderly Woman",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2194.453125,
+            "width": 135.03125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wanted Dead or Alive",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2248.234375,
+            "width": 195.828125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fire Woman into She Sells Sanctuary",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2302.015625,
+            "width": 333.4375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "1979",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2355.796875,
+            "width": 44.53125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Simple Man",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2409.578125,
+            "width": 105.15625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Everlong",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2463.359375,
+            "width": 79.421875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Santeria",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2517.140625,
+            "width": 76.390625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Psycho Killer",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2570.921875,
+            "width": 116.4375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wagon Wheel",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2624.703125,
+            "width": 123.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wicked Garden",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2678.484375,
+            "width": 136.21875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Can’t Stop",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2732.265625,
+            "width": 94.84375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Wreck Me",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2810.078125,
+            "width": 126.65625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "American Idiot",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2863.859375,
+            "width": 132.0625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Cheap Sunglasses",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2917.640625,
+            "width": 163.265625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "If You Could Only See",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 2971.421875,
+            "width": 192.890625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Killing in The Name",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3144.578125,
+            "width": 175.640625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sex on Fire",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3198.359375,
+            "width": 101.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Iris",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3252.140625,
+            "width": 28.859375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Long Train Runnin’",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3305.921875,
+            "width": 169.34375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Just Like Heaven",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3365.21875,
+            "width": 150.109375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Melt With You",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3419,
+            "width": 125.71875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Say It Ain't So",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3472.78125,
+            "width": 126.890625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Born To Run",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3532.078125,
+            "width": 108.5
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Listen To The Music",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3585.859375,
+            "width": 176.546875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fast As You",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3639.640625,
+            "width": 103.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "American Girl",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3693.421875,
+            "width": 122.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "The Middle",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3747.203125,
+            "width": 99.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Lonely Is the Night",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3800.984375,
+            "width": 170.796875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Livin' After Midnight",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3854.765625,
+            "width": 184.984375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Californication",
+          "rect": {
+            "height": 19,
+            "left": 182.375,
+            "top": 3914.0625,
+            "width": 132.03125
+          },
+          "tag": "a"
+        }
+      ],
+      "heading": "9Tease Stripped",
+      "headings": [
+        "9Tease Stripped",
+        "Set 1 - Slow",
+        "Set 2 - Medium",
+        "Set 3 - Fast"
+      ],
+      "internal_apex_hrefs": [],
+      "landmarks": [
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": "Primary",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "main"
+        },
+        {
+          "label": "Breadcrumb",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "footer"
+        }
+      ],
+      "mutation_controls": [],
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "post_ready_fetch_xhr": {
+        "fetch": [],
+        "xhr": []
+      },
+      "route": "#/sets/2025-10-13-9tease-stripped"
+    },
+    "set-live": {
+      "aria_current": [],
+      "controls": [
+        {
+          "className": "locked-live-exit",
+          "disabled": false,
+          "name": "Exit Live",
+          "rect": {
+            "height": 48,
+            "left": 1108.84375,
+            "top": 15.390625,
+            "width": 102.921875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "locked-live-theme-toggle",
+          "disabled": false,
+          "name": "Stage Dark",
+          "rect": {
+            "height": 48,
+            "left": 1218.15625,
+            "top": 15.390625,
+            "width": 126.453125
+          },
+          "tag": "button"
+        },
+        {
+          "className": "locked-live-nav-button",
+          "disabled": true,
+          "name": "Previous",
+          "rect": {
+            "height": 48,
+            "left": 10,
+            "top": 968,
+            "width": 112
+          },
+          "tag": "button"
+        },
+        {
+          "className": "locked-live-nav-button",
+          "disabled": false,
+          "name": "Next",
+          "rect": {
+            "height": 48,
+            "left": 1244,
+            "top": 968,
+            "width": 112
+          },
+          "tag": "button"
+        }
+      ],
+      "heading": "Plush",
+      "headings": [
+        "9Tease Stripped",
+        "Plush",
+        "Intro Vamp  4x",
+        "Verse  6x",
+        "Prechorus  4x",
+        "Chorus  8x",
+        "Intro Vamp  4x",
+        "Verse  6x",
+        "Prechorus  4x",
+        "Chorus  8x",
+        "Bridge  8x",
+        "Chorus  8x",
+        "Bridge  8x",
+        "Intro Vamp  4x"
+      ],
+      "internal_apex_hrefs": [],
+      "landmarks": [
+        {
+          "label": "Locked Live mode",
+          "role": null,
+          "tag": "main"
+        },
+        {
+          "label": "Live controls",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": "Occurrence navigation",
+          "role": null,
+          "tag": "nav"
+        }
+      ],
+      "mutation_controls": [],
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "post_ready_fetch_xhr": {
+        "fetch": [],
+        "xhr": []
+      },
+      "route": "#/sets/2025-10-13-9tease-stripped/live"
+    },
+    "sets": {
+      "aria_current": [
+        {
+          "text": "Set Lists",
+          "value": "page"
+        }
+      ],
+      "controls": [
+        {
+          "className": "skip-link",
+          "disabled": false,
+          "name": "Skip to content",
+          "rect": {
+            "height": 41.375,
+            "left": 16,
+            "top": -62.474998474121094,
+            "width": 153.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "brand",
+          "disabled": false,
+          "name": "KGLSongsVerified read-only V2",
+          "rect": {
+            "height": 48,
+            "left": 115,
+            "top": 14,
+            "width": 210.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "icon-button",
+          "disabled": false,
+          "name": "Theme: system. Switch to light.",
+          "rect": {
+            "height": 44,
+            "left": 1207,
+            "top": 16,
+            "width": 44
+          },
+          "tag": "button"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Library",
+          "rect": {
+            "height": 45,
+            "left": 115,
+            "top": 76,
+            "width": 89.703125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Songs",
+          "rect": {
+            "height": 45,
+            "left": 204.703125,
+            "top": 76,
+            "width": 81.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "active",
+          "disabled": false,
+          "name": "Set Lists",
+          "rect": {
+            "height": 45,
+            "left": 286.078125,
+            "top": 76,
+            "width": 102.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Status",
+          "rect": {
+            "height": 45,
+            "left": 388.21875,
+            "top": 76,
+            "width": 84.65625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "",
+          "rect": {
+            "height": 49,
+            "left": 115,
+            "top": 376.59375,
+            "width": 520
+          },
+          "tag": "input"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "9Tease Stripped2026-08-05 · Castello GolightlyLocal verified snapshot58",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 479.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Easter Pageant2005-03-26Local verified snapshot28",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 558.15625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "HopMonk Tavern2017-11-10 · HopMonk TavernLocal verified snapshot32",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 636.9375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Jack London2017-06 · Jack London LodgeLocal verified snapshot34",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 715.71875,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Annadel Estate Winery2022-10-15 · Annadel Estate WineryLocal verified snapshot28",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 794.5,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — DG/ET at Murphy's2022-05-04 · Murphy'sLocal verified snapshot23",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 873.28125,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Ellen's Party2022-08-20 · Ellen's HouseLocal verified snapshot47",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 952.0625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — HopMonk Tavern2015-09 · HopMonk TavernLocal verified snapshot18",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1030.84375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Jack London Lodge2021-09-23 · Jack London LodgeLocal verified snapshot31",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1109.625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Jack London Lodge2022-06-16 · Jack London LodgeLocal verified snapshot34",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1188.40625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Jack London Lodge2023-04-13 · Jack London LodgeLocal verified snapshot27",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1267.1875,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Jack London Lodge2022-09-22 · Jack London LodgeLocal verified snapshot47",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1345.96875,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Kenwood Party2022-07-08 · Kenwood Residence (near Château St. Jean)Local verified snapshot38",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1424.75,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Murphy's2021-05-15 · Murphy'sLocal verified snapshot33",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1503.53125,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Murphy's2021-06-19 · Murphy'sLocal verified snapshot44",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1582.3125,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Murphy's2023-08-24 · Murphy'sLocal verified snapshot31",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1661.09375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Reel & Brand2021-04-10 · Reel & BrandLocal verified snapshot31",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1739.875,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Acoustic — Reel & Brand2021-11-19 · Reel & BrandLocal verified snapshot31",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1818.65625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Electric — Ellen's Wedding2023-07-15Local verified snapshot36",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1897.4375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Electric — Nicholson Ranch2023-06-10 · Nicholson RanchLocal verified snapshot31",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 1976.21875,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Electric — Raymond2023-07-01Local verified snapshot39",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2055,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LC Electric — Reel & Brand2022-06-26 · Reel & BrandLocal verified snapshot29",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2133.78125,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Murphys — February 20, 20212021-02-20 · MurphysLocal verified snapshot32",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2212.5625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Naz Pahtay2021-01-01Local verified snapshot17",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2291.34375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Nicholson2017-11-02 · Nicholson RanchLocal verified snapshot13",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2370.125,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Nicholson2018-06-09 · Nicholson RanchLocal verified snapshot37",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2448.90625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Prestwood2016-05 · PrestwoodLocal verified snapshot12",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2527.6875,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "SIFF2017-04-01 · SIFFLocal verified snapshot30",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2606.46875,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "SVSA2017-10 · SVSALocal verified snapshot33",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2685.25,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sarah 50th Bday2021-10-02 · Sonoma PlazaLocal verified snapshot38",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2764.03125,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Stonetree2016-07-08 · StonetreeLocal verified snapshot33",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2842.8125,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Taylor's Birthday2021-04-03 · Castello GolightlyLocal verified snapshot32",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 2921.59375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Ty Caton2017-06 · Ty Caton WineryLocal verified snapshot32",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 3000.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wait for the Shake2006-01-25Local verified snapshot17",
+          "rect": {
+            "height": 77.78125,
+            "left": 125.59375,
+            "top": 3079.15625,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        }
+      ],
+      "heading": "Set Lists",
+      "headings": [
+        "Set Lists"
+      ],
+      "internal_apex_hrefs": [],
+      "landmarks": [
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": "Primary",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "main"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "footer"
+        }
+      ],
+      "mutation_controls": [],
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "post_ready_fetch_xhr": {
+        "fetch": [],
+        "xhr": []
+      },
+      "route": "#/sets"
+    },
+    "song-1979": {
+      "aria_current": [
+        {
+          "text": "Songs",
+          "value": "page"
+        }
+      ],
+      "controls": [
+        {
+          "className": "skip-link",
+          "disabled": false,
+          "name": "Skip to content",
+          "rect": {
+            "height": 41.375,
+            "left": 16,
+            "top": -62.474998474121094,
+            "width": 153.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "brand",
+          "disabled": false,
+          "name": "KGLSongsVerified read-only V2",
+          "rect": {
+            "height": 48,
+            "left": 115,
+            "top": 14,
+            "width": 210.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "icon-button",
+          "disabled": false,
+          "name": "Theme: system. Switch to light.",
+          "rect": {
+            "height": 44,
+            "left": 1207,
+            "top": 16,
+            "width": 44
+          },
+          "tag": "button"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Library",
+          "rect": {
+            "height": 45,
+            "left": 115,
+            "top": 76,
+            "width": 89.703125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "active",
+          "disabled": false,
+          "name": "Songs",
+          "rect": {
+            "height": 45,
+            "left": 204.703125,
+            "top": 76,
+            "width": 81.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Set Lists",
+          "rect": {
+            "height": 45,
+            "left": 286.078125,
+            "top": 76,
+            "width": 102.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Status",
+          "rect": {
+            "height": 45,
+            "left": 388.21875,
+            "top": 76,
+            "width": 84.65625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Songs",
+          "rect": {
+            "height": 44,
+            "left": 115,
+            "top": 170,
+            "width": 41.75
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "← Back to songs",
+          "rect": {
+            "height": 19,
+            "left": 115,
+            "top": 1413.859375,
+            "width": 144.765625
+          },
+          "tag": "a"
+        }
+      ],
+      "heading": "1979",
+      "headings": [
+        "1979",
+        "Lead sheet sections",
+        "Guitar Vamp  4x",
+        "Verse 1  14x",
+        "Verse 2  14x",
+        "Chorus 1  14x",
+        "Guitar Vamp  4x",
+        "Verse 3  14x",
+        "Chorus 2  12x",
+        "Bridge  14x",
+        "Verse 4  18x",
+        "Chorus 1  14x",
+        "Outro Verse  8x"
+      ],
+      "internal_apex_hrefs": [],
+      "landmarks": [
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": "Primary",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "main"
+        },
+        {
+          "label": "Breadcrumb",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "footer"
+        }
+      ],
+      "mutation_controls": [],
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "post_ready_fetch_xhr": {
+        "fetch": [],
+        "xhr": []
+      },
+      "route": "#/songs/1979"
+    },
+    "songs": {
+      "aria_current": [
+        {
+          "text": "Songs",
+          "value": "page"
+        }
+      ],
+      "controls": [
+        {
+          "className": "skip-link",
+          "disabled": false,
+          "name": "Skip to content",
+          "rect": {
+            "height": 41.375,
+            "left": 16,
+            "top": -62.474998474121094,
+            "width": 153.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "brand",
+          "disabled": false,
+          "name": "KGLSongsVerified read-only V2",
+          "rect": {
+            "height": 48,
+            "left": 115,
+            "top": 14,
+            "width": 210.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "icon-button",
+          "disabled": false,
+          "name": "Theme: system. Switch to light.",
+          "rect": {
+            "height": 44,
+            "left": 1207,
+            "top": 16,
+            "width": 44
+          },
+          "tag": "button"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Library",
+          "rect": {
+            "height": 45,
+            "left": 115,
+            "top": 76,
+            "width": 89.703125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "active",
+          "disabled": false,
+          "name": "Songs",
+          "rect": {
+            "height": 45,
+            "left": 204.703125,
+            "top": 76,
+            "width": 81.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Set Lists",
+          "rect": {
+            "height": 45,
+            "left": 286.078125,
+            "top": 76,
+            "width": 102.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Status",
+          "rect": {
+            "height": 45,
+            "left": 388.21875,
+            "top": 76,
+            "width": 84.65625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "",
+          "rect": {
+            "height": 49,
+            "left": 115,
+            "top": 376.59375,
+            "width": 520
+          },
+          "tag": "input"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "...Baby One More TimeBritney SpearsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 479.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "1979The Smashing PumpkinsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 546.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "3 AMMatchbox TwentyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 613.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "6th Avenue HeartacheThe WallflowersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 680.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "777Silk SonicFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 747.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "867-5309Tommy TutoneFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 814.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "About Damn TimeLizzoFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 881.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Across The UniverseFiona AppleFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 948.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "All About That BassMeghan TrainorFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1015.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "All Summer LongKid RockFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1082.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "All These Things That I've Done {short=\"All These Things\"}The KillersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1149.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "AllisonElvis Costello & The AttractionsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1216.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Always On The RunLenny KravitzFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1283.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Amber311Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1350.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "American GirlTom PettyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1417.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "American IdiotGreen DayFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1484.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Angel from Montgomery {short=\"Angel ... Montgomery\"}John PrineFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1551.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "AnimalNeon TreesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1618.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Any Way You Want ItJourneyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1685.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Are You Gonna Be My Girl {short=\"Are U Be My Girl\"}JetFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1752.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Are You Gonna Go My Way {short=\"Are U ... Go My Way\"}Lenny KravitzFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1819.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Baby I Love YouAretha FranklinFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1886.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Back In BlackAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 1953.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Bad RomanceLady GagaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2020.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Bad ThingsJace EverettFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2087.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "BadfishSublimeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2154.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Ball and ChainSocial DistortionFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2221.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Bang a Gong Get It On {short=\"Bang a Gong\"}T. RexFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2288.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Beer Drinkers n Hell Raisers {short=\"Beer Drinkers\"}ZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2355.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Behind Blue EyesThe WhoFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2422.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "BentMatchbox TwentyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2489.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "BettermanPearl JamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2556.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Billie JeanMichael JacksonFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2623.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "BlackPearl JamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2690.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Black Hole SunSoundgardenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2757.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Blister In The SunViolent FemmesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2824.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Blue MondayNew OrderFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2891.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Blue Suede ShoesElvis PresleyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 2958.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Born To RunBruce SpringsteenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3025.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Born to Be WildSteppenwolfFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3092.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Boys Don t CryThe CureFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3159.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "BreakdownTom Petty & the HeartbreakersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3226.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Brick HouseThe CommodoresFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3293.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Bright LightsMatchbox TwentyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3360.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Brown Eyed GirlVan MorrisonFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3427.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Brown SugarThe Rolling StonesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3494.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "BudapestGeorge EzraFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3561.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "CalifornicationRed Hot Chili PeppersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3628.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Call Me the BreezeLynyrd SkynyrdFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3695.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Can't StopRed Hot Chili PeppersLandscape warning",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3762.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Can't You SeeThe Marshall Tucker BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3829.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Chasing CarsSnow PatrolFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3896.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Cheap SunglassesZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 3963.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Closer To FineIndigo GirlsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4030.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Closing TimeSemisonicFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4097.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Cold Hard BitchJetFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4164.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Come As You AreNirvanaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4231.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Come TogetherThe BeatlesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4298.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Counting Blue CarsDishwallaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4365.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "CrashDave Matthews BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4432.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Crash Into MeDave Matthews BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4499.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Crawling Back To YouTom PettyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4566.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "CrazyGnarls BarkleyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4633.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Crazy BitchBuckcherryFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4700.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "CreepRadioheadFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4767.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "CriminalFiona AppleFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4834.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "CumbersomeSeven Mary ThreeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4901.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Dancing With MyselfBilly IdolFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 4968.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Dani CaliforniaRed Hot Chili PeppersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5035.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Dark NecessitiesRed Hot Chili PeppersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5102.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Darling NikkiPrince & The RevolutionFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5169.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "DaughterPearl JamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5236.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "DemonsImagine DragonsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5303.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Dock of the BayOtis ReddingFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5370.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Doin TimeSublimeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5437.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Don't Go Back To Rockville {short=\"Back to Rockville\"}R.E.M.Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5504.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Don't You (Forget About Me)Simple MindsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5571.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "DriveIncubusFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5638.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Elderly WomanPearl JamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5705.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Enter SandmanMetallicaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5772.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Even FlowPearl JamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5839.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "EverlongFoo FightersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5906.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Every Mother s SonLynyrd SkynyrdFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 5973.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Exs And OhsElle KingFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6040.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Face In The CrowdTom Petty & The HeartbreakersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6107.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "FaithGeorge MichaelFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6174.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fast As YouDwight YoakamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6241.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Father of MineEverclearLandscape warning",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6308.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Feeling AlrightJoe CockerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6375.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "FeelsCalvin HarrisFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6442.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Feels-SheriffCalvin Harris feat. Pharrell Williams, Katy Perry & Big Sean / Bob Marley & The WailersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6509.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Find YourselfLukas Nelson and Promise of the RealFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6576.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fire On The MountainGrateful DeadFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6643.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fire WomanThe CultFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6710.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Flagpole SittaHarvey DangerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6777.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fly AwayLenny KravitzFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6844.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Follow MeUncle KrackerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6911.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Folsom Prison BluesJohnny CashFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 6978.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fortunate SonCreedence Clearwater RevivalFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7045.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Free FallinTom PettyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7112.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Fuck YouCee Lo GreenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7179.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Get BackThe BeatlesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7246.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Get LuckyDaft PunkFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7313.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Gimme All Your LovinZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7380.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Gimme ShelterThe Rolling StonesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7447.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Gimme Three StepsLynyrd SkynyrdFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7514.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Gin and JuiceThe GourdsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7581.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Give Me One ReasonTracy ChapmanFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7648.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Givin The Dog A BoneAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7715.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "GlycerineBushFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7782.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "God of WineThird Eye BlindFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7849.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Going Down The Road Feeling Bad {short=\"Going Down The Road\"}Grateful DeadFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7916.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Gone Gone GonePhillip PhillipsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 7983.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Gone ShootinAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8050.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Good Times Bad TimesLed ZeppelinFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8117.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "GravityJohn MayerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8184.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Guitars and CadillacsDwight YoakamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8251.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hang You From The Heavens {short=\"Hang You ... Heavens\"}The Dead WeatherFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8318.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "HappyPharrell WilliamsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8385.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hard To HandleGrateful DeadFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8452.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hash PipeWeezerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8519.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Have A Drink OnAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8586.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Heard It In A Love Song {short=\"Heard It ... Love Song\"}The Marshall Tucker BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8653.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Heart Shaped BoxNirvanaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8720.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "HigherCreedFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8787.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Higher GroundRed Hot Chili PeppersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8854.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Highway To HellAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8921.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hit Me With Your Best Shot {short=\"Hit Me ... Best Shot\"}Pat BenatarFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 8988.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hold My HandHootie & the BlowfishFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9055.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hollywood NightsBob Seger & The Silver Bullet BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9122.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "HomeDaughtryFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9189.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Home LivePhillip PhillipsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9256.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Hunger StrikeTemple of the DogFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9323.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I Don t Wanna BeGavin DeGrawFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9390.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I Kissed a GirlKaty PerryFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9457.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I Shot The SheriffBob Marley & The WailersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9524.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I Want You BackThe Jackson 5Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9591.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I Want You ToWeezerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9658.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I Will SurviveCakeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9725.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I WishStevie WonderFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9792.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "I'm Bad I'm Nationwide {short=\"I'm Nationwide\"}ZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9859.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "If You Could Only SeeTonicFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9926.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "In The Midnight HourWilson PickettFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 9993.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "In Your EyesPeter GabrielFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10060.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Inside OutEve 6Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10127.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Interstate Love SongStone Temple PilotsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10194.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "IrisGoo Goo Dolls, TheFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10261.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "JailbreakThin LizzyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10328.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Jesus Left ChicagoZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10395.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "JoleneDolly PartonFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10462.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "JuiceLizzoFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10529.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Juice-DanceLizzo / David BowieFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10596.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "JuiceboxThe StrokesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10663.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "JumpVan HalenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10730.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Jump Jive WailThe Brian Setzer OrchestraFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10797.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Just A GirlNo DoubtFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10864.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Just Got PaidZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10931.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Just Like HeavenThe CureFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 10998.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Just What I NeededThe CarsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11065.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Keep Your Hands to YourselfThe Georgia SatellitesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11132.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Killing In The NameRage Against the MachineFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11199.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "KissPrinceFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11266.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Kryptonite3 Doors DownFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11333.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "La GrangeZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11400.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Last NiteThe StrokesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11467.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Let Me Put My Love Into You {short=\"Let Me Put ... You\"}AC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11534.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Let's Get It OnMarvin GayeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11601.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Let's Go CrazyPrinceFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11668.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Lets DanceDavid BowieFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11735.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LevitatingDua LipaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11802.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Life During WartimeTalking HeadsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11869.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Lightning CrashesLiveFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 11936.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Like A StoneAudioslaveFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12003.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Listen To The MusicThe Doobie BrothersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12070.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Little Less Conversation {short=\"Lil' Less Conversation\"}Elvis PresleyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12137.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Little LoverAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12204.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Little SisterElvis PresleyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12271.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Livin After MidnightJudas PriestFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12338.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Liza JaneVince GillFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12405.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Locked Out Of HeavenBruno MarsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12472.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Lonely BoyThe Black KeysFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12539.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Lonely Boy / Folsom Prison Blues / Dancing With MyselfThe Black Keys / Johnny Cash / Billy IdolFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12606.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Lonely Is the NightBilly SquierFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12673.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Long Train RunninThe Doobie BrothersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12740.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Louie LouieThe KingsmenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12807.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Love RollercoasterOhio PlayersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12874.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Love ShackThe B-52'sLandscape warning",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 12941.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Love TrainWolfmotherFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13008.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LovesongThe CureFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13075.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "LowCrackerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13142.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Major TomPeter SchillingFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13209.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Man In The BoxAlice in ChainsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13276.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "MargaritavilleJimmy BuffettFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13343.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Mary Had A Little Lamb {short=\"Mary Had A ... Lamb\"}Stevie Ray VaughanFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13410.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Mary Jane's Last DanceTom PettyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13477.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "MelissaThe Allman Brothers BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13544.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Melt With YouModern EnglishFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13611.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "MercyDuffyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13678.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Miss YouThe Rolling StonesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13745.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Move It on OverGeorge Thorogood & The DestroyersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13812.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Moves Like JaggerMaroon 5 feat. Christina AguileraFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13879.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Mustang SallyWilson PickettFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 13946.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "My HeroFoo FightersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14013.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "My Own Worst Enemy {short=\"Own Worst Enemy\"}LitFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14080.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Mysterious WaysU2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14147.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Never Let You GoThird Eye BlindFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14214.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "New Year's DayU2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14281.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "No One KnowsQueens of the Stone AgeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14348.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "No RainBlind MelonFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14415.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "No, Woman, No CryBob Marley & The WailersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14482.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Nothing Compares 2 UChris CornellFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14549.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "NumbLinkin ParkFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14616.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "OneU2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14683.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "One Way OutThe Allman Brothers BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14750.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "OutshinedSoundgardenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14817.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "OutsideStaindFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14884.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "OverkillMen at WorkFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 14951.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "PanamaVan HalenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15018.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Paradise CityGuns N' RosesLandscape warning",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15085.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "ParalyzerFinger ElevenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15152.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "PatienceGuns N' RosesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15219.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Peaceful Easy FeelinEaglesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15286.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Play That Funky Music {short=\"Play That Funky\"}Wild CherryFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15353.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "PlushStone Temple PilotsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15420.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "PompeiiBastilleFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15487.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Possum KingdomToadiesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15554.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "PrideU2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15621.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Psycho KillerTalking HeadsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15688.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Pump It UpElvis Costello & The AttractionsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15755.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Purple RainPrince & The RevolutionFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15822.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "RadioactiveImagine DragonsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15889.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Ramble OnLed ZeppelinFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 15956.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Rebel YellBilly IdolFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16023.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Redemption SongZiggy Marley & Lauryn HillFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16090.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "RemedyThe Black CrowesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16157.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Ride OnAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16224.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Ring Of FireSocial DistortionFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16291.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Roadhouse BluesThe DoorsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16358.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Rock n RollLed ZeppelinFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16425.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Rock n Roll Ain t Noise Pollution {short=\"Rock ... Pollution\"}AC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16492.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "RoosterAlice in ChainsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16559.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Runnin With The DevilVan HalenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16626.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "SanteriaSublimeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16693.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Save TonightEagle-Eye CherryFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16760.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Say It Ain t SoWeezerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16827.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Seven Nation ArmyThe White StripesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16894.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sex and CandyMarcy PlaygroundFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 16961.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sex on FireKings of LeonFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17028.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Shake Shake ShakeKC & the Sunshine BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17095.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "ShallowLady Gaga & Bradley CooperFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17162.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sharp Dressed ManZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17229.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "She Sells SanctuaryThe CultFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17296.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "She Talks to AngelsThe Black CrowesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17363.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "ShineCollective SoulFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17430.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Shining StarEarth, Wind & FireFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17497.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Short SkirtCAKEFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17564.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Simple ManLynyrd SkynyrdFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17631.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sittin On The Dock Of The Bay {short=\"Sittin On The Dock\"}Otis ReddingFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17698.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Smells Like Teen SpiritNirvanaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17765.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "So LonelyThe PoliceFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17832.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Some Kind Of WonderfulJoss StoneFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17899.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Song 2BlurFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 17966.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "SoulshineThe Allman Brothers BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18033.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Stayin AliveBee GeesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18100.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Stayin' in BlackBee Gees / AC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18167.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Steady As She GoesThe RaconteursFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18234.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Stop Draggin' My Heart AroundStevie Nicks feat. Tom Petty and the HeartbreakersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18301.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Stray Cat StrutStray CatsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18368.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Stuck in a Moment You Can't Get Out OfU2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18435.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sullivan StreetCounting CrowsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18502.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "SuperstitionStevie WonderFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18569.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sweet EmotionAerosmithFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18636.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Sweet Home AlabamaLynyrd SkynyrdFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18703.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "TNTAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18770.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Take Me OutFranz FerdinandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18837.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Tell Me Something GoodChaka KhanFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18904.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Tennessee WhiskeyChris StapletonFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 18971.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Thank YouLed ZeppelinFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19038.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Thank You FalettinmeSly & the Family StoneFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19105.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "That's The Way I Like It {short=\"That's The Way\"}KC & the Sunshine BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19172.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "That's the Way / Shake, Shake, Shake / Get LuckyKC and the Sunshine Band / Daft PunkFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19239.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "The Big BangKaty TizFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19306.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "The DistanceCAKEFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19373.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "The Living YearsMike + The MechanicsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19440.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "The MiddleJimmy Eat WorldFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19507.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "The One I LoveR.E.M.Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19574.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "The ScientistColdplayFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19641.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Thinking Out LoudEd SheeranFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19708.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "This Is How You Remind Me {short=\"This ... Remind Me\"}NickelbackFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19775.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Times Like TheseFoo FightersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19842.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Tom SawyerRushFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19909.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "TornNatalie ImbrugliaFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 19976.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Touch Too MuchAC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20043.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "TroubleMakerWeezerLandscape warning",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20110.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Turn The PageBob Seger & the Silver Bullet BandFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20177.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "TushZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20244.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Two Tickets to ParadiseEddie MoneyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20311.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Under The BridgeRed Hot Chili PeppersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20378.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Under the Bridge / CalifornicationRed Hot Chili PeppersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20445.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Uptown FunkMark Ronson feat. Bruno MarsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20512.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Use MeBill WithersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20579.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Use SomebodyKings of LeonFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20646.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "ValerieAmy WinehouseFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20713.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "VasolineStone Temple PilotsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20780.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "VertigoU2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20847.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wagon WheelDarius RuckerFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20914.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Waitin for the BusZZ TopFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 20981.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "WalkFoo FightersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21048.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Walk This WayAerosmithFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21115.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "WallsTom Petty and the HeartbreakersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21182.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wanted Dead Or AliveBon JoviFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21249.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Welcome To The Jungle {short=\"Welcome 2 Jungle\"}Guns N' RosesFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21316.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "What I GotSublimeFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21383.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "What I Got / Folsom Prison BluesSublime / Johnny CashFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21450.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "What I Got / In the Midnight HourSublime / Wilson PickettFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21517.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "WheelsFoo FightersFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21584.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "When I Come AroundGreen DayFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21651.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "When I'm Gone3 Doors DownFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21718.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "When You Get BackJon Cleary & The Absolute Monster GentlemenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21785.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Whenever You Come Around {short=\"Whenever ... Around\"}Vince GillFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21852.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Where the Streets Have No Names {short=\"Where the Streets\"}U2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21919.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "White WeddingBilly IdolFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 21986.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wicked GameChris IsaakFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22053.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wicked GardenStone Temple PilotsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22120.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Wine Wine WineThe NightcapsFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22187.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "With Arms Wide OpenCreedFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22254.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "With Or Without YouU2Fit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22321.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "WomanWolfmotherFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22388.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "WonderwallOasisFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22455.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Word UpGunFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22522.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Yellow LedbetterPearl JamFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22589.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Ain't Seen Nothing YetBachman-Turner OverdriveFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22656.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Don't Know How It FeelsTom PettyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22723.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Found MeThe FrayFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22790.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Oughta KnowAlanis MorissetteFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22857.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Really Got MeVan HalenFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22924.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Shook Me All Night Long {short=\"You Shook Me\"}AC/DCFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 22991.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You Wreck MeTom PettyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 23058.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "You're So BadTom PettyFit checked",
+          "rect": {
+            "height": 66,
+            "left": 125.59375,
+            "top": 23125.375,
+            "width": 1114.8125
+          },
+          "tag": "a"
+        }
+      ],
+      "heading": "Songs",
+      "headings": [
+        "Songs"
+      ],
+      "internal_apex_hrefs": [],
+      "landmarks": [
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": "Primary",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "main"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "footer"
+        }
+      ],
+      "mutation_controls": [],
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "post_ready_fetch_xhr": {
+        "fetch": [],
+        "xhr": []
+      },
+      "route": "#/songs"
+    },
+    "status": {
+      "aria_current": [
+        {
+          "text": "Status",
+          "value": "page"
+        }
+      ],
+      "controls": [
+        {
+          "className": "skip-link",
+          "disabled": false,
+          "name": "Skip to content",
+          "rect": {
+            "height": 41.375,
+            "left": 16,
+            "top": -62.474998474121094,
+            "width": 153.515625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "brand",
+          "disabled": false,
+          "name": "KGLSongsVerified read-only V2",
+          "rect": {
+            "height": 48,
+            "left": 115,
+            "top": 14,
+            "width": 210.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "icon-button",
+          "disabled": false,
+          "name": "Theme: system. Switch to light.",
+          "rect": {
+            "height": 44,
+            "left": 1207,
+            "top": 16,
+            "width": 44
+          },
+          "tag": "button"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Library",
+          "rect": {
+            "height": 45,
+            "left": 115,
+            "top": 76,
+            "width": 89.703125
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Songs",
+          "rect": {
+            "height": 45,
+            "left": 204.703125,
+            "top": 76,
+            "width": 81.375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "Set Lists",
+          "rect": {
+            "height": 45,
+            "left": 286.078125,
+            "top": 76,
+            "width": 102.140625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "active",
+          "disabled": false,
+          "name": "Status",
+          "rect": {
+            "height": 45,
+            "left": 388.21875,
+            "top": 76,
+            "width": 84.65625
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "can-t-stop",
+          "rect": {
+            "height": 44,
+            "left": 136.1875,
+            "top": 920.8125,
+            "width": 210.71875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "father-of-mine",
+          "rect": {
+            "height": 44,
+            "left": 356.90625,
+            "top": 920.8125,
+            "width": 210.71875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "love-shack",
+          "rect": {
+            "height": 44,
+            "left": 577.625,
+            "top": 920.8125,
+            "width": 210.734375
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "paradise-city",
+          "rect": {
+            "height": 44,
+            "left": 798.359375,
+            "top": 920.8125,
+            "width": 210.71875
+          },
+          "tag": "a"
+        },
+        {
+          "className": "",
+          "disabled": false,
+          "name": "troublemaker",
+          "rect": {
+            "height": 44,
+            "left": 1019.078125,
+            "top": 920.8125,
+            "width": 210.734375
+          },
+          "tag": "a"
+        }
+      ],
+      "heading": "Snapshot status",
+      "headings": [
+        "Snapshot status",
+        "Library index diagnostics",
+        "Exact fit distributions",
+        "Landscape warnings (5 linked warning songs)",
+        "Search field contract"
+      ],
+      "internal_apex_hrefs": [],
+      "landmarks": [
+        {
+          "label": null,
+          "role": null,
+          "tag": "header"
+        },
+        {
+          "label": "Primary",
+          "role": null,
+          "tag": "nav"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "main"
+        },
+        {
+          "label": null,
+          "role": null,
+          "tag": "footer"
+        }
+      ],
+      "mutation_controls": [],
+      "overflow": {
+        "bodyScrollWidth": 1366,
+        "innerWidth": 1366,
+        "scrollWidth": 1366
+      },
+      "post_ready_fetch_xhr": {
+        "fetch": [],
+        "xhr": []
+      },
+      "route": "#/status"
+    }
+  },
+  "schema_version": "1",
+  "shell": {
+    "asset_manifest_sha256": "d3dfa5f989efa38ce237034a6f5df4834d9101195794cd124a5427c66c3dc6c7",
+    "cache_name": "songs-v2-shell-39849548e3b7192a1c76aa6e",
+    "release": "shell-39849548e3b7192a1c76aa6e"
+  }
+}

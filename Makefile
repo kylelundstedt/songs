@@ -1,4 +1,4 @@
-.PHONY: build test run clean migrate validate v2-check v2-api-build v2-api-run
+.PHONY: build test run clean migrate validate v2-check v2-browser-check v2-api-build v2-api-run
 
 build:
 	go build -o srv/songs ./cmd/srv
@@ -15,6 +15,10 @@ v2-check:
 	python3 scripts/build_v2_phase1_storage_evidence.py --check
 	python3 scripts/build_v2_phase1_library_evidence.py --check
 	python3 scripts/build_v2_phase1_live_evidence.py --check
+	python3 scripts/build_v2_phase1_hardening_evidence.py --check
+
+v2-browser-check: v2-check
+	node scripts/capture_v2_phase1_hardening_evidence.mjs --check
 
 v2-api-build:
 	go build -o srv/songs-v2-api ./cmd/v2api

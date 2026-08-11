@@ -1,0 +1,50 @@
+{
+  "only_songs_v2_namespaces": true,
+  "profiles": {
+    "desktop": {
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "namespace": [
+        "songs-v2"
+      ],
+      "offline_unknown_path_shell_fallback": false,
+      "online_unknown_path_status": 404,
+      "pointer_unchanged_after_routes": true
+    },
+    "phone": {
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "namespace": [
+        "songs-v2"
+      ],
+      "offline_unknown_path_shell_fallback": false,
+      "online_unknown_path_status": 404,
+      "pointer_unchanged_after_routes": true
+    },
+    "tablet-landscape": {
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "namespace": [
+        "songs-v2"
+      ],
+      "offline_unknown_path_shell_fallback": false,
+      "online_unknown_path_status": 404,
+      "pointer_unchanged_after_routes": true
+    },
+    "tablet-portrait": {
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "namespace": [
+        "songs-v2"
+      ],
+      "offline_unknown_path_shell_fallback": false,
+      "online_unknown_path_status": 404,
+      "pointer_unchanged_after_routes": true
+    }
+  },
+  "schema_version": "1"
+}

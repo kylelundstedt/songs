@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent as ReactMouseEvent } from "react";
 import { cloneApexPresentationNode, fitLiveLeadSheet, type ApexSourceNode, type RuntimeFitTarget } from "./fitter";
+import { createLatestTaskRunner } from "./latest";
 import { type PerformanceEntry, type PerformanceSet } from "./model";
 
 export interface LiveSetPageProps {
@@ -141,13 +142,10 @@ export function LiveSetPage({ performanceSet, exitHref }: LiveSetPageProps) {
     let timer: number | undefined;
     const target: RuntimeFitTarget = { source, viewport, columns };
 
-    const fit = async (): Promise<void> => {
+    const runner = createLatestTaskRunner(async (isLatest) => {
       try {
         const result = await fitLiveLeadSheet(target);
-        // A song change/unmount can leave a previous fitter promise pending.
-        // Its detached keyed subtree is harmless, but never apply its result to
-        // the current presentation.
-        if (cancelled || fitGeneration.current !== generation) return;
+        if (cancelled || fitGeneration.current !== generation || !isLatest()) return;
         columns.dataset.fitStatus = result.status;
         columns.dataset.formFactor = result.formFactor;
         columns.dataset.bodyPx = String(result.bodyPx);
@@ -157,34 +155,40 @@ export function LiveSetPage({ performanceSet, exitHref }: LiveSetPageProps) {
         setRuntimeWarning(result.status === "needs-editing" ? "Runtime fit warning: this viewport needs scrolling at the readability floor." : null);
         prepareClonedApexPresentation(columns, occurrence.label);
       } catch {
-        if (!cancelled && fitGeneration.current === generation) {
+        if (!cancelled && fitGeneration.current === generation && isLatest()) {
           renderReadableFallback(source, columns, occurrence.label);
           stage.dataset.formFactor = "phone";
           setRuntimeWarning("Runtime fit unavailable: showing a readable one-column verified Apex fallback.");
         }
       }
-    };
+    });
     const scheduleFit = (): void => {
       if (cancelled) return;
       if (timer !== undefined) window.clearTimeout(timer);
       timer = window.setTimeout(() => {
         timer = undefined;
-        void fit();
+        runner.request();
       }, 100);
     };
 
-    void fit();
+    runner.request();
+    const visible = () => { if (document.visibilityState === "visible") scheduleFit(); };
     window.addEventListener("resize", scheduleFit);
     window.addEventListener("orientationchange", scheduleFit);
+    window.addEventListener("pageshow", scheduleFit);
+    document.addEventListener("visibilitychange", visible);
     window.visualViewport?.addEventListener("resize", scheduleFit);
     const resizeObserver = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(scheduleFit);
     resizeObserver?.observe(viewport);
 
     return () => {
       cancelled = true;
+      runner.dispose();
       if (timer !== undefined) window.clearTimeout(timer);
       window.removeEventListener("resize", scheduleFit);
       window.removeEventListener("orientationchange", scheduleFit);
+      window.removeEventListener("pageshow", scheduleFit);
+      document.removeEventListener("visibilitychange", visible);
       window.visualViewport?.removeEventListener("resize", scheduleFit);
       resizeObserver?.disconnect();
     };

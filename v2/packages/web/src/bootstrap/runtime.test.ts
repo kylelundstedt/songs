@@ -503,6 +503,53 @@ describe("bootstrapRuntime TASK-012", () => {
     expect(inspection.snapshots).toEqual([expect.objectContaining({ generation: physicalA, state: "active" })]);
     expect(await reopened.readGeneration(physicalB)).toBeNull();
   }, 30_000);
+  it("never authorizes a verified snapshot with a later cross-tab pointer epoch", async () => {
+    const storage = await openSongsStorage();
+    connections.push(storage);
+    const repository = storage as BootstrapStorageRepository & {
+      activate: BootstrapStorageRepository["activate"];
+      inspect: BootstrapStorageRepository["inspect"];
+    };
+    const activate = storage.activate.bind(storage);
+    const inspect = storage.inspect.bind(storage);
+    let driftAfterActivation = false;
+    repository.activate = async (generation, options) => {
+      const result = await activate(generation, options);
+      driftAfterActivation = true;
+      return result;
+    };
+    repository.inspect = async () => {
+      const result = await inspect();
+      return driftAfterActivation
+        ? { ...result, activeGeneration: "phase1-cross-tab@later", transitionCount: result.transitionCount + 1 }
+        : result;
+    };
+
+    const result = await bootstrapRuntime({ online: true, origin, fetchImpl: fixtureFetch(), storageRepository: repository });
+    expect(result.status).toMatchObject({ source: "memory", update: "memory-only", offlineReady: false });
+    expect(result.status.warning).toContain("active pointer changed after snapshot verification");
+    expect(result.status.activeStorageGeneration).not.toBe("phase1-cross-tab@later");
+  }, 20_000);
+
+  it("fails closed when a local active snapshot changes after asynchronous verification", async () => {
+    await bootstrapRuntime({ online: true, origin, fetchImpl: fixtureFetch(), storageFactory });
+    for (const connection of connections.splice(0)) connection.close();
+    const storage = await openSongsStorage();
+    connections.push(storage);
+    const repository = storage as BootstrapStorageRepository & { inspect: BootstrapStorageRepository["inspect"] };
+    const inspect = storage.inspect.bind(storage);
+    let inspections = 0;
+    repository.inspect = async () => {
+      const result = await inspect();
+      inspections += 1;
+      return inspections === 1
+        ? result
+        : { ...result, activeGeneration: "phase1-cross-tab@later", transitionCount: result.transitionCount + 1 };
+    };
+
+    await expect(bootstrapRuntime({ online: false, origin, storageRepository: repository })).rejects.toMatchObject({ code: "NETWORK_OFFLINE" });
+  }, 30_000);
+
   it("falls back to a memory-only verified result when staging hits a quota-like failure", async () => {
     const failingFactory = async (options?: { readonly indexedDB?: IDBFactory }): Promise<BootstrapStorageRepository> => {
       const storage = await openSongsStorage(options === undefined ? {} : options);
@@ -535,6 +582,17 @@ describe("bootstrapRuntime TASK-012", () => {
     });
     expect(result.status).toMatchObject({ source: "network", database: "unavailable", persistence: "denied", usage: 10, quota: 100, headroom: 90 });
     expect(calls).toEqual({ persisted: 1, persist: 1, estimate: 1 });
+  }, 20_000);
+
+  it("preserves typed IndexedDB open failures in the runtime warning", async () => {
+    const result = await bootstrapRuntime({
+      online: true,
+      origin,
+      fetchImpl: fixtureFetch(),
+      storageFactory: async () => { throw new SongsStorageError("SCHEMA_NEWER", "database belongs to a newer shell"); },
+    });
+    expect(result.status).toMatchObject({ source: "network", database: "unavailable", update: "memory-only", offlineReady: false });
+    expect(result.status.warning).toContain("SCHEMA_NEWER: database belongs to a newer shell");
   }, 20_000);
 
   it("returns a typed offline error when no verified local snapshot exists", async () => {

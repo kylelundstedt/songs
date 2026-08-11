@@ -62,8 +62,12 @@ func TestLoadAndServeReviewedShell(t *testing.T) {
 		t.Fatalf("root response=%d headers=%v", root.Code, root.Header())
 	}
 	sw := request(http.MethodGet, "/sw.js")
-	if sw.Code != http.StatusOK || sw.Header().Get("Service-Worker-Allowed") != "/" || !bytes.Contains(sw.Body.Bytes(), []byte("songs-v2-shell-")) || !bytes.Contains(sw.Body.Bytes(), []byte("GET_COMPATIBILITY")) || !bytes.Contains(sw.Body.Bytes(), []byte(expectedBootstrapSHA256)) || !bytes.Contains(sw.Body.Bytes(), []byte("caches.open(CACHE_NAME)")) || bytes.Contains(sw.Body.Bytes(), []byte("indexedDB")) || bytes.Contains(sw.Body.Bytes(), []byte("songs-shell-v28")) {
+	if sw.Code != http.StatusOK || sw.Header().Get("Service-Worker-Allowed") != "/" || !bytes.Contains(sw.Body.Bytes(), []byte("songs-v2-shell-")) || !bytes.Contains(sw.Body.Bytes(), []byte("GET_COMPATIBILITY")) || !bytes.Contains(sw.Body.Bytes(), []byte(expectedBootstrapSHA256)) || !bytes.Contains(sw.Body.Bytes(), []byte("caches.open(CACHE_NAME)")) || !bytes.Contains(sw.Body.Bytes(), []byte("url.pathname !== '/'")) || !bytes.Contains(sw.Body.Bytes(), []byte("auth-refresh")) || bytes.Contains(sw.Body.Bytes(), []byte("SKIP_WAITING")) || bytes.Contains(sw.Body.Bytes(), []byte("indexedDB")) || bytes.Contains(sw.Body.Bytes(), []byte("songs-shell-v28")) {
 		t.Fatalf("service worker response=%d", sw.Code)
+	}
+	manifest := request(http.MethodGet, "/manifest.webmanifest")
+	if manifest.Code != http.StatusOK || !bytes.Contains(manifest.Body.Bytes(), []byte(`"start_url": "/#/"`)) {
+		t.Fatalf("web manifest does not use the canonical hash root: %d %s", manifest.Code, manifest.Body.String())
 	}
 	unknown := request(http.MethodGet, "/not-a-shell-route")
 	if unknown.Code != http.StatusNotFound || bytes.Contains(unknown.Body.Bytes(), []byte("<div id=\"root\"")) {

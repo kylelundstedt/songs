@@ -1,17 +1,34 @@
 import { Component, useEffect, useMemo, useRef, useState, type ErrorInfo, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import { BootstrapClientError, type LeadSheetDocument, type VerifiedSnapshot } from "./bootstrap/types";
 import { type SnapshotProgress } from "./bootstrap/load";
-import { bootstrapRuntime, type BootstrapRuntimeStatus } from "./bootstrap/runtime";
+import { ACTIVE_POINTER_CHANNEL, bootstrapRuntime, type BootstrapRuntimeStatus } from "./bootstrap/runtime";
 import { buildLibraryIndex, type LibraryIndex, type LibrarySet, type LibrarySong, type SetSearchField, type SongSearchField } from "./library";
 import { LiveSetPage } from "./live/LiveSetPage";
 import { buildPerformanceSet, type PerformanceSet } from "./live/model";
+import { controllerChangeDisposition, deferredControllerDisposition, waitingWorkerActivationDisposition } from "./service-worker";
 import { openSongsStorage, SONGS_STORAGE_NAME } from "./storage";
 import "./styles.css";
 
 const CACHE_PREFIX = "songs-v2-shell-";
 let deferredControllerReload = false;
 
+export interface ActivePointerState {
+  readonly activeGeneration: string | null;
+  readonly transitionCount: number;
+}
+
+export type ActivePointerInspector = () => Promise<ActivePointerState>;
+
+async function inspectActivePointer(): Promise<ActivePointerState> {
+  const storage = await openSongsStorage();
+  try {
+    const inspection = await storage.inspect();
+    return { activeGeneration: inspection.activeGeneration, transitionCount: inspection.transitionCount };
+  } finally { storage.close(); }
+}
+
 function rawHashPath(): string {
+  if (window.location.pathname !== "/" && window.location.pathname !== "/index.html") return "/not-found";
   const raw = window.location.hash.slice(1) || "/";
   return raw.startsWith("/") && !raw.includes("?") && !raw.includes("#") ? raw : "/not-found";
 }
@@ -51,6 +68,8 @@ function useOnline(): boolean {
 export interface ServiceWorkerState {
   readonly state: "unsupported" | "installing" | "current" | "update-available";
   readonly canApply: boolean;
+  readonly controlled: boolean;
+  readonly offlineReady: boolean;
   readonly message?: string | undefined;
   readonly apply: () => Promise<void>;
 }
@@ -82,15 +101,30 @@ function workerCompatibility(worker: ServiceWorker): Promise<WorkerCompatibility
   });
 }
 
-function useServiceWorker(activeManifestSha256?: string | null, offlineReady = false): ServiceWorkerState {
+function useServiceWorker(
+  activeManifestSha256?: string | null,
+  contentOfflineReady = false,
+): ServiceWorkerState {
   const [state, setState] = useState<"unsupported" | "installing" | "current" | "update-available">("installing");
   const [message, setMessage] = useState<string>();
   const [registration, setRegistration] = useState<ServiceWorkerRegistration>();
   const [canApply, setCanApply] = useState(false);
+  const [controlled, setControlled] = useState(false);
+  const [shellOfflineReady, setShellOfflineReady] = useState(false);
   useEffect(() => {
-    if (!("serviceWorker" in navigator)) { setState("unsupported"); return; }
+    if (!("serviceWorker" in navigator)) {
+      setState("unsupported");
+      setControlled(false);
+      setShellOfflineReady(false);
+      return;
+    }
+    let alive = true;
+    let currentRegistration: ServiceWorkerRegistration | undefined;
+    let registrationPending = false;
     const controllerChanged = () => {
-      if (exactLiveHash()) {
+      if (!alive) return;
+      setControlled(navigator.serviceWorker.controller !== null);
+      if (controllerChangeDisposition(exactLiveHash()) === "defer") {
         deferredControllerReload = true;
         setMessage("A shell update is ready. Exit locked Live mode before reloading.");
         return;
@@ -98,22 +132,19 @@ function useServiceWorker(activeManifestSha256?: string | null, offlineReady = f
       window.location.reload();
     };
     const routeChanged = () => {
-      if (deferredControllerReload && !exactLiveHash()) { window.location.reload(); return; }
-      if (!exactLiveHash()) {
-        if (currentRegistration === undefined) void ensureRegistration();
-        else void currentRegistration.update().catch(() => undefined);
-      }
+      if (deferredControllerDisposition(deferredControllerReload, exactLiveHash()) === "reload") window.location.reload();
     };
-    navigator.serviceWorker.addEventListener("controllerchange", controllerChanged);
-    window.addEventListener("hashchange", routeChanged);
-    let alive = true;
-    let currentRegistration: ServiceWorkerRegistration | undefined;
-    let registrationPending = false;
     const acceptRegistration = (next: ServiceWorkerRegistration | undefined): void => {
       if (!alive) return;
-      if (next === undefined) { setState("unsupported"); return; }
+      if (next === undefined) {
+        setState("unsupported");
+        setControlled(false);
+        setShellOfflineReady(false);
+        return;
+      }
       currentRegistration = next;
       setRegistration(next);
+      setControlled(navigator.serviceWorker.controller !== null);
       setState(next.waiting ? "update-available" : "current");
       next.addEventListener("updatefound", () => {
         const worker = next.installing;
@@ -128,11 +159,17 @@ function useServiceWorker(activeManifestSha256?: string | null, offlineReady = f
       if (!alive || currentRegistration !== undefined || registrationPending) return;
       registrationPending = true;
       try { acceptRegistration(await navigator.serviceWorker.register("/sw.js", { scope: "/" })); }
-      catch { if (alive) setState("unsupported"); }
-      finally { registrationPending = false; }
+      catch {
+        if (alive) {
+          setState("unsupported");
+          setControlled(false);
+          setShellOfflineReady(false);
+        }
+      } finally { registrationPending = false; }
     };
-    if (exactLiveHash()) navigator.serviceWorker.getRegistration("/").then(acceptRegistration).catch(() => { if (alive) setState("unsupported"); });
-    else void ensureRegistration();
+    navigator.serviceWorker.addEventListener("controllerchange", controllerChanged);
+    window.addEventListener("hashchange", routeChanged);
+    void ensureRegistration();
     return () => {
       alive = false;
       navigator.serviceWorker.removeEventListener("controllerchange", controllerChanged);
@@ -141,39 +178,43 @@ function useServiceWorker(activeManifestSha256?: string | null, offlineReady = f
   }, []);
   useEffect(() => {
     let alive = true;
+    setShellOfflineReady(false);
+    const controller = "serviceWorker" in navigator ? navigator.serviceWorker.controller : null;
+    if (controller === null || activeManifestSha256 === undefined || activeManifestSha256 === null || !contentOfflineReady) return () => { alive = false; };
+    workerCompatibility(controller).then((compatibility) => {
+      if (alive) setShellOfflineReady(compatibility.accepted_bootstrap_manifest_sha256.includes(activeManifestSha256));
+    }).catch(() => {
+      if (alive) setShellOfflineReady(false);
+    });
+    return () => { alive = false; };
+  }, [activeManifestSha256, contentOfflineReady, controlled, registration, state]);
+  useEffect(() => {
+    let alive = true;
     setCanApply(false);
-    setMessage(undefined);
+    setMessage((current) => deferredControllerReload ? current : undefined);
     const waiting = registration?.waiting;
     if (state !== "update-available" || waiting === undefined || waiting === null || activeManifestSha256 === undefined || activeManifestSha256 === null) return () => { alive = false; };
     workerCompatibility(waiting).then((compatibility) => {
       if (!alive) return;
       const compatible = compatibility.accepted_bootstrap_manifest_sha256.includes(activeManifestSha256);
-      const safeToReload = compatible && offlineReady;
-      setCanApply(safeToReload);
-      if (!compatible) setMessage(`Shell update ${compatibility.release} is waiting for a compatible verified snapshot.`);
-      else if (!offlineReady) setMessage(`Shell update ${compatibility.release} is waiting until the verified snapshot is active in IndexedDB.`);
+      if (!compatible) setMessage(`Shell update ${compatibility.release} is waiting for a compatible verified snapshot. Close all V2 windows before reopening.`);
+      else setMessage(`Shell update ${compatibility.release} is waiting. Close all V2 windows to activate it safely.`);
     }).catch(() => {
-      if (alive) setMessage("The waiting shell did not provide a valid compatibility contract.");
+      if (alive) setMessage("The waiting shell did not provide a valid compatibility contract. Close all V2 windows before reopening.");
     });
     return () => { alive = false; };
-  }, [activeManifestSha256, offlineReady, registration, state]);
+  }, [activeManifestSha256, registration, state]);
   const apply = async () => {
-    setMessage(undefined);
-    if (!canApply) {
-      setMessage("Update deferred until the waiting shell accepts an active snapshot that is safe to reopen offline.");
-      return;
+    setCanApply(false);
+    if (waitingWorkerActivationDisposition() === "defer-until-clients-close") {
+      setMessage("Immediate shell activation is disabled. Close all V2 windows, then reopen V2 to activate the waiting update safely.");
     }
-    if (registration?.waiting === undefined || registration.waiting === null) {
-      setMessage("The waiting update is no longer available.");
-      return;
-    }
-    registration.waiting.postMessage({ type: "SKIP_WAITING" });
   };
-  return { state, canApply, ...(message === undefined ? {} : { message }), apply };
+  return { state, canApply, controlled, offlineReady: shellOfflineReady && contentOfflineReady, ...(message === undefined ? {} : { message }), apply };
 }
 
-function Link({ to, children, className }: { readonly to: string; readonly children: ReactNode; readonly className?: string | undefined }) {
-  return <a href={`#${to}`} className={className}>{children}</a>;
+function Link({ to, children, className, ariaCurrent }: { readonly to: string; readonly children: ReactNode; readonly className?: string | undefined; readonly ariaCurrent?: "page" | undefined }) {
+  return <a href={`#${to}`} className={className} aria-current={ariaCurrent}>{children}</a>;
 }
 
 function ThemeToggle() {
@@ -200,11 +241,11 @@ function Header({ path, online, update, recoveryPending = false }: { readonly pa
     </div>
     <nav aria-label="Primary">
       {!recoveryPending && <>
-        <Link to="/" className={path === "/" ? "active" : undefined}>Library</Link>
-        <Link to="/songs" className={current("/songs") ? "active" : undefined}>Songs</Link>
-        <Link to="/sets" className={current("/sets") ? "active" : undefined}>Set Lists</Link>
+        <Link to="/" className={path === "/" ? "active" : undefined} ariaCurrent={path === "/" ? "page" : undefined}>Library</Link>
+        <Link to="/songs" className={current("/songs") ? "active" : undefined} ariaCurrent={current("/songs") ? "page" : undefined}>Songs</Link>
+        <Link to="/sets" className={current("/sets") ? "active" : undefined} ariaCurrent={current("/sets") ? "page" : undefined}>Set Lists</Link>
       </>}
-      <Link to="/status" className={current("/status") ? "active" : undefined}>Status</Link>
+      <Link to="/status" className={current("/status") ? "active" : undefined} ariaCurrent={current("/status") ? "page" : undefined}>Status</Link>
     </nav>
     {update.message && <p className="update-message" role="status">{update.message}</p>}
   </header>;
@@ -226,12 +267,13 @@ function ErrorState({ error, retry }: { readonly error: BootstrapClientError; re
   const offline = error.code === "NETWORK_OFFLINE";
   const auth = error.code === "UNAUTHENTICATED";
   const unsupported = error.code === "MANIFEST_UNSUPPORTED";
+  const refreshAuthentication = () => window.location.assign(`/?auth-refresh=${Date.now()}${window.location.hash}`);
   return <section className="state-card error-state" role="alert" aria-labelledby="error-title">
     <p className="eyebrow">{offline ? "Offline" : auth ? "Authentication required" : unsupported ? "Shell update required" : "Verification stopped"}</p>
     <h1 id="error-title">{offline ? "No saved snapshot yet" : auth ? "Sign in to open the private songbook" : unsupported ? "This saved snapshot needs a newer V2 shell" : "The snapshot was not opened"}</h1>
     <p>{error.message}</p>
     <p className="error-code">Error code: <code>{error.code}</code></p>
-    <button type="button" className="primary-button" onClick={retry}>Try again</button>
+    {auth ? <button type="button" className="primary-button" onClick={refreshAuthentication}>Refresh private sign-in</button> : <button type="button" className="primary-button" onClick={retry}>Try again</button>}
   </section>;
 }
 
@@ -341,21 +383,39 @@ function MetaItem({ label, value }: { readonly label: string; readonly value?: s
   return <div><dt>{label}</dt><dd>{value}</dd></div>;
 }
 
-function apexPresentationHtml(html: string): string {
-  return html
+function apexPresentationHtml(html: string, snapshot: VerifiedSnapshot): string {
+  const template = document.createElement("template");
+  template.innerHTML = html
     .replace(/^<h1\b[^>]*>[\s\S]*?<\/h1>\s*/i, "")
     .replace(' style="list-style-type: upper-alpha"', ' class="apex-upper-alpha"');
+  for (const link of template.content.querySelectorAll<HTMLAnchorElement>("a")) {
+    const href = link.getAttribute("href");
+    if (href?.startsWith("/song/")) {
+      let slug: string | undefined;
+      try { slug = decodeURIComponent(href.slice(6)); } catch { slug = undefined; }
+      if (slug !== undefined && snapshot.routeByKey.has(`song:${slug}`)) {
+        link.setAttribute("href", `#/songs/${encodeURIComponent(slug)}`);
+        link.removeAttribute("target");
+        link.removeAttribute("download");
+      } else {
+        link.removeAttribute("href");
+        link.setAttribute("aria-disabled", "true");
+      }
+    } else if (href !== null) {
+      link.setAttribute("rel", "noopener noreferrer");
+    }
+  }
+  return template.innerHTML;
 }
 
 function ApexSheet({ song, snapshot }: { readonly song: LeadSheetDocument; readonly snapshot: VerifiedSnapshot }) {
-  const html = useMemo(() => apexPresentationHtml(song.apex.html), [song.apex.html]);
+  const html = useMemo(() => apexPresentationHtml(song.apex.html, snapshot), [snapshot, song.apex.html]);
   const handleClick = (event: ReactMouseEvent<HTMLElement>) => {
     const target = event.target instanceof Element ? event.target.closest("a") : null;
     const href = target?.getAttribute("href");
-    if (href?.startsWith("/song/")) {
+    if (href?.startsWith("#/songs/")) {
       event.preventDefault();
-      const slug = href.slice(6);
-      if (snapshot.routeByKey.has(`song:${slug}`)) window.location.hash = `#/songs/${encodeURIComponent(slug)}`;
+      window.location.hash = href;
     }
   };
   return <>
@@ -428,7 +488,7 @@ function StatusPage({ index, snapshot, online, update, runtime }: { readonly ind
   const activeSelection = index?.activeSetSelection(null) ?? null;
   const active = activeSnapshotFor(snapshot, runtime);
   const recoveryPending = runtime.source === "indexeddb" && !active;
-  const offlineReady = durableOfflineReady(snapshot, runtime);
+  const offlineReady = completeOfflineReady(snapshot, runtime, update);
   const source = recoveryPending ? "Verified retained IndexedDB snapshot (active pointer recovery pending)" : runtime.update === "failed-retained" ? "Active verified IndexedDB snapshot (update failed; active generation retained)" : runtime.source === "indexeddb" ? "Active verified IndexedDB snapshot" : runtime.source === "network" ? "Verified network snapshot (not active; storage unchanged)" : "Verified memory snapshot (not active; not saved)";
   const persistence = runtime.persistence === "granted" ? "Granted (storage remains evictable)" : runtime.persistence === "denied" ? "Not granted" : runtime.persistence === "unsupported" ? "Unsupported" : "Unknown";
   return <>
@@ -523,6 +583,10 @@ function durableOfflineReady(snapshot: VerifiedSnapshot, runtime: BootstrapRunti
   return activeSnapshotFor(snapshot, runtime) && runtime.offlineReady;
 }
 
+function completeOfflineReady(snapshot: VerifiedSnapshot, runtime: BootstrapRuntimeStatus, update: ServiceWorkerState): boolean {
+  return durableOfflineReady(snapshot, runtime) && update.controlled && update.offlineReady;
+}
+
 function InactiveSnapshotPage({ snapshot, runtime }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus }) {
   const recoveryPending = recoveryPendingFor(snapshot, runtime);
   return <section className={`state-card ${recoveryPending ? "recovery-state" : ""}`} role="status" aria-labelledby="inactive-title">
@@ -540,15 +604,7 @@ function InactiveSnapshotPage({ snapshot, runtime }: { readonly snapshot: Verifi
   </section>;
 }
 
-type ActiveGenerationInspector = () => Promise<string | null>;
-
-async function inspectActiveStorageGeneration(): Promise<string | null> {
-  const storage = await openSongsStorage();
-  try { return (await storage.inspect()).activeGeneration; }
-  finally { storage.close(); }
-}
-
-export function GuardedLiveSetPage({ performanceSet, exitHref, expectedStorageGeneration, inspectActiveGeneration = inspectActiveStorageGeneration }: { readonly performanceSet: PerformanceSet; readonly exitHref: string; readonly expectedStorageGeneration?: string | null | undefined; readonly inspectActiveGeneration?: ActiveGenerationInspector }) {
+export function GuardedLiveSetPage({ performanceSet, exitHref, expectedStorageGeneration, expectedTransitionCount, inspectActiveGeneration = inspectActivePointer }: { readonly performanceSet: PerformanceSet; readonly exitHref: string; readonly expectedStorageGeneration?: string | null | undefined; readonly expectedTransitionCount?: number | undefined; readonly inspectActiveGeneration?: ActivePointerInspector }) {
   const [guard, setGuard] = useState<"checking" | "active" | "stopped">("checking");
   useEffect(() => {
     let alive = true;
@@ -557,38 +613,45 @@ export function GuardedLiveSetPage({ performanceSet, exitHref, expectedStorageGe
       if (!alive || checking) return;
       checking = true;
       try {
-        const activeGeneration = await inspectActiveGeneration();
+        const pointer = await inspectActiveGeneration();
         const matches = expectedStorageGeneration !== undefined
           && expectedStorageGeneration !== null
-          && activeGeneration === expectedStorageGeneration;
+          && expectedTransitionCount !== undefined
+          && pointer.activeGeneration === expectedStorageGeneration
+          && pointer.transitionCount === expectedTransitionCount;
         if (alive) setGuard((current) => current === "stopped" ? "stopped" : matches ? "active" : "stopped");
       } catch {
         if (alive) setGuard("stopped");
       } finally { checking = false; }
     };
     const visible = () => { if (document.visibilityState === "visible") void inspect(); };
-    const timer = window.setInterval(() => { void inspect(); }, 5_000);
+    const pointerChanged = () => { void inspect(); };
+    const timer = window.setInterval(() => { void inspect(); }, 2_000);
+    const channel = typeof BroadcastChannel === "undefined" ? null : new BroadcastChannel(ACTIVE_POINTER_CHANNEL);
+    channel?.addEventListener("message", pointerChanged);
     document.addEventListener("visibilitychange", visible);
     window.addEventListener("pageshow", inspect);
     void inspect();
     return () => {
       alive = false;
       window.clearInterval(timer);
+      channel?.removeEventListener("message", pointerChanged);
+      channel?.close();
       document.removeEventListener("visibilitychange", visible);
       window.removeEventListener("pageshow", inspect);
     };
-  }, [expectedStorageGeneration, inspectActiveGeneration]);
+  }, [expectedStorageGeneration, expectedTransitionCount, inspectActiveGeneration]);
   if (guard === "checking") return <main className="locked-live-stage locked-live-theme-dark" aria-label="Locked Live mode checking"><section className="locked-live-panel locked-live-invalid" role="status"><p className="locked-live-eyebrow">Verifying active snapshot</p><h1 className="locked-live-title">Opening locked Live safely</h1><p>Confirming this tab still matches the active IndexedDB pointer generation.</p></section></main>;
   if (guard === "stopped") return <main className="locked-live-stage locked-live-theme-dark" aria-label="Locked Live mode stopped"><section className="locked-live-panel locked-live-invalid" role="alert"><p className="locked-live-eyebrow">Active snapshot changed</p><h1 className="locked-live-title">Locked Live stopped safely</h1><p>This tab no longer matches the active IndexedDB pointer generation. Reload verified content before continuing.</p><button className="locked-live-nav-button" type="button" onClick={() => window.location.reload()}>Reload verified content</button></section></main>;
   return <LiveSetPage key={performanceSet.id} performanceSet={performanceSet} exitHref={exitHref} />;
 }
 
-export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGeneration }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly runtime: BootstrapRuntimeStatus; readonly inspectActiveGeneration?: ActiveGenerationInspector }) {
+export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGeneration }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ServiceWorkerState; readonly runtime: BootstrapRuntimeStatus; readonly inspectActiveGeneration?: ActivePointerInspector }) {
   const path = useHashPath();
   const active = activeSnapshotFor(snapshot, runtime);
   const index = useMemo(() => active ? buildLibraryIndex(snapshot) : null, [active, snapshot]);
   const selectorsClosed = !active;
-  const offlineReady = durableOfflineReady(snapshot, runtime);
+  const offlineReady = completeOfflineReady(snapshot, runtime, update);
   const songSlug = exactSongSlug(path);
   const setRoute = exactSetRoute(path);
   const routedSet = useMemo(() => index === null || setRoute === undefined ? null : index.setBySlug(setRoute.slug), [index, setRoute?.slug]);
@@ -607,7 +670,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   } else if (setRoute !== undefined) {
     if (routedSet === null || routedPerformanceSet === null) page = <NotFound />;
     else if (setRoute.live) {
-      livePage = <GuardedLiveSetPage performanceSet={routedPerformanceSet} exitHref={`#/sets/${routedSet.slug}`} expectedStorageGeneration={runtime.activeStorageGeneration} {...(inspectActiveGeneration === undefined ? {} : { inspectActiveGeneration })} />;
+      livePage = <GuardedLiveSetPage performanceSet={routedPerformanceSet} exitHref={`#/sets/${routedSet.slug}`} expectedStorageGeneration={runtime.activeStorageGeneration} expectedTransitionCount={runtime.transitions} {...(inspectActiveGeneration === undefined ? {} : { inspectActiveGeneration })} />;
       page = null;
     } else page = <SetListPage performanceSet={routedPerformanceSet} />;
   } else page = <NotFound />;
@@ -617,12 +680,12 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
     {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}
     {active && runtime.update === "failed-retained" && <div className="update-warning-banner" role="status">Update failed; the active verified snapshot was retained. Browsing and local search remain available.</div>}
     {page}
-  </main><Footer snapshot={snapshot} runtime={runtime} /></>;
+  </main><Footer snapshot={snapshot} runtime={runtime} update={update} /></>;
 }
 
 function NotFound() { return <section className="state-card"><p className="eyebrow">V2 route</p><h1 tabIndex={-1} data-page-heading>Page not found</h1><p>This isolated shell does not fall through to v1.</p><Link to="/" className="primary-button">Return to library</Link></section>; }
 
-function Footer({ snapshot, runtime }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus }) { return <footer><span>Read-only pilot</span><span>{snapshot.manifest.generation}</span><span>{durableOfflineReady(snapshot, runtime) ? "Offline restart ready" : "Not offline-ready (session only)"}</span><span>Physical iPad: pending</span></footer>; }
+function Footer({ snapshot, runtime, update }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus; readonly update: ServiceWorkerState }) { return <footer><span>Read-only pilot</span><span>{snapshot.manifest.generation}</span><span>{completeOfflineReady(snapshot, runtime, update) ? "Offline restart ready" : "Not offline-ready (session only)"}</span><span>Physical iPad: pending</span></footer>; }
 
 export class ShellErrorBoundary extends Component<{ readonly children: ReactNode }, { readonly failed: boolean }> {
   override state = { failed: false };
@@ -634,13 +697,73 @@ export class ShellErrorBoundary extends Component<{ readonly children: ReactNode
   }
 }
 
+export function ActivePointerBoundary({ snapshot, runtime, onDrift, children, inspectPointer = inspectActivePointer }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus; readonly onDrift: () => void; readonly children: ReactNode; readonly inspectPointer?: ActivePointerInspector }) {
+  const guarded = activeSnapshotFor(snapshot, runtime);
+  const [state, setState] = useState<"checking" | "active" | "stopped">(guarded ? "checking" : "active");
+  const onDriftRef = useRef(onDrift);
+  onDriftRef.current = onDrift;
+  useEffect(() => {
+    if (!guarded) {
+      setState("active");
+      return;
+    }
+    if (runtime.activeStorageGeneration === undefined || runtime.activeStorageGeneration === null) {
+      setState("stopped");
+      onDriftRef.current();
+      return;
+    }
+    let alive = true;
+    let checking = false;
+    const verify = async (): Promise<void> => {
+      if (!alive || checking) return;
+      checking = true;
+      try {
+        const pointer = await inspectPointer();
+        const matches = pointer.activeGeneration === runtime.activeStorageGeneration && pointer.transitionCount === runtime.transitions;
+        if (!alive) return;
+        if (matches) setState((current) => current === "stopped" ? "stopped" : "active");
+        else {
+          setState("stopped");
+          onDriftRef.current();
+        }
+      } catch {
+        if (alive) {
+          setState("stopped");
+          onDriftRef.current();
+        }
+      } finally { checking = false; }
+    };
+    const visible = () => { if (document.visibilityState === "visible") void verify(); };
+    const changed = () => { void verify(); };
+    const timer = window.setInterval(() => { void verify(); }, 2_000);
+    const channel = typeof BroadcastChannel === "undefined" ? null : new BroadcastChannel(ACTIVE_POINTER_CHANNEL);
+    channel?.addEventListener("message", changed);
+    document.addEventListener("visibilitychange", visible);
+    window.addEventListener("pageshow", verify);
+    void verify();
+    return () => {
+      alive = false;
+      window.clearInterval(timer);
+      channel?.removeEventListener("message", changed);
+      channel?.close();
+      document.removeEventListener("visibilitychange", visible);
+      window.removeEventListener("pageshow", verify);
+    };
+  }, [guarded, inspectPointer, runtime.activeStorageGeneration, runtime.transitions]);
+  if (!guarded || state === "active") return <>{children}</>;
+  return <main id="main"><section className="state-card recovery-state" role="status" aria-labelledby="pointer-check-title"><p className="eyebrow">Active snapshot authority</p><h1 id="pointer-check-title">{state === "checking" ? "Confirming the active saved snapshot" : "The active saved snapshot changed"}</h1><p>{state === "checking" ? "Catalog routes stay closed until the physical IndexedDB pointer and transition epoch are confirmed." : "Reloading and reverifying the new active snapshot before browsing continues."}</p></section></main>;
+}
+
 export function App() {
   const [attempt, setAttempt] = useState(0);
   const [state, setState] = useState<LoadState>({ status: "loading", progress: { phase: "manifest", completed: 0, total: 1 } });
   const online = useOnline();
   const previousOnline = useRef(online);
   const deferredConnectivityRefresh = useRef(false);
-  const update = useServiceWorker(state.status === "ready" ? state.runtime.manifestSha256 : null, state.status === "ready" && durableOfflineReady(state.snapshot, state.runtime));
+  const update = useServiceWorker(
+    state.status === "ready" ? state.runtime.manifestSha256 : null,
+    state.status === "ready" && durableOfflineReady(state.snapshot, state.runtime),
+  );
   useEffect(() => {
     if (previousOnline.current === online) return;
     previousOnline.current = online;
@@ -667,6 +790,6 @@ export function App() {
     });
     return () => { alive = false; controller.abort(); };
   }, [attempt]);
-  if (state.status === "ready") return <ReadyApp snapshot={state.snapshot} online={online} update={update} runtime={state.runtime} />;
+  if (state.status === "ready") return <ActivePointerBoundary snapshot={state.snapshot} runtime={state.runtime} onDrift={() => setAttempt((value) => value + 1)}><ReadyApp snapshot={state.snapshot} online={online} update={update} runtime={state.runtime} /></ActivePointerBoundary>;
   return <><Header path="/" online={online} update={update} /><main id="main">{state.status === "loading" ? <Loading progress={state.progress} /> : <ErrorState error={state.error} retry={() => setAttempt((value) => value + 1)} />}</main></>;
 }

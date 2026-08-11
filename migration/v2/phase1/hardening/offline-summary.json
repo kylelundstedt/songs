@@ -1,0 +1,130 @@
+{
+  "direct_live_first_load": true,
+  "profiles": {
+    "desktop": {
+      "api_requests": {
+        "dashboard": 0,
+        "set-detail": 0,
+        "set-live": 0,
+        "sets": 0,
+        "song-1979": 0,
+        "songs": 0,
+        "status": 0
+      },
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "database_names": [
+        "songs-v2"
+      ],
+      "service_worker": {
+        "compatibility": {
+          "accepted_bootstrap_manifest_sha256": [
+            "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+          ],
+          "release": "shell-39849548e3b7192a1c76aa6e"
+        },
+        "controlled": true,
+        "scope": "http://127.0.0.1:40705/",
+        "script_url": "http://127.0.0.1:40705/sw.js",
+        "state": "activated"
+      },
+      "unknown_path_shell_fallback": false,
+      "zero_api_requests": true
+    },
+    "phone": {
+      "api_requests": {
+        "dashboard": 0,
+        "set-detail": 0,
+        "set-live": 0,
+        "sets": 0,
+        "song-1979": 0,
+        "songs": 0,
+        "status": 0
+      },
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "database_names": [
+        "songs-v2"
+      ],
+      "service_worker": {
+        "compatibility": {
+          "accepted_bootstrap_manifest_sha256": [
+            "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+          ],
+          "release": "shell-39849548e3b7192a1c76aa6e"
+        },
+        "controlled": true,
+        "scope": "http://127.0.0.1:40103/",
+        "script_url": "http://127.0.0.1:40103/sw.js",
+        "state": "activated"
+      },
+      "unknown_path_shell_fallback": false,
+      "zero_api_requests": true
+    },
+    "tablet-landscape": {
+      "api_requests": {
+        "dashboard": 0,
+        "set-detail": 0,
+        "set-live": 0,
+        "sets": 0,
+        "song-1979": 0,
+        "songs": 0,
+        "status": 0
+      },
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "database_names": [
+        "songs-v2"
+      ],
+      "service_worker": {
+        "compatibility": {
+          "accepted_bootstrap_manifest_sha256": [
+            "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+          ],
+          "release": "shell-39849548e3b7192a1c76aa6e"
+        },
+        "controlled": true,
+        "scope": "http://127.0.0.1:41521/",
+        "script_url": "http://127.0.0.1:41521/sw.js",
+        "state": "activated"
+      },
+      "unknown_path_shell_fallback": false,
+      "zero_api_requests": true
+    },
+    "tablet-portrait": {
+      "api_requests": {
+        "dashboard": 0,
+        "set-detail": 0,
+        "set-live": 0,
+        "sets": 0,
+        "song-1979": 0,
+        "songs": 0,
+        "status": 0
+      },
+      "cache_names": [
+        "songs-v2-shell-39849548e3b7192a1c76aa6e"
+      ],
+      "database_names": [
+        "songs-v2"
+      ],
+      "service_worker": {
+        "compatibility": {
+          "accepted_bootstrap_manifest_sha256": [
+            "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+          ],
+          "release": "shell-39849548e3b7192a1c76aa6e"
+        },
+        "controlled": true,
+        "scope": "http://127.0.0.1:34599/",
+        "script_url": "http://127.0.0.1:34599/sw.js",
+        "state": "activated"
+      },
+      "unknown_path_shell_fallback": false,
+      "zero_api_requests": true
+    }
+  },
+  "schema_version": "1"
+}

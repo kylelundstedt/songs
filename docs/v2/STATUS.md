@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-014.
-- **Current task:** P1-008 browser, accessibility, route, and failure hardening for the complete isolated read-only slice.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-015.
+- **Current task:** P1-009 software checkpoint and physical-device acceptance package.
 
 ## Completed evidence
 
@@ -146,6 +146,18 @@ TASK-014 completed offline Set List detail and locked Live mode:
 - 85 web tests plus Chromium axe, 48px touch-target, pointer-invalidation, and responsive-overflow evidence pass; keyboard/focus, strict Apex sanitization, reduced-motion CSS, and memory-only themes are covered by source contracts and unit tests;
 - release `shell-8e20346e9b3ac2579dee901a` and evidence are recorded under `migration/v2/phase1/live/`; physical Safari/iPad acceptance remains pending and mandatory.
 
+TASK-015 completed P1-008 browser, accessibility, route, update, and failure hardening:
+
+- all active catalog routes now require the exact physical IndexedDB generation and monotonic pointer-transition epoch, with cross-tab broadcast plus polling, page-show, and foreground revalidation;
+- offline-restart status now requires both durable verified content and a compatible controlling worker; direct first-load locked Live installs the initial worker while deferring its one-time reload until Live exits;
+- waiting replacement workers expose no immediate activation path and activate only after all existing V2 clients close, while normal hash navigation no longer polls the worker or network;
+- the PWA starts at `/#/`; malformed hashes and unknown document paths fail explicitly, and the worker no longer serves the shell for arbitrary navigation paths;
+- verified internal Apex links are canonical V2 hash URLs for click, keyboard, auxiliary, context-menu, and new-tab use;
+- native Chrome 151 automation covers desktop, tablet portrait, tablet landscape, and phone: 28 canonical online route checks, 20 invalid-hash checks, 28 cold offline route reloads, and 24 axe surface checks;
+- every cold offline route reload makes zero API and post-ready fetch/XHR requests while preserving the same active pointer, transition epoch, 12 chunks, and 373 stored documents;
+- 95 web tests pass, including active-pointer epoch closure and post-read races, typed IndexedDB failures, safely deferred replacement-worker decisions, routes, accessibility, storage recovery, and fitting;
+- release `shell-39849548e3b7192a1c76aa6e` and evidence are recorded under `migration/v2/phase1/hardening/`; physical Safari/iPad acceptance remains pending and mandatory.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -176,6 +188,8 @@ make v2-check
 python3 scripts/build_v2_phase1_storage_evidence.py --check
 python3 scripts/build_v2_phase1_library_evidence.py --check
 python3 scripts/build_v2_phase1_live_evidence.py --check
+python3 scripts/build_v2_phase1_hardening_evidence.py --check
+node scripts/capture_v2_phase1_hardening_evidence.mjs --check
 make v2-api-build
 go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
@@ -186,6 +200,6 @@ git diff --check
 
 ## Next tasks
 
-1. Execute P1-008 browser, accessibility, route, update, and failure hardening across the complete isolated read-only slice.
-2. Build the P1-009 software checkpoint and physical-device acceptance package.
-3. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.
+1. Build the P1-009 software checkpoint, install/runbook, and physical-device acceptance package.
+2. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.
+3. Keep V2 opt-in and v1 default until the physical-device checklist is signed off.

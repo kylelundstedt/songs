@@ -1,0 +1,214 @@
+{
+  "artifacts": {
+    "isolation_summary": {
+      "bytes": 1271,
+      "path": "migration/v2/phase1/hardening/isolation-summary.json",
+      "sha256": "9bd34ba0e64dc8294adbba099800347c5df3c21d1593c2c524854c5d01fddd85"
+    },
+    "offline_summary": {
+      "bytes": 3489,
+      "path": "migration/v2/phase1/hardening/offline-summary.json",
+      "sha256": "0f47836f5da2428d54fc088b6b1242ab41447a59493711b91cee5265f3790b5a"
+    },
+    "route_summary": {
+      "bytes": 15552,
+      "path": "migration/v2/phase1/hardening/route-summary.json",
+      "sha256": "7b13421026c73d8bc1185f0ebcf050b240e7a41aa21426cb0ef55a714f41b698"
+    },
+    "screenshots": [
+      {
+        "bytes": 185451,
+        "path": "migration/v2/phase1/hardening/screenshots/desktop-live.png",
+        "sha256": "42864036120d659c8b86129d53bef466a02dca7cc081ac23aaefb7e4254d9a1a"
+      },
+      {
+        "bytes": 205273,
+        "path": "migration/v2/phase1/hardening/screenshots/tablet-portrait-live.png",
+        "sha256": "d3bd2d3b812114fa9f8ffb8bba44dcc2cb2d519ff39fe21e57d4e56fe529ec5d"
+      },
+      {
+        "bytes": 188707,
+        "path": "migration/v2/phase1/hardening/screenshots/tablet-landscape-live.png",
+        "sha256": "6f2d632d2821855dee3c0160574cc3aa5cc252a6b3c026cfba452af467d77ef5"
+      },
+      {
+        "bytes": 332570,
+        "path": "migration/v2/phase1/hardening/screenshots/phone-live.png",
+        "sha256": "7fa44862aa3ff494795683b6391c2c44a9f08e6d6772a4cb135f9f9c5acaa064"
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "bytes": 2288,
+        "path": "migration/v2/current/coexistence/browser-summary.json",
+        "sha256": "44cd55b26b48c59b21c3a0a14bb340922c83f07c0e5a09f8476865d183459c8d"
+      },
+      {
+        "bytes": 3404,
+        "path": "migration/v2/phase1/storage/storage-summary.json",
+        "sha256": "23dd82a73547aa7265eaf51899c82b31b1618ac7252ee4001c6c2207c8331fc4"
+      },
+      {
+        "bytes": 2538,
+        "path": "migration/v2/phase1/library/library-summary.json",
+        "sha256": "f0f57f59789af654c7e814f79ef771d56ba27880dc7b312d16e21ea1539dc382"
+      },
+      {
+        "bytes": 6990,
+        "path": "migration/v2/phase1/live/live-summary.json",
+        "sha256": "129fbe74573f686a830d4480c219efd3c34018733504f7f3e39209e7a10bb0a6"
+      }
+    ]
+  },
+  "bootstrap": {
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+    "set_entries": 1076,
+    "sets": 34,
+    "songs": 339
+  },
+  "browser": {
+    "product": "Chrome/151.0.7922.72",
+    "profiles": [
+      {
+        "browser": {
+          "coarse_pointer": false,
+          "max_touch_points": 0,
+          "navigator_platform": "Linux x86_64",
+          "navigator_user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+          "product": "Chrome/151.0.7922.72",
+          "protocol_version": "1.3",
+          "revision": "@2903d8558c752b5a554a1a47b4ea7219ba1a31ef",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+        },
+        "bytes": 172590,
+        "path": "migration/v2/phase1/hardening/browser-observations/desktop.json",
+        "profile": "desktop",
+        "sha256": "1068703545f4aea03b9ccd6497385086c4afc9d4d07e8548a467c9a80bd4a093",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "mobile": false,
+          "touch": false,
+          "width": 1280
+        }
+      },
+      {
+        "browser": {
+          "coarse_pointer": true,
+          "max_touch_points": 5,
+          "navigator_platform": "Linux x86_64",
+          "navigator_user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+          "product": "Chrome/151.0.7922.72",
+          "protocol_version": "1.3",
+          "revision": "@2903d8558c752b5a554a1a47b4ea7219ba1a31ef",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+        },
+        "bytes": 173139,
+        "path": "migration/v2/phase1/hardening/browser-observations/tablet-portrait.json",
+        "profile": "tablet-portrait",
+        "sha256": "7276bf40edc1f619dfd19cef10255fa026fb2d7250936470cc46adbcf0a57da9",
+        "viewport": {
+          "dpr": 1,
+          "height": 1366,
+          "mobile": false,
+          "touch": true,
+          "width": 1024
+        }
+      },
+      {
+        "browser": {
+          "coarse_pointer": true,
+          "max_touch_points": 5,
+          "navigator_platform": "Linux x86_64",
+          "navigator_user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+          "product": "Chrome/151.0.7922.72",
+          "protocol_version": "1.3",
+          "revision": "@2903d8558c752b5a554a1a47b4ea7219ba1a31ef",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+        },
+        "bytes": 173003,
+        "path": "migration/v2/phase1/hardening/browser-observations/tablet-landscape.json",
+        "profile": "tablet-landscape",
+        "sha256": "8dbe0b4afa237942abc462412b4cbd48a9c76d9b265291c024add4c91149e402",
+        "viewport": {
+          "dpr": 1,
+          "height": 1024,
+          "mobile": false,
+          "touch": true,
+          "width": 1366
+        }
+      },
+      {
+        "browser": {
+          "coarse_pointer": true,
+          "max_touch_points": 5,
+          "navigator_platform": "Linux x86_64",
+          "navigator_user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+          "product": "Chrome/151.0.7922.72",
+          "protocol_version": "1.3",
+          "revision": "@2903d8558c752b5a554a1a47b4ea7219ba1a31ef",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+        },
+        "bytes": 184199,
+        "path": "migration/v2/phase1/hardening/browser-observations/phone.json",
+        "profile": "phone",
+        "sha256": "6e9fb4a6b674a20c5ae7377953a1734a740ab60cb44fe48bfd6a0d1460536a3f",
+        "viewport": {
+          "dpr": 3,
+          "height": 844,
+          "mobile": true,
+          "touch": true,
+          "width": 390
+        }
+      }
+    ],
+    "version": "151.0.7922.72"
+  },
+  "limitations": {
+    "physical_safari_ipad": "pending mandatory owner-device acceptance; Chromium emulation is not Safari/iPad evidence",
+    "service_worker_update_browser_fixture": "The production worker exposes no SKIP_WAITING message path, so replacement workers activate only through the browser's normal all-clients-closed lifecycle. Native Chromium proves current-worker first install, control, cache, compatibility, and interruption-safe cold restart; replacement lifecycle timing remains a P1-009 runbook observation."
+  },
+  "native_capture": {
+    "axe_surface_checks": 24,
+    "canonical_route_checks": 28,
+    "direct_live_first_load_installs_worker": true,
+    "invalid_hash_checks": 20,
+    "minimum_live_target_css_px": 48,
+    "minimum_normal_target_css_px": 44,
+    "offline_api_requests": 0,
+    "offline_cold_route_reloads": 28,
+    "pwa_start_url": "/#/",
+    "unknown_document_path_offline_shell_fallback": false,
+    "unknown_document_path_online_status": 404
+  },
+  "phase_packet": "P1-008",
+  "proof": {
+    "all_active_routes_recheck_physical_pointer_and_transition_epoch": true,
+    "bootstrap_rechecks_authority_after_its_last_async_operation": true,
+    "cross_tab_pointer_changes_broadcast_with_poll_and_foreground_fallback": true,
+    "direct_live_first_load_is_offline_restartable": true,
+    "first_controller_reload_deferred_during_locked_live": true,
+    "internal_apex_links_are_canonical_v2_hash_urls": true,
+    "interrupted_content_updates_retain_active_snapshot": true,
+    "no_mutation_controls": true,
+    "normal_navigation_has_no_service_worker_update_poll": true,
+    "offline_ready_requires_compatible_controlling_worker": true,
+    "pwa_launch_uses_canonical_hash_root": true,
+    "typed_indexeddb_open_failures_remain_visible": true,
+    "unknown_paths_do_not_receive_shell_fallback": true,
+    "v1_remains_default_and_v2_namespaces_are_isolated": true,
+    "waiting_replacement_workers_activate_only_after_all_v2_clients_close": true
+  },
+  "schema_version": "1",
+  "shell": {
+    "asset_manifest_sha256": "d3dfa5f989efa38ce237034a6f5df4834d9101195794cd124a5427c66c3dc6c7",
+    "cache_name": "songs-v2-shell-39849548e3b7192a1c76aa6e",
+    "release": "shell-39849548e3b7192a1c76aa6e"
+  },
+  "task": "TASK-015",
+  "verification": {
+    "output_sha256": "60f053c821fabd5d1ba8d9a4433f2009e9dd6e68eb149c662db64b90e1dad344"
+  }
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import subprocess
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -17,6 +18,15 @@ EXPECTED_GENERATION = "phase1-f9634173e25ef4ca4b8330a3"
 EXPECTED_SHELL_SHA = "95d7fbc2113afd99187a6549796a6beeffa7cc20c3a906c21ff8f56b6987582e"
 EXPECTED_RELEASE = "shell-8e20346e9b3ac2579dee901a"
 EXPECTED_WARNINGS = ["can-t-stop", "father-of-mine", "love-shack", "paradise-city", "troublemaker"]
+TASK014_COMMIT = "e2530bb"
+
+
+def git_bytes(path: str) -> bytes:
+    return subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{TASK014_COMMIT}:{path}"],
+        check=True,
+        capture_output=True,
+    ).stdout
 
 
 def sha(raw: bytes) -> str:
@@ -77,7 +87,8 @@ def fit_capture(profile: str, expected_statuses: dict[str, int]) -> tuple[dict[s
 
 def build() -> dict[str, Any]:
     bootstrap_raw, bootstrap = checked("internal/v2bootstrap/data/manifest.json")
-    shell_raw, shell = checked("internal/v2shell/data/asset-manifest.json")
+    shell_raw = git_bytes("internal/v2shell/data/asset-manifest.json")
+    shell = json.loads(shell_raw)
     if sha(bootstrap_raw) != EXPECTED_BOOTSTRAP_SHA or bootstrap["generation"] != EXPECTED_GENERATION:
         raise ValueError("bootstrap trust anchor drift")
     if sha(shell_raw) != EXPECTED_SHELL_SHA or shell["release"] != EXPECTED_RELEASE:
@@ -132,12 +143,12 @@ def build() -> dict[str, Any]:
     if not invalidation["stopped"] or invalidation["stale_exit_link"] or invalidation["reload_control"] != "Reload verified content" or invalidation["elapsed_ms"] > 5_500:
         raise ValueError("active-pointer invalidation proof failed")
 
-    live_source = (ROOT / "v2/packages/web/src/live/LiveSetPage.tsx").read_text(encoding="utf-8")
-    fitter_source = (ROOT / "v2/packages/web/src/live/fitter.ts").read_text(encoding="utf-8")
-    model_source = (ROOT / "v2/packages/web/src/live/model.ts").read_text(encoding="utf-8")
-    app_source = (ROOT / "v2/packages/web/src/App.tsx").read_text(encoding="utf-8")
-    css_source = (ROOT / "v2/packages/web/src/styles.css").read_text(encoding="utf-8")
-    live_test_source = (ROOT / "v2/packages/web/src/live/LiveSetPage.test.tsx").read_text(encoding="utf-8")
+    live_source = git_bytes("v2/packages/web/src/live/LiveSetPage.tsx").decode("utf-8")
+    fitter_source = git_bytes("v2/packages/web/src/live/fitter.ts").decode("utf-8")
+    model_source = git_bytes("v2/packages/web/src/live/model.ts").decode("utf-8")
+    app_source = git_bytes("v2/packages/web/src/App.tsx").decode("utf-8")
+    css_source = git_bytes("v2/packages/web/src/styles.css").decode("utf-8")
+    live_test_source = git_bytes("v2/packages/web/src/live/LiveSetPage.test.tsx").decode("utf-8")
     if any(token in live_source for token in ("fetch(", "localStorage", "sessionStorage")):
         raise ValueError("locked Live contains a network or web-storage operation")
     if not all(token in fitter_source for token in ("TABLET_FONT_SIZES", "TABLET_LINE_HEIGHTS", "PHONE_TYPOGRAPHY", "verticalSafe", "forcedColumnSplit", "cloneApexPresentationNode", "ALLOWED_PRESENTATION_ELEMENTS")):

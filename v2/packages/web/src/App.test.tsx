@@ -1,17 +1,17 @@
 import { readFileSync } from "node:fs";
 import { basename, resolve } from "node:path";
 import axe from "axe-core";
-import { beforeAll, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ReadyApp, type ServiceWorkerState } from "./App";
+import { ActivePointerBoundary, ReadyApp, type ServiceWorkerState } from "./App";
 import { buildLibraryIndex } from "./library";
 import { loadVerifiedSnapshot } from "./bootstrap/load";
 import type { BootstrapRuntimeStatus } from "./bootstrap/runtime";
 import type { VerifiedSnapshot } from "./bootstrap/types";
 
 const dataRoot = resolve(process.cwd(), "../../../internal/v2bootstrap/data");
-const update: ServiceWorkerState = { state: "current", canApply: false, apply: vi.fn(async () => undefined) };
+const update: ServiceWorkerState = { state: "current", canApply: false, controlled: true, offlineReady: true, apply: vi.fn(async () => undefined) };
 const runtime: BootstrapRuntimeStatus = {
   source: "indexeddb",
   database: "available",
@@ -32,7 +32,7 @@ const runtime: BootstrapRuntimeStatus = {
   headroom: 9_994_000_000,
   warning: null,
 };
-const matchingActiveGeneration = vi.fn(async () => runtime.activeStorageGeneration ?? null);
+const matchingActiveGeneration = vi.fn(async () => ({ activeGeneration: runtime.activeStorageGeneration ?? null, transitionCount: runtime.transitions }));
 let snapshot: VerifiedSnapshot;
 
 function runtimeWith(patch: Partial<BootstrapRuntimeStatus>): BootstrapRuntimeStatus {
@@ -48,12 +48,18 @@ beforeAll(async () => {
   snapshot = await loadVerifiedSnapshot({ fetchImpl, origin: "http://v2.test" });
 }, 20_000);
 
+afterEach(() => {
+  window.history.replaceState({}, "", "/");
+  window.location.hash = "";
+});
+
 describe("read-only shell", () => {
   it("renders accessible landmarks and no authoring controls", async () => {
     window.location.hash = "#/";
     const { container } = render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Primary" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Library" })).toHaveAttribute("aria-current", "page");
     expect(screen.getByRole("main")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Your gig book, without the edit controls" })).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /edit|save|add|delete|publish|sync/i })).not.toBeInTheDocument();
@@ -102,6 +108,31 @@ describe("read-only shell", () => {
     expect(screen.queryByRole("button", { name: /edit|save|add|delete|publish|sync|provider|shelley/i })).not.toBeInTheDocument();
   });
 
+  it("rejects non-root document paths even when a cached shell document is present", () => {
+    window.history.replaceState({}, "", "/unexpected-shell-path#/songs");
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
+    expect(screen.getByRole("heading", { name: "Page not found" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Songs" })).not.toBeInTheDocument();
+  });
+
+  it("keeps every active route closed until physical pointer and transition authority match", async () => {
+    const onDrift = vi.fn();
+    const inspectPointer = vi.fn(async () => ({ activeGeneration: runtime.activeStorageGeneration ?? null, transitionCount: runtime.transitions + 1 }));
+    render(<ActivePointerBoundary snapshot={snapshot} runtime={runtime} onDrift={onDrift} inspectPointer={inspectPointer}><p>stale catalog</p></ActivePointerBoundary>);
+    expect(screen.getByRole("heading", { name: /Confirming the active saved snapshot/i })).toBeInTheDocument();
+    expect(screen.queryByText("stale catalog")).not.toBeInTheDocument();
+    await waitFor(() => expect(onDrift).toHaveBeenCalledTimes(1));
+    expect(screen.queryByText("stale catalog")).not.toBeInTheDocument();
+  });
+
+  it("fails closed when an active logical snapshot lacks a physical pointer identity", async () => {
+    const onDrift = vi.fn();
+    const missingPhysical = runtimeWith({ activeStorageGeneration: null });
+    render(<ActivePointerBoundary snapshot={snapshot} runtime={missingPhysical} onDrift={onDrift}><p>unfenced catalog</p></ActivePointerBoundary>);
+    await waitFor(() => expect(onDrift).toHaveBeenCalledTimes(1));
+    expect(screen.queryByText("unfenced catalog")).not.toBeInTheDocument();
+  });
+
   it("uses exact Live routes and keeps them closed without a matching active pointer", () => {
     const latest = buildLibraryIndex(snapshot).recentSets[0]!;
     window.location.hash = `#/sets/${latest.slug}/live/extra`;
@@ -129,7 +160,7 @@ describe("read-only shell", () => {
   it("checks the exact physical pointer before exposing locked Live and stops on mismatch", async () => {
     const latest = buildLibraryIndex(snapshot).recentSets[0]!;
     window.location.hash = `#/sets/${latest.slug}/live`;
-    const mismatched = vi.fn(async () => "phase1-other@000000000000");
+    const mismatched = vi.fn(async () => ({ activeGeneration: "phase1-other@000000000000", transitionCount: runtime.transitions }));
     render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} inspectActiveGeneration={mismatched} />);
 
     expect(screen.getByLabelText("Locked Live mode checking")).toBeInTheDocument();
@@ -139,19 +170,21 @@ describe("read-only shell", () => {
     expect(mismatched).toHaveBeenCalled();
   });
 
-  it("stops a mounted Live sequence when the physical active pointer changes", async () => {
+  it("stops a mounted Live sequence when the physical pointer epoch changes", async () => {
     const latest = buildLibraryIndex(snapshot).recentSets[0]!;
     let activeGeneration = runtime.activeStorageGeneration ?? null;
-    const inspect = vi.fn(async () => activeGeneration);
+    let transitionCount = runtime.transitions;
+    const inspect = vi.fn(async () => ({ activeGeneration, transitionCount }));
     window.location.hash = `#/sets/${latest.slug}/live`;
     render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} inspectActiveGeneration={inspect} />);
     await waitFor(() => expect(screen.getByLabelText("Locked Live mode")).toBeInTheDocument());
 
-    activeGeneration = "phase1-other@000000000000";
+    transitionCount += 1;
     window.dispatchEvent(new PageTransitionEvent("pageshow"));
     await waitFor(() => expect(screen.getByLabelText("Locked Live mode stopped")).toBeInTheDocument());
     expect(screen.queryByText(/Live progress:/i)).not.toBeInTheDocument();
 
+    transitionCount = runtime.transitions;
     activeGeneration = runtime.activeStorageGeneration ?? null;
     window.dispatchEvent(new PageTransitionEvent("pageshow"));
     await new Promise((resolve) => setTimeout(resolve, 0));
@@ -176,8 +209,10 @@ describe("read-only shell", () => {
     const apex = document.querySelector<HTMLElement>('[data-authority="apex"]')!;
     const link = within(apex).getAllByRole("link")[0]!;
     const original = link.getAttribute("href")!;
+    expect(original).toMatch(/^#\/songs\//);
+    expect(link).not.toHaveAttribute("target");
     await user.click(link);
-    await waitFor(() => expect(window.location.hash).toBe(`#${original.replace("/song/", "/songs/")}`));
+    await waitFor(() => expect(window.location.hash).toBe(original));
     expect(window.location.pathname).toBe("/");
   });
 
@@ -320,9 +355,17 @@ describe("read-only shell", () => {
     expect(screen.getByText("failed-retained")).toBeInTheDocument();
   });
 
+  it("does not claim offline restart before a compatible worker controls the shell", () => {
+    window.location.hash = "#/status";
+    const uncontrolled: ServiceWorkerState = { state: "installing", canApply: false, controlled: false, offlineReady: false, apply: vi.fn(async () => undefined) };
+    render(<ReadyApp snapshot={snapshot} online update={uncontrolled} runtime={runtime} />);
+    expect(screen.getByText("Unavailable until a snapshot is activated")).toBeInTheDocument();
+    expect(screen.getByText("Not offline-ready (session only)")).toBeInTheDocument();
+  });
+
   it("labels durable offline restart and defers shell updates while disconnected", () => {
     window.location.hash = "#/status";
-    const waiting: ServiceWorkerState = { state: "update-available", canApply: false, apply: vi.fn(async () => undefined) };
+    const waiting: ServiceWorkerState = { state: "update-available", canApply: false, controlled: true, offlineReady: true, apply: vi.fn(async () => undefined) };
     render(<ReadyApp snapshot={snapshot} online={false} update={waiting} runtime={runtime} />);
     expect(screen.getByRole("status")).toHaveTextContent(/browse and search are local/i);
     expect(screen.getByText(/Available from the active verified snapshot/i)).toBeInTheDocument();
