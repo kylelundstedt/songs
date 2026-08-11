@@ -1,3 +1,9 @@
+export interface BaselineRef {
+  readonly ref: string;
+  readonly tag_object: string;
+  readonly commit: string;
+}
+
 export interface ChunkDescriptor {
   readonly index: number;
   readonly path: string;
@@ -21,8 +27,13 @@ export interface BootstrapManifest {
   readonly schema_version: "1";
   readonly kind: "songs-v2.bootstrap.manifest";
   readonly generation: string;
-  readonly source_baseline: { readonly ref: string; readonly tag_object: string; readonly commit: string };
-  readonly evidence_baseline: { readonly ref: string; readonly tag_object: string; readonly commit: string };
+  readonly source_baseline: BaselineRef;
+  readonly evidence_baseline: BaselineRef;
+  readonly read_model_anchor: {
+    readonly implementation_commit: string;
+    readonly import_report_file_sha256: string;
+    readonly import_report_output_sha256: string;
+  };
   readonly counts: {
     readonly documents: number;
     readonly lead_sheets: number;
@@ -30,6 +41,16 @@ export interface BootstrapManifest {
     readonly set_sections: number;
     readonly set_entries: number;
     readonly source_bytes: number;
+  };
+  readonly contract_hashes: {
+    readonly corpus_manifest: string;
+    readonly identity_sidecars: string;
+    readonly read_model_projection: string;
+  };
+  readonly evidence_hashes: {
+    readonly renderer_baseline: string;
+    readonly browser_fit_summary: string;
+    readonly fit_captures: Readonly<Record<string, string>>;
   };
   readonly apex: { readonly version_output: string; readonly executable_sha256: string; readonly flags: readonly string[] };
   readonly physical_ipad: { readonly status: "pending"; readonly note: string };
@@ -39,13 +60,21 @@ export interface BootstrapManifest {
   readonly verification: { readonly output_sha256: string };
 }
 
-export interface FitResult {
+export interface FitBox {
+  readonly client_width: number;
+  readonly client_height: number;
+  readonly scroll_width: number;
+  readonly scroll_height: number;
+}
+
+export interface FitResult extends FitBox {
   readonly profile: "ipad-portrait" | "ipad-landscape" | "phone";
   readonly status: "fit" | "needs-editing" | "scrollable";
   readonly body_px: number;
   readonly auto_body_px: number;
   readonly line_height: number;
   readonly column_count: number;
+  readonly columns: readonly FitBox[];
 }
 
 interface BaseProjection {
@@ -80,6 +109,7 @@ export interface SetEntryProjection {
   readonly columnBreakBefore: boolean;
   readonly label: string;
   readonly targetLeadSheetId: string;
+  readonly targetPath: string;
   readonly singer?: string;
   readonly note?: string;
   readonly suffix: string;
@@ -164,6 +194,7 @@ export type BootstrapClientErrorCode =
   | "NETWORK_OFFLINE"
   | "API_PROTOCOL_INVALID"
   | "MANIFEST_HASH_MISMATCH"
+  | "MANIFEST_UNSUPPORTED"
   | "MANIFEST_INVALID"
   | "CHUNK_HASH_MISMATCH"
   | "CHUNK_INVALID"

@@ -69,6 +69,14 @@ TASK-005's isolated durable-operation, SQLite, and local-Git proof is in
 [`sync-spike/README.md`](sync-spike/README.md), with deterministic evidence in
 [`sync-spike/sync-spike-evidence.json`](sync-spike/sync-spike-evidence.json).
 
+## Production Phase 1 snapshot activation
+
+TASK-012's production IndexedDB/runtime evidence and reproducible native
+Chromium capture are in [`phase1/storage/README.md`](phase1/storage/README.md).
+The capture proves initial activation, corruption repair, retained physical
+instances, and a cold service-worker/IndexedDB restart with zero API requests.
+Physical Safari/iPad acceptance remains pending.
+
 ## Atomic bootstrap storage spike
 
 TASK-006's deterministic tagged payload and disposable IndexedDB/browser harness

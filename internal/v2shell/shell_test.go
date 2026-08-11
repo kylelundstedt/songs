@@ -62,7 +62,7 @@ func TestLoadAndServeReviewedShell(t *testing.T) {
 		t.Fatalf("root response=%d headers=%v", root.Code, root.Header())
 	}
 	sw := request(http.MethodGet, "/sw.js")
-	if sw.Code != http.StatusOK || sw.Header().Get("Service-Worker-Allowed") != "/" || !bytes.Contains(sw.Body.Bytes(), []byte("songs-v2-shell-")) || bytes.Contains(sw.Body.Bytes(), []byte("songs-shell-v28")) {
+	if sw.Code != http.StatusOK || sw.Header().Get("Service-Worker-Allowed") != "/" || !bytes.Contains(sw.Body.Bytes(), []byte("songs-v2-shell-")) || !bytes.Contains(sw.Body.Bytes(), []byte("GET_COMPATIBILITY")) || !bytes.Contains(sw.Body.Bytes(), []byte(expectedBootstrapSHA256)) || !bytes.Contains(sw.Body.Bytes(), []byte("caches.open(CACHE_NAME)")) || bytes.Contains(sw.Body.Bytes(), []byte("indexedDB")) || bytes.Contains(sw.Body.Bytes(), []byte("songs-shell-v28")) {
 		t.Fatalf("service worker response=%d", sw.Code)
 	}
 	unknown := request(http.MethodGet, "/not-a-shell-route")

@@ -6,10 +6,30 @@ import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ReadyApp, type ServiceWorkerState } from "./App";
 import { loadVerifiedSnapshot } from "./bootstrap/load";
+import type { BootstrapRuntimeStatus } from "./bootstrap/runtime";
 import type { VerifiedSnapshot } from "./bootstrap/types";
 
 const dataRoot = resolve(process.cwd(), "../../../internal/v2bootstrap/data");
-const update: ServiceWorkerState = { state: "current", apply: vi.fn(async () => undefined) };
+const update: ServiceWorkerState = { state: "current", canApply: false, apply: vi.fn(async () => undefined) };
+const runtime: BootstrapRuntimeStatus = {
+  source: "indexeddb",
+  database: "available",
+  activeGeneration: "phase1-f9634173e25ef4ca4b8330a3",
+  retainedGeneration: null,
+  transitions: 1,
+  chunks: { completed: 12, total: 12 },
+  docs: { completed: 373, total: 373 },
+  chunkCount: 12,
+  docCount: 373,
+  documents: { completed: 373, total: 373 },
+  offlineReady: true,
+  update: "current",
+  persistence: "denied",
+  usage: 6_000_000,
+  quota: 10_000_000_000,
+  headroom: 9_994_000_000,
+  warning: null,
+};
 let snapshot: VerifiedSnapshot;
 
 beforeAll(async () => {
@@ -24,7 +44,7 @@ beforeAll(async () => {
 describe("read-only shell", () => {
   it("renders accessible landmarks and no authoring controls", async () => {
     window.location.hash = "#/";
-    const { container } = render(<ReadyApp snapshot={snapshot} online update={update} />);
+    const { container } = render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Primary" })).toBeInTheDocument();
     expect(screen.getByRole("main")).toBeInTheDocument();
@@ -37,7 +57,7 @@ describe("read-only shell", () => {
   it("navigates to reviewed Apex HTML and Set List projections", async () => {
     const user = userEvent.setup();
     window.location.hash = "#/";
-    render(<ReadyApp snapshot={snapshot} online update={update} />);
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
     const firstSong = snapshot.leadSheets[0]!;
     await user.click(screen.getByRole("link", { name: new RegExp(firstSong.projection.title, "i") }));
     await waitFor(() => expect(screen.getAllByRole("heading", { name: firstSong.projection.title, level: 1 }).length).toBeGreaterThanOrEqual(1));
@@ -56,7 +76,7 @@ describe("read-only shell", () => {
     const user = userEvent.setup();
     const linkedSong = snapshot.leadSheets.find((song) => song.apex.html.includes('href="/song/'))!;
     window.location.hash = `#/songs/${linkedSong.slug}`;
-    render(<ReadyApp snapshot={snapshot} online update={update} />);
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
     const apex = document.querySelector<HTMLElement>('[data-authority="apex"]')!;
     const link = within(apex).getAllByRole("link")[0]!;
     const original = link.getAttribute("href")!;
@@ -67,17 +87,18 @@ describe("read-only shell", () => {
 
   it("routes malformed percent encodings to the explicit V2 not-found page", () => {
     window.location.hash = "#/songs/%";
-    render(<ReadyApp snapshot={snapshot} online update={update} />);
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
     expect(screen.getByRole("heading", { name: "Page not found" })).toBeInTheDocument();
     expect(screen.getByText(/does not fall through to v1/i)).toBeInTheDocument();
   });
 
-  it("labels the in-memory offline limitation explicitly and defers shell updates", () => {
+  it("labels durable offline restart and defers shell updates while disconnected", () => {
     window.location.hash = "#/status";
-    const waiting: ServiceWorkerState = { state: "update-available", apply: vi.fn(async () => undefined) };
-    render(<ReadyApp snapshot={snapshot} online={false} update={waiting} />);
-    expect(screen.getByRole("status")).toHaveTextContent(/verified in-memory snapshot/i);
-    expect(screen.getByText(/not opened until P1-005/i)).toBeInTheDocument();
+    const waiting: ServiceWorkerState = { state: "update-available", canApply: false, apply: vi.fn(async () => undefined) };
+    render(<ReadyApp snapshot={snapshot} online={false} update={waiting} runtime={runtime} />);
+    expect(screen.getByRole("status")).toHaveTextContent(/active verified snapshot saved in IndexedDB/i);
+    expect(screen.getByText(/Available from the active verified snapshot/i)).toBeInTheDocument();
+    expect(screen.getByText(/songs-v2 · available/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /update waiting/i })).toBeDisabled();
   });
 });

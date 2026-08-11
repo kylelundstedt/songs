@@ -1,0 +1,93 @@
+[
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/manifest"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-000.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-001.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-002.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-003.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-004.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-005.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-006.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-007.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-008.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-009.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-010.json"
+  },
+  {
+    "method": "GET",
+    "mime_type": "application/json",
+    "status": 200,
+    "type": "Fetch",
+    "url": "http://127.0.0.1:46517/api/v2/bootstrap/phase1-f9634173e25ef4ca4b8330a3/chunks/chunk-011.json"
+  }
+]

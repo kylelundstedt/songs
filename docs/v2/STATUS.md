@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-011.
-- **Current task:** [TASK-012](tasks/TASK-012-production-indexeddb-snapshot.md), integrate retained, atomic production IndexedDB snapshot activation.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-012.
+- **Current task:** [TASK-013](tasks/TASK-013-offline-library-search-status.md), complete active-generation offline browse/search/status behavior.
 
 ## Completed evidence
 
@@ -112,6 +112,17 @@ TASK-011 completed the isolated read-only shell:
 - ten browser-unit/integration tests and three Chromium profile captures cover accessibility, focus, contrast, responsive overflow, Apex semantics/links, corruption races, auth redirects, and namespace isolation;
 - browser evidence is recorded under `migration/v2/phase1/shell/`; physical Safari/iPad acceptance remains pending.
 
+TASK-012 completed production atomic browser snapshots:
+
+- `songs-v2` schema v2 preserves TASK-006's seven V2 stores and additive pending-state upgrade contract;
+- manifest, chunks, document artifacts, Apex/fit/routes, and logical snapshot hashes are reverified from durable bytes before activation or reopen;
+- one active physical instance and transition epoch form the CAS authority; prior verified content is retained, accepted predecessors recover offline, stale-shell/ABA downgrades fail, and cleanup removes only unreachable current-epoch content;
+- interrupted, corrupt, transport, quota, and persistence failures cannot expose partial content and retain the active snapshot when one exists;
+- the worker advertises snapshot compatibility, bypasses the API, opens no database, uses cache-specific offline navigation, and permits reload only with a compatible offline-ready active snapshot;
+- 39 web tests cover integrity, schema, storage, runtime, update, UI, and accessibility behavior;
+- reproducible native Chromium evidence bootstraps, corrupts/repairs, retains, and cold-restarts with the proxy unavailable and zero API requests;
+- release `shell-48b974860e16510f36131506` and evidence are recorded under `migration/v2/phase1/storage/`; Chromium did not grant persistence and physical Safari/iPad acceptance remains pending.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -139,6 +150,7 @@ python3 scripts/build_v2_current_contracts.py --check
 python3 scripts/build_v2_current_coexistence_summary.py --check
 npm --prefix v2 ci
 make v2-check
+node scripts/capture_v2_phase1_storage_evidence.mjs --check
 make v2-api-build
 go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
@@ -149,7 +161,7 @@ git diff --check
 
 ## Next tasks
 
-1. Build TASK-012's retained, atomic production IndexedDB snapshot activation.
-2. Add offline library/search/status behavior over the activated local snapshot.
+1. Build TASK-013's deterministic active-generation indexes and complete zero-network library/search/status behavior.
+2. Add offline Set List detail and locked Live mode over the same active snapshot.
 3. Continue autonomously through the Phase 1 software checkpoint.
 4. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.

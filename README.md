@@ -8,7 +8,7 @@ A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
 The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
 
-V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, TASK-010 produced the reviewed bootstrap API, and TASK-011 now serves a verified read-only React/Vite shell on the isolated private TLS origin at port 8001. TASK-012's retained IndexedDB snapshot activation is next. Writable V2 and cutover remain blocked on production durability and physical Safari/iPad gates.
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, TASK-010 produced the reviewed bootstrap API, TASK-011 delivered the isolated verified React/Vite shell, and TASK-012 now atomically activates and cold-restarts the snapshot from IndexedDB with retained recovery. TASK-013's deterministic offline library/search/status indexes are next. Writable V2 and cutover remain blocked on later production and physical Safari/iPad gates.
 
 The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 

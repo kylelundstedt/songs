@@ -1,0 +1,97 @@
+{
+  "bootstrap": {
+    "chunks": 12,
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+  },
+  "browser_observation": {
+    "browser": {
+      "name": "Chromium",
+      "platform": "Linux x86_64",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+      "version": "151.0.7922.72"
+    },
+    "bytes": 3056,
+    "path": "migration/v2/phase1/storage/browser-observations/chromium-production.json",
+    "sha256": "d0d3dfa6c8a28abc4e019d379d40c99f15c15c7482a3507457cfc2758b78ab52",
+    "storage_estimate": {
+      "cache_bytes": 866304,
+      "indexeddb_bytes": 6170956,
+      "origin_quota_bytes": 10744457335,
+      "origin_usage_bytes": 7039095,
+      "persisted": false,
+      "service_worker_registration_bytes": 1835
+    },
+    "viewport": {
+      "device_pixel_ratio": 1,
+      "height": 720,
+      "scroll_width": 1280,
+      "width": 1280
+    }
+  },
+  "corruption_repair_network": {
+    "api_requests": 13,
+    "bytes": 2740,
+    "path": "migration/v2/phase1/storage/browser-observations/corruption-repair-network.json",
+    "sha256": "9d27a6afcc8f869a697ee79a8f165ba2f7d5247c4ef2901f08b11ed74df910f9"
+  },
+  "indexeddb": {
+    "active_pointer": "meta/active-generation",
+    "name": "songs-v2",
+    "pending_stores": [
+      "outbox",
+      "drafts",
+      "conflicts"
+    ],
+    "stores": [
+      "chunks",
+      "conflicts",
+      "documents",
+      "drafts",
+      "meta",
+      "outbox",
+      "snapshots"
+    ],
+    "version": 2
+  },
+  "limitations": {
+    "physical_safari_ipad": "pending mandatory owner-device eviction, background, Home Screen, and low-storage acceptance",
+    "quota": "origin-wide Chromium estimate; persistence request was not granted"
+  },
+  "proof": {
+    "accepted_predecessor_recovery_supported": true,
+    "activation_pointer_transition_atomic_and_idempotent": true,
+    "canonical_manifest_chunk_document_and_snapshot_hashes_reverified": true,
+    "cleanup_excludes_pending_stores": true,
+    "cold_restart_zero_api_requests": true,
+    "corrupt_active_repaired_with_distinct_physical_instance": true,
+    "durably_verified_stage_activates_after_reopen": true,
+    "only_v2_namespaces_changed": true,
+    "partial_and_staging_generations_hidden": true,
+    "previous_active_retained": true,
+    "quota_failure_preserves_pointer_and_falls_back_safely": true,
+    "schema_upgrade_preserves_pending_stores": true,
+    "service_worker_bypasses_api_and_opens_no_database": true,
+    "stale_shell_cannot_downgrade_unknown_newer_active": true,
+    "v1_tree_unchanged": true
+  },
+  "schema_version": "1",
+  "screenshot": {
+    "bytes": 159031,
+    "path": "migration/v2/phase1/storage/screenshots/snapshot-status-after-repair.png",
+    "sha256": "94e93bee5623beb34163cb499198960a6ae74f00e2786f25ede2b041b2345e00"
+  },
+  "shell": {
+    "accepted_bootstrap_manifest_sha256": [
+      "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+    ],
+    "asset_manifest_sha256": "e9bfe3db9c24291c3f2f209811cd277961cc1b26ce7a5f910e4c23c9e1a88047",
+    "cache_prefix": "songs-v2-shell-",
+    "release": "shell-48b974860e16510f36131506"
+  },
+  "task": "TASK-012",
+  "verification": {
+    "output_sha256": "7d6794fd039b18b332268ea600b36d94d4c3f1ce5cbc13d680bf2ba2e5a62f77"
+  }
+}

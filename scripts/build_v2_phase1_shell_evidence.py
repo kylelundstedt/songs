@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +18,15 @@ EXPECTED_BOOTSTRAP_GENERATION = "phase1-f9634173e25ef4ca4b8330a3"
 EXPECTED_SHELL_MANIFEST_SHA = "50642922b9a7e021cb7357b2254bb52abd1083c70fc77807e33d7671e1affb2a"
 EXPECTED_SHELL_RELEASE = "shell-72d3106d38dfec5cc2eaf403"
 EXPECTED_CACHE = "songs-v2-shell-72d3106d38dfec5cc2eaf403"
+TASK011_COMMIT = "010544f"
+
+
+def git_bytes(path: str) -> bytes:
+    return subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{TASK011_COMMIT}:{path}"],
+        check=True,
+        capture_output=True,
+    ).stdout
 
 
 def sha(raw: bytes) -> str:
@@ -47,10 +57,8 @@ def contrast(left: str, right: str) -> float:
 
 
 def build() -> dict[str, Any]:
-    bootstrap_path = ROOT / "internal/v2bootstrap/data/manifest.json"
-    shell_path = ROOT / "internal/v2shell/data/asset-manifest.json"
-    bootstrap_raw = bootstrap_path.read_bytes()
-    shell_raw = shell_path.read_bytes()
+    bootstrap_raw = git_bytes("internal/v2bootstrap/data/manifest.json")
+    shell_raw = git_bytes("internal/v2shell/data/asset-manifest.json")
     bootstrap = json.loads(bootstrap_raw)
     shell = json.loads(shell_raw)
     if sha(bootstrap_raw) != EXPECTED_BOOTSTRAP_MANIFEST_SHA or bootstrap["generation"] != EXPECTED_BOOTSTRAP_GENERATION:
@@ -96,7 +104,7 @@ def build() -> dict[str, Any]:
         raw = path.read_bytes()
         screenshots.append({"profile": name, "path": str(path.relative_to(ROOT)), "bytes": len(raw), "sha256": sha(raw)})
 
-    css = (ROOT / "v2/packages/web/src/styles.css").read_text(encoding="utf-8")
+    css = git_bytes("v2/packages/web/src/styles.css").decode("utf-8")
     light_tokens = css.split("@media", 1)[0]
     variables = dict(re.findall(r"^\s*(--[a-z-]+):\s*(#[0-9a-fA-F]{6});", light_tokens, re.M))
     foregrounds = ("--accent", "--accent-strong", "--muted")

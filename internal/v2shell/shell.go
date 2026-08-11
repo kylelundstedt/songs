@@ -16,9 +16,9 @@ import (
 )
 
 const (
-	expectedAssetManifestSHA256 = "50642922b9a7e021cb7357b2254bb52abd1083c70fc77807e33d7671e1affb2a"
+	expectedAssetManifestSHA256 = "e9bfe3db9c24291c3f2f209811cd277961cc1b26ce7a5f910e4c23c9e1a88047"
 	expectedBootstrapSHA256     = "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
-	expectedRelease             = "shell-72d3106d38dfec5cc2eaf403"
+	expectedRelease             = "shell-48b974860e16510f36131506"
 )
 
 //go:embed data/* data/assets/*
@@ -37,6 +37,7 @@ type assetManifest struct {
 	Kind                    string        `json:"kind"`
 	Release                 string        `json:"release"`
 	BootstrapManifestSHA256 string        `json:"bootstrap_manifest_sha256"`
+	AcceptedBootstrapSHA256 []string      `json:"accepted_bootstrap_manifest_sha256"`
 	CachePrefix             string        `json:"cache_prefix"`
 	IndexedDBName           string        `json:"indexeddb_name"`
 	Assets                  []assetRecord `json:"assets"`
@@ -82,7 +83,7 @@ func Load(files fs.FS, api http.Handler, bootstrapManifestSHA256 string) (*Shell
 	if err := decoder.Decode(&struct{}{}); err != io.EOF {
 		return nil, errors.New("shell asset manifest has trailing JSON data")
 	}
-	if manifest.SchemaVersion != "1" || manifest.Kind != "songs-v2.shell.assets" || manifest.Release != expectedRelease || manifest.BootstrapManifestSHA256 != expectedBootstrapSHA256 || bootstrapManifestSHA256 != expectedBootstrapSHA256 || manifest.CachePrefix != "songs-v2-shell-" || manifest.IndexedDBName != "songs-v2" {
+	if manifest.SchemaVersion != "1" || manifest.Kind != "songs-v2.shell.assets" || manifest.Release != expectedRelease || manifest.BootstrapManifestSHA256 != expectedBootstrapSHA256 || len(manifest.AcceptedBootstrapSHA256) != 1 || manifest.AcceptedBootstrapSHA256[0] != expectedBootstrapSHA256 || bootstrapManifestSHA256 != expectedBootstrapSHA256 || manifest.CachePrefix != "songs-v2-shell-" || manifest.IndexedDBName != "songs-v2" {
 		return nil, errors.New("shell identity or namespace drift")
 	}
 

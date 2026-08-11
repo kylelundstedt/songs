@@ -1,0 +1,105 @@
+{
+  "bootstrap": {
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+    "source_bytes": 748034
+  },
+  "browser": {
+    "name": "Chromium",
+    "platform": "Linux x86_64",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36",
+    "version": "151.0.7922.72"
+  },
+  "cold_restart_after_repair": {
+    "api_requests": 0,
+    "content_update": "current",
+    "heading": "Snapshot status",
+    "origin_process": "inactive during reload",
+    "service_worker_controlled": true,
+    "shell_resource_requests": 3,
+    "shell_resources_served_while_origin_inactive": true,
+    "snapshot_source": "Active verified IndexedDB snapshot"
+  },
+  "corruption_repair": {
+    "active_generation_after": "phase1-f9634173e25ef4ca4b8330a3@a81aafbdef0d@repair-aea33d62-01c5-4a45-943b-0fb3f32325a8",
+    "api_requests": 13,
+    "corruption": "flipped byte 0 of active chunk 0 in native Chromium IndexedDB",
+    "documents_after": 746,
+    "old_active_state_after": "retained",
+    "pointer_transitions_after": 2,
+    "retained_generation_after": "phase1-f9634173e25ef4ca4b8330a3@a81aafbdef0d",
+    "stored_chunks_after": 24,
+    "visible_documents": 373
+  },
+  "initial_activation": {
+    "active_generation": "phase1-f9634173e25ef4ca4b8330a3@a81aafbdef0d",
+    "api_requests": 13,
+    "documents": 373,
+    "pointer_transitions": 1,
+    "stored_chunks": 12
+  },
+  "namespaces": {
+    "cache_names": [
+      "songs-v2-shell-48b974860e16510f36131506"
+    ],
+    "database_name": "songs-v2",
+    "database_names": [
+      "songs-v2"
+    ],
+    "database_version": 2,
+    "store_key_paths": {
+      "chunks": [
+        "generation",
+        "index"
+      ],
+      "conflicts": "id",
+      "documents": [
+        "generation",
+        "path"
+      ],
+      "drafts": "id",
+      "meta": "key",
+      "outbox": "id",
+      "snapshots": "generation"
+    },
+    "stores": [
+      "chunks",
+      "conflicts",
+      "documents",
+      "drafts",
+      "meta",
+      "outbox",
+      "snapshots"
+    ]
+  },
+  "origin": "http://127.0.0.1:46517/ production reverse-proxy capture",
+  "schema_version": "1",
+  "service_worker": {
+    "accepted_bootstrap_manifest_sha256": [
+      "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+    ],
+    "api_bypass": true,
+    "cache_specific_navigation": true,
+    "release": "shell-48b974860e16510f36131506",
+    "state": "activated"
+  },
+  "shell": {
+    "asset_manifest_sha256": "e9bfe3db9c24291c3f2f209811cd277961cc1b26ce7a5f910e4c23c9e1a88047",
+    "release": "shell-48b974860e16510f36131506"
+  },
+  "storage_estimate": {
+    "cache_bytes": 866304,
+    "indexeddb_bytes": 6170956,
+    "origin_quota_bytes": 10744457335,
+    "origin_usage_bytes": 7039095,
+    "persisted": false,
+    "service_worker_registration_bytes": 1835
+  },
+  "viewport": {
+    "device_pixel_ratio": 1,
+    "height": 720,
+    "scroll_width": 1280,
+    "width": 1280
+  }
+}

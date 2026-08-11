@@ -91,7 +91,7 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-005 — Production IndexedDB snapshot integration
 
-- **Status:** Ready; tracked as TASK-012
+- **Status:** Done on August 11, 2026; tracked as TASK-012
 
 - **Estimate:** 2–4 days
 - **Dependencies:** P1-003 and P1-004
@@ -102,6 +102,8 @@ The range assumes agent-assisted implementation with small commits and determini
 - **Model routing:** Terra for storage core, Luna integration, Predictable failure fixtures.
 
 ### P1-006 — Offline library, search, and status
+
+- **Status:** Ready; tracked as TASK-013
 
 - **Estimate:** 2–3 days
 - **Dependencies:** P1-005

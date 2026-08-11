@@ -9,6 +9,7 @@ const packageRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const repositoryRoot = resolve(packageRoot, "../../..");
 const targetRoot = resolve(repositoryRoot, "internal/v2shell/data");
 const bootstrapManifestSha256 = "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f";
+const acceptedBootstrapManifestSha256 = Object.freeze([bootstrapManifestSha256]);
 const cachePrefix = "songs-v2-shell-";
 const databaseName = "songs-v2";
 
@@ -56,8 +57,8 @@ function cacheControl(path: string): string {
   return path.startsWith("assets/") ? "private, max-age=31536000, immutable" : "private, no-store";
 }
 
-function serviceWorker(release: string, paths: readonly string[]): string {
-  return `const CACHE_PREFIX = ${JSON.stringify(cachePrefix)};\nconst CACHE_NAME = CACHE_PREFIX + ${JSON.stringify(release.replace(/^shell-/, ""))};\nconst PRECACHE = ${JSON.stringify(paths.map((path) => `/${path}`), null, 2)};\n\nself.addEventListener('install', (event) => {\n  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)));\n});\n\nself.addEventListener('activate', (event) => {\n  event.waitUntil(Promise.all([\n    caches.keys().then((names) => Promise.all(names.filter((name) => name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME).map((name) => caches.delete(name)))),\n    self.clients.claim(),\n  ]));\n});\n\nself.addEventListener('message', (event) => {\n  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();\n});\n\nself.addEventListener('fetch', (event) => {\n  const url = new URL(event.request.url);\n  if (url.origin !== self.location.origin || url.pathname === '/api/v2' || url.pathname.startsWith('/api/v2/')) return;\n  if (event.request.mode === 'navigate') {\n    event.respondWith(fetch(event.request).catch(() => caches.match('/index.html')));\n    return;\n  }\n  if (PRECACHE.includes(url.pathname)) {\n    event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request)));\n  }\n});\n`;
+function serviceWorker(release: string, paths: readonly string[], acceptedManifests: readonly string[]): string {
+  return `const CACHE_PREFIX = ${JSON.stringify(cachePrefix)};\nconst CACHE_NAME = CACHE_PREFIX + ${JSON.stringify(release.replace(/^shell-/, ""))};\nconst RELEASE = ${JSON.stringify(release)};\nconst ACCEPTED_BOOTSTRAP_MANIFESTS = ${JSON.stringify(acceptedManifests)};\nconst PRECACHE = ${JSON.stringify(paths.map((path) => `/${path}`), null, 2)};\n\nself.addEventListener('install', (event) => {\n  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)));\n});\n\nself.addEventListener('activate', (event) => {\n  event.waitUntil(Promise.all([\n    caches.keys().then((names) => {\n      const previous = names.filter((name) => name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME);\n      return Promise.all(previous.slice(0, Math.max(0, previous.length - 1)).map((name) => caches.delete(name)));\n    }),\n    self.clients.claim(),\n  ]));\n});\n\nself.addEventListener('message', (event) => {\n  if (event.data && event.data.type === 'GET_COMPATIBILITY') {\n    event.ports[0]?.postMessage({release: RELEASE, accepted_bootstrap_manifest_sha256: ACCEPTED_BOOTSTRAP_MANIFESTS});\n    return;\n  }\n  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();\n});\n\nself.addEventListener('fetch', (event) => {\n  const url = new URL(event.request.url);\n  if (url.origin !== self.location.origin || url.pathname === '/api/v2' || url.pathname.startsWith('/api/v2/')) return;\n  if (event.request.mode === 'navigate') {\n    event.respondWith(caches.open(CACHE_NAME).then((cache) => cache.match('/index.html')).then((cached) => cached || fetch(event.request)));\n    return;\n  }\n  if (PRECACHE.includes(url.pathname)) {\n    event.respondWith(caches.open(CACHE_NAME).then((cache) => cache.match(event.request)).then((cached) => cached || fetch(event.request)));\n  }\n});\n`;
 }
 
 async function createBuild(root: string): Promise<void> {
@@ -67,8 +68,8 @@ async function createBuild(root: string): Promise<void> {
     const raw = readFileSync(resolve(root, path));
     return { path, bytes: raw.byteLength, sha256: sha256(raw) };
   });
-  const release = `shell-${sha256(compact({ bootstrap_manifest_sha256: bootstrapManifestSha256, assets: identityAssets })).slice(0, 24)}`;
-  writeFileSync(resolve(root, "sw.js"), serviceWorker(release, precache));
+  const release = `shell-${sha256(compact({ bootstrap_manifest_sha256: bootstrapManifestSha256, accepted_bootstrap_manifest_sha256: acceptedBootstrapManifestSha256, assets: identityAssets })).slice(0, 24)}`;
+  writeFileSync(resolve(root, "sw.js"), serviceWorker(release, precache, acceptedBootstrapManifestSha256));
   const assets = files(root).filter((path) => path !== "asset-manifest.json").map((path) => {
     const raw = readFileSync(resolve(root, path));
     return { path, bytes: raw.byteLength, sha256: sha256(raw), content_type: contentType(path), cache_control: cacheControl(path) };
@@ -78,6 +79,7 @@ async function createBuild(root: string): Promise<void> {
     kind: "songs-v2.shell.assets",
     release,
     bootstrap_manifest_sha256: bootstrapManifestSha256,
+    accepted_bootstrap_manifest_sha256: acceptedBootstrapManifestSha256,
     cache_prefix: cachePrefix,
     indexeddb_name: databaseName,
     assets,
