@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-012.
-- **Current task:** [TASK-013](tasks/TASK-013-offline-library-search-status.md), complete active-generation offline browse/search/status behavior.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-013.
+- **Current task:** define and implement offline Set List detail and locked Live mode over the active snapshot.
 
 ## Completed evidence
 
@@ -123,6 +123,17 @@ TASK-012 completed production atomic browser snapshots:
 - reproducible native Chromium evidence bootstraps, corrupts/repairs, retains, and cold-restarts with the proxy unavailable and zero API requests;
 - release `shell-48b974860e16510f36131506` and evidence are recorded under `migration/v2/phase1/storage/`; Chromium did not grant persistence and physical Safari/iPad acceptance remains pending.
 
+TASK-013 completed active-generation offline library/search/status behavior:
+
+- immutable deterministic indexes cover all 339 songs and 34 Set Lists only when the verified snapshot matches the active IndexedDB pointer generation;
+- song search covers title, artist, slug, reviewed keys/BPM/provenance/provider fields, while Set List search covers title, slug, date, location, band, and status without changing source identities;
+- recent and latest-date active Set List read models expose no pin or mutation controls;
+- diagnostics bind the frozen date/freshness, 373 routes, 1,076 resolved references, zero unresolved references, 26 deleted-baseline exclusions, five landscape warnings, exact fit distributions, persistence, quota/headroom, and retained recovery state;
+- memory/network and pending-recovery snapshots keep catalog selectors closed; failed updates remain browseable when the matching active pointer is retained;
+- 55 web tests pass, including active-pointer isolation, reviewed-predecessor compatibility, failed-update retention, deterministic search, keyboard focus restoration, and axe checks;
+- Chromium reloaded with the API process inactive, made zero `/api/v2/` requests, searched songs and Set Lists locally, and passed five axe surfaces, touch targets, contrast, reduced-motion, focus, and responsive overflow checks;
+- release `shell-89785e5935f3ee0eea606eca` and evidence are recorded under `migration/v2/phase1/library/`; physical Safari/iPad acceptance remains pending and mandatory.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -150,7 +161,8 @@ python3 scripts/build_v2_current_contracts.py --check
 python3 scripts/build_v2_current_coexistence_summary.py --check
 npm --prefix v2 ci
 make v2-check
-node scripts/capture_v2_phase1_storage_evidence.mjs --check
+python3 scripts/build_v2_phase1_storage_evidence.py --check
+python3 scripts/build_v2_phase1_library_evidence.py --check
 make v2-api-build
 go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
@@ -161,7 +173,6 @@ git diff --check
 
 ## Next tasks
 
-1. Build TASK-013's deterministic active-generation indexes and complete zero-network library/search/status behavior.
-2. Add offline Set List detail and locked Live mode over the same active snapshot.
-3. Continue autonomously through the Phase 1 software checkpoint.
-4. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.
+1. Build offline Set List detail and locked Live mode over the same active snapshot.
+2. Continue autonomously through the Phase 1 software checkpoint.
+3. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.

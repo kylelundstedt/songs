@@ -5,6 +5,7 @@ import { beforeAll, describe, expect, it, vi } from "vitest";
 import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ReadyApp, type ServiceWorkerState } from "./App";
+import { buildLibraryIndex } from "./library";
 import { loadVerifiedSnapshot } from "./bootstrap/load";
 import type { BootstrapRuntimeStatus } from "./bootstrap/runtime";
 import type { VerifiedSnapshot } from "./bootstrap/types";
@@ -31,6 +32,10 @@ const runtime: BootstrapRuntimeStatus = {
   warning: null,
 };
 let snapshot: VerifiedSnapshot;
+
+function runtimeWith(patch: Partial<BootstrapRuntimeStatus>): BootstrapRuntimeStatus {
+  return { ...runtime, ...patch };
+}
 
 beforeAll(async () => {
   const fetchImpl = (async (input: RequestInfo | URL) => {
@@ -92,11 +97,143 @@ describe("read-only shell", () => {
     expect(screen.getByText(/does not fall through to v1/i)).toBeInTheDocument();
   });
 
+  it("uses deterministic dashboard highlights and a latest-date active Set List without a pin control", () => {
+    const index = buildLibraryIndex(snapshot);
+    window.location.hash = "#/";
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
+    expect(screen.getByRole("heading", { name: "Active Set List", level: 2 })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /9Tease Stripped/i }).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole("link", { name: new RegExp(index.songs[0]!.title, "i") })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: new RegExp(index.recentSets[0]!.title, "i") }).length).toBeGreaterThanOrEqual(1);
+    expect(screen.queryByRole("button", { name: /pin|activate set/i })).not.toBeInTheDocument();
+  });
+
+  it("searches songs locally across title, key, provider, and BPM and reports no results", async () => {
+    const user = userEvent.setup();
+    window.location.hash = "#/songs";
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
+    const search = screen.getByRole("searchbox", { name: /Search songs in this local verified snapshot/i });
+
+    await user.type(search, "cant stop");
+    expect(screen.getByRole("link", { name: /Can't Stop/i })).toBeInTheDocument();
+    expect(screen.getByText(/Matched fields:/i)).toBeInTheDocument();
+    await user.clear(search);
+    await user.type(search, "f sharp");
+    expect(screen.getByRole("link", { name: /All These Things That I've Done/i })).toBeInTheDocument();
+    await user.clear(search);
+    await user.type(search, "lrclib");
+    expect(screen.getByRole("link", { name: /3 AM/i })).toBeInTheDocument();
+    await user.clear(search);
+    await user.type(search, "108");
+    expect(screen.getByRole("link", { name: /3 AM/i })).toBeInTheDocument();
+    await user.clear(search);
+    await user.type(search, "not-a-reviewed-song");
+    expect(screen.getByRole("heading", { name: "No songs found", level: 2 })).toBeInTheDocument();
+    expect(screen.getByText(/No songs matched “not-a-reviewed-song”/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Clear song search/i })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /Clear song search/i }));
+    await waitFor(() => expect(search).toHaveFocus());
+    expect(screen.getByText(/Showing all 339 songs/i)).toBeInTheDocument();
+  });
+
+  it("searches Set Lists locally by date and location", async () => {
+    const user = userEvent.setup();
+    window.location.hash = "#/sets";
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
+    const search = screen.getByRole("searchbox", { name: /Search Set Lists in this local verified snapshot/i });
+    await user.type(search, "2026-08-05");
+    expect(screen.getByRole("link", { name: /9Tease Stripped/i })).toBeInTheDocument();
+    expect(screen.getByText(/Matched fields: Date/i)).toBeInTheDocument();
+    await user.clear(search);
+    await user.type(search, "Castello Golightly");
+    expect(screen.getByRole("link", { name: /9Tease Stripped/i })).toBeInTheDocument();
+    expect(screen.getAllByText(/Matched fields: Location/i).length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("exposes reviewed index diagnostics, exclusions, and linked warnings in status", async () => {
+    const user = userEvent.setup();
+    window.location.hash = "#/status";
+    const { container } = render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
+    expect(screen.getByText("2026-08-10")).toBeInTheDocument();
+    expect(screen.getByText(/373 documents · 339 songs · 34 Set Lists/)).toBeInTheDocument();
+    expect(screen.getByText(/373\/373 indexed routes/)).toBeInTheDocument();
+    expect(screen.getByText("1076 resolved / 0 unresolved")).toBeInTheDocument();
+    expect(screen.getByText(/339 total · 334 fit · 5 needs-editing · 0 scrollable/)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /5 linked warning songs/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "can-t-stop" })).toBeInTheDocument();
+    await user.click(screen.getByText(/Deleted Set paths excluded/));
+    expect(screen.getByText("sets/2018-02-24-20180224-bv.md")).toBeInTheDocument();
+    expect(screen.getByText("sets/2023-12-03-lc-acou-bv-party.md")).toBeInTheDocument();
+    expect((await axe.run(container)).violations).toEqual([]);
+  });
+
+  it("locks non-status routes while retained pointer recovery is pending", async () => {
+    const user = userEvent.setup();
+    const pending = runtimeWith({ activeGeneration: null, retainedGeneration: runtime.activeGeneration, update: "failed-retained", warning: "retained recovery is pending" });
+    window.location.hash = "#/songs";
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={pending} />);
+    expect(screen.getByRole("heading", { name: /active pointer recovers/i })).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Songs" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Status" })).toBeInTheDocument();
+    expect((await axe.run(document.body)).violations).toEqual([]);
+    await user.click(screen.getByRole("link", { name: "Status" }));
+    await waitFor(() => expect(screen.getByRole("heading", { name: "Snapshot status" })).toBeInTheDocument());
+    expect(screen.getByText(/active pointer recovery pending/i)).toBeInTheDocument();
+  });
+
+  it("keeps verified network and memory snapshots outside active catalog selectors", async () => {
+    const user = userEvent.setup();
+    const network = runtimeWith({ source: "network", update: "memory-only", activeGeneration: null, offlineReady: false });
+    window.location.hash = "#/songs";
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={network} />);
+    expect(screen.getByText(/catalog selectors are unavailable until this generation/i)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /waits for an active saved snapshot/i })).toBeInTheDocument();
+    expect(screen.queryByRole("searchbox")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Songs" })).not.toBeInTheDocument();
+    await user.click(screen.getByRole("link", { name: /View runtime status/i }));
+    await waitFor(() => expect(screen.getByRole("heading", { name: "Snapshot status" })).toBeInTheDocument());
+    expect(screen.getByRole("heading", { name: /Library index diagnostics unavailable/i })).toBeInTheDocument();
+    expect(screen.getByText(/not the active IndexedDB pointer generation/i)).toBeInTheDocument();
+  });
+
+  it("does not apply current deleted-path diagnostics to an active reviewed predecessor", () => {
+    const predecessor = {
+      ...snapshot,
+      manifest: {
+        ...snapshot.manifest,
+        generation: "phase1-reviewed-predecessor",
+        snapshot_sha256: "1".repeat(64),
+        read_model_anchor: { ...snapshot.manifest.read_model_anchor, implementation_commit: "1".repeat(40) },
+        verification: { output_sha256: "2".repeat(64) },
+      },
+    } as VerifiedSnapshot;
+    const predecessorRuntime = runtimeWith({ activeGeneration: predecessor.manifest.generation });
+    window.location.hash = "#/status";
+    render(<ReadyApp snapshot={predecessor} online update={update} runtime={predecessorRuntime} />);
+    expect(screen.getByText(/Deleted-path exclusions are unavailable for this reviewed predecessor contract/i)).toBeInTheDocument();
+    expect(screen.queryByText(/26 exact deleted Set paths/i)).not.toBeInTheDocument();
+  });
+
+  it("keeps an active snapshot searchable when an update fails and reports retention", async () => {
+    const user = userEvent.setup();
+    const retained = runtimeWith({ update: "failed-retained", warning: "preferred update unavailable" });
+    window.location.hash = "#/songs";
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={retained} />);
+    expect(screen.getByText(/active verified snapshot was retained/i)).toBeInTheDocument();
+    const search = screen.getByRole("searchbox", { name: /Search songs in this local verified snapshot/i });
+    await user.type(search, "cant stop");
+    expect(screen.getByRole("link", { name: /Can't Stop/i })).toBeInTheDocument();
+    window.location.hash = "#/status";
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+    await waitFor(() => expect(screen.getByText(/update failed; active generation retained/i)).toBeInTheDocument());
+    expect(screen.getByText("failed-retained")).toBeInTheDocument();
+  });
+
   it("labels durable offline restart and defers shell updates while disconnected", () => {
     window.location.hash = "#/status";
     const waiting: ServiceWorkerState = { state: "update-available", canApply: false, apply: vi.fn(async () => undefined) };
     render(<ReadyApp snapshot={snapshot} online={false} update={waiting} runtime={runtime} />);
-    expect(screen.getByRole("status")).toHaveTextContent(/active verified snapshot saved in IndexedDB/i);
+    expect(screen.getByRole("status")).toHaveTextContent(/browse and search are local/i);
     expect(screen.getByText(/Available from the active verified snapshot/i)).toBeInTheDocument();
     expect(screen.getByText(/songs-v2 · available/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /update waiting/i })).toBeDisabled();

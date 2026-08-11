@@ -103,7 +103,7 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-006 — Offline library, search, and status
 
-- **Status:** Ready; tracked as TASK-013
+- **Status:** Done on August 11, 2026; tracked as TASK-013
 
 - **Estimate:** 2–3 days
 - **Dependencies:** P1-005

@@ -30,7 +30,8 @@ eviction, Home Screen restart, background suspension, and low-storage acceptance
 remain pending and mandatory.
 
 ```sh
-node scripts/capture_v2_phase1_storage_evidence.mjs
-node scripts/capture_v2_phase1_storage_evidence.mjs --check
 python3 scripts/build_v2_phase1_storage_evidence.py --check
 ```
+
+The native capture script is retained for historical reproduction and must be
+run from TASK-012 commit `5a3825f`, whose shell release it intentionally binds.

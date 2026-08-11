@@ -1,6 +1,6 @@
 # KGL Songs V2 read-only shell
 
-React/Vite shell for TASK-011/TASK-012. The production build is generated
+React/Vite shell for TASK-011 through TASK-013. The production build is generated
 deterministically into `internal/v2shell/data/` and embedded by `cmd/v2api` on
 the isolated port-8001 origin.
 
@@ -16,6 +16,12 @@ the isolated port-8001 origin.
   content only after durable readback verification;
 - the immediate predecessor is retained, accepted predecessors recover offline,
   and corrupt active bytes repair into a distinct physical instance;
+- deterministic song/Set List indexes and search are constructed only for the
+  verified snapshot matching the active IndexedDB pointer; inactive verified
+  sessions expose runtime status but no catalog selectors;
+- active-generation diagnostics expose exact current routes, references,
+  deleted-baseline exclusions, fit warnings, freshness, persistence, and
+  origin-wide quota/headroom;
 - the service worker caches shell assets only under `songs-v2-shell-*`,
   explicitly bypasses `/api/v2/`, opens no database, serves its named cache
   offline, and publishes a bootstrap-compatibility contract for updates;
@@ -29,7 +35,7 @@ npm --prefix v2 run check --workspace @songs-v2/web
 npm --prefix v2 run test --workspace @songs-v2/web
 npm --prefix v2 run build --workspace @songs-v2/web
 npm --prefix v2 run fixtures --workspace @songs-v2/web
-node scripts/capture_v2_phase1_storage_evidence.mjs --check
+python3 scripts/build_v2_phase1_storage_evidence.py --check
 ```
 
 For local Vite development, `/api/v2/` is proxied to the production-shaped Go

@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +18,15 @@ EXPECTED_GENERATION = "phase1-f9634173e25ef4ca4b8330a3"
 EXPECTED_SHELL_SHA = "e9bfe3db9c24291c3f2f209811cd277961cc1b26ce7a5f910e4c23c9e1a88047"
 EXPECTED_SHELL_RELEASE = "shell-48b974860e16510f36131506"
 EXPECTED_STORES = ["chunks", "conflicts", "documents", "drafts", "meta", "outbox", "snapshots"]
+TASK012_COMMIT = "5a3825f"
+
+
+def git_bytes(path: str) -> bytes:
+    return subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{TASK012_COMMIT}:{path}"],
+        check=True,
+        capture_output=True,
+    ).stdout
 
 
 def sha(raw: bytes) -> str:
@@ -34,7 +44,8 @@ def checked(path: Path) -> tuple[bytes, Any]:
 
 def build() -> dict[str, Any]:
     bootstrap_raw, bootstrap = checked(ROOT / "internal/v2bootstrap/data/manifest.json")
-    shell_raw, shell = checked(ROOT / "internal/v2shell/data/asset-manifest.json")
+    shell_raw = git_bytes("internal/v2shell/data/asset-manifest.json")
+    shell = json.loads(shell_raw)
     if sha(bootstrap_raw) != EXPECTED_BOOTSTRAP_SHA or bootstrap["generation"] != EXPECTED_GENERATION:
         raise ValueError("bootstrap trust anchor drift")
     if sha(shell_raw) != EXPECTED_SHELL_SHA or shell["release"] != EXPECTED_SHELL_RELEASE:
@@ -73,9 +84,9 @@ def build() -> dict[str, Any]:
 
     screenshot_path = EVIDENCE / "screenshots/snapshot-status-after-repair.png"
     screenshot_raw = screenshot_path.read_bytes()
-    runtime_source = (ROOT / "v2/packages/web/src/bootstrap/runtime.ts").read_text(encoding="utf-8")
-    storage_source = (ROOT / "v2/packages/web/src/storage/index.ts").read_text(encoding="utf-8")
-    worker_source = (ROOT / "internal/v2shell/data/sw.js").read_text(encoding="utf-8")
+    runtime_source = git_bytes("v2/packages/web/src/bootstrap/runtime.ts").decode("utf-8")
+    storage_source = git_bytes("v2/packages/web/src/storage/index.ts").decode("utf-8")
+    worker_source = git_bytes("internal/v2shell/data/sw.js").decode("utf-8")
     required_runtime = ["verifyReviewedArtifacts", "recoverRetained", "expectedTransitionCount", "repairPhysicalGeneration", "MANIFEST_UNSUPPORTED"]
     if not all(value in runtime_source for value in required_runtime):
         raise ValueError("runtime recovery contract drift")
@@ -83,7 +94,7 @@ def build() -> dict[str, Any]:
         raise ValueError("storage schema source drift")
     if "indexedDB" in worker_source or "url.pathname.startsWith('/api/v2/')" not in worker_source or "GET_COMPATIBILITY" not in worker_source or "caches.open(CACHE_NAME)" not in worker_source:
         raise ValueError("service worker isolation/compatibility drift")
-    if not re.search(r'expectedRelease\s+=\s+"' + re.escape(EXPECTED_SHELL_RELEASE) + r'"', (ROOT / "internal/v2shell/shell.go").read_text(encoding="utf-8")):
+    if not re.search(r'expectedRelease\s+=\s+"' + re.escape(EXPECTED_SHELL_RELEASE) + r'"', git_bytes("internal/v2shell/shell.go").decode("utf-8")):
         raise ValueError("Go shell trust anchor drift")
 
     artifact: dict[str, Any] = {

@@ -1,0 +1,75 @@
+{
+  "accessibility": {
+    "axe_surfaces": 5,
+    "contrast": [
+      {
+        "background": "#fffdf7",
+        "foreground": "#26363d",
+        "ratio": 12.307,
+        "theme": "light-more"
+      },
+      {
+        "background": "#14232b",
+        "foreground": "#e0eaed",
+        "ratio": 13.15,
+        "theme": "dark-more"
+      }
+    ],
+    "keyboard_focus_return": true,
+    "minimum_touch_target_css_px": 44,
+    "reduced_motion": true
+  },
+  "bootstrap": {
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+  },
+  "browser_observation": {
+    "browser": {
+      "name": "Chromium",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+    },
+    "bytes": 3192,
+    "path": "migration/v2/phase1/library/browser-observations/chromium-offline-library.json",
+    "sha256": "83121b3046076969a2191bbf44ec028613612b9a0dd71b13664d36c7a864d7c4"
+  },
+  "limitations": {
+    "physical_safari_ipad": "pending mandatory owner-device acceptance"
+  },
+  "proof": {
+    "current_counts_routes_references_and_exclusions_match": true,
+    "failed_update_keeps_matching_active_snapshot_browseable": true,
+    "fit_warnings_linked": true,
+    "no_mutation_controls": true,
+    "offline_reload_api_requests": 0,
+    "offline_reload_with_api_process_inactive": true,
+    "recent_and_latest_date_active_set_read_models": true,
+    "selectors_require_matching_active_pointer_generation": true,
+    "set_search_local_and_deterministic": true,
+    "snapshot_freshness_and_origin_storage_reported": true,
+    "song_search_local_and_deterministic": true
+  },
+  "schema_version": "1",
+  "screenshots": [
+    {
+      "bytes": 132382,
+      "name": "desktop-status",
+      "path": "migration/v2/phase1/library/screenshots/desktop-status.png",
+      "sha256": "62430f4b5ce2fc57858f7b662b1f2617cefc286f1cfe286939ebb6e31288b17d"
+    },
+    {
+      "bytes": 178286,
+      "name": "phone-song-search",
+      "path": "migration/v2/phase1/library/screenshots/phone-song-search.png",
+      "sha256": "469befc9fbc1a5a95dac9fb4cb54156a104442538df4939da749513de47d78aa"
+    }
+  ],
+  "shell": {
+    "asset_manifest_sha256": "986503ad7139afe88141df95fa6d809d98b284956ce3be885d7bf141f01a4174",
+    "release": "shell-89785e5935f3ee0eea606eca"
+  },
+  "task": "TASK-013",
+  "verification": {
+    "output_sha256": "b3724ecccef32d387f31903843d5383d0a0d2f1c2b68539d1ebae0d759223853"
+  }
+}

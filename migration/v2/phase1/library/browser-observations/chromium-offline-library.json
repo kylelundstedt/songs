@@ -1,0 +1,83 @@
+{
+  "accessibility": {
+    "axe": [
+      { "route": "#/", "violations": [] },
+      { "route": "#/songs", "violations": [] },
+      { "route": "#/sets", "violations": [] },
+      { "route": "#/status", "violations": [] },
+      { "profile": "phone-touch", "route": "#/songs", "violations": [] }
+    ],
+    "clear_button_focus_returned_to_search": true,
+    "reduced_motion_media_query_present": true,
+    "touch_targets": {
+      "clear_button": { "height": 84.59375, "width": 77.546875 },
+      "search_input": { "height": 49, "width": 270.0625 }
+    }
+  },
+  "bootstrap": {
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+  },
+  "browser": {
+    "name": "Chromium",
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.72 Safari/537.36"
+  },
+  "diagnostics": {
+    "active_selection_reason": "latest-date (no reviewed pin configured)",
+    "active_selection_title": "9Tease Stripped",
+    "deleted_set_paths_excluded": 26,
+    "fit": {
+      "ipad_landscape": "339 total · 334 fit · 5 needs-editing · 0 scrollable",
+      "ipad_portrait": "339 total · 339 fit · 0 needs-editing · 0 scrollable",
+      "phone": "339 total · 0 fit · 0 needs-editing · 339 scrollable"
+    },
+    "frozen_date": "2026-08-10",
+    "indexed_counts": "373 documents · 339 songs · 34 Set Lists",
+    "landscape_warning_slugs": [
+      "can-t-stop",
+      "father-of-mine",
+      "love-shack",
+      "paradise-city",
+      "troublemaker"
+    ],
+    "references": "1076 resolved / 0 unresolved",
+    "route_coverage": "373/373 indexed routes",
+    "snapshot_freshness": "Reviewed baseline frozen 2026-08-10; no live freshness inferred"
+  },
+  "offline_reload": {
+    "api_process": "inactive",
+    "api_requests": [],
+    "service_worker_controlled": true,
+    "shell_requests": [
+      { "method": "GET", "path": "/", "status": 200, "type": "Document" },
+      { "method": "GET", "path": "/assets/index-fbFEu5HK.js", "status": 200, "type": "Script" },
+      { "method": "GET", "path": "/assets/index-F9Df7718.css", "status": 200, "type": "Stylesheet" }
+    ],
+    "snapshot_source": "Active verified IndexedDB snapshot"
+  },
+  "schema_version": "1",
+  "search": {
+    "set": {
+      "matched_fields": "Matched fields: Location",
+      "query": "Castello Golightly",
+      "result_count": "Showing 2 of 34 Set Lists for “Castello Golightly”.",
+      "result_titles": ["9Tease Stripped", "Taylor's Birthday"]
+    },
+    "song": {
+      "matched_fields": "Matched fields: Title, Slug",
+      "query": "cant stop",
+      "result_count": "Showing 1 of 339 songs for “cant stop”.",
+      "result_titles": ["Can't Stop"]
+    }
+  },
+  "shell": {
+    "asset_manifest_sha256": "986503ad7139afe88141df95fa6d809d98b284956ce3be885d7bf141f01a4174",
+    "release": "shell-89785e5935f3ee0eea606eca"
+  },
+  "task": "TASK-013",
+  "viewports": {
+    "desktop": { "height": 720, "scroll_width": 1280, "width": 1280 },
+    "phone_touch": { "device_pixel_ratio": 2, "height": 844, "max_touch_points": 5, "scroll_width": 390, "width": 390 }
+  }
+}

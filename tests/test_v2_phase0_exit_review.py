@@ -23,7 +23,9 @@ class V2Phase0ExitReviewTests(unittest.TestCase):
         self.assertRegex(backlog, r"\| Done \| \[TASK-010")
         self.assertRegex(backlog, r"\| Done \| \[TASK-011")
         self.assertRegex(backlog, r"\| Done \| \[TASK-012")
-        self.assertRegex(backlog, r"\| P0 \| \[TASK-013")
+        self.assertRegex(backlog, r"\| Done \| \[TASK-013")
+        task13 = (ROOT / "docs/v2/tasks/TASK-013-offline-library-search-status.md").read_text(encoding="utf-8")
+        self.assertIn("Status:** Complete (August 11, 2026)", task13)
         self.assertIn("Status:** Done — conditional go", task)
 
     def test_exit_review_and_phase1_plan_record_gates(self) -> None:

@@ -2,6 +2,7 @@ import { Component, useEffect, useMemo, useRef, useState, type ErrorInfo, type M
 import { BootstrapClientError, type LeadSheetDocument, type SetListDocument, type VerifiedSnapshot } from "./bootstrap/types";
 import { type SnapshotProgress } from "./bootstrap/load";
 import { bootstrapRuntime, type BootstrapRuntimeStatus } from "./bootstrap/runtime";
+import { buildLibraryIndex, type LibraryIndex, type LibrarySet, type LibrarySong, type SetSearchField, type SongSearchField } from "./library";
 import { SONGS_STORAGE_NAME } from "./storage";
 import "./styles.css";
 
@@ -144,22 +145,24 @@ function ThemeToggle() {
   return <button className="icon-button" type="button" onClick={() => setTheme(next)} aria-label={`Theme: ${theme}. Switch to ${next}.`}><span aria-hidden="true">{theme === "dark" ? "◐" : theme === "light" ? "☀" : "◒"}</span></button>;
 }
 
-function Header({ path, online, update }: { readonly path: string; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker> }) {
+function Header({ path, online, update, recoveryPending = false }: { readonly path: string; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly recoveryPending?: boolean }) {
   const current = (prefix: string) => path === prefix || path.startsWith(`${prefix}/`);
   return <header className="site-header">
     <a className="skip-link" href="#main">Skip to content</a>
     <div className="brand-row">
-      <Link to="/" className="brand"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>Verified read-only V2</small></span></Link>
+      {recoveryPending ? <span className="brand" aria-label="Songs, recovery pending"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>Verified read-only V2</small></span></span> : <Link to="/" className="brand"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>Verified read-only V2</small></span></Link>}
       <div className="header-actions">
-        <span className={`connection ${online ? "online" : "offline"}`}><span aria-hidden="true">●</span>{online ? "Online" : "Offline"}</span>
+        <span className={`connection ${online ? "online" : "offline"}`} aria-label={online ? "Online — browser connectivity hint" : "Offline — browser connectivity hint"}><span aria-hidden="true">●</span>{online ? "Online · browser connectivity hint" : "Offline · browser connectivity hint"}</span>
         {update.state === "update-available" && <button type="button" className="update-button" onClick={update.apply} disabled={!update.canApply} title={update.canApply ? "Activate the compatible verified shell update" : "Waiting for a compatible active snapshot"}>{update.canApply ? "Update ready" : "Update waiting for compatible snapshot"}</button>}
         <ThemeToggle />
       </div>
     </div>
     <nav aria-label="Primary">
-      <Link to="/" className={path === "/" ? "active" : undefined}>Library</Link>
-      <Link to="/songs" className={current("/songs") ? "active" : undefined}>Songs</Link>
-      <Link to="/sets" className={current("/sets") ? "active" : undefined}>Set Lists</Link>
+      {!recoveryPending && <>
+        <Link to="/" className={path === "/" ? "active" : undefined}>Library</Link>
+        <Link to="/songs" className={current("/songs") ? "active" : undefined}>Songs</Link>
+        <Link to="/sets" className={current("/sets") ? "active" : undefined}>Set Lists</Link>
+      </>}
       <Link to="/status" className={current("/status") ? "active" : undefined}>Status</Link>
     </nav>
     {update.message && <p className="update-message" role="status">{update.message}</p>}
@@ -195,50 +198,101 @@ function PageHeading({ eyebrow, title, children }: { readonly eyebrow: string; r
   return <div className="page-heading"><p className="eyebrow">{eyebrow}</p><h1 tabIndex={-1} data-page-heading>{title}</h1>{children}</div>;
 }
 
-function LibraryPage({ snapshot }: { readonly snapshot: VerifiedSnapshot }) {
-  const recentSets = snapshot.setLists.slice(-6).reverse();
-  const songHighlights = snapshot.leadSheets.slice(0, 12);
+const SONG_FIELD_LABELS: Readonly<Record<SongSearchField, string>> = Object.freeze({
+  title: "Title",
+  artist: "Artist",
+  slug: "Slug",
+  performanceKey: "Performance key",
+  originalKey: "Original key",
+  bpm: "BPM",
+  originalBpm: "Original BPM",
+  provenanceStatus: "Provenance status",
+  sourceProvider: "Provider",
+});
+
+const SET_FIELD_LABELS: Readonly<Record<SetSearchField, string>> = Object.freeze({
+  title: "Title",
+  slug: "Slug",
+  date: "Date",
+  location: "Location",
+  band: "Band",
+  status: "Status",
+});
+
+function matchedFieldLabels(fields: readonly string[], labels: Readonly<Record<string, string>>): string {
+  return fields.map((field) => labels[field] ?? field).join(", ");
+}
+
+function LibraryPage({ index, snapshot, runtime }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus }) {
+  const recentSets = index.recentSets.slice(0, 6);
+  const songHighlights = index.songs.slice(0, 12);
+  const activeSelection = index.activeSetSelection(null);
+  const diagnostics = index.diagnostics;
+  const activeSet = activeSelection.set;
   return <>
-    <PageHeading eyebrow="Reviewed snapshot" title="Your gig book, without the edit controls"><p>{snapshot.manifest.counts.lead_sheets} songs and {snapshot.manifest.counts.set_lists} Set Lists are loaded only after full verification.</p></PageHeading>
+    <PageHeading eyebrow="Reviewed snapshot" title="Your gig book, without the edit controls"><p>{diagnostics.documents.songs} songs and {diagnostics.documents.sets} Set Lists are loaded only after full verification.</p></PageHeading>
     <section className="metric-grid" aria-label="Snapshot summary">
-      <div><strong>{snapshot.manifest.counts.lead_sheets}</strong><span>Lead sheets</span></div>
-      <div><strong>{snapshot.manifest.counts.set_lists}</strong><span>Set Lists</span></div>
-      <div><strong>{snapshot.manifest.counts.set_entries.toLocaleString()}</strong><span>Resolved entries</span></div>
-      <div><strong>12/12</strong><span>Chunks verified</span></div>
+      <div><strong>{diagnostics.documents.songs}</strong><span>Lead sheets</span></div>
+      <div><strong>{diagnostics.documents.sets}</strong><span>Set Lists</span></div>
+      <div><strong>{diagnostics.references.resolved}</strong><span>Resolved entries</span></div>
+      <div><strong>{runtime.chunks.completed}/{runtime.chunks.total}</strong><span>Chunks verified</span></div>
+    </section>
+    <section className="panel active-set-card" aria-labelledby="active-set-title">
+      <div className="section-title"><div><p className="eyebrow">Read-only selection</p><h2 id="active-set-title">Active Set List</h2></div><span className="readonly-label">No mutation controls</span></div>
+      <p className="active-set-explanation">No reviewed pin is configured. The latest-date Set List is shown as the active selection automatically.</p>
+      {activeSet === null ? <p className="no-results">No dated Set List is available in this snapshot.</p> : <ul className="document-list compact"><SetRow setList={activeSet} snapshot={snapshot} /></ul>}
     </section>
     <div className="dashboard-grid">
-      <section className="panel"><div className="section-title"><div><p className="eyebrow">Browse</p><h2>Songs</h2></div><Link to="/songs">View all</Link></div><ul className="document-list compact">{songHighlights.map((song) => <SongRow key={song.id} song={song} snapshot={snapshot} />)}</ul></section>
-      <section className="panel"><div className="section-title"><div><p className="eyebrow">Current archive</p><h2>Set Lists</h2></div><Link to="/sets">View all</Link></div><ul className="document-list compact">{recentSets.map((setList) => <SetRow key={setList.id} setList={setList} />)}</ul></section>
+      <section className="panel" aria-labelledby="dashboard-songs-title"><div className="section-title"><div><p className="eyebrow">Browse locally</p><h2 id="dashboard-songs-title">Songs</h2></div><Link to="/songs">View all</Link></div><ul className="document-list compact">{songHighlights.map((song) => <SongRow key={song.id} song={song} snapshot={snapshot} />)}</ul></section>
+      <section className="panel" aria-labelledby="dashboard-sets-title"><div className="section-title"><div><p className="eyebrow">Current archive</p><h2 id="dashboard-sets-title">Set Lists</h2></div><Link to="/sets">View all</Link></div><ul className="document-list compact">{recentSets.map((setList) => <SetRow key={setList.id} setList={setList} snapshot={snapshot} />)}</ul></section>
     </div>
   </>;
 }
 
-function SongRow({ song, snapshot }: { readonly song: LeadSheetDocument; readonly snapshot: VerifiedSnapshot }) {
+function SongRow({ song, snapshot, matchedFields }: { readonly song: LibrarySong; readonly snapshot: VerifiedSnapshot; readonly matchedFields?: readonly SongSearchField[] | undefined }) {
   const route = snapshot.songRouteById.get(song.id);
-  const landscape = song.fit.profiles.find((profile) => profile.profile === "ipad-landscape");
-  return <li><Link to={`/songs/${route?.slug ?? song.slug}`}><span><strong>{song.projection.title}</strong><small>{song.projection.metadata.artist || "Artist not listed"}</small></span><span className={`fit-dot ${landscape?.status === "needs-editing" ? "warning" : "good"}`}>{landscape?.status === "needs-editing" ? "Landscape warning" : "Fit checked"}</span></Link></li>;
+  const landscape = song.document.fit.profiles.find((profile) => profile.profile === "ipad-landscape");
+  const matched = matchedFields === undefined ? null : matchedFieldLabels(matchedFields, SONG_FIELD_LABELS);
+  return <li><Link to={`/songs/${route?.slug ?? song.slug}`}><span><strong>{song.title}</strong><small>{song.artist || "Artist not listed"}</small>{matchedFields !== undefined && <small className="matched-fields" aria-label={matched ? `Matched fields: ${matched}` : "No specific matched fields; showing the local verified snapshot"}>{matched ? `Matched fields: ${matched}` : "Local verified snapshot"}</small>}</span><span className={`fit-dot ${landscape?.status === "needs-editing" ? "warning" : "good"}`}>{landscape?.status === "needs-editing" ? "Landscape warning" : "Fit checked"}</span></Link></li>;
 }
 
-function SetRow({ setList }: { readonly setList: SetListDocument }) {
-  return <li><Link to={`/sets/${setList.slug}`}><span><strong>{setList.projection.title}</strong><small>{[setList.projection.metadata.date, setList.projection.metadata.location].filter(Boolean).join(" · ")}</small></span><span className="entry-count">{setList.projection.entries.length}</span></Link></li>;
+function SetRow({ setList, snapshot, matchedFields }: { readonly setList: LibrarySet; readonly snapshot: VerifiedSnapshot; readonly matchedFields?: readonly SetSearchField[] | undefined }) {
+  const matched = matchedFields === undefined ? null : matchedFieldLabels(matchedFields, SET_FIELD_LABELS);
+  const metadata = [setList.date, setList.location].filter(Boolean).join(" · ");
+  return <li><Link to={`/sets/${setList.slug}`}><span><strong>{setList.title}</strong><small>{metadata || "Date and location not listed"}</small>{matchedFields !== undefined && <small className="matched-fields" aria-label={matched ? `Matched fields: ${matched}` : "No specific matched fields; showing the local verified snapshot"}>{matched ? `Matched fields: ${matched}` : "Local verified snapshot"}</small>}</span><span className="entry-count" aria-label={`${setList.document.projection.entries.length} songs`}>{setList.document.projection.entries.length}</span></Link></li>;
 }
 
-function SongsPage({ snapshot }: { readonly snapshot: VerifiedSnapshot }) {
+function SearchControls({ id, label, value, onChange, placeholder, clearLabel }: { readonly id: string; readonly label: string; readonly value: string; readonly onChange: (value: string) => void; readonly placeholder: string; readonly clearLabel: string }) {
+  const input = useRef<HTMLInputElement>(null);
+  const clear = () => {
+    onChange("");
+    requestAnimationFrame(() => input.current?.focus());
+  };
+  return <div className="search-controls"><label className="filter-field" htmlFor={id}><span>{label}</span><input ref={input} id={id} type="search" value={value} onChange={(event) => onChange(event.target.value)} placeholder={placeholder} /></label>{value !== "" && <button type="button" className="clear-button" onClick={clear} aria-label={clearLabel}>Clear</button>}</div>;
+}
+
+function SongsPage({ index, snapshot }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot }) {
   const [filter, setFilter] = useState("");
-  const songs = useMemo(() => {
-    const query = filter.trim().toLocaleLowerCase();
-    return query === "" ? snapshot.leadSheets : snapshot.leadSheets.filter((song) => `${song.projection.title} ${song.projection.metadata.artist}`.toLocaleLowerCase().includes(query));
-  }, [filter, snapshot.leadSheets]);
+  const results = useMemo(() => index.searchSongs(filter), [filter, index]);
+  const query = filter.trim();
   return <>
-    <PageHeading eyebrow="Lead sheets" title="Songs"><p>Authoritative Apex HTML from the reviewed source snapshot.</p></PageHeading>
-    <label className="filter-field"><span>Filter loaded songs</span><input type="search" value={filter} onChange={(event) => setFilter(event.target.value)} placeholder="Title or artist" /></label>
-    <p className="result-count" role="status">Showing {songs.length} of {snapshot.leadSheets.length}</p>
-    <ul className="document-list panel">{songs.map((song) => <SongRow key={song.id} song={song} snapshot={snapshot} />)}</ul>
+    <PageHeading eyebrow="Lead sheets" title="Songs"><p>Search and browse the active verified snapshot locally. Results cover title, artist, slug, keys, BPM, provenance, and provider.</p></PageHeading>
+    <SearchControls id="song-search" label="Search songs in this local verified snapshot" value={filter} onChange={setFilter} placeholder="Title, artist, key, BPM, provider" clearLabel="Clear song search" />
+    <p className="result-count" role="status">{query === "" ? `Showing all ${results.length} songs from the local verified snapshot.` : `Showing ${results.length} of ${index.songs.length} songs for “${query}”.`}</p>
+    {results.length === 0 ? <section className="panel no-results" aria-live="polite"><h2>No songs found</h2><p>No songs matched “{query}” in this local verified snapshot.</p></section> : <ul className="document-list panel" aria-label="Song search results">{results.map((result) => <SongRow key={result.song.id} song={result.song} snapshot={snapshot} matchedFields={query === "" ? undefined : result.matchedFields} />)}</ul>}
   </>;
 }
 
-function SetsPage({ snapshot }: { readonly snapshot: VerifiedSnapshot }) {
-  return <><PageHeading eyebrow="Performance archive" title="Set Lists"><p>Every entry resolves to an immutable lead-sheet identity.</p></PageHeading><ul className="document-list panel">{[...snapshot.setLists].reverse().map((setList) => <SetRow key={setList.id} setList={setList} />)}</ul></>;
+function SetsPage({ index, snapshot }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot }) {
+  const [filter, setFilter] = useState("");
+  const results = useMemo(() => index.searchSets(filter), [filter, index]);
+  const query = filter.trim();
+  return <>
+    <PageHeading eyebrow="Performance archive" title="Set Lists"><p>Search title, slug, date, location, band, and status in the active verified snapshot locally.</p></PageHeading>
+    <SearchControls id="set-search" label="Search Set Lists in this local verified snapshot" value={filter} onChange={setFilter} placeholder="Title, date, location, band, status" clearLabel="Clear Set List search" />
+    <p className="result-count" role="status">{query === "" ? `Showing all ${results.length} Set Lists from the local verified snapshot.` : `Showing ${results.length} of ${index.sets.length} Set Lists for “${query}”.`}</p>
+    {results.length === 0 ? <section className="panel no-results" aria-live="polite"><h2>No Set Lists found</h2><p>No Set Lists matched “{query}” in this local verified snapshot.</p></section> : <ul className="document-list panel" aria-label="Set List search results">{results.map((result) => <SetRow key={result.set.id} setList={result.set} snapshot={snapshot} matchedFields={result.matchedFields} />)}</ul>}
+  </>;
 }
 
 function MetaItem({ label, value }: { readonly label: string; readonly value?: string | undefined }) {
@@ -318,11 +372,60 @@ function formatBytes(value: number | null): string {
   return `${amount.toFixed(amount >= 10 ? 1 : 2)} ${unit}`;
 }
 
-function StatusPage({ snapshot, online, update, runtime }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly runtime: BootstrapRuntimeStatus }) {
-  const source = runtime.update === "failed-retained" && runtime.activeGeneration === null ? "Verified retained IndexedDB snapshot (pointer recovery pending)" : runtime.update === "failed-retained" ? "Active verified IndexedDB snapshot (update failed; active generation retained)" : runtime.source === "indexeddb" ? "Active verified IndexedDB snapshot" : runtime.source === "network" ? "Verified network snapshot (storage unchanged)" : "Verified memory snapshot (not saved)";
+function fitDistributionText(distribution: { readonly total: number; readonly fit: number; readonly needsEditing: number; readonly scrollable: number }): string {
+  return `${distribution.total} total · ${distribution.fit} fit · ${distribution.needsEditing} needs-editing · ${distribution.scrollable} scrollable`;
+}
+
+function selectionReason(selection: ReturnType<LibraryIndex["activeSetSelection"]>): string {
+  if (selection.reason === "latest-date") return "latest-date (no reviewed pin configured)";
+  if (selection.reason === "reviewed-pin") return "reviewed-pin";
+  return "none";
+}
+
+function StatusPage({ index, snapshot, online, update, runtime }: { readonly index: LibraryIndex | null; readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly runtime: BootstrapRuntimeStatus }) {
+  const diagnostics = index?.diagnostics ?? null;
+  const activeSelection = index?.activeSetSelection(null) ?? null;
+  const active = activeSnapshotFor(snapshot, runtime);
+  const recoveryPending = runtime.source === "indexeddb" && !active;
+  const offlineReady = durableOfflineReady(snapshot, runtime);
+  const source = recoveryPending ? "Verified retained IndexedDB snapshot (active pointer recovery pending)" : runtime.update === "failed-retained" ? "Active verified IndexedDB snapshot (update failed; active generation retained)" : runtime.source === "indexeddb" ? "Active verified IndexedDB snapshot" : runtime.source === "network" ? "Verified network snapshot (not active; storage unchanged)" : "Verified memory snapshot (not active; not saved)";
   const persistence = runtime.persistence === "granted" ? "Granted (storage remains evictable)" : runtime.persistence === "denied" ? "Not granted" : runtime.persistence === "unsupported" ? "Unsupported" : "Unknown";
-  return <><PageHeading eyebrow="Diagnostics" title="Snapshot status"><p>Software evidence only. Physical Safari/iPad acceptance is still pending.</p></PageHeading>
-    {runtime.warning && <p className="warning-banner" role="status">{runtime.warning}</p>}
+  return <>
+    <PageHeading eyebrow="Diagnostics" title="Snapshot status"><p>Software evidence only. Physical Safari/iPad acceptance is still pending.</p></PageHeading>
+    {runtime.warning && <p className={recoveryPending ? "recovery-banner" : runtime.update === "failed-retained" ? "update-warning-banner" : "warning-banner"} role="status">{runtime.warning}</p>}
+    {diagnostics === null || activeSelection === null ? <section className="diagnostics-panel" aria-labelledby="index-diagnostics-title">
+      <h2 id="index-diagnostics-title">Library index diagnostics unavailable</h2>
+      <p className="status-note">Catalog selectors remain closed because this verified snapshot is not the active IndexedDB pointer generation. Runtime and storage diagnostics remain available below.</p>
+    </section> : <section aria-labelledby="index-diagnostics-title" className="diagnostics-panel">
+      <h2 id="index-diagnostics-title">Library index diagnostics</h2>
+      <dl className="status-grid panel">
+        <MetaItem label="Frozen date" value={diagnostics.frozenDate} />
+        <MetaItem label="Snapshot freshness" value={`Reviewed baseline frozen ${diagnostics.frozenDate}; no live freshness inferred`} />
+        <MetaItem label="Indexed counts" value={`${diagnostics.documents.total} documents · ${diagnostics.documents.songs} songs · ${diagnostics.documents.sets} Set Lists`} />
+        <MetaItem label="Route coverage" value={`${diagnostics.routeCount}/${diagnostics.documents.total} indexed routes`} />
+        <MetaItem label="Set Entry references" value={`${diagnostics.references.resolved} resolved / ${diagnostics.references.unresolved} unresolved`} />
+        <MetaItem label="Active selection reason" value={selectionReason(activeSelection)} />
+        <MetaItem label="Active selection title" value={activeSelection.set?.title ?? "None"} />
+      </dl>
+      <section className="fit-distributions" aria-labelledby="fit-distributions-title">
+        <h3 id="fit-distributions-title">Exact fit distributions</h3>
+        <ul>
+          <li><strong>iPad portrait</strong><span>{fitDistributionText(diagnostics.fit.portrait)}</span></li>
+          <li><strong>iPad landscape</strong><span>{fitDistributionText(diagnostics.fit.landscape)}</span></li>
+          <li><strong>Phone</strong><span>{fitDistributionText(diagnostics.fit.phone)}</span></li>
+        </ul>
+      </section>
+      <section className="warning-songs" aria-labelledby="warning-songs-title">
+        <h3 id="warning-songs-title">Landscape warnings ({diagnostics.landscapeWarningSlugs.length} linked warning songs)</h3>
+        <ul>{diagnostics.landscapeWarningSlugs.map((slug) => <li key={slug}><Link to={`/songs/${slug}`}>{slug}</Link></li>)}</ul>
+      </section>
+      <section className="search-contract" aria-labelledby="search-contract-title">
+        <h3 id="search-contract-title">Search field contract</h3>
+        <p><strong>Songs:</strong> title, artist, slug, performance key, original key, BPM, original BPM, provenance status, provider.</p>
+        <p><strong>Set Lists:</strong> title, slug, date, location, band, status.</p>
+      </section>
+      {diagnostics.contractKind === "current-exact" ? <details className="deleted-paths"><summary>Deleted Set paths excluded ({diagnostics.excludedDeletedSetPaths.length} exact deleted Set paths)</summary><ul>{diagnostics.excludedDeletedSetPaths.map((path) => <li key={path}><code>{path}</code></li>)}</ul></details> : <p className="status-note">Deleted-path exclusions are unavailable for this reviewed predecessor contract.</p>}
+    </section>}
     <dl className="status-grid panel">
       <MetaItem label="Generation" value={snapshot.manifest.generation} />
       <MetaItem label="Source commit" value={snapshot.manifest.source_baseline.commit} />
@@ -330,7 +433,7 @@ function StatusPage({ snapshot, online, update, runtime }: { readonly snapshot: 
       <MetaItem label="Snapshot source" value={source} />
       <MetaItem label="Completeness" value={`${runtime.docs.completed}/${runtime.docs.total} documents · ${runtime.chunks.completed}/${runtime.chunks.total} chunks`} />
       <MetaItem label="Network" value={online ? "Online" : "Offline"} />
-      <MetaItem label="Offline restart" value={runtime.offlineReady ? "Available from the active verified snapshot" : "Unavailable until a snapshot is activated"} />
+      <MetaItem label="Offline restart" value={offlineReady ? "Available from the active verified snapshot" : "Unavailable until a snapshot is activated"} />
       <MetaItem label="IndexedDB" value={`${SONGS_STORAGE_NAME} · ${runtime.database}`} />
       <MetaItem label="Active generation" value={runtime.activeGeneration ?? "None"} />
       <MetaItem label="Active storage instance" value={runtime.activeStorageGeneration ?? "None"} />
@@ -355,31 +458,68 @@ function decodedRouteSegment(value: string): string | undefined {
   try { return decodeURIComponent(value); } catch { return undefined; }
 }
 
+function activeSnapshotFor(snapshot: VerifiedSnapshot, runtime: BootstrapRuntimeStatus): boolean {
+  return runtime.source === "indexeddb" && runtime.activeGeneration === snapshot.manifest.generation;
+}
+
+function recoveryPendingFor(snapshot: VerifiedSnapshot, runtime: BootstrapRuntimeStatus): boolean {
+  return runtime.source === "indexeddb" && !activeSnapshotFor(snapshot, runtime);
+}
+
+function durableOfflineReady(snapshot: VerifiedSnapshot, runtime: BootstrapRuntimeStatus): boolean {
+  return activeSnapshotFor(snapshot, runtime) && runtime.offlineReady;
+}
+
+function InactiveSnapshotPage({ snapshot, runtime }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus }) {
+  const recoveryPending = recoveryPendingFor(snapshot, runtime);
+  return <section className={`state-card ${recoveryPending ? "recovery-state" : ""}`} role="status" aria-labelledby="inactive-title">
+    <p className="eyebrow">{recoveryPending ? "Recovery pending" : "Activation required"}</p>
+    <h1 id="inactive-title" tabIndex={-1} data-page-heading>{recoveryPending ? "Recovery pending: verified browsing is paused while the active pointer recovers" : "Verified browsing waits for an active saved snapshot"}</h1>
+    <p>{recoveryPending ? "The retained verified snapshot is available for runtime diagnostics, but IndexedDB has not confirmed a matching active generation." : "The downloaded snapshot verified successfully, but it is not the active IndexedDB pointer generation."} Library, song, Set List, and search selectors stay closed until activation completes.</p>
+    <dl className="status-grid recovery-details">
+      <MetaItem label="Snapshot generation" value={snapshot.manifest.generation} />
+      <MetaItem label="Snapshot source" value={runtime.source} />
+      <MetaItem label="Active generation" value={runtime.activeGeneration ?? "None"} />
+      <MetaItem label="Retained generation" value={runtime.retainedGeneration ?? "None"} />
+      <MetaItem label="Runtime warning" value={runtime.warning ?? (recoveryPending ? "Pointer recovery is pending" : "Snapshot activation is required")} />
+    </dl>
+    <Link to="/status" className="primary-button">View runtime status</Link>
+  </section>;
+}
+
 export function ReadyApp({ snapshot, online, update, runtime }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly runtime: BootstrapRuntimeStatus }) {
   const path = useHashPath();
+  const active = activeSnapshotFor(snapshot, runtime);
+  const index = useMemo(() => active ? buildLibraryIndex(snapshot) : null, [active, snapshot]);
+  const selectorsClosed = !active;
+  const offlineReady = durableOfflineReady(snapshot, runtime);
   useEffect(() => { document.querySelector<HTMLElement>("[data-page-heading]")?.focus(); window.scrollTo({ top: 0, behavior: "auto" }); }, [path]);
   let page: ReactNode;
-  if (path === "/") page = <LibraryPage snapshot={snapshot} />;
-  else if (path === "/songs") page = <SongsPage snapshot={snapshot} />;
-  else if (path === "/sets") page = <SetsPage snapshot={snapshot} />;
-  else if (path === "/status") page = <StatusPage snapshot={snapshot} online={online} update={update} runtime={runtime} />;
+  if (path === "/status") page = <StatusPage index={index} snapshot={snapshot} online={online} update={update} runtime={runtime} />;
+  else if (selectorsClosed || index === null) page = <InactiveSnapshotPage snapshot={snapshot} runtime={runtime} />;
+  else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} />;
+  else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} />;
+  else if (path === "/sets") page = <SetsPage index={index} snapshot={snapshot} />;
   else if (path.startsWith("/songs/")) {
     const slug = decodedRouteSegment(path.slice(7));
-    const route = slug === undefined ? undefined : snapshot.routeByKey.get(`song:${slug}`);
-    const document = route ? snapshot.documentsById.get(route.documentId) : undefined;
-    page = document?.kind === "lead-sheet" ? <LeadSheetPage song={document} snapshot={snapshot} /> : <NotFound />;
+    const song = slug === undefined ? null : index.songBySlug(slug);
+    page = song === null ? <NotFound /> : <LeadSheetPage song={song.document} snapshot={snapshot} />;
   } else if (path.startsWith("/sets/")) {
     const slug = decodedRouteSegment(path.slice(6));
-    const route = slug === undefined ? undefined : snapshot.routeByKey.get(`set:${slug}`);
-    const document = route ? snapshot.documentsById.get(route.documentId) : undefined;
-    page = document?.kind === "set-list" ? <SetListPage setList={document} snapshot={snapshot} /> : <NotFound />;
+    const setList = slug === undefined ? null : index.setBySlug(slug);
+    page = setList === null ? <NotFound /> : <SetListPage setList={setList.document} snapshot={snapshot} />;
   } else page = <NotFound />;
-  return <><Header path={path} online={online} update={update} /><main id="main">{!online && <div className="offline-banner" role="status">{runtime.offlineReady ? "Offline — using the active verified snapshot saved in IndexedDB." : "Offline — this verified snapshot is available only until the page closes."}</div>}{page}</main><Footer snapshot={snapshot} runtime={runtime} /></>;
+  return <><Header path={path} online={online} update={update} recoveryPending={selectorsClosed} /><main id="main">
+    {active && !online && <div className="offline-banner" role="status">Offline — browse and search are local. {offlineReady ? "Using the active verified snapshot saved in IndexedDB." : "This active snapshot is not ready for offline restart."}</div>}
+    {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}
+    {active && runtime.update === "failed-retained" && <div className="update-warning-banner" role="status">Update failed; the active verified snapshot was retained. Browsing and local search remain available.</div>}
+    {page}
+  </main><Footer snapshot={snapshot} runtime={runtime} /></>;
 }
 
 function NotFound() { return <section className="state-card"><p className="eyebrow">V2 route</p><h1 tabIndex={-1} data-page-heading>Page not found</h1><p>This isolated shell does not fall through to v1.</p><Link to="/" className="primary-button">Return to library</Link></section>; }
 
-function Footer({ snapshot, runtime }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus }) { return <footer><span>Read-only pilot</span><span>{snapshot.manifest.generation}</span><span>{runtime.offlineReady ? "Offline restart ready" : "Memory only"}</span><span>Physical iPad: pending</span></footer>; }
+function Footer({ snapshot, runtime }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus }) { return <footer><span>Read-only pilot</span><span>{snapshot.manifest.generation}</span><span>{durableOfflineReady(snapshot, runtime) ? "Offline restart ready" : "Not offline-ready (session only)"}</span><span>Physical iPad: pending</span></footer>; }
 
 export class ShellErrorBoundary extends Component<{ readonly children: ReactNode }, { readonly failed: boolean }> {
   override state = { failed: false };
@@ -395,7 +535,7 @@ export function App() {
   const [attempt, setAttempt] = useState(0);
   const [state, setState] = useState<LoadState>({ status: "loading", progress: { phase: "manifest", completed: 0, total: 1 } });
   const online = useOnline();
-  const update = useServiceWorker(state.status === "ready" ? state.runtime.manifestSha256 : null, state.status === "ready" && state.runtime.offlineReady);
+  const update = useServiceWorker(state.status === "ready" ? state.runtime.manifestSha256 : null, state.status === "ready" && durableOfflineReady(state.snapshot, state.runtime));
   useEffect(() => {
     const controller = new AbortController();
     let alive = true;
