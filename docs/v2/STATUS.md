@@ -5,8 +5,9 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-015.
-- **Current task:** P1-009 software checkpoint and physical-device acceptance package.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-015; TASK-016 software package complete.
+- **Current task:** Owner/device execution of the P1-009 physical iPad/Safari acceptance checklist.
+- **Checkpoint status:** Software PASS; physical PENDING; not stage-ready, writable, or cutover-approved.
 
 ## Completed evidence
 
@@ -158,6 +159,20 @@ TASK-015 completed P1-008 browser, accessibility, route, update, and failure har
 - 95 web tests pass, including active-pointer epoch closure and post-read races, typed IndexedDB failures, safely deferred replacement-worker decisions, routes, accessibility, storage recovery, and fitting;
 - release `shell-39849548e3b7192a1c76aa6e` and evidence are recorded under `migration/v2/phase1/hardening/`; physical Safari/iPad acceptance remains pending and mandatory.
 
+TASK-016 completed the P1-009 software checkpoint package while leaving physical acceptance pending:
+
+- deterministic checkpoint status is `SOFTWARE_PASS_PHYSICAL_PENDING`; stage readiness, writable work, default-route change, cutover, and v1 retirement remain false/no-go;
+- frozen rollback/source/evidence refs, bootstrap generation, shell release, supporting evidence summaries, release binary, service unit, and package documents are hash-bound in `migration/v2/phase1/checkpoint/checkpoint-summary.json`;
+- the V2 binary builds from two independent clean exports at SHA-256
+  `4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc`
+  using `-trimpath -buildvcs=false` and matches the deployed checkpoint binary;
+  installed and tracked V2 unit bytes also match;
+- V1 and V2 services remain enabled and active, with V1 default on port 8000 and V2 opt-in/loopback-only on port 8001;
+- public port-8001 TLS/private-login behavior is recorded, while authorized owner-side reachability remains a physical-session confirmation;
+- the install/upgrade/recovery/rollback runbook preserves V1 as immediate fallback and documents replacement-worker, diagnostics, storage, and controlled V2-origin cleanup behavior;
+- 18 software matrix items pass; all 57 physical iPad/Safari items remain explicitly `PENDING` across device, install, offline, lifecycle, update, ergonomics, rehearsal, and real-gig gates;
+- the read-only release has no user-facing export/import or authored V2 user data; browser export/recovery remains mandatory before writable operation.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -190,6 +205,9 @@ python3 scripts/build_v2_phase1_library_evidence.py --check
 python3 scripts/build_v2_phase1_live_evidence.py --check
 python3 scripts/build_v2_phase1_hardening_evidence.py --check
 node scripts/capture_v2_phase1_hardening_evidence.mjs --check
+python3 scripts/build_v2_phase1_update_drill.py --check
+python3 scripts/capture_v2_phase1_checkpoint_observation.py --check
+python3 scripts/build_v2_phase1_checkpoint.py --check
 make v2-api-build
 go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
@@ -200,6 +218,6 @@ git diff --check
 
 ## Next tasks
 
-1. Build the P1-009 software checkpoint, install/runbook, and physical-device acceptance package.
-2. Require owner/physical-iPad participation before stage-readiness, writable work, or cutover.
-3. Keep V2 opt-in and v1 default until the physical-device checklist is signed off.
+1. Owner approves the exact iPad model, iPadOS/Safari floor, Auto-Lock procedure, low-storage threshold, and fallback plan.
+2. Execute and record G1–G5 from `docs/v2/acceptance/P1-009-ipad-safari-checklist.md` before any physical-offline acceptance claim.
+3. Require separate rehearsal (G6), real-gig (G7), writable, and default-route/cutover decisions; keep V2 opt-in and V1 default until explicitly signed off.

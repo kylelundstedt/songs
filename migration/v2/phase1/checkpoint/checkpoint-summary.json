@@ -1,0 +1,863 @@
+{
+  "acceptance_root": {
+    "dependency_direction": "reviewed refs and code commit -> evidence/package -> completion commit/tag",
+    "kind": "annotated Git tag plus content-addressed package",
+    "required_completion_tag": "v2-p1-009-software-checkpoint-2026-08-12",
+    "summary_path": "migration/v2/phase1/checkpoint/checkpoint-summary.json",
+    "summary_self_sha256": "verification.output_sha256",
+    "tag_target": "the final package commit; the tag/commit publish evidence but are not inputs to evidence generation"
+  },
+  "bootstrap": {
+    "chunks": 12,
+    "documents": 373,
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+    "set_entries": 1076,
+    "sets": 34,
+    "songs": 339
+  },
+  "checkpoint_code_commit": "47325f743f3092bfa7d9d108679a49a126a0b4cf",
+  "checkpoint_package_id": "p1-009-software-checkpoint-2026-08-12",
+  "commands": {
+    "checkpoint": "python3 scripts/build_v2_phase1_checkpoint.py --check",
+    "deterministic": [
+      "make v2-check",
+      "python3 -m unittest discover -s tests",
+      "go test ./...",
+      "go test -race ./internal/v2bootstrap/... ./internal/v2shell/...",
+      "go vet ./...",
+      "git diff --check"
+    ],
+    "native_browser": "make v2-browser-check"
+  },
+  "next_required_action": "Owner executes and records the physical iPad/Safari checklist on an approved device.",
+  "package_documents": [
+    {
+      "bytes": 4164,
+      "path": "docs/v2/tasks/TASK-016-software-checkpoint-physical-device-acceptance.md",
+      "sha256": "aaaf870032337f8671a7132c0f5cda44c1ffa44b89cd3fc0f87151c0212e9835"
+    },
+    {
+      "bytes": 10167,
+      "path": "docs/v2/runbooks/P1-009-install-upgrade-rollback.md",
+      "sha256": "e16e2b7bbcc854526824a3c2443f7912096c56ffc9220a2c2c6030324f0a4bc3"
+    },
+    {
+      "bytes": 8016,
+      "path": "docs/v2/acceptance/P1-009-ipad-safari-checklist.md",
+      "sha256": "bfb12ad3c8237448c3233020aad9b030076e73ece7298bdff41fdb7b68a7e065"
+    },
+    {
+      "bytes": 1637,
+      "path": "docs/v2/acceptance/P1-009-signoff-template.md",
+      "sha256": "367db58d58d0746871f59dcc4f7607baaf387e48383d0ab98ca4d9419dd2d317"
+    },
+    {
+      "bytes": 2154,
+      "path": "migration/v2/phase1/checkpoint/README.md",
+      "sha256": "5880744d2d474281566840c492ef0b7f1a9551fff73ca5ffeede3666f5a0c147"
+    },
+    {
+      "bytes": 6198,
+      "path": "migration/v2/phase1/checkpoint/physical/device-matrix.json",
+      "sha256": "95b12508990a4ef83aff9e1eb9da2baed49f00832e7ab2c140870467bd9beca2"
+    },
+    {
+      "bytes": 6198,
+      "path": "migration/v2/phase1/checkpoint/physical/sessions/TEMPLATE/checklist.json",
+      "sha256": "95b12508990a4ef83aff9e1eb9da2baed49f00832e7ab2c140870467bd9beca2"
+    },
+    {
+      "bytes": 584,
+      "path": "migration/v2/phase1/checkpoint/physical/sessions/TEMPLATE/notes.md",
+      "sha256": "2108f8b78aa1ce836cdb312dec37d67eec9d8cb38c2989b44d5a81dfdfddb94f"
+    },
+    {
+      "bytes": 735,
+      "path": "migration/v2/phase1/checkpoint/physical/sessions/TEMPLATE/timings.json",
+      "sha256": "b23b470b389bffe5b6cfb81ff644b998d24077ef1e925b1b848c2ca00da5fd27"
+    },
+    {
+      "bytes": 12971,
+      "path": "scripts/capture_v2_phase1_checkpoint_observation.py",
+      "sha256": "31f1bb7af0f3e91f38be0decfa03ebdfdbdf6e025d00d2dbea404a0155807f94"
+    },
+    {
+      "bytes": 5480,
+      "path": "scripts/install_v2_phase1_release.sh",
+      "sha256": "391dafb59a7c16452e58d81a5bf00b2ce9f358c90f1bef8557957d5ad0ef271d"
+    },
+    {
+      "bytes": 2766,
+      "path": "scripts/rollback_v2_phase1_release.sh",
+      "sha256": "a73252d605090599474294070bba88155899bd439699b938b7963e0769e33b4b"
+    },
+    {
+      "bytes": 21263,
+      "path": "scripts/build_v2_phase1_checkpoint.py",
+      "sha256": "5a2bd657b5faabf67051432dbe7c4bfe0a2ee27bc492e280bba2010e6fbc9588"
+    }
+  ],
+  "phase_packet": "P1-009",
+  "physical": {
+    "gates": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7"
+    ],
+    "item_count": 57,
+    "required": true,
+    "signoff": null,
+    "status": "PENDING"
+  },
+  "physical_matrix": [
+    {
+      "gate": "G1",
+      "id": "PHY-001",
+      "status": "PENDING",
+      "title": "Owner-approved iPad model and screen size"
+    },
+    {
+      "gate": "G1",
+      "id": "PHY-002",
+      "status": "PENDING",
+      "title": "Owner-approved iPadOS/Safari version and support floor"
+    },
+    {
+      "gate": "G1",
+      "id": "PHY-003",
+      "status": "PENDING",
+      "title": "Approved Auto-Lock or wake-lock operating contract"
+    },
+    {
+      "gate": "G1",
+      "id": "PHY-004",
+      "status": "PENDING",
+      "title": "Immediate V1 or printed/PDF fallback available"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-005",
+      "status": "PENDING",
+      "title": "V1 default origin works before V2 test"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-006",
+      "status": "PENDING",
+      "title": "V2 public origin opens after private authentication"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-007",
+      "status": "PENDING",
+      "title": "Unauthenticated access exposes no bootstrap content"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-008",
+      "status": "PENDING",
+      "title": "Add to Home Screen succeeds with approved name/icon"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-009",
+      "status": "PENDING",
+      "title": "Standalone launch starts at library root"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-010",
+      "status": "PENDING",
+      "title": "Exact document/song/set/reference diagnostics"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-011",
+      "status": "PENDING",
+      "title": "Chunks, active physical generation, and worker diagnostics"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-012",
+      "status": "PENDING",
+      "title": "Offline restart available"
+    },
+    {
+      "gate": "G2",
+      "id": "PHY-013",
+      "status": "PENDING",
+      "title": "No mutation/provider controls"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-014",
+      "status": "PENDING",
+      "title": "Three consecutive offline Home Screen cold launches"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-015",
+      "status": "PENDING",
+      "title": "Core library/status routes offline"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-016",
+      "status": "PENDING",
+      "title": "Song 1979 offline"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-017",
+      "status": "PENDING",
+      "title": "9Tease Stripped detail offline"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-018",
+      "status": "PENDING",
+      "title": "Direct locked Live offline"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-019",
+      "status": "PENDING",
+      "title": "Song search fields offline"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-020",
+      "status": "PENDING",
+      "title": "Set List search fields offline"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-021",
+      "status": "PENDING",
+      "title": "All 58 latest-set occurrences traverse offline"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-022",
+      "status": "PENDING",
+      "title": "Bounded occurrence navigation"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-023",
+      "status": "PENDING",
+      "title": "Bright and Stage Dark modes"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-024",
+      "status": "PENDING",
+      "title": "Expected occurrence-39 warning"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-025",
+      "status": "PENDING",
+      "title": "Warning content remains scrollable/readable"
+    },
+    {
+      "gate": "G3",
+      "id": "PHY-026",
+      "status": "PENDING",
+      "title": "All five landscape-warning songs inspected"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-027",
+      "status": "PENDING",
+      "title": "Background/resume after 1 minute"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-028",
+      "status": "PENDING",
+      "title": "Background/resume after 5 minutes"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-029",
+      "status": "PENDING",
+      "title": "Background/resume after 30 minutes"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-030",
+      "status": "PENDING",
+      "title": "Lock/unlock lifecycle"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-031",
+      "status": "PENDING",
+      "title": "Force-quit and offline reopen"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-032",
+      "status": "PENDING",
+      "title": "Reboot and offline reopen"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-033",
+      "status": "PENDING",
+      "title": "Repeated orientation changes"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-034",
+      "status": "PENDING",
+      "title": "Orientation change on warning song"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-035",
+      "status": "PENDING",
+      "title": "Safari/Home Screen consistency"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-036",
+      "status": "PENDING",
+      "title": "Storage diagnostics recorded without durability claim"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-037",
+      "status": "PENDING",
+      "title": "V2-origin eviction surrogate and rebootstrap"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-038",
+      "status": "PENDING",
+      "title": "Owner-approved low-storage test"
+    },
+    {
+      "gate": "G4",
+      "id": "PHY-039",
+      "status": "PENDING",
+      "title": "Replacement-worker all-clients-close drill"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-040",
+      "status": "PENDING",
+      "title": "Touch controls and safe areas"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-041",
+      "status": "PENDING",
+      "title": "Rapid/double-tap safety"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-042",
+      "status": "PENDING",
+      "title": "External-keyboard Left/Right"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-043",
+      "status": "PENDING",
+      "title": "Focused-column paging keys"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-044",
+      "status": "PENDING",
+      "title": "Focus and progress announcements"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-045",
+      "status": "PENDING",
+      "title": "Bright-mode daylight readability"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-046",
+      "status": "PENDING",
+      "title": "Stage-Dark rehearsal readability"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-047",
+      "status": "PENDING",
+      "title": "Browser chrome/safe-area/keyboard visibility"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-048",
+      "status": "PENDING",
+      "title": "Offline cold-launch timing"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-049",
+      "status": "PENDING",
+      "title": "Rotation/resume refit timing"
+    },
+    {
+      "gate": "G5",
+      "id": "PHY-050",
+      "status": "PENDING",
+      "title": "No silently clipped false fit"
+    },
+    {
+      "gate": "G6",
+      "id": "PHY-051",
+      "status": "PENDING",
+      "title": "Complete Airplane-Mode rehearsal"
+    },
+    {
+      "gate": "G6",
+      "id": "PHY-052",
+      "status": "PENDING",
+      "title": "Rehearsal operational observations recorded"
+    },
+    {
+      "gate": "G6",
+      "id": "PHY-053",
+      "status": "PENDING",
+      "title": "Blocking findings resolved/retest complete"
+    },
+    {
+      "gate": "G6",
+      "id": "PHY-054",
+      "status": "PENDING",
+      "title": "Owner local-stage-readiness signoff"
+    },
+    {
+      "gate": "G7",
+      "id": "PHY-055",
+      "status": "PENDING",
+      "title": "Real-gig pilot with fallback"
+    },
+    {
+      "gate": "G7",
+      "id": "PHY-056",
+      "status": "PENDING",
+      "title": "Fallback drill without route change"
+    },
+    {
+      "gate": "G7",
+      "id": "PHY-057",
+      "status": "PENDING",
+      "title": "Owner real-gig acceptance"
+    }
+  ],
+  "prohibited_claims": [
+    "Safari compatibility",
+    "physical iPad acceptance",
+    "persistence or eviction resistance",
+    "Home Screen reliability",
+    "stage or gig readiness",
+    "writable readiness",
+    "default-route or cutover readiness",
+    "v1 retirement"
+  ],
+  "public_proxy_observation": {
+    "authorized_owner_reachability": "PENDING",
+    "forged_identity_header": {
+      "reached_application": false,
+      "same_login_boundary": true,
+      "status": 307
+    },
+    "production_origin": "https://kgl-songs.exe.xyz:8001/",
+    "public_dns_ipv4": "161.210.92.174",
+    "tls": {
+      "certificate_common_name": "exe.xyz",
+      "certificate_issuer": "YR1",
+      "hsts": true,
+      "negotiated": "TLSv1.3",
+      "not_after": "2026-10-30T14:09:18Z",
+      "not_before": "2026-08-01T14:09:19Z"
+    },
+    "unauthenticated": {
+      "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
+      "status": 307
+    }
+  },
+  "refs": [
+    {
+      "commit": "546f59b41d9e9bcf0e81b543c27900a31e26c9e6",
+      "ref": "v1",
+      "role": "permanent v1 rollback oracle"
+    },
+    {
+      "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5",
+      "ref": "v2-phase1-content-2026-08-10",
+      "role": "frozen Phase 1 canonical source"
+    },
+    {
+      "commit": "5ea535b53b94445084586828389f44c1a5136877",
+      "ref": "v2-phase1-evidence-2026-08-10",
+      "role": "frozen Phase 1 evidence inputs"
+    }
+  ],
+  "release": {
+    "binary": {
+      "archive_bytes": 5128056,
+      "archive_sha256": "ac67e8ae4d4f5411ef17d47df1e78e9f7a23ce1402d8204889ac1393566bc906",
+      "format": "xz",
+      "path": "migration/v2/phase1/checkpoint/release/songs-v2-api-linux-amd64.xz",
+      "platform": "linux-amd64",
+      "uncompressed_bytes": 14838332,
+      "uncompressed_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc"
+    },
+    "runtime": {
+      "exec": "/home/exedev/songs-v2/var/releases/p1-009-checkpoint-4e2e34972ee92164f/songs-v2-api",
+      "listen": "127.0.0.1:8001",
+      "service": "songs-v2-api.service",
+      "working_directory": "/home/exedev/songs-v2"
+    },
+    "service_unit": {
+      "bytes": 423,
+      "path": "migration/v2/phase1/checkpoint/release/songs-v2-api.service",
+      "sha256": "a1b1659d18660fe1ad297192ac703bbdf38d6b8d339824025a403a4aaa8bc1d3"
+    },
+    "sha256sums": {
+      "bytes": 181,
+      "path": "migration/v2/phase1/checkpoint/release/SHA256SUMS",
+      "sha256": "4dab6c09a2c1a817ef0fbd567024fae40b85d8d5b341706b9273b4ff7dc0219c"
+    }
+  },
+  "schema_version": "1",
+  "service_observation": {
+    "v1": {
+      "active": true,
+      "binary_sha256": "8eebdf81dd5497e8a8a1fee2bd5daab40a7dc1957cfd8964d91e0b813e0c1c1c",
+      "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5",
+      "enabled": true,
+      "listener": "*:8000",
+      "role": "default production and immediate fallback",
+      "root_status": 200,
+      "service": "songs.service",
+      "working_tree": "/home/exedev/songs"
+    },
+    "v2": {
+      "active": true,
+      "binary_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+      "enabled": true,
+      "installed_unit_sha256": "a1b1659d18660fe1ad297192ac703bbdf38d6b8d339824025a403a4aaa8bc1d3",
+      "listener": "127.0.0.1:8001",
+      "release_exec": "/home/exedev/songs-v2/var/releases/p1-009-checkpoint-4e2e34972ee92164f/songs-v2-api",
+      "service": "songs-v2-api.service",
+      "startup_generation": "phase1-f9634173e25ef4ca4b8330a3",
+      "startup_release": "shell-39849548e3b7192a1c76aa6e",
+      "tracked_unit_sha256": "a1b1659d18660fe1ad297192ac703bbdf38d6b8d339824025a403a4aaa8bc1d3",
+      "unit_bytes_match": true,
+      "working_tree": "/home/exedev/songs-v2"
+    }
+  },
+  "shell": {
+    "asset_manifest_sha256": "d3dfa5f989efa38ce237034a6f5df4834d9101195794cd124a5427c66c3dc6c7",
+    "cache_prefix": "songs-v2-shell-",
+    "indexeddb_name": "songs-v2",
+    "release": "shell-39849548e3b7192a1c76aa6e"
+  },
+  "software_matrix": [
+    {
+      "id": "SW-001",
+      "status": "PASS",
+      "title": "Frozen rollback, source, and evidence annotated refs match reviewed commits"
+    },
+    {
+      "id": "SW-002",
+      "status": "PASS",
+      "title": "Bootstrap and shell trust anchors match the checkpoint release"
+    },
+    {
+      "id": "SW-003",
+      "status": "PASS",
+      "title": "All deterministic TypeScript, Go, Python, fixture, and evidence checks pass"
+    },
+    {
+      "id": "SW-004",
+      "status": "PASS",
+      "title": "Native Chromium desktop/tablet/phone route matrix passes"
+    },
+    {
+      "id": "SW-005",
+      "status": "PASS",
+      "title": "Malformed hashes and unknown document paths fail explicitly"
+    },
+    {
+      "id": "SW-006",
+      "status": "PASS",
+      "title": "Cold offline route reloads make zero API and post-ready application requests"
+    },
+    {
+      "id": "SW-007",
+      "status": "PASS",
+      "title": "Interrupted, corrupt, quota, and retained-snapshot recovery contracts pass"
+    },
+    {
+      "id": "SW-008",
+      "status": "PASS",
+      "title": "Offline library, search, and status behavior passes"
+    },
+    {
+      "id": "SW-009",
+      "status": "PASS",
+      "title": "All Set Lists and locked Live occurrence behavior pass"
+    },
+    {
+      "id": "SW-010",
+      "status": "PASS",
+      "title": "Axe, overflow, reduced motion, keyboard, and touch-target checks pass"
+    },
+    {
+      "id": "SW-011",
+      "status": "PASS",
+      "title": "V1 remains default and V2 process/origin/cache/database namespaces remain isolated"
+    },
+    {
+      "id": "SW-012",
+      "status": "PASS",
+      "title": "No mutation, provider, sync, publication, or outbox-submission controls are exposed"
+    },
+    {
+      "id": "SW-013",
+      "status": "PASS",
+      "title": "Release binary builds reproducibly and matches the deployed binary"
+    },
+    {
+      "id": "SW-014",
+      "status": "PASS",
+      "title": "Tracked service unit matches the installed V2 systemd unit"
+    },
+    {
+      "id": "SW-015",
+      "status": "PASS",
+      "title": "Public port-8001 TLS/private-login boundary rejects unauthenticated and forged identity requests"
+    },
+    {
+      "id": "SW-016",
+      "status": "PASS",
+      "title": "Runbook, physical checklist, session template, signoff form, and release archive are complete"
+    },
+    {
+      "id": "SW-017",
+      "status": "PASS",
+      "title": "Storage/export limitations and writable-client prerequisites are explicit"
+    },
+    {
+      "id": "SW-018",
+      "status": "PASS",
+      "title": "Every checkpoint artifact hash and self-hash reproduces exactly"
+    }
+  ],
+  "software_observation": {
+    "bytes": 3671,
+    "observation": {
+      "checkpoint_commit": "47325f743f3092bfa7d9d108679a49a126a0b4cf",
+      "checkpoint_worktree": {
+        "base_commit": "47325f743f3092bfa7d9d108679a49a126a0b4cf",
+        "completion_commit_or_tag_is_not_an_acceptance_input": true,
+        "package_files_uncommitted_during_observation": true
+      },
+      "local_authenticated_probe": {
+        "manifest_body_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+        "manifest_cache_control": "private, no-store",
+        "manifest_content_type": "application/json; charset=utf-8",
+        "manifest_etag": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+        "manifest_status": 200,
+        "manifest_vary": "X-ExeDev-UserID",
+        "root_cache_control": "private, no-store",
+        "root_content_security_policy_present": true,
+        "root_status": 200
+      },
+      "observed_at_utc": "2026-08-12T14:23:45Z",
+      "public_proxy_probe": {
+        "authorized_owner_reachability": "PENDING",
+        "forged_identity_header": {
+          "reached_application": false,
+          "same_login_boundary": true,
+          "status": 307
+        },
+        "production_origin": "https://kgl-songs.exe.xyz:8001/",
+        "public_dns_ipv4": "161.210.92.174",
+        "tls": {
+          "certificate_common_name": "exe.xyz",
+          "certificate_issuer": "YR1",
+          "hsts": true,
+          "negotiated": "TLSv1.3",
+          "not_after": "2026-10-30T14:09:18Z",
+          "not_before": "2026-08-01T14:09:19Z"
+        },
+        "unauthenticated": {
+          "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
+          "status": 307
+        }
+      },
+      "reproducible_build": {
+        "build_1_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+        "build_2_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+        "byte_identical": true,
+        "command": "go build -trimpath -buildvcs=false -o <temporary> ./cmd/v2api",
+        "deployed_binary_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+        "independent_source_exports": true,
+        "minimum_runtime": "linux-amd64 with GLIBC 2.34 or newer",
+        "packaged_binary_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+        "source_export": "git archive 47325f743f3092bfa7d9d108679a49a126a0b4cf"
+      },
+      "schema_version": "1",
+      "services": {
+        "v1": {
+          "active": true,
+          "binary_sha256": "8eebdf81dd5497e8a8a1fee2bd5daab40a7dc1957cfd8964d91e0b813e0c1c1c",
+          "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5",
+          "enabled": true,
+          "listener": "*:8000",
+          "role": "default production and immediate fallback",
+          "root_status": 200,
+          "service": "songs.service",
+          "working_tree": "/home/exedev/songs"
+        },
+        "v2": {
+          "active": true,
+          "binary_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+          "enabled": true,
+          "installed_unit_sha256": "a1b1659d18660fe1ad297192ac703bbdf38d6b8d339824025a403a4aaa8bc1d3",
+          "listener": "127.0.0.1:8001",
+          "release_exec": "/home/exedev/songs-v2/var/releases/p1-009-checkpoint-4e2e34972ee92164f/songs-v2-api",
+          "service": "songs-v2-api.service",
+          "startup_generation": "phase1-f9634173e25ef4ca4b8330a3",
+          "startup_release": "shell-39849548e3b7192a1c76aa6e",
+          "tracked_unit_sha256": "a1b1659d18660fe1ad297192ac703bbdf38d6b8d339824025a403a4aaa8bc1d3",
+          "unit_bytes_match": true,
+          "working_tree": "/home/exedev/songs-v2"
+        }
+      },
+      "toolchain": {
+        "apex": "1.1.14",
+        "go": "go1.26.5 linux/amd64",
+        "node": "v24.19.0",
+        "npm": "11.17.0",
+        "python": "3.12.3"
+      },
+      "verification": {
+        "output_sha256": "82d43de8b45f1b057ea8ffc08a6decf29687efec13b211d7affa8b25aa6b11e5"
+      }
+    },
+    "path": "migration/v2/phase1/checkpoint/software-observation.json",
+    "self_sha256": "82d43de8b45f1b057ea8ffc08a6decf29687efec13b211d7affa8b25aa6b11e5",
+    "sha256": "57f5e9f9359ece4d4394620c5d4632b9926b12d66affd992940d6bcf07ad0bdb"
+  },
+  "status": {
+    "default_route_or_cutover_allowed": false,
+    "overall": "SOFTWARE_PASS_PHYSICAL_PENDING",
+    "physical": "PENDING",
+    "software": "PASS",
+    "stage_ready": false,
+    "writable_allowed": false
+  },
+  "storage_and_export": {
+    "authored_v2_user_data": false,
+    "chromium_persistence_observation": "denied",
+    "pending_stores_exposed": false,
+    "persistence_guaranteed": false,
+    "product_mode": "read-only",
+    "quota_and_headroom": "origin-wide advisory diagnostics",
+    "user_facing_export_import": false,
+    "writable_prerequisite": "browser export/recovery for unsynced authored work"
+  },
+  "supporting_evidence": [
+    {
+      "bytes": 10990,
+      "path": "migration/v2/phase1/shell/browser-summary.json",
+      "sha256": "f32a31f5b0745f73edcad60a7ed5b350afc55204cd5d6f2ce990bbfd0c69fc64",
+      "task": "TASK-011"
+    },
+    {
+      "bytes": 3404,
+      "path": "migration/v2/phase1/storage/storage-summary.json",
+      "sha256": "23dd82a73547aa7265eaf51899c82b31b1618ac7252ee4001c6c2207c8331fc4",
+      "task": "TASK-012"
+    },
+    {
+      "bytes": 2538,
+      "path": "migration/v2/phase1/library/library-summary.json",
+      "sha256": "f0f57f59789af654c7e814f79ef771d56ba27880dc7b312d16e21ea1539dc382",
+      "task": "TASK-013"
+    },
+    {
+      "bytes": 6990,
+      "path": "migration/v2/phase1/live/live-summary.json",
+      "sha256": "129fbe74573f686a830d4480c219efd3c34018733504f7f3e39209e7a10bb0a6",
+      "task": "TASK-014"
+    },
+    {
+      "bytes": 8931,
+      "path": "migration/v2/phase1/hardening/hardening-summary.json",
+      "sha256": "5792e48749bf9d032fa2fc97be82b6bb7a43b403f6a9a68c88013a7a9f1ef8f3",
+      "task": "TASK-015"
+    },
+    {
+      "bytes": 2288,
+      "path": "migration/v2/current/coexistence/browser-summary.json",
+      "sha256": "44cd55b26b48c59b21c3a0a14bb340922c83f07c0e5a09f8476865d183459c8d",
+      "task": "coexistence"
+    }
+  ],
+  "task": "TASK-016",
+  "update_drill": {
+    "archive": {
+      "bytes": 5128784,
+      "path": "migration/v2/phase1/checkpoint/update-drill/release/songs-v2-api-linux-amd64.xz",
+      "sha256": "0d8a446d9d0fb8b019282aec86b8d9daea6be376aeebf91aacb6823381434c59"
+    },
+    "binary_sha256": "fec8ac53063bf8e67f63a65d1391aa064fca29fb85720d6374f11b4138290649",
+    "generator": {
+      "bytes": 9962,
+      "path": "scripts/build_v2_phase1_update_drill.py",
+      "sha256": "8a48b899bb4c0bb6fc302c84edde164df63661bec00daacae8c87bb62ac15ab4"
+    },
+    "metadata": {
+      "bytes": 1200,
+      "path": "migration/v2/phase1/checkpoint/update-drill/successor-metadata.json",
+      "self_sha256": "b9004834731a5f755960d3e8dcce3494cd5b968529fd255561bd744d64d6e5f2",
+      "sha256": "aaf22881b15f381427b451df87565da84c2197122217d30fed64e5451852b0ed"
+    },
+    "readme": {
+      "bytes": 2384,
+      "path": "migration/v2/phase1/checkpoint/update-drill/README.md",
+      "sha256": "bad891585e1f5b32bfca87164dde1b28d3bf10d4e095f9d3e13d03a35b5aae6a"
+    },
+    "service_unit": {
+      "bytes": 422,
+      "path": "migration/v2/phase1/checkpoint/update-drill/release/songs-v2-api.service",
+      "sha256": "6e8bfa2d5b9d4cc8e4ccb21fc9157487784dbc0beeff77fdf287792e79d644b8"
+    },
+    "sha256sums": {
+      "bytes": 181,
+      "path": "migration/v2/phase1/checkpoint/update-drill/release/SHA256SUMS",
+      "sha256": "be2857ec3774afd4215649ac7fa5e8a9db3fa59d29534e6bf718ff4f4d51fa1f"
+    },
+    "successor": {
+      "asset_manifest_sha256": "6336a5809dba09a1b02c1c55cd7b8a6a9d49cdc7f12fa3aaea43ecc003ae94f5",
+      "cache_name": "songs-v2-shell-093b56870d7220008b559673",
+      "shell_release": "shell-093b56870d7220008b559673"
+    }
+  },
+  "urls": {
+    "v1_default_and_fallback": "https://kgl-songs.exe.xyz/",
+    "v2_opt_in_install": "https://kgl-songs.exe.xyz:8001/#/"
+  },
+  "verification": {
+    "output_sha256": "4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860"
+  }
+}

@@ -2,13 +2,15 @@
 
 A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
-**Live app:** https://kgl-songs.exe.xyz/
+**Live V1 default/fallback:** https://kgl-songs.exe.xyz/
+
+**Opt-in V2 read-only pilot:** https://kgl-songs.exe.xyz:8001/#/
 
 ## Project status
 
 The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
 
-V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, TASK-010 produced the reviewed bootstrap API, TASK-011 delivered the isolated verified React/Vite shell, TASK-012 atomically activates and cold-restarts the snapshot from IndexedDB, TASK-013 provides deterministic active-generation offline library/search/status behavior, TASK-014 runs complete locked Set List performances offline, and TASK-015 hardens the integrated slice across current-release Chromium routes, accessibility, worker updates, pointer races, and failure recovery. P1-009 packaging plus physical Safari/iPad acceptance remain before stage readiness; writable V2 and cutover remain blocked on later production gates.
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, TASK-010 produced the reviewed bootstrap API, TASK-011 delivered the isolated verified React/Vite shell, TASK-012 atomically activates and cold-restarts the snapshot from IndexedDB, TASK-013 provides deterministic active-generation offline library/search/status behavior, TASK-014 runs complete locked Set List performances offline, TASK-015 hardens the integrated slice across current-release Chromium routes, accessibility, worker updates, pointer races, and failure recovery, and TASK-016 packages the software checkpoint plus physical-device runbook/checklist. The checkpoint is **software PASS / physical PENDING**; V2 remains opt-in and read-only, while stage readiness, writable V2, cutover, and v1 retirement remain blocked.
 
 The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 
@@ -77,6 +79,10 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 
 ## Documentation
 
+- [V2 Phase 1 software checkpoint](migration/v2/phase1/checkpoint/README.md)
+- [V2 install/upgrade/rollback runbook](docs/v2/runbooks/P1-009-install-upgrade-rollback.md)
+- [Physical iPad/Safari acceptance checklist](docs/v2/acceptance/P1-009-ipad-safari-checklist.md)
+- [Physical acceptance signoff template](docs/v2/acceptance/P1-009-signoff-template.md)
 - [Historical v1 Phase 0–1 implementation report](docs/PHASES-0-1.md)
 - [V2 Phase 0 exit review](docs/v2/PHASE-0-EXIT-REVIEW.md)
 - [V2 Phase 1 plan](docs/v2/PHASE-1-PLAN.md)

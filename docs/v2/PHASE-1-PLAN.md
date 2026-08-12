@@ -139,6 +139,8 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-009 — Software checkpoint and physical-device package
 
+- **Status:** Software done on August 12, 2026; physical owner/device acceptance pending; tracked as TASK-016
+
 - **Estimate:** 2–3 days software; physical validation separately 3–5 days
 - **Dependencies:** P1-008
 - **Work:** install/runbook, test matrix, storage/export status, v1 fallback, and physical-device checklist.

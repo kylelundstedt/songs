@@ -1,0 +1,32 @@
+{
+  "artifacts": {
+    "archive": "release/songs-v2-api-linux-amd64.xz",
+    "readme": "README.md",
+    "service_unit": "release/songs-v2-api.service",
+    "sha256sums": "release/SHA256SUMS"
+  },
+  "binary": {
+    "archive_sha256": "0d8a446d9d0fb8b019282aec86b8d9daea6be376aeebf91aacb6823381434c59",
+    "format": "xz",
+    "platform": "linux-amd64",
+    "reproducible_builds": 2,
+    "sha256": "fec8ac53063bf8e67f63a65d1391aa064fca29fb85720d6374f11b4138290649"
+  },
+  "bootstrap": {
+    "generation": "phase1-f9634173e25ef4ca4b8330a3",
+    "manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
+  },
+  "kind": "songs-v2.phase1.update-drill-successor",
+  "physical_target": "PHY-039",
+  "schema_version": "1",
+  "source_commit": "47325f743f3092bfa7d9d108679a49a126a0b4cf",
+  "status": "SOFTWARE_PASS_PHYSICAL_PENDING",
+  "successor": {
+    "asset_manifest_sha256": "6336a5809dba09a1b02c1c55cd7b8a6a9d49cdc7f12fa3aaea43ecc003ae94f5",
+    "cache_name": "songs-v2-shell-093b56870d7220008b559673",
+    "shell_release": "shell-093b56870d7220008b559673"
+  },
+  "verification": {
+    "metadata_sha256": "b9004834731a5f755960d3e8dcce3494cd5b968529fd255561bd744d64d6e5f2"
+  }
+}

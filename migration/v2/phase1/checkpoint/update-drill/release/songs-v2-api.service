@@ -7,7 +7,7 @@ Type=simple
 User=exedev
 Group=exedev
 WorkingDirectory=/home/exedev/songs-v2
-ExecStart=/home/exedev/songs-v2/var/releases/p1-009-checkpoint-4e2e34972ee92164f/songs-v2-api -listen 127.0.0.1:8001
+ExecStart=/home/exedev/songs-v2/var/releases/p1-009-successor-fec8ac53063bf8e67/songs-v2-api -listen 127.0.0.1:8001
 Restart=always
 RestartSec=3
 Environment=HOME=/home/exedev

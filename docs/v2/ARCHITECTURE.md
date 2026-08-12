@@ -78,4 +78,6 @@ TASK-014 is complete. Shell release `shell-8e20346e9b3ac2579dee901a` resolves ev
 
 TASK-015 is complete. Shell release `shell-39849548e3b7192a1c76aa6e` hardens the complete read-only slice with physical-pointer-plus-transition route gating, cross-tab invalidation, compatible-worker offline readiness, replacement-worker deferral until every V2 client closes, canonical PWA/hash/Apex routes, strict unknown-path behavior, typed storage failure reporting, and current-release native Chrome automation across desktop, tablet, and phone profiles. V2 remains opt-in and separately namespaced; physical Safari/iPad acceptance remains pending.
 
-Phase 1 now proceeds with P1-009 software checkpoint and physical-device packaging. Writable-client work remains blocked by the production requirements above, and physical Safari/iPad validation remains mandatory before stage-readiness claims.
+TASK-016 software packaging is complete. The P1-009 checkpoint binds the frozen refs, trust anchors, release archive, service unit, supporting evidence, runbook, and software/physical matrices. Its exact status is `SOFTWARE_PASS_PHYSICAL_PENDING`: V1 remains default, V2 remains read-only and opt-in, all 57 physical items remain pending, and stage-ready/writable/cutover claims remain prohibited.
+
+Autonomous Phase 1 software work is complete. The next action requires owner participation on an approved physical iPad/Safari configuration. Writable-client work remains blocked by the production requirements above, browser export/recovery, and physical approval.

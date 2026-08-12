@@ -1,4 +1,4 @@
-.PHONY: build test run clean migrate validate v2-check v2-browser-check v2-api-build v2-api-run
+.PHONY: build test run clean migrate validate v2-check v2-browser-check p1-009-check v2-api-build v2-api-run
 
 build:
 	go build -o srv/songs ./cmd/srv
@@ -19,6 +19,17 @@ v2-check:
 
 v2-browser-check: v2-check
 	node scripts/capture_v2_phase1_hardening_evidence.mjs --check
+
+p1-009-check: v2-browser-check
+	python3 scripts/build_v2_phase1_update_drill.py --check
+	python3 scripts/capture_v2_phase1_checkpoint_observation.py --check
+	python3 -m unittest discover -s tests
+	go test ./...
+	go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
+	go vet ./...
+	python3 scripts/build_v2_current_coexistence_summary.py --check
+	python3 scripts/build_v2_phase1_checkpoint.py --check
+	git diff --check
 
 v2-api-build:
 	go build -o srv/songs-v2-api ./cmd/v2api

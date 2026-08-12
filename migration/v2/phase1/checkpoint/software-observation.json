@@ -1,0 +1,91 @@
+{
+  "checkpoint_commit": "47325f743f3092bfa7d9d108679a49a126a0b4cf",
+  "checkpoint_worktree": {
+    "base_commit": "47325f743f3092bfa7d9d108679a49a126a0b4cf",
+    "completion_commit_or_tag_is_not_an_acceptance_input": true,
+    "package_files_uncommitted_during_observation": true
+  },
+  "local_authenticated_probe": {
+    "manifest_body_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+    "manifest_cache_control": "private, no-store",
+    "manifest_content_type": "application/json; charset=utf-8",
+    "manifest_etag": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
+    "manifest_status": 200,
+    "manifest_vary": "X-ExeDev-UserID",
+    "root_cache_control": "private, no-store",
+    "root_content_security_policy_present": true,
+    "root_status": 200
+  },
+  "observed_at_utc": "2026-08-12T14:23:45Z",
+  "public_proxy_probe": {
+    "authorized_owner_reachability": "PENDING",
+    "forged_identity_header": {
+      "reached_application": false,
+      "same_login_boundary": true,
+      "status": 307
+    },
+    "production_origin": "https://kgl-songs.exe.xyz:8001/",
+    "public_dns_ipv4": "161.210.92.174",
+    "tls": {
+      "certificate_common_name": "exe.xyz",
+      "certificate_issuer": "YR1",
+      "hsts": true,
+      "negotiated": "TLSv1.3",
+      "not_after": "2026-10-30T14:09:18Z",
+      "not_before": "2026-08-01T14:09:19Z"
+    },
+    "unauthenticated": {
+      "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
+      "status": 307
+    }
+  },
+  "reproducible_build": {
+    "build_1_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+    "build_2_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+    "byte_identical": true,
+    "command": "go build -trimpath -buildvcs=false -o <temporary> ./cmd/v2api",
+    "deployed_binary_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+    "independent_source_exports": true,
+    "minimum_runtime": "linux-amd64 with GLIBC 2.34 or newer",
+    "packaged_binary_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+    "source_export": "git archive 47325f743f3092bfa7d9d108679a49a126a0b4cf"
+  },
+  "schema_version": "1",
+  "services": {
+    "v1": {
+      "active": true,
+      "binary_sha256": "8eebdf81dd5497e8a8a1fee2bd5daab40a7dc1957cfd8964d91e0b813e0c1c1c",
+      "commit": "17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5",
+      "enabled": true,
+      "listener": "*:8000",
+      "role": "default production and immediate fallback",
+      "root_status": 200,
+      "service": "songs.service",
+      "working_tree": "/home/exedev/songs"
+    },
+    "v2": {
+      "active": true,
+      "binary_sha256": "4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc",
+      "enabled": true,
+      "installed_unit_sha256": "a1b1659d18660fe1ad297192ac703bbdf38d6b8d339824025a403a4aaa8bc1d3",
+      "listener": "127.0.0.1:8001",
+      "release_exec": "/home/exedev/songs-v2/var/releases/p1-009-checkpoint-4e2e34972ee92164f/songs-v2-api",
+      "service": "songs-v2-api.service",
+      "startup_generation": "phase1-f9634173e25ef4ca4b8330a3",
+      "startup_release": "shell-39849548e3b7192a1c76aa6e",
+      "tracked_unit_sha256": "a1b1659d18660fe1ad297192ac703bbdf38d6b8d339824025a403a4aaa8bc1d3",
+      "unit_bytes_match": true,
+      "working_tree": "/home/exedev/songs-v2"
+    }
+  },
+  "toolchain": {
+    "apex": "1.1.14",
+    "go": "go1.26.5 linux/amd64",
+    "node": "v24.19.0",
+    "npm": "11.17.0",
+    "python": "3.12.3"
+  },
+  "verification": {
+    "output_sha256": "82d43de8b45f1b057ea8ffc08a6decf29687efec13b211d7affa8b25aa6b11e5"
+  }
+}
