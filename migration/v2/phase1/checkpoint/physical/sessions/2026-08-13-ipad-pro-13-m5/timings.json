@@ -33,8 +33,9 @@
     },
     {
       "id": "background-1-minute-resume",
-      "seconds": null,
-      "status": "PENDING"
+      "seconds": 60,
+      "status": "PASS",
+      "observation": "Owner completed the instructed 1-minute background interval; resume was safe and usable."
     },
     {
       "id": "background-5-minute-resume",

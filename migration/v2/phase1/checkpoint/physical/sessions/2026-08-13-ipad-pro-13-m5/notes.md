@@ -28,7 +28,9 @@
 - Owner confirms complete 58-occurrence offline traversal, bounded Previous/Next, both themes, occurrence-39 Can’t Stop warning, and readable scrolling without clipping or stale/skipped navigation (PHY-021–PHY-025). Screenshot: `screenshots/offline-live-occurrence-39-cant-stop.png`.
 - Owner confirms all five landscape-warning songs displayed expected warnings and remained usable (PHY-026).
 - G3 offline workflows (PHY-014–PHY-026) pass on this exact device/session.
-- No lifecycle, broader readability/performance, rehearsal, or gig result is inferred.
+- Owner confirms 1-minute background/resume, lock/unlock, force-quit offline reopen, repeated rotation, and warning-song rotation all remained safe, readable, and free of stale/silently clipped content (PHY-027, PHY-030, PHY-031, PHY-033, PHY-034, PHY-050).
+- Five-minute background, 30-minute background, reboot, and remaining lifecycle/ergonomic checks are still pending.
+- No rehearsal or gig result is inferred.
 
 ## Signoff
 

@@ -228,7 +228,10 @@
       "id": "PHY-027",
       "gate": "G4",
       "title": "Background/resume after 1 minute",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:46:21Z",
+      "evidence": "Owner confirms backgrounding V2 for 1 minute and resuming offline preserved a safe, usable state."
     },
     {
       "id": "PHY-028",
@@ -246,13 +249,19 @@
       "id": "PHY-030",
       "gate": "G4",
       "title": "Lock/unlock lifecycle",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:46:21Z",
+      "evidence": "Owner confirms locking/unlocking the iPad and resuming V2 offline preserved or safely restored the usable state."
     },
     {
       "id": "PHY-031",
       "gate": "G4",
       "title": "Force-quit and offline reopen",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:46:21Z",
+      "evidence": "Owner confirms force-quitting V2 and reopening from the Home Screen offline succeeded."
     },
     {
       "id": "PHY-032",
@@ -264,13 +273,19 @@
       "id": "PHY-033",
       "gate": "G4",
       "title": "Repeated orientation changes",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:46:21Z",
+      "evidence": "Owner confirms repeated portrait/landscape rotations produced no stale or clipped Live content."
     },
     {
       "id": "PHY-034",
       "gate": "G4",
       "title": "Orientation change on warning song",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:46:21Z",
+      "evidence": "Owner confirms rotating while viewing Can’t Stop and its warning retained readable, usable content."
     },
     {
       "id": "PHY-035",
@@ -369,7 +384,10 @@
       "id": "PHY-050",
       "gate": "G5",
       "title": "No silently clipped false fit",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:46:21Z",
+      "evidence": "Owner confirms the tested lifecycle/rotation views produced no silently clipped false fit; overflow remained warned/readable rather than hidden."
     },
     {
       "id": "PHY-051",
