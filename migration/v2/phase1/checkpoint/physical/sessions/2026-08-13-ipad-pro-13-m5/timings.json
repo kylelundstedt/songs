@@ -6,17 +6,20 @@
     {
       "id": "offline-cold-launch-1",
       "seconds": null,
-      "status": "PENDING"
+      "status": "PASS",
+      "observation": "Owner described launch as instant; numeric timing not measured."
     },
     {
       "id": "offline-cold-launch-2",
       "seconds": null,
-      "status": "PENDING"
+      "status": "PASS",
+      "observation": "Owner described launch as instant; numeric timing not measured."
     },
     {
       "id": "offline-cold-launch-3",
       "seconds": null,
-      "status": "PENDING"
+      "status": "PASS",
+      "observation": "Owner described launch as instant; numeric timing not measured."
     },
     {
       "id": "portrait-to-landscape-refit",

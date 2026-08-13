@@ -111,13 +111,19 @@
       "id": "PHY-014",
       "gate": "G3",
       "title": "Three consecutive offline Home Screen cold launches",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:29:40Z",
+      "evidence": "Owner reports three consecutive successful Home Screen cold launches in Airplane Mode with Wi-Fi/cellular off; each described as instant. Screenshot screenshots/offline-library-after-three-launches.png (SHA-256 b0a6006f1fef5ba4c5f4c4a15ace94bb2ab1e4630aef993c2ea651cd56282b8d) visibly shows Airplane Mode, Offline, and active verified IndexedDB snapshot."
     },
     {
       "id": "PHY-015",
       "gate": "G3",
       "title": "Core library/status routes offline",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:29:40Z",
+      "evidence": "Owner reports Library, Songs, Set Lists, and Status all open successfully offline; screenshot screenshots/offline-library-after-three-launches.png visibly shows offline Library and all four navigation tabs."
     },
     {
       "id": "PHY-016",

@@ -21,7 +21,9 @@
 - Owner confirms closing/reopening starts at Library (PHY-009).
 - Screenshot `screenshots/status-snapshot-storage-worker.png` confirms 12/12 chunks, active verified generation/storage, current service worker, offline restart availability (PHY-011/PHY-012), and advisory storage diagnostics (PHY-036).
 - Owner directly confirms no Edit, Save, Add, Delete, Publish, Sync, Provider, or Pin controls anywhere; PHY-013 passes.
-- No offline, lifecycle, readability, performance, rehearsal, or gig result is inferred.
+- Owner reports three consecutive successful Airplane-Mode cold launches, each subjectively instant; numeric seconds were not measured (PHY-014).
+- Owner reports Library, Songs, Set Lists, and Status all work offline (PHY-015). Screenshot `screenshots/offline-library-after-three-launches.png` visibly shows Airplane Mode and the active verified IndexedDB snapshot.
+- No remaining detailed offline workflow, lifecycle, readability, performance, rehearsal, or gig result is inferred.
 
 ## Signoff
 
