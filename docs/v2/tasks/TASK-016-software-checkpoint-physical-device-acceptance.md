@@ -3,7 +3,7 @@
 - **Priority:** P0
 - **Phase:** 1 read-only vertical slice
 - **Phase packet:** P1-009
-- **Status:** Software complete; physical acceptance pending (August 12, 2026)
+- **Status:** Software complete; read-only physical evaluation in progress with deferred G4 checks (August 13, 2026)
 - **Estimate:** 2–3 focused software days; physical validation separately 3–5 days plus owner/device time
 
 ## Objective
@@ -24,7 +24,11 @@ physical-device evidence.
 - state storage persistence and export limitations explicitly;
 - provide a physical iPad/Safari checklist and owner signoff template;
 - verify V1 remains active and default while V2 remains opt-in on port 8001;
-- preserve all writable, cutover, stage-readiness, and physical acceptance gates.
+- preserve all writable, cutover, and read-only physical-evaluation gates;
+- classify VoiceOver as optional/nonblocking unless it is part of an explicitly
+  approved supported-device contract;
+- keep rehearsal and real-gig trials optional and separate from this design
+  evaluation.
 
 Do not execute or infer owner signoff, declare Safari/iPad compatibility, add
 writes, change the default origin, retire v1, or claim rehearsal/gig readiness.
@@ -46,7 +50,11 @@ writes, change the default origin, retire v1, or claim rehearsal/gig readiness.
 - the package states that browser export/recovery is mandatory before writable
   operation;
 - V1 remains available as immediate fallback at the default URL;
-- physical Safari/iPad acceptance remains mandatory before stage-readiness.
+- required read-only physical evaluation remains mandatory before claiming that
+  evaluation complete; optional VoiceOver omission is nonblocking and optional
+  G6/G7 trials are not implied next steps;
+- no physical result in this package covers writable behavior, which remains
+  unimplemented and untested.
 
 ## Completion evidence
 
@@ -57,8 +65,8 @@ writes, change the default origin, retire v1, or claim rehearsal/gig readiness.
 - `docs/v2/runbooks/P1-009-install-upgrade-rollback.md` documents service and
   client operation, diagnostics, recovery, and rollback;
 - `docs/v2/acceptance/P1-009-ipad-safari-checklist.md` defines 57 physical checks
-  through install, offline workflows, lifecycle, update, ergonomics, rehearsal,
-  and real-gig gates;
+  through install, offline workflows, lifecycle, update, ergonomics, plus
+  optional rehearsal and real-gig trials;
 - `docs/v2/acceptance/P1-009-signoff-template.md` prevents software evidence from
   being mistaken for owner/device acceptance;
 - `migration/v2/phase1/checkpoint/update-drill/` contains a deterministic,
@@ -74,9 +82,10 @@ writes, change the default origin, retire v1, or claim rehearsal/gig readiness.
   status `PENDING`, stage readiness `false`, writable allowed `false`, and cutover
   allowed `false`.
 
-## Remaining mandatory work
+## Remaining work
 
-Owner/device participation is now required. The next valid action is to execute
-and record the physical iPad/Safari checklist. Until its gates pass, the only
-supportable statement is **software checkpoint complete; physical acceptance
-pending**.
+The owner completed substantial read-only physical evaluation on August 13,
+2026. Deferred blocking G4 reliability checks remain for a later session. G6/G7
+are optional operational trials and are not recommended as the next step while
+the current design requires further work. Writable behavior is outside this
+slice: it has not been implemented or physically tested.

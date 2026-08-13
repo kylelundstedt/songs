@@ -6,8 +6,8 @@
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
 - **Completed:** V2 proposal/control plane and TASK-001 through TASK-015; TASK-016 software package complete.
-- **Current task:** Owner/device execution of the P1-009 physical iPad/Safari acceptance checklist.
-- **Checkpoint status:** Software PASS; physical PENDING; not stage-ready, writable, or cutover-approved.
+- **Current task:** Continue product/design work; finish deferred G4 read-only reliability checks in a later owner/device session.
+- **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
 
 ## Completed evidence
 
@@ -159,7 +159,7 @@ TASK-015 completed P1-008 browser, accessibility, route, update, and failure har
 - 95 web tests pass, including active-pointer epoch closure and post-read races, typed IndexedDB failures, safely deferred replacement-worker decisions, routes, accessibility, storage recovery, and fitting;
 - release `shell-39849548e3b7192a1c76aa6e` and evidence are recorded under `migration/v2/phase1/hardening/`; physical Safari/iPad acceptance remains pending and mandatory.
 
-TASK-016 completed the P1-009 software checkpoint package while leaving physical acceptance pending:
+TASK-016 completed the P1-009 software checkpoint package; read-only physical evaluation remains in progress because deferred blocking G4 checks are open:
 
 - deterministic checkpoint status is `SOFTWARE_PASS_PHYSICAL_PENDING`; stage readiness, writable work, default-route change, cutover, and v1 retirement remain false/no-go;
 - frozen rollback/source/evidence refs, bootstrap generation, shell release, supporting evidence summaries, release binary, service unit, and package documents are hash-bound in `migration/v2/phase1/checkpoint/checkpoint-summary.json`;
@@ -170,8 +170,14 @@ TASK-016 completed the P1-009 software checkpoint package while leaving physical
 - V1 and V2 services remain enabled and active, with V1 default on port 8000 and V2 opt-in/loopback-only on port 8001;
 - public port-8001 TLS/private-login behavior is recorded, while authorized owner-side reachability remains a physical-session confirmation;
 - the install/upgrade/recovery/rollback runbook preserves V1 as immediate fallback and documents replacement-worker, diagnostics, storage, and controlled V2-origin cleanup behavior;
-- 18 software matrix items pass; all 57 physical iPad/Safari items remain explicitly `PENDING` across device, install, offline, lifecycle, update, ergonomics, rehearsal, and real-gig gates;
-- the read-only release has no user-facing export/import or authored V2 user data; browser export/recovery remains mandatory before writable operation.
+- 18 software matrix items pass; the baseline 57-item physical matrix remains
+  available for sessions, with G1–G5 blocking read-only checks, optional
+  nonblocking PHY-044, and optional/not-planned G6/G7 operational trials;
+- the read-only release has no user-facing export/import or authored V2 user data; browser export/recovery remains mandatory before writable operation;
+- an August 13 physical session on iPad Pro 13-inch (M5), iPadOS 26.6 records G1–G3 PASS, the replacement-worker drill PASS, operational G5 checks PASS, and deferred blocking G4 checks for later;
+- VoiceOver is optional/nonblocking for that device contract and no VoiceOver support is claimed;
+- G6 rehearsal and G7 real-gig trials are optional, not planned, and not the next step while product/design work remains;
+- editing, sync, conflicts, import/export, publication, and all other writable behavior are unimplemented and untested in this slice.
 
 ## Verification commands
 
@@ -218,6 +224,7 @@ git diff --check
 
 ## Next tasks
 
-1. Owner approves the exact iPad model, iPadOS/Safari floor, Auto-Lock procedure, low-storage threshold, and fallback plan.
-2. Execute and record G1–G5 from `docs/v2/acceptance/P1-009-ipad-safari-checklist.md` before any physical-offline acceptance claim.
-3. Require separate rehearsal (G6), real-gig (G7), writable, and default-route/cutover decisions; keep V2 opt-in and V1 default until explicitly signed off.
+1. Continue product/design work on the read-only experience, including the proposed print/PDF and spreadsheet-export capabilities.
+2. Finish deferred blocking G4 reliability checks later: 5/30-minute background, reboot/offline reopen, controlled eviction/rebootstrap, and owner-approved low-storage behavior.
+3. Do not schedule G6/G7 unless the owner later decides the revised design is mature enough for optional operational trials.
+4. Treat writable V2 as a separate future program: editing, sync, conflicts, import/export, publication, authored-data recovery, and their physical tests are not implemented.

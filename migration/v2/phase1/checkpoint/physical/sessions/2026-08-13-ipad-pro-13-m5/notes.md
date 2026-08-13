@@ -1,21 +1,24 @@
 # Physical session notes
 
 - Tester: owner
-- Absolute UTC start/end: 2026-08-13T17:19:57Z / in progress
-- Checkpoint summary SHA-256: `137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2`
-- Shell release: `shell-39849548e3b7192a1c76aa6e` (to verify on Status)
+- Absolute UTC start/end: 2026-08-13T17:19:57Z / read-only evaluation paused with deferred G4 checks
+- Checkpoint publication tag: `v2-p1-009-software-checkpoint-2026-08-12`
+- Tagged checkpoint commit: `89cf2a1f7cbc025c99d3121923a1c3ddbd4a7aa3`
+- Tagged summary file SHA-256: `137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2`
+- Tagged summary self SHA-256: `4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860`
+- Policy/session records added later do not rewrite the tested software checkpoint
+- Shell release: checkpoint `shell-39849548e3b7192a1c76aa6e`; successor drill `shell-093b56870d7220008b559673`; checkpoint restored
 - Device model: iPad Pro 13-inch (M5)
-- iPadOS/Safari build: iPadOS 26.6 / Safari build not yet recorded
+- iPadOS/Safari build: iPadOS 26.6 / bundled Safari; separate Safari build number not captured
 - Launch mode: installed Home Screen web app
-- Network conditions: online; exact network not recorded
+- Network conditions: online plus explicit Airplane Mode offline testing; exact network provider not recorded
 - Free storage before/after: pending
-- External keyboard: pending/not yet specified
-- V1 fallback: pending confirmation
+- External keyboard: present; Left/Right and focused-column paging checks passed; model not recorded
+- V1 fallback: owner confirmed V1 works and agreed to keep V1 or printed/PDF fallback immediately available
 
 ## Findings
 
 - Owner reports the V2 link opens successfully as an installed iPad web app.
-- Recorded PASS for PHY-001, PHY-006, and PHY-008. PHY-002 remains pending until a minimum supported iPadOS/Safari floor is approved.
 - Screenshot `screenshots/status-library-diagnostics.png` confirms PHY-010: 373 documents, 339 songs, 34 Set Lists, 1,076 resolved / 0 unresolved references, and 373/373 indexed routes.
 - The screenshot shows standalone web-app presentation and online state, but does not prove a fresh launch began at Library.
 - Owner confirms closing/reopening starts at Library (PHY-009).
@@ -35,7 +38,15 @@
 - Owner proposed printable Set List/lead-sheet packages and CSV/XLSX/Google Sheets interchange; proposals are tracked as TASK-017 and TASK-018 without changing current read-only/cutover gates.
 - Owner confirms touch/safe-area controls, rapid-tap safety, Bright-mode daylight readability, on-screen keyboard visibility, and rotation/refit within about two seconds (PHY-040, PHY-041, PHY-045, PHY-047, PHY-049).
 - Owner confirms external-keyboard Left/Right navigates Previous/Next and Space or Fn+Up/Down scrolls the focused lead-sheet column without changing songs (PHY-042/PHY-043).
-- Owner removed VoiceOver/focus-announcement testing from the owner acceptance scope. PHY-044 remains non-PASS and no VoiceOver compatibility claim is made.
+- Owner excluded VoiceOver from the supported-device contract. PHY-044 is
+  `NOT_REQUIRED`, nonblocking, and no VoiceOver/screen-reader compatibility is
+  claimed.
+- G6 rehearsal and G7 real-gig items are `NOT_PLANNED`. They are optional later
+  operational trials, not the next step for the current design.
+- Editing, sync, conflicts, import/export, publication, authored-data recovery,
+  and all other writable behavior are unimplemented and untested in this
+  read-only physical session.
+- Deferred blocking G4 checks remain pending for a later session.
 - Owner confirms Stage Dark readability in a dim room and all three offline cold launches under five seconds (PHY-046/PHY-048); exact launch seconds were not measured.
 - Owner approves the initial support floor as iPad Pro 13-inch (M5), iPadOS 26.6 or newer (PHY-002), without claiming other-device support.
 - Owner confirms Private Safari unauthenticated access stops at the exe.dev login boundary with no song content exposed (PHY-007).
@@ -47,4 +58,4 @@
 
 ## Signoff
 
-Session is in progress. No physical acceptance or stage-readiness signoff yet.
+Read-only evaluation is paused with deferred blocking G4 checks. VoiceOver is nonblocking/NOT_REQUIRED; G6/G7 are optional/NOT_PLANNED. No writable, rehearsal, gig, stage-readiness, cutover, or V1-retirement signoff is granted.

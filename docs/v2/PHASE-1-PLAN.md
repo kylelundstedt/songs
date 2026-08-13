@@ -139,7 +139,7 @@ The range assumes agent-assisted implementation with small commits and determini
 
 ### P1-009 — Software checkpoint and physical-device package
 
-- **Status:** Software done on August 12, 2026; physical owner/device acceptance pending; tracked as TASK-016
+- **Status:** Software done on August 12, 2026; read-only physical evaluation in progress with deferred G4 checks; G6/G7 optional; tracked as TASK-016
 
 - **Estimate:** 2–3 days software; physical validation separately 3–5 days
 - **Dependencies:** P1-008
@@ -161,7 +161,12 @@ The range assumes agent-assisted implementation with small commits and determini
 - browser/accessibility checks pass;
 - no mutation path is exposed.
 
-Physical iPad validation is a separate mandatory gate before calling Phase 1 stage-ready.
+Physical iPad validation is a separate gate for the read-only design evaluation.
+VoiceOver may be explicitly optional/nonblocking for a selected device contract;
+omission makes no accessibility support claim. Rehearsal and real-gig trials are
+optional later operational decisions, not requirements for evaluating the
+current design and not implied next steps. No read-only physical result validates
+writable features.
 
 ## Proposed post-checkpoint read-only capabilities
 
@@ -228,6 +233,8 @@ Autonomous implementation may continue through P1-008. Owner and physical-device
 - exact supported iPad/Safari contract;
 - Home Screen, process-restart, background, eviction, and low-storage testing;
 - active/pinned Set List dashboard behavior;
-- local-stage-ready Live opt-in;
-- rehearsal and real-gig acceptance;
+- required blocking G1–G5 read-only checks for the approved device contract;
+- optional/nonblocking accessibility observations explicitly selected by the owner;
+- optional rehearsal or real-gig trials only after a separate owner decision that
+  the design is mature enough;
 - any writable or default-route decision.

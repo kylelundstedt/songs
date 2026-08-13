@@ -17,7 +17,7 @@ class V2Phase0ExitReviewTests(unittest.TestCase):
         task = (ROOT / "docs/v2/tasks/TASK-007-phase-0-exit-review.md").read_text(encoding="utf-8")
         self.assertIn("Phase 1 — isolated read-only", status)
         self.assertIn("TASK-016", status)
-        self.assertIn("physical PENDING", status)
+        self.assertIn("G4 has deferred blocking checks", status)
         self.assertRegex(backlog, r"\| Done \| \[TASK-007")
         self.assertRegex(backlog, r"\| Done \| \[TASK-008")
         self.assertRegex(backlog, r"\| Done \| \[TASK-009")
@@ -33,7 +33,7 @@ class V2Phase0ExitReviewTests(unittest.TestCase):
         task16 = (ROOT / "docs/v2/tasks/TASK-016-software-checkpoint-physical-device-acceptance.md").read_text(encoding="utf-8")
         self.assertIn("Status:** Complete (August 11, 2026)", task13)
         self.assertIn("Status:** Complete (August 11, 2026)", task15)
-        self.assertIn("Status:** Software complete; physical acceptance pending (August 12, 2026)", task16)
+        self.assertIn("Status:** Software complete; read-only physical evaluation in progress with deferred G4 checks (August 13, 2026)", task16)
         self.assertIn("Status:** Done — conditional go", task)
 
     def test_exit_review_and_phase1_plan_record_gates(self) -> None:

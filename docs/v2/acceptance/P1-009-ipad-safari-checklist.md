@@ -8,9 +8,11 @@
 Complete this checklist on an owner-approved physical iPad. Chromium emulation
 cannot satisfy any `PHY-*` item.
 
-For every item record `PASS`, `FAIL`, or `PENDING`, tester, absolute timestamp,
-device/OS identity, checkpoint shell release, notes, and supporting evidence.
-Mandatory items cannot be marked N/A.
+For every blocking item record `PASS`, `FAIL`, or `PENDING`, tester, absolute
+timestamp, device/OS identity, checkpoint shell release, notes, and supporting
+evidence. Optional/nonblocking items may be `NOT_REQUIRED`; optional operational
+trials may be `NOT_PLANNED`. Never convert an omitted item into a compatibility
+claim.
 
 ## Session identity
 
@@ -103,13 +105,17 @@ force `skipWaiting` from DevTools.
 
 ## Gate G5 — Touch, keyboard, visibility, and performance
 
+PHY-044 is an optional, nonblocking VoiceOver observation. Omitting it makes no
+VoiceOver or screen-reader compatibility claim; all other G5 items remain part
+of the read-only physical evaluation.
+
 | ID | Check | Status | Evidence/notes |
 |---|---|---|---|
 | PHY-040 | All controls work by touch near screen edges and safe areas | PENDING | |
 | PHY-041 | Rapid taps/double taps cannot skip unpredictably or expose stale content | PENDING | |
 | PHY-042 | Left/Right navigation works on the approved external keyboard | PENDING | |
 | PHY-043 | Page Up/Page Down/Space scroll a focused sheet column instead of changing songs | PENDING | |
-| PHY-044 | Focus/progress announcements are understandable | PENDING | |
+| PHY-044 | Optional VoiceOver focus/progress announcements are understandable; omission is nonblocking and makes no VoiceOver support claim | NOT REQUIRED / PASS / FAIL / PENDING | |
 | PHY-045 | Bright mode is readable in representative daylight | PENDING | |
 | PHY-046 | Stage Dark is readable in a dark rehearsal environment | PENDING | |
 | PHY-047 | Browser chrome, safe areas, and on-screen keyboard obscure no required controls | PENDING | |
@@ -117,7 +123,13 @@ force `skipWaiting` from DevTools.
 | PHY-049 | Rotation/resume refit completes within the owner-approved threshold (proposed: 2 seconds) | PENDING | |
 | PHY-050 | No false fit: overflow is warned/scrollable, never silently clipped | PENDING | |
 
-## Gate G6 — Rehearsal
+## Optional Gate G6 — Rehearsal trial
+
+G6 is **not required** to evaluate the current read-only design. Run it only
+after a separate owner decision that the design is sufficiently mature and worth
+trying during a rehearsal. A G6 pass would validate only that read-only pilot in
+that rehearsal; it would not validate editing, sync, import/export, publication,
+or any other writable feature.
 
 | ID | Check | Status | Evidence/notes |
 |---|---|---|---|
@@ -126,7 +138,13 @@ force `skipWaiting` from DevTools.
 | PHY-053 | All blocking findings are resolved and the rehearsal is repeated if needed | PENDING | |
 | PHY-054 | Owner signs local stage-readiness decision | PENDING | |
 
-## Gate G7 — Real-gig pilot
+## Optional Gate G7 — Real-gig trial
+
+G7 is **not required** for the current read-only design evaluation and must not
+be proposed as the next step while material product/design work remains. It is
+run only after an explicit later owner decision following a satisfactory design
+and optional rehearsal trial. It covers only the read-only pilot, never writable
+features.
 
 | ID | Check | Status | Evidence/notes |
 |---|---|---|---|
@@ -136,14 +154,21 @@ force `skipWaiting` from DevTools.
 
 ## Decision rules
 
-- **Software checkpoint complete:** software matrix passes; physical remains pending.
-- **Physical iPad offline accepted:** G1–G5 pass.
-- **Local stage-ready:** G1–G6 pass.
-- **Real-gig accepted:** G1–G7 pass.
-- **Default-route change or v1 retirement:** requires G7 plus a separate owner
-  cutover decision.
-- **Writable work:** remains separately blocked by authorization, durable sync,
-  publication fencing, server recovery, and browser export/recovery gates.
+- **Software checkpoint complete:** software matrix passes.
+- **Read-only physical evaluation complete:** every blocking G1–G5 item passes.
+  Optional PHY-044 may be `NOT_REQUIRED` with no VoiceOver support claim.
+- **Deferred reliability work:** any pending blocking G4 item keeps the read-only
+  physical evaluation incomplete; deferred means pending, not failed.
+- **Optional rehearsal trial:** G6 is run only after a separate owner decision
+  that the read-only design is mature enough to evaluate operationally.
+- **Optional real-gig trial:** G7 is run only after a separate later owner
+  decision; it is not a default next step.
+- **G6/G7 scope:** a pass covers only this read-only pilot and says nothing about
+  editing, sync, conflicts, import/export, publication, or other writable work.
+- **Default-route change or v1 retirement:** remains a separate no-go decision;
+  neither physical evaluation nor optional G6/G7 automatically authorizes it.
+- **Writable features:** are not implemented or physically tested in this slice.
+  They require separate design, implementation, software evidence, recovery,
+  security, and physical acceptance packages.
 
-Any mandatory failure keeps the associated gate closed. Record failures rather
-than weakening the criterion.
+Record failures and deferrals without weakening the applicable criterion.

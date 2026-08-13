@@ -30,12 +30,12 @@
     ],
     "native_browser": "make v2-browser-check"
   },
-  "next_required_action": "Owner executes and records the physical iPad/Safari checklist on an approved device.",
+  "next_required_action": "Continue product/design work and complete deferred blocking G4 read-only reliability checks later. G6/G7 are optional and writable features are unimplemented and untested.",
   "package_documents": [
     {
-      "bytes": 4164,
+      "bytes": 4762,
       "path": "docs/v2/tasks/TASK-016-software-checkpoint-physical-device-acceptance.md",
-      "sha256": "aaaf870032337f8671a7132c0f5cda44c1ffa44b89cd3fc0f87151c0212e9835"
+      "sha256": "8df0f8b1cdd6da7f3cfa00d71e5118e86492149914f003d600c7b06e1339af8d"
     },
     {
       "bytes": 10167,
@@ -43,29 +43,29 @@
       "sha256": "e16e2b7bbcc854526824a3c2443f7912096c56ffc9220a2c2c6030324f0a4bc3"
     },
     {
-      "bytes": 8016,
+      "bytes": 9816,
       "path": "docs/v2/acceptance/P1-009-ipad-safari-checklist.md",
-      "sha256": "bfb12ad3c8237448c3233020aad9b030076e73ece7298bdff41fdb7b68a7e065"
+      "sha256": "4be21a454b391fd665ab0e060e067f8098921dfcc2fb5f212b6ee5ffe9420902"
     },
     {
-      "bytes": 1637,
+      "bytes": 2215,
       "path": "docs/v2/acceptance/P1-009-signoff-template.md",
-      "sha256": "367db58d58d0746871f59dcc4f7607baaf387e48383d0ab98ca4d9419dd2d317"
+      "sha256": "01a9c8b2bae812f73f2f37a4f77c89471efb05880bc1438f32093906ca2f0591"
     },
     {
-      "bytes": 2154,
+      "bytes": 2510,
       "path": "migration/v2/phase1/checkpoint/README.md",
-      "sha256": "5880744d2d474281566840c492ef0b7f1a9551fff73ca5ffeede3666f5a0c147"
+      "sha256": "8e2afe606b63a18fb9ff01e1af1de27e3ad95794878b599dc242bd3692a1b1d3"
     },
     {
-      "bytes": 6198,
+      "bytes": 12489,
       "path": "migration/v2/phase1/checkpoint/physical/device-matrix.json",
-      "sha256": "95b12508990a4ef83aff9e1eb9da2baed49f00832e7ab2c140870467bd9beca2"
+      "sha256": "62abe5b47a5f80763c3cd445652e6a0c05edd4660689bf6748d163f187a582f6"
     },
     {
-      "bytes": 6198,
+      "bytes": 12489,
       "path": "migration/v2/phase1/checkpoint/physical/sessions/TEMPLATE/checklist.json",
-      "sha256": "95b12508990a4ef83aff9e1eb9da2baed49f00832e7ab2c140870467bd9beca2"
+      "sha256": "62abe5b47a5f80763c3cd445652e6a0c05edd4660689bf6748d163f187a582f6"
     },
     {
       "bytes": 584,
@@ -93,13 +93,14 @@
       "sha256": "a73252d605090599474294070bba88155899bd439699b938b7963e0769e33b4b"
     },
     {
-      "bytes": 21263,
+      "bytes": 26956,
       "path": "scripts/build_v2_phase1_checkpoint.py",
-      "sha256": "5a2bd657b5faabf67051432dbe7c4bfe0a2ee27bc492e280bba2010e6fbc9588"
+      "sha256": "8ea1a30aab900cb47746d7adc48beca54242f42523ef6aa5cef4120fac841b99"
     }
   ],
   "phase_packet": "P1-009",
   "physical": {
+    "blocking_item_count": 49,
     "gates": [
       "G1",
       "G2",
@@ -110,348 +111,475 @@
       "G7"
     ],
     "item_count": 57,
+    "optional_item_count": 8,
+    "policy": {
+      "optional_nonblocking_items": [
+        "PHY-044"
+      ],
+      "optional_operational_trials": [
+        "G6",
+        "G7"
+      ],
+      "read_only_physical_evaluation": "G1-G5 required items",
+      "stage_or_gig_use_implied": false,
+      "writable_features_covered": false
+    },
     "required": true,
     "signoff": null,
     "status": "PENDING"
   },
   "physical_matrix": [
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G1",
       "id": "PHY-001",
       "status": "PENDING",
       "title": "Owner-approved iPad model and screen size"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G1",
       "id": "PHY-002",
       "status": "PENDING",
       "title": "Owner-approved iPadOS/Safari version and support floor"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G1",
       "id": "PHY-003",
       "status": "PENDING",
       "title": "Approved Auto-Lock or wake-lock operating contract"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G1",
       "id": "PHY-004",
       "status": "PENDING",
       "title": "Immediate V1 or printed/PDF fallback available"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-005",
       "status": "PENDING",
       "title": "V1 default origin works before V2 test"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-006",
       "status": "PENDING",
       "title": "V2 public origin opens after private authentication"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-007",
       "status": "PENDING",
       "title": "Unauthenticated access exposes no bootstrap content"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-008",
       "status": "PENDING",
       "title": "Add to Home Screen succeeds with approved name/icon"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-009",
       "status": "PENDING",
       "title": "Standalone launch starts at library root"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-010",
       "status": "PENDING",
       "title": "Exact document/song/set/reference diagnostics"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-011",
       "status": "PENDING",
       "title": "Chunks, active physical generation, and worker diagnostics"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-012",
       "status": "PENDING",
       "title": "Offline restart available"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G2",
       "id": "PHY-013",
       "status": "PENDING",
       "title": "No mutation/provider controls"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-014",
       "status": "PENDING",
       "title": "Three consecutive offline Home Screen cold launches"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-015",
       "status": "PENDING",
       "title": "Core library/status routes offline"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-016",
       "status": "PENDING",
       "title": "Song 1979 offline"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-017",
       "status": "PENDING",
       "title": "9Tease Stripped detail offline"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-018",
       "status": "PENDING",
       "title": "Direct locked Live offline"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-019",
       "status": "PENDING",
       "title": "Song search fields offline"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-020",
       "status": "PENDING",
       "title": "Set List search fields offline"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-021",
       "status": "PENDING",
       "title": "All 58 latest-set occurrences traverse offline"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-022",
       "status": "PENDING",
       "title": "Bounded occurrence navigation"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-023",
       "status": "PENDING",
       "title": "Bright and Stage Dark modes"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-024",
       "status": "PENDING",
       "title": "Expected occurrence-39 warning"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-025",
       "status": "PENDING",
       "title": "Warning content remains scrollable/readable"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G3",
       "id": "PHY-026",
       "status": "PENDING",
       "title": "All five landscape-warning songs inspected"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-027",
       "status": "PENDING",
       "title": "Background/resume after 1 minute"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-028",
       "status": "PENDING",
       "title": "Background/resume after 5 minutes"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-029",
       "status": "PENDING",
       "title": "Background/resume after 30 minutes"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-030",
       "status": "PENDING",
       "title": "Lock/unlock lifecycle"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-031",
       "status": "PENDING",
       "title": "Force-quit and offline reopen"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-032",
       "status": "PENDING",
       "title": "Reboot and offline reopen"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-033",
       "status": "PENDING",
       "title": "Repeated orientation changes"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-034",
       "status": "PENDING",
       "title": "Orientation change on warning song"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-035",
       "status": "PENDING",
       "title": "Safari/Home Screen consistency"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-036",
       "status": "PENDING",
       "title": "Storage diagnostics recorded without durability claim"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-037",
       "status": "PENDING",
       "title": "V2-origin eviction surrogate and rebootstrap"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-038",
       "status": "PENDING",
       "title": "Owner-approved low-storage test"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G4",
       "id": "PHY-039",
       "status": "PENDING",
       "title": "Replacement-worker all-clients-close drill"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-040",
       "status": "PENDING",
       "title": "Touch controls and safe areas"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-041",
       "status": "PENDING",
       "title": "Rapid/double-tap safety"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-042",
       "status": "PENDING",
       "title": "External-keyboard Left/Right"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-043",
       "status": "PENDING",
       "title": "Focused-column paging keys"
     },
     {
+      "blocking": false,
+      "category": "optional_accessibility_observation",
       "gate": "G5",
       "id": "PHY-044",
       "status": "PENDING",
-      "title": "Focus and progress announcements"
+      "title": "Optional VoiceOver focus and progress announcements"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-045",
       "status": "PENDING",
       "title": "Bright-mode daylight readability"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-046",
       "status": "PENDING",
       "title": "Stage-Dark rehearsal readability"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-047",
       "status": "PENDING",
       "title": "Browser chrome/safe-area/keyboard visibility"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-048",
       "status": "PENDING",
       "title": "Offline cold-launch timing"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-049",
       "status": "PENDING",
       "title": "Rotation/resume refit timing"
     },
     {
+      "blocking": true,
+      "category": "read_only_physical_evaluation",
       "gate": "G5",
       "id": "PHY-050",
       "status": "PENDING",
       "title": "No silently clipped false fit"
     },
     {
+      "blocking": false,
+      "category": "optional_operational_trial",
       "gate": "G6",
       "id": "PHY-051",
       "status": "PENDING",
       "title": "Complete Airplane-Mode rehearsal"
     },
     {
+      "blocking": false,
+      "category": "optional_operational_trial",
       "gate": "G6",
       "id": "PHY-052",
       "status": "PENDING",
       "title": "Rehearsal operational observations recorded"
     },
     {
+      "blocking": false,
+      "category": "optional_operational_trial",
       "gate": "G6",
       "id": "PHY-053",
       "status": "PENDING",
       "title": "Blocking findings resolved/retest complete"
     },
     {
+      "blocking": false,
+      "category": "optional_operational_trial",
       "gate": "G6",
       "id": "PHY-054",
       "status": "PENDING",
       "title": "Owner local-stage-readiness signoff"
     },
     {
+      "blocking": false,
+      "category": "optional_operational_trial",
       "gate": "G7",
       "id": "PHY-055",
       "status": "PENDING",
       "title": "Real-gig pilot with fallback"
     },
     {
+      "blocking": false,
+      "category": "optional_operational_trial",
       "gate": "G7",
       "id": "PHY-056",
       "status": "PENDING",
       "title": "Fallback drill without route change"
     },
     {
+      "blocking": false,
+      "category": "optional_operational_trial",
       "gate": "G7",
       "id": "PHY-057",
       "status": "PENDING",
@@ -459,10 +587,10 @@
     }
   ],
   "prohibited_claims": [
-    "Safari compatibility",
-    "physical iPad acceptance",
+    "support outside the approved iPad contract",
+    "VoiceOver or screen-reader compatibility",
     "persistence or eviction resistance",
-    "Home Screen reliability",
+    "Home Screen reliability beyond recorded checks",
     "stage or gig readiness",
     "writable readiness",
     "default-route or cutover readiness",
@@ -489,6 +617,39 @@
       "location_prefix": "https://kgl-songs.exe.xyz:8001/__exe.dev/login",
       "status": 307
     }
+  },
+  "recorded_physical_session": {
+    "bytes": 27591,
+    "checkpoint": {
+      "publication_tag": "v2-p1-009-software-checkpoint-2026-08-12",
+      "summary_file_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2",
+      "summary_self_sha256": "4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860",
+      "tagged_commit": "89cf2a1f7cbc025c99d3121923a1c3ddbd4a7aa3"
+    },
+    "deferred_blocking": [
+      "PHY-028",
+      "PHY-029",
+      "PHY-032",
+      "PHY-037",
+      "PHY-038"
+    ],
+    "optional_not_planned": [
+      "PHY-051",
+      "PHY-052",
+      "PHY-053",
+      "PHY-054",
+      "PHY-055",
+      "PHY-056",
+      "PHY-057"
+    ],
+    "optional_not_required": [
+      "PHY-044"
+    ],
+    "passed": 44,
+    "path": "migration/v2/phase1/checkpoint/physical/sessions/2026-08-13-ipad-pro-13-m5/checklist.json",
+    "sha256": "749741c50dd2a0a4ad8be8540e37c8426763025ae2891f5dc4c55e79271282b5",
+    "status": "IN_PROGRESS",
+    "writable_features_covered": false
   },
   "refs": [
     {
@@ -858,6 +1019,6 @@
     "v2_opt_in_install": "https://kgl-songs.exe.xyz:8001/#/"
   },
   "verification": {
-    "output_sha256": "fac2ce03f214e090c95999903c8bceaeafaddb58cd61ae4323d6083d3302162f"
+    "output_sha256": "2295ee564a44aaa7a7f95a1b2a07eaadd953b9f2c378ce3f45885ce979fe6fda"
   }
 }

@@ -39,6 +39,11 @@ EXPECTED_SUPPORTING = {
     "migration/v2/phase1/hardening/hardening-summary.json": "5792e48749bf9d032fa2fc97be82b6bb7a43b403f6a9a68c88013a7a9f1ef8f3",
     "migration/v2/current/coexistence/browser-summary.json": "44cd55b26b48c59b21c3a0a14bb340922c83f07c0e5a09f8476865d183459c8d",
 }
+SESSION_RELATIVE = "migration/v2/phase1/checkpoint/physical/sessions/2026-08-13-ipad-pro-13-m5/checklist.json"
+SESSION_TAG = "v2-p1-009-software-checkpoint-2026-08-12"
+SESSION_TAG_COMMIT = "89cf2a1f7cbc025c99d3121923a1c3ddbd4a7aa3"
+SESSION_SUMMARY_FILE_SHA = "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2"
+SESSION_SUMMARY_SELF_SHA = "4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860"
 SOFTWARE_MATRIX = {
     "SW-001": "Frozen rollback, source, and evidence annotated refs match reviewed commits",
     "SW-002": "Bootstrap and shell trust anchors match the checkpoint release",
@@ -218,8 +223,89 @@ def validate_physical() -> tuple[dict[str, Any], list[dict[str, str]]]:
     gates = {item["gate"] for item in items}
     if gates != {f"G{number}" for number in range(1, 8)}:
         raise ValueError("physical gate inventory drift")
-    records = [{"id": item["id"], "gate": item["gate"], "title": item["title"], "status": "PENDING"} for item in items]
-    return {"status": "PENDING", "required": True, "item_count": len(records), "gates": sorted(gates), "signoff": None}, records
+    policy = matrix.get("acceptance_policy")
+    expected_policy = {
+        "read_only_physical_evaluation": "G1-G5 required items",
+        "optional_nonblocking_items": ["PHY-044"],
+        "optional_operational_trials": ["G6", "G7"],
+        "writable_features_covered": False,
+        "stage_or_gig_use_implied": False,
+    }
+    if policy != expected_policy:
+        raise ValueError("physical acceptance policy drift")
+    for item in items:
+        expected_blocking = item["id"] != "PHY-044" and item["gate"] not in {"G6", "G7"}
+        expected_category = "optional_accessibility_observation" if item["id"] == "PHY-044" else "optional_operational_trial" if item["gate"] in {"G6", "G7"} else "read_only_physical_evaluation"
+        if item.get("blocking") != expected_blocking or item.get("category") != expected_category:
+            raise ValueError(f"physical item policy drift: {item['id']}")
+    records = [{"id": item["id"], "gate": item["gate"], "title": item["title"], "status": "PENDING", "blocking": item["blocking"], "category": item["category"]} for item in items]
+    blocking_count = sum(item["blocking"] for item in items)
+    return {"status": "PENDING", "required": True, "item_count": len(records), "blocking_item_count": blocking_count, "optional_item_count": len(records) - blocking_count, "policy": policy, "gates": sorted(gates), "signoff": None}, records
+
+
+def validate_recorded_session() -> dict[str, Any]:
+    raw, session = checked(SESSION_RELATIVE)
+    if session.get("status") != "IN_PROGRESS" or session.get("software_evidence_may_satisfy_items") or not session.get("required"):
+        raise ValueError("recorded physical session identity/status drift")
+    checkpoint = session.get("session", {}).get("checkpoint")
+    expected_checkpoint = {
+        "publication_tag": SESSION_TAG,
+        "tagged_commit": SESSION_TAG_COMMIT,
+        "summary_file_sha256": SESSION_SUMMARY_FILE_SHA,
+        "summary_self_sha256": SESSION_SUMMARY_SELF_SHA,
+    }
+    if checkpoint != expected_checkpoint:
+        raise ValueError("recorded physical session checkpoint binding drift")
+    if git_output("rev-parse", f"{SESSION_TAG}^{{}}") != SESSION_TAG_COMMIT:
+        raise ValueError("recorded physical session tag drift")
+    tagged_summary = git_bytes(SESSION_TAG, "migration/v2/phase1/checkpoint/checkpoint-summary.json")
+    if sha(tagged_summary) != SESSION_SUMMARY_FILE_SHA or json.loads(tagged_summary)["verification"]["output_sha256"] != SESSION_SUMMARY_SELF_SHA:
+        raise ValueError("recorded physical session tagged summary drift")
+    items = session["items"]
+    if [item["id"] for item in items] != [f"PHY-{number:03d}" for number in range(1, 58)]:
+        raise ValueError("recorded physical session item inventory drift")
+    expected_statuses = {
+        **{f"PHY-{number:03d}": "PASS" for number in range(1, 28)},
+        "PHY-028": "PENDING", "PHY-029": "PENDING",
+        **{f"PHY-{number:03d}": "PASS" for number in range(30, 32)},
+        "PHY-032": "PENDING",
+        **{f"PHY-{number:03d}": "PASS" for number in range(33, 37)},
+        "PHY-037": "PENDING", "PHY-038": "PENDING", "PHY-039": "PASS",
+        **{f"PHY-{number:03d}": "PASS" for number in range(40, 44)},
+        "PHY-044": "NOT_REQUIRED",
+        **{f"PHY-{number:03d}": "PASS" for number in range(45, 51)},
+        **{f"PHY-{number:03d}": "NOT_PLANNED" for number in range(51, 58)},
+    }
+    if {item["id"]: item["status"] for item in items} != expected_statuses:
+        raise ValueError("recorded physical session result drift")
+    for item in items:
+        expected_blocking = item["id"] != "PHY-044" and item["gate"] not in {"G6", "G7"}
+        if item.get("blocking") != expected_blocking:
+            raise ValueError(f"recorded physical session blocking policy drift: {item['id']}")
+        if item["status"] == "PASS" and not item.get("evidence"):
+            raise ValueError(f"recorded physical PASS lacks evidence: {item['id']}")
+    deferred = [item["id"] for item in items if item["blocking"] and item["status"] == "PENDING"]
+    if deferred != ["PHY-028", "PHY-029", "PHY-032", "PHY-037", "PHY-038"]:
+        raise ValueError("recorded physical deferred G4 inventory drift")
+    timings = json.loads((ROOT / SESSION_RELATIVE).with_name("timings.json").read_text(encoding="utf-8"))
+    if timings.get("checkpoint") != expected_checkpoint:
+        raise ValueError("recorded physical timings checkpoint binding drift")
+    notes = (ROOT / SESSION_RELATIVE).with_name("notes.md").read_text(encoding="utf-8")
+    for token in ("deferred blocking G4 checks", "NOT_REQUIRED", "NOT_PLANNED", "unimplemented and untested", "No writable"):
+        if token.casefold() not in notes.casefold():
+            raise ValueError(f"recorded physical session notes contract missing: {token}")
+    return {
+        "path": SESSION_RELATIVE,
+        "bytes": len(raw),
+        "sha256": sha(raw),
+        "status": "IN_PROGRESS",
+        "checkpoint": checkpoint,
+        "passed": sum(item["status"] == "PASS" for item in items),
+        "deferred_blocking": deferred,
+        "optional_not_required": ["PHY-044"],
+        "optional_not_planned": [f"PHY-{number:03d}" for number in range(51, 58)],
+        "writable_features_covered": False,
+    }
 
 
 def validate_docs() -> list[dict[str, Any]]:
@@ -245,7 +331,7 @@ def validate_docs() -> list[dict[str, Any]]:
         "https://kgl-songs.exe.xyz/",
         "SOFTWARE_PASS_PHYSICAL_PENDING",
         "No user-facing V2 export/import",
-        "physical acceptance pending",
+        "read-only physical evaluation",
         "Writable",
     ):
         if token.casefold() not in combined.casefold():
@@ -269,6 +355,7 @@ def build() -> dict[str, Any]:
     software_observation = validate_observation()
     update_drill = validate_update_drill()
     physical, physical_matrix = validate_physical()
+    recorded_session = validate_recorded_session()
     documents = validate_docs()
     software_matrix = [{"id": identifier, "title": title, "status": "PASS"} for identifier, title in SOFTWARE_MATRIX.items()]
 
@@ -306,6 +393,7 @@ def build() -> dict[str, Any]:
         "software_matrix": software_matrix,
         "physical": physical,
         "physical_matrix": physical_matrix,
+        "recorded_physical_session": recorded_session,
         "storage_and_export": {
             "product_mode": "read-only",
             "persistence_guaranteed": False,
@@ -323,8 +411,8 @@ def build() -> dict[str, Any]:
             "native_browser": "make v2-browser-check",
             "checkpoint": "python3 scripts/build_v2_phase1_checkpoint.py --check",
         },
-        "prohibited_claims": ["Safari compatibility", "physical iPad acceptance", "persistence or eviction resistance", "Home Screen reliability", "stage or gig readiness", "writable readiness", "default-route or cutover readiness", "v1 retirement"],
-        "next_required_action": "Owner executes and records the physical iPad/Safari checklist on an approved device.",
+        "prohibited_claims": ["support outside the approved iPad contract", "VoiceOver or screen-reader compatibility", "persistence or eviction resistance", "Home Screen reliability beyond recorded checks", "stage or gig readiness", "writable readiness", "default-route or cutover readiness", "v1 retirement"],
+        "next_required_action": "Continue product/design work and complete deferred blocking G4 read-only reliability checks later. G6/G7 are optional and writable features are unimplemented and untested.",
         "verification": {"output_sha256": None},
     }
     artifact_value["verification"]["output_sha256"] = sha(canonical(artifact_value))

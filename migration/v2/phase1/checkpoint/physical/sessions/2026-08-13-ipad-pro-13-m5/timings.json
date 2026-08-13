@@ -1,6 +1,5 @@
 {
   "schema_version": "1",
-  "checkpoint_summary_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2",
   "device": "iPad Pro 13-inch (M5), iPadOS 26.6",
   "measurements": [
     {
@@ -51,5 +50,11 @@
       "status": "PENDING",
       "observation": "Deferred by owner because the extended Airplane-Mode interval was not practical during this session; not a failure."
     }
-  ]
+  ],
+  "checkpoint": {
+    "publication_tag": "v2-p1-009-software-checkpoint-2026-08-12",
+    "tagged_commit": "89cf2a1f7cbc025c99d3121923a1c3ddbd4a7aa3",
+    "summary_file_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2",
+    "summary_self_sha256": "4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860"
+  }
 }

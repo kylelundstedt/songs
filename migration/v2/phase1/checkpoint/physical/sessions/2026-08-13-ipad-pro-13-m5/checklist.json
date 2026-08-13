@@ -11,7 +11,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:19:57Z",
-      "evidence": "Owner identified and approved iPad Pro 13-inch (M5)."
+      "evidence": "Owner identified and approved iPad Pro 13-inch (M5).",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-002",
@@ -20,7 +22,9 @@
       "status": "PASS",
       "evidence": "Owner approves the initial supported-device floor as iPad Pro 13-inch (M5) running iPadOS 26.6 or newer. This does not claim support for other iPad models.",
       "tester": "owner",
-      "observed_at_utc": "2026-08-13T18:05:15Z"
+      "observed_at_utc": "2026-08-13T18:05:15Z",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-003",
@@ -29,7 +33,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:51:56Z",
-      "evidence": "Owner confirms the performance operating procedure will set Auto-Lock to Never before use."
+      "evidence": "Owner confirms the performance operating procedure will set Auto-Lock to Never before use.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-004",
@@ -38,7 +44,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:55:31Z",
-      "evidence": "Owner agrees to keep an independent V1 or printed/PDF songbook fallback immediately available during rehearsal/performance. Owner also requested future print/PDF Set List packages and spreadsheet exports; tracked separately as TASK-017 and TASK-018."
+      "evidence": "Owner agrees to keep an independent V1 or printed/PDF songbook fallback immediately available during rehearsal/performance. Owner also requested future print/PDF Set List packages and spreadsheet exports; tracked separately as TASK-017 and TASK-018.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-005",
@@ -47,7 +55,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:51:56Z",
-      "evidence": "Owner confirms the V1 default origin works after reconnecting."
+      "evidence": "Owner confirms the V1 default origin works after reconnecting.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-006",
@@ -56,7 +66,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:19:57Z",
-      "evidence": "Owner confirmed the V2 private origin opens successfully."
+      "evidence": "Owner confirmed the V2 private origin opens successfully.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-007",
@@ -65,7 +77,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T18:05:15Z",
-      "evidence": "Owner confirms that opening the V2 origin in a new unauthenticated Private Safari tab shows the exe.dev login boundary and exposes no song/bootstrap content."
+      "evidence": "Owner confirms that opening the V2 origin in a new unauthenticated Private Safari tab shows the exe.dev login boundary and exposes no song/bootstrap content.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-008",
@@ -74,7 +88,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:19:57Z",
-      "evidence": "Owner confirmed V2 opens successfully as an installed iPad web app."
+      "evidence": "Owner confirmed V2 opens successfully as an installed iPad web app.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-009",
@@ -83,7 +99,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:25:04Z",
-      "evidence": "Owner reports closing/reopening the installed web app starts at Library; screenshots/library-reopen-readonly.png (SHA-256 3193adb2b83115d9159673d82379c22e672349d20646d8c72846b4aac12d3ebc)."
+      "evidence": "Owner reports closing/reopening the installed web app starts at Library; screenshots/library-reopen-readonly.png (SHA-256 3193adb2b83115d9159673d82379c22e672349d20646d8c72846b4aac12d3ebc).",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-010",
@@ -92,7 +110,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:22:50Z",
-      "evidence": "screenshots/status-library-diagnostics.png (SHA-256 fb1f82fb22d8290ef67f79a7653073576a5f44ff6cd0bf69a2882b99f435eda6): 373 documents, 339 songs, 34 Set Lists, 1,076 resolved / 0 unresolved, and 373/373 indexed routes."
+      "evidence": "screenshots/status-library-diagnostics.png (SHA-256 fb1f82fb22d8290ef67f79a7653073576a5f44ff6cd0bf69a2882b99f435eda6): 373 documents, 339 songs, 34 Set Lists, 1,076 resolved / 0 unresolved, and 373/373 indexed routes.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-011",
@@ -101,7 +121,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:25:04Z",
-      "evidence": "screenshots/status-snapshot-storage-worker.png (SHA-256 5a2405a70854f408f5cd3738bcfe64506b054eea4052fc5c2486d98fa04591bb): 12/12 chunks, active generation phase1-f9634173e25ef4ca4b8330a3, active verified IndexedDB snapshot, and Service worker current."
+      "evidence": "screenshots/status-snapshot-storage-worker.png (SHA-256 5a2405a70854f408f5cd3738bcfe64506b054eea4052fc5c2486d98fa04591bb): 12/12 chunks, active generation phase1-f9634173e25ef4ca4b8330a3, active verified IndexedDB snapshot, and Service worker current.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-012",
@@ -110,7 +132,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:25:04Z",
-      "evidence": "screenshots/status-snapshot-storage-worker.png shows Offline restart: Available from the active verified snapshot."
+      "evidence": "screenshots/status-snapshot-storage-worker.png shows Offline restart: Available from the active verified snapshot.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-013",
@@ -119,7 +143,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:27:03Z",
-      "evidence": "Owner directly confirmed no Edit, Save, Add, Delete, Publish, Sync, Provider, or Pin controls appear anywhere in the installed V2 web app; screenshots/library-reopen-readonly.png also labels the selection read-only with no mutation controls."
+      "evidence": "Owner directly confirmed no Edit, Save, Add, Delete, Publish, Sync, Provider, or Pin controls appear anywhere in the installed V2 web app; screenshots/library-reopen-readonly.png also labels the selection read-only with no mutation controls.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-014",
@@ -128,7 +154,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:29:40Z",
-      "evidence": "Owner reports three consecutive successful Home Screen cold launches in Airplane Mode with Wi-Fi/cellular off; each described as instant. Screenshot screenshots/offline-library-after-three-launches.png (SHA-256 b0a6006f1fef5ba4c5f4c4a15ace94bb2ab1e4630aef993c2ea651cd56282b8d) visibly shows Airplane Mode, Offline, and active verified IndexedDB snapshot."
+      "evidence": "Owner reports three consecutive successful Home Screen cold launches in Airplane Mode with Wi-Fi/cellular off; each described as instant. Screenshot screenshots/offline-library-after-three-launches.png (SHA-256 b0a6006f1fef5ba4c5f4c4a15ace94bb2ab1e4630aef993c2ea651cd56282b8d) visibly shows Airplane Mode, Offline, and active verified IndexedDB snapshot.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-015",
@@ -137,7 +165,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:29:40Z",
-      "evidence": "Owner reports Library, Songs, Set Lists, and Status all open successfully offline; screenshot screenshots/offline-library-after-three-launches.png visibly shows offline Library and all four navigation tabs."
+      "evidence": "Owner reports Library, Songs, Set Lists, and Status all open successfully offline; screenshot screenshots/offline-library-after-three-launches.png visibly shows offline Library and all four navigation tabs.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-016",
@@ -146,7 +176,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:33:52Z",
-      "evidence": "Owner reports searching for and opening song 1979 succeeds while the installed web app remains in Airplane Mode."
+      "evidence": "Owner reports searching for and opening song 1979 succeeds while the installed web app remains in Airplane Mode.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-017",
@@ -155,7 +187,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:33:52Z",
-      "evidence": "Owner reports opening the 9Tease Stripped Set List succeeds while the installed web app remains in Airplane Mode."
+      "evidence": "Owner reports opening the 9Tease Stripped Set List succeeds while the installed web app remains in Airplane Mode.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-018",
@@ -164,7 +198,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:33:52Z",
-      "evidence": "Owner reports entering the direct locked Live view from 9Tease Stripped succeeds while the installed web app remains in Airplane Mode. Screenshot unavailable by design while disconnected; owner observation recorded."
+      "evidence": "Owner reports entering the direct locked Live view from 9Tease Stripped succeeds while the installed web app remains in Airplane Mode. Screenshot unavailable by design while disconnected; owner observation recorded.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-019",
@@ -173,7 +209,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:38:22Z",
-      "evidence": "Owner confirms all offline song-search field probes worked: cant stop found Can’t Stop; f sharp found All These Things That I’ve Done; lrclib and 108 found 3 AM. Some result sets were not unique; uniqueness is not required, and the expected reviewed item appeared."
+      "evidence": "Owner confirms all offline song-search field probes worked: cant stop found Can’t Stop; f sharp found All These Things That I’ve Done; lrclib and 108 found 3 AM. Some result sets were not unique; uniqueness is not required, and the expected reviewed item appeared.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-020",
@@ -182,7 +220,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:38:22Z",
-      "evidence": "Owner confirms both offline Set List search probes worked: 2026-08-05 and Castello Golightly found 9Tease Stripped. Some result sets were not unique; uniqueness is not required, and the expected reviewed item appeared."
+      "evidence": "Owner confirms both offline Set List search probes worked: 2026-08-05 and Castello Golightly found 9Tease Stripped. Some result sets were not unique; uniqueness is not required, and the expected reviewed item appeared.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-021",
@@ -191,7 +231,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:41:34Z",
-      "evidence": "Owner reports traversing all 58 9Tease Stripped occurrences offline with no stale songs or skipped occurrences; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly shows occurrence 39/58."
+      "evidence": "Owner reports traversing all 58 9Tease Stripped occurrences offline with no stale songs or skipped occurrences; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly shows occurrence 39/58.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-022",
@@ -200,7 +242,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:41:34Z",
-      "evidence": "Owner confirms Previous/Next remain bounded and occurrence-based through the complete 58-item offline traversal, with no unpredictable navigation."
+      "evidence": "Owner confirms Previous/Next remain bounded and occurrence-based through the complete 58-item offline traversal, with no unpredictable navigation.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-023",
@@ -209,7 +253,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:41:34Z",
-      "evidence": "Owner confirms Bright and Stage Dark themes both work offline; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) records the Bright-mode Live view and visible Stage Dark control."
+      "evidence": "Owner confirms Bright and Stage Dark themes both work offline; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) records the Bright-mode Live view and visible Stage Dark control.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-024",
@@ -218,7 +264,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:41:34Z",
-      "evidence": "screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly records occurrence 39/58, Can’t Stop, with the expected frozen iPad-landscape warning and runtime fit warning."
+      "evidence": "screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly records occurrence 39/58, Can’t Stop, with the expected frozen iPad-landscape warning and runtime fit warning.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-025",
@@ -227,7 +275,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:41:34Z",
-      "evidence": "Owner confirms occurrence-39 warning/song content remains readable by scrolling with no clipping; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly shows the scroll-required warning and readable two-column content."
+      "evidence": "Owner confirms occurrence-39 warning/song content remains readable by scrolling with no clipping; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly shows the scroll-required warning and readable two-column content.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-026",
@@ -236,7 +286,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:43:49Z",
-      "evidence": "Owner confirms all five reviewed landscape-warning songs—Can’t Stop, Father of Mine, Love Shack, Paradise City, and Troublemaker—displayed their expected warnings and remained usable during the complete offline traversal."
+      "evidence": "Owner confirms all five reviewed landscape-warning songs—Can’t Stop, Father of Mine, Love Shack, Paradise City, and Troublemaker—displayed their expected warnings and remained usable during the complete offline traversal.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-027",
@@ -245,7 +297,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:46:21Z",
-      "evidence": "Owner confirms backgrounding V2 for 1 minute and resuming offline preserved a safe, usable state."
+      "evidence": "Owner confirms backgrounding V2 for 1 minute and resuming offline preserved a safe, usable state.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-028",
@@ -254,7 +308,9 @@
       "status": "PENDING",
       "deferred_at_utc": "2026-08-13T17:47:54Z",
       "deferred_by": "owner",
-      "evidence": "DEFERRED by owner on 2026-08-13: a continuous 5-minute Airplane-Mode interval was not practical during this session. Status remains PENDING; this is not a failure."
+      "evidence": "DEFERRED by owner on 2026-08-13: a continuous 5-minute Airplane-Mode interval was not practical during this session. Status remains PENDING; this is not a failure.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-029",
@@ -263,7 +319,9 @@
       "status": "PENDING",
       "deferred_at_utc": "2026-08-13T17:47:54Z",
       "deferred_by": "owner",
-      "evidence": "DEFERRED by owner on 2026-08-13: a continuous 30-minute Airplane-Mode interval was not practical during this session. Status remains PENDING; this is not a failure."
+      "evidence": "DEFERRED by owner on 2026-08-13: a continuous 30-minute Airplane-Mode interval was not practical during this session. Status remains PENDING; this is not a failure.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-030",
@@ -272,7 +330,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:46:21Z",
-      "evidence": "Owner confirms locking/unlocking the iPad and resuming V2 offline preserved or safely restored the usable state."
+      "evidence": "Owner confirms locking/unlocking the iPad and resuming V2 offline preserved or safely restored the usable state.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-031",
@@ -281,7 +341,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:46:21Z",
-      "evidence": "Owner confirms force-quitting V2 and reopening from the Home Screen offline succeeded."
+      "evidence": "Owner confirms force-quitting V2 and reopening from the Home Screen offline succeeded.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-032",
@@ -290,7 +352,9 @@
       "status": "PENDING",
       "deferred_at_utc": "2026-08-13T17:47:54Z",
       "deferred_by": "owner",
-      "evidence": "DEFERRED with the extended Airplane-Mode lifecycle block on 2026-08-13. Status remains PENDING; this is not a failure."
+      "evidence": "DEFERRED with the extended Airplane-Mode lifecycle block on 2026-08-13. Status remains PENDING; this is not a failure.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-033",
@@ -299,7 +363,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:46:21Z",
-      "evidence": "Owner confirms repeated portrait/landscape rotations produced no stale or clipped Live content."
+      "evidence": "Owner confirms repeated portrait/landscape rotations produced no stale or clipped Live content.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-034",
@@ -308,7 +374,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:46:21Z",
-      "evidence": "Owner confirms rotating while viewing Can’t Stop and its warning retained readable, usable content."
+      "evidence": "Owner confirms rotating while viewing Can’t Stop and its warning retained readable, usable content.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-035",
@@ -317,7 +385,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:51:56Z",
-      "evidence": "Owner confirms a normal Safari tab and the installed Home Screen web app show the same verified V2 content."
+      "evidence": "Owner confirms a normal Safari tab and the installed Home Screen web app show the same verified V2 content.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-036",
@@ -326,19 +396,25 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:25:04Z",
-      "evidence": "screenshots/status-snapshot-storage-worker.png records persistence Granted (storage remains evictable), origin usage 7.18 MiB, quota 38.4 GiB, and headroom 38.4 GiB; no durability guarantee inferred."
+      "evidence": "screenshots/status-snapshot-storage-worker.png records persistence Granted (storage remains evictable), origin usage 7.18 MiB, quota 38.4 GiB, and headroom 38.4 GiB; no durability guarantee inferred.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-037",
       "gate": "G4",
       "title": "V2-origin eviction surrogate and rebootstrap",
-      "status": "PENDING"
+      "status": "PENDING",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-038",
       "gate": "G4",
       "title": "Owner-approved low-storage test",
-      "status": "PENDING"
+      "status": "PENDING",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-039",
@@ -347,7 +423,9 @@
       "status": "PASS",
       "tester": "owner + engineering",
       "observed_at_utc": "2026-08-13T18:19:35Z",
-      "evidence": "Engineering deployed successor shell shell-093b56870d7220008b559673 while owner kept locked Live open. Owner confirmed active Live and Previous/Next were not interrupted. After all V2 clients closed, owner reopened online; screenshots show unchanged active bootstrap generation, 12/12 chunks, offline restart available, and service worker current. Owner then confirmed a successor offline cold launch. Engineering restored checkpoint shell shell-39849548e3b7192a1c76aa6e and verified V1/V2 active, checkpoint executable/unit hashes, bootstrap SHA, and checkpoint sw.js release. Status UI exposes only the generic shell cache prefix, so exact client release was established by controlled server deployment plus lifecycle behavior, not inferred from that field. After server rollback and all-clients-close, owner reopened the checkpoint online at 2026-08-13T18:22:47Z and confirmed Service worker current and Offline restart available from the active verified snapshot."
+      "evidence": "Engineering deployed successor shell shell-093b56870d7220008b559673 while owner kept locked Live open. Owner confirmed active Live and Previous/Next were not interrupted. After all V2 clients closed, owner reopened online; screenshots show unchanged active bootstrap generation, 12/12 chunks, offline restart available, and service worker current. Owner then confirmed a successor offline cold launch. Engineering restored checkpoint shell shell-39849548e3b7192a1c76aa6e and verified V1/V2 active, checkpoint executable/unit hashes, bootstrap SHA, and checkpoint sw.js release. Status UI exposes only the generic shell cache prefix, so exact client release was established by controlled server deployment plus lifecycle behavior, not inferred from that field. After server rollback and all-clients-close, owner reopened the checkpoint online at 2026-08-13T18:22:47Z and confirmed Service worker current and Offline restart available from the active verified snapshot.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-040",
@@ -356,7 +434,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:57:48Z",
-      "evidence": "Owner confirms Previous/Next, Exit Live, and Stage Dark controls work reliably by touch near screen edges and safe areas."
+      "evidence": "Owner confirms Previous/Next, Exit Live, and Stage Dark controls work reliably by touch near screen edges and safe areas.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-041",
@@ -365,7 +445,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:57:48Z",
-      "evidence": "Owner confirms rapid taps and double taps do not cause unpredictable skips or stale content."
+      "evidence": "Owner confirms rapid taps and double taps do not cause unpredictable skips or stale content.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-042",
@@ -374,7 +456,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T18:00:35Z",
-      "evidence": "Owner confirms external-keyboard Left/Right keys navigate to Previous/Next occurrences in locked Live mode."
+      "evidence": "Owner confirms external-keyboard Left/Right keys navigate to Previous/Next occurrences in locked Live mode.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-043",
@@ -383,16 +467,20 @@
       "status": "PASS",
       "evidence": "Owner confirms that after focusing a scrollable lead-sheet column, Space or Fn+Up/Down scrolls the column rather than changing songs.",
       "tester": "owner",
-      "observed_at_utc": "2026-08-13T18:01:27Z"
+      "observed_at_utc": "2026-08-13T18:01:27Z",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-044",
       "gate": "G5",
-      "title": "Focus and progress announcements",
-      "status": "PENDING",
+      "title": "Optional VoiceOver focus and progress announcements",
+      "status": "NOT_REQUIRED",
       "owner_scope_decision": "REMOVED_FROM_OWNER_ACCEPTANCE_SCOPE",
       "scope_decided_at_utc": "2026-08-13T18:00:35Z",
-      "evidence": "Owner explicitly does not require VoiceOver/focus-announcement acceptance for this device contract. This is a scope decision, not a PASS or an accessibility-compatibility claim."
+      "evidence": "Owner explicitly excluded VoiceOver from this device contract. This nonblocking omission makes no VoiceOver or screen-reader compatibility claim.",
+      "blocking": false,
+      "category": "optional_accessibility_observation"
     },
     {
       "id": "PHY-045",
@@ -401,7 +489,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:57:48Z",
-      "evidence": "Owner confirms Bright mode is readable in normal daylight on the approved iPad."
+      "evidence": "Owner confirms Bright mode is readable in normal daylight on the approved iPad.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-046",
@@ -410,7 +500,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T18:01:27Z",
-      "evidence": "Owner confirms Stage Dark is readable in a representative dim/dark room."
+      "evidence": "Owner confirms Stage Dark is readable in a representative dim/dark room.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-047",
@@ -419,7 +511,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:57:48Z",
-      "evidence": "Owner confirms the on-screen keyboard and app/browser safe areas do not obscure required controls."
+      "evidence": "Owner confirms the on-screen keyboard and app/browser safe areas do not obscure required controls.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-048",
@@ -428,7 +522,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T18:01:27Z",
-      "evidence": "Owner confirms all three offline Home Screen cold launches completed within the proposed five-second threshold; launches were previously described as instant, but exact numeric seconds were not measured."
+      "evidence": "Owner confirms all three offline Home Screen cold launches completed within the proposed five-second threshold; launches were previously described as instant, but exact numeric seconds were not measured.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-049",
@@ -437,7 +533,9 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:57:48Z",
-      "evidence": "Owner confirms portrait/landscape rotation and refitting complete within the proposed two-second threshold."
+      "evidence": "Owner confirms portrait/landscape rotation and refitting complete within the proposed two-second threshold.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-050",
@@ -446,49 +544,72 @@
       "status": "PASS",
       "tester": "owner",
       "observed_at_utc": "2026-08-13T17:46:21Z",
-      "evidence": "Owner confirms the tested lifecycle/rotation views produced no silently clipped false fit; overflow remained warned/readable rather than hidden."
+      "evidence": "Owner confirms the tested lifecycle/rotation views produced no silently clipped false fit; overflow remained warned/readable rather than hidden.",
+      "blocking": true,
+      "category": "read_only_physical_evaluation"
     },
     {
       "id": "PHY-051",
       "gate": "G6",
       "title": "Complete Airplane-Mode rehearsal",
-      "status": "PENDING"
+      "status": "NOT_PLANNED",
+      "blocking": false,
+      "category": "optional_operational_trial",
+      "evidence": "Not planned for the current read-only design evaluation. This optional operational trial would occur only after a separate owner decision that the design is ready and worth evaluating in rehearsal/performance."
     },
     {
       "id": "PHY-052",
       "gate": "G6",
       "title": "Rehearsal operational observations recorded",
-      "status": "PENDING"
+      "status": "NOT_PLANNED",
+      "blocking": false,
+      "category": "optional_operational_trial",
+      "evidence": "Not planned for the current read-only design evaluation. This optional operational trial would occur only after a separate owner decision that the design is ready and worth evaluating in rehearsal/performance."
     },
     {
       "id": "PHY-053",
       "gate": "G6",
       "title": "Blocking findings resolved/retest complete",
-      "status": "PENDING"
+      "status": "NOT_PLANNED",
+      "blocking": false,
+      "category": "optional_operational_trial",
+      "evidence": "Not planned for the current read-only design evaluation. This optional operational trial would occur only after a separate owner decision that the design is ready and worth evaluating in rehearsal/performance."
     },
     {
       "id": "PHY-054",
       "gate": "G6",
       "title": "Owner local-stage-readiness signoff",
-      "status": "PENDING"
+      "status": "NOT_PLANNED",
+      "blocking": false,
+      "category": "optional_operational_trial",
+      "evidence": "Not planned for the current read-only design evaluation. This optional operational trial would occur only after a separate owner decision that the design is ready and worth evaluating in rehearsal/performance."
     },
     {
       "id": "PHY-055",
       "gate": "G7",
       "title": "Real-gig pilot with fallback",
-      "status": "PENDING"
+      "status": "NOT_PLANNED",
+      "blocking": false,
+      "category": "optional_operational_trial",
+      "evidence": "Not planned for the current read-only design evaluation. This optional operational trial would occur only after a separate owner decision that the design is ready and worth evaluating in rehearsal/performance."
     },
     {
       "id": "PHY-056",
       "gate": "G7",
       "title": "Fallback drill without route change",
-      "status": "PENDING"
+      "status": "NOT_PLANNED",
+      "blocking": false,
+      "category": "optional_operational_trial",
+      "evidence": "Not planned for the current read-only design evaluation. This optional operational trial would occur only after a separate owner decision that the design is ready and worth evaluating in rehearsal/performance."
     },
     {
       "id": "PHY-057",
       "gate": "G7",
       "title": "Owner real-gig acceptance",
-      "status": "PENDING"
+      "status": "NOT_PLANNED",
+      "blocking": false,
+      "category": "optional_operational_trial",
+      "evidence": "Not planned for the current read-only design evaluation. This optional operational trial would occur only after a separate owner decision that the design is ready and worth evaluating in rehearsal/performance."
     }
   ],
   "session": {
@@ -497,6 +618,23 @@
     "device": "iPad Pro 13-inch (M5)",
     "os": "iPadOS 26.6",
     "launch_mode": "Home Screen web app",
-    "checkpoint_summary_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2"
+    "checkpoint": {
+      "publication_tag": "v2-p1-009-software-checkpoint-2026-08-12",
+      "tagged_commit": "89cf2a1f7cbc025c99d3121923a1c3ddbd4a7aa3",
+      "summary_file_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2",
+      "summary_self_sha256": "4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860"
+    }
+  },
+  "acceptance_policy": {
+    "read_only_physical_evaluation": "G1-G5 required items",
+    "optional_nonblocking_items": [
+      "PHY-044"
+    ],
+    "optional_operational_trials": [
+      "G6",
+      "G7"
+    ],
+    "writable_features_covered": false,
+    "stage_or_gig_use_implied": false
   }
 }

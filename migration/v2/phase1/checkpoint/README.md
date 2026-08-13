@@ -23,8 +23,11 @@ for physical iPad/Safari acceptance.
 ## Status
 
 - Software: **PASS**
-- Physical Safari/iPad: **PENDING**
-- Overall: **SOFTWARE_PASS_PHYSICAL_PENDING**
+- Read-only physical evaluation: **IN PROGRESS** (session evidence is separate)
+- VoiceOver: **optional/nonblocking unless explicitly included in a device contract**
+- Rehearsal/real-gig trials: **optional; not implied next steps**
+- Writable features: **not implemented or tested**
+- Overall checkpoint package: **SOFTWARE_PASS_PHYSICAL_PENDING**
 - Stage-ready: **false**
 - Writable allowed: **false**
 - Default-route/cutover allowed: **false**
@@ -42,9 +45,11 @@ builder alone validates the checked-in package without executing physical tests.
 ## Physical session procedure
 
 Copy `physical/sessions/TEMPLATE/` to a new directory named with the absolute test
-date and device identity. Complete every checklist entry with `PASS`, `FAIL`, or
-`PENDING`, record notes/evidence, and use the signoff template. Never overwrite
-the template and never mark a physical item from Chromium results.
+date and device identity. Complete blocking items with `PASS`, `FAIL`, or
+`PENDING`; optional/nonblocking items may be `NOT_REQUIRED`, and optional G6/G7
+trials may be `NOT_PLANNED`. Record notes/evidence and use the signoff template.
+Never overwrite the template and never mark a physical item from Chromium
+results.
 
 The current read-only V2 product has no user-facing export/import and no authored
 V2 data to export. Browser export/recovery remains mandatory before writable use.
