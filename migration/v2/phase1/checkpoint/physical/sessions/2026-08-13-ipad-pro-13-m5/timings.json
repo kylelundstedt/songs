@@ -24,12 +24,14 @@
     {
       "id": "portrait-to-landscape-refit",
       "seconds": null,
-      "status": "PENDING"
+      "status": "PASS",
+      "observation": "Owner confirms refit completed within approximately 2 seconds; exact numeric timing not measured."
     },
     {
       "id": "landscape-to-portrait-refit",
       "seconds": null,
-      "status": "PENDING"
+      "status": "PASS",
+      "observation": "Owner confirms refit completed within approximately 2 seconds; exact numeric timing not measured."
     },
     {
       "id": "background-1-minute-resume",

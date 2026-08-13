@@ -345,13 +345,19 @@
       "id": "PHY-040",
       "gate": "G5",
       "title": "Touch controls and safe areas",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:57:48Z",
+      "evidence": "Owner confirms Previous/Next, Exit Live, and Stage Dark controls work reliably by touch near screen edges and safe areas."
     },
     {
       "id": "PHY-041",
       "gate": "G5",
       "title": "Rapid/double-tap safety",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:57:48Z",
+      "evidence": "Owner confirms rapid taps and double taps do not cause unpredictable skips or stale content."
     },
     {
       "id": "PHY-042",
@@ -375,7 +381,10 @@
       "id": "PHY-045",
       "gate": "G5",
       "title": "Bright-mode daylight readability",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:57:48Z",
+      "evidence": "Owner confirms Bright mode is readable in normal daylight on the approved iPad."
     },
     {
       "id": "PHY-046",
@@ -387,7 +396,10 @@
       "id": "PHY-047",
       "gate": "G5",
       "title": "Browser chrome/safe-area/keyboard visibility",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:57:48Z",
+      "evidence": "Owner confirms the on-screen keyboard and app/browser safe areas do not obscure required controls."
     },
     {
       "id": "PHY-048",
@@ -399,7 +411,10 @@
       "id": "PHY-049",
       "gate": "G5",
       "title": "Rotation/resume refit timing",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:57:48Z",
+      "evidence": "Owner confirms portrait/landscape rotation and refitting complete within the proposed two-second threshold."
     },
     {
       "id": "PHY-050",
