@@ -163,6 +163,22 @@ The range assumes agent-assisted implementation with small commits and determini
 
 Physical iPad validation is a separate mandatory gate before calling Phase 1 stage-ready.
 
+## Proposed post-checkpoint read-only capabilities
+
+Physical testing identified two useful fallback/interchange features that remain
+separate from Phase 1 acceptance and from writable V2:
+
+- **TASK-017 — printable Set List fallback packages:** print/PDF output for one
+  ordered Set List and its associated authoritative lead sheets, with explicit
+  fit warnings and no content mutation;
+- **TASK-018 — spreadsheet Set List exports:** local CSV/XLSX downloads preserving
+  order, duplicate occurrences, metadata, and stable identities. Google Sheets
+  initially uses explicit user import; direct Sheets/Drive creation requires a
+  separately authorized integration review.
+
+Neither proposal permits editing, provider sync, publication, cutover, or V1
+retirement.
+
 ## Smallest subsequent writable slice
 
 The first writable slice is single-owner Set List editing only:

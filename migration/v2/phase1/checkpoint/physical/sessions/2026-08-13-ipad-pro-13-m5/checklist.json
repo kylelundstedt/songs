@@ -33,7 +33,10 @@
       "id": "PHY-004",
       "gate": "G1",
       "title": "Immediate V1 or printed/PDF fallback available",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:55:31Z",
+      "evidence": "Owner agrees to keep an independent V1 or printed/PDF songbook fallback immediately available during rehearsal/performance. Owner also requested future print/PDF Set List packages and spreadsheet exports; tracked separately as TASK-017 and TASK-018."
     },
     {
       "id": "PHY-005",

@@ -31,7 +31,8 @@
 - Owner confirms 1-minute background/resume, lock/unlock, force-quit offline reopen, repeated rotation, and warning-song rotation all remained safe, readable, and free of stale/silently clipped content (PHY-027, PHY-030, PHY-031, PHY-033, PHY-034, PHY-050).
 - Owner explicitly deferred the 5-minute background, 30-minute background, and reboot/offline-reopen checks because continued Airplane Mode was not practical during this session. PHY-028, PHY-029, and PHY-032 remain PENDING, not failed.
 - Owner confirms the Auto-Lock → Never operating procedure, V1 default-origin health, and consistent verified content between Safari-tab and Home Screen launches (PHY-003, PHY-005, PHY-035).
-- Immediate independent fallback availability (PHY-004) remains pending owner decision.
+- Owner agrees to keep an independent V1 or printed/PDF fallback immediately available during rehearsal/performance (PHY-004).
+- Owner proposed printable Set List/lead-sheet packages and CSV/XLSX/Google Sheets interchange; proposals are tracked as TASK-017 and TASK-018 without changing current read-only/cutover gates.
 - No rehearsal or gig result is inferred.
 
 ## Signoff
