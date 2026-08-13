@@ -42,6 +42,7 @@
 - G1 supported-device contract, G2 authentication/install/bootstrap, and G3 offline workflows now pass for this exact session.
 - PHY-039 replacement-worker drill passes: active locked Live was not interrupted; after all clients closed, the successor reopened with current worker, unchanged verified bootstrap, and offline restart; owner confirmed successor offline cold launch. Engineering then restored and verified the checkpoint server release.
 - The Status UI displays only the generic shell cache prefix, so it cannot independently display the exact active shell release; this testability limitation is recorded rather than overstated.
+- After checkpoint rollback and another all-clients-close cycle, owner confirmed the reopened client reports service worker current and offline restart available.
 - No rehearsal or gig result is inferred.
 
 ## Signoff
