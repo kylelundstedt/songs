@@ -24,7 +24,10 @@
       "id": "PHY-003",
       "gate": "G1",
       "title": "Approved Auto-Lock or wake-lock operating contract",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:51:56Z",
+      "evidence": "Owner confirms the performance operating procedure will set Auto-Lock to Never before use."
     },
     {
       "id": "PHY-004",
@@ -36,7 +39,10 @@
       "id": "PHY-005",
       "gate": "G2",
       "title": "V1 default origin works before V2 test",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:51:56Z",
+      "evidence": "Owner confirms the V1 default origin works after reconnecting."
     },
     {
       "id": "PHY-006",
@@ -300,7 +306,10 @@
       "id": "PHY-035",
       "gate": "G4",
       "title": "Safari/Home Screen consistency",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:51:56Z",
+      "evidence": "Owner confirms a normal Safari tab and the installed Home Screen web app show the same verified V2 content."
     },
     {
       "id": "PHY-036",
