@@ -85,7 +85,7 @@
     {
       "bytes": 5480,
       "path": "scripts/install_v2_phase1_release.sh",
-      "sha256": "391dafb59a7c16452e58d81a5bf00b2ce9f358c90f1bef8557957d5ad0ef271d"
+      "sha256": "5728d6ef975ddbe10b1360f468ba35f682aeb64c132a7e99f0480f4030fbc095"
     },
     {
       "bytes": 2766,
@@ -858,6 +858,6 @@
     "v2_opt_in_install": "https://kgl-songs.exe.xyz:8001/#/"
   },
   "verification": {
-    "output_sha256": "4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860"
+    "output_sha256": "fac2ce03f214e090c95999903c8bceaeafaddb58cd61ae4323d6083d3302162f"
   }
 }

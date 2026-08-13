@@ -25,7 +25,7 @@ case "${RELEASE_KIND}" in
   successor)
     EXPECTED_BINARY_SHA=fec8ac53063bf8e67f63a65d1391aa064fca29fb85720d6374f11b4138290649
     EXPECTED_ARCHIVE_SHA=0d8a446d9d0fb8b019282aec86b8d9daea6be376aeebf91aacb6823381434c59
-    EXPECTED_UNIT_SHA=d803aacd15b5a26ce3197e2e4988b29efa59e7288d83eeab628a35aff28c9ca6
+    EXPECTED_UNIT_SHA=6e8bfa2d5b9d4cc8e4ccb21fc9157487784dbc0beeff77fdf287792e79d644b8
     EXPECTED_BOOTSTRAP_SHA=a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f
     ;;
   *) echo "release kind must be checkpoint or successor" >&2; exit 2 ;;
