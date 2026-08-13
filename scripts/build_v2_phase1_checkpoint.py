@@ -366,12 +366,20 @@ def build() -> dict[str, Any]:
         "checkpoint_package_id": CHECKPOINT_PACKAGE_ID,
         "checkpoint_code_commit": CHECKPOINT_COMMIT,
         "acceptance_root": {
-            "kind": "annotated Git tag plus content-addressed package",
-            "summary_path": "migration/v2/phase1/checkpoint/checkpoint-summary.json",
-            "summary_self_sha256": "verification.output_sha256",
-            "required_completion_tag": "v2-p1-009-software-checkpoint-2026-08-12",
-            "tag_target": "the final package commit; the tag/commit publish evidence but are not inputs to evidence generation",
-            "dependency_direction": "reviewed refs and code commit -> evidence/package -> completion commit/tag",
+            "kind": "immutable tagged software checkpoint plus living supplemental index",
+            "software_checkpoint": {
+                "publication_tag": SESSION_TAG,
+                "tagged_commit": SESSION_TAG_COMMIT,
+                "tagged_summary_path": "migration/v2/phase1/checkpoint/checkpoint-summary.json",
+                "tagged_summary_file_sha256": SESSION_SUMMARY_FILE_SHA,
+                "tagged_summary_self_sha256": SESSION_SUMMARY_SELF_SHA,
+            },
+            "current_summary": {
+                "path": "migration/v2/phase1/checkpoint/checkpoint-summary.json",
+                "self_sha256": "verification.output_sha256",
+                "role": "living supplemental policy, session, and roadmap index; does not rewrite the tagged software checkpoint",
+            },
+            "dependency_direction": "reviewed refs and code commit -> immutable tagged checkpoint; later policy/session/roadmap records -> living supplemental index",
         },
         "status": {
             "software": "PASS",
@@ -412,7 +420,7 @@ def build() -> dict[str, Any]:
             "checkpoint": "python3 scripts/build_v2_phase1_checkpoint.py --check",
         },
         "prohibited_claims": ["support outside the approved iPad contract", "VoiceOver or screen-reader compatibility", "persistence or eviction resistance", "Home Screen reliability beyond recorded checks", "stage or gig readiness", "writable readiness", "default-route or cutover readiness", "v1 retirement"],
-        "next_required_action": "Continue product/design work and complete deferred blocking G4 read-only reliability checks later. G6/G7 are optional and writable features are unimplemented and untested.",
+        "next_required_action": "Begin TASK-017 production authorization and durable sync. Continue TASK-018–021 through complete Set List and lead-sheet writable workflows, then TASK-022 product-wide web design overhaul. Defer TASK-023/024 printing/export; complete deferred blocking read-only G4 checks before TASK-021 physical acceptance.",
         "verification": {"output_sha256": None},
     }
     artifact_value["verification"]["output_sha256"] = sha(canonical(artifact_value))

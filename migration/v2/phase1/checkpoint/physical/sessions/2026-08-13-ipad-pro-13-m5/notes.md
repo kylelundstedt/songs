@@ -35,7 +35,7 @@
 - Owner explicitly deferred the 5-minute background, 30-minute background, and reboot/offline-reopen checks because continued Airplane Mode was not practical during this session. PHY-028, PHY-029, and PHY-032 remain PENDING, not failed.
 - Owner confirms the Auto-Lock → Never operating procedure, V1 default-origin health, and consistent verified content between Safari-tab and Home Screen launches (PHY-003, PHY-005, PHY-035).
 - Owner agrees to keep an independent V1 or printed/PDF fallback immediately available during rehearsal/performance (PHY-004).
-- Owner proposed printable Set List/lead-sheet packages and CSV/XLSX/Google Sheets interchange; proposals are tracked as TASK-017 and TASK-018 without changing current read-only/cutover gates.
+- Owner proposed printable Set List/lead-sheet packages and CSV/XLSX/Google Sheets interchange; proposals are tracked as deferred TASK-023 and TASK-024 without changing current read-only/cutover gates.
 - Owner confirms touch/safe-area controls, rapid-tap safety, Bright-mode daylight readability, on-screen keyboard visibility, and rotation/refit within about two seconds (PHY-040, PHY-041, PHY-045, PHY-047, PHY-049).
 - Owner confirms external-keyboard Left/Right navigates Previous/Next and Space or Fn+Up/Down scrolls the focused lead-sheet column without changing songs (PHY-042/PHY-043).
 - Owner excluded VoiceOver from the supported-device contract. PHY-044 is

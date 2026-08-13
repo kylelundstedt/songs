@@ -15,7 +15,7 @@ class V2Phase0ExitReviewTests(unittest.TestCase):
         status = (ROOT / "docs/v2/STATUS.md").read_text(encoding="utf-8")
         backlog = (ROOT / "docs/v2/BACKLOG.md").read_text(encoding="utf-8")
         task = (ROOT / "docs/v2/tasks/TASK-007-phase-0-exit-review.md").read_text(encoding="utf-8")
-        self.assertIn("Phase 1 — isolated read-only", status)
+        self.assertIn("post-Phase-1 writable foundation is now active", status)
         self.assertIn("TASK-016", status)
         self.assertIn("G4 has deferred blocking checks", status)
         self.assertRegex(backlog, r"\| Done \| \[TASK-007")

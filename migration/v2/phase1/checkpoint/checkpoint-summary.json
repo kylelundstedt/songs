@@ -1,11 +1,19 @@
 {
   "acceptance_root": {
-    "dependency_direction": "reviewed refs and code commit -> evidence/package -> completion commit/tag",
-    "kind": "annotated Git tag plus content-addressed package",
-    "required_completion_tag": "v2-p1-009-software-checkpoint-2026-08-12",
-    "summary_path": "migration/v2/phase1/checkpoint/checkpoint-summary.json",
-    "summary_self_sha256": "verification.output_sha256",
-    "tag_target": "the final package commit; the tag/commit publish evidence but are not inputs to evidence generation"
+    "current_summary": {
+      "path": "migration/v2/phase1/checkpoint/checkpoint-summary.json",
+      "role": "living supplemental policy, session, and roadmap index; does not rewrite the tagged software checkpoint",
+      "self_sha256": "verification.output_sha256"
+    },
+    "dependency_direction": "reviewed refs and code commit -> immutable tagged checkpoint; later policy/session/roadmap records -> living supplemental index",
+    "kind": "immutable tagged software checkpoint plus living supplemental index",
+    "software_checkpoint": {
+      "publication_tag": "v2-p1-009-software-checkpoint-2026-08-12",
+      "tagged_commit": "89cf2a1f7cbc025c99d3121923a1c3ddbd4a7aa3",
+      "tagged_summary_file_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2",
+      "tagged_summary_path": "migration/v2/phase1/checkpoint/checkpoint-summary.json",
+      "tagged_summary_self_sha256": "4eeb53adb7ef682d681c3afc98d4f0555dbb1ffd0c2c22dfd1d66e6439d5b860"
+    }
   },
   "bootstrap": {
     "chunks": 12,
@@ -30,7 +38,7 @@
     ],
     "native_browser": "make v2-browser-check"
   },
-  "next_required_action": "Continue product/design work and complete deferred blocking G4 read-only reliability checks later. G6/G7 are optional and writable features are unimplemented and untested.",
+  "next_required_action": "Begin TASK-017 production authorization and durable sync. Continue TASK-018–021 through complete Set List and lead-sheet writable workflows, then TASK-022 product-wide web design overhaul. Defer TASK-023/024 printing/export; complete deferred blocking read-only G4 checks before TASK-021 physical acceptance.",
   "package_documents": [
     {
       "bytes": 4762,
@@ -53,9 +61,9 @@
       "sha256": "01a9c8b2bae812f73f2f37a4f77c89471efb05880bc1438f32093906ca2f0591"
     },
     {
-      "bytes": 2510,
+      "bytes": 2588,
       "path": "migration/v2/phase1/checkpoint/README.md",
-      "sha256": "8e2afe606b63a18fb9ff01e1af1de27e3ad95794878b599dc242bd3692a1b1d3"
+      "sha256": "023da881ebc9d56eeaf7430d569de4a5d261b1092388f48f2697c7cbae5570b7"
     },
     {
       "bytes": 12489,
@@ -93,9 +101,9 @@
       "sha256": "a73252d605090599474294070bba88155899bd439699b938b7963e0769e33b4b"
     },
     {
-      "bytes": 26956,
+      "bytes": 27520,
       "path": "scripts/build_v2_phase1_checkpoint.py",
-      "sha256": "8ea1a30aab900cb47746d7adc48beca54242f42523ef6aa5cef4120fac841b99"
+      "sha256": "b66db3db98ebb5d9d85c74706c5c27044cc9177ac5c566c0b01f2c9f8ea60b8f"
     }
   ],
   "phase_packet": "P1-009",
@@ -619,7 +627,7 @@
     }
   },
   "recorded_physical_session": {
-    "bytes": 27591,
+    "bytes": 27589,
     "checkpoint": {
       "publication_tag": "v2-p1-009-software-checkpoint-2026-08-12",
       "summary_file_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2",
@@ -647,7 +655,7 @@
     ],
     "passed": 44,
     "path": "migration/v2/phase1/checkpoint/physical/sessions/2026-08-13-ipad-pro-13-m5/checklist.json",
-    "sha256": "749741c50dd2a0a4ad8be8540e37c8426763025ae2891f5dc4c55e79271282b5",
+    "sha256": "24e1c1a0ca97d2e1b73108c61fa62f7bbfb0e83b4f6861f55c38919ca8de8796",
     "status": "IN_PROGRESS",
     "writable_features_covered": false
   },
@@ -1019,6 +1027,6 @@
     "v2_opt_in_install": "https://kgl-songs.exe.xyz:8001/#/"
   },
   "verification": {
-    "output_sha256": "2295ee564a44aaa7a7f95a1b2a07eaadd953b9f2c378ce3f45885ce979fe6fda"
+    "output_sha256": "145b57756675223d3ac846322f19a8c81d01e3453c5eb28a116cf9b949654d72"
   }
 }

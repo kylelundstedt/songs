@@ -1,9 +1,9 @@
-# TASK-018: Spreadsheet Set List Exports
+# TASK-024: Spreadsheet Set List Exports
 
-- **Priority:** P2
-- **Phase:** Post-checkpoint read-only capability
-- **Status:** Proposed (August 13, 2026)
-- **Dependencies:** TASK-009 typed read model; TASK-016 physical feedback
+- **Priority:** P3 — deferred until TASK-017–022 complete
+- **Phase:** Deferred post-writable capability
+- **Status:** Deferred (August 13, 2026)
+- **Dependencies:** TASK-021 writable acceptance and TASK-022 web design overhaul
 
 ## Objective
 

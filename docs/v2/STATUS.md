@@ -4,9 +4,10 @@
 - **Phase 1 content source:** annotated tag `v2-phase1-content-2026-08-10` at `17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5` (`17c326c`).
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
-- **Phase:** Phase 1 — isolated read-only vertical slice; physical Safari/iPad acceptance remains pending.
+- **Phase:** Phase 1 read-only checkpoint is complete; post-Phase-1 writable foundation is now active.
 - **Completed:** V2 proposal/control plane and TASK-001 through TASK-015; TASK-016 software package complete.
-- **Current task:** Continue product/design work; finish deferred G4 read-only reliability checks in a later owner/device session.
+- **Current task:** TASK-017 production authorization and durable sync foundation for the first writable V2 slice.
+- **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
 - **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
 
 ## Completed evidence
@@ -224,7 +225,8 @@ git diff --check
 
 ## Next tasks
 
-1. Continue product/design work on the read-only experience, including the proposed print/PDF and spreadsheet-export capabilities.
-2. Finish deferred blocking G4 reliability checks later: 5/30-minute background, reboot/offline reopen, controlled eviction/rebootstrap, and owner-approved low-storage behavior.
-3. Do not schedule G6/G7 unless the owner later decides the revised design is mature enough for optional operational trials.
-4. Treat writable V2 as a separate future program: editing, sync, conflicts, import/export, publication, authored-data recovery, and their physical tests are not implemented.
+1. Implement **TASK-017**: production owner/device authorization and durable idempotent sync foundation.
+2. Implement **TASK-018–021**: fenced publication/recovery, offline writable Set List and lead-sheet authoring, provider/Shelley draft workflows, conflicts, failure recovery, and writable physical acceptance.
+3. After the writable workflows function end to end, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
+4. Finish deferred blocking read-only G4 reliability checks later; they do not supersede the writable implementation priority.
+5. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.

@@ -6,10 +6,11 @@ for physical iPad/Safari acceptance.
 - `checkpoint-summary.json` binds the frozen source/evidence/rollback refs,
   reviewed bootstrap and shell identities, reproducible V2 binary, installed
   service unit, software evidence, public proxy boundary, and test matrices.
-- `checkpoint-summary.json` is the content-addressed manifest. The final package
-  commit is published by annotated tag
-  `v2-p1-009-software-checkpoint-2026-08-12`; that tag is a publication root,
-  not an input to its own evidence generation.
+- `checkpoint-summary.json` is a living supplemental index for policy, physical
+  sessions, and roadmap metadata. The immutable software package remains the
+  summary published at annotated tag
+  `v2-p1-009-software-checkpoint-2026-08-12` / commit `89cf2a1`; later updates
+  do not rewrite that tested software checkpoint.
 - `physical/device-matrix.json` records every physical checklist item as
   `PENDING`; software evidence cannot change those values.
 - `update-drill/` contains the deterministic compatible successor required for

@@ -168,37 +168,78 @@ optional later operational decisions, not requirements for evaluating the
 current design and not implied next steps. No read-only physical result validates
 writable features.
 
-## Proposed post-checkpoint read-only capabilities
+## Owner-directed next program
 
-Physical testing identified two useful fallback/interchange features that remain
-separate from Phase 1 acceptance and from writable V2:
+The next implementation priority is the first writable Set List slice, followed
+by a product-wide web design overhaul. Printing and spreadsheet export are
+useful but explicitly deferred until those priorities are complete.
 
-- **TASK-017 — printable Set List fallback packages:** print/PDF output for one
-  ordered Set List and its associated authoritative lead sheets, with explicit
-  fit warnings and no content mutation;
-- **TASK-018 — spreadsheet Set List exports:** local CSV/XLSX downloads preserving
-  order, duplicate occurrences, metadata, and stable identities. Google Sheets
-  initially uses explicit user import; direct Sheets/Drive creation requires a
-  separately authorized integration review.
+### TASK-017 — Production authorization and durable sync foundation
 
-Neither proposal permits editing, provider sync, publication, cutover, or V1
-retirement.
+- **Estimate:** 7–11 focused engineering days
+- **Work:** authenticated owner/device binding, durable idempotent operations,
+  CAS, acknowledged cursors, explicit conflicts, revocation, compaction, and
+  ledger backup/restore.
+- **Exit:** production mutation infrastructure passes without exposing browser
+  mutation controls.
 
-## Smallest subsequent writable slice
+### TASK-018 — Fenced publication, Git reconciliation, and recovery
 
-The first writable slice is single-owner Set List editing only:
+- **Estimate:** 7–11 focused engineering days
+- **Work:** fenced publication lease, isolated Git materialization, validation,
+  push/finalization recovery, external reconciliation, and Git/ledger restore.
+- **Exit:** accepted operations publish/recover without data loss, duplicate
+  publication, or silent external-change overwrite.
 
-- create/duplicate a Set List;
-- edit title/date/location/band strings;
-- add/remove existing lead sheets;
-- reorder stable Set Entry IDs;
-- edit per-entry performance notes;
-- local autosave, undo, close/reopen recovery;
-- explicit foreground sync and visible conflicts.
+### TASK-019 — Offline writable Set List editor and outbox
 
-It excludes lead-sheet editing, collaboration, imports, and provider workflows.
+- **Estimate:** 8–12 focused engineering days
+- **Work:** create/duplicate Set Lists; edit title/date/location/band; add/remove
+  existing lead sheets; reorder stable entries; edit notes; autosave, undo,
+  close/reopen recovery, durable outbox, explicit sync, and authored-data
+  export/restore.
+- **Exit:** the complete single-owner workflow functions offline and survives all
+  defined retry/restart states. A provisional functional UI is acceptable here.
 
-### Hard prerequisites
+### TASK-020 — Offline writable lead-sheet authoring and enrichment
+
+- **Estimate:** refine after serializer/preview spike
+- **Work:** create/edit lead-sheet source and metadata offline, preserve untouched
+  legacy bytes, provide local draft preview plus authoritative server/Apex
+  validation, add durable outbox/conflicts/recovery, and turn provider/Shelley
+  results into reviewable local drafts.
+- **Exit:** lead-sheet authoring and existing online enrichment workflows operate
+  safely in the local-first write model without direct publication shortcuts.
+
+### TASK-021 — Writable conflict, recovery, and physical acceptance
+
+- **Estimate:** 6–10 focused engineering days plus owner/device time
+- **Work:** conflict UI, multi-device and failure tests, authored-data recovery,
+  server/Git recovery, and physical iPad writable acceptance for Set Lists and
+  lead sheets.
+- **Exit:** no tested failure loses authored work; writable pilot approval remains
+  a separate owner decision. Completion of deferred blocking read-only G4 checks
+  is a prerequisite for this physical acceptance, not for earlier implementation.
+
+### TASK-022 — Product-wide web design overhaul
+
+- **Estimate:** scope after workflow/design discovery
+- **Work:** owner-led information architecture and complete visual/interaction
+  redesign across Library, Songs, lead-sheet authoring, Set Lists, editor,
+  sync/outbox, conflicts, Status, and Live.
+- **Why after functionality:** redesign must be grounded in real writable
+  workflows and states, not polished placeholders or the current evidence UI.
+- **Exit:** owner-approved design and physical workflow usability pass without
+  correctness/data-loss regressions.
+
+### Deferred capabilities
+
+- **TASK-023:** printable Set List and lead-sheet packages.
+- **TASK-024:** CSV/XLSX exports and possible later Google Sheets integration.
+
+These are not current priorities.
+
+### Writable-program hard prerequisites
 
 - production authenticated actor/device binding and owner ACL;
 - durable operation receipt, CAS, acknowledged cursors, and compaction/resnapshot policy;
@@ -207,17 +248,17 @@ It excludes lead-sheet editing, collaboration, imports, and provider workflows.
 - failed-push/finalization recovery and external delete/rename reconciliation;
 - backup/restore of the V2 ledger and skewed Git/ledger states;
 - browser export/recovery for unsynced work;
-- defined atomic operation semantics for add/delete/reorder actions;
-- physical-iPad Phase 1 approval.
+- defined atomic operation semantics for add/delete/reorder actions.
 
 ### Estimate
 
 | Writable packet | Base range |
 |---|---:|
-| Authenticated device/owner boundary and durable sync API | 7–11 days |
-| Fenced publication, Git reconciliation, and server recovery | 7–11 days |
-| Offline Set List editor, undo/reopen recovery, and outbox | 8–12 days |
-| Conflict UI, end-to-end failure tests, and pilot packaging | 6–10 days |
+| TASK-017 authorization and durable sync | 7–11 days |
+| TASK-018 publication and recovery | 7–11 days |
+| TASK-019 writable editor and outbox | 8–12 days |
+| TASK-020 lead-sheet authoring/enrichment | estimate after spike |
+| TASK-021 conflicts, recovery tests, and pilot packaging | 6–10 days |
 | **Writable Set List base** | **28–44 days** |
 
 | Measure | Range |
@@ -225,6 +266,9 @@ It excludes lead-sheet editing, collaboration, imports, and provider workflows.
 | Writable Set List base | 28–44 focused engineering days |
 | 25–30% reserve | 8–13 focused engineering days |
 | Commitment range | **36–57 focused engineering days** |
+
+TASK-022 design-overhaul scope/estimate is separate and follows functional
+writable acceptance.
 
 ## Owner/device checkpoints
 

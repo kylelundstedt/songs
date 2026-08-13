@@ -1,9 +1,9 @@
-# TASK-017: Printable Set List Fallback Packages
+# TASK-023: Printable Set List Fallback Packages
 
-- **Priority:** P1
-- **Phase:** Post-checkpoint read-only capability
-- **Status:** Proposed (August 13, 2026)
-- **Dependencies:** TASK-016 physical feedback; existing authoritative Apex HTML and fit warnings
+- **Priority:** P2 — deferred until TASK-017–022 complete
+- **Phase:** Deferred post-writable capability
+- **Status:** Deferred (August 13, 2026)
+- **Dependencies:** TASK-021 writable acceptance and TASK-022 web design overhaul
 
 ## Objective
 

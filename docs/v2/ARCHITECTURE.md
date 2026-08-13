@@ -80,4 +80,17 @@ TASK-015 is complete. Shell release `shell-39849548e3b7192a1c76aa6e` hardens the
 
 TASK-016 software packaging is complete. The P1-009 checkpoint binds the frozen refs, trust anchors, release archive, service unit, supporting evidence, runbook, and software/physical matrices. Its exact software status is `SOFTWARE_PASS_PHYSICAL_PENDING`: V1 remains default, V2 remains read-only and opt-in, and writable/cutover claims remain prohibited. The August 13, 2026 owner session passes G1–G3 and operational G5 checks on the approved iPad, with deferred blocking G4 reliability checks. VoiceOver is optional/nonblocking for this device contract and no VoiceOver support is claimed. G6/G7 are optional operational trials, not implied next steps.
 
-The current design requires further work. Editing, sync, conflicts, import/export, publication, and authored-data recovery are not implemented or physically tested. Continue product/design work and finish deferred G4 checks later; do not infer writable, rehearsal, gig, default-route, or V1-retirement readiness.
+The current read-only design is an evidence vehicle, not the accepted target web
+design. Editing, sync, conflicts, publication, and authored-data recovery are not
+yet implemented or physically tested. The owner-directed sequence is:
+
+1. TASK-017–021: make Set List and lead-sheet authoring work end to end,
+   including authorization, durable sync, fenced publication, offline editing,
+   provider/Shelley draft workflows, conflicts, recovery, and writable physical
+   acceptance;
+2. TASK-022: replace the current evidence-oriented UI with an owner-approved,
+   product-wide web design grounded in those real workflows;
+3. TASK-023/024: consider printing and spreadsheet export later.
+
+Deferred read-only G4 checks remain scheduled for a later session. Do not infer
+writable, rehearsal, gig, default-route, or V1-retirement readiness.
