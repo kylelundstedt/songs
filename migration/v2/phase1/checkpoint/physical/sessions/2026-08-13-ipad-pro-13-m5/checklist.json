@@ -174,31 +174,46 @@
       "id": "PHY-021",
       "gate": "G3",
       "title": "All 58 latest-set occurrences traverse offline",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:41:34Z",
+      "evidence": "Owner reports traversing all 58 9Tease Stripped occurrences offline with no stale songs or skipped occurrences; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly shows occurrence 39/58."
     },
     {
       "id": "PHY-022",
       "gate": "G3",
       "title": "Bounded occurrence navigation",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:41:34Z",
+      "evidence": "Owner confirms Previous/Next remain bounded and occurrence-based through the complete 58-item offline traversal, with no unpredictable navigation."
     },
     {
       "id": "PHY-023",
       "gate": "G3",
       "title": "Bright and Stage Dark modes",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:41:34Z",
+      "evidence": "Owner confirms Bright and Stage Dark themes both work offline; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) records the Bright-mode Live view and visible Stage Dark control."
     },
     {
       "id": "PHY-024",
       "gate": "G3",
       "title": "Expected occurrence-39 warning",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:41:34Z",
+      "evidence": "screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly records occurrence 39/58, Can’t Stop, with the expected frozen iPad-landscape warning and runtime fit warning."
     },
     {
       "id": "PHY-025",
       "gate": "G3",
       "title": "Warning content remains scrollable/readable",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:41:34Z",
+      "evidence": "Owner confirms occurrence-39 warning/song content remains readable by scrolling with no clipping; screenshots/offline-live-occurrence-39-cant-stop.png (SHA-256 5086411b2f7e7558f78feed6a9bb258952c9952b02ffa7d90b843c8b351e49c7) visibly shows the scroll-required warning and readable two-column content."
     },
     {
       "id": "PHY-026",
