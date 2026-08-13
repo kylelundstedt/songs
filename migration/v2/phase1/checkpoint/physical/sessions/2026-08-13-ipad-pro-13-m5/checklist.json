@@ -156,13 +156,19 @@
       "id": "PHY-019",
       "gate": "G3",
       "title": "Song search fields offline",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:38:22Z",
+      "evidence": "Owner confirms all offline song-search field probes worked: cant stop found Can’t Stop; f sharp found All These Things That I’ve Done; lrclib and 108 found 3 AM. Some result sets were not unique; uniqueness is not required, and the expected reviewed item appeared."
     },
     {
       "id": "PHY-020",
       "gate": "G3",
       "title": "Set List search fields offline",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:38:22Z",
+      "evidence": "Owner confirms both offline Set List search probes worked: 2026-08-05 and Castello Golightly found 9Tease Stripped. Some result sets were not unique; uniqueness is not required, and the expected reviewed item appeared."
     },
     {
       "id": "PHY-021",
