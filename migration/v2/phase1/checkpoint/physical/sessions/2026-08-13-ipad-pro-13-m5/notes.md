@@ -20,7 +20,7 @@
 - The screenshot shows standalone web-app presentation and online state, but does not prove a fresh launch began at Library.
 - Owner confirms closing/reopening starts at Library (PHY-009).
 - Screenshot `screenshots/status-snapshot-storage-worker.png` confirms 12/12 chunks, active verified generation/storage, current service worker, offline restart availability (PHY-011/PHY-012), and advisory storage diagnostics (PHY-036).
-- Screenshot `screenshots/library-reopen-readonly.png` visually labels the UI as having no mutation controls; direct owner confirmation remains requested before PHY-013 is marked PASS.
+- Owner directly confirms no Edit, Save, Add, Delete, Publish, Sync, Provider, or Pin controls anywhere; PHY-013 passes.
 - No offline, lifecycle, readability, performance, rehearsal, or gig result is inferred.
 
 ## Signoff
