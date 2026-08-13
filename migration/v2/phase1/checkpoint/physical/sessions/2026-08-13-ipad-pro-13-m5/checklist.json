@@ -104,7 +104,7 @@
       "title": "No mutation/provider controls",
       "status": "PASS",
       "tester": "owner",
-      "observed_at_utc": "2026-08-13T17:28:00Z",
+      "observed_at_utc": "2026-08-13T17:27:03Z",
       "evidence": "Owner directly confirmed no Edit, Save, Add, Delete, Publish, Sync, Provider, or Pin controls appear anywhere in the installed V2 web app; screenshots/library-reopen-readonly.png also labels the selection read-only with no mutation controls."
     },
     {
