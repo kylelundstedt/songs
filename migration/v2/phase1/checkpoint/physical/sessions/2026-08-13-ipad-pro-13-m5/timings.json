@@ -40,12 +40,14 @@
     {
       "id": "background-5-minute-resume",
       "seconds": null,
-      "status": "PENDING"
+      "status": "PENDING",
+      "observation": "Deferred by owner because the extended Airplane-Mode interval was not practical during this session; not a failure."
     },
     {
       "id": "background-30-minute-resume",
       "seconds": null,
-      "status": "PENDING"
+      "status": "PENDING",
+      "observation": "Deferred by owner because the extended Airplane-Mode interval was not practical during this session; not a failure."
     }
   ]
 }

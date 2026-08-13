@@ -237,13 +237,19 @@
       "id": "PHY-028",
       "gate": "G4",
       "title": "Background/resume after 5 minutes",
-      "status": "PENDING"
+      "status": "PENDING",
+      "deferred_at_utc": "2026-08-13T17:47:54Z",
+      "deferred_by": "owner",
+      "evidence": "DEFERRED by owner on 2026-08-13: a continuous 5-minute Airplane-Mode interval was not practical during this session. Status remains PENDING; this is not a failure."
     },
     {
       "id": "PHY-029",
       "gate": "G4",
       "title": "Background/resume after 30 minutes",
-      "status": "PENDING"
+      "status": "PENDING",
+      "deferred_at_utc": "2026-08-13T17:47:54Z",
+      "deferred_by": "owner",
+      "evidence": "DEFERRED by owner on 2026-08-13: a continuous 30-minute Airplane-Mode interval was not practical during this session. Status remains PENDING; this is not a failure."
     },
     {
       "id": "PHY-030",
@@ -267,7 +273,10 @@
       "id": "PHY-032",
       "gate": "G4",
       "title": "Reboot and offline reopen",
-      "status": "PENDING"
+      "status": "PENDING",
+      "deferred_at_utc": "2026-08-13T17:47:54Z",
+      "deferred_by": "owner",
+      "evidence": "DEFERRED with the extended Airplane-Mode lifecycle block on 2026-08-13. Status remains PENDING; this is not a failure."
     },
     {
       "id": "PHY-033",

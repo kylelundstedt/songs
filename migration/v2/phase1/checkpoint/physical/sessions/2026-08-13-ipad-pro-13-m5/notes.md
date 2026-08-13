@@ -29,7 +29,7 @@
 - Owner confirms all five landscape-warning songs displayed expected warnings and remained usable (PHY-026).
 - G3 offline workflows (PHY-014–PHY-026) pass on this exact device/session.
 - Owner confirms 1-minute background/resume, lock/unlock, force-quit offline reopen, repeated rotation, and warning-song rotation all remained safe, readable, and free of stale/silently clipped content (PHY-027, PHY-030, PHY-031, PHY-033, PHY-034, PHY-050).
-- Five-minute background, 30-minute background, reboot, and remaining lifecycle/ergonomic checks are still pending.
+- Owner explicitly deferred the 5-minute background, 30-minute background, and reboot/offline-reopen checks because continued Airplane Mode was not practical during this session. PHY-028, PHY-029, and PHY-032 remain PENDING, not failed.
 - No rehearsal or gig result is inferred.
 
 ## Signoff
