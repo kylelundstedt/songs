@@ -66,7 +66,10 @@
       "id": "PHY-009",
       "gate": "G2",
       "title": "Standalone launch starts at library root",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:25:04Z",
+      "evidence": "Owner reports closing/reopening the installed web app starts at Library; screenshots/library-reopen-readonly.png (SHA-256 3193adb2b83115d9159673d82379c22e672349d20646d8c72846b4aac12d3ebc)."
     },
     {
       "id": "PHY-010",
@@ -81,13 +84,19 @@
       "id": "PHY-011",
       "gate": "G2",
       "title": "Chunks, active physical generation, and worker diagnostics",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:25:04Z",
+      "evidence": "screenshots/status-snapshot-storage-worker.png (SHA-256 5a2405a70854f408f5cd3738bcfe64506b054eea4052fc5c2486d98fa04591bb): 12/12 chunks, active generation phase1-f9634173e25ef4ca4b8330a3, active verified IndexedDB snapshot, and Service worker current."
     },
     {
       "id": "PHY-012",
       "gate": "G2",
       "title": "Offline restart available",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:25:04Z",
+      "evidence": "screenshots/status-snapshot-storage-worker.png shows Offline restart: Available from the active verified snapshot."
     },
     {
       "id": "PHY-013",
@@ -231,7 +240,10 @@
       "id": "PHY-036",
       "gate": "G4",
       "title": "Storage diagnostics recorded without durability claim",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:25:04Z",
+      "evidence": "screenshots/status-snapshot-storage-worker.png records persistence Granted (storage remains evictable), origin usage 7.18 MiB, quota 38.4 GiB, and headroom 38.4 GiB; no durability guarantee inferred."
     },
     {
       "id": "PHY-037",

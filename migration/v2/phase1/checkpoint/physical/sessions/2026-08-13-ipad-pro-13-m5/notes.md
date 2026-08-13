@@ -18,6 +18,9 @@
 - Recorded PASS for PHY-001, PHY-006, and PHY-008. PHY-002 remains pending until a minimum supported iPadOS/Safari floor is approved.
 - Screenshot `screenshots/status-library-diagnostics.png` confirms PHY-010: 373 documents, 339 songs, 34 Set Lists, 1,076 resolved / 0 unresolved references, and 373/373 indexed routes.
 - The screenshot shows standalone web-app presentation and online state, but does not prove a fresh launch began at Library.
+- Owner confirms closing/reopening starts at Library (PHY-009).
+- Screenshot `screenshots/status-snapshot-storage-worker.png` confirms 12/12 chunks, active verified generation/storage, current service worker, offline restart availability (PHY-011/PHY-012), and advisory storage diagnostics (PHY-036).
+- Screenshot `screenshots/library-reopen-readonly.png` visually labels the UI as having no mutation controls; direct owner confirmation remains requested before PHY-013 is marked PASS.
 - No offline, lifecycle, readability, performance, rehearsal, or gig result is inferred.
 
 ## Signoff
