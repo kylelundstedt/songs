@@ -363,19 +363,26 @@
       "id": "PHY-042",
       "gate": "G5",
       "title": "External-keyboard Left/Right",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T18:00:35Z",
+      "evidence": "Owner confirms external-keyboard Left/Right keys navigate to Previous/Next occurrences in locked Live mode."
     },
     {
       "id": "PHY-043",
       "gate": "G5",
       "title": "Focused-column paging keys",
-      "status": "PENDING"
+      "status": "PENDING",
+      "evidence": "Owner reports plain Up/Down arrows do nothing. The defined check is Space and Page Up/Page Down (often Fn+Up/Down) after focusing a scrollable sheet column; that exact check remains pending."
     },
     {
       "id": "PHY-044",
       "gate": "G5",
       "title": "Focus and progress announcements",
-      "status": "PENDING"
+      "status": "PENDING",
+      "owner_scope_decision": "REMOVED_FROM_OWNER_ACCEPTANCE_SCOPE",
+      "scope_decided_at_utc": "2026-08-13T18:00:35Z",
+      "evidence": "Owner explicitly does not require VoiceOver/focus-announcement acceptance for this device contract. This is a scope decision, not a PASS or an accessibility-compatibility claim."
     },
     {
       "id": "PHY-045",
