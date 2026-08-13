@@ -72,7 +72,10 @@
       "id": "PHY-010",
       "gate": "G2",
       "title": "Exact document/song/set/reference diagnostics",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:22:50Z",
+      "evidence": "screenshots/status-library-diagnostics.png (SHA-256 fb1f82fb22d8290ef67f79a7653073576a5f44ff6cd0bf69a2882b99f435eda6): 373 documents, 339 songs, 34 Set Lists, 1,076 resolved / 0 unresolved, and 373/373 indexed routes."
     },
     {
       "id": "PHY-011",

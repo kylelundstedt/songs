@@ -16,6 +16,8 @@
 
 - Owner reports the V2 link opens successfully as an installed iPad web app.
 - Recorded PASS for PHY-001, PHY-006, and PHY-008. PHY-002 remains pending until a minimum supported iPadOS/Safari floor is approved.
+- Screenshot `screenshots/status-library-diagnostics.png` confirms PHY-010: 373 documents, 339 songs, 34 Set Lists, 1,076 resolved / 0 unresolved references, and 373/373 indexed routes.
+- The screenshot shows standalone web-app presentation and online state, but does not prove a fresh launch began at Library.
 - No offline, lifecycle, readability, performance, rehearsal, or gig result is inferred.
 
 ## Signoff
