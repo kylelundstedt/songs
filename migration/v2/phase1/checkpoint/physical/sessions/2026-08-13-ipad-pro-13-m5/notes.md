@@ -26,8 +26,9 @@
 - Owner confirms offline song `1979`, Set List `9Tease Stripped`, and direct locked Live all open successfully (PHY-016–PHY-018). No screenshot was required while the device remained intentionally disconnected.
 - Owner confirms all requested offline song-field and Set List date/location searches returned the expected reviewed items (PHY-019/PHY-020). Results were not always unique; this is recorded and does not violate the search criterion.
 - Owner confirms complete 58-occurrence offline traversal, bounded Previous/Next, both themes, occurrence-39 Can’t Stop warning, and readable scrolling without clipping or stale/skipped navigation (PHY-021–PHY-025). Screenshot: `screenshots/offline-live-occurrence-39-cant-stop.png`.
-- The separate all-five-warning-song inspection (PHY-026) remains pending.
-- No remaining lifecycle, broader readability/performance, rehearsal, or gig result is inferred.
+- Owner confirms all five landscape-warning songs displayed expected warnings and remained usable (PHY-026).
+- G3 offline workflows (PHY-014–PHY-026) pass on this exact device/session.
+- No lifecycle, broader readability/performance, rehearsal, or gig result is inferred.
 
 ## Signoff
 

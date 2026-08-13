@@ -219,7 +219,10 @@
       "id": "PHY-026",
       "gate": "G3",
       "title": "All five landscape-warning songs inspected",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:43:49Z",
+      "evidence": "Owner confirms all five reviewed landscape-warning songs—Can’t Stop, Father of Mine, Love Shack, Paradise City, and Troublemaker—displayed their expected warnings and remained usable during the complete offline traversal."
     },
     {
       "id": "PHY-027",
