@@ -37,6 +37,9 @@
 - Owner confirms external-keyboard Left/Right navigates Previous/Next and Space or Fn+Up/Down scrolls the focused lead-sheet column without changing songs (PHY-042/PHY-043).
 - Owner removed VoiceOver/focus-announcement testing from the owner acceptance scope. PHY-044 remains non-PASS and no VoiceOver compatibility claim is made.
 - Owner confirms Stage Dark readability in a dim room and all three offline cold launches under five seconds (PHY-046/PHY-048); exact launch seconds were not measured.
+- Owner approves the initial support floor as iPad Pro 13-inch (M5), iPadOS 26.6 or newer (PHY-002), without claiming other-device support.
+- Owner confirms Private Safari unauthenticated access stops at the exe.dev login boundary with no song content exposed (PHY-007).
+- G1 supported-device contract, G2 authentication/install/bootstrap, and G3 offline workflows now pass for this exact session.
 - No rehearsal or gig result is inferred.
 
 ## Signoff

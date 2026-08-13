@@ -17,8 +17,10 @@
       "id": "PHY-002",
       "gate": "G1",
       "title": "Owner-approved iPadOS/Safari version and support floor",
-      "status": "PENDING",
-      "evidence": "Exact test configuration recorded as iPadOS 26.6; minimum supported iPadOS/Safari floor is not yet approved."
+      "status": "PASS",
+      "evidence": "Owner approves the initial supported-device floor as iPad Pro 13-inch (M5) running iPadOS 26.6 or newer. This does not claim support for other iPad models.",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T18:05:15Z"
     },
     {
       "id": "PHY-003",
@@ -60,7 +62,10 @@
       "id": "PHY-007",
       "gate": "G2",
       "title": "Unauthenticated access exposes no bootstrap content",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T18:05:15Z",
+      "evidence": "Owner confirms that opening the V2 origin in a new unauthenticated Private Safari tab shows the exe.dev login boundary and exposes no song/bootstrap content."
     },
     {
       "id": "PHY-008",
