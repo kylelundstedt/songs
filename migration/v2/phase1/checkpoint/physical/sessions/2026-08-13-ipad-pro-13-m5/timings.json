@@ -1,0 +1,47 @@
+{
+  "schema_version": "1",
+  "checkpoint_summary_sha256": "137b5a3f3841d516e15a082c18e6b630abceacb13ecd8efc2cdddf2f8fe265a2",
+  "device": "iPad Pro 13-inch (M5), iPadOS 26.6",
+  "measurements": [
+    {
+      "id": "offline-cold-launch-1",
+      "seconds": null,
+      "status": "PENDING"
+    },
+    {
+      "id": "offline-cold-launch-2",
+      "seconds": null,
+      "status": "PENDING"
+    },
+    {
+      "id": "offline-cold-launch-3",
+      "seconds": null,
+      "status": "PENDING"
+    },
+    {
+      "id": "portrait-to-landscape-refit",
+      "seconds": null,
+      "status": "PENDING"
+    },
+    {
+      "id": "landscape-to-portrait-refit",
+      "seconds": null,
+      "status": "PENDING"
+    },
+    {
+      "id": "background-1-minute-resume",
+      "seconds": null,
+      "status": "PENDING"
+    },
+    {
+      "id": "background-5-minute-resume",
+      "seconds": null,
+      "status": "PENDING"
+    },
+    {
+      "id": "background-30-minute-resume",
+      "seconds": null,
+      "status": "PENDING"
+    }
+  ]
+}
