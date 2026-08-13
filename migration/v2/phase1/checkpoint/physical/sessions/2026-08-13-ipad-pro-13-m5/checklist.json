@@ -129,19 +129,28 @@
       "id": "PHY-016",
       "gate": "G3",
       "title": "Song 1979 offline",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:31:30Z",
+      "evidence": "Owner reports searching for and opening song 1979 succeeds while the installed web app remains in Airplane Mode."
     },
     {
       "id": "PHY-017",
       "gate": "G3",
       "title": "9Tease Stripped detail offline",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:31:30Z",
+      "evidence": "Owner reports opening the 9Tease Stripped Set List succeeds while the installed web app remains in Airplane Mode."
     },
     {
       "id": "PHY-018",
       "gate": "G3",
       "title": "Direct locked Live offline",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T17:31:30Z",
+      "evidence": "Owner reports entering the direct locked Live view from 9Tease Stripped succeeds while the installed web app remains in Airplane Mode. Screenshot unavailable by design while disconnected; owner observation recorded."
     },
     {
       "id": "PHY-019",

@@ -23,6 +23,7 @@
 - Owner directly confirms no Edit, Save, Add, Delete, Publish, Sync, Provider, or Pin controls anywhere; PHY-013 passes.
 - Owner reports three consecutive successful Airplane-Mode cold launches, each subjectively instant; numeric seconds were not measured (PHY-014).
 - Owner reports Library, Songs, Set Lists, and Status all work offline (PHY-015). Screenshot `screenshots/offline-library-after-three-launches.png` visibly shows Airplane Mode and the active verified IndexedDB snapshot.
+- Owner confirms offline song `1979`, Set List `9Tease Stripped`, and direct locked Live all open successfully (PHY-016–PHY-018). No screenshot was required while the device remained intentionally disconnected.
 - No remaining detailed offline workflow, lifecycle, readability, performance, rehearsal, or gig result is inferred.
 
 ## Signoff
