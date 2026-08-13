@@ -372,8 +372,10 @@
       "id": "PHY-043",
       "gate": "G5",
       "title": "Focused-column paging keys",
-      "status": "PENDING",
-      "evidence": "Owner reports plain Up/Down arrows do nothing. The defined check is Space and Page Up/Page Down (often Fn+Up/Down) after focusing a scrollable sheet column; that exact check remains pending."
+      "status": "PASS",
+      "evidence": "Owner confirms that after focusing a scrollable lead-sheet column, Space or Fn+Up/Down scrolls the column rather than changing songs.",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T18:01:27Z"
     },
     {
       "id": "PHY-044",
@@ -397,7 +399,10 @@
       "id": "PHY-046",
       "gate": "G5",
       "title": "Stage-Dark rehearsal readability",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T18:01:27Z",
+      "evidence": "Owner confirms Stage Dark is readable in a representative dim/dark room."
     },
     {
       "id": "PHY-047",
@@ -412,7 +417,10 @@
       "id": "PHY-048",
       "gate": "G5",
       "title": "Offline cold-launch timing",
-      "status": "PENDING"
+      "status": "PASS",
+      "tester": "owner",
+      "observed_at_utc": "2026-08-13T18:01:27Z",
+      "evidence": "Owner confirms all three offline Home Screen cold launches completed within the proposed five-second threshold; launches were previously described as instant, but exact numeric seconds were not measured."
     },
     {
       "id": "PHY-049",

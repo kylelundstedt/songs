@@ -34,8 +34,9 @@
 - Owner agrees to keep an independent V1 or printed/PDF fallback immediately available during rehearsal/performance (PHY-004).
 - Owner proposed printable Set List/lead-sheet packages and CSV/XLSX/Google Sheets interchange; proposals are tracked as TASK-017 and TASK-018 without changing current read-only/cutover gates.
 - Owner confirms touch/safe-area controls, rapid-tap safety, Bright-mode daylight readability, on-screen keyboard visibility, and rotation/refit within about two seconds (PHY-040, PHY-041, PHY-045, PHY-047, PHY-049).
-- Owner confirms external-keyboard Left/Right navigates Previous/Next in locked Live (PHY-042). Plain Up/Down arrows did nothing; the distinct Space/Page Up/Page Down focused-column test (PHY-043) remains pending.
+- Owner confirms external-keyboard Left/Right navigates Previous/Next and Space or Fn+Up/Down scrolls the focused lead-sheet column without changing songs (PHY-042/PHY-043).
 - Owner removed VoiceOver/focus-announcement testing from the owner acceptance scope. PHY-044 remains non-PASS and no VoiceOver compatibility claim is made.
+- Owner confirms Stage Dark readability in a dim room and all three offline cold launches under five seconds (PHY-046/PHY-048); exact launch seconds were not measured.
 - No rehearsal or gig result is inferred.
 
 ## Signoff
