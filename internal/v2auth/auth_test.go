@@ -50,13 +50,13 @@ func TestExtractPrincipalTrustedBoundary(t *testing.T) {
 }
 
 func TestStableDeviceID(t *testing.T) {
-	valid := []string{"a", "device-1", "a0-foo", "z" + string(make([]byte, 0))}
+	valid := []string{"a", "1device", "device-1", "a0-foo", "z" + string(make([]byte, 0))}
 	for _, id := range valid {
 		if !ValidStableID(id) {
 			t.Errorf("valid ID rejected: %q", id)
 		}
 	}
-	invalid := []string{"", "A", "1device", "a--b", "a_b", "a.b", "a/b", "a--", "a\n", "a" + string(make([]byte, 63))}
+	invalid := []string{"", "A", "a--b", "a_b", "a.b", "a/b", "a--", "a\n", "a" + string(make([]byte, 63))}
 	for _, id := range invalid {
 		if ValidStableID(id) {
 			t.Errorf("invalid ID accepted: %q", id)

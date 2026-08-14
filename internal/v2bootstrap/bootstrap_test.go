@@ -78,6 +78,36 @@ func loadCode(t *testing.T, files fs.FS, code ErrorCode) {
 	}
 }
 
+func TestBaselineDocumentsExposeReviewedCorpus(t *testing.T) {
+	snapshot, err := LoadEmbedded()
+	if err != nil {
+		t.Fatal(err)
+	}
+	documents, err := snapshot.BaselineDocuments()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(documents) != 373 {
+		t.Fatalf("documents=%d", len(documents))
+	}
+	var songs, sets int
+	for _, document := range documents {
+		if document.ID == "" || document.Title == "" || len(document.Source) == 0 {
+			t.Fatalf("invalid document: %+v", document)
+		}
+		if document.Kind == "lead-sheet" {
+			songs++
+		} else if document.Kind == "set-list" {
+			sets++
+		} else {
+			t.Fatalf("kind=%q", document.Kind)
+		}
+	}
+	if songs != 339 || sets != 34 {
+		t.Fatalf("songs=%d sets=%d", songs, sets)
+	}
+}
+
 func TestLoadEmbeddedSnapshot(t *testing.T) {
 	snapshot, err := LoadEmbedded()
 	if err != nil {

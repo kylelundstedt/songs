@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "kind": "songs-v2.task-019.evidence",
+  "assertions": {
+    "duplicate_occurrences_preserved": [
+      "entry-a-one",
+      "entry-a-two"
+    ],
+    "targeted_note_identity": [
+      [
+        "entry-a-one",
+        "first"
+      ],
+      [
+        "entry-b",
+        ""
+      ],
+      [
+        "entry-a-two",
+        "changed only duplicate"
+      ]
+    ],
+    "reordered_entry_ids": [
+      "entry-a-one",
+      "entry-a-two",
+      "entry-b"
+    ],
+    "undo_is_forward_revision": true,
+    "duplicate_has_fresh_identities": true,
+    "durable_revision_count": 4,
+    "coalesced_outbox_count": 1,
+    "retry_envelope_byte_stable": true,
+    "export_sha256": "6e05cd6f2da3064a5510b36d2eace0bedcac0a59c22fdf0e5cf535b69ccafd78",
+    "restore_counts": {
+      "mode": "merge",
+      "drafts": 1,
+      "revisions": 4,
+      "outbox": 1,
+      "conflicts": 0,
+      "legacy": 0,
+      "sync": false
+    },
+    "restored_head_matches": true
+  }
+}

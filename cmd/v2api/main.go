@@ -23,6 +23,7 @@ var flagSyncDB = flag.String("sync-db", "", "durable V2 sync SQLite path (requir
 var flagSyncOwner = flag.String("sync-owner", "", "exact trusted proxy owner ID (required when sync is enabled)")
 var flagSyncForwardedHost = flag.String("sync-forwarded-host", "", "exact trusted forwarded host (required when sync is enabled)")
 var flagSyncMasterKeyFile = flag.String("sync-master-key-file", "", "0600 file containing a 64-character hex master key (required when sync is enabled)")
+var flagWritableEnabled = flag.Bool("writable-enabled", false, "expose browser Set List authoring controls (requires sync; disabled by default)")
 
 func main() {
 	if err := run(); err != nil {
@@ -39,6 +40,9 @@ func run() error {
 	}
 	api := snapshot.Handler()
 	var syncStore *v2sync.Store
+	if *flagWritableEnabled && !*flagSyncEnabled {
+		return errors.New("writable browser controls require -sync-enabled")
+	}
 	if *flagSyncEnabled {
 		syncHandler, store, err := loadSyncHandler()
 		if err != nil {
@@ -46,7 +50,7 @@ func run() error {
 		}
 		syncStore = store
 		defer syncStore.Close()
-		api = routeV2API(snapshot.Handler(), syncHandler)
+		api = routeV2API(snapshot.Handler(), syncHandler, *flagWritableEnabled)
 	} else if *flagSyncDB != "" || *flagSyncOwner != "" || *flagSyncForwardedHost != "" || *flagSyncMasterKeyFile != "" {
 		return errors.New("sync configuration was supplied without -sync-enabled")
 	}
@@ -60,15 +64,27 @@ func run() error {
 		ReadHeaderTimeout: 5 * time.Second,
 		IdleTimeout:       60 * time.Second,
 	}
-	slog.Info("starting isolated V2 shell", "addr", server.Addr, "generation", snapshot.Generation(), "shell_release", shell.Release(), "sync_enabled", *flagSyncEnabled)
+	slog.Info("starting isolated V2 shell", "addr", server.Addr, "generation", snapshot.Generation(), "shell_release", shell.Release(), "sync_enabled", *flagSyncEnabled, "writable_enabled", *flagWritableEnabled)
 	if err := server.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		return err
 	}
 	return nil
 }
 
-func routeV2API(readOnly, sync http.Handler) http.Handler {
+const writableCapabilitiesPath = "/api/v2/writable-capabilities"
+
+func routeV2API(readOnly, sync http.Handler, writable bool) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == writableCapabilitiesPath {
+			if r.Method != http.MethodGet || r.URL.RawQuery != "" {
+				http.NotFound(w, r)
+				return
+			}
+			w.Header().Set("Content-Type", "application/json")
+			w.Header().Set("Cache-Control", "no-store")
+			_, _ = fmt.Fprintf(w, `{"schema_version":"1","set_list_authoring":%t,"foreground_sync":%t}`+"\n", writable, writable)
+			return
+		}
 		if r.URL.Path == v2syncapi.PathPrefix || strings.HasPrefix(r.URL.Path, v2syncapi.PathPrefix+"/") {
 			sync.ServeHTTP(w, r)
 			return

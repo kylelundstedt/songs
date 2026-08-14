@@ -3,7 +3,7 @@
 - **Priority:** P0
 - **Phase:** Post-Phase-1 writable foundation
 - **Program:** First writable V2 slice
-- **Status:** Planned after TASK-018
+- **Status:** Complete (August 14, 2026)
 - **Dependencies:** TASK-017 and TASK-018
 - **Estimate:** 8–12 focused engineering days
 
@@ -46,6 +46,35 @@ failures without exposing lead-sheet authoring or unsafe publication shortcuts.
 - conflicts and failed publication never masquerade as saved/published state;
 - locked Live remains protected from incomplete/unacknowledged mutations;
 - no data loss across quota, interruption, update, and retained-snapshot tests.
+
+## Completion evidence
+
+- IndexedDB schema v3 additively preserves reviewed snapshots and legacy pending
+  records while adding immutable authored revisions and durable sync state.
+- The typed Set List domain persists stable set/section/entry identities in
+  canonical Markdown comments, preserves duplicate occurrences, and implements
+  atomic create, duplicate, metadata, add/remove/reorder, note, and forward-
+  revision undo semantics.
+- Every local command commits its draft, immutable revision, and exact retry
+  envelope in one transaction; unattempted envelopes may coalesce while sent or
+  failed envelopes remain byte-stable.
+- Foreground-only sync registers a durable browser device, restores authoritative
+  current/published mappings, persists pull results before acknowledgement, and
+  retains retryable publication reservations and conflicts visibly.
+- Hashed authored-state export/restore excludes device credentials and restores
+  drafts, revisions, outbox, conflicts, cursor state, and opaque prior pending
+  records transactionally.
+- Locked Live continues to use the reviewed/published snapshot and never consumes
+  local drafts; the editor labels local, server, conflict, and protected
+  published state separately.
+- `cmd/v2publisher -mode=bootstrap` installs the complete reviewed 373-document
+  sync/publication baseline before writable deployment, including digit-leading
+  frozen identities.
+- Browser authoring requires both `-sync-enabled` and `-writable-enabled`; both
+  default false and the tracked service remains read-only.
+- Deterministic evidence is in `migration/v2/writable-set-lists/` (SHA-256
+  `39d6b8443391a6933330d20880ec006b5948cb35e229c093ff12e96eb6e64a33`)
+  and is checked by `make v2-writable-set-list-check`.
 
 ## Rollback
 

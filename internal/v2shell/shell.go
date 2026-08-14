@@ -16,9 +16,9 @@ import (
 )
 
 const (
-	expectedAssetManifestSHA256 = "d3dfa5f989efa38ce237034a6f5df4834d9101195794cd124a5427c66c3dc6c7"
+	expectedAssetManifestSHA256 = "473d6e8db546cfb3d25174d845a9e8609432301fc0390190bbaf190784544890"
 	expectedBootstrapSHA256     = "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"
-	expectedRelease             = "shell-39849548e3b7192a1c76aa6e"
+	expectedRelease             = "shell-3ec4dfcfddc7fd8b5d1c1904"
 )
 
 //go:embed data/* data/assets/*

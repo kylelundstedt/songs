@@ -180,7 +180,7 @@ func (h *Handler) register(w http.ResponseWriter, r *http.Request, owner string)
 	if !requireJSONBody(w, r, &in, "protocol_version", "device_id", "registration_id", "name") {
 		return
 	}
-	if in.ProtocolVersion != v2sync.ProtocolVersion || !v2auth.ValidStableID(in.DeviceID) || !v2auth.ValidStableID(in.RegistrationID) || in.Name == "" {
+	if in.ProtocolVersion != v2sync.ProtocolVersion || !v2sync.ValidStableID(in.DeviceID) || !v2sync.ValidStableID(in.RegistrationID) || in.Name == "" {
 		writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "registration envelope is invalid")
 		return
 	}
@@ -277,7 +277,7 @@ func (h *Handler) resolve(w http.ResponseWriter, r *http.Request, owner, device,
 	writeJSON(w, http.StatusOK, o)
 }
 
-var deviceRevokePathRE = regexp.MustCompile(`^` + regexp.QuoteMeta(PathPrefix) + `/devices/([a-z][a-z0-9-]{0,62})/revoke$`)
+var deviceRevokePathRE = regexp.MustCompile(`^` + regexp.QuoteMeta(PathPrefix) + `/devices/([a-z0-9][a-z0-9-]{0,62})/revoke$`)
 
 func (h *Handler) revoke(w http.ResponseWriter, r *http.Request, owner, credentialDevice, path string) {
 	if r.Method != http.MethodPost {
@@ -291,7 +291,7 @@ func (h *Handler) revoke(w http.ResponseWriter, r *http.Request, owner, credenti
 	}
 	id := matches[1]
 	// device. There is no body owner/admin override.
-	if id == "" || strings.Contains(id, "/") || id != credentialDevice || !v2auth.ValidStableID(id) {
+	if id == "" || strings.Contains(id, "/") || id != credentialDevice || !v2sync.ValidStableID(id) {
 		writeError(w, http.StatusUnauthorized, "UNAUTHENTICATED", "owner/device authorization failed")
 		return
 	}

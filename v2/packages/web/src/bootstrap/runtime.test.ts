@@ -15,7 +15,7 @@ import {
   type VerifiedManifestPayload,
 } from "./load";
 import { BootstrapClientError } from "./types";
-import { openSongsStorage, SONGS_STORAGE_NAME, SongsStorageError, type RecoveryOptions, type SongsStorage } from "../storage";
+import { openSongsStorage, SONGS_STORAGE_NAME, SONGS_STORAGE_VERSION, SongsStorageError, type RecoveryOptions, type SongsStorage } from "../storage";
 
 const dataRoot = resolve(process.cwd(), "../../../internal/v2bootstrap/data");
 const origin = "http://v2.test";
@@ -227,7 +227,7 @@ async function stagePayload(
 
 async function corruptChunk(generation: string): Promise<void> {
   const database = await new Promise<IDBDatabase>((resolvePromise, reject) => {
-    const request = indexedDB.open(SONGS_STORAGE_NAME, 2);
+    const request = indexedDB.open(SONGS_STORAGE_NAME, SONGS_STORAGE_VERSION);
     request.onsuccess = () => resolvePromise(request.result);
     request.onerror = () => reject(request.error);
   });

@@ -298,6 +298,7 @@
     "revision_count": 6,
     "operation_count": 6,
     "event_count": 6,
+    "publication_count": 0,
     "open_conflict_count": 1,
     "acknowledged_cursor": 6,
     "compaction_floor": 1,

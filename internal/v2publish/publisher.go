@@ -87,6 +87,11 @@ func Open(options Options) (*Publisher, error) {
 func (p *Publisher) Close() error    { return p.ledger.Close() }
 func (p *Publisher) Ledger() *Ledger { return p.ledger }
 
+// RemoteHead returns the fetched configured branch head without mutating the ledger.
+func (p *Publisher) RemoteHead(ctx context.Context) (string, error) {
+	return p.git.RemoteHead(ctx)
+}
+
 func (p *Publisher) BootstrapArchive(ctx context.Context, owner, device, holder string, documents []BootstrapDocument) error {
 	if !validOwner(owner) || !validStableID(device) || !validHolder(holder) || len(documents) == 0 {
 		return codeError(CodeInvalidPayload, "invalid archive bootstrap request", nil)
@@ -97,11 +102,15 @@ func (p *Publisher) BootstrapArchive(ctx context.Context, owner, device, holder 
 	}
 	defer lease.Release()
 	now := hookNow(p.currentHooks())
-	head, base, err := p.ensureGitBase(ctx, lease.Token(), now)
+	head, err := p.git.RemoteHead(ctx)
 	if err != nil {
 		return err
 	}
-	if head == "" || base != head {
+	base, initialized, err := p.ledger.GitBase()
+	if err != nil {
+		return err
+	}
+	if head == "" || initialized && base != head {
 		return codeError(CodeRemoteDrift, "archive bootstrap requires one stable non-empty remote head", nil)
 	}
 	worktree, err := p.git.Checkout(ctx, "archive-bootstrap", head)
@@ -159,6 +168,18 @@ func (p *Publisher) BootstrapArchive(ctx context.Context, owner, device, holder 
 		}
 		if !exists || !bytes.Equal(body, document.Source) {
 			return codeError(CodeIntegrity, "Git bytes differ from archive bootstrap document", nil)
+		}
+	}
+	stableHead, err := p.git.RemoteHead(ctx)
+	if err != nil {
+		return err
+	}
+	if stableHead != head {
+		return codeError(CodeRemoteDrift, "archive bootstrap remote moved during verification", nil)
+	}
+	if !initialized {
+		if err := p.ledger.InitializeGitBase(lease.Token(), head, now); err != nil {
+			return err
 		}
 	}
 	return p.ledger.BootstrapDocuments(lease.Token(), owner, head, manifestHash, documents, now)

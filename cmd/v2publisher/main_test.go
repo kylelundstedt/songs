@@ -19,12 +19,19 @@ import (
 type recordingAPI struct {
 	publishCalls   int
 	reconcileCalls int
+	bootstrapCalls int
 	got            apiConfig
 	err            error
 }
 
 func (a *recordingAPI) PublishOnce(_ context.Context, cfg apiConfig) error {
 	a.publishCalls++
+	a.got = cfg
+	return a.err
+}
+
+func (a *recordingAPI) BootstrapOnce(_ context.Context, cfg apiConfig) error {
+	a.bootstrapCalls++
 	a.got = cfg
 	return a.err
 }
@@ -105,7 +112,7 @@ func TestDefaultRunDoesNotInvokeAPIOrTouchFilesystem(t *testing.T) {
 	if err := run(context.Background(), nil, &stdout, api); err != nil {
 		t.Fatalf("default run: %v", err)
 	}
-	if api.publishCalls != 0 || api.reconcileCalls != 0 {
+	if api.publishCalls != 0 || api.reconcileCalls != 0 || api.bootstrapCalls != 0 {
 		t.Fatalf("default run invoked API: %+v", api)
 	}
 	after, err := os.ReadDir(temp)
@@ -115,7 +122,7 @@ func TestDefaultRunDoesNotInvokeAPIOrTouchFilesystem(t *testing.T) {
 	if !reflect.DeepEqual(before, after) {
 		t.Fatalf("default run changed filesystem: before=%v after=%v", before, after)
 	}
-	if got := stdout.String(); !strings.Contains(got, "disabled") || !strings.Contains(got, "no publication or reconciliation attempted") {
+	if got := stdout.String(); !strings.Contains(got, "disabled") || !strings.Contains(got, "no publication, reconciliation, or bootstrap attempted") {
 		t.Fatalf("default output = %q, want explicit disabled notice", got)
 	}
 }
@@ -138,7 +145,7 @@ func TestDisabledRunRejectsEveryConfigurationField(t *testing.T) {
 			if err == nil || !strings.Contains(err.Error(), "without -enabled") {
 				t.Fatalf("run(%q) error = %v, want disabled configuration rejection", field, err)
 			}
-			if api.publishCalls != 0 || api.reconcileCalls != 0 {
+			if api.publishCalls != 0 || api.reconcileCalls != 0 || api.bootstrapCalls != 0 {
 				t.Fatalf("rejected configuration invoked API: %+v", api)
 			}
 		})
@@ -149,7 +156,7 @@ func TestDisabledRunRejectsEveryConfigurationField(t *testing.T) {
 	if err := run(context.Background(), args, &bytes.Buffer{}, api); err == nil || !strings.Contains(err.Error(), "without -enabled") {
 		t.Fatalf("complete disabled configuration error = %v, want rejection", err)
 	}
-	if api.publishCalls != 0 || api.reconcileCalls != 0 {
+	if api.publishCalls != 0 || api.reconcileCalls != 0 || api.bootstrapCalls != 0 {
 		t.Fatalf("complete disabled configuration invoked API: %+v", api)
 	}
 }
@@ -258,6 +265,23 @@ func TestReconcileModeInvokesExactlyOneReconciliation(t *testing.T) {
 		t.Fatalf("API config = %+v, want %+v", api.got, want)
 	}
 	if stdout.String() != "v2publisher reconcile completed\n" {
+		t.Fatalf("stdout = %q", stdout.String())
+	}
+}
+
+func TestBootstrapModeInvokesExactlyOneBootstrap(t *testing.T) {
+	api := &recordingAPI{}
+	var stdout bytes.Buffer
+	if err := run(context.Background(), completeArgs(modeBootstrap), &stdout, api); err != nil {
+		t.Fatal(err)
+	}
+	if api.bootstrapCalls != 1 || api.publishCalls != 0 || api.reconcileCalls != 0 {
+		t.Fatalf("calls = %+v", api)
+	}
+	if want := completeConfig(modeBootstrap).api; api.got != want {
+		t.Fatalf("API config = %+v, want %+v", api.got, want)
+	}
+	if stdout.String() != "v2publisher bootstrap completed\n" {
 		t.Fatalf("stdout = %q", stdout.String())
 	}
 }

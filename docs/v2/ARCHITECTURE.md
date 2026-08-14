@@ -112,3 +112,19 @@ yet implemented or physically tested. The owner-directed sequence is:
 
 Deferred read-only G4 checks remain scheduled for a later session. Do not infer
 writable, rehearsal, gig, default-route, or V1-retirement readiness.
+
+## Offline writable Set List boundary
+
+TASK-019 adds an authored overlay without changing bootstrap-generation authority:
+
+- IndexedDB v3 keeps reviewed snapshots separate from drafts, immutable local and
+  server revisions, exact outbox envelopes, conflicts, and sync mappings;
+- stable section/entry IDs are serialized in canonical Set List Markdown comments
+  so duplicate occurrences retain identity across reorder and publication;
+- browser actions validate first and atomically commit draft + revision + outbox;
+- foreground sync is explicit, persists pull bytes before acknowledgement, and
+  never rebuilds an attempted envelope;
+- locked Live remains on the published/reviewed revision, never a local draft;
+- recovery exports are self-hashed and exclude device credentials;
+- browser controls require both server sync and writable gates, each disabled by
+  default in tracked production configuration.

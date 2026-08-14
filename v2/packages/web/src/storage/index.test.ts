@@ -3,6 +3,7 @@ import "fake-indexeddb/auto";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   SONGS_STORAGE_NAME,
+  SONGS_STORAGE_VERSION,
   SONGS_STORAGE_STORES,
   SongsStorage,
   openSongsStorage,
@@ -59,11 +60,18 @@ const V2_STORE_KEY_PATHS: Readonly<Record<string, string | readonly string[]>> =
   conflicts: "id",
 };
 
-async function seedV2Schema(options: { readonly omit?: readonly string[]; readonly keyPathOverrides?: Readonly<Record<string, string | readonly string[]>> } = {}): Promise<void> {
+const V3_STORE_KEY_PATHS: Readonly<Record<string, string | readonly string[]>> = {
+  ...V2_STORE_KEY_PATHS,
+  revisions: "id",
+  sync: "id",
+};
+
+async function seedSchema(version: 2 | 3, options: { readonly omit?: readonly string[]; readonly keyPathOverrides?: Readonly<Record<string, string | readonly string[]>> } = {}): Promise<void> {
+  const paths = version === 2 ? V2_STORE_KEY_PATHS : V3_STORE_KEY_PATHS;
   const database = await new Promise<IDBDatabase>((resolve, reject) => {
-    const request = indexedDB.open(SONGS_STORAGE_NAME, 2);
+    const request = indexedDB.open(SONGS_STORAGE_NAME, version);
     request.onupgradeneeded = () => {
-      for (const [store, expectedKeyPath] of Object.entries(V2_STORE_KEY_PATHS)) {
+      for (const [store, expectedKeyPath] of Object.entries(paths)) {
         if (options.omit?.includes(store)) continue;
         const keyPath = options.keyPathOverrides?.[store] ?? expectedKeyPath;
         request.result.createObjectStore(store, { keyPath: typeof keyPath === "string" ? keyPath : [...keyPath] });
@@ -73,6 +81,14 @@ async function seedV2Schema(options: { readonly omit?: readonly string[]; readon
     request.onerror = () => reject(request.error);
   });
   database.close();
+}
+
+async function seedV2Schema(options: { readonly omit?: readonly string[]; readonly keyPathOverrides?: Readonly<Record<string, string | readonly string[]>> } = {}): Promise<void> {
+  return seedSchema(2, options);
+}
+
+async function seedV3Schema(options: { readonly omit?: readonly string[]; readonly keyPathOverrides?: Readonly<Record<string, string | readonly string[]>> } = {}): Promise<void> {
+  return seedSchema(3, options);
 }
 
 async function openStorage(): Promise<SongsStorage> {
@@ -108,7 +124,7 @@ async function seedV1(): Promise<void> {
 }
 
 async function putPending(store: "outbox" | "drafts" | "conflicts", record: object): Promise<void> {
-  const database = await rawOpen(2);
+  const database = await rawOpen(SONGS_STORAGE_VERSION);
   const transaction = database.transaction(store, "readwrite");
   transaction.objectStore(store).put(record);
   await transactionDone(transaction);
@@ -137,17 +153,45 @@ describe("songs-v2 TASK-012 storage", () => {
     await putPending("conflicts", { id: "pending-conflict", body: "do not lose" });
 
     const inspection = await storage.inspect();
-    expect(inspection.version).toBe(2);
+    expect(inspection.version).toBe(SONGS_STORAGE_VERSION);
     expect(inspection.activeGeneration).toBe("legacy");
     expect(inspection.pending).toEqual({ outbox: 1, drafts: 1, conflicts: 1 });
 
-    const raw = await rawOpen(2);
+    const raw = await rawOpen(SONGS_STORAGE_VERSION);
     expect([...raw.objectStoreNames].sort()).toEqual([...SONGS_STORAGE_STORES].sort());
     const transaction = raw.transaction(["outbox", "drafts", "conflicts"], "readonly");
     await expect(requestResult(transaction.objectStore("outbox").get("pending-outbox"))).resolves.toMatchObject({ body: "do not lose" });
     await expect(requestResult(transaction.objectStore("drafts").get("pending-draft"))).resolves.toMatchObject({ body: "do not lose" });
     await expect(requestResult(transaction.objectStore("conflicts").get("pending-conflict"))).resolves.toMatchObject({ body: "do not lose" });
     await transactionDone(transaction);
+    raw.close();
+  });
+
+  it("upgrades v2 additively to v3 and preserves every pending authored placeholder", async () => {
+    await seedV2Schema();
+    const before = await rawOpen(2);
+    const write = before.transaction(["outbox", "drafts", "conflicts"], "readwrite");
+    write.objectStore("outbox").put({ id: "v2-outbox", body: "preserve" });
+    write.objectStore("drafts").put({ id: "v2-draft", body: "preserve" });
+    write.objectStore("conflicts").put({ id: "v2-conflict", body: "preserve" });
+    await transactionDone(write);
+    before.close();
+
+    const storage = await openStorage();
+    expect((await storage.inspect()).pending).toEqual({ outbox: 1, drafts: 1, conflicts: 1 });
+    expect(await storage.readAuthoredState()).toEqual({ drafts: [], revisions: [], outbox: [], conflicts: [], sync: null });
+    const authoredExport = await storage.exportAuthoredState("2026-08-14T12:00:00.000Z");
+    await expect(storage.restoreAuthoredState(authoredExport, { mode: "replace" })).resolves.toMatchObject({ drafts: 0, revisions: 0, outbox: 0, conflicts: 0 });
+    expect((await storage.inspect()).pending).toEqual({ outbox: 1, drafts: 1, conflicts: 1 });
+    const raw = await rawOpen(SONGS_STORAGE_VERSION);
+    expect([...raw.objectStoreNames].sort()).toEqual([...SONGS_STORAGE_STORES].sort());
+    const read = raw.transaction(["outbox", "drafts", "conflicts", "revisions", "sync"], "readonly");
+    await expect(requestResult(read.objectStore("outbox").get("v2-outbox"))).resolves.toMatchObject({ body: "preserve" });
+    await expect(requestResult(read.objectStore("drafts").get("v2-draft"))).resolves.toMatchObject({ body: "preserve" });
+    await expect(requestResult(read.objectStore("conflicts").get("v2-conflict"))).resolves.toMatchObject({ body: "preserve" });
+    await expect(requestResult(read.objectStore("revisions").count())).resolves.toBe(0);
+    await expect(requestResult(read.objectStore("sync").count())).resolves.toBe(0);
+    await transactionDone(read);
     raw.close();
   });
 
@@ -363,7 +407,7 @@ describe("songs-v2 TASK-012 storage", () => {
       throw new DOMException("quota exhausted", "QuotaExceededError");
     });
     try {
-      await expect(storage.beginStage({ generation: "quota", catalog: {}, expectedChunks: 0, expectedArtifacts: 0 })).rejects.toMatchObject({ code: "TRANSACTION_FAILED" });
+      await expect(storage.beginStage({ generation: "quota", catalog: {}, expectedChunks: 0, expectedArtifacts: 0 })).rejects.toMatchObject({ code: "QUOTA_EXCEEDED" });
     } finally {
       put.mockRestore();
       expect(IDBObjectStore.prototype.put).toBe(originalPut);
@@ -372,16 +416,16 @@ describe("songs-v2 TASK-012 storage", () => {
   });
 
   it("fails closed on same-version malformed schemas without repairing or deleting them", async () => {
-    await seedV2Schema({ omit: ["conflicts"] });
+    await seedV3Schema({ omit: ["conflicts"] });
     await expect(openSongsStorage()).rejects.toMatchObject({ code: "SCHEMA_INVALID" });
-    const missingStore = await rawOpen(2);
+    const missingStore = await rawOpen(SONGS_STORAGE_VERSION);
     expect(missingStore.objectStoreNames.contains("conflicts")).toBe(false);
     missingStore.close();
 
     await eraseDatabase();
-    await seedV2Schema({ keyPathOverrides: { documents: "wrongKey" } });
+    await seedV3Schema({ keyPathOverrides: { documents: "wrongKey" } });
     await expect(openSongsStorage()).rejects.toMatchObject({ code: "SCHEMA_INVALID" });
-    const wrongKeyPath = await rawOpen(2);
+    const wrongKeyPath = await rawOpen(SONGS_STORAGE_VERSION);
     const transaction = wrongKeyPath.transaction("documents", "readonly");
     const documentsKeyPath = transaction.objectStore("documents").keyPath;
     await transactionDone(transaction);
@@ -390,7 +434,7 @@ describe("songs-v2 TASK-012 storage", () => {
   });
 
   it("fails typed on a newer schema, a blocked upgrade, and a versionchange close", async () => {
-    const newer = await rawOpen(3);
+    const newer = await rawOpen(SONGS_STORAGE_VERSION + 1);
     newer.close();
     await expect(openSongsStorage()).rejects.toMatchObject({ code: "SCHEMA_NEWER" });
     await eraseDatabase();
@@ -405,7 +449,7 @@ describe("songs-v2 TASK-012 storage", () => {
     await eraseDatabase();
 
     const storage = await openStorage();
-    const upgrading = indexedDB.open(SONGS_STORAGE_NAME, 3);
+    const upgrading = indexedDB.open(SONGS_STORAGE_NAME, SONGS_STORAGE_VERSION + 1);
     await new Promise<void>((resolve, reject) => {
       upgrading.onupgradeneeded = () => undefined;
       upgrading.onsuccess = () => {

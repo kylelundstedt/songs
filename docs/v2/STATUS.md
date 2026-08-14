@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 read-only checkpoint is complete; post-Phase-1 writable foundation is now active.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-018.
-- **Current task:** TASK-019 offline writable Set List editor and outbox.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-019.
+- **Current task:** TASK-020 offline writable lead-sheet authoring and enrichment.
 - **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
 - **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
 
@@ -220,6 +220,29 @@ TASK-018 completed the fenced publication, Git reconciliation, and recovery foun
 - deterministic evidence is recorded under
   `migration/v2/production-publication/`.
 
+TASK-019 completed the offline writable Set List editor and outbox:
+
+- IndexedDB v3 stores immutable local/server revisions, durable drafts, exact
+  retry envelopes, conflicts, and authoritative current/published mappings
+  without coupling authored state to replaceable bootstrap generations;
+- stable Set List, section, and duplicate Set Entry identities survive edits,
+  reorder, synchronization, publication Markdown, close/reopen, and recovery;
+- create, duplicate, metadata, reviewed-song add/remove/reorder, notes, autosave,
+  and deterministic forward-revision undo are available only behind the explicit
+  writable capability;
+- foreground sync persists pulls before acknowledgement, retries exact attempted
+  envelopes, and labels local, server, conflict, and published/locked-Live state
+  independently;
+- hashed export/restore preserves unsynced authored state without exporting
+  device credentials;
+- complete reviewed baseline bootstrap now seeds all 373 current documents and
+  publication mappings before writable deployment;
+- deterministic evidence is recorded under
+  `migration/v2/writable-set-lists/` at SHA-256
+  `39d6b8443391a6933330d20880ec006b5948cb35e229c093ff12e96eb6e64a33`;
+  embedded release `shell-3ec4dfcfddc7fd8b5d1c1904` is the gated TASK-019 shell;
+  the tracked service remains read-only.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -260,6 +283,7 @@ go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
 make v2-sync-check
 make v2-publication-check
+make v2-writable-set-list-check
 go test ./...
 go vet ./...
 git diff --check
@@ -267,8 +291,8 @@ git diff --check
 
 ## Next tasks
 
-1. Implement **TASK-019**: offline writable Set List editor, durable outbox, and recovery.
-2. Implement **TASK-020–021**: offline writable lead-sheet authoring, provider/Shelley draft workflows, conflicts, failure recovery, and writable physical acceptance.
+1. Implement **TASK-020**: offline writable lead-sheet authoring and enrichment.
+2. Implement **TASK-021**: writable conflict/recovery hardening and physical-device acceptance.
 3. After the writable workflows function end to end, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
 4. Finish deferred blocking read-only G4 reliability checks later; they do not supersede the writable implementation priority.
 5. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.

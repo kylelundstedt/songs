@@ -4,6 +4,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
@@ -13,6 +14,7 @@ import (
 	"strings"
 	"syscall"
 
+	"songs.exe.dev/internal/v2bootstrap"
 	"songs.exe.dev/internal/v2publish"
 	"songs.exe.dev/internal/v2sync"
 )
@@ -20,6 +22,7 @@ import (
 const (
 	modePublish   = "publish"
 	modeReconcile = "reconcile"
+	modeBootstrap = "bootstrap"
 )
 
 var errPublisherAPIUnavailable = errors.New("internal/v2publish API is unavailable; publication and reconciliation remain disabled")
@@ -55,11 +58,16 @@ type apiConfig struct {
 type publicationAPI interface {
 	PublishOnce(context.Context, apiConfig) error
 	ReconcileOnce(context.Context, apiConfig) error
+	BootstrapOnce(context.Context, apiConfig) error
 }
 
 type unavailablePublicationAPI struct{}
 
 func (unavailablePublicationAPI) PublishOnce(context.Context, apiConfig) error {
+	return errPublisherAPIUnavailable
+}
+
+func (unavailablePublicationAPI) BootstrapOnce(context.Context, apiConfig) error {
 	return errPublisherAPIUnavailable
 }
 
@@ -81,6 +89,88 @@ func (livePublicationAPI) PublishOnce(ctx context.Context, cfg apiConfig) error 
 		RevisionID: cfg.Revision, Holder: cfg.Holder,
 	})
 	return err
+}
+
+func (livePublicationAPI) BootstrapOnce(ctx context.Context, cfg apiConfig) error {
+	snapshot, err := v2bootstrap.LoadEmbedded()
+	if err != nil {
+		return fmt.Errorf("load reviewed bootstrap: %w", err)
+	}
+	baseline, err := snapshot.BaselineDocuments()
+	if err != nil {
+		return err
+	}
+	publicationDocuments := make([]v2publish.BootstrapDocument, 0, len(baseline))
+	for _, document := range baseline {
+		kind := v2publish.LeadSheet
+		if document.Kind == "set-list" {
+			kind = v2publish.SetList
+		}
+		publicationDocuments = append(publicationDocuments, v2publish.BootstrapDocument{DocumentID: document.ID, Title: document.Title, Kind: kind, Path: document.Path, Source: document.Source})
+	}
+	// Revision identity is part of the reviewed archive manifest anchor.
+	for index := range publicationDocuments {
+		payload, err := json.Marshal(v2publish.PublicationPayload{SchemaVersion: v2publish.PayloadSchemaVersion, Kind: publicationDocuments[index].Kind, Path: publicationDocuments[index].Path, Source: string(publicationDocuments[index].Source)})
+		if err != nil {
+			return err
+		}
+		hash, canonical, err := v2sync.HashPayload(payload)
+		if err != nil {
+			return err
+		}
+		revision := v2sync.BaselineRevision{DocumentID: publicationDocuments[index].DocumentID, Title: publicationDocuments[index].Title, Payload: canonical, PayloadSHA256: hash}
+		revisionID, err := v2sync.BaselineRevisionID(cfg.Owner, revision)
+		if err != nil {
+			return err
+		}
+		publicationDocuments[index].RevisionID = revisionID
+	}
+	manifestHash, err := v2publish.BootstrapManifestSHA256(publicationDocuments)
+	if err != nil {
+		return err
+	}
+	syncStore, err := v2sync.Open(cfg.Sync)
+	if err != nil {
+		return fmt.Errorf("open sync ledger: %w", err)
+	}
+	defer syncStore.Close()
+	publisher, err := v2publish.Open(v2publish.Options{LedgerPath: cfg.Ledger, LockPath: cfg.Lock, Remote: cfg.Repository, WorkRoot: cfg.WorkRoot, Sync: syncStore, BootstrapManifestSHA256: manifestHash, ValidatorOptions: v2publish.ValidatorOptions{ApexPath: cfg.Apex}})
+	if err != nil {
+		return err
+	}
+	defer publisher.Close()
+	revisions := make([]v2sync.BaselineRevision, 0, len(publicationDocuments))
+	documents := make([]v2sync.DocumentMapping, 0, len(publicationDocuments))
+	for _, document := range publicationDocuments {
+		payload, err := json.Marshal(v2publish.PublicationPayload{SchemaVersion: v2publish.PayloadSchemaVersion, Kind: document.Kind, Path: document.Path, Source: string(document.Source)})
+		if err != nil {
+			return err
+		}
+		hash, canonical, err := v2sync.HashPayload(payload)
+		if err != nil {
+			return err
+		}
+		revisions = append(revisions, v2sync.BaselineRevision{RevisionID: document.RevisionID, DocumentID: document.DocumentID, Title: document.Title, Payload: canonical, PayloadSHA256: hash})
+		documents = append(documents, v2sync.DocumentMapping{DocumentID: document.DocumentID, Title: document.Title, CurrentRevisionID: document.RevisionID})
+	}
+	if _, err := syncStore.BootstrapBaseline(v2sync.BaselineBootstrapEnvelope{ProtocolVersion: v2sync.ProtocolVersion, OwnerID: cfg.Owner, DeviceID: cfg.Device, OperationID: "baseline-bootstrap", Revisions: revisions, Documents: documents}); err != nil {
+		return err
+	}
+	if err := publisher.BootstrapArchive(ctx, cfg.Owner, cfg.Device, cfg.Holder, publicationDocuments); err != nil {
+		return err
+	}
+	head, initialized, err := publisher.Ledger().GitBase()
+	if err != nil {
+		return fmt.Errorf("read durable archive baseline head: %w", err)
+	}
+	if !initialized || head == "" {
+		return errors.New("read durable archive baseline head: baseline is not initialized")
+	}
+	publications := make([]v2sync.PublicationMapping, 0, len(publicationDocuments))
+	for _, document := range publicationDocuments {
+		publications = append(publications, v2sync.PublicationMapping{DocumentID: document.DocumentID, RevisionID: document.RevisionID, CommitHash: head})
+	}
+	return syncStore.BootstrapPublications(v2sync.PublicationBaselineEnvelope{OwnerID: cfg.Owner, DeviceID: cfg.Device, OperationID: "publication-baseline", Publications: publications})
 }
 
 func (livePublicationAPI) ReconcileOnce(ctx context.Context, cfg apiConfig) error {
@@ -131,7 +221,7 @@ func run(ctx context.Context, args []string, stdout io.Writer, api publicationAP
 		return err
 	}
 	if !cfg.enabled {
-		_, err := fmt.Fprintln(stdout, "v2publisher disabled; no publication or reconciliation attempted")
+		_, err := fmt.Fprintln(stdout, "v2publisher disabled; no publication, reconciliation, or bootstrap attempted")
 		return err
 	}
 	if api == nil {
@@ -143,6 +233,8 @@ func run(ctx context.Context, args []string, stdout io.Writer, api publicationAP
 		err = api.PublishOnce(ctx, cfg.api)
 	case modeReconcile:
 		err = api.ReconcileOnce(ctx, cfg.api)
+	case modeBootstrap:
+		err = api.BootstrapOnce(ctx, cfg.api)
 	default:
 		// validateConfig makes this unreachable. Keep the dispatch fail-closed if
 		// validation and execution are ever refactored independently.
@@ -160,7 +252,7 @@ func parseConfig(args []string) (config, error) {
 	flags := flag.NewFlagSet("v2publisher", flag.ContinueOnError)
 	flags.SetOutput(io.Discard)
 	flags.BoolVar(&cfg.enabled, "enabled", false, "explicitly enable one publication or reconciliation operation")
-	flags.StringVar(&cfg.mode, "mode", "", "one-shot operation: publish or reconcile (required when enabled)")
+	flags.StringVar(&cfg.mode, "mode", "", "one-shot operation: publish, reconcile, or bootstrap (required when enabled)")
 	flags.StringVar(&cfg.api.Ledger, "ledger", "", "publication ledger configuration (required when enabled)")
 	flags.StringVar(&cfg.api.Sync, "sync", "", "durable sync configuration (required when enabled)")
 	flags.StringVar(&cfg.api.Repository, "repository", "", "Git remote configuration (required when enabled)")
@@ -224,10 +316,10 @@ func validateConfig(cfg config) error {
 	if len(missing) != 0 {
 		return fmt.Errorf("enabled publisher requires complete configuration; missing: %s", strings.Join(missing, ", "))
 	}
-	if cfg.mode != modePublish && cfg.mode != modeReconcile {
-		return fmt.Errorf("invalid -mode %q; want %q or %q", cfg.mode, modePublish, modeReconcile)
+	if cfg.mode != modePublish && cfg.mode != modeReconcile && cfg.mode != modeBootstrap {
+		return fmt.Errorf("invalid -mode %q; want %q, %q, or %q", cfg.mode, modePublish, modeReconcile, modeBootstrap)
 	}
-	if cfg.mode == modeReconcile && (cfg.api.Document != "" || cfg.api.Revision != "") {
+	if (cfg.mode == modeReconcile || cfg.mode == modeBootstrap) && (cfg.api.Document != "" || cfg.api.Revision != "") {
 		return errors.New("-document and -revision are accepted only in publish mode")
 	}
 	for _, field := range []struct {

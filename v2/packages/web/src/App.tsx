@@ -4,11 +4,19 @@ import { type SnapshotProgress } from "./bootstrap/load";
 import { ACTIVE_POINTER_CHANNEL, bootstrapRuntime, type BootstrapRuntimeStatus } from "./bootstrap/runtime";
 import { buildLibraryIndex, type LibraryIndex, type LibrarySet, type LibrarySong, type SetSearchField, type SongSearchField } from "./library";
 import { LiveSetPage } from "./live/LiveSetPage";
-import { buildPerformanceSet, type PerformanceSet } from "./live/model";
+import { buildPerformanceSet, buildPerformanceSetFromAuthored, type PerformanceSet } from "./live/model";
 import { controllerChangeDisposition, deferredControllerDisposition, waitingWorkerActivationDisposition } from "./service-worker";
+import { SetListEditor } from "./setlists/SetListEditor";
+import { setListFromBootstrap } from "./setlists/bootstrap";
+import { duplicateSetList, initializeEditableSetList, randomStableId, validateSetList } from "./setlists";
+import { decodeCanonicalSetListSource } from "./setlists/codec";
+import type { SetList } from "./setlists/model";
+import { loadWritableCapabilities } from "./sync/client";
+import { runForegroundSync } from "./sync/engine";
 import { openSongsStorage, SONGS_STORAGE_NAME } from "./storage";
 import "./styles.css";
 
+const AUTHORED_CHANGE_EVENT = "songs-v2-authored-change";
 const CACHE_PREFIX = "songs-v2-shell-";
 let deferredControllerReload = false;
 
@@ -63,6 +71,21 @@ function useOnline(): boolean {
     return () => { window.removeEventListener("online", yes); window.removeEventListener("offline", no); };
   }, []);
   return online;
+}
+
+function useWritableCapability(online: boolean): boolean {
+  const [enabled, setEnabled] = useState(() => localStorage.getItem("songs-v2-writable-enabled") === "1");
+  useEffect(() => {
+    if (!online) return;
+    const controller = new AbortController();
+    void loadWritableCapabilities(controller.signal).then((capability) => {
+      const next = capability.set_list_authoring && capability.foreground_sync;
+      localStorage.setItem("songs-v2-writable-enabled", next ? "1" : "0");
+      setEnabled(next);
+    }).catch(() => { localStorage.setItem("songs-v2-writable-enabled", "0"); setEnabled(false); });
+    return () => controller.abort();
+  }, [online]);
+  return enabled;
 }
 
 export interface ServiceWorkerState {
@@ -366,12 +389,12 @@ function SongsPage({ index, snapshot }: { readonly index: LibraryIndex; readonly
   </>;
 }
 
-function SetsPage({ index, snapshot }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot }) {
+function SetsPage({ index, snapshot, writable }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot; readonly writable: boolean }) {
   const [filter, setFilter] = useState("");
   const results = useMemo(() => index.searchSets(filter), [filter, index]);
   const query = filter.trim();
   return <>
-    <PageHeading eyebrow="Performance archive" title="Set Lists"><p>Search title, slug, date, location, band, and status in the active verified snapshot locally.</p></PageHeading>
+    <PageHeading eyebrow="Performance archive" title="Set Lists"><p>Search title, slug, date, location, band, and status in the active verified snapshot locally.</p>{writable && <Link to="/sets/new/edit" className="primary-button">Create Set List</Link>}</PageHeading>
     <SearchControls id="set-search" label="Search Set Lists in this local verified snapshot" value={filter} onChange={setFilter} placeholder="Title, date, location, band, status" clearLabel="Clear Set List search" />
     <p className="result-count" role="status">{query === "" ? `Showing all ${results.length} Set Lists from the local verified snapshot.` : `Showing ${results.length} of ${index.sets.length} Set Lists for “${query}”.`}</p>
     {results.length === 0 ? <section className="panel no-results" aria-live="polite"><h2>No Set Lists found</h2><p>No Set Lists matched “{query}” in this local verified snapshot.</p></section> : <ul className="document-list panel" aria-label="Set List search results">{results.map((result) => <SetRow key={result.set.id} setList={result.set} snapshot={snapshot} matchedFields={result.matchedFields} />)}</ul>}
@@ -444,12 +467,15 @@ function LeadSheetPage({ song, snapshot }: { readonly song: LeadSheetDocument; r
   </article>;
 }
 
-function SetListPage({ performanceSet }: { readonly performanceSet: PerformanceSet }) {
+function SetListPage({ performanceSet, writable }: { readonly performanceSet: PerformanceSet; readonly writable: boolean }) {
   const setList = performanceSet.document;
   const entryById = new Map(performanceSet.entries.map((entry) => [entry.entryId, entry]));
   return <article className="detail-page">
     <nav className="breadcrumbs" aria-label="Breadcrumb"><Link to="/sets">Set Lists</Link><span aria-hidden="true">/</span><span>{setList.projection.title}</span></nav>
-    <header className="detail-header"><div><p className="eyebrow">Read-only Set List</p><h1 tabIndex={-1} data-page-heading>{setList.projection.title}</h1><p className="artist">{[setList.projection.metadata.date, setList.projection.metadata.location].filter(Boolean).join(" · ")}</p></div><div className="set-detail-actions"><span className="set-total">{performanceSet.entries.length} songs</span><Link to={`/sets/${performanceSet.slug}/live`} className="primary-button live-launch">Open locked Live</Link></div></header>
+    <header className="detail-header"><div><p className="eyebrow">{writable ? "Set List · server/published Live protected" : "Read-only Set List"}</p><h1 tabIndex={-1} data-page-heading>{setList.projection.title}</h1><p className="artist">{[setList.projection.metadata.date, setList.projection.metadata.location].filter(Boolean).join(" · ")}</p></div><div className="set-detail-actions"><span className="set-total">{performanceSet.entries.length} songs</span>{writable && <button type="button" onClick={() => {
+      const source = setListFromBootstrap(setList); const id = randomStableId("set"); const copy = duplicateSetList(source, { setListId: id, path: `sets/Copy-${id.slice(-12)}.md`, sectionIds: source.sections.map(() => randomStableId("section")), entryIds: source.sections.flatMap((section) => section.entries.map(() => randomStableId("entry"))) }, { title: `Copy of ${source.title}` });
+      void openSongsStorage().then(async (storage) => { try { await initializeEditableSetList(storage, copy, { sourceDocumentId: source.id }); window.location.hash = `#/sets/local/${id}/edit`; } finally { storage.close(); } });
+    }}>Duplicate</button>}{writable && <Link to={`/sets/${performanceSet.slug}/edit`} className="primary-button">Edit offline</Link>}<Link to={`/sets/${performanceSet.slug}/live`} className="primary-button live-launch">Open locked Live</Link></div></header>
     {setList.projection.metadata.reviewRequired && <p className="warning-banner">This frozen Set List is marked review required.</p>}
     {performanceSet.warningOccurrences.length > 0 && <p className="warning-banner">{performanceSet.warningOccurrences.length} occurrence{performanceSet.warningOccurrences.length === 1 ? " has" : "s have"} an explicit iPad landscape fit warning. Live mode remains readable at the 16px floor with scrolling.</p>}
     <div className="set-sections">{setList.projection.sections.map((section) => <section key={section.projectionKey} className="set-section"><h2>{section.heading || `Set ${section.ordinal}`}</h2><ol>{section.entryIds.map((entryId) => {
@@ -564,11 +590,12 @@ function exactSongSlug(path: string): string | undefined {
   return match === null ? undefined : decodedRouteSegment(match[1]!);
 }
 
-function exactSetRoute(path: string): { readonly slug: string; readonly live: boolean } | undefined {
-  const match = /^\/sets\/([^/]+)(\/live)?$/.exec(path);
+function exactSetRoute(path: string): { readonly slug: string; readonly mode: "detail" | "live" | "edit" } | undefined {
+  const match = /^\/sets\/([^/]+)(\/(?:live|edit))?$/.exec(path);
   if (match === null) return undefined;
   const slug = decodedRouteSegment(match[1]!);
-  return slug === undefined ? undefined : { slug, live: match[2] === "/live" };
+  const mode = match[2] === "/live" ? "live" : match[2] === "/edit" ? "edit" : "detail";
+  return slug === undefined ? undefined : { slug, mode };
 }
 
 function activeSnapshotFor(snapshot: VerifiedSnapshot, runtime: BootstrapRuntimeStatus): boolean {
@@ -646,16 +673,97 @@ export function GuardedLiveSetPage({ performanceSet, exitHref, expectedStorageGe
   return <LiveSetPage key={performanceSet.id} performanceSet={performanceSet} exitHref={exitHref} />;
 }
 
+function NewSetListEditorPage({ songs }: { readonly songs: readonly LeadSheetDocument[] }) {
+  const [baseline] = useState(() => { const id = randomStableId("set"); return validateSetList({ id, path: `sets/New-${id.slice(-12)}.md`, title: "Untitled Set List", sections: [{ id: randomStableId("section"), heading: "Set 1", entries: [] }] }); });
+  return <SetListEditor baseline={baseline} songs={songs} initialize="create" onClose={() => { window.location.hash = `#/sets/local/${baseline.id}/edit`; }} />;
+}
+
+function LocalSetListEditorPage({ documentId, songs }: { readonly documentId: string; readonly songs: readonly LeadSheetDocument[] }) {
+  const [baseline, setBaseline] = useState<ReturnType<typeof validateSetList>>();
+  const [error, setError] = useState<string>();
+  useEffect(() => { let active = true; void openSongsStorage().then(async (storage) => { try { const draft = await storage.readAuthoredDraft(documentId); if (active) { if (draft === null) setError("Local Set List draft not found"); else setBaseline(draft.document); } } finally { storage.close(); } }); return () => { active = false; }; }, [documentId]);
+  if (error !== undefined) return <section className="state-card" role="alert"><h1>{error}</h1></section>;
+  if (baseline === undefined) return <section className="state-card" role="status"><h1>Opening local Set List…</h1></section>;
+  return <SetListEditor baseline={baseline} songs={songs} liveHref={`#/sets/local/${documentId}/live`} onClose={() => { window.location.hash = "#/sets"; }} />;
+}
+
+function WritableToolbar({ online }: { readonly online: boolean }) {
+  const [status, setStatus] = useState("Local changes are durable before sync.");
+  const [busy, setBusy] = useState(false);
+  const sync = async () => {
+    setBusy(true); setStatus("Foreground sync in progress…");
+    try { const result = await runForegroundSync(); setStatus(`Sync complete · ${result.applied} applied · ${result.conflicts} conflicts · ${result.pending} pending.`); }
+    catch (error) { setStatus(`Sync stopped safely: ${error instanceof Error ? error.message : "unknown error"}`); }
+    finally { setBusy(false); }
+  };
+  const exportState = async () => {
+    const storage = await openSongsStorage();
+    try {
+      const archive = await storage.exportAuthoredState(new Date().toISOString());
+      const blob = new Blob([JSON.stringify(archive, null, 2) + "\n"], { type: "application/json" });
+      const url = URL.createObjectURL(blob); const anchor = document.createElement("a"); anchor.href = url; anchor.download = "songs-v2-authored-recovery.json"; anchor.click(); URL.revokeObjectURL(url);
+      setStatus("Unsynced authored state exported without device credentials.");
+    } catch (error) { setStatus(error instanceof Error ? error.message : "Export failed"); }
+    finally { storage.close(); }
+  };
+  const restoreState = async (file: File) => {
+    setBusy(true);
+    const storage = await openSongsStorage();
+    try { const result = await storage.restoreAuthoredState(JSON.parse(await file.text())); window.dispatchEvent(new Event(AUTHORED_CHANGE_EVENT)); setStatus(`Recovery restored · ${result.drafts} drafts · ${result.outbox} outbox operations.`); }
+    catch (error) { setStatus(error instanceof Error ? error.message : "Restore failed"); }
+    finally { storage.close(); setBusy(false); }
+  };
+  return <aside className="writable-toolbar" aria-label="Writable Set List controls"><div><strong>Writable Set Lists</strong><span role="status" aria-live="polite">{status}</span></div><div><button type="button" disabled={!online || busy} onClick={() => void sync()}>Sync now</button><button type="button" disabled={busy} onClick={() => void exportState()}>Export recovery</button><label className="file-button">Restore recovery<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
+}
+
+function usePublishedAuthoredSet(documentId: string | undefined): SetList | null | undefined {
+  const [published, setPublished] = useState<SetList | null | undefined>(undefined);
+  useEffect(() => {
+    let active = true;
+    const load = () => {
+      if (documentId === undefined) { setPublished(null); return; }
+      setPublished(undefined);
+      void openSongsStorage().then(async (storage) => {
+        try {
+          const sync = await storage.readAuthoredSyncState();
+          const revisionId = sync?.documents.find((item) => item.documentId === documentId)?.publishedRevisionId;
+          if (revisionId === undefined || revisionId === "") { if (active) setPublished(null); return; }
+          const revision = (await storage.listAuthoredRevisions(documentId)).find((item) => item.origin === "server" && item.id === revisionId);
+          if (revision === undefined || revision.origin !== "server") { if (active) setPublished(null); return; }
+          try { const decoded = decodeCanonicalSetListSource(revision.payload.source, revision.payload.path); if (active) setPublished(decoded); }
+          catch { if (active) setPublished(null); }
+        } catch {
+          if (active) setPublished(null);
+        } finally { storage.close(); }
+      }).catch(() => { if (active) setPublished(null); });
+    };
+    load();
+    window.addEventListener(AUTHORED_CHANGE_EVENT, load);
+    return () => { active = false; window.removeEventListener(AUTHORED_CHANGE_EVENT, load); };
+  }, [documentId]);
+  return published;
+}
+
 export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGeneration }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ServiceWorkerState; readonly runtime: BootstrapRuntimeStatus; readonly inspectActiveGeneration?: ActivePointerInspector }) {
   const path = useHashPath();
+  const writable = useWritableCapability(online);
   const active = activeSnapshotFor(snapshot, runtime);
   const index = useMemo(() => active ? buildLibraryIndex(snapshot) : null, [active, snapshot]);
   const selectorsClosed = !active;
   const offlineReady = completeOfflineReady(snapshot, runtime, update);
   const songSlug = exactSongSlug(path);
+  const localSetMatch = /^\/sets\/local\/([^/]+)\/(edit|live)$/.exec(path);
+  const localSetID = localSetMatch === null ? undefined : decodedRouteSegment(localSetMatch[1]!);
+  const localSetMode = localSetMatch?.[2] as "edit" | "live" | undefined;
   const setRoute = exactSetRoute(path);
   const routedSet = useMemo(() => index === null || setRoute === undefined ? null : index.setBySlug(setRoute.slug), [index, setRoute?.slug]);
+  const publishedAuthoredSet = usePublishedAuthoredSet(localSetID ?? routedSet?.id);
   const routedPerformanceSet = useMemo(() => index === null || routedSet === null ? null : buildPerformanceSet(index, routedSet), [index, routedSet]);
+  const publishedPerformanceSet = useMemo(() => {
+    if (publishedAuthoredSet === undefined) return undefined;
+    if (index === null || publishedAuthoredSet === null) return null;
+    return buildPerformanceSetFromAuthored(index, publishedAuthoredSet, routedSet?.slug ?? publishedAuthoredSet.path.slice(5, -3));
+  }, [index, publishedAuthoredSet, routedSet?.slug]);
   useEffect(() => { document.querySelector<HTMLElement>("[data-page-heading]")?.focus(); window.scrollTo({ top: 0, behavior: "auto" }); }, [path]);
   let page: ReactNode;
   let livePage: ReactNode = null;
@@ -663,29 +771,43 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   else if (selectorsClosed || index === null) page = <InactiveSnapshotPage snapshot={snapshot} runtime={runtime} />;
   else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} />;
   else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} />;
-  else if (path === "/sets") page = <SetsPage index={index} snapshot={snapshot} />;
+  else if (path === "/sets") page = <SetsPage index={index} snapshot={snapshot} writable={writable} />;
+  else if (path === "/sets/new/edit") page = writable ? <NewSetListEditorPage songs={snapshot.leadSheets} /> : <NotFound />;
+  else if (localSetID !== undefined && localSetMode === "live") {
+    if (publishedPerformanceSet === undefined) page = <section className="state-card" role="status"><h1>Checking published Live revision…</h1></section>;
+    else if (!writable || publishedPerformanceSet === null) page = <section className="state-card" role="alert"><h1>Published Live revision unavailable</h1><p>Sync and publish this Set List before opening locked Live.</p></section>;
+    else { livePage = <GuardedLiveSetPage performanceSet={publishedPerformanceSet} exitHref={`#/sets/local/${localSetID}/edit`} expectedStorageGeneration={runtime.activeStorageGeneration} expectedTransitionCount={runtime.transitions} {...(inspectActiveGeneration === undefined ? {} : { inspectActiveGeneration })} />; page = null; }
+  }
+  else if (localSetID !== undefined) page = writable ? <LocalSetListEditorPage documentId={localSetID} songs={snapshot.leadSheets} /> : <NotFound />;
   else if (songSlug !== undefined) {
     const song = index.songBySlug(songSlug);
     page = song === null ? <NotFound /> : <LeadSheetPage song={song.document} snapshot={snapshot} />;
   } else if (setRoute !== undefined) {
     if (routedSet === null || routedPerformanceSet === null) page = <NotFound />;
-    else if (setRoute.live) {
-      livePage = <GuardedLiveSetPage performanceSet={routedPerformanceSet} exitHref={`#/sets/${routedSet.slug}`} expectedStorageGeneration={runtime.activeStorageGeneration} expectedTransitionCount={runtime.transitions} {...(inspectActiveGeneration === undefined ? {} : { inspectActiveGeneration })} />;
-      page = null;
-    } else page = <SetListPage performanceSet={routedPerformanceSet} />;
+    else if (setRoute.mode === "live") {
+      if (publishedPerformanceSet === undefined) page = <section className="state-card" role="status"><h1>Checking published Live revision…</h1></section>;
+      else {
+        const liveSet = publishedPerformanceSet ?? routedPerformanceSet;
+        livePage = <GuardedLiveSetPage performanceSet={liveSet} exitHref={`#/sets/${routedSet.slug}`} expectedStorageGeneration={runtime.activeStorageGeneration} expectedTransitionCount={runtime.transitions} {...(inspectActiveGeneration === undefined ? {} : { inspectActiveGeneration })} />;
+        page = null;
+      }
+    } else if (setRoute.mode === "edit") {
+      page = writable ? <SetListEditor baseline={setListFromBootstrap(routedSet.document)} songs={snapshot.leadSheets} onClose={() => { window.location.hash = `#/sets/${routedSet.slug}`; }} /> : <NotFound />;
+    } else page = <SetListPage performanceSet={routedPerformanceSet} writable={writable} />;
   } else page = <NotFound />;
   if (livePage !== null) return <>{livePage}</>;
   return <><Header path={path} online={online} update={update} recoveryPending={selectorsClosed} /><main id="main">
+    {active && writable && <WritableToolbar online={online} />}
     {active && !online && <div className="offline-banner" role="status">Offline — browse and search are local. {offlineReady ? "Using the active verified snapshot saved in IndexedDB." : "This active snapshot is not ready for offline restart."}</div>}
     {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}
     {active && runtime.update === "failed-retained" && <div className="update-warning-banner" role="status">Update failed; the active verified snapshot was retained. Browsing and local search remain available.</div>}
     {page}
-  </main><Footer snapshot={snapshot} runtime={runtime} update={update} /></>;
+  </main><Footer snapshot={snapshot} runtime={runtime} update={update} writable={writable} /></>;
 }
 
 function NotFound() { return <section className="state-card"><p className="eyebrow">V2 route</p><h1 tabIndex={-1} data-page-heading>Page not found</h1><p>This isolated shell does not fall through to v1.</p><Link to="/" className="primary-button">Return to library</Link></section>; }
 
-function Footer({ snapshot, runtime, update }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus; readonly update: ServiceWorkerState }) { return <footer><span>Read-only pilot</span><span>{snapshot.manifest.generation}</span><span>{completeOfflineReady(snapshot, runtime, update) ? "Offline restart ready" : "Not offline-ready (session only)"}</span><span>Physical iPad: pending</span></footer>; }
+function Footer({ snapshot, runtime, update, writable }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus; readonly update: ServiceWorkerState; readonly writable: boolean }) { return <footer><span>{writable ? "Set List writable pilot" : "Read-only pilot"}</span><span>{snapshot.manifest.generation}</span><span>{completeOfflineReady(snapshot, runtime, update) ? "Offline restart ready" : "Not offline-ready (session only)"}</span><span>Physical iPad: pending</span></footer>; }
 
 export class ShellErrorBoundary extends Component<{ readonly children: ReactNode }, { readonly failed: boolean }> {
   override state = { failed: false };

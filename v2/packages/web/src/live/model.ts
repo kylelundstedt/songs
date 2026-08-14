@@ -7,6 +7,7 @@ import type {
   VerifiedSnapshot,
 } from "../bootstrap/types";
 import { LibraryIndex, type LibrarySet, type LibrarySong } from "../library";
+import type { SetList } from "../setlists/model";
 
 /** Errors raised while constructing a complete, occurrence-preserving Live model. */
 export type PerformanceSetErrorCode =
@@ -603,6 +604,28 @@ export function buildPerformanceSet(
     if (error instanceof PerformanceSetError) throw error;
     fail("INVALID_SOURCE", "The supplied verified Set List shape cannot be resolved safely", { cause: error });
   }
+}
+
+export function buildPerformanceSetFromAuthored(source: LibraryIndex, authored: SetList, slug: string): PerformanceSet {
+  let ordinal = 0;
+  const entries = authored.sections.flatMap((section) => section.entries.map((entry) => ({
+    id: entry.id, setId: authored.id, sectionProjectionKey: section.id, ordinal: ++ordinal,
+    columnBreakBefore: entry.columnBreakBefore, label: entry.label, targetLeadSheetId: entry.leadSheetId,
+    targetPath: entry.targetPath, ...(entry.singer === "" ? {} : { singer: entry.singer }), ...(entry.note === "" ? {} : { note: entry.note }), suffix: "",
+  })));
+  const document: SetListDocument = {
+    ordinal: 0, id: authored.id, kind: "set-list", path: authored.path, slug,
+    source: { ref: "authored-published", commit: "", sha256: "", bytes: 0, content_base64: "" }, apex: null, fit: null,
+    verification: { projection_sha256: "", document_sha256: "" },
+    projection: {
+      id: authored.id, kind: "set-list", path: authored.path, slug, title: authored.title, identitySource: "front-matter", bodyMarkdown: "",
+      metadata: { date: authored.date, location: authored.location, ...(authored.band === "" ? {} : { band: authored.band }), status: "published", reviewRequired: false },
+      sections: authored.sections.map((section, index) => ({ projectionKey: section.id, identityScope: "frozen-snapshot", setId: authored.id, ordinal: index + 1, heading: section.heading, columnBreakBefore: section.columnBreakBefore, entryIds: section.entries.map((entry) => entry.id) })),
+      entries,
+    },
+  };
+  const set: LibrarySet = { id: authored.id, path: authored.path, slug, title: authored.title, date: authored.date, location: authored.location, ...(authored.band === "" ? {} : { band: authored.band }), status: "published", reviewRequired: false, document };
+  return new PerformanceSet(set, resolvePerformanceEntries(source, set));
 }
 
 /** Explicit alias for callers that describe construction as reference resolution. */

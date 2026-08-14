@@ -108,6 +108,73 @@ func publicationReservation(tx *sql.Tx, owner, document string) error {
 
 var publicationCommitRE = regexp.MustCompile(`^[a-f0-9]{40,64}$`)
 
+func replayPublication(tx *sql.Tx, owner, operation string) (Outcome, bool, error) {
+	var raw []byte
+	err := tx.QueryRow(`SELECT outcome_json FROM v2sync_operations WHERE owner_id=? AND operation_id=? AND operation_kind='publication' ORDER BY accepted_sequence LIMIT 1`, owner, operation).Scan(&raw)
+	if errors.Is(err, sql.ErrNoRows) {
+		return Outcome{}, false, nil
+	}
+	if err != nil {
+		return Outcome{}, false, err
+	}
+	// Publication operation IDs are a framed hash of the complete immutable
+	// publication tuple, so the same publication is idempotent owner-wide even
+	// when a different durable device row performs recovery.
+	var outcome Outcome
+	if err := json.Unmarshal(raw, &outcome); err != nil {
+		return Outcome{}, true, fmt.Errorf("decode durable publication outcome: %w", err)
+	}
+	return outcome, true, nil
+}
+
+func revisionIsAncestor(tx *sql.Tx, owner, ancestor, descendant string) (bool, error) {
+	seen := map[string]bool{}
+	for descendant != "" {
+		if descendant == ancestor {
+			return true, nil
+		}
+		if seen[descendant] {
+			return false, errors.New("cycle in durable revision ancestry")
+		}
+		seen[descendant] = true
+		var base string
+		if err := tx.QueryRow(`SELECT base_revision_id FROM v2sync_revisions WHERE owner_id=? AND revision_id=?`, owner, descendant).Scan(&base); err != nil {
+			return false, err
+		}
+		descendant = base
+	}
+	return false, nil
+}
+
+func persistPublication(tx *sql.Tx, owner, document, revision, commit string, sequence int64) error {
+	var existingRevision, existingCommit string
+	var existingSequence int64
+	err := tx.QueryRow(`SELECT revision_id,commit_hash,sequence FROM v2sync_publications WHERE owner_id=? AND document_id=?`, owner, document).Scan(&existingRevision, &existingCommit, &existingSequence)
+	if errors.Is(err, sql.ErrNoRows) {
+		_, err = tx.Exec(`INSERT INTO v2sync_publications(owner_id,document_id,revision_id,commit_hash,sequence) VALUES(?,?,?,?,?)`, owner, document, revision, commit, sequence)
+		return err
+	}
+	if err != nil {
+		return err
+	}
+	if existingRevision == revision && existingCommit == commit || sequence < existingSequence {
+		return nil
+	}
+	if existingRevision != revision {
+		older, err := revisionIsAncestor(tx, owner, revision, existingRevision)
+		if err != nil {
+			return err
+		}
+		if older {
+			// A delayed acknowledgement of an older remote ancestor must not
+			// rewind the authoritative publication mapping.
+			return nil
+		}
+	}
+	_, err = tx.Exec(`UPDATE v2sync_publications SET revision_id=?,commit_hash=?,sequence=? WHERE owner_id=? AND document_id=?`, revision, commit, sequence, owner, document)
+	return err
+}
+
 // RecordPublication appends one idempotent owner event after Git has accepted a
 // publication commit. Clients receive and acknowledge it through the ordinary
 // TASK-017 pull/ack cursor protocol.
@@ -128,7 +195,7 @@ func (s *Store) recordPublication(owner, device, document, revision, commit stri
 		return Outcome{}, ErrInvalidEnvelope
 	}
 	operation := "publication-" + framedHash(owner, document, revision, commit)[:24]
-	fingerprint := framedHash("publication", owner, device, document, revision, commit)
+	fingerprint := framedHash("publication", owner, document, revision, commit)
 	tx, err := s.db.Begin()
 	if err != nil {
 		return Outcome{}, err
@@ -154,8 +221,17 @@ func (s *Store) recordPublication(owner, device, document, revision, commit stri
 	} else if revisionDocument != document {
 		return Outcome{}, ErrWrongDocument
 	}
-	if outcome, found, err := replay(tx, owner, device, operation, fingerprint); found || err != nil {
-		return outcome, err
+	if outcome, found, err := replayPublication(tx, owner, operation); found || err != nil {
+		if err != nil {
+			return outcome, err
+		}
+		if err := persistPublication(tx, owner, document, revision, commit, outcome.Sequence); err != nil {
+			return Outcome{}, err
+		}
+		if err := tx.Commit(); err != nil {
+			return Outcome{}, err
+		}
+		return outcome, nil
 	}
 	sequence, err := ownerSequence(tx, owner)
 	if err != nil {
@@ -171,6 +247,9 @@ func (s *Store) recordPublication(owner, device, document, revision, commit stri
 	}
 	if _, err := tx.Exec(`INSERT INTO v2sync_operations(owner_id,device_id,operation_id,operation_kind,fingerprint,outcome_json,accepted_sequence,client_cursor) VALUES(?,?,?,?,?,?,?,0)`, owner, device, operation, "publication", fingerprint, raw, sequence); err != nil {
 		return Outcome{}, fmt.Errorf("record publication operation: %w", err)
+	}
+	if err := persistPublication(tx, owner, document, revision, commit, sequence); err != nil {
+		return Outcome{}, fmt.Errorf("persist publication mapping: %w", err)
 	}
 	if err := tx.Commit(); err != nil {
 		return Outcome{}, err

@@ -29,7 +29,7 @@ var (
 	ErrUnauthorized     = errors.New("unauthorized")
 	ErrInvalidDeviceID  = errors.New("invalid device ID")
 	ErrInvalidMasterKey = errors.New("invalid device master key")
-	stableIDRE          = regexp.MustCompile(`^[a-z][a-z0-9-]{0,62}$`)
+	stableIDRE          = regexp.MustCompile(`^[a-z0-9][a-z0-9-]{0,62}$`)
 )
 
 // AuthError is safe to map to an HTTP response. Its message intentionally does

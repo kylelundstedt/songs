@@ -163,7 +163,7 @@ describe("read-only shell", () => {
     const mismatched = vi.fn(async () => ({ activeGeneration: "phase1-other@000000000000", transitionCount: runtime.transitions }));
     render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} inspectActiveGeneration={mismatched} />);
 
-    expect(screen.getByLabelText("Locked Live mode checking")).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByLabelText("Locked Live mode checking")).toBeInTheDocument());
     expect(screen.queryByText(/Live progress:/i)).not.toBeInTheDocument();
     await waitFor(() => expect(screen.getByLabelText("Locked Live mode stopped")).toBeInTheDocument());
     expect(screen.queryByRole("link", { name: "Exit Live" })).not.toBeInTheDocument();

@@ -1,6 +1,7 @@
-# KGL Songs V2 read-only shell
+# KGL Songs V2 shell
 
-React/Vite shell for TASK-011 through TASK-015. The production build is generated
+React/Vite shell for the reviewed read-only slice and TASK-019's explicitly gated
+Set List authoring overlay. The production build is generated
 deterministically into `internal/v2shell/data/` and embedded by `cmd/v2api` on
 the isolated port-8001 origin.
 
@@ -29,8 +30,15 @@ the isolated port-8001 origin.
 - the service worker caches shell assets only under `songs-v2-shell-*`,
   explicitly bypasses `/api/v2/`, opens no database, serves its named cache
   offline, and publishes a bootstrap-compatibility contract for updates;
-- there are no edit, reorder, provider, sync, publication, or Git controls;
-- physical Safari/iPad acceptance remains pending.
+- TASK-019 adds stable-ID Set List create/duplicate/edit/reorder/note workflows,
+  atomic IndexedDB v3 draft/revision/outbox commits, explicit foreground sync,
+  hashed recovery export/restore, and separate local/server/published labels;
+- locked Live continues to use the reviewed/published revision rather than local
+  drafts;
+- authoring controls require server `-sync-enabled` plus `-writable-enabled`;
+  both default off and the tracked service remains read-only;
+- lead-sheet editing, background sync, and writable physical acceptance remain
+  pending TASK-020/021;
 
 ## Commands
 

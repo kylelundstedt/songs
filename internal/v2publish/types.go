@@ -400,7 +400,7 @@ type Hooks struct {
 }
 
 var (
-	stableIDRE         = regexp.MustCompile(`^[a-z][a-z0-9-]{0,62}$`)
+	stableIDRE         = regexp.MustCompile(`^[a-z0-9][a-z0-9-]{0,62}$`)
 	revisionRE         = regexp.MustCompile(`^rev-[a-f0-9]{24}$`)
 	externalRevisionRE = regexp.MustCompile(`^ext-[a-f0-9]{24}$`)
 	holderRE           = regexp.MustCompile(`^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,127}$`)

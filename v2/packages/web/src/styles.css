@@ -252,6 +252,24 @@ footer { display: flex; justify-content: center; flex-wrap: wrap; gap: .7rem 1.4
 .live-launch { margin-top: 0; }
 .live-fit-warning { color: var(--warning) !important; font-weight: 760; }
 
+.writable-toolbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:0 0 1rem; padding:.75rem 1rem; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+.writable-toolbar > div { display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; }
+.writable-toolbar span { color:var(--muted); }
+.file-button { display:inline-flex; min-height:44px; align-items:center; padding:.45rem .7rem; border:1px solid var(--line); border-radius:9px; cursor:pointer; font-weight:700; }
+.file-button input { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.link-button { border:0; padding:0; background:none; color:var(--accent); font:inherit; text-decoration:underline; cursor:pointer; }
+.editor-state-list { display:flex; flex-wrap:wrap; gap:.5rem 1rem; margin:.5rem 0 1rem; padding:0; list-style:none; color:var(--muted); font-weight:700; }
+.editor-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin:1rem 0; padding:1rem; border:1px solid var(--line); border-radius:12px; }
+.editor-fields legend { padding:0 .4rem; font-weight:800; }
+.editor-fields label, .editor-entry label { display:grid; gap:.3rem; font-weight:700; }
+.editor-fields input, .editor-entry input, .editor-add select { width:100%; min-height:44px; border:1px solid var(--line); border-radius:8px; padding:.55rem .65rem; background:var(--panel); color:var(--text); font:inherit; }
+.editor-add { padding:1rem; }
+.editor-entry { display:grid; gap:.55rem; width:100%; }
+.editor-entry-actions { display:flex; flex-wrap:wrap; gap:.4rem; }
+.editor-entry-actions button, .set-detail-actions button, .writable-toolbar button { min-height:44px; border:1px solid var(--line); border-radius:8px; padding:.45rem .7rem; background:var(--panel-2); color:var(--text); font:inherit; font-weight:750; cursor:pointer; }
+.editor-entry-actions button:disabled, .writable-toolbar button:disabled { cursor:not-allowed; opacity:.6; }
+@media (max-width:700px) { .writable-toolbar { align-items:stretch; flex-direction:column; } .editor-fields { grid-template-columns:1fr; } }
+
 .locked-live-stage {
   --live-bg: #f8f4ea;
   --live-panel: #fffdf7;

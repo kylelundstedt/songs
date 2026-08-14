@@ -20,6 +20,12 @@ import (
 const ProtocolVersion = "1"
 const SchemaVersion = "v2sync-1"
 
+const (
+	maxBaselineRevisions    = 10000
+	maxBaselineDocuments    = 10000
+	maxBaselinePublications = 10000
+)
+
 var (
 	ErrUnauthorized        = &CodeError{"UNAUTHORIZED", "owner/device authorization failed", nil}
 	ErrRevoked             = &CodeError{"DEVICE_REVOKED", "device is revoked", nil}
@@ -33,6 +39,7 @@ var (
 	ErrPayloadHash         = &CodeError{"PAYLOAD_HASH_MISMATCH", "payload hash mismatch", nil}
 	ErrRegistration        = &CodeError{"REGISTRATION_MISMATCH", "device registration differs", nil}
 	ErrPublicationReserved = &CodeError{"PUBLICATION_RESERVED", "document is reserved for publication", nil}
+	ErrBaselineInitialized = &CodeError{"BASELINE_ALREADY_INITIALIZED", "owner baseline is already initialized", nil}
 	ErrNotFound            = &CodeError{"NOT_FOUND", "resource not found", nil}
 )
 
@@ -50,7 +57,7 @@ func (e *CodeError) Error() string {
 func (e *CodeError) Unwrap() error  { return e.Cause }
 func IsCode(e error, c string) bool { var x *CodeError; return errors.As(e, &x) && x.Code == c }
 
-var idRE = regexp.MustCompile(`^[a-z][a-z0-9-]{0,62}$`)
+var idRE = regexp.MustCompile(`^[a-z0-9][a-z0-9-]{0,62}$`)
 var hashRE = regexp.MustCompile(`^[a-f0-9]{64}$`)
 var revRE = regexp.MustCompile(`^rev-[a-f0-9]{24}$`)
 var confRE = regexp.MustCompile(`^conf-[a-f0-9]{24}$`)
@@ -116,11 +123,50 @@ type Event struct {
 	ConflictID  string `json:"conflict_id,omitempty"`
 }
 type SyncSnapshot struct {
-	ProtocolVersion string     `json:"protocol_version"`
-	Cursor          int64      `json:"cursor"`
-	Floor           int64      `json:"compaction_floor"`
-	Revisions       []Revision `json:"revisions"`
-	Conflicts       []Conflict `json:"conflicts"`
+	ProtocolVersion string               `json:"protocol_version"`
+	Cursor          int64                `json:"cursor"`
+	Floor           int64                `json:"compaction_floor"`
+	Documents       []DocumentMapping    `json:"documents"`
+	Revisions       []Revision           `json:"revisions"`
+	Conflicts       []Conflict           `json:"conflicts"`
+	Publications    []PublicationMapping `json:"publications"`
+}
+type DocumentMapping struct {
+	DocumentID        string `json:"document_id"`
+	Title             string `json:"title"`
+	CurrentRevisionID string `json:"current_revision_id"`
+}
+type PublicationMapping struct {
+	DocumentID string `json:"document_id"`
+	RevisionID string `json:"revision_id"`
+	CommitHash string `json:"commit"`
+	Sequence   int64  `json:"-"`
+}
+type BaselineRevision struct {
+	RevisionID     string          `json:"revision_id"`
+	DocumentID     string          `json:"document_id"`
+	BaseRevisionID string          `json:"base_revision_id"`
+	Title          string          `json:"title"`
+	Payload        json.RawMessage `json:"payload"`
+	PayloadSHA256  string          `json:"payload_sha256"`
+}
+type BaselineBootstrapEnvelope struct {
+	ProtocolVersion string               `json:"protocol_version"`
+	OwnerID         string               `json:"-"`
+	DeviceID        string               `json:"device_id"`
+	OperationID     string               `json:"operation_id"`
+	Revisions       []BaselineRevision   `json:"revisions"`
+	Documents       []DocumentMapping    `json:"documents"`
+	Publications    []PublicationMapping `json:"publications"`
+}
+type BaselineBootstrapOutcome struct {
+	ProtocolVersion  string `json:"protocol_version"`
+	OperationID      string `json:"operation_id"`
+	Status           string `json:"status"`
+	Cursor           int64  `json:"cursor"`
+	RevisionCount    int    `json:"revision_count"`
+	DocumentCount    int    `json:"document_count"`
+	PublicationCount int    `json:"publication_count"`
 }
 type PullResult struct {
 	Events    []Event    `json:"events"`
@@ -155,6 +201,7 @@ type Diagnostics struct {
 	RevisionCount      int64  `json:"revision_count"`
 	OperationCount     int64  `json:"operation_count"`
 	EventCount         int64  `json:"event_count"`
+	PublicationCount   int64  `json:"publication_count"`
 	OpenConflictCount  int64  `json:"open_conflict_count"`
 	AcknowledgedCursor int64  `json:"acknowledged_cursor"`
 	CompactionFloor    int64  `json:"compaction_floor"`

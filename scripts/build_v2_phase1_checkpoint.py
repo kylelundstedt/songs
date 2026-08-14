@@ -342,12 +342,13 @@ def validate_docs() -> list[dict[str, Any]]:
 def build() -> dict[str, Any]:
     refs = verify_refs()
     bootstrap_raw, bootstrap = checked("internal/v2bootstrap/data/manifest.json")
-    shell_raw, shell = checked("internal/v2shell/data/asset-manifest.json")
+    shell_raw = git_bytes(CHECKPOINT_COMMIT, "internal/v2shell/data/asset-manifest.json")
+    shell = json.loads(shell_raw)
     if sha(bootstrap_raw) != BOOTSTRAP_SHA or bootstrap["generation"] != BOOTSTRAP_GENERATION:
         raise ValueError("bootstrap checkpoint identity drift")
     if sha(shell_raw) != SHELL_SHA or shell["release"] != SHELL_RELEASE or shell["accepted_bootstrap_manifest_sha256"] != [BOOTSTRAP_SHA]:
         raise ValueError("shell checkpoint identity drift")
-    if sha(git_bytes(CHECKPOINT_COMMIT, "internal/v2bootstrap/data/manifest.json")) != BOOTSTRAP_SHA or sha(git_bytes(CHECKPOINT_COMMIT, "internal/v2shell/data/asset-manifest.json")) != SHELL_SHA:
+    if sha(git_bytes(CHECKPOINT_COMMIT, "internal/v2bootstrap/data/manifest.json")) != BOOTSTRAP_SHA:
         raise ValueError("checkpoint commit trust anchors drift")
 
     supporting = validate_summaries()

@@ -270,6 +270,9 @@ func TestArchiveBootstrapRejectsPartialCanonicalCoverage(t *testing.T) {
 	if err := publisher.BootstrapArchive(context.Background(), "owner-a", "device-a", "bootstrap-worker", documents); err == nil || !IsCode(err, CodeIntegrity) {
 		t.Fatalf("partial archive bootstrap error = %v", err)
 	}
+	if _, initialized, err := publisher.Ledger().GitBase(); err != nil || initialized {
+		t.Fatalf("failed bootstrap pinned Git base: initialized=%v err=%v", initialized, err)
+	}
 	if _, err := publisher.Ledger().PublishedDocument("owner-a", "one"); err == nil || !IsCode(err, CodeNotFound) {
 		t.Fatalf("partial bootstrap wrote durable rows: %v", err)
 	}

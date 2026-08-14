@@ -158,6 +158,16 @@ CREATE TABLE IF NOT EXISTS v2sync_publication_reservations(
   FOREIGN KEY(owner_id,document_id) REFERENCES v2sync_documents(owner_id,document_id),
   FOREIGN KEY(owner_id,revision_id) REFERENCES v2sync_revisions(owner_id,revision_id)
 );
+CREATE TABLE IF NOT EXISTS v2sync_publications(
+  owner_id TEXT NOT NULL,
+  document_id TEXT NOT NULL,
+  revision_id TEXT NOT NULL,
+  commit_hash TEXT NOT NULL,
+  sequence INTEGER NOT NULL CHECK(sequence>=0),
+  PRIMARY KEY(owner_id,document_id),
+  FOREIGN KEY(owner_id,document_id) REFERENCES v2sync_documents(owner_id,document_id),
+  FOREIGN KEY(owner_id,revision_id) REFERENCES v2sync_revisions(owner_id,revision_id)
+);
 CREATE TABLE IF NOT EXISTS v2sync_metadata(
   owner_id TEXT PRIMARY KEY,
   current_sequence INTEGER NOT NULL DEFAULT 0,
@@ -332,15 +342,15 @@ func (s *Store) Apply(envelope ApplyEnvelope) (Outcome, error) {
 	if err := authorize(tx, envelope.OwnerID, envelope.DeviceID); err != nil {
 		return Outcome{}, err
 	}
+	fingerprint := framedHash("apply", envelope.ProtocolVersion, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, envelope.OperationKind, envelope.DocumentID, envelope.BaseRevisionID, envelope.Title, payloadHash, fmt.Sprint(envelope.ClientCursor))
+	if outcome, found, err := replay(tx, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, fingerprint); found || err != nil {
+		return outcome, err
+	}
 	if err := publicationReservation(tx, envelope.OwnerID, envelope.DocumentID); err != nil {
 		return Outcome{}, err
 	}
 	if err := checkClientCursor(tx, envelope.OwnerID, envelope.ClientCursor); err != nil {
 		return Outcome{}, err
-	}
-	fingerprint := framedHash("apply", envelope.ProtocolVersion, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, envelope.OperationKind, envelope.DocumentID, envelope.BaseRevisionID, envelope.Title, payloadHash, fmt.Sprint(envelope.ClientCursor))
-	if outcome, found, err := replay(tx, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, fingerprint); found || err != nil {
-		return outcome, err
 	}
 	var current sql.NullString
 	err = tx.QueryRow(`SELECT current_revision_id FROM v2sync_documents WHERE owner_id=? AND document_id=?`, envelope.OwnerID, envelope.DocumentID).Scan(&current)
@@ -430,15 +440,15 @@ func (s *Store) Resolve(envelope ResolveEnvelope) (Outcome, error) {
 	if err := authorize(tx, envelope.OwnerID, envelope.DeviceID); err != nil {
 		return Outcome{}, err
 	}
+	fingerprint := framedHash("resolve", envelope.ProtocolVersion, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, envelope.OperationKind, envelope.ConflictID, envelope.DocumentID, envelope.BaseRevisionID, envelope.Title, payloadHash, fmt.Sprint(envelope.ClientCursor))
+	if outcome, found, err := replay(tx, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, fingerprint); found || err != nil {
+		return outcome, err
+	}
 	if err := publicationReservation(tx, envelope.OwnerID, envelope.DocumentID); err != nil {
 		return Outcome{}, err
 	}
 	if err := checkClientCursor(tx, envelope.OwnerID, envelope.ClientCursor); err != nil {
 		return Outcome{}, err
-	}
-	fingerprint := framedHash("resolve", envelope.ProtocolVersion, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, envelope.OperationKind, envelope.ConflictID, envelope.DocumentID, envelope.BaseRevisionID, envelope.Title, payloadHash, fmt.Sprint(envelope.ClientCursor))
-	if outcome, found, err := replay(tx, envelope.OwnerID, envelope.DeviceID, envelope.OperationID, fingerprint); found || err != nil {
-		return outcome, err
 	}
 	var document, conflictCurrent, status string
 	if err := tx.QueryRow(`SELECT document_id,current_revision_id,status FROM v2sync_conflicts WHERE owner_id=? AND conflict_id=?`, envelope.OwnerID, envelope.ConflictID).Scan(&document, &conflictCurrent, &status); err != nil {
@@ -547,15 +557,21 @@ func (s *Store) Pull(owner, device string, after int64, limit int) (PullResult, 
 	if err := rows.Close(); err != nil {
 		return PullResult{}, err
 	}
+	seenRevisions := map[string]bool{}
+	seenConflicts := map[string]bool{}
 	for _, event := range result.Events {
-		var revision Revision
-		var payload []byte
-		if err := tx.QueryRow(`SELECT revision_id,document_id,device_id,operation_id,base_revision_id,title,payload,content_hash FROM v2sync_revisions WHERE owner_id=? AND revision_id=?`, owner, event.RevisionID).Scan(&revision.ID, &revision.DocumentID, &revision.DeviceID, &revision.OperationID, &revision.BaseRevisionID, &revision.Title, &payload, &revision.ContentHash); err != nil {
-			return PullResult{}, err
+		if !seenRevisions[event.RevisionID] {
+			seenRevisions[event.RevisionID] = true
+			var revision Revision
+			var payload []byte
+			if err := tx.QueryRow(`SELECT revision_id,document_id,device_id,operation_id,base_revision_id,title,payload,content_hash FROM v2sync_revisions WHERE owner_id=? AND revision_id=?`, owner, event.RevisionID).Scan(&revision.ID, &revision.DocumentID, &revision.DeviceID, &revision.OperationID, &revision.BaseRevisionID, &revision.Title, &payload, &revision.ContentHash); err != nil {
+				return PullResult{}, err
+			}
+			revision.Payload = bytesClone(payload)
+			result.Revisions = append(result.Revisions, revision)
 		}
-		revision.Payload = bytesClone(payload)
-		result.Revisions = append(result.Revisions, revision)
-		if event.ConflictID != "" {
+		if event.ConflictID != "" && !seenConflicts[event.ConflictID] {
+			seenConflicts[event.ConflictID] = true
 			var conflict Conflict
 			if err := tx.QueryRow(`SELECT conflict_id,document_id,current_revision_id,candidate_revision_id,resolution_revision_id,status FROM v2sync_conflicts WHERE owner_id=? AND conflict_id=?`, owner, event.ConflictID).Scan(&conflict.ID, &conflict.DocumentID, &conflict.CurrentRevisionID, &conflict.CandidateRevisionID, &conflict.ResolutionRevisionID, &conflict.Status); err != nil {
 				return PullResult{}, err
@@ -583,7 +599,22 @@ func (s *Store) Snapshot(owner, device string) (SyncSnapshot, error) {
 	if err := tx.QueryRow(`SELECT current_sequence,compaction_floor FROM v2sync_metadata WHERE owner_id=?`, owner).Scan(&result.Cursor, &result.Floor); err != nil {
 		return SyncSnapshot{}, err
 	}
-	rows, err := tx.Query(`SELECT revision_id,document_id,device_id,operation_id,base_revision_id,title,payload,content_hash FROM v2sync_revisions WHERE owner_id=? ORDER BY revision_id`, owner)
+	rows, err := tx.Query(`SELECT document_id,title,COALESCE(current_revision_id,'') FROM v2sync_documents WHERE owner_id=? ORDER BY document_id`, owner)
+	if err != nil {
+		return SyncSnapshot{}, err
+	}
+	for rows.Next() {
+		var document DocumentMapping
+		if err := rows.Scan(&document.DocumentID, &document.Title, &document.CurrentRevisionID); err != nil {
+			rows.Close()
+			return SyncSnapshot{}, err
+		}
+		result.Documents = append(result.Documents, document)
+	}
+	if err := rows.Close(); err != nil {
+		return SyncSnapshot{}, err
+	}
+	rows, err = tx.Query(`SELECT revision_id,document_id,device_id,operation_id,base_revision_id,title,payload,content_hash FROM v2sync_revisions WHERE owner_id=? ORDER BY revision_id`, owner)
 	if err != nil {
 		return SyncSnapshot{}, err
 	}
@@ -611,6 +642,21 @@ func (s *Store) Snapshot(owner, device string) (SyncSnapshot, error) {
 			return SyncSnapshot{}, err
 		}
 		result.Conflicts = append(result.Conflicts, conflict)
+	}
+	if err := rows.Close(); err != nil {
+		return SyncSnapshot{}, err
+	}
+	rows, err = tx.Query(`SELECT document_id,revision_id,commit_hash,sequence FROM v2sync_publications WHERE owner_id=? ORDER BY document_id`, owner)
+	if err != nil {
+		return SyncSnapshot{}, err
+	}
+	for rows.Next() {
+		var publication PublicationMapping
+		if err := rows.Scan(&publication.DocumentID, &publication.RevisionID, &publication.CommitHash, &publication.Sequence); err != nil {
+			rows.Close()
+			return SyncSnapshot{}, err
+		}
+		result.Publications = append(result.Publications, publication)
 	}
 	if err := rows.Close(); err != nil {
 		return SyncSnapshot{}, err
@@ -752,6 +798,7 @@ func (s *Store) Diagnostics(owner, device string) (Diagnostics, error) {
 		{`SELECT count(*) FROM v2sync_revisions WHERE owner_id=?`, &result.RevisionCount},
 		{`SELECT count(*) FROM v2sync_operations WHERE owner_id=?`, &result.OperationCount},
 		{`SELECT count(*) FROM v2sync_events WHERE owner_id=?`, &result.EventCount},
+		{`SELECT count(*) FROM v2sync_publications WHERE owner_id=?`, &result.PublicationCount},
 		{`SELECT count(*) FROM v2sync_conflicts WHERE owner_id=? AND status='open'`, &result.OpenConflictCount},
 		{`SELECT compaction_floor FROM v2sync_metadata WHERE owner_id=?`, &result.CompactionFloor},
 		{`SELECT current_sequence FROM v2sync_metadata WHERE owner_id=?`, &result.CurrentSequence},
@@ -827,16 +874,17 @@ func (s *Store) SemanticSnapshot(owner, device string) ([]byte, error) {
 		Cursor   int64  `json:"cursor"`
 	}
 	type snapshot struct {
-		Schema      string            `json:"schema_version"`
-		Owner       string            `json:"owner_id"`
-		Devices     []deviceRecord    `json:"devices"`
-		Documents   []documentRecord  `json:"documents"`
-		Revisions   []Revision        `json:"revisions"`
-		Conflicts   []Conflict        `json:"conflicts"`
-		Events      []Event           `json:"events"`
-		Operations  []operationRecord `json:"operations"`
-		Acks        []ackRecord       `json:"acknowledgements"`
-		Diagnostics Diagnostics       `json:"diagnostics"`
+		Schema       string               `json:"schema_version"`
+		Owner        string               `json:"owner_id"`
+		Devices      []deviceRecord       `json:"devices"`
+		Documents    []documentRecord     `json:"documents"`
+		Revisions    []Revision           `json:"revisions"`
+		Conflicts    []Conflict           `json:"conflicts"`
+		Events       []Event              `json:"events"`
+		Operations   []operationRecord    `json:"operations"`
+		Publications []PublicationMapping `json:"publications"`
+		Acks         []ackRecord          `json:"acknowledgements"`
+		Diagnostics  Diagnostics          `json:"diagnostics"`
 	}
 	result := snapshot{Schema: SchemaVersion, Owner: owner, Diagnostics: Diagnostics{SchemaVersion: SchemaVersion}}
 	queries := []struct {
@@ -850,6 +898,7 @@ func (s *Store) SemanticSnapshot(owner, device string) ([]byte, error) {
 		{`SELECT count(*) FROM v2sync_revisions WHERE owner_id=?`, &result.Diagnostics.RevisionCount, []any{owner}},
 		{`SELECT count(*) FROM v2sync_operations WHERE owner_id=?`, &result.Diagnostics.OperationCount, []any{owner}},
 		{`SELECT count(*) FROM v2sync_events WHERE owner_id=?`, &result.Diagnostics.EventCount, []any{owner}},
+		{`SELECT count(*) FROM v2sync_publications WHERE owner_id=?`, &result.Diagnostics.PublicationCount, []any{owner}},
 		{`SELECT count(*) FROM v2sync_conflicts WHERE owner_id=? AND status='open'`, &result.Diagnostics.OpenConflictCount, []any{owner}},
 		{`SELECT compaction_floor FROM v2sync_metadata WHERE owner_id=?`, &result.Diagnostics.CompactionFloor, []any{owner}},
 		{`SELECT current_sequence FROM v2sync_metadata WHERE owner_id=?`, &result.Diagnostics.CurrentSequence, []any{owner}},
@@ -948,6 +997,21 @@ func (s *Store) SemanticSnapshot(owner, device string) ([]byte, error) {
 			return nil, err
 		}
 		result.Operations = append(result.Operations, operation)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	rows, err = tx.Query(`SELECT document_id,revision_id,commit_hash,sequence FROM v2sync_publications WHERE owner_id=? ORDER BY document_id`, owner)
+	if err != nil {
+		return nil, err
+	}
+	for rows.Next() {
+		var publication PublicationMapping
+		if err := rows.Scan(&publication.DocumentID, &publication.RevisionID, &publication.CommitHash, &publication.Sequence); err != nil {
+			rows.Close()
+			return nil, err
+		}
+		result.Publications = append(result.Publications, publication)
 	}
 	if err := rows.Close(); err != nil {
 		return nil, err

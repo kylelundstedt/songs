@@ -190,6 +190,18 @@ func payloadHash(t *testing.T, payload json.RawMessage) string {
 	return hash
 }
 
+func baselineBody(t *testing.T, owner, device, operation string, revisions []v2sync.BaselineRevision, documents []v2sync.DocumentMapping, publications []v2sync.PublicationMapping) []byte {
+	t.Helper()
+	return marshalJSON(t, map[string]any{
+		"protocol_version": v2sync.ProtocolVersion,
+		"device_id":        device,
+		"operation_id":     operation,
+		"revisions":        revisions,
+		"documents":        documents,
+		"publications":     publications,
+	})
+}
+
 func applyBody(t *testing.T, device, operation, kind, document, base, title string, payload json.RawMessage, cursor int64) []byte {
 	t.Helper()
 	return marshalJSON(t, map[string]any{
@@ -611,10 +623,20 @@ func TestWrongMethodsQueriesAndPaths(t *testing.T) {
 func TestApplyReportsPublicationReservation(t *testing.T) {
 	f := newFixture(t)
 	device := f.register("device-1", "registration-1", "Device")
-	initial := apply(t, f, device, applyBody(t, device.ID, "operation-1", "replace", "document-1", "", "Initial", json.RawMessage(`{"body":"one"}`), 0))
+	initialBody := applyBody(t, device.ID, "operation-1", "replace", "document-1", "", "Initial", json.RawMessage(`{"body":"one"}`), 0)
+	initial := apply(t, f, device, initialBody)
 	if err := f.store.ReservePublication(f.owner, device.ID, "document-1", initial.RevisionID, "pub-test-claim"); err != nil {
 		t.Fatal(err)
 	}
+	replay := f.request(http.MethodPost, PathPrefix+"/operations/apply", initialBody, &device)
+	assertStatus(t, replay, http.StatusOK)
+	var replayed v2sync.Outcome
+	decodeResponse(t, replay, &replayed)
+	if replayed != initial {
+		t.Fatalf("reserved HTTP replay = %+v, want %+v", replayed, initial)
+	}
+	changedReplay := applyBody(t, device.ID, "operation-1", "replace", "document-1", "", "Changed", json.RawMessage(`{"body":"one"}`), 0)
+	assertError(t, f.request(http.MethodPost, PathPrefix+"/operations/apply", changedReplay, &device), http.StatusConflict, "OPERATION_REPLAY_MISMATCH")
 	body := applyBody(t, device.ID, "operation-2", "replace", "document-1", initial.RevisionID, "Edited", json.RawMessage(`{"body":"two"}`), initial.Sequence)
 	assertError(t, f.request(http.MethodPost, PathPrefix+"/operations/apply", body, &device), http.StatusConflict, "PUBLICATION_RESERVED")
 }
@@ -870,4 +892,15 @@ func TestSelfRevokeOnlyAndImmediateCredentialInvalidation(t *testing.T) {
 	}), nil)
 	assertError(t, retryRegistration, http.StatusUnauthorized, "UNAUTHENTICATED")
 	assertNoLeak(t, retryRegistration, first.Token, "revoked", testOwner)
+}
+
+func TestDigitLeadingStableIDsThroughHTTP(t *testing.T) {
+	f := newFixture(t)
+	device := f.register("1device", "2registration", "Imported device")
+	body := applyBody(t, device.ID, "3operation", "replace", "2021-02-20-murphys", "", "Murphy's", json.RawMessage(`{}`), 0)
+	outcome := apply(t, f, device, body)
+	if outcome.Status != "applied" {
+		t.Fatalf("digit-leading HTTP apply = %+v", outcome)
+	}
+	assertStatus(t, f.request(http.MethodPost, PathPrefix+"/devices/1device/revoke", nil, &device), http.StatusOK)
 }

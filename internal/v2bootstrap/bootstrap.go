@@ -218,12 +218,55 @@ type chunk struct {
 	} `json:"verification"`
 }
 
+type BaselineDocument struct {
+	ID     string
+	Kind   string
+	Path   string
+	Title  string
+	Source []byte
+}
+
+// BaselineDocuments returns detached canonical documents from the reviewed,
+// embedded snapshot for the one-shot production ledger bootstrap.
+func (s *Snapshot) BaselineDocuments() ([]BaselineDocument, error) {
+	if s == nil {
+		return nil, errors.New("nil bootstrap snapshot")
+	}
+	var result []BaselineDocument
+	for _, descriptor := range s.manifestValue.Chunks {
+		raw, ok := s.chunks[descriptor.Path]
+		if !ok {
+			return nil, fmt.Errorf("missing reviewed chunk %s", descriptor.URL)
+		}
+		var value chunk
+		if err := strictDecode(raw, &value); err != nil {
+			return nil, err
+		}
+		for _, document := range value.Documents {
+			var projection struct {
+				Title string `json:"title"`
+			}
+			if err := json.Unmarshal(document.Projection, &projection); err != nil || projection.Title == "" {
+				return nil, fmt.Errorf("decode title for %s: %w", document.ID, err)
+			}
+			source, err := base64.StdEncoding.DecodeString(document.Source.ContentBase64)
+			if err != nil || len(source) != document.Source.Bytes || digest(source) != document.Source.SHA256 {
+				return nil, fmt.Errorf("decode reviewed source for %s", document.ID)
+			}
+			result = append(result, BaselineDocument{ID: document.ID, Kind: document.Kind, Path: document.Path, Title: projection.Title, Source: bytes.Clone(source)})
+		}
+	}
+	sort.Slice(result, func(i, j int) bool { return result[i].ID < result[j].ID })
+	return result, nil
+}
+
 type Snapshot struct {
-	manifest     []byte
-	chunks       map[string][]byte
-	chunkETags   map[string]string
-	generation   string
-	manifestETag string
+	manifest      []byte
+	manifestValue manifest
+	chunks        map[string][]byte
+	chunkETags    map[string]string
+	generation    string
+	manifestETag  string
 }
 
 func LoadEmbedded() (*Snapshot, error) { return Load(embedded) }
@@ -352,7 +395,7 @@ func Load(files fs.FS) (*Snapshot, error) {
 		return nil, err
 	}
 	return &Snapshot{
-		manifest: bytes.Clone(manifestRaw), chunks: chunks, chunkETags: chunkETags,
+		manifest: bytes.Clone(manifestRaw), manifestValue: manifestValue, chunks: chunks, chunkETags: chunkETags,
 		generation: manifestValue.Generation, manifestETag: `"` + digest(manifestRaw) + `"`,
 	}, nil
 }
