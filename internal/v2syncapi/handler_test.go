@@ -904,3 +904,16 @@ func TestDigitLeadingStableIDsThroughHTTP(t *testing.T) {
 	}
 	assertStatus(t, f.request(http.MethodPost, PathPrefix+"/devices/1device/revoke", nil, &device), http.StatusOK)
 }
+func TestDocumentWriteGatesRejectDisabledKinds(t *testing.T) {
+	f := newFixture(t)
+	handler, err := New(f.store, Config{OwnerID: f.owner, ForwardedHost: f.host, MasterKey: f.key, EnforceDocumentGates: true, SetListWritesEnabled: true, LeadSheetWritesEnabled: false})
+	if err != nil {
+		t.Fatal(err)
+	}
+	f.handler = handler
+	device := f.register("device-gates", "registration-gates", "Gated device")
+	lead := json.RawMessage(`{"schema_version":"v2publish-1","kind":"lead-sheet","path":"songs/Gated.md","source":"---\\nartist: Band\\n---\\n\\n# Gated\\n","deleted":false}`)
+	assertError(t, f.request(http.MethodPost, PathPrefix+"/operations/apply", applyBody(t, device.ID, "operation-lead-gated", "create-lead-sheet", "song-gated", "", "Gated", lead, 0), &device), http.StatusForbidden, "WRITE_DISABLED")
+	set := json.RawMessage(`{"schema_version":"v2publish-1","kind":"set-list","path":"sets/Gated.md","source":"set","deleted":false}`)
+	assertStatus(t, f.request(http.MethodPost, PathPrefix+"/operations/apply", applyBody(t, device.ID, "operation-set-allowed", "create-set-list", "set-gated", "", "Gated", set, 0), &device), http.StatusOK)
+}

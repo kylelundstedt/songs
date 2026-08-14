@@ -11,6 +11,9 @@ import { setListFromBootstrap } from "./setlists/bootstrap";
 import { duplicateSetList, initializeEditableSetList, randomStableId, validateSetList } from "./setlists";
 import { decodeCanonicalSetListSource } from "./setlists/codec";
 import type { SetList } from "./setlists/model";
+import { LeadSheetEditor } from "./leadsheets/LeadSheetEditor";
+import { createCanonicalLeadSheet, createLeadSheet, leadSheetFromBootstrap, validateLeadSheetLocally } from "./leadsheets";
+import type { WritableCapabilities } from "./sync/client";
 import { loadWritableCapabilities } from "./sync/client";
 import { runForegroundSync } from "./sync/engine";
 import { openSongsStorage, SONGS_STORAGE_NAME } from "./storage";
@@ -73,19 +76,40 @@ function useOnline(): boolean {
   return online;
 }
 
-function useWritableCapability(online: boolean): boolean {
-  const [enabled, setEnabled] = useState(() => localStorage.getItem("songs-v2-writable-enabled") === "1");
+const DISABLED_WRITABLE_CAPABILITIES: WritableCapabilities = Object.freeze({
+  schema_version: "1", set_list_authoring: false, lead_sheet_authoring: false, foreground_sync: false,
+  apex_validation: false, lyrics_provider: false, shelley_suggestions: false,
+});
+
+function cachedWritableCapabilities(): WritableCapabilities {
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem("songs-v2-writable-capabilities") ?? "null");
+    if (value !== null && typeof value === "object") {
+      const item = value as Partial<WritableCapabilities>;
+      if (item.schema_version === "1" && [item.set_list_authoring, item.lead_sheet_authoring, item.foreground_sync, item.apex_validation, item.lyrics_provider, item.shelley_suggestions].every((flag) => typeof flag === "boolean")) return item as WritableCapabilities;
+    }
+  } catch { /* Keep the fail-closed defaults. */ }
+  const legacySetList = localStorage.getItem("songs-v2-writable-enabled") === "1";
+  return legacySetList ? Object.freeze({ ...DISABLED_WRITABLE_CAPABILITIES, set_list_authoring: true, foreground_sync: true }) : DISABLED_WRITABLE_CAPABILITIES;
+}
+
+function useWritableCapabilities(online: boolean): WritableCapabilities {
+  const [capabilities, setCapabilities] = useState(cachedWritableCapabilities);
   useEffect(() => {
     if (!online) return;
     const controller = new AbortController();
-    void loadWritableCapabilities(controller.signal).then((capability) => {
-      const next = capability.set_list_authoring && capability.foreground_sync;
-      localStorage.setItem("songs-v2-writable-enabled", next ? "1" : "0");
-      setEnabled(next);
-    }).catch(() => { localStorage.setItem("songs-v2-writable-enabled", "0"); setEnabled(false); });
+    void loadWritableCapabilities(controller.signal).then((next) => {
+      localStorage.setItem("songs-v2-writable-capabilities", JSON.stringify(next));
+      localStorage.setItem("songs-v2-writable-enabled", next.set_list_authoring ? "1" : "0");
+      setCapabilities(next);
+    }).catch(() => {
+      localStorage.setItem("songs-v2-writable-capabilities", JSON.stringify(DISABLED_WRITABLE_CAPABILITIES));
+      localStorage.setItem("songs-v2-writable-enabled", "0");
+      setCapabilities(DISABLED_WRITABLE_CAPABILITIES);
+    });
     return () => controller.abort();
   }, [online]);
-  return enabled;
+  return capabilities;
 }
 
 export interface ServiceWorkerState {
@@ -377,13 +401,42 @@ function SearchControls({ id, label, value, onChange, placeholder, clearLabel }:
   return <div className="search-controls"><label className="filter-field" htmlFor={id}><span>{label}</span><input ref={input} id={id} type="search" value={value} onChange={(event) => onChange(event.target.value)} placeholder={placeholder} /></label>{value !== "" && <button type="button" className="clear-button" onClick={clear} aria-label={clearLabel}>Clear</button>}</div>;
 }
 
-function SongsPage({ index, snapshot }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot }) {
+function LocalLeadSheetsPanel() {
+  const [records, setRecords] = useState<readonly { readonly id: string; readonly title: string; readonly path: string; readonly status: string }[]>([]);
+  useEffect(() => {
+    let active = true;
+    const load = () => { void openSongsStorage().then(async (storage) => {
+      try {
+        const [workspaces, drafts] = await Promise.all([storage.listLeadSheetWorkspaces(), storage.listLeadSheetDrafts()]);
+        const byID = new Map<string, { id: string; title: string; path: string; status: string }>();
+        for (const draft of drafts) {
+          const validation = validateLeadSheetLocally(draft.document);
+          byID.set(draft.documentId, { id: draft.documentId, title: validation.title ?? "Lead-sheet draft", path: draft.document.path, status: draft.baseServerRevisionId === "" ? "local-stage-ready" : "sync accepted" });
+        }
+        for (const workspace of workspaces) {
+          let title = "Invalid local workspace";
+          try { title = validateLeadSheetLocally(createLeadSheet({ id: workspace.documentId, path: workspace.path, source: workspace.source })).title ?? title; } catch { /* Invalid intermediate work is intentionally listed. */ }
+          const existing = byID.get(workspace.documentId);
+          byID.set(workspace.documentId, { id: workspace.documentId, title, path: workspace.path, status: existing === undefined ? "workspace only" : `${existing.status} · workspace changes` });
+        }
+        if (active) setRecords([...byID.values()].sort((left, right) => left.title.localeCompare(right.title) || left.id.localeCompare(right.id)));
+      } finally { storage.close(); }
+    }).catch(() => { if (active) setRecords([]); }); };
+    load(); window.addEventListener(AUTHORED_CHANGE_EVENT, load);
+    return () => { active = false; window.removeEventListener(AUTHORED_CHANGE_EVENT, load); };
+  }, []);
+  if (records.length === 0) return null;
+  return <section className="panel"><div className="section-title"><div><p className="eyebrow">Durable browser work</p><h2>Local lead sheets</h2></div><span>{records.length}</span></div><ul className="document-list compact">{records.map((record) => <li key={record.id}><Link to={`/songs/local/${record.id}/edit`}><span><strong>{record.title}</strong><small>{record.path}</small></span><span className="entry-count">{record.status}</span></Link></li>)}</ul></section>;
+}
+
+function SongsPage({ index, snapshot, writable }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot; readonly writable: boolean }) {
   const [filter, setFilter] = useState("");
   const results = useMemo(() => index.searchSongs(filter), [filter, index]);
   const query = filter.trim();
   return <>
-    <PageHeading eyebrow="Lead sheets" title="Songs"><p>Search and browse the active verified snapshot locally. Results cover title, artist, slug, keys, BPM, provenance, and provider.</p></PageHeading>
+    <PageHeading eyebrow="Lead sheets" title="Songs"><p>Search and browse the active verified snapshot locally. Results cover title, artist, slug, keys, BPM, provenance, and provider.</p>{writable && <Link to="/songs/new/edit" className="primary-button">Create lead sheet</Link>}</PageHeading>
     <SearchControls id="song-search" label="Search songs in this local verified snapshot" value={filter} onChange={setFilter} placeholder="Title, artist, key, BPM, provider" clearLabel="Clear song search" />
+    <LocalLeadSheetsPanel />
     <p className="result-count" role="status">{query === "" ? `Showing all ${results.length} songs from the local verified snapshot.` : `Showing ${results.length} of ${index.songs.length} songs for “${query}”.`}</p>
     {results.length === 0 ? <section className="panel no-results" aria-live="polite"><h2>No songs found</h2><p>No songs matched “{query}” in this local verified snapshot.</p></section> : <ul className="document-list panel" aria-label="Song search results">{results.map((result) => <SongRow key={result.song.id} song={result.song} snapshot={snapshot} matchedFields={query === "" ? undefined : result.matchedFields} />)}</ul>}
   </>;
@@ -447,13 +500,13 @@ function ApexSheet({ song, snapshot }: { readonly song: LeadSheetDocument; reado
   </>;
 }
 
-function LeadSheetPage({ song, snapshot }: { readonly song: LeadSheetDocument; readonly snapshot: VerifiedSnapshot }) {
+function LeadSheetPage({ song, snapshot, writable }: { readonly song: LeadSheetDocument; readonly snapshot: VerifiedSnapshot; readonly writable: boolean }) {
   const fit = Object.fromEntries(song.fit.profiles.map((profile) => [profile.profile, profile]));
   return <article className="detail-page">
     <nav className="breadcrumbs" aria-label="Breadcrumb"><Link to="/songs">Songs</Link><span aria-hidden="true">/</span><span>{song.projection.title}</span></nav>
     <header className="detail-header">
       <div><p className="eyebrow">Verified lead sheet</p><h1 tabIndex={-1} data-page-heading>{song.projection.title}</h1><p className="artist">{song.projection.metadata.artist}</p></div>
-      <div className="fit-summary" aria-label="Fit evidence"><span className="good">Portrait fit</span><span className={fit["ipad-landscape"]?.status === "needs-editing" ? "warning" : "good"}>{fit["ipad-landscape"]?.status === "needs-editing" ? "Landscape needs editing" : "Landscape fit"}</span><span>Phone scrolls</span></div>
+      <div className="fit-summary" aria-label="Fit evidence"><span className="good">Portrait fit</span><span className={fit["ipad-landscape"]?.status === "needs-editing" ? "warning" : "good"}>{fit["ipad-landscape"]?.status === "needs-editing" ? "Landscape needs editing" : "Landscape fit"}</span><span>Phone scrolls</span>{writable && <Link to={`/songs/${song.slug}/edit`} className="primary-button">Edit offline</Link>}</div>
     </header>
     <dl className="metadata-grid">
       <MetaItem label="Performance key" value={song.projection.metadata.performanceKey} />
@@ -585,9 +638,11 @@ function decodedRouteSegment(value: string): string | undefined {
   try { return decodeURIComponent(value); } catch { return undefined; }
 }
 
-function exactSongSlug(path: string): string | undefined {
-  const match = /^\/songs\/([^/]+)$/.exec(path);
-  return match === null ? undefined : decodedRouteSegment(match[1]!);
+function exactSongRoute(path: string): { readonly slug: string; readonly mode: "detail" | "edit" } | undefined {
+  const match = /^\/songs\/([^/]+)(\/edit)?$/.exec(path);
+  if (match === null) return undefined;
+  const slug = decodedRouteSegment(match[1]!);
+  return slug === undefined ? undefined : { slug, mode: match[2] === "/edit" ? "edit" : "detail" };
 }
 
 function exactSetRoute(path: string): { readonly slug: string; readonly mode: "detail" | "live" | "edit" } | undefined {
@@ -673,6 +728,63 @@ export function GuardedLiveSetPage({ performanceSet, exitHref, expectedStorageGe
   return <LiveSetPage key={performanceSet.id} performanceSet={performanceSet} exitHref={exitHref} />;
 }
 
+function NewLeadSheetEditorPage({ capabilities, online }: { readonly capabilities: WritableCapabilities; readonly online: boolean }) {
+  const [baseline] = useState(() => {
+    const id = randomStableId("set").replace(/^set-/, "song-");
+    return createCanonicalLeadSheet({ id, path: `songs/New-${id.slice(-12)}.md`, title: "Untitled Song", artist: "Artist", body: "### Verse 1\n" });
+  });
+  return <LeadSheetEditor baseline={baseline} initialize capabilities={capabilities} online={online} onClose={() => { window.location.hash = `#/songs/local/${baseline.id}/edit`; }} />;
+}
+
+function ReviewedLeadSheetEditorPage({ document, capabilities, online }: { readonly document: LeadSheetDocument; readonly capabilities: WritableCapabilities; readonly online: boolean }) {
+  return <LeadSheetEditor baseline={leadSheetFromBootstrap(document)} capabilities={capabilities} online={online} onClose={() => { window.location.hash = `#/songs/${document.slug}`; }} />;
+}
+
+function LocalLeadSheetEditorPage({ documentId, capabilities, online }: { readonly documentId: string; readonly capabilities: WritableCapabilities; readonly online: boolean }) {
+  const [baseline, setBaseline] = useState<ReturnType<typeof createLeadSheet>>();
+  const [error, setError] = useState<string>();
+  useEffect(() => {
+    let active = true;
+    void openSongsStorage().then(async (storage) => {
+      try {
+        const [draft, workspace] = await Promise.all([storage.readLeadSheetDraft(documentId), storage.readLeadSheetWorkspace(documentId)]);
+        if (!active) return;
+        if (draft !== null) setBaseline(draft.document);
+        else if (workspace !== null) setBaseline(createCanonicalLeadSheet({ id: documentId, path: workspace.path, title: "Recovered lead-sheet workspace", artist: "Artist" }));
+        else setError("Local lead-sheet draft not found");
+      } catch (caught) { if (active) setError(caught instanceof Error ? caught.message : "Unable to open local lead sheet"); }
+      finally { storage.close(); }
+    }).catch((caught: unknown) => { if (active) setError(caught instanceof Error ? caught.message : "Unable to open local lead sheet"); });
+    return () => { active = false; };
+  }, [documentId]);
+  if (error !== undefined) return <section className="state-card" role="alert"><h1>{error}</h1></section>;
+  if (baseline === undefined) return <section className="state-card" role="status"><h1>Opening local lead sheet…</h1></section>;
+  return <LeadSheetEditor baseline={baseline} capabilities={capabilities} online={online} onClose={() => { window.location.hash = "#/songs"; }} />;
+}
+
+function LocalLeadSheetRecoveryPage({ documentId }: { readonly documentId: string }) {
+  const [record, setRecord] = useState<{ readonly source: string; readonly path: string }>();
+  const [error, setError] = useState<string>();
+  useEffect(() => {
+    let active = true;
+    void openSongsStorage().then(async (storage) => {
+      try {
+        const [workspace, draft] = await Promise.all([storage.readLeadSheetWorkspace(documentId), storage.readLeadSheetDraft(documentId)]);
+        if (active) {
+          if (workspace !== null) setRecord({ source: workspace.source, path: workspace.path });
+          else if (draft !== null) setRecord({ source: draft.source, path: draft.document.path });
+          else setError("Local lead-sheet draft not found");
+        }
+      } catch (caught) { if (active) setError(caught instanceof Error ? caught.message : "Unable to open local lead sheet"); }
+      finally { storage.close(); }
+    }).catch((caught: unknown) => { if (active) setError(caught instanceof Error ? caught.message : "Unable to open local lead sheet"); });
+    return () => { active = false; };
+  }, [documentId]);
+  if (error !== undefined) return <section className="state-card" role="alert"><h1>{error}</h1></section>;
+  if (record === undefined) return <section className="state-card" role="status"><h1>Opening preserved local lead sheet…</h1></section>;
+  return <article className="detail-page"><header className="detail-header"><div><p className="eyebrow">Lead-sheet writing disabled</p><h1 data-page-heading tabIndex={-1}>Preserved local draft</h1><p className="artist">{record.path}</p></div></header><p className="warning-banner">Mutation controls are disabled by the server. The exact local source remains available for recovery export.</p><pre className="lead-local-preview">{record.source}</pre></article>;
+}
+
 function NewSetListEditorPage({ songs }: { readonly songs: readonly LeadSheetDocument[] }) {
   const [baseline] = useState(() => { const id = randomStableId("set"); return validateSetList({ id, path: `sets/New-${id.slice(-12)}.md`, title: "Untitled Set List", sections: [{ id: randomStableId("section"), heading: "Set 1", entries: [] }] }); });
   return <SetListEditor baseline={baseline} songs={songs} initialize="create" onClose={() => { window.location.hash = `#/sets/local/${baseline.id}/edit`; }} />;
@@ -687,12 +799,12 @@ function LocalSetListEditorPage({ documentId, songs }: { readonly documentId: st
   return <SetListEditor baseline={baseline} songs={songs} liveHref={`#/sets/local/${documentId}/live`} onClose={() => { window.location.hash = "#/sets"; }} />;
 }
 
-function WritableToolbar({ online }: { readonly online: boolean }) {
+function WritableToolbar({ online, capabilities }: { readonly online: boolean; readonly capabilities: WritableCapabilities }) {
   const [status, setStatus] = useState("Local changes are durable before sync.");
   const [busy, setBusy] = useState(false);
   const sync = async () => {
     setBusy(true); setStatus("Foreground sync in progress…");
-    try { const result = await runForegroundSync(); setStatus(`Sync complete · ${result.applied} applied · ${result.conflicts} conflicts · ${result.pending} pending.`); }
+    try { const result = await runForegroundSync({ setListWrites: capabilities.set_list_authoring, leadSheetWrites: capabilities.lead_sheet_authoring }); setStatus(`Sync complete · ${result.applied} applied · ${result.conflicts} conflicts · ${result.pending} pending.`); }
     catch (error) { setStatus(`Sync stopped safely: ${error instanceof Error ? error.message : "unknown error"}`); }
     finally { setBusy(false); }
   };
@@ -709,11 +821,11 @@ function WritableToolbar({ online }: { readonly online: boolean }) {
   const restoreState = async (file: File) => {
     setBusy(true);
     const storage = await openSongsStorage();
-    try { const result = await storage.restoreAuthoredState(JSON.parse(await file.text())); window.dispatchEvent(new Event(AUTHORED_CHANGE_EVENT)); setStatus(`Recovery restored · ${result.drafts} drafts · ${result.outbox} outbox operations.`); }
+    try { const result = await storage.restoreAuthoredState(JSON.parse(await file.text())); localStorage.setItem("songs-v2-authored-recovery-present", "1"); window.dispatchEvent(new Event(AUTHORED_CHANGE_EVENT)); setStatus(`Recovery restored · ${result.drafts} drafts · ${result.outbox} outbox operations.`); }
     catch (error) { setStatus(error instanceof Error ? error.message : "Restore failed"); }
     finally { storage.close(); setBusy(false); }
   };
-  return <aside className="writable-toolbar" aria-label="Writable Set List controls"><div><strong>Writable Set Lists</strong><span role="status" aria-live="polite">{status}</span></div><div><button type="button" disabled={!online || busy} onClick={() => void sync()}>Sync now</button><button type="button" disabled={busy} onClick={() => void exportState()}>Export recovery</button><label className="file-button">Restore recovery<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
+  return <aside className="writable-toolbar" aria-label="Authored recovery and sync controls"><div><strong>Local authored work</strong><span role="status" aria-live="polite">{status}</span></div><div><button type="button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync now</button><button type="button" disabled={busy} onClick={() => void exportState()}>Export recovery</button><label className="file-button">Restore recovery<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
 }
 
 function usePublishedAuthoredSet(documentId: string | undefined): SetList | null | undefined {
@@ -746,12 +858,16 @@ function usePublishedAuthoredSet(documentId: string | undefined): SetList | null
 
 export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGeneration }: { readonly snapshot: VerifiedSnapshot; readonly online: boolean; readonly update: ServiceWorkerState; readonly runtime: BootstrapRuntimeStatus; readonly inspectActiveGeneration?: ActivePointerInspector }) {
   const path = useHashPath();
-  const writable = useWritableCapability(online);
+  const capabilities = useWritableCapabilities(online);
+  const writable = capabilities.set_list_authoring && capabilities.foreground_sync;
+  const leadWritable = capabilities.lead_sheet_authoring && capabilities.foreground_sync;
   const active = activeSnapshotFor(snapshot, runtime);
   const index = useMemo(() => active ? buildLibraryIndex(snapshot) : null, [active, snapshot]);
   const selectorsClosed = !active;
   const offlineReady = completeOfflineReady(snapshot, runtime, update);
-  const songSlug = exactSongSlug(path);
+  const songRoute = exactSongRoute(path);
+  const localSongMatch = /^\/songs\/local\/([^/]+)\/edit$/.exec(path);
+  const localSongID = localSongMatch === null ? undefined : decodedRouteSegment(localSongMatch[1]!);
   const localSetMatch = /^\/sets\/local\/([^/]+)\/(edit|live)$/.exec(path);
   const localSetID = localSetMatch === null ? undefined : decodedRouteSegment(localSetMatch[1]!);
   const localSetMode = localSetMatch?.[2] as "edit" | "live" | undefined;
@@ -770,7 +886,9 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   if (path === "/status") page = <StatusPage index={index} snapshot={snapshot} online={online} update={update} runtime={runtime} />;
   else if (selectorsClosed || index === null) page = <InactiveSnapshotPage snapshot={snapshot} runtime={runtime} />;
   else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} />;
-  else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} />;
+  else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} writable={leadWritable} />;
+  else if (path === "/songs/new/edit") page = leadWritable ? <NewLeadSheetEditorPage capabilities={capabilities} online={online} /> : <NotFound />;
+  else if (localSongID !== undefined) page = leadWritable ? <LocalLeadSheetEditorPage documentId={localSongID} capabilities={capabilities} online={online} /> : <LocalLeadSheetRecoveryPage documentId={localSongID} />;
   else if (path === "/sets") page = <SetsPage index={index} snapshot={snapshot} writable={writable} />;
   else if (path === "/sets/new/edit") page = writable ? <NewSetListEditorPage songs={snapshot.leadSheets} /> : <NotFound />;
   else if (localSetID !== undefined && localSetMode === "live") {
@@ -779,9 +897,11 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
     else { livePage = <GuardedLiveSetPage performanceSet={publishedPerformanceSet} exitHref={`#/sets/local/${localSetID}/edit`} expectedStorageGeneration={runtime.activeStorageGeneration} expectedTransitionCount={runtime.transitions} {...(inspectActiveGeneration === undefined ? {} : { inspectActiveGeneration })} />; page = null; }
   }
   else if (localSetID !== undefined) page = writable ? <LocalSetListEditorPage documentId={localSetID} songs={snapshot.leadSheets} /> : <NotFound />;
-  else if (songSlug !== undefined) {
-    const song = index.songBySlug(songSlug);
-    page = song === null ? <NotFound /> : <LeadSheetPage song={song.document} snapshot={snapshot} />;
+  else if (songRoute !== undefined) {
+    const song = index.songBySlug(songRoute.slug);
+    if (song === null) page = <NotFound />;
+    else if (songRoute.mode === "edit") page = leadWritable ? <ReviewedLeadSheetEditorPage document={song.document} capabilities={capabilities} online={online} /> : <NotFound />;
+    else page = <LeadSheetPage song={song.document} snapshot={snapshot} writable={leadWritable} />;
   } else if (setRoute !== undefined) {
     if (routedSet === null || routedPerformanceSet === null) page = <NotFound />;
     else if (setRoute.mode === "live") {
@@ -797,17 +917,17 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   } else page = <NotFound />;
   if (livePage !== null) return <>{livePage}</>;
   return <><Header path={path} online={online} update={update} recoveryPending={selectorsClosed} /><main id="main">
-    {active && writable && <WritableToolbar online={online} />}
+    {active && (writable || leadWritable || localStorage.getItem("songs-v2-authored-recovery-present") === "1") && <WritableToolbar online={online} capabilities={capabilities} />}
     {active && !online && <div className="offline-banner" role="status">Offline — browse and search are local. {offlineReady ? "Using the active verified snapshot saved in IndexedDB." : "This active snapshot is not ready for offline restart."}</div>}
     {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}
     {active && runtime.update === "failed-retained" && <div className="update-warning-banner" role="status">Update failed; the active verified snapshot was retained. Browsing and local search remain available.</div>}
     {page}
-  </main><Footer snapshot={snapshot} runtime={runtime} update={update} writable={writable} /></>;
+  </main><Footer snapshot={snapshot} runtime={runtime} update={update} writable={writable || leadWritable} /></>;
 }
 
 function NotFound() { return <section className="state-card"><p className="eyebrow">V2 route</p><h1 tabIndex={-1} data-page-heading>Page not found</h1><p>This isolated shell does not fall through to v1.</p><Link to="/" className="primary-button">Return to library</Link></section>; }
 
-function Footer({ snapshot, runtime, update, writable }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus; readonly update: ServiceWorkerState; readonly writable: boolean }) { return <footer><span>{writable ? "Set List writable pilot" : "Read-only pilot"}</span><span>{snapshot.manifest.generation}</span><span>{completeOfflineReady(snapshot, runtime, update) ? "Offline restart ready" : "Not offline-ready (session only)"}</span><span>Physical iPad: pending</span></footer>; }
+function Footer({ snapshot, runtime, update, writable }: { readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus; readonly update: ServiceWorkerState; readonly writable: boolean }) { return <footer><span>{writable ? "Writable authored pilot" : "Read-only pilot"}</span><span>{snapshot.manifest.generation}</span><span>{completeOfflineReady(snapshot, runtime, update) ? "Offline restart ready" : "Not offline-ready (session only)"}</span><span>Physical iPad: pending</span></footer>; }
 
 export class ShellErrorBoundary extends Component<{ readonly children: ReactNode }, { readonly failed: boolean }> {
   override state = { failed: false };

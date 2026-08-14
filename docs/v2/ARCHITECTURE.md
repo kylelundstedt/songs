@@ -99,8 +99,9 @@ TASK-015 is complete. Shell release `shell-39849548e3b7192a1c76aa6e` hardens the
 TASK-016 software packaging is complete. The P1-009 checkpoint binds the frozen refs, trust anchors, release archive, service unit, supporting evidence, runbook, and software/physical matrices. Its exact software status is `SOFTWARE_PASS_PHYSICAL_PENDING`: V1 remains default, V2 remains read-only and opt-in, and writable/cutover claims remain prohibited. The August 13, 2026 owner session passes G1–G3 and operational G5 checks on the approved iPad, with deferred blocking G4 reliability checks. VoiceOver is optional/nonblocking for this device contract and no VoiceOver support is claimed. G6/G7 are optional operational trials, not implied next steps.
 
 The current read-only design is an evidence vehicle, not the accepted target web
-design. Editing, sync, conflicts, publication, and authored-data recovery are not
-yet implemented or physically tested. The owner-directed sequence is:
+design. Set List and lead-sheet editing, sync, publication, and authored-data
+recovery now exist behind disabled-by-default gates; multi-device conflict UX and
+writable physical acceptance remain pending TASK-021. The owner-directed sequence is:
 
 1. TASK-017–021: make Set List and lead-sheet authoring work end to end,
    including authorization, durable sync, fenced publication, offline editing,
@@ -113,7 +114,26 @@ yet implemented or physically tested. The owner-directed sequence is:
 Deferred read-only G4 checks remain scheduled for a later session. Do not infer
 writable, rehearsal, gig, default-route, or V1-retirement readiness.
 
-## Offline writable Set List boundary
+## Offline writable lead-sheet boundary
+
+TASK-020 keeps exact Markdown source as the lead-sheet authority. Reviewed files
+are never generically YAML-reserialized: structured metadata edits splice only
+validated scalar/H1 ranges, and unknown fields, comments, ordering, quoting, and
+untouched body bytes remain byte-identical. Invalid editor buffers live in
+separate CAS-protected workspaces and cannot enter the outbox.
+
+The authored revision/outbox/sync layer now dispatches by document kind while
+preserving TASK-019 records. Server/Apex validation receipts are bound to exact
+source hashes. Online provider and Shelley endpoints return review candidates
+only and have no store, Git, or publication dependency. Dynamic Apex previews
+run in sandboxed frames; reviewed bootstrap Apex remains the only trusted inline
+renderer authority.
+
+Set List writes, lead-sheet writes, lyrics providers, and Shelley suggestions
+have independent disabled-by-default gates. The sync HTTP boundary enforces the
+same document-kind write gates as the browser. Gate rollback leaves drafts,
+workspaces, outbox records, validation receipts, and recovery export intact.
+
 
 TASK-019 adds an authored overlay without changing bootstrap-generation authority:
 

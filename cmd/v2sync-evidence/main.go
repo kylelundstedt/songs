@@ -688,7 +688,7 @@ func run(root string) (e evidence, err error) {
 	e.DeploymentGuard.CheckedSource = "cmd/v2api/main.go"
 	e.DeploymentGuard.DisabledByDefault = strings.Contains(text, `flag.Bool("sync-enabled", false`)
 	e.DeploymentGuard.ExplicitEnableBranch = strings.Contains(text, `if *flagSyncEnabled {`) && strings.Contains(text, `api = routeV2API`)
-	e.DeploymentGuard.ConfigurationRejectedIfOff = strings.Contains(text, `sync configuration was supplied without -sync-enabled`)
+	e.DeploymentGuard.ConfigurationRejectedIfOff = strings.Contains(text, `writable configuration was supplied without -sync-enabled`)
 	e.DeploymentGuard.RequiredConfigurationWhenOn = strings.Contains(text, `sync requires -sync-db, -sync-owner, -sync-forwarded-host, and -sync-master-key-file`)
 	e.DeploymentGuard.RestrictedKeyFilePermissions = strings.Contains(text, `info.Mode().Perm()&0o077 != 0`)
 	if err := require(e.DeploymentGuard.DisabledByDefault && e.DeploymentGuard.ExplicitEnableBranch && e.DeploymentGuard.ConfigurationRejectedIfOff && e.DeploymentGuard.RequiredConfigurationWhenOn && e.DeploymentGuard.RestrictedKeyFilePermissions, "deployment guard source assertions failed"); err != nil {

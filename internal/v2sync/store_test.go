@@ -843,3 +843,17 @@ func TestIntegrityChecksSQLiteAndForeignKeys(t *testing.T) {
 		t.Fatalf("Integrity did not report injected foreign-key violation: %v", err)
 	}
 }
+func TestApplyAcceptsPublicationPayloadContainingOneMiBExactSource(t *testing.T) {
+	store, _ := openTestStore(t)
+	registerTestDevice(t, store, testOwner, "device-large", "registration-large", testToken)
+	prefix := "---\ntitle: \"Large\"\nartist: \"Band\"\n---\n\n# Large\n\n"
+	source := prefix + strings.Repeat("\\", (1<<20)-len(prefix))
+	raw, err := json.Marshal(map[string]any{"schema_version": "v2publish-1", "kind": "lead-sheet", "path": "songs/Large.md", "source": source, "deleted": false})
+	if err != nil {
+		t.Fatal(err)
+	}
+	envelope := testApplyEnvelope(t, testOwner, "device-large", "operation-large", "song-large", "", "Large", string(raw), 0)
+	if _, err := store.Apply(envelope); err != nil {
+		t.Fatalf("Apply near-limit source: %v (payload bytes=%d)", err, len(raw))
+	}
+}

@@ -11,6 +11,7 @@ import (
 	"strings"
 	"time"
 
+	"songs.exe.dev/internal/v2author"
 	"songs.exe.dev/internal/v2bootstrap"
 	"songs.exe.dev/internal/v2shell"
 	"songs.exe.dev/internal/v2sync"
@@ -24,6 +25,12 @@ var flagSyncOwner = flag.String("sync-owner", "", "exact trusted proxy owner ID 
 var flagSyncForwardedHost = flag.String("sync-forwarded-host", "", "exact trusted forwarded host (required when sync is enabled)")
 var flagSyncMasterKeyFile = flag.String("sync-master-key-file", "", "0600 file containing a 64-character hex master key (required when sync is enabled)")
 var flagWritableEnabled = flag.Bool("writable-enabled", false, "expose browser Set List authoring controls (requires sync; disabled by default)")
+var flagLeadSheetWritableEnabled = flag.Bool("lead-sheet-writable-enabled", false, "expose browser lead-sheet authoring controls (requires sync and Apex; disabled by default)")
+var flagAuthorApex = flag.String("author-apex", "", "Apex executable path for lead-sheet validation (required when lead-sheet writing is enabled)")
+var flagLyricsProvidersEnabled = flag.Bool("lyrics-providers-enabled", false, "enable review-only online lyrics-provider suggestions (requires lead-sheet writing; disabled by default)")
+var flagShelleySuggestionsEnabled = flag.Bool("shelley-suggestions-enabled", false, "enable review-only Shelley lead-sheet suggestions (requires lead-sheet writing; disabled by default)")
+var flagAuthorLLMBaseURL = flag.String("author-llm-base-url", "https://llm.int.exe.xyz", "trusted LLM gateway for Shelley suggestions")
+var flagAuthorLLMModel = flag.String("author-llm-model", "openai/gpt-5.6-luna", "model used for review-only lead-sheet suggestions")
 
 func main() {
 	if err := run(); err != nil {
@@ -40,8 +47,11 @@ func run() error {
 	}
 	api := snapshot.Handler()
 	var syncStore *v2sync.Store
-	if *flagWritableEnabled && !*flagSyncEnabled {
+	if (*flagWritableEnabled || *flagLeadSheetWritableEnabled) && !*flagSyncEnabled {
 		return errors.New("writable browser controls require -sync-enabled")
+	}
+	if (*flagLyricsProvidersEnabled || *flagShelleySuggestionsEnabled) && !*flagLeadSheetWritableEnabled {
+		return errors.New("lead-sheet enrichment requires -lead-sheet-writable-enabled")
 	}
 	if *flagSyncEnabled {
 		syncHandler, store, err := loadSyncHandler()
@@ -50,9 +60,20 @@ func run() error {
 		}
 		syncStore = store
 		defer syncStore.Close()
-		api = routeV2API(snapshot.Handler(), syncHandler, *flagWritableEnabled)
-	} else if *flagSyncDB != "" || *flagSyncOwner != "" || *flagSyncForwardedHost != "" || *flagSyncMasterKeyFile != "" {
-		return errors.New("sync configuration was supplied without -sync-enabled")
+		var authorHandler http.Handler
+		if *flagLeadSheetWritableEnabled {
+			authorHandler, err = loadAuthorHandler()
+			if err != nil {
+				return err
+			}
+		}
+		api = routeV2API(snapshot.Handler(), syncHandler, authorHandler, writableCapabilities{
+			SetListAuthoring: *flagWritableEnabled, LeadSheetAuthoring: *flagLeadSheetWritableEnabled,
+			ForegroundSync: true, ApexValidation: *flagLeadSheetWritableEnabled,
+			LyricsProviders: *flagLyricsProvidersEnabled, ShelleySuggestions: *flagShelleySuggestionsEnabled,
+		})
+	} else if *flagSyncDB != "" || *flagSyncOwner != "" || *flagSyncForwardedHost != "" || *flagSyncMasterKeyFile != "" || *flagAuthorApex != "" || *flagLyricsProvidersEnabled || *flagShelleySuggestionsEnabled {
+		return errors.New("writable configuration was supplied without -sync-enabled")
 	}
 	shell, err := v2shell.LoadEmbedded(api, snapshot.ManifestSHA256())
 	if err != nil {
@@ -64,7 +85,7 @@ func run() error {
 		ReadHeaderTimeout: 5 * time.Second,
 		IdleTimeout:       60 * time.Second,
 	}
-	slog.Info("starting isolated V2 shell", "addr", server.Addr, "generation", snapshot.Generation(), "shell_release", shell.Release(), "sync_enabled", *flagSyncEnabled, "writable_enabled", *flagWritableEnabled)
+	slog.Info("starting isolated V2 shell", "addr", server.Addr, "generation", snapshot.Generation(), "shell_release", shell.Release(), "sync_enabled", *flagSyncEnabled, "set_list_writable_enabled", *flagWritableEnabled, "lead_sheet_writable_enabled", *flagLeadSheetWritableEnabled, "lyrics_providers_enabled", *flagLyricsProvidersEnabled, "shelley_suggestions_enabled", *flagShelleySuggestionsEnabled)
 	if err := server.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		return err
 	}
@@ -73,7 +94,16 @@ func run() error {
 
 const writableCapabilitiesPath = "/api/v2/writable-capabilities"
 
-func routeV2API(readOnly, sync http.Handler, writable bool) http.Handler {
+type writableCapabilities struct {
+	SetListAuthoring   bool
+	LeadSheetAuthoring bool
+	ForegroundSync     bool
+	ApexValidation     bool
+	LyricsProviders    bool
+	ShelleySuggestions bool
+}
+
+func routeV2API(readOnly, sync, author http.Handler, capabilities writableCapabilities) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == writableCapabilitiesPath {
 			if r.Method != http.MethodGet || r.URL.RawQuery != "" {
@@ -82,15 +112,39 @@ func routeV2API(readOnly, sync http.Handler, writable bool) http.Handler {
 			}
 			w.Header().Set("Content-Type", "application/json")
 			w.Header().Set("Cache-Control", "no-store")
-			_, _ = fmt.Fprintf(w, `{"schema_version":"1","set_list_authoring":%t,"foreground_sync":%t}`+"\n", writable, writable)
+			_, _ = fmt.Fprintf(w, `{"schema_version":"1","set_list_authoring":%t,"lead_sheet_authoring":%t,"foreground_sync":%t,"apex_validation":%t,"lyrics_provider":%t,"shelley_suggestions":%t}`+"\n", capabilities.SetListAuthoring, capabilities.LeadSheetAuthoring, capabilities.ForegroundSync, capabilities.ApexValidation, capabilities.LyricsProviders, capabilities.ShelleySuggestions)
 			return
 		}
 		if r.URL.Path == v2syncapi.PathPrefix || strings.HasPrefix(r.URL.Path, v2syncapi.PathPrefix+"/") {
 			sync.ServeHTTP(w, r)
 			return
 		}
+		if r.URL.Path == v2author.PathPrefix || strings.HasPrefix(r.URL.Path, v2author.PathPrefix+"/") {
+			if author == nil {
+				http.NotFound(w, r)
+				return
+			}
+			author.ServeHTTP(w, r)
+			return
+		}
 		readOnly.ServeHTTP(w, r)
 	})
+}
+
+func loadAuthorHandler() (http.Handler, error) {
+	if *flagSyncOwner == "" || *flagSyncForwardedHost == "" || strings.TrimSpace(*flagAuthorApex) == "" {
+		return nil, errors.New("lead-sheet authoring requires -sync-owner, -sync-forwarded-host, and -author-apex")
+	}
+	handler, err := v2author.New(v2author.Config{
+		OwnerID: *flagSyncOwner, ForwardedHost: *flagSyncForwardedHost, ApexPath: *flagAuthorApex,
+		LRCLIBBaseURL: "https://lrclib.net", LyricsOvhBaseURL: "https://api.lyrics.ovh", DeezerBaseURL: "https://api.deezer.com",
+		LLMBaseURL: *flagAuthorLLMBaseURL, LLMModel: *flagAuthorLLMModel,
+		ProvidersEnabled: *flagLyricsProvidersEnabled, ShelleyEnabled: *flagShelleySuggestionsEnabled,
+	})
+	if err != nil {
+		return nil, fmt.Errorf("configure V2 lead-sheet authoring helpers: %w", err)
+	}
+	return handler, nil
 }
 
 func loadSyncHandler() (http.Handler, *v2sync.Store, error) {
@@ -118,6 +172,7 @@ func loadSyncHandler() (http.Handler, *v2sync.Store, error) {
 	}
 	handler, err := v2syncapi.New(store, v2syncapi.Config{
 		Store: store, OwnerID: *flagSyncOwner, ForwardedHost: *flagSyncForwardedHost, MasterKey: key,
+		EnforceDocumentGates: true, SetListWritesEnabled: *flagWritableEnabled, LeadSheetWritesEnabled: *flagLeadSheetWritableEnabled,
 	})
 	for i := range key {
 		key[i] = 0

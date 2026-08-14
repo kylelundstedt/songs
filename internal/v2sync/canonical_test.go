@@ -112,7 +112,7 @@ func TestCanonicalJSONRejectsInvalidEncodingNULAndOversize(t *testing.T) {
 		"literal NUL":   []byte("{\"x\":\"\x00\"}"),
 		"escaped NUL":   []byte(`{"x":"\u0000"}`),
 		"NUL key":       []byte(`{"\u0000":1}`),
-		"oversize":      append([]byte(`"`), append(bytes.Repeat([]byte{'a'}, 1<<20), '"')...),
+		"oversize":      append([]byte(`"`), append(bytes.Repeat([]byte{'a'}, 8<<20), '"')...),
 	}
 	for name, raw := range cases {
 		t.Run(name, func(t *testing.T) {

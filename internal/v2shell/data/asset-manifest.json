@@ -4,18 +4,18 @@
   ],
   "assets": [
     {
-      "bytes": 416819,
-      "cache_control": "private, max-age=31536000, immutable",
-      "content_type": "application/javascript; charset=utf-8",
-      "path": "assets/index-BaUgVBBC.js",
-      "sha256": "52ca952f47b4e5f1ee562a16173b36515c5fa187d07f27923a4c9d42e90279a3"
-    },
-    {
-      "bytes": 26589,
+      "bytes": 27699,
       "cache_control": "private, max-age=31536000, immutable",
       "content_type": "text/css; charset=utf-8",
-      "path": "assets/index-BsnNnf1E.css",
-      "sha256": "ca2473f6e3414e44cd4d1c88ad12b8a38882f9e4398694777353557fd488406c"
+      "path": "assets/index-D-cJfTK1.css",
+      "sha256": "5daec1d56ec1a0b4c109f7f89d322e0bb2b1a98792826fb62db65ef129594250"
+    },
+    {
+      "bytes": 471846,
+      "cache_control": "private, max-age=31536000, immutable",
+      "content_type": "application/javascript; charset=utf-8",
+      "path": "assets/index-DBDAVZbj.js",
+      "sha256": "a775a691a439f593e8cf9eda9f7f4d7bba91c3051bfd15e5e4494412d34de2f4"
     },
     {
       "bytes": 540,
@@ -29,7 +29,7 @@
       "cache_control": "private, no-store",
       "content_type": "text/html; charset=utf-8",
       "path": "index.html",
-      "sha256": "f22bcdbcdab4e7c13b0b69755a3d16a3d66cd316aa1478e781a7dda5b2d73905"
+      "sha256": "f9f0835b42a76a98b6cee2b8a534809d62a81f7b0ad92c487a9d576311012c9b"
     },
     {
       "bytes": 388,
@@ -43,16 +43,16 @@
       "cache_control": "private, no-store",
       "content_type": "application/javascript; charset=utf-8",
       "path": "sw.js",
-      "sha256": "b9e70941dbd42a40b523f9da1b511aae8e008fea77deef018ea5ae0ed5fe081c"
+      "sha256": "15bfd35594d800546f3a7ad4c7f20e5398f2481d1e3c4cc7a07ca70bb17a8a7a"
     }
   ],
   "bootstrap_manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
   "cache_prefix": "songs-v2-shell-",
   "indexeddb_name": "songs-v2",
   "kind": "songs-v2.shell.assets",
-  "release": "shell-3ec4dfcfddc7fd8b5d1c1904",
+  "release": "shell-ffe70456e479eb1529d157f0",
   "schema_version": "1",
   "verification": {
-    "output_sha256": "c3ec1191fbbb27aed6e8af1502262038e0918e7c304e82c03498644c23bd5f40"
+    "output_sha256": "e370d8e2fc36f8d84ede2d302c7b4d6ec549082d571162d296165bc890821763"
   }
 }

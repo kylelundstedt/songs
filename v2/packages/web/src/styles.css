@@ -372,3 +372,13 @@ footer { display: flex; justify-content: center; flex-wrap: wrap; gap: .7rem 1.4
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+.lead-editor-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1rem; }
+.lead-source-editor { width:100%; min-height:32rem; resize:vertical; padding:.85rem; border:1px solid var(--line); border-radius:.65rem; background:var(--bg); color:var(--text); font:500 .9rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace; tab-size:2; }
+.lead-local-preview, .candidate-review pre { max-height:32rem; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; padding:1rem; border-radius:.65rem; background:color-mix(in srgb,var(--panel) 72%,var(--bg)); border:1px solid var(--line); }
+.enrichment-block { display:grid; gap:.65rem; margin-top:1rem; }
+.enrichment-block ul { display:grid; gap:.5rem; padding:0; list-style:none; }
+.enrichment-block li { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.candidate-review { margin-top:1rem; padding-top:1rem; border-top:1px solid var(--line); }
+@media (max-width: 760px) { .lead-editor-grid { grid-template-columns:1fr; } .lead-source-editor { min-height:24rem; } }
+.apex-draft-preview { width:100%; min-height:24rem; margin-top:1rem; border:1px solid var(--line); border-radius:.65rem; background:white; }

@@ -3,7 +3,7 @@
 - **Priority:** P0
 - **Phase:** Post-Phase-1 writable foundation
 - **Program:** First writable V2 slice
-- **Status:** Planned after TASK-020
+- **Status:** Next after TASK-020
 - **Dependencies:** TASK-017 through TASK-020 plus completion of deferred blocking P1-009 G4 checks before physical writable acceptance
 - **Estimate:** 6–10 focused engineering days plus owner/device time
 

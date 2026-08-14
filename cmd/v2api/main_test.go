@@ -10,6 +10,7 @@ import (
 	"sync"
 	"testing"
 
+	"songs.exe.dev/internal/v2author"
 	"songs.exe.dev/internal/v2bootstrap"
 	"songs.exe.dev/internal/v2shell"
 	"songs.exe.dev/internal/v2syncapi"
@@ -22,7 +23,10 @@ func TestRouteV2APIDispatch(t *testing.T) {
 	syncHandler := http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 		_, _ = w.Write([]byte("sync"))
 	})
-	handler := routeV2API(readOnly, syncHandler, false)
+	authorHandler := http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		_, _ = w.Write([]byte("author"))
+	})
+	handler := routeV2API(readOnly, syncHandler, authorHandler, writableCapabilities{})
 
 	for _, tc := range []struct {
 		path string
@@ -32,6 +36,8 @@ func TestRouteV2APIDispatch(t *testing.T) {
 		{v2syncapi.PathPrefix + "/", "sync"},
 		{v2syncapi.PathPrefix + "/health", "sync"},
 		{v2syncapi.PathPrefix + "//health", "sync"},
+		{v2author.PathPrefix + "/validate", "author"},
+		{v2author.PathPrefix + "ish", "read-only"},
 		{"/api/v2/bootstrap/manifest", "read-only"},
 		{v2syncapi.PathPrefix + "ish", "read-only"},
 		{v2syncapi.PathPrefix + "-other", "read-only"},
@@ -48,19 +54,15 @@ func TestRouteV2APIDispatch(t *testing.T) {
 	}
 }
 
-func TestWritableCapabilitiesRequireBothRuntimeGates(t *testing.T) {
+func TestWritableCapabilitiesExposeIndependentRuntimeGates(t *testing.T) {
 	readOnly := http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) { http.NotFound(w, nil) })
 	syncHandler := http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) { http.NotFound(w, nil) })
-	for _, enabled := range []bool{false, true} {
-		response := httptest.NewRecorder()
-		routeV2API(readOnly, syncHandler, enabled).ServeHTTP(response, httptest.NewRequest(http.MethodGet, writableCapabilitiesPath, nil))
-		want := `{"schema_version":"1","set_list_authoring":false,"foreground_sync":false}` + "\n"
-		if enabled {
-			want = `{"schema_version":"1","set_list_authoring":true,"foreground_sync":true}` + "\n"
-		}
-		if response.Code != http.StatusOK || response.Body.String() != want || response.Header().Get("Cache-Control") != "no-store" {
-			t.Fatalf("enabled=%v response=(%d,%q,%q), want 200,%q,no-store", enabled, response.Code, response.Body.String(), response.Header().Get("Cache-Control"), want)
-		}
+	capabilities := writableCapabilities{SetListAuthoring: true, LeadSheetAuthoring: true, ForegroundSync: true, ApexValidation: true, LyricsProviders: true, ShelleySuggestions: false}
+	response := httptest.NewRecorder()
+	routeV2API(readOnly, syncHandler, nil, capabilities).ServeHTTP(response, httptest.NewRequest(http.MethodGet, writableCapabilitiesPath, nil))
+	want := `{"schema_version":"1","set_list_authoring":true,"lead_sheet_authoring":true,"foreground_sync":true,"apex_validation":true,"lyrics_provider":true,"shelley_suggestions":false}` + "\n"
+	if response.Code != http.StatusOK || response.Body.String() != want || response.Header().Get("Cache-Control") != "no-store" {
+		t.Fatalf("response=(%d,%q,%q), want 200,%q,no-store", response.Code, response.Body.String(), response.Header().Get("Cache-Control"), want)
 	}
 }
 
@@ -72,12 +74,27 @@ func TestRunRejectsWritableControlsWithoutSync(t *testing.T) {
 	})
 }
 
+func TestRunRejectsLeadSheetControlsWithoutSync(t *testing.T) {
+	withSyncFlags(t, syncFlagValues{leadWritable: true}, func() {
+		if err := run(); err == nil || err.Error() != "writable browser controls require -sync-enabled" {
+			t.Fatalf("run error = %v", err)
+		}
+	})
+}
+
+func TestRunRejectsEnrichmentWithoutLeadSheetAuthoring(t *testing.T) {
+	withSyncFlags(t, syncFlagValues{enabled: true, providers: true}, func() {
+		if err := run(); err == nil || err.Error() != "lead-sheet enrichment requires -lead-sheet-writable-enabled" {
+			t.Fatalf("run error = %v", err)
+		}
+	})
+}
+
 func TestSyncProductionDefaultsRemainReadOnly(t *testing.T) {
-	if got := flag.Lookup("sync-enabled"); got == nil || got.DefValue != "false" {
-		t.Fatalf("sync-enabled default = %v, want false", got)
-	}
-	if got := flag.Lookup("writable-enabled"); got == nil || got.DefValue != "false" {
-		t.Fatalf("writable-enabled default = %v, want false", got)
+	for _, name := range []string{"sync-enabled", "writable-enabled", "lead-sheet-writable-enabled", "lyrics-providers-enabled", "shelley-suggestions-enabled"} {
+		if got := flag.Lookup(name); got == nil || got.DefValue != "false" {
+			t.Fatalf("%s default = %v, want false", name, got)
+		}
 	}
 	for _, name := range []string{"sync-db", "sync-owner", "sync-forwarded-host", "sync-master-key-file"} {
 		if got := flag.Lookup(name); got == nil || got.DefValue != "" {
@@ -113,6 +130,10 @@ func TestSyncProductionDefaultsRemainReadOnly(t *testing.T) {
 type syncFlagValues struct {
 	enabled       bool
 	writable      bool
+	leadWritable  bool
+	providers     bool
+	shelley       bool
+	authorApex    string
 	database      string
 	owner         string
 	forwardedHost string
@@ -127,6 +148,10 @@ func withSyncFlags(t *testing.T, values syncFlagValues, test func()) {
 	old := syncFlagValues{
 		enabled:       *flagSyncEnabled,
 		writable:      *flagWritableEnabled,
+		leadWritable:  *flagLeadSheetWritableEnabled,
+		providers:     *flagLyricsProvidersEnabled,
+		shelley:       *flagShelleySuggestionsEnabled,
+		authorApex:    *flagAuthorApex,
 		database:      *flagSyncDB,
 		owner:         *flagSyncOwner,
 		forwardedHost: *flagSyncForwardedHost,
@@ -135,6 +160,10 @@ func withSyncFlags(t *testing.T, values syncFlagValues, test func()) {
 	defer func() {
 		*flagSyncEnabled = old.enabled
 		*flagWritableEnabled = old.writable
+		*flagLeadSheetWritableEnabled = old.leadWritable
+		*flagLyricsProvidersEnabled = old.providers
+		*flagShelleySuggestionsEnabled = old.shelley
+		*flagAuthorApex = old.authorApex
 		*flagSyncDB = old.database
 		*flagSyncOwner = old.owner
 		*flagSyncForwardedHost = old.forwardedHost
@@ -143,6 +172,10 @@ func withSyncFlags(t *testing.T, values syncFlagValues, test func()) {
 	}()
 	*flagSyncEnabled = values.enabled
 	*flagWritableEnabled = values.writable
+	*flagLeadSheetWritableEnabled = values.leadWritable
+	*flagLyricsProvidersEnabled = values.providers
+	*flagShelleySuggestionsEnabled = values.shelley
+	*flagAuthorApex = values.authorApex
 	*flagSyncDB = values.database
 	*flagSyncOwner = values.owner
 	*flagSyncForwardedHost = values.forwardedHost
@@ -170,7 +203,7 @@ func TestRunRejectsSyncConfigurationWhileDisabled(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			withSyncFlags(t, tc.values, func() {
 				err := run()
-				if err == nil || err.Error() != "sync configuration was supplied without -sync-enabled" {
+				if err == nil || err.Error() != "writable configuration was supplied without -sync-enabled" {
 					t.Fatalf("run error = %v, want disabled-sync configuration rejection", err)
 				}
 			})

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1",
+  "kind": "songs-v2.task-020.evidence",
+  "assertions": {
+    "reviewed_lead_sheets_opened_without_drift": 339,
+    "reviewed_exact_source_bytes": 676990,
+    "unknown_front_matter_preserved": true,
+    "untouched_body_byte_stable": true,
+    "surgical_quote_style_preserved": true,
+    "local_validation_is_non_authoritative": "local-only",
+    "exact_outbox_payload_source": true,
+    "invalid_workspace_export_sha256": "de7df3afd72705603d9d672e682369d51fe7e02fca1b36fe5a2e64f453a9f834",
+    "restore_counts": {
+      "mode": "replace",
+      "drafts": 1,
+      "revisions": 1,
+      "outbox": 1,
+      "conflicts": 0,
+      "legacy": 2,
+      "sync": false
+    },
+    "invalid_workspace_restored": true,
+    "failed_server_validation_restored": true,
+    "retry_envelope_byte_stable": true
+  }
+}

@@ -5,22 +5,40 @@ import {
   AUTHORED_REVISION_SCHEMA_VERSION,
   AUTHORED_SYNC_SCHEMA_VERSION,
   AUTHORED_SYNC_STATE_ID,
+  LEAD_SHEET_VALIDATION_RECEIPT_SCHEMA_VERSION,
+  LEAD_SHEET_WORKSPACE_SCHEMA_VERSION,
+  type AnyAuthoredDraftRecord,
+  type AnyAuthoredLocalRevisionRecord,
+  type AnyAuthoredMutation,
+  type AnyAuthoredOutboxRecord,
+  type AnyAuthoredServerRevisionRecord,
   type AuthoredConflictRecord,
   type AuthoredDraftRecord,
+  type AuthoredLeadSheetDraftRecord,
+  type AuthoredLeadSheetMutation,
+  type AuthoredLeadSheetOutboxRecord,
   type AuthoredMutation,
   type AuthoredOutboxRecord,
-  type OpaquePendingRecord,
   type AuthoredRevisionRecord,
   type AuthoredStateExport,
   type AuthoredSyncStateRecord,
+  type LeadSheetValidationReceiptRecord,
+  type LeadSheetWorkspaceRecord,
+  type OpaquePendingRecord,
   type StoredAuthoredState,
   canonicalJson,
   createAuthoredStateExport,
   decodeOpaqueStructuredClone,
   encodeOpaqueStructuredClone,
+  isLeadSheetAuthoredDraft,
+  isSetListAuthoredDraft,
+  leadSheetValidationReceiptId,
+  leadSheetWorkspaceId,
   validateAuthoredStateExport,
   validateConflictRecord,
   validateDraftRecord,
+  validateLeadSheetValidationReceiptRecord,
+  validateLeadSheetWorkspaceRecord,
   validateOutboxRecord,
   validateRevisionRecord,
   validateStoredAuthoredState,
@@ -219,9 +237,33 @@ export interface CommitAuthoredMutationResult {
   readonly coalescedOperationIds: readonly string[];
 }
 
+export interface SaveLeadSheetWorkspaceOptions {
+  /** `null` creates a workspace; otherwise compare against the current exact source hash. */
+  readonly expectedSourceSha256: string | null;
+}
+
+export interface SaveLeadSheetWorkspaceResult {
+  readonly documentId: string;
+  readonly sourceSha256: string;
+  readonly idempotent: boolean;
+}
+
+export interface SaveLeadSheetValidationReceiptOptions {
+  /** Reject a stale server response when an editor workspace has moved on. */
+  readonly expectedWorkspaceSourceSha256?: string;
+}
+
+export interface SaveLeadSheetValidationReceiptResult {
+  readonly documentId: string;
+  readonly sourceSha256: string;
+  readonly idempotent: boolean;
+}
+
 export interface ClaimAuthoredOutboxOptions {
   readonly attemptedAt: string;
   readonly includeFailed?: boolean;
+  /** Defaults to TASK-019 Set List work; select lead-sheet explicitly. */
+  readonly kind?: "set-list" | "lead-sheet";
   /** Explicit lease cutoff for retrying a crash-interrupted sending record. */
   readonly reclaimSendingBefore?: string;
 }
@@ -233,7 +275,7 @@ export interface FailAuthoredOutboxOptions {
 
 export interface AuthoredSyncDraftUpdate {
   readonly expectedLocalRevisionId: string;
-  readonly draft: AuthoredDraftRecord;
+  readonly draft: AnyAuthoredDraftRecord;
 }
 
 export interface AuthoredSyncCommit {
@@ -246,7 +288,7 @@ export interface AuthoredSyncCommit {
   readonly removeConflictIds?: readonly string[];
   readonly removeOutboxIds?: readonly string[];
   /** Rebased records must never have entered `sending` with old envelope bytes. */
-  readonly replaceOutbox?: readonly AuthoredOutboxRecord[];
+  readonly replaceOutbox?: readonly AnyAuthoredOutboxRecord[];
 }
 
 export interface AuthoredRestoreOptions {
@@ -557,11 +599,13 @@ function hasSchema(value: unknown, schemaVersion: string): boolean {
   return value !== null && typeof value === "object" && "schemaVersion" in value && (value as { schemaVersion?: unknown }).schemaVersion === schemaVersion;
 }
 
-function isAuthoredDraftValue(value: unknown): value is AuthoredDraftRecord { return hasSchema(value, AUTHORED_DRAFT_SCHEMA_VERSION); }
+function isAuthoredDraftValue(value: unknown): value is AnyAuthoredDraftRecord { return hasSchema(value, AUTHORED_DRAFT_SCHEMA_VERSION); }
 function isAuthoredRevisionValue(value: unknown): value is AuthoredRevisionRecord { return hasSchema(value, AUTHORED_REVISION_SCHEMA_VERSION); }
-function isAuthoredOutboxValue(value: unknown): value is AuthoredOutboxRecord { return hasSchema(value, AUTHORED_OUTBOX_SCHEMA_VERSION); }
+function isAuthoredOutboxValue(value: unknown): value is AnyAuthoredOutboxRecord { return hasSchema(value, AUTHORED_OUTBOX_SCHEMA_VERSION); }
 function isAuthoredConflictValue(value: unknown): value is AuthoredConflictRecord { return hasSchema(value, AUTHORED_CONFLICT_SCHEMA_VERSION); }
 function isAuthoredSyncValue(value: unknown): value is AuthoredSyncStateRecord { return hasSchema(value, AUTHORED_SYNC_SCHEMA_VERSION); }
+function isLeadSheetWorkspaceValue(value: unknown): value is LeadSheetWorkspaceRecord { return hasSchema(value, LEAD_SHEET_WORKSPACE_SCHEMA_VERSION); }
+function isLeadSheetValidationReceiptValue(value: unknown): value is LeadSheetValidationReceiptRecord { return hasSchema(value, LEAD_SHEET_VALIDATION_RECEIPT_SCHEMA_VERSION); }
 
 /**
  * Production storage core for TASK-012. It accepts only already-verified data:
@@ -632,10 +676,13 @@ export class SongsStorage {
    * Pending full-document envelopes for the same document are safely coalesced;
    * a `sending` envelope is retained until its server outcome is known.
    */
-  async commitAuthoredMutation(mutation: AuthoredMutation, options: CommitAuthoredMutationOptions = {}): Promise<CommitAuthoredMutationResult> {
-    let draft: AuthoredDraftRecord;
+  async commitAuthoredMutation(mutation: AuthoredMutation, options?: CommitAuthoredMutationOptions): Promise<CommitAuthoredMutationResult>;
+  async commitAuthoredMutation(mutation: AuthoredLeadSheetMutation, options?: CommitAuthoredMutationOptions): Promise<CommitAuthoredMutationResult>;
+  async commitAuthoredMutation(mutation: AnyAuthoredMutation, options?: CommitAuthoredMutationOptions): Promise<CommitAuthoredMutationResult>;
+  async commitAuthoredMutation(mutation: AnyAuthoredMutation, options: CommitAuthoredMutationOptions = {}): Promise<CommitAuthoredMutationResult> {
+    let draft: AnyAuthoredDraftRecord;
     let revision: AuthoredRevisionRecord;
-    let outbox: AuthoredOutboxRecord;
+    let outbox: AnyAuthoredOutboxRecord;
     try {
       [draft, revision, outbox] = await Promise.all([
         validateDraftRecord(mutation.draft),
@@ -652,7 +699,10 @@ export class SongsStorage {
     if (
       draft.documentId !== revision.documentId || draft.documentId !== outbox.documentId
       || draft.localRevisionId !== revision.id || outbox.localRevisionId !== revision.id
-      || revision.operationId !== outbox.envelope.operation_id
+      || revision.operationId !== outbox.envelope.operation_id || revision.operationKind !== outbox.envelope.operation_kind
+      || draft.kind !== outbox.envelope.payload.kind || draft.document.schemaVersion !== revision.document.schemaVersion
+      || draft.source !== revision.source || revision.source !== outbox.envelope.payload.source
+      || draft.document.path !== outbox.envelope.payload.path
     ) throw storageError("INVALID_INPUT", "Authored mutation identities do not agree");
     const expected = options.expectedLocalRevisionId === undefined ? revision.parentRevisionId : options.expectedLocalRevisionId;
     if (expected !== null && (typeof expected !== "string" || expected.length === 0)) throw storageError("INVALID_INPUT", "expectedLocalRevisionId must be a non-empty ID or null");
@@ -680,9 +730,9 @@ export class SongsStorage {
       if (existingDraftRaw !== undefined && !isAuthoredDraftValue(existingDraftRaw)) throw storageError("INTEGRITY", "A legacy draft occupies this Set List ID and was preserved", { documentId: draft.id });
       if (existingRevisionRaw !== undefined && !isAuthoredRevisionValue(existingRevisionRaw)) throw storageError("INTEGRITY", "An unknown revision record occupies this revision ID", { revisionId: revision.id });
       if (existingOutboxRaw !== undefined && !isAuthoredOutboxValue(existingOutboxRaw)) throw storageError("INTEGRITY", "A legacy outbox record occupies this device/operation ID and was preserved", { outboxId: outbox.id });
-      const existingDraft = existingDraftRaw as AuthoredDraftRecord | undefined;
+      const existingDraft = existingDraftRaw as AnyAuthoredDraftRecord | undefined;
       const existingRevision = existingRevisionRaw as AuthoredRevisionRecord | undefined;
-      const existingOutbox = existingOutboxRaw as AuthoredOutboxRecord | undefined;
+      const existingOutbox = existingOutboxRaw as AnyAuthoredOutboxRecord | undefined;
       const existingSync = isAuthoredSyncValue(syncValue) ? syncValue : undefined;
       if (syncValue !== undefined && existingSync === undefined) throw storageError("INTEGRITY", "Unknown sync state was preserved instead of overwritten");
       if (existingSync !== undefined && existingSync.deviceId !== revision.deviceId) {
@@ -734,22 +784,49 @@ export class SongsStorage {
   }
 
   /** Compatibility alias for callers that name the atomic action as a save. */
-  async saveAuthoredMutation(mutation: AuthoredMutation, options: CommitAuthoredMutationOptions = {}): Promise<CommitAuthoredMutationResult> {
+  async saveAuthoredMutation(mutation: AuthoredMutation, options?: CommitAuthoredMutationOptions): Promise<CommitAuthoredMutationResult>;
+  async saveAuthoredMutation(mutation: AuthoredLeadSheetMutation, options?: CommitAuthoredMutationOptions): Promise<CommitAuthoredMutationResult>;
+  async saveAuthoredMutation(mutation: AnyAuthoredMutation, options?: CommitAuthoredMutationOptions): Promise<CommitAuthoredMutationResult>;
+  async saveAuthoredMutation(mutation: AnyAuthoredMutation, options: CommitAuthoredMutationOptions = {}): Promise<CommitAuthoredMutationResult> {
     return this.commitAuthoredMutation(mutation, options);
   }
 
-  async readAuthoredDraft(documentId: string): Promise<AuthoredDraftRecord | null> {
+  async readAuthoredDraft(documentId: string): Promise<AuthoredDraftRecord | null>;
+  async readAuthoredDraft(documentId: string, kind: "set-list"): Promise<AuthoredDraftRecord | null>;
+  async readAuthoredDraft(documentId: string, kind: "lead-sheet"): Promise<AuthoredLeadSheetDraftRecord | null>;
+  async readAuthoredDraft(documentId: string, kind: "set-list" | "lead-sheet" = "set-list"): Promise<AnyAuthoredDraftRecord | null> {
     if (documentId.length === 0) throw storageError("INVALID_INPUT", "documentId must not be empty");
     const value = await this.transaction(["drafts"], "readonly", async (transaction) => requestResult(transaction.objectStore("drafts").get(documentId)));
     if (value === undefined || !isAuthoredDraftValue(value)) return null;
     try {
-      return await validateDraftRecord(value);
+      const record = await validateDraftRecord(value);
+      return record.kind === kind ? record : null;
     } catch (error) {
       throw storageError("INTEGRITY", "Stored authored draft failed validation", { documentId, message: error instanceof Error ? error.message : String(error) });
     }
   }
 
+  async readLeadSheetDraft(documentId: string): Promise<AuthoredLeadSheetDraftRecord | null> {
+    return this.readAuthoredDraft(documentId, "lead-sheet");
+  }
+
+  /** TASK-019 compatibility: this list remains Set List-only. */
   async listAuthoredDrafts(): Promise<readonly AuthoredDraftRecord[]> {
+    const values = await this.transaction(["drafts"], "readonly", async (transaction) => requestResult(transaction.objectStore("drafts").getAll()));
+    try {
+      const records = await Promise.all((values as unknown[]).filter(isAuthoredDraftValue).map(validateDraftRecord));
+      return Object.freeze(records.filter(isSetListAuthoredDraft).sort((left, right) => compareStableText(left.id, right.id)));
+    } catch (error) {
+      throw storageError("INTEGRITY", "Stored authored drafts failed validation", { message: error instanceof Error ? error.message : String(error) });
+    }
+  }
+
+  async listLeadSheetDrafts(): Promise<readonly AuthoredLeadSheetDraftRecord[]> {
+    const records = await this.listAllAuthoredDrafts();
+    return Object.freeze(records.filter(isLeadSheetAuthoredDraft));
+  }
+
+  async listAllAuthoredDrafts(): Promise<readonly AnyAuthoredDraftRecord[]> {
     const values = await this.transaction(["drafts"], "readonly", async (transaction) => requestResult(transaction.objectStore("drafts").getAll()));
     try {
       const records = await Promise.all((values as unknown[]).filter(isAuthoredDraftValue).map(validateDraftRecord));
@@ -757,6 +834,122 @@ export class SongsStorage {
     } catch (error) {
       throw storageError("INTEGRITY", "Stored authored drafts failed validation", { message: error instanceof Error ? error.message : String(error) });
     }
+  }
+
+  async readLeadSheetWorkspace(documentId: string): Promise<LeadSheetWorkspaceRecord | null> {
+    if (documentId.length === 0) throw storageError("INVALID_INPUT", "documentId must not be empty");
+    const id = leadSheetWorkspaceId(documentId);
+    const value = await this.transaction(["drafts"], "readonly", async (transaction) => requestResult(transaction.objectStore("drafts").get(id)));
+    if (value === undefined) return null;
+    if (!isLeadSheetWorkspaceValue(value)) throw storageError("INTEGRITY", "A preserved unknown draft occupies the lead-sheet workspace ID", { documentId });
+    try {
+      return await validateLeadSheetWorkspaceRecord(value);
+    } catch (error) {
+      throw storageError("INTEGRITY", "Stored lead-sheet workspace failed validation", { documentId, message: error instanceof Error ? error.message : String(error) });
+    }
+  }
+
+  async listLeadSheetWorkspaces(): Promise<readonly LeadSheetWorkspaceRecord[]> {
+    const values = await this.transaction(["drafts"], "readonly", async (transaction) => requestResult(transaction.objectStore("drafts").getAll()));
+    try {
+      const records = await Promise.all((values as unknown[]).filter(isLeadSheetWorkspaceValue).map(validateLeadSheetWorkspaceRecord));
+      return Object.freeze(records.sort((left, right) => compareStableText(left.documentId, right.documentId)));
+    } catch (error) {
+      throw storageError("INTEGRITY", "Stored lead-sheet workspaces failed validation", { message: error instanceof Error ? error.message : String(error) });
+    }
+  }
+
+  async saveLeadSheetWorkspace(recordValue: LeadSheetWorkspaceRecord, options: SaveLeadSheetWorkspaceOptions): Promise<SaveLeadSheetWorkspaceResult> {
+    let record: LeadSheetWorkspaceRecord;
+    try {
+      record = await validateLeadSheetWorkspaceRecord(recordValue);
+      if (options.expectedSourceSha256 !== null && !/^[a-f0-9]{64}$/u.test(options.expectedSourceSha256)) throw new Error("expectedSourceSha256 must be null or a lowercase SHA-256");
+    } catch (error) {
+      throw authoredInputError("Lead-sheet workspace failed validation", error);
+    }
+    const detached = cloneValue(record);
+    const observed = await this.readLeadSheetWorkspace(record.documentId);
+    return this.transaction(["drafts"], "readwrite", async (transaction) => {
+      const store = transaction.objectStore("drafts");
+      const current = await requestResult(store.get(record.id)) as unknown;
+      if (observed === null ? current !== undefined : !recordsEqual(current, observed)) {
+        throw storageError("CAS_STALE", "Lead-sheet workspace changed while the save was being prepared", { documentId: record.documentId });
+      }
+      if (observed !== null && recordsEqual(observed, record)) {
+        return Object.freeze({ documentId: record.documentId, sourceSha256: record.sourceSha256, idempotent: true });
+      }
+      if (observed !== null && observed.path !== record.path) {
+        throw storageError("INVALID_INPUT", "A lead-sheet workspace cannot change its publication path", { documentId: record.documentId });
+      }
+      const actual = observed?.sourceSha256 ?? null;
+      if (actual !== options.expectedSourceSha256) {
+        throw storageError("CAS_STALE", "Lead-sheet workspace changed before it could be saved", {
+          documentId: record.documentId, expectedSourceSha256: options.expectedSourceSha256, actualSourceSha256: actual,
+        });
+      }
+      store.put(detached);
+      return Object.freeze({ documentId: record.documentId, sourceSha256: record.sourceSha256, idempotent: false });
+    });
+  }
+
+  async readLeadSheetValidationReceipt(documentId: string, sourceSha256: string): Promise<LeadSheetValidationReceiptRecord | null> {
+    if (documentId.length === 0 || !/^[a-f0-9]{64}$/u.test(sourceSha256)) throw storageError("INVALID_INPUT", "A document ID and lowercase source SHA-256 are required");
+    const id = leadSheetValidationReceiptId(documentId, sourceSha256);
+    const value = await this.transaction(["drafts"], "readonly", async (transaction) => requestResult(transaction.objectStore("drafts").get(id)));
+    if (value === undefined) return null;
+    if (!isLeadSheetValidationReceiptValue(value)) throw storageError("INTEGRITY", "A preserved unknown draft occupies the validation receipt ID", { documentId, sourceSha256 });
+    try {
+      return validateLeadSheetValidationReceiptRecord(value);
+    } catch (error) {
+      throw storageError("INTEGRITY", "Stored lead-sheet validation receipt failed validation", { documentId, sourceSha256, message: error instanceof Error ? error.message : String(error) });
+    }
+  }
+
+  async saveLeadSheetValidationReceipt(
+    recordValue: LeadSheetValidationReceiptRecord,
+    options: SaveLeadSheetValidationReceiptOptions = {},
+  ): Promise<SaveLeadSheetValidationReceiptResult> {
+    let record: LeadSheetValidationReceiptRecord;
+    try { record = validateLeadSheetValidationReceiptRecord(recordValue); }
+    catch (error) { throw authoredInputError("Lead-sheet validation receipt failed validation", error); }
+    if (options.expectedWorkspaceSourceSha256 !== undefined && !/^[a-f0-9]{64}$/u.test(options.expectedWorkspaceSourceSha256)) {
+      throw storageError("INVALID_INPUT", "expectedWorkspaceSourceSha256 must be a lowercase SHA-256");
+    }
+    const detached = cloneValue(record);
+    const observedWorkspace = options.expectedWorkspaceSourceSha256 === undefined ? null : await this.readLeadSheetWorkspace(record.documentId);
+    if (options.expectedWorkspaceSourceSha256 !== undefined) {
+      if (observedWorkspace === null) throw storageError("CAS_STALE", "Lead-sheet workspace is missing for validation receipt CAS", { documentId: record.documentId });
+      if (
+        observedWorkspace.sourceSha256 !== options.expectedWorkspaceSourceSha256
+        || record.sourceSha256 !== options.expectedWorkspaceSourceSha256
+        || observedWorkspace.path !== record.response.path
+      ) {
+        throw storageError("CAS_STALE", "Validation receipt belongs to stale lead-sheet workspace source", {
+          documentId: record.documentId, expectedSourceSha256: options.expectedWorkspaceSourceSha256,
+          actualSourceSha256: observedWorkspace.sourceSha256, receiptSourceSha256: record.sourceSha256,
+        });
+      }
+    }
+    return this.transaction(["drafts"], "readwrite", async (transaction) => {
+      const store = transaction.objectStore("drafts");
+      if (options.expectedWorkspaceSourceSha256 !== undefined) {
+        const workspaceValue = await requestResult(store.get(leadSheetWorkspaceId(record.documentId))) as unknown;
+        if (!recordsEqual(workspaceValue, observedWorkspace)) {
+          throw storageError("CAS_STALE", "Lead-sheet workspace changed while the validation receipt was being saved", { documentId: record.documentId });
+        }
+      }
+      const existing = await requestResult(store.get(record.id)) as unknown;
+      if (existing !== undefined) {
+        if (!isLeadSheetValidationReceiptValue(existing)) throw storageError("INTEGRITY", "A preserved unknown draft occupies the validation receipt ID", { documentId: record.documentId, sourceSha256: record.sourceSha256 });
+        let validated: LeadSheetValidationReceiptRecord;
+        try { validated = validateLeadSheetValidationReceiptRecord(existing); }
+        catch (error) { throw storageError("INTEGRITY", "Stored lead-sheet validation receipt failed validation", { documentId: record.documentId, message: error instanceof Error ? error.message : String(error) }); }
+        if (!recordsEqual(validated, record)) throw storageError("INTEGRITY", "A validation receipt hash identity already contains different server response bytes", { id: record.id });
+        return Object.freeze({ documentId: record.documentId, sourceSha256: record.sourceSha256, idempotent: true });
+      }
+      store.put(detached);
+      return Object.freeze({ documentId: record.documentId, sourceSha256: record.sourceSha256, idempotent: false });
+    });
   }
 
   async listAuthoredRevisions(documentId?: string): Promise<readonly AuthoredRevisionRecord[]> {
@@ -769,7 +962,18 @@ export class SongsStorage {
     }
   }
 
+  /** TASK-019 compatibility: this list remains Set List-only. */
   async listAuthoredOutbox(): Promise<readonly AuthoredOutboxRecord[]> {
+    const records = await this.listAllAuthoredOutbox();
+    return Object.freeze(records.filter((record): record is AuthoredOutboxRecord => record.envelope.payload.kind === "set-list"));
+  }
+
+  async listLeadSheetOutbox(): Promise<readonly AuthoredLeadSheetOutboxRecord[]> {
+    const records = await this.listAllAuthoredOutbox();
+    return Object.freeze(records.filter((record): record is AuthoredLeadSheetOutboxRecord => record.envelope.payload.kind === "lead-sheet"));
+  }
+
+  async listAllAuthoredOutbox(): Promise<readonly AnyAuthoredOutboxRecord[]> {
     const values = await this.transaction(["outbox"], "readonly", async (transaction) => requestResult(transaction.objectStore("outbox").getAll()));
     try {
       const records = await Promise.all((values as unknown[]).filter(isAuthoredOutboxValue).map(validateOutboxRecord));
@@ -780,11 +984,14 @@ export class SongsStorage {
   }
 
   /** Durably claim one immutable envelope before doing network I/O. */
-  async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions): Promise<AuthoredOutboxRecord | null> {
+  async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions & { readonly kind: "lead-sheet" }): Promise<AuthoredLeadSheetOutboxRecord | null>;
+  async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions): Promise<AuthoredOutboxRecord | null>;
+  async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions): Promise<AnyAuthoredOutboxRecord | null> {
     exactIsoTimestamp(options.attemptedAt, "attemptedAt");
     if (options.reclaimSendingBefore !== undefined) exactIsoTimestamp(options.reclaimSendingBefore, "reclaimSendingBefore");
     const includeFailed = options.includeFailed ?? true;
-    const queue = await this.listAuthoredOutbox();
+    const kind = options.kind ?? "set-list";
+    const queue = (await this.listAllAuthoredOutbox()).filter((record) => record.envelope.payload.kind === kind);
     const candidate = queue[0];
     if (candidate === undefined) return null;
     const eligible = candidate.state === "pending" || includeFailed && candidate.state === "failed" || (
@@ -796,17 +1003,19 @@ export class SongsStorage {
       const store = transaction.objectStore("outbox");
       const current = await requestResult(store.get(candidate.id));
       if (!recordsEqual(current, candidate)) throw storageError("CAS_STALE", "Outbox changed before it could be claimed", { outboxId: candidate.id });
-      const { lastError: _lastError, ...withoutError } = candidate;
-      const claimed: AuthoredOutboxRecord = {
-        ...withoutError,
-        state: "sending",
-        attempts: candidate.attempts + 1,
-        lastAttemptAt: options.attemptedAt,
-      };
+      let claimed: AnyAuthoredOutboxRecord;
+      if (candidate.envelope.payload.kind === "set-list") {
+        const setListCandidate = candidate as AuthoredOutboxRecord;
+        claimed = { ...setListCandidate, state: "sending", attempts: setListCandidate.attempts + 1, lastAttemptAt: options.attemptedAt };
+        delete (claimed as { lastError?: string }).lastError;
+      } else {
+        const leadSheetCandidate = candidate as AuthoredLeadSheetOutboxRecord;
+        claimed = { ...leadSheetCandidate, state: "sending", attempts: leadSheetCandidate.attempts + 1, lastAttemptAt: options.attemptedAt };
+        delete (claimed as { lastError?: string }).lastError;
+      }
       store.put(claimed);
       return claimed;
     });
-    if (selected === null) return null;
     try {
       return await validateOutboxRecord(selected);
     } catch (error) {
@@ -815,17 +1024,24 @@ export class SongsStorage {
   }
 
   /** Record a retryable network/server failure without changing envelope bytes. */
-  async failAuthoredOutbox(outboxId: string, options: FailAuthoredOutboxOptions): Promise<AuthoredOutboxRecord> {
+  async failAuthoredOutbox(outboxId: string, options: FailAuthoredOutboxOptions): Promise<AnyAuthoredOutboxRecord> {
     if (outboxId.length === 0 || options.message.length === 0 || options.message.length > 4096) throw storageError("INVALID_INPUT", "Outbox ID and bounded failure message are required");
     exactIsoTimestamp(options.failedAt, "failedAt");
-    const existing = (await this.listAuthoredOutbox()).find((record) => record.id === outboxId);
+    const existing = (await this.listAllAuthoredOutbox()).find((record) => record.id === outboxId);
     if (existing === undefined) throw storageError("INVALID_INPUT", "Cannot fail an unknown authored outbox operation", { outboxId });
     if (existing.state !== "sending") throw storageError("INVALID_INPUT", "Only a sending outbox operation can fail", { outboxId, state: existing.state });
     const value = await this.transaction(["outbox"], "readwrite", async (transaction) => {
       const store = transaction.objectStore("outbox");
       const current = await requestResult(store.get(outboxId));
       if (!recordsEqual(current, existing)) throw storageError("CAS_STALE", "Outbox changed before its failure was recorded", { outboxId });
-      const failed: AuthoredOutboxRecord = { ...existing, state: "failed", lastAttemptAt: options.failedAt, lastError: options.message };
+      let failed: AnyAuthoredOutboxRecord;
+      if (existing.envelope.payload.kind === "set-list") {
+        const setListExisting = existing as AuthoredOutboxRecord;
+        failed = { ...setListExisting, state: "failed", lastAttemptAt: options.failedAt, lastError: options.message };
+      } else {
+        const leadSheetExisting = existing as AuthoredLeadSheetOutboxRecord;
+        failed = { ...leadSheetExisting, state: "failed", lastAttemptAt: options.failedAt, lastError: options.message };
+      }
       store.put(failed);
       return failed;
     });
@@ -857,9 +1073,9 @@ export class SongsStorage {
     uniqueStrings(update.removeOutboxIds ?? [], "removeOutboxIds");
     let sync: AuthoredSyncStateRecord;
     let revisions: readonly AuthoredRevisionRecord[];
-    let draftUpdates: readonly Readonly<{ expectedLocalRevisionId: string; draft: AuthoredDraftRecord }>[];
+    let draftUpdates: readonly Readonly<{ expectedLocalRevisionId: string; draft: AnyAuthoredDraftRecord }>[];
     let conflicts: readonly AuthoredConflictRecord[];
-    let replacements: readonly AuthoredOutboxRecord[];
+    let replacements: readonly AnyAuthoredOutboxRecord[];
     try {
       sync = validateSyncStateRecord(update.sync);
       [revisions, draftUpdates, replacements] = await Promise.all([
@@ -901,7 +1117,7 @@ export class SongsStorage {
         revisionStore.put(cloneValue(revision));
       }
       const durableRevisionValues = await requestResult(revisionStore.getAll()) as unknown[];
-      const durableLocalRevisions = durableRevisionValues.filter(isAuthoredRevisionValue).filter((record): record is Extract<AuthoredRevisionRecord, { origin: "local" }> => record.origin === "local");
+      const durableLocalRevisions = durableRevisionValues.filter(isAuthoredRevisionValue).filter((record): record is AnyAuthoredLocalRevisionRecord => record.origin === "local");
       if (durableLocalRevisions.some((record) => record.deviceId !== sync.deviceId)) throw storageError("CAS_STALE", "Sync device ID does not match durable local operation history", { deviceId: sync.deviceId });
       const durableOperationKeys = new Set<string>();
       for (const record of durableLocalRevisions) {
@@ -909,12 +1125,20 @@ export class SongsStorage {
         if (durableOperationKeys.has(key)) throw storageError("INTEGRITY", "Durable local history reuses a device operation identity", { key });
         durableOperationKeys.add(key);
       }
-      const requireServerRevision = async (revisionId: string, label: string): Promise<void> => {
-        if (revisionId === "") return;
+      const requireServerRevision = async (
+        revisionId: string,
+        label: string,
+        expected?: { readonly documentId: string; readonly kind?: "set-list" | "lead-sheet" },
+      ): Promise<AnyAuthoredServerRevisionRecord | undefined> => {
+        if (revisionId === "") return undefined;
         const revision = await requestResult(revisionStore.get(revisionId));
         if (revision === undefined || !isAuthoredRevisionValue(revision) || revision.origin !== "server") {
           throw storageError("INVALID_INPUT", `${label} references a missing server revision`, { revisionId });
         }
+        if (
+          expected !== undefined && (revision.documentId !== expected.documentId || expected.kind !== undefined && revision.payload.kind !== expected.kind)
+        ) throw storageError("INVALID_INPUT", `${label} references a server revision for another authored document`, { revisionId });
+        return revision;
       };
       const draftStore = transaction.objectStore("drafts");
       for (const item of draftUpdates) {
@@ -936,7 +1160,7 @@ export class SongsStorage {
         } else if (!revisions.some((revision) => revision.origin === "local" && revision.id === draft.localRevisionId && revision.documentId === draft.documentId)) {
           throw storageError("INVALID_INPUT", "Sync draft advancement is missing its local revision", { documentId: draft.id, localRevisionId: draft.localRevisionId });
         }
-        await requireServerRevision(draft.baseServerRevisionId, "Sync draft");
+        await requireServerRevision(draft.baseServerRevisionId, "Sync draft", { documentId: draft.documentId, kind: draft.kind });
         draftStore.put(cloneValue(draft));
       }
       const outboxStore = transaction.objectStore("outbox");
@@ -950,6 +1174,7 @@ export class SongsStorage {
               && revision.deviceId === existing.envelope.device_id
               && revision.operationId === existing.envelope.operation_id
               && revision.documentId === existing.documentId
+              && revision.payload.kind === existing.envelope.payload.kind
               && revision.contentHash === existing.envelope.payload_sha256);
           if (!accepted) throw storageError("INVALID_INPUT", "Sync cannot remove an outbox operation without its matching durable server revision", { outboxId: operationId });
           outboxStore.delete(operationId);
@@ -958,11 +1183,13 @@ export class SongsStorage {
       for (const replacement of replacements) {
         const existingValue = await requestResult(outboxStore.get(replacement.id)) as unknown;
         if (existingValue !== undefined && !isAuthoredOutboxValue(existingValue)) throw storageError("INTEGRITY", "A legacy outbox record was preserved instead of overwritten", { outboxId: replacement.id });
-        const existing = existingValue as AuthoredOutboxRecord | undefined;
+        const existing = existingValue as AnyAuthoredOutboxRecord | undefined;
         if (existing !== undefined && (existing.state !== "pending" || existing.attempts !== 0) && !recordsEqual(existing, replacement)) {
           throw storageError("CAS_STALE", "An attempted envelope cannot be rebased or replaced", { operationId: replacement.id, state: existing.state, attempts: existing.attempts });
         }
-        await requireServerRevision(replacement.envelope.base_revision_id, "Replacement outbox envelope");
+        await requireServerRevision(replacement.envelope.base_revision_id, "Replacement outbox envelope", {
+          documentId: replacement.documentId, kind: replacement.envelope.payload.kind,
+        });
         outboxStore.put(cloneValue(replacement));
       }
       const conflictStore = transaction.objectStore("conflicts");
@@ -973,14 +1200,19 @@ export class SongsStorage {
       for (const conflict of conflicts) {
         const existing = await requestResult(conflictStore.get(conflict.id));
         if (existing !== undefined && !isAuthoredConflictValue(existing)) throw storageError("INTEGRITY", "A legacy conflict was preserved instead of overwritten", { conflictId: conflict.id });
-        await requireServerRevision(conflict.currentRevisionId, "Conflict current revision");
-        await requireServerRevision(conflict.candidateRevisionId, "Conflict candidate revision");
-        await requireServerRevision(conflict.resolutionRevisionId, "Conflict resolution revision");
+        const current = await requireServerRevision(conflict.currentRevisionId, "Conflict current revision", { documentId: conflict.documentId });
+        const candidate = await requireServerRevision(conflict.candidateRevisionId, "Conflict candidate revision", { documentId: conflict.documentId });
+        const resolution = await requireServerRevision(conflict.resolutionRevisionId, "Conflict resolution revision", { documentId: conflict.documentId });
+        const kinds = [current, candidate, resolution].filter((revision): revision is AnyAuthoredServerRevisionRecord => revision !== undefined).map((revision) => revision.payload.kind);
+        if (kinds.some((kind) => kind !== kinds[0])) throw storageError("INVALID_INPUT", "Conflict revisions must have one authored document kind", { conflictId: conflict.id });
         conflictStore.put(cloneValue(conflict));
       }
       for (const document of sync.documents) {
-        await requireServerRevision(document.currentServerRevisionId, "Sync current revision");
-        await requireServerRevision(document.publishedRevisionId, "Sync published revision");
+        const current = await requireServerRevision(document.currentServerRevisionId, "Sync current revision", { documentId: document.documentId });
+        const published = await requireServerRevision(document.publishedRevisionId, "Sync published revision", { documentId: document.documentId });
+        if (current !== undefined && published !== undefined && current.payload.kind !== published.payload.kind) {
+          throw storageError("INVALID_INPUT", "Sync current and published revisions must have one authored document kind", { documentId: document.documentId });
+        }
       }
       syncStore.put(cloneValue(sync));
     });
@@ -1088,7 +1320,7 @@ export class SongsStorage {
           requestResult(stores.drafts.getAll()), requestResult(stores.revisions.getAll()), requestResult(stores.outbox.getAll()),
           requestResult(stores.conflicts.getAll()), requestResult(stores.sync.getAll()),
         ]);
-        for (const record of (draftValues as unknown[]).filter(isAuthoredDraftValue)) stores.drafts.delete(record.id);
+        for (const record of (draftValues as unknown[]).filter((value) => isAuthoredDraftValue(value) || isLeadSheetWorkspaceValue(value) || isLeadSheetValidationReceiptValue(value))) stores.drafts.delete(record.id);
         for (const record of (revisionValues as unknown[]).filter(isAuthoredRevisionValue)) stores.revisions.delete(record.id);
         for (const record of (outboxValues as unknown[]).filter(isAuthoredOutboxValue)) stores.outbox.delete(record.id);
         for (const record of (conflictValues as unknown[]).filter(isAuthoredConflictValue)) stores.conflicts.delete(record.id);

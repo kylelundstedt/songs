@@ -230,7 +230,7 @@ func sha256Hex(raw []byte) string {
 	return hex.EncodeToString(h[:])
 }
 func canonicalJSON(raw []byte) ([]byte, error) {
-	if len(raw) == 0 || len(raw) > 1<<20 || !utf8.Valid(raw) || bytes.Contains(raw, []byte{0}) {
+	if len(raw) == 0 || len(raw) > 8<<20 || !utf8.Valid(raw) || bytes.Contains(raw, []byte{0}) {
 		return nil, &CodeError{"INVALID_PAYLOAD", "invalid payload", nil}
 	}
 	d := json.NewDecoder(bytes.NewReader(raw))

@@ -1,7 +1,6 @@
 # KGL Songs V2 shell
 
-React/Vite shell for the reviewed read-only slice and TASK-019's explicitly gated
-Set List authoring overlay. The production build is generated
+React/Vite shell for the reviewed read-only slice plus TASK-019/020's explicitly gated Set List and lead-sheet authoring overlays. The production build is generated
 deterministically into `internal/v2shell/data/` and embedded by `cmd/v2api` on
 the isolated port-8001 origin.
 
@@ -35,10 +34,13 @@ the isolated port-8001 origin.
   hashed recovery export/restore, and separate local/server/published labels;
 - locked Live continues to use the reviewed/published revision rather than local
   drafts;
-- authoring controls require server `-sync-enabled` plus `-writable-enabled`;
-  both default off and the tracked service remains read-only;
-- lead-sheet editing, background sync, and writable physical acceptance remain
-  pending TASK-020/021;
+- TASK-020 adds byte-first lead-sheet create/edit/undo, invalid-workspace
+  autosave, exact-source outbox revisions, server/Apex receipts, sandboxed dynamic
+  previews, local authored-song discovery, and review-only provider/Shelley
+  candidates;
+- Set List, lead-sheet, provider, and Shelley gates are independent and disabled
+  by default; the tracked service remains read-only;
+- background sync and writable physical acceptance remain pending TASK-021;
 
 ## Commands
 

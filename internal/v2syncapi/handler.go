@@ -18,23 +18,29 @@ import (
 
 const (
 	PathPrefix  = "/api/v2/sync"
-	MaxBodySize = 64 << 10
+	MaxBodySize = 8 << 20
 )
 
 // Config is the trusted HTTP boundary configuration. OwnerID and ForwardedHost
 // are exact matches; neither is accepted from a request body or query string.
 type Config struct {
-	Store         *v2sync.Store
-	OwnerID       string
-	ForwardedHost string
-	MasterKey     []byte
+	Store                  *v2sync.Store
+	OwnerID                string
+	ForwardedHost          string
+	MasterKey              []byte
+	EnforceDocumentGates   bool
+	SetListWritesEnabled   bool
+	LeadSheetWritesEnabled bool
 }
 
 // Handler serves the JSON-only sync API.
 type Handler struct {
-	store *v2sync.Store
-	auth  v2auth.Config
-	key   []byte
+	store                  *v2sync.Store
+	auth                   v2auth.Config
+	key                    []byte
+	enforceDocumentGates   bool
+	setListWritesEnabled   bool
+	leadSheetWritesEnabled bool
 }
 
 // New constructs a sync API handler. MasterKey must contain at least 32 bytes.
@@ -52,9 +58,12 @@ func New(store *v2sync.Store, cfg Config) (*Handler, error) {
 		return nil, errors.New("v2syncapi: invalid forwarded host")
 	}
 	return &Handler{
-		store: store,
-		auth:  v2auth.Config{OwnerID: cfg.OwnerID, ForwardedHost: cfg.ForwardedHost},
-		key:   append([]byte(nil), cfg.MasterKey...),
+		store:                  store,
+		auth:                   v2auth.Config{OwnerID: cfg.OwnerID, ForwardedHost: cfg.ForwardedHost},
+		key:                    append([]byte(nil), cfg.MasterKey...),
+		enforceDocumentGates:   cfg.EnforceDocumentGates,
+		setListWritesEnabled:   cfg.SetListWritesEnabled,
+		leadSheetWritesEnabled: cfg.LeadSheetWritesEnabled,
 	}, nil
 }
 
@@ -210,6 +219,25 @@ type applyRequest struct {
 	ClientCursor    int64           `json:"client_cursor"`
 }
 
+func (h *Handler) permitDocumentWrite(w http.ResponseWriter, payload json.RawMessage) bool {
+	if !h.enforceDocumentGates {
+		return true
+	}
+	var header struct {
+		Kind string `json:"kind"`
+	}
+	if err := json.Unmarshal(payload, &header); err != nil {
+		writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "publication payload kind is invalid")
+		return false
+	}
+	allowed := header.Kind == "set-list" && h.setListWritesEnabled || header.Kind == "lead-sheet" && h.leadSheetWritesEnabled
+	if !allowed {
+		writeError(w, http.StatusForbidden, "WRITE_DISABLED", "document write capability is disabled")
+		return false
+	}
+	return true
+}
+
 func (h *Handler) apply(w http.ResponseWriter, r *http.Request, owner, device string) {
 	var in applyRequest
 	if !requireJSONBody(w, r, &in, "protocol_version", "device_id", "operation_id", "operation_kind", "document_id", "base_revision_id", "title", "payload", "payload_sha256", "client_cursor") {
@@ -217,6 +245,9 @@ func (h *Handler) apply(w http.ResponseWriter, r *http.Request, owner, device st
 	}
 	if in.DeviceID != device {
 		writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "device ID does not match the authenticated device")
+		return
+	}
+	if !h.permitDocumentWrite(w, in.Payload) {
 		return
 	}
 	o, err := h.store.Apply(v2sync.ApplyEnvelope{
@@ -262,6 +293,9 @@ func (h *Handler) resolve(w http.ResponseWriter, r *http.Request, owner, device,
 	}
 	if in.DeviceID != device {
 		writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "device ID does not match the authenticated device")
+		return
+	}
+	if !h.permitDocumentWrite(w, in.Payload) {
 		return
 	}
 	o, err := h.store.Resolve(v2sync.ResolveEnvelope{
@@ -377,12 +411,12 @@ func requireJSONBody(w http.ResponseWriter, r *http.Request, dst any, allowed ..
 		return false
 	}
 	if r.ContentLength > MaxBodySize {
-		writeError(w, http.StatusRequestEntityTooLarge, "BODY_TOO_LARGE", "request body exceeds 64 KiB")
+		writeError(w, http.StatusRequestEntityTooLarge, "BODY_TOO_LARGE", "request body exceeds 8 MiB")
 		return false
 	}
 	body, err := io.ReadAll(io.LimitReader(r.Body, MaxBodySize+1))
 	if err != nil || len(body) > MaxBodySize {
-		writeError(w, http.StatusRequestEntityTooLarge, "BODY_TOO_LARGE", "request body exceeds 64 KiB")
+		writeError(w, http.StatusRequestEntityTooLarge, "BODY_TOO_LARGE", "request body exceeds 8 MiB")
 		return false
 	}
 	if err := decodeStrictObject(body, dst, allowed); err != nil {

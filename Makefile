@@ -1,4 +1,4 @@
-.PHONY: build test run clean migrate validate v2-check v2-browser-check p1-009-check v2-api-build v2-api-run v2-sync-check v2-publication-check v2-writable-set-list-check
+.PHONY: build test run clean migrate validate v2-check v2-browser-check p1-009-check v2-api-build v2-api-run v2-sync-check v2-publication-check v2-writable-set-list-check v2-writable-lead-sheet-check
 
 build:
 	go build -o srv/songs ./cmd/srv
@@ -47,6 +47,12 @@ v2-writable-set-list-check:
 	npm --prefix v2 run test --workspace @songs-v2/web
 	go test -race ./internal/v2auth/... ./internal/v2sync/... ./internal/v2syncapi/... ./internal/v2bootstrap/... ./internal/v2publish/... ./cmd/v2api ./cmd/v2publisher
 	python3 scripts/build_v2_writable_set_list_evidence.py --check
+
+v2-writable-lead-sheet-check:
+	npm --prefix v2 run check --workspace @songs-v2/web
+	npm --prefix v2 run test --workspace @songs-v2/web
+	go test -race ./internal/v2auth/... ./internal/v2author/... ./internal/v2sync/... ./internal/v2syncapi/... ./internal/v2bootstrap/... ./internal/v2publish/... ./cmd/v2api ./cmd/v2publisher
+	python3 scripts/build_v2_writable_lead_sheet_evidence.py --check
 
 v2-api-run: v2-api-build
 	./srv/songs-v2-api -listen 127.0.0.1:8001

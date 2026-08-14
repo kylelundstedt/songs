@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 read-only checkpoint is complete; post-Phase-1 writable foundation is now active.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-019.
-- **Current task:** TASK-020 offline writable lead-sheet authoring and enrichment.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-020.
+- **Current task:** TASK-021 writable conflict, recovery, and physical acceptance.
 - **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
 - **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
 
@@ -243,6 +243,29 @@ TASK-019 completed the offline writable Set List editor and outbox:
   embedded release `shell-3ec4dfcfddc7fd8b5d1c1904` is the gated TASK-019 shell;
   the tracked service remains read-only.
 
+TASK-020 completed offline writable lead-sheet authoring and enrichment:
+
+- all 339 reviewed lead sheets open through a byte-first domain without source
+  drift; managed metadata changes splice exact scalar/H1 ranges rather than
+  reserializing unknown YAML or untouched body bytes;
+- invalid intermediate source autosaves into CAS-protected workspaces while only
+  locally valid, reviewed revisions enter immutable outbox envelopes;
+- local checks, sync acceptance, exact-source server/Apex receipts, conflicts,
+  and publication mappings remain separately labeled and durable;
+- authenticated same-origin Apex validation, LRCLIB/Lyrics.ovh candidates,
+  deterministic provider fallback, and Shelley suggestions return review-only
+  local candidates and have no direct Git/publication write path;
+- local authored lead sheets remain discoverable, recoverable, and eligible for
+  explicitly labeled Set List references even when mutation gates are rolled
+  back;
+- Set List and lead-sheet browser/server write gates plus provider and Shelley
+  gates are independent, disabled by default, and preserve queued work when off;
+- deterministic evidence is recorded under
+  `migration/v2/writable-lead-sheets/` at SHA-256
+  `1743d4bebde58de9165525259b47dc2399b651a2a6e742768e8bbccb2a51ece6`;
+  embedded release `shell-ffe70456e479eb1529d157f0` is the gated TASK-020 shell;
+  the tracked service remains read-only.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -284,6 +307,7 @@ go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
 make v2-sync-check
 make v2-publication-check
 make v2-writable-set-list-check
+make v2-writable-lead-sheet-check
 go test ./...
 go vet ./...
 git diff --check
@@ -291,8 +315,7 @@ git diff --check
 
 ## Next tasks
 
-1. Implement **TASK-020**: offline writable lead-sheet authoring and enrichment.
-2. Implement **TASK-021**: writable conflict/recovery hardening and physical-device acceptance.
-3. After the writable workflows function end to end, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
-4. Finish deferred blocking read-only G4 reliability checks later; they do not supersede the writable implementation priority.
-5. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.
+1. Implement **TASK-021**: writable conflict/recovery hardening and physical-device acceptance.
+2. After the writable workflows function end to end, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
+3. Finish deferred blocking read-only G4 reliability checks as part of TASK-021 physical acceptance.
+4. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.

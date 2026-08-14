@@ -5,7 +5,11 @@ export const WRITABLE_CAPABILITIES_PATH = "/api/v2/writable-capabilities";
 export interface WritableCapabilities {
   readonly schema_version: "1";
   readonly set_list_authoring: boolean;
+  readonly lead_sheet_authoring: boolean;
   readonly foreground_sync: boolean;
+  readonly apex_validation: boolean;
+  readonly lyrics_provider: boolean;
+  readonly shelley_suggestions: boolean;
 }
 
 export interface DeviceCredential {
@@ -121,8 +125,9 @@ function withSignal(signal: AbortSignal | undefined): { readonly signal?: AbortS
 async function parseJSON<T>(response: Response): Promise<T> {
   const value: unknown = await response.json().catch(() => undefined);
   if (!response.ok) {
-    const body = value !== null && typeof value === "object" ? value as { code?: unknown; message?: unknown } : {};
-    throw new SyncHTTPError(response.status, typeof body.code === "string" ? body.code : "HTTP_ERROR", typeof body.message === "string" ? body.message : `Sync request failed (${response.status})`);
+    const outer = value !== null && typeof value === "object" ? value as { error?: unknown; code?: unknown; message?: unknown } : {};
+    const nested = outer.error !== null && typeof outer.error === "object" ? outer.error as { code?: unknown; message?: unknown } : outer;
+    throw new SyncHTTPError(response.status, typeof nested.code === "string" ? nested.code : "HTTP_ERROR", typeof nested.message === "string" ? nested.message : `Sync request failed (${response.status})`);
   }
   return value as T;
 }
@@ -150,7 +155,7 @@ export async function applyOperation(envelope: ApplyEnvelope, credential: Device
 }
 
 export async function pull(cursor: number, credential: DeviceCredential, signal?: AbortSignal): Promise<PullResult> {
-  const response = await fetch(`${SYNC_PREFIX}/pull?cursor=${encodeURIComponent(String(cursor))}`, { method: "GET", credentials: "same-origin", cache: "no-store", ...withSignal(signal), headers: credentialHeaders(credential) });
+  const response = await fetch(`${SYNC_PREFIX}/pull?after=${encodeURIComponent(String(cursor))}`, { method: "GET", credentials: "same-origin", cache: "no-store", ...withSignal(signal), headers: credentialHeaders(credential) });
   return parseJSON<PullResult>(response);
 }
 
@@ -163,7 +168,48 @@ export async function acknowledge(cursor: number, credential: DeviceCredential, 
   const response = await fetch(`${SYNC_PREFIX}/ack`, {
     method: "POST", credentials: "same-origin", cache: "no-store", ...withSignal(signal),
     headers: { "Content-Type": "application/json", ...credentialHeaders(credential) },
-    body: JSON.stringify({ protocol_version: SYNC_PROTOCOL_VERSION, device_id: credential.deviceId, cursor }),
+    body: JSON.stringify({ cursor }),
   });
   await parseJSON<unknown>(response);
+}
+export const AUTHOR_PREFIX = "/api/v2/author";
+
+export interface ServerValidationIssue { readonly code: string; readonly message: string; readonly line?: number }
+export interface ServerValidationResult {
+  readonly schema_version: "1"; readonly authority: "server-apex"; readonly document_id: string; readonly path: string;
+  readonly title: string; readonly source_sha256: string; readonly valid: boolean; readonly html?: string; readonly issues: readonly ServerValidationIssue[];
+}
+export interface ProviderChoice { readonly provider: "LRCLIB" | "Lyrics.ovh"; readonly id: string; readonly title: string; readonly artist: string; readonly album?: string; readonly duration?: number }
+export interface ProviderSearchResult { readonly schema_version: "1"; readonly choices: readonly ProviderChoice[]; readonly provider_errors: readonly string[] }
+export interface ProviderDraft { readonly schema_version: "1"; readonly review_required: true; readonly title: string; readonly artist: string; readonly original_bpm?: string; readonly source_provider: string; readonly source_url: string; readonly source: string; readonly source_sha256: string; readonly structured_by: "model" | "deterministic-fallback" }
+export interface ShelleySuggestion { readonly schema_version: "1"; readonly review_required: true; readonly base_source_sha256: string; readonly source: string; readonly source_sha256: string; readonly model: string }
+
+interface AuthorErrorEnvelope { readonly error?: { readonly code?: unknown; readonly message?: unknown } }
+
+async function authorJSON<T>(response: Response): Promise<T> {
+  const value: unknown = await response.json().catch(() => undefined);
+  if (!response.ok) {
+    const error = value !== null && typeof value === "object" ? (value as AuthorErrorEnvelope).error : undefined;
+    throw new SyncHTTPError(response.status, typeof error?.code === "string" ? error.code : "AUTHORING_ERROR", typeof error?.message === "string" ? error.message : `Authoring request failed (${response.status})`);
+  }
+  return value as T;
+}
+
+export async function validateLeadSheetOnServer(input: { readonly documentId: string; readonly path: string; readonly title: string; readonly source: string }, signal?: AbortSignal): Promise<ServerValidationResult> {
+  const response = await fetch(`${AUTHOR_PREFIX}/validate`, { method: "POST", credentials: "same-origin", cache: "no-store", ...withSignal(signal), headers: { "Content-Type": "application/json" }, body: JSON.stringify({ document_id: input.documentId, path: input.path, title: input.title, source: input.source }) });
+  if (response.status === 422) return await response.json() as ServerValidationResult;
+  return authorJSON(response);
+}
+
+export async function searchLyricsProviders(title: string, artist: string, signal?: AbortSignal): Promise<ProviderSearchResult> {
+  const query = new URLSearchParams({ title, artist });
+  return authorJSON(await fetch(`${AUTHOR_PREFIX}/providers/search?${query}`, { method: "GET", credentials: "same-origin", cache: "no-store", ...withSignal(signal) }));
+}
+
+export async function importProviderDraft(choice: ProviderChoice, signal?: AbortSignal): Promise<ProviderDraft> {
+  return authorJSON(await fetch(`${AUTHOR_PREFIX}/providers/import`, { method: "POST", credentials: "same-origin", cache: "no-store", ...withSignal(signal), headers: { "Content-Type": "application/json" }, body: JSON.stringify({ provider: choice.provider, id: choice.id, title: choice.title, artist: choice.artist }) }));
+}
+
+export async function requestShelleySuggestion(input: { readonly baseSourceSha256: string; readonly title: string; readonly source: string; readonly prompt: string }, signal?: AbortSignal): Promise<ShelleySuggestion> {
+  return authorJSON(await fetch(`${AUTHOR_PREFIX}/shelley/suggest`, { method: "POST", credentials: "same-origin", cache: "no-store", ...withSignal(signal), headers: { "Content-Type": "application/json" }, body: JSON.stringify({ base_source_sha256: input.baseSourceSha256, title: input.title, source: input.source, prompt: input.prompt }) }));
 }

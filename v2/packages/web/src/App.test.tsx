@@ -1,9 +1,11 @@
+import "fake-indexeddb/auto";
 import { readFileSync } from "node:fs";
 import { basename, resolve } from "node:path";
 import axe from "axe-core";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { buildLeadSheetWorkspaceRecord, openSongsStorage } from "./storage";
 import { ActivePointerBoundary, ReadyApp, type ServiceWorkerState } from "./App";
 import { buildLibraryIndex } from "./library";
 import { loadVerifiedSnapshot } from "./bootstrap/load";
@@ -51,6 +53,8 @@ beforeAll(async () => {
 afterEach(() => {
   window.history.replaceState({}, "", "/");
   window.location.hash = "";
+  localStorage.clear();
+  vi.unstubAllGlobals();
 });
 
 describe("read-only shell", () => {
@@ -371,5 +375,40 @@ describe("read-only shell", () => {
     expect(screen.getByText(/Available from the active verified snapshot/i)).toBeInTheDocument();
     expect(screen.getByText(/songs-v2 · available/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /update waiting/i })).toBeDisabled();
+  });
+
+  it("fails cached writable capabilities closed when the server gate disappears", async () => {
+    localStorage.setItem("songs-v2-writable-capabilities", JSON.stringify({ schema_version: "1", set_list_authoring: true, lead_sheet_authoring: true, foreground_sync: true, apex_validation: true, lyrics_provider: true, shelley_suggestions: true }));
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ error: { code: "NOT_FOUND", message: "disabled" } }), { status: 404, headers: { "Content-Type": "application/json" } })));
+    window.location.hash = `#/songs/${snapshot.leadSheets[0]!.slug}/edit`;
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
+    await waitFor(() => expect(screen.getByRole("heading", { name: "Page not found" })).toBeInTheDocument());
+    expect(screen.queryByLabelText("Exact lead-sheet Markdown source")).not.toBeInTheDocument();
+  });
+
+  it("never exposes local lead-sheet mutation controls while the server gate is disabled", async () => {
+    const storage = await openSongsStorage();
+    const workspace = await buildLeadSheetWorkspaceRecord({ id: "song-preserved", path: "songs/Preserved.md", source: "---\ntitle: \"Interrupted\"\n" }, { updatedAt: "2026-08-14T13:35:00.000Z" });
+    await storage.saveLeadSheetWorkspace(workspace, { expectedSourceSha256: null });
+    storage.close();
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ schema_version: "1", set_list_authoring: false, lead_sheet_authoring: false, foreground_sync: false, apex_validation: false, lyrics_provider: false, shelley_suggestions: false }), { status: 200, headers: { "Content-Type": "application/json" } })));
+    window.location.hash = "#/songs/local/song-preserved/edit";
+    render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
+    await waitFor(() => expect(screen.getByRole("heading", { name: "Preserved local draft" })).toBeInTheDocument());
+    expect(screen.getByText(/title: "Interrupted"/i)).toBeInTheDocument();
+    expect(screen.queryByLabelText("Exact lead-sheet Markdown source")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Save revision for sync" })).not.toBeInTheDocument();
+  });
+
+  it("reopens an empty interrupted workspace through its local route", async () => {
+    const storage = await openSongsStorage();
+    const workspace = await buildLeadSheetWorkspaceRecord({ id: "song-empty-workspace", path: "songs/Empty-Workspace.md", source: "" }, { updatedAt: "2026-08-14T13:36:00.000Z" });
+    await storage.saveLeadSheetWorkspace(workspace, { expectedSourceSha256: null });
+    storage.close();
+    localStorage.setItem("songs-v2-writable-capabilities", JSON.stringify({ schema_version: "1", set_list_authoring: false, lead_sheet_authoring: true, foreground_sync: true, apex_validation: true, lyrics_provider: false, shelley_suggestions: false }));
+    window.location.hash = "#/songs/local/song-empty-workspace/edit";
+    render(<ReadyApp snapshot={snapshot} online={false} update={update} runtime={runtime} />);
+    await waitFor(() => expect(screen.getByLabelText("Exact lead-sheet Markdown source")).toHaveValue(""));
+    expect(screen.getByRole("button", { name: "Save revision for sync" })).toBeDisabled();
   });
 });
