@@ -282,7 +282,7 @@ remains pending:
 - the writable recovery runbook, two-device checklist, signoff template, and
   deterministic evidence are under the TASK-021 docs and
   `migration/v2/writable-conflict-recovery/`; evidence SHA-256 is
-  `9ed40bbebd7f51d122847daf2c1df92e20011f75a0e68d4385d0dd05b71fb85e`;
+  `08c552ccdce66fe65ed1d34cc6dfb0a61662a81dd8aef81e5ec45975b55632fe`;
 - embedded release `shell-96ab0f5519cd6a1bff86220f` contains the gated
   TASK-021 conflict/recovery UI;
 - physical iPad rows WRT-001–042 and inherited PHY-028, PHY-029, PHY-032,

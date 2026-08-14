@@ -58,7 +58,7 @@ The software portion now provides:
 - explicit local, queued, acknowledged, server/Apex-validated, published, and
   conflicted status language;
 - deterministic evidence at SHA-256
-  `9ed40bbebd7f51d122847daf2c1df92e20011f75a0e68d4385d0dd05b71fb85e`,
+  `08c552ccdce66fe65ed1d34cc6dfb0a61662a81dd8aef81e5ec45975b55632fe`,
   plus a two-device checklist, signoff template, and writable recovery runbook;
   embedded release `shell-96ab0f5519cd6a1bff86220f` contains the gated
   TASK-021 conflict/recovery UI.

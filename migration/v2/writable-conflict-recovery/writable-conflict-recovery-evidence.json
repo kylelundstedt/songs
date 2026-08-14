@@ -107,7 +107,7 @@
       "source_inventory": [
         {
           "path": "internal/v2sync/store.go",
-          "sha256": "e5a9cc809dddc51fca423befe22ce4eaa402771656c815ffd761e3a6b22bd3ac",
+          "sha256": "408b6fb98cf0584c879d9db5d7f79836ef713510677a40cd986a44e9c3cdd4b7",
           "required_markers": [
             "func (s *Store) Apply",
             "func (s *Store) Resolve",
@@ -125,7 +125,7 @@
         },
         {
           "path": "internal/v2syncapi/handler.go",
-          "sha256": "5def9014323e7536e848d3c74ee2acd9d53cc77cdd5a3f2b617af8f6be3285e2",
+          "sha256": "2f08bfaaf25acd5c2beb73ff9da903f4fb823a9211f8ab1af1aa689d8cd5d02c",
           "required_markers": [
             "ErrConflictCAS",
             "ErrPublicationReserved"
@@ -146,7 +146,7 @@
         },
         {
           "path": "internal/v2syncapi/handler_test.go",
-          "sha256": "ed2cb0437912a4efc6e532c7079ef0749b4511cc1f375b9535507b947964a419",
+          "sha256": "be4c39b8c33f05a4bfd7236e08fc395b2495e63b366c40241a3c57cea324527e",
           "required_markers": [
             "TestApplyReplayMismatchHashUnknownBaseWrongDocumentAndStaleConflict",
             "TestResolveConflictUsesCompareAndSwapAndIsIdempotent",

@@ -219,18 +219,26 @@ type applyRequest struct {
 	ClientCursor    int64           `json:"client_cursor"`
 }
 
+func publicationPayloadKind(payload json.RawMessage) (string, error) {
+	var header struct {
+		Kind string `json:"kind"`
+	}
+	if err := json.Unmarshal(payload, &header); err != nil || (header.Kind != "set-list" && header.Kind != "lead-sheet") {
+		return "", errors.New("publication payload kind is invalid")
+	}
+	return header.Kind, nil
+}
+
 func (h *Handler) permitDocumentWrite(w http.ResponseWriter, payload json.RawMessage) bool {
 	if !h.enforceDocumentGates {
 		return true
 	}
-	var header struct {
-		Kind string `json:"kind"`
-	}
-	if err := json.Unmarshal(payload, &header); err != nil {
+	kind, err := publicationPayloadKind(payload)
+	if err != nil {
 		writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "publication payload kind is invalid")
 		return false
 	}
-	allowed := header.Kind == "set-list" && h.setListWritesEnabled || header.Kind == "lead-sheet" && h.leadSheetWritesEnabled
+	allowed := kind == "set-list" && h.setListWritesEnabled || kind == "lead-sheet" && h.leadSheetWritesEnabled
 	if !allowed {
 		writeError(w, http.StatusForbidden, "WRITE_DISABLED", "document write capability is disabled")
 		return false
@@ -246,6 +254,22 @@ func (h *Handler) apply(w http.ResponseWriter, r *http.Request, owner, device st
 	if in.DeviceID != device {
 		writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "device ID does not match the authenticated device")
 		return
+	}
+	if h.enforceDocumentGates {
+		submittedKind, err := publicationPayloadKind(in.Payload)
+		if err != nil {
+			writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "publication payload kind is invalid")
+			return
+		}
+		existingKind, exists, err := h.store.DocumentKind(owner, device, in.DocumentID)
+		if err != nil {
+			writeMappedError(w, err)
+			return
+		}
+		if exists && existingKind != submittedKind {
+			writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "publication payload kind does not match the existing document")
+			return
+		}
 	}
 	if !h.permitDocumentWrite(w, in.Payload) {
 		return

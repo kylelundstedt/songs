@@ -751,6 +751,33 @@ func (s *Store) Revision(owner, device, revision string) (Revision, error) {
 
 func bytesClone(raw []byte) []byte { return append([]byte(nil), raw...) }
 
+func (s *Store) DocumentKind(owner, device, document string) (string, bool, error) {
+	if err := s.AuthenticateMetadataAccess(owner, device); err != nil {
+		return "", false, err
+	}
+	if !ValidStableID(document) {
+		return "", false, ErrInvalidEnvelope
+	}
+	var payload []byte
+	err := s.db.QueryRow(`SELECT revision.payload
+		FROM v2sync_documents AS document
+		JOIN v2sync_revisions AS revision ON revision.owner_id=document.owner_id AND revision.revision_id=document.current_revision_id
+		WHERE document.owner_id=? AND document.document_id=?`, owner, document).Scan(&payload)
+	if errors.Is(err, sql.ErrNoRows) {
+		return "", false, nil
+	}
+	if err != nil {
+		return "", false, err
+	}
+	var header struct {
+		Kind string `json:"kind"`
+	}
+	if err := json.Unmarshal(payload, &header); err != nil || (header.Kind != "set-list" && header.Kind != "lead-sheet") {
+		return "", false, ErrInvalidEnvelope
+	}
+	return header.Kind, true, nil
+}
+
 func (s *Store) ConflictDocumentKind(owner, device, conflict string) (string, error) {
 	if err := s.AuthenticateMetadataAccess(owner, device); err != nil {
 		return "", err

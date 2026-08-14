@@ -18,7 +18,7 @@ make v2-writable-conflict-recovery-check
 ```
 
 The current deterministic artifact SHA-256 is
-`9ed40bbebd7f51d122847daf2c1df92e20011f75a0e68d4385d0dd05b71fb85e`.
+`08c552ccdce66fe65ed1d34cc6dfb0a61662a81dd8aef81e5ec45975b55632fe`.
 
 Owner execution remains required using:
 

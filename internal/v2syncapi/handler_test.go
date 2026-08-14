@@ -914,7 +914,16 @@ func TestDocumentWriteGatesRejectDisabledKinds(t *testing.T) {
 	device := f.register("device-gates", "registration-gates", "Gated device")
 	lead := json.RawMessage(`{"schema_version":"v2publish-1","kind":"lead-sheet","path":"songs/Gated.md","source":"---\\nartist: Band\\n---\\n\\n# Gated\\n","deleted":false}`)
 	assertError(t, f.request(http.MethodPost, PathPrefix+"/operations/apply", applyBody(t, device.ID, "operation-lead-gated", "create-lead-sheet", "song-gated", "", "Gated", lead, 0), &device), http.StatusForbidden, "WRITE_DISABLED")
+	leadBase, err := f.store.Apply(v2sync.ApplyEnvelope{
+		ProtocolVersion: v2sync.ProtocolVersion, OwnerID: f.owner, DeviceID: device.ID,
+		OperationID: "operation-lead-seed", OperationKind: "create-lead-sheet", DocumentID: "song-kind-gated",
+		Title: "Lead seed", Payload: lead, PayloadSHA256: payloadHash(t, lead), ClientCursor: 0,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
 	set := json.RawMessage(`{"schema_version":"v2publish-1","kind":"set-list","path":"sets/Gated.md","source":"set","deleted":false}`)
+	assertError(t, f.request(http.MethodPost, PathPrefix+"/operations/apply", applyBody(t, device.ID, "operation-kind-change", "update-set-list", "song-kind-gated", leadBase.RevisionID, "Wrong kind", set, leadBase.Sequence), &device), http.StatusBadRequest, "INVALID_ENVELOPE")
 	initial := apply(t, f, device, applyBody(t, device.ID, "operation-set-allowed", "create-set-list", "set-gated", "", "Gated", set, 0))
 	head := apply(t, f, device, applyBody(t, device.ID, "operation-set-head", "update-set-list", "set-gated", initial.RevisionID, "Gated head", set, initial.Sequence))
 	conflict := apply(t, f, device, applyBody(t, device.ID, "operation-set-stale", "update-set-list", "set-gated", initial.RevisionID, "Gated stale", set, head.Sequence))
