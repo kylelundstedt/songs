@@ -1,0 +1,313 @@
+{
+  "schema_version": "1",
+  "kind": "songs-v2.task-021.writable-conflict-recovery.evidence",
+  "prepared_date": "2026-08-14",
+  "evidence_boundary": {
+    "automated_software": "CHECKED_IN_SOURCE_AND_TEST_INVENTORY",
+    "generator_test_execution": "NOT_EXECUTED_BY_GENERATOR",
+    "physical_ipad_g4_and_writable_workflows": "PENDING_OWNER_EXECUTION",
+    "physical_non_claim": "No physical iPad G4 or writable workflow has been run or passed by this generator."
+  },
+  "automated_software_evidence": [
+    {
+      "id": "SW-021-001",
+      "scope": "browser-authored-durability-and-client-recovery",
+      "source_inventory": [
+        {
+          "path": "v2/packages/web/src/storage/authored.ts",
+          "sha256": "cc3ac82c3c234f45d2c317181f1735529fe893d032e5017d1288cca6855fc4d0",
+          "required_markers": [
+            "createAuthoredStateExport",
+            "validateAuthoredStateExport",
+            "validateConflictRecord",
+            "OutboxState"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/storage/index.ts",
+          "sha256": "8eb1f441ab4b5f2267ce83a70e4ba1039018d3115efc619496dc0528895c736c",
+          "required_markers": [
+            "exportAuthoredState",
+            "restoreAuthoredState",
+            "claimNextAuthoredOutbox",
+            "commitAuthoredSync"
+          ]
+        }
+      ],
+      "test_inventory": [
+        {
+          "path": "v2/packages/web/src/storage/authored.test.ts",
+          "sha256": "6c48acd91d9dec6f5a747be0b019f872beeaf063dd6d0d5f648df54493386b4a",
+          "required_markers": [
+            "claims and fails retries durably without changing envelope bytes or payload hash",
+            "atomically persists sync cursor/conflicts and removes only acknowledged outbox work",
+            "exports all authored stores with a hash and restores by safe merge or atomic replace",
+            "maps quota aborts and leaves no partial draft, revision, or outbox",
+            "uses explicit lease cutoffs so forward or backward wall-clock skew cannot silently steal sending work",
+            "re-queues a reviewed resolution against a newer server head after a failed immutable CAS intent"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/storage/authored-leadsheets.test.ts",
+          "sha256": "95a2abdeb6bf1911f8bc76657f1eb5cc14005ef4a5b9caeb60112d1ee25e728f",
+          "required_markers": [
+            "builds, replays, claims, syncs, and reopens exact lead-sheet authored records",
+            "replace restore overwrites typed TASK-020 workspace and validation receipt records",
+            "atomically projects a resolution into an unchanged lead-sheet workspace and preserves a newer workspace by CAS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SW-021-002",
+      "scope": "foreground-sync-retry-device-continuity-and-write-gates",
+      "source_inventory": [
+        {
+          "path": "v2/packages/web/src/sync/engine.ts",
+          "sha256": "13a090324e762d52fc34107aca5cfc7f95ceffbd7b44e4720bcb64b2f58b0aff",
+          "required_markers": [
+            "Recovered outbox contains more than one device identity",
+            "reclaimSendingBefore",
+            "PUBLICATION_RESERVED",
+            "permittedKind"
+          ]
+        },
+        {
+          "path": "cmd/v2api/main.go",
+          "sha256": "53ea71c7d786638bf727ff1bd3ac572ddffac17b965eaec45fcc1810824d5cfc",
+          "required_markers": [
+            "-sync-enabled",
+            "-writable-enabled",
+            "-lead-sheet-writable-enabled"
+          ]
+        }
+      ],
+      "test_inventory": [
+        {
+          "path": "v2/packages/web/src/sync/client.test.ts",
+          "sha256": "91d1856353433903cea8ce21a8816b0a86ed4d16c06bf01d33a6a18af74447c9",
+          "required_markers": [
+            "preserves the exact frozen apply envelope and maps nested retryable errors",
+            "uses the server pull and acknowledgement wire contracts exactly"
+          ]
+        },
+        {
+          "path": "cmd/v2api/main_test.go",
+          "sha256": "a40a5e812cc67e8d7724dfa4568bbfd8cf6d8af6edeb90d0fe9d11df18152dc5",
+          "required_markers": [
+            "TestRunRejectsWritableControlsWithoutSync",
+            "TestRunRejectsLeadSheetControlsWithoutSync"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SW-021-003",
+      "scope": "server-conflict-idempotency-revocation-and-restart",
+      "source_inventory": [
+        {
+          "path": "internal/v2sync/store.go",
+          "sha256": "e5a9cc809dddc51fca423befe22ce4eaa402771656c815ffd761e3a6b22bd3ac",
+          "required_markers": [
+            "func (s *Store) Apply",
+            "func (s *Store) Resolve",
+            "func (s *Store) ConflictDocumentKind",
+            "func (s *Store) Backup"
+          ]
+        },
+        {
+          "path": "internal/v2sync/publication.go",
+          "sha256": "bc7c722213867eec2686a7f7b1c4bdb3f3b94a6466d903b229657c4a767f832a",
+          "required_markers": [
+            "ErrConflictCAS",
+            "ErrPublicationReserved"
+          ]
+        },
+        {
+          "path": "internal/v2syncapi/handler.go",
+          "sha256": "5def9014323e7536e848d3c74ee2acd9d53cc77cdd5a3f2b617af8f6be3285e2",
+          "required_markers": [
+            "ErrConflictCAS",
+            "ErrPublicationReserved"
+          ]
+        }
+      ],
+      "test_inventory": [
+        {
+          "path": "internal/v2sync/store_test.go",
+          "sha256": "3a00979e0e96e71c7cb69e1ea2dc563c7666b08b3bd6d074202eb7ca5452aac4",
+          "required_markers": [
+            "TestStaleWritePreservationAndExactConflictResolution",
+            "TestConflictResolutionCASPreservesConflictAfterHeadAdvances",
+            "TestRevokedDeviceCannotAccessAnyDeviceLedgerOperation",
+            "TestRestartPreservesOperationsConflictsAndAcknowledgements",
+            "TestOnlineBackupRestorePreservesLedgerAndAuthorizationState"
+          ]
+        },
+        {
+          "path": "internal/v2syncapi/handler_test.go",
+          "sha256": "ed2cb0437912a4efc6e532c7079ef0749b4511cc1f375b9535507b947964a419",
+          "required_markers": [
+            "TestApplyReplayMismatchHashUnknownBaseWrongDocumentAndStaleConflict",
+            "TestResolveConflictUsesCompareAndSwapAndIsIdempotent",
+            "TestSelfRevokeOnlyAndImmediateCredentialInvalidation",
+            "TestDocumentWriteGatesRejectDisabledKinds"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SW-021-004",
+      "scope": "publication-fencing-git-reconciliation-and-coordinated-server-recovery",
+      "source_inventory": [
+        {
+          "path": "internal/v2publish/coordinated_backup.go",
+          "sha256": "9ad7d5821298958404125364f4eeb3bd77fdcf03cde2e9555fd1e3b27695d90d",
+          "required_markers": [
+            "func (p *Publisher) CoordinatedBackup",
+            "func VerifyCoordinatedBackup",
+            "func RestoreCoordinatedBackup",
+            "remote changed during coordinated backup"
+          ]
+        },
+        {
+          "path": "internal/v2sync/publication.go",
+          "sha256": "bc7c722213867eec2686a7f7b1c4bdb3f3b94a6466d903b229657c4a767f832a",
+          "required_markers": [
+            "ReservePublication",
+            "ReleasePublication"
+          ]
+        }
+      ],
+      "test_inventory": [
+        {
+          "path": "internal/v2publish/publish_test.go",
+          "sha256": "41fb1e3b99f734dfdf7bac9214b4620972571cfe6dc84c12338b0ceb8452c2f6",
+          "required_markers": [
+            "TestCommitPushAndFinalizationCrashRecoveryNoDuplicateCommits",
+            "TestCoordinatedBackupAndRestorePackage",
+            "TestBackupRestoreRepairsRemoteAcceptedUnfinalizedCommit",
+            "TestPublicationReservationBlocksEligibilityChangeThroughPush"
+          ]
+        },
+        {
+          "path": "internal/v2sync/publication_test.go",
+          "sha256": "7817ba7494dff7d3d91b98a29c425a2d79f1c503ca192b1adeb6bf1516eb942c",
+          "required_markers": [
+            "TestPublicationReservationFencesMutationsUntilExactRelease",
+            "TestExactMutationReplayPrecedesPublicationReservation",
+            "TestExactResolutionReplayPrecedesPublicationReservation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SW-021-005",
+      "scope": "durable-explicit-browser-conflict-review-and-resolution",
+      "source_inventory": [
+        {
+          "path": "v2/packages/web/src/conflicts/ConflictReviewPage.tsx",
+          "sha256": "c9142e215de2d9d4404990bba71a9f1dcc6db18fda7f0ca594c4652f9f238ca3",
+          "required_markers": [
+            "Keep server",
+            "Keep local",
+            "Queue manual resolution",
+            "Both original candidates remain retained"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/leadsheets/repository.ts",
+          "sha256": "c45cfab131ec6df8792511c10eee691be41bfb6ca276061bce67434fddff82e8",
+          "required_markers": [
+            "matchingServerBaseline",
+            "workspace.baseServerRevisionId",
+            "serverHead"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/storage/authored.ts",
+          "sha256": "cc3ac82c3c234f45d2c317181f1735529fe893d032e5017d1288cca6855fc4d0",
+          "required_markers": [
+            "buildConflictResolutionOutbox",
+            "reviewedLocalRevisionId",
+            "recordType: \"resolution\"",
+            "currentRevisionId",
+            "candidateRevisionId"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/sync/engine.ts",
+          "sha256": "13a090324e762d52fc34107aca5cfc7f95ceffbd7b44e4720bcb64b2f58b0aff",
+          "required_markers": [
+            "resolveConflict",
+            "RESNAPSHOT_REQUIRED",
+            "CONFLICT_CAS_FAILED",
+            "Sync outcome operation identity"
+          ]
+        }
+      ],
+      "test_inventory": [
+        {
+          "path": "v2/packages/web/src/authored/remote-head.test.ts",
+          "sha256": "2b94175ec04125c6207dda859ba7e46a8c7b561536198b40c733b4d2d93507a2",
+          "required_markers": [
+            "opens a clean Set List editor from the latest server bytes rather than stale bootstrap bytes",
+            "opens a clean lead sheet from the latest server source but binds an older local workspace to its exact baseline"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/conflicts/ConflictReviewPage.test.tsx",
+          "sha256": "05eee1a0aec341040c22964bdcbbb1de429e8d504249e187e8677a340d065988",
+          "required_markers": [
+            "shows both retained candidates and durably queues an explicit keep-local resolution"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/sync/engine.test.ts",
+          "sha256": "cbda7a4ab8ce2b4823e9f2b08f629ea635c85e3c932030d37a57de589e220492",
+          "required_markers": [
+            "resolves through the conflict endpoint and atomically stores revision/conflict before deleting outbox",
+            "keeps a failed CAS resolution and both immutable conflict sides through a required resnapshot",
+            "reconciles a lost local resolution response from pull and removes only the exact accepted operation",
+            "marks a losing local resolution superseded when another device resolves first",
+            "merges current and published mappings when one pull batch contains both events for a document",
+            "binds edit-before-first-sync only to an exact matching server baseline revision",
+            "rejects a mismatched server operation outcome without deleting durable resolution work",
+            "refreshes a compacted cursor snapshot without rebasing never-attempted local edits onto an unseen head"
+          ]
+        },
+        {
+          "path": "v2/packages/web/src/authored/status.test.ts",
+          "sha256": "ef0c517ccd5af635d065a184da2135561490b4abb8d3ef021436c5cfe2f9b1a0",
+          "required_markers": [
+            "gives conflicts precedence over publication",
+            "distinguishes local, queued, accepted, acknowledged, and published"
+          ]
+        }
+      ]
+    }
+  ],
+  "make_check_contract": {
+    "target": "v2-writable-conflict-recovery-check",
+    "runs_before_inventory_check": [
+      "npm --prefix v2 run check --workspace @songs-v2/web",
+      "npm --prefix v2 run test --workspace @songs-v2/web",
+      "go test -race ./internal/v2auth/... ./internal/v2author/... ./internal/v2sync/... ./internal/v2syncapi/... ./internal/v2bootstrap/... ./internal/v2publish/... ./cmd/v2api ./cmd/v2publisher"
+    ],
+    "inventory_check": "python3 scripts/build_v2_writable_conflict_recovery_evidence.py --check"
+  },
+  "physical_owner_execution": {
+    "status": "PENDING",
+    "prepared_date": "2026-08-14",
+    "carry_forward_pending_read_only_g4": [
+      "PHY-028",
+      "PHY-029",
+      "PHY-032",
+      "PHY-037",
+      "PHY-038"
+    ],
+    "required_new_checklist": "docs/v2/acceptance/TASK-021-writable-two-device-checklist.md",
+    "required_signoff_template": "docs/v2/acceptance/TASK-021-writable-signoff-template.md",
+    "required_recovery_runbook": "docs/v2/runbooks/TASK-021-writable-conflict-recovery.md"
+  }
+}

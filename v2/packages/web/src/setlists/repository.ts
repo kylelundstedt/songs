@@ -1,5 +1,6 @@
 import type { SongsStorage } from "../storage";
 import { buildAuthoredMutation, type AuthoredLocalRevisionRecord } from "../storage/authored";
+import { decodeCanonicalSetListSource } from "./codec";
 import { executeSetListCommand, undoSetListRevision, type SetListCommand, type SetListRevision } from "./commands";
 import { randomStableId, type SetList } from "./model";
 
@@ -15,11 +16,11 @@ function asRevision(record: AuthoredLocalRevisionRecord): SetListRevision {
 export interface EditableSetListState { readonly document: SetList; readonly revision: SetListRevision | null; readonly queued: number; readonly baseServerRevisionId: string; readonly publishedRevisionId: string; readonly conflicts: number }
 
 export async function loadEditableSetList(storage: SongsStorage, baseline: SetList): Promise<EditableSetListState> {
-  const [draft, outbox, sync, authored] = await Promise.all([storage.readAuthoredDraft(baseline.id), storage.listAuthoredOutbox(), storage.readAuthoredSyncState(), storage.readAuthoredState()]);
+  const [draft, outbox, sync, authored, revisions] = await Promise.all([storage.readAuthoredDraft(baseline.id), storage.listAuthoredOutbox(), storage.readAuthoredSyncState(), storage.readAuthoredState(), storage.listAuthoredRevisions(baseline.id)]);
   const documentSync = sync?.documents.find((item) => item.documentId === baseline.id);
+  const serverHead = revisions.find((item) => item.origin === "server" && item.id === documentSync?.currentServerRevisionId && item.payload.kind === "set-list");
   const common = { queued: outbox.filter((item) => item.documentId === baseline.id).length, baseServerRevisionId: documentSync?.currentServerRevisionId ?? "", publishedRevisionId: documentSync?.publishedRevisionId ?? "", conflicts: authored.conflicts.filter((item) => item.documentId === baseline.id && item.status === "open").length };
-  if (draft === null) return { document: baseline, revision: null, ...common };
-  const revisions = await storage.listAuthoredRevisions(baseline.id);
+  if (draft === null) return { document: serverHead === undefined || serverHead.origin !== "server" ? baseline : decodeCanonicalSetListSource(serverHead.payload.source, serverHead.payload.path), revision: null, ...common };
   const current = revisions.find((item): item is AuthoredLocalRevisionRecord => item.origin === "local" && item.id === draft.localRevisionId);
   if (current === undefined) throw new Error("The durable Set List draft head is missing");
   return { document: draft.document, revision: asRevision(current), ...common, baseServerRevisionId: draft.baseServerRevisionId };

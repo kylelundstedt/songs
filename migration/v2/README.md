@@ -113,3 +113,4 @@ are in [`bootstrap/README.md`](bootstrap/README.md). Recorded browser observatio
 are validated separately and do not constitute physical Safari/iPad proof.
 - [`writable-set-lists/`](writable-set-lists/) contains TASK-019's deterministic offline Set List domain, IndexedDB outbox, retry, and recovery evidence.
 - [`writable-lead-sheets/`](writable-lead-sheets/) — TASK-020 exact-source lead-sheet authoring, validation, enrichment-candidate, outbox, and recovery evidence.
+- [`writable-conflict-recovery/`](writable-conflict-recovery/) — TASK-021 deterministic conflict-resolution, retry/resnapshot, recovery, publication-reconciliation inventory; physical iPad execution remains pending.

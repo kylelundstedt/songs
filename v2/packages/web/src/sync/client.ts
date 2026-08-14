@@ -40,6 +40,10 @@ export interface ApplyEnvelope {
   readonly client_cursor: number;
 }
 
+export interface ResolveEnvelope extends ApplyEnvelope {
+  readonly operation_kind: "resolve-conflict";
+}
+
 export interface SyncOutcome {
   readonly operation_id: string;
   readonly status: "applied" | "conflict" | "resolved" | "published";
@@ -148,6 +152,14 @@ export async function registerDevice(input: { readonly deviceId: string; readonl
 
 export async function applyOperation(envelope: ApplyEnvelope, credential: DeviceCredential, signal?: AbortSignal): Promise<SyncOutcome> {
   const response = await fetch(`${SYNC_PREFIX}/operations/apply`, {
+    method: "POST", credentials: "same-origin", cache: "no-store", ...withSignal(signal),
+    headers: { "Content-Type": "application/json", ...credentialHeaders(credential) }, body: JSON.stringify(envelope),
+  });
+  return parseJSON<SyncOutcome>(response);
+}
+
+export async function resolveConflict(conflictId: string, envelope: ResolveEnvelope, credential: DeviceCredential, signal?: AbortSignal): Promise<SyncOutcome> {
+  const response = await fetch(`${SYNC_PREFIX}/conflicts/${encodeURIComponent(conflictId)}/resolve`, {
     method: "POST", credentials: "same-origin", cache: "no-store", ...withSignal(signal),
     headers: { "Content-Type": "application/json", ...credentialHeaders(credential) }, body: JSON.stringify(envelope),
   });

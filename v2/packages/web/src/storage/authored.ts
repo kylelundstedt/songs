@@ -51,6 +51,9 @@ export const AUTHORED_SYNC_STATE_ID = "primary" as const;
 
 export type OutboxState = "pending" | "sending" | "failed";
 export type AuthoredConflictStatus = "open" | "resolved";
+export type ConflictResolutionMode = "keep-local" | "keep-server" | "manual";
+/** Compatibility alias for the longer TASK-021 draft name. */
+export type AuthoredConflictResolutionMode = ConflictResolutionMode;
 export type AuthoredDocumentKind = "set-list" | "lead-sheet";
 export type AuthoredDocument = SetList | LeadSheet;
 export type AuthoredPublicationPayload = SetListPublicationPayload | LeadSheetPublicationPayload;
@@ -133,6 +136,20 @@ export interface AuthoredApplyEnvelope<Payload extends AuthoredPublicationPayloa
 export type AuthoredLeadSheetApplyEnvelope = AuthoredApplyEnvelope<LeadSheetPublicationPayload>;
 export type AnyAuthoredApplyEnvelope = AuthoredApplyEnvelope | AuthoredLeadSheetApplyEnvelope;
 
+/** Exact wire bytes for POST /conflicts/{conflictId}/resolve. */
+export interface AuthoredResolveEnvelope<Payload extends AuthoredPublicationPayload = AuthoredPublicationPayload> {
+  readonly protocol_version: "1";
+  readonly device_id: string;
+  readonly operation_id: string;
+  readonly operation_kind: "resolve-conflict";
+  readonly document_id: string;
+  readonly base_revision_id: string;
+  readonly title: string;
+  readonly payload: Payload;
+  readonly payload_sha256: string;
+  readonly client_cursor: number;
+}
+
 /** Defaults preserve TASK-019's Set List source-level API. */
 export interface AuthoredOutboxRecord<Payload extends AuthoredPublicationPayload = SetListPublicationPayload> {
   readonly id: string;
@@ -149,7 +166,41 @@ export interface AuthoredOutboxRecord<Payload extends AuthoredPublicationPayload
 }
 
 export type AuthoredLeadSheetOutboxRecord = AuthoredOutboxRecord<LeadSheetPublicationPayload>;
-export type AnyAuthoredOutboxRecord = AuthoredOutboxRecord | AuthoredLeadSheetOutboxRecord;
+export type AnyAuthoredApplyOutboxRecord = AuthoredOutboxRecord | AuthoredLeadSheetOutboxRecord;
+
+/**
+ * Durable conflict-resolution intent. The conflict sides and resolve envelope
+ * are immutable after enqueue, including across CAS/network failures.
+ */
+export interface AuthoredResolutionOutboxRecord<Payload extends AuthoredPublicationPayload = AuthoredPublicationPayload> {
+  readonly id: string;
+  readonly schemaVersion: typeof AUTHORED_OUTBOX_SCHEMA_VERSION;
+  readonly recordType: "resolution";
+  readonly conflictId: string;
+  readonly mode: ConflictResolutionMode;
+  readonly documentId: string;
+  readonly currentRevisionId: string;
+  readonly candidateRevisionId: string;
+  /** Local draft revision reviewed when this resolution intent was queued; empty on a device without that draft. */
+  readonly reviewedLocalRevisionId: string;
+  readonly state: OutboxState;
+  readonly envelope: AuthoredResolveEnvelope<Payload>;
+  readonly canonicalPayload: string;
+  readonly attempts: number;
+  readonly lastAttemptAt?: string;
+  readonly lastError?: string;
+  readonly createdAt: string;
+}
+
+export type AnyAuthoredOutboxRecord = AnyAuthoredApplyOutboxRecord | AuthoredResolutionOutboxRecord;
+
+export function isAuthoredResolutionOutboxRecord(record: AnyAuthoredOutboxRecord): record is AuthoredResolutionOutboxRecord {
+  return "recordType" in record && record.recordType === "resolution";
+}
+
+export function isAuthoredApplyOutboxRecord(record: AnyAuthoredOutboxRecord): record is AnyAuthoredApplyOutboxRecord {
+  return !isAuthoredResolutionOutboxRecord(record);
+}
 
 export interface AuthoredConflictRecord {
   readonly id: string;
@@ -204,11 +255,14 @@ export interface LeadSheetWorkspaceRecord {
   readonly path: string;
   readonly source: string;
   readonly sourceSha256: string;
+  /** Exact server base the workspace was opened from; absent only on legacy TASK-020 records. */
+  readonly baseServerRevisionId?: string;
   readonly updatedAt: string;
 }
 
 export interface BuildLeadSheetWorkspaceOptions {
   readonly updatedAt: string;
+  readonly baseServerRevisionId?: string;
 }
 
 export interface LeadSheetValidationIssue {
@@ -278,6 +332,27 @@ export interface BuildAuthoredMutationOptions {
   readonly clientCursor: number;
   readonly createdAt: string;
 }
+
+export interface BuildConflictResolutionOutboxOptions {
+  readonly deviceId: string;
+  readonly operationId: string;
+  readonly mode: ConflictResolutionMode;
+  readonly currentRevision: AnyAuthoredServerRevisionRecord;
+  readonly candidateRevision: AnyAuthoredServerRevisionRecord;
+  readonly reviewedLocalRevisionId?: string;
+  /** Latest reviewed document head; defaults to the conflict's original current side. */
+  readonly baseRevision?: AnyAuthoredServerRevisionRecord;
+  /** Required only for manual resolutions and forbidden for keep-local/server. */
+  readonly manual?: {
+    readonly title: string;
+    readonly payload: AuthoredPublicationPayload;
+  };
+  readonly clientCursor: number;
+  readonly createdAt: string;
+}
+
+/** Compatibility alias for the early TASK-021 options name. */
+export type BuildAuthoredConflictResolutionOptions = BuildConflictResolutionOutboxOptions;
 
 /** IndexedDB identity mirrors the server's `(device ID, operation ID)` key. */
 export function authoredOutboxId(deviceId: string, operationId: string): string {
@@ -468,22 +543,27 @@ export async function buildLeadSheetWorkspaceRecord(
   const path = requireLeadSheetPath(input.path);
   const source = requireWorkspaceSource(input.source);
   const updatedAt = requireTimestamp(options.updatedAt, "workspace updatedAt");
+  const baseServerRevisionId = options.baseServerRevisionId === undefined ? undefined : requireRevisionId(options.baseServerRevisionId, "workspace base server revision ID", { empty: true });
   return Object.freeze({
     id: leadSheetWorkspaceId(documentId), schemaVersion: LEAD_SHEET_WORKSPACE_SCHEMA_VERSION, kind: "lead-sheet-workspace",
-    documentId, path, source, sourceSha256: await sha256Hex(source), updatedAt,
+    documentId, path, source, sourceSha256: await sha256Hex(source), ...(baseServerRevisionId === undefined ? {} : { baseServerRevisionId }), updatedAt,
   });
 }
 
 export async function validateLeadSheetWorkspaceRecord(value: unknown): Promise<LeadSheetWorkspaceRecord> {
   const object = requireObject(value, "lead-sheet workspace");
-  requireExactKeys(object, ["id", "schemaVersion", "kind", "documentId", "path", "source", "sourceSha256", "updatedAt"], "lead-sheet workspace");
+  const keys = ["id", "schemaVersion", "kind", "documentId", "path", "source", "sourceSha256", "updatedAt"];
+  if (object.baseServerRevisionId !== undefined) keys.push("baseServerRevisionId");
+  requireExactKeys(object, keys, "lead-sheet workspace");
   if (object.schemaVersion !== LEAD_SHEET_WORKSPACE_SCHEMA_VERSION || object.kind !== "lead-sheet-workspace") throw authoredError("Lead-sheet workspace schema is invalid");
   const documentId = requireStable(object.documentId, "workspace document ID");
   const source = requireWorkspaceSource(object.source);
   const record: LeadSheetWorkspaceRecord = {
     id: requireString(object.id, "workspace ID", { maximum: 80 }), schemaVersion: LEAD_SHEET_WORKSPACE_SCHEMA_VERSION, kind: "lead-sheet-workspace",
     documentId, path: requireLeadSheetPath(requireString(object.path, "workspace path", { maximum: 240 })), source,
-    sourceSha256: requireSha256(object.sourceSha256, "workspace source hash"), updatedAt: requireTimestamp(object.updatedAt, "workspace updatedAt"),
+    sourceSha256: requireSha256(object.sourceSha256, "workspace source hash"),
+    ...(object.baseServerRevisionId === undefined ? {} : { baseServerRevisionId: requireRevisionId(object.baseServerRevisionId, "workspace base server revision ID", { empty: true }) }),
+    updatedAt: requireTimestamp(object.updatedAt, "workspace updatedAt"),
   };
   if (record.id !== leadSheetWorkspaceId(documentId)) throw authoredError("Lead-sheet workspace identity does not agree");
   if (await sha256Hex(source) !== record.sourceSha256) throw authoredError("Lead-sheet workspace source hash does not match");
@@ -724,17 +804,154 @@ export async function validateRevisionRecord(value: unknown): Promise<AuthoredRe
   throw authoredError("Authored revision origin is invalid");
 }
 
-export async function validateOutboxRecord(value: unknown): Promise<AnyAuthoredOutboxRecord> {
-  const object = requireObject(value, "authored outbox record");
-  const keys = ["id", "schemaVersion", "documentId", "localRevisionId", "state", "envelope", "canonicalPayload", "attempts", "createdAt"];
-  if (object.lastAttemptAt !== undefined) keys.push("lastAttemptAt");
-  if (object.lastError !== undefined) keys.push("lastError");
-  requireExactKeys(object, keys, "authored outbox record");
-  if (object.schemaVersion !== AUTHORED_OUTBOX_SCHEMA_VERSION || (object.state !== "pending" && object.state !== "sending" && object.state !== "failed")) throw authoredError("Authored outbox schema or state is invalid");
-  const envelopeObject = requireObject(object.envelope, "authored apply envelope");
-  requireExactKeys(envelopeObject, ["protocol_version", "device_id", "operation_id", "operation_kind", "document_id", "base_revision_id", "title", "payload", "payload_sha256", "client_cursor"], "authored apply envelope");
+export interface ResolvedDraftProjection {
+  readonly draft: AnyAuthoredDraftRecord;
+  readonly revision?: AnyAuthoredLocalRevisionRecord;
+}
+
+/** Advance the editable local projection to one accepted resolution without queueing another server operation. */
+export async function buildResolvedDraftProjection(
+  draftValue: AnyAuthoredDraftRecord,
+  currentValue: AnyAuthoredLocalRevisionRecord,
+  serverValue: AnyAuthoredServerRevisionRecord,
+  createdAtValue: string,
+): Promise<ResolvedDraftProjection> {
+  const [draft, current, serverRecord] = await Promise.all([
+    validateDraftRecord(draftValue), validateRevisionRecord(currentValue), validateRevisionRecord(serverValue),
+  ]);
+  if (current.origin !== "local" || serverRecord.origin !== "server") throw authoredError("Resolved draft projection requires local and server revisions");
+  const server = serverRecord as AnyAuthoredServerRevisionRecord;
+  const createdAt = requireTimestamp(createdAtValue, "resolved projection createdAt");
+  if (
+    draft.documentId !== current.documentId || draft.documentId !== server.documentId
+    || draft.localRevisionId !== current.id || draft.kind !== server.payload.kind
+  ) throw authoredError("Resolved draft projection identities do not agree");
+  if (draft.source === server.payload.source && draft.document.path === server.payload.path) {
+    return Object.freeze({ draft: Object.freeze({ ...draft, baseServerRevisionId: server.id, updatedAt: createdAt }) });
+  }
+  const suffix = server.id.slice("rev-".length);
+  const revisionId = `revision-resolution-${suffix}`;
+  const operationId = `resolution-projection-${suffix}`;
+  if (isSetListAuthoredLocalRevision(current)) {
+    if (server.payload.kind !== "set-list") throw authoredError("Resolved Set List projection kind does not agree");
+    const base: SetListRevision = {
+      schemaVersion: SET_LIST_REVISION_SCHEMA_VERSION, id: current.id as SetListRevision["id"], documentId: current.documentId as SetListRevision["documentId"],
+      parentRevisionId: current.parentRevisionId as SetListRevision["parentRevisionId"], operationId: current.operationId as SetListRevision["operationId"],
+      operationKind: current.operationKind, command: current.command, inverse: current.inverse, document: current.document,
+    };
+    const document = decodeCanonicalSetListSource(server.payload.source, server.payload.path);
+    const projected = executeSetListCommand(base, { kind: "restore-snapshot", document }, { revisionId, operationId });
+    const sourceSha256 = await sha256Hex(server.payload.source);
+    const revision: AuthoredLocalRevisionRecord = Object.freeze({
+      id: projected.id, schemaVersion: AUTHORED_REVISION_SCHEMA_VERSION, origin: "local", documentId: projected.documentId,
+      parentRevisionId: projected.parentRevisionId, deviceId: current.deviceId, operationId: projected.operationId, operationKind: projected.operationKind,
+      command: projected.command, inverse: projected.inverse, document: projected.document, source: server.payload.source, sourceSha256, createdAt,
+    });
+    const nextDraft: AuthoredDraftRecord = Object.freeze({
+      id: draft.id, schemaVersion: AUTHORED_DRAFT_SCHEMA_VERSION, kind: "set-list", documentId: draft.documentId,
+      localRevisionId: revision.id, baseServerRevisionId: server.id, document: projected.document,
+      source: server.payload.source, sourceSha256, updatedAt: createdAt,
+    });
+    return Object.freeze({ draft: nextDraft, revision });
+  }
+  if (!isLeadSheetAuthoredLocalRevision(current) || server.payload.kind !== "lead-sheet") throw authoredError("Resolved lead-sheet projection kind does not agree");
+  const base: LeadSheetRevision = {
+    schemaVersion: LEAD_SHEET_REVISION_SCHEMA_VERSION, id: current.id as LeadSheetRevision["id"], documentId: current.documentId as LeadSheetRevision["documentId"],
+    parentRevisionId: current.parentRevisionId as LeadSheetRevision["parentRevisionId"], operationId: current.operationId as LeadSheetRevision["operationId"],
+    operationKind: current.operationKind, command: current.command, inverse: current.inverse, document: current.document,
+  };
+  const document = validateLeadSheet({ id: draft.documentId, path: server.payload.path, source: server.payload.source });
+  const projected = executeLeadSheetCommand(base, { kind: "restore-snapshot", document }, { revisionId, operationId });
+  const sourceSha256 = await sha256Hex(server.payload.source);
+  const revision: AuthoredLeadSheetLocalRevisionRecord = Object.freeze({
+    id: projected.id, schemaVersion: AUTHORED_REVISION_SCHEMA_VERSION, origin: "local", documentId: projected.documentId,
+    parentRevisionId: projected.parentRevisionId, deviceId: current.deviceId, operationId: projected.operationId, operationKind: projected.operationKind,
+    command: projected.command, inverse: projected.inverse, document: projected.document, source: server.payload.source, sourceSha256, createdAt,
+  });
+  const nextDraft: AuthoredLeadSheetDraftRecord = Object.freeze({
+    id: draft.id, schemaVersion: AUTHORED_DRAFT_SCHEMA_VERSION, kind: "lead-sheet", documentId: draft.documentId,
+    localRevisionId: revision.id, baseServerRevisionId: server.id, document: projected.document,
+    source: server.payload.source, sourceSha256, updatedAt: createdAt,
+  });
+  return Object.freeze({ draft: nextDraft, revision });
+}
+
+/** Build an immutable, byte-stable conflict-resolution retry record. */
+export async function buildConflictResolutionOutbox(
+  conflictValue: AuthoredConflictRecord,
+  options: BuildConflictResolutionOutboxOptions,
+): Promise<AuthoredResolutionOutboxRecord> {
+  const conflict = validateConflictRecord(conflictValue);
+  if (conflict.status !== "open" || conflict.resolutionRevisionId !== "") throw authoredError("Only an open unresolved conflict can be resolved");
+  const [currentValue, candidateValue] = await Promise.all([
+    validateRevisionRecord(options.currentRevision),
+    validateRevisionRecord(options.candidateRevision),
+  ]);
+  if (currentValue.origin !== "server" || candidateValue.origin !== "server") throw authoredError("Conflict resolution sides must be server revisions");
+  const current = currentValue as AnyAuthoredServerRevisionRecord;
+  const candidate = candidateValue as AnyAuthoredServerRevisionRecord;
+  if (
+    current.id !== conflict.currentRevisionId || candidate.id !== conflict.candidateRevisionId
+    || current.documentId !== conflict.documentId || candidate.documentId !== conflict.documentId
+    || current.payload.kind !== candidate.payload.kind
+  ) throw authoredError("Conflict resolution sides do not match the conflict");
+  const baseValue = options.baseRevision === undefined ? current : await validateRevisionRecord(options.baseRevision);
+  if (baseValue.origin !== "server") throw authoredError("Conflict resolution base must be a server revision");
+  const base = baseValue as AnyAuthoredServerRevisionRecord;
+  if (base.documentId !== conflict.documentId || base.payload.kind !== current.payload.kind) throw authoredError("Conflict resolution base belongs to another document or kind");
+  if (options.mode !== "keep-local" && options.mode !== "keep-server" && options.mode !== "manual") throw authoredError("Resolution mode is invalid");
+  if (options.mode === "manual" ? options.manual === undefined : options.manual !== undefined) {
+    throw authoredError("Manual resolution bytes must be supplied only for manual mode");
+  }
+  const selected = options.mode === "keep-local"
+    ? { title: candidate.title, payload: candidate.payload }
+    : options.mode === "keep-server"
+      ? { title: base.title, payload: base.payload }
+      : options.manual!;
+  const payload = parsePublicationPayload(selected.payload);
+  const title = requireSingleLine(selected.title, "resolution title", 512);
+  if (payload.kind !== current.payload.kind) throw authoredError("Resolution payload kind does not match the conflict");
+  const documentId = requireStable(conflict.documentId, "resolution document ID");
+  if (payload.kind === "set-list" && decodeCanonicalSetListSource(payload.source, payload.path).id !== documentId) {
+    throw authoredError("Resolution payload belongs to another Set List");
+  }
+  const deviceId = requireStable(options.deviceId, "resolution device ID");
+  const reviewedLocalRevisionId = options.reviewedLocalRevisionId === undefined || options.reviewedLocalRevisionId === "" ? "" : requireStable(options.reviewedLocalRevisionId, "reviewed local revision ID");
+  const operationId = requireStable(options.operationId, "resolution operation ID");
+  const clientCursor = requireCount(options.clientCursor, "resolution client cursor");
+  const createdAt = requireTimestamp(options.createdAt, "resolution createdAt");
+  const canonicalPayload = canonicalJson(payload);
+  const envelope: AuthoredResolveEnvelope = Object.freeze({
+    protocol_version: "1", device_id: deviceId, operation_id: operationId, operation_kind: "resolve-conflict",
+    document_id: documentId, base_revision_id: base.id, title, payload,
+    payload_sha256: await sha256Hex(canonicalPayload), client_cursor: clientCursor,
+  });
+  return Object.freeze({
+    id: authoredOutboxId(deviceId, operationId), schemaVersion: AUTHORED_OUTBOX_SCHEMA_VERSION,
+    recordType: "resolution", conflictId: conflict.id, mode: options.mode, documentId,
+    currentRevisionId: current.id, candidateRevisionId: candidate.id, reviewedLocalRevisionId, state: "pending",
+    envelope, canonicalPayload, attempts: 0, createdAt,
+  });
+}
+
+/** Compatibility alias for early TASK-021 callers. */
+export const buildAuthoredConflictResolution = buildConflictResolutionOutbox;
+
+interface ParsedOutboxEnvelope {
+  readonly envelope: AnyAuthoredApplyEnvelope | AuthoredResolveEnvelope;
+  readonly payload: AuthoredPublicationPayload;
+  readonly canonicalPayload: string;
+}
+
+async function parseOutboxEnvelope(
+  envelopeValue: unknown,
+  canonicalPayloadValue: unknown,
+  expectedKind: "apply" | "resolution",
+): Promise<ParsedOutboxEnvelope> {
+  const envelopeObject = requireObject(envelopeValue, expectedKind === "apply" ? "authored apply envelope" : "authored resolve envelope");
+  requireExactKeys(envelopeObject, ["protocol_version", "device_id", "operation_id", "operation_kind", "document_id", "base_revision_id", "title", "payload", "payload_sha256", "client_cursor"], expectedKind === "apply" ? "authored apply envelope" : "authored resolve envelope");
   const payload = parsePublicationPayload(envelopeObject.payload);
-  const canonicalPayload = requireString(object.canonicalPayload, "canonical outbox payload", { maximum: 8 << 20 });
+  const canonicalPayload = requireString(canonicalPayloadValue, "canonical outbox payload", { maximum: 8 << 20 });
   if (canonicalPayload !== canonicalJson(payload)) throw authoredError("Outbox canonical payload bytes do not match the payload");
   const payloadSha256 = requireSha256(envelopeObject.payload_sha256, "outbox payload hash");
   if (await sha256Hex(canonicalPayload) !== payloadSha256) throw authoredError("Outbox payload hash does not match");
@@ -742,22 +959,38 @@ export async function validateOutboxRecord(value: unknown): Promise<AnyAuthoredO
   const deviceId = requireStable(envelopeObject.device_id, "outbox device ID");
   const operationId = requireStable(envelopeObject.operation_id, "outbox operation ID");
   const operationKind = requireStable(envelopeObject.operation_kind, "outbox operation kind");
+  if (expectedKind === "resolution" && operationKind !== "resolve-conflict") throw authoredError("Resolution outbox operation kind is invalid");
   const envelopeDocumentId = requireStable(envelopeObject.document_id, "outbox document ID");
-  const baseRevisionId = requireRevisionId(envelopeObject.base_revision_id, "outbox base revision ID", { empty: true });
+  const baseRevisionId = requireRevisionId(envelopeObject.base_revision_id, "outbox base revision ID", { empty: expectedKind === "apply" });
   const title = requireSingleLine(envelopeObject.title, "outbox title", 512);
   const clientCursor = requireCount(envelopeObject.client_cursor, "outbox client cursor");
-  const envelope: AnyAuthoredApplyEnvelope = payload.kind === "set-list"
+  const envelope: AnyAuthoredApplyEnvelope | AuthoredResolveEnvelope = expectedKind === "resolution"
     ? {
-      protocol_version: protocolVersion, device_id: deviceId, operation_id: operationId, operation_kind: operationKind,
-      document_id: envelopeDocumentId, base_revision_id: baseRevisionId, title, payload, payload_sha256: payloadSha256, client_cursor: clientCursor,
+      protocol_version: protocolVersion, device_id: deviceId, operation_id: operationId, operation_kind: "resolve-conflict",
+      document_id: envelopeDocumentId, base_revision_id: baseRevisionId, title, payload,
+      payload_sha256: payloadSha256, client_cursor: clientCursor,
     }
     : {
       protocol_version: protocolVersion, device_id: deviceId, operation_id: operationId, operation_kind: operationKind,
-      document_id: envelopeDocumentId, base_revision_id: baseRevisionId, title, payload, payload_sha256: payloadSha256, client_cursor: clientCursor,
-    };
+      document_id: envelopeDocumentId, base_revision_id: baseRevisionId, title, payload,
+      payload_sha256: payloadSha256, client_cursor: clientCursor,
+    } as AnyAuthoredApplyEnvelope;
+  return Object.freeze({ envelope: Object.freeze(envelope), payload, canonicalPayload });
+}
+
+export async function validateOutboxRecord(value: unknown): Promise<AnyAuthoredOutboxRecord> {
+  const object = requireObject(value, "authored outbox record");
+  const resolution = object.recordType === "resolution";
+  const keys = resolution
+    ? ["id", "schemaVersion", "recordType", "conflictId", "mode", "documentId", "currentRevisionId", "candidateRevisionId", "reviewedLocalRevisionId", "state", "envelope", "canonicalPayload", "attempts", "createdAt"]
+    : ["id", "schemaVersion", "documentId", "localRevisionId", "state", "envelope", "canonicalPayload", "attempts", "createdAt"];
+  if (object.lastAttemptAt !== undefined) keys.push("lastAttemptAt");
+  if (object.lastError !== undefined) keys.push("lastError");
+  requireExactKeys(object, keys, "authored outbox record");
+  if (object.schemaVersion !== AUTHORED_OUTBOX_SCHEMA_VERSION || (object.state !== "pending" && object.state !== "sending" && object.state !== "failed")) throw authoredError("Authored outbox schema or state is invalid");
+  const parsed = await parseOutboxEnvelope(object.envelope, object.canonicalPayload, resolution ? "resolution" : "apply");
   const id = requireString(object.id, "outbox ID", { maximum: 127 });
   const documentId = requireStable(object.documentId, "outbox document ID");
-  const localRevisionId = requireStable(object.localRevisionId, "outbox local revision ID");
   const state: OutboxState = object.state;
   const attempts = requireCount(object.attempts, "outbox attempts");
   const lastAttemptAt = object.lastAttemptAt === undefined ? undefined : requireTimestamp(object.lastAttemptAt, "outbox lastAttemptAt");
@@ -767,13 +1000,32 @@ export async function validateOutboxRecord(value: unknown): Promise<AnyAuthoredO
     ...(lastAttemptAt === undefined ? {} : { lastAttemptAt }),
     ...(lastError === undefined ? {} : { lastError }),
   };
-  const record: AnyAuthoredOutboxRecord = payload.kind === "set-list"
-    ? { id, schemaVersion: AUTHORED_OUTBOX_SCHEMA_VERSION, documentId, localRevisionId, state, envelope: envelope as AuthoredApplyEnvelope, canonicalPayload, attempts, ...optional, createdAt }
-    : { id, schemaVersion: AUTHORED_OUTBOX_SCHEMA_VERSION, documentId, localRevisionId, state, envelope: envelope as AuthoredLeadSheetApplyEnvelope, canonicalPayload, attempts, ...optional, createdAt };
-  const payloadDocumentId = payload.kind === "set-list" ? decodeCanonicalSetListSource(payload.source, payload.path).id : record.documentId;
-  if (record.id !== authoredOutboxId(envelope.device_id, envelope.operation_id) || record.documentId !== envelope.document_id || record.documentId !== payloadDocumentId) {
+  if (id !== authoredOutboxId(parsed.envelope.device_id, parsed.envelope.operation_id) || documentId !== parsed.envelope.document_id) {
     throw authoredError("Outbox identities do not agree");
   }
+  const payloadDocumentId = parsed.payload.kind === "set-list" ? decodeCanonicalSetListSource(parsed.payload.source, parsed.payload.path).id : documentId;
+  if (documentId !== payloadDocumentId) throw authoredError("Outbox payload belongs to another document");
+
+  if (resolution) {
+    if (object.mode !== "keep-local" && object.mode !== "keep-server" && object.mode !== "manual") throw authoredError("Resolution mode is invalid");
+    const conflictId = requireString(object.conflictId, "resolution conflict ID", { maximum: 63 });
+    if (!/^conf-[a-f0-9]{24}$/.test(conflictId)) throw authoredError("Resolution conflict ID is invalid");
+    const currentRevisionId = requireRevisionId(object.currentRevisionId, "resolution current revision ID");
+    const candidateRevisionId = requireRevisionId(object.candidateRevisionId, "resolution candidate revision ID");
+    const reviewedLocalRevisionId = object.reviewedLocalRevisionId === "" ? "" : requireStable(object.reviewedLocalRevisionId, "reviewed local revision ID");
+    if (currentRevisionId === candidateRevisionId) throw authoredError("Resolution current/candidate identities do not agree");
+    return Object.freeze({
+      id, schemaVersion: AUTHORED_OUTBOX_SCHEMA_VERSION, recordType: "resolution", conflictId,
+      mode: object.mode, documentId, currentRevisionId, candidateRevisionId, reviewedLocalRevisionId, state,
+      envelope: parsed.envelope as AuthoredResolveEnvelope, canonicalPayload: parsed.canonicalPayload,
+      attempts, ...optional, createdAt,
+    });
+  }
+
+  const localRevisionId = requireStable(object.localRevisionId, "outbox local revision ID");
+  const record: AnyAuthoredApplyOutboxRecord = parsed.payload.kind === "set-list"
+    ? { id, schemaVersion: AUTHORED_OUTBOX_SCHEMA_VERSION, documentId, localRevisionId, state, envelope: parsed.envelope as AuthoredApplyEnvelope, canonicalPayload: parsed.canonicalPayload, attempts, ...optional, createdAt }
+    : { id, schemaVersion: AUTHORED_OUTBOX_SCHEMA_VERSION, documentId, localRevisionId, state, envelope: parsed.envelope as AuthoredLeadSheetApplyEnvelope, canonicalPayload: parsed.canonicalPayload, attempts, ...optional, createdAt };
   return Object.freeze(record);
 }
 
@@ -913,7 +1165,31 @@ export async function validateStoredAuthoredState(value: unknown): Promise<Store
       if (base === undefined || publicationPayloadKind(base.payload) !== draft.kind) throw authoredError("Authored draft base server revision is missing or has another document kind", { draftId: draft.id });
     }
   }
+  const conflictRecords = new Map(conflicts.map((record) => [record.id, record]));
   for (const record of outbox) {
+    if (isAuthoredResolutionOutboxRecord(record)) {
+      const conflict = conflictRecords.get(record.conflictId);
+      const current = serverRevisions.get(record.currentRevisionId);
+      const candidate = serverRevisions.get(record.candidateRevisionId);
+      const base = serverRevisions.get(record.envelope.base_revision_id);
+      const reviewed = record.reviewedLocalRevisionId === "" ? undefined : localRevisions.get(record.reviewedLocalRevisionId);
+      const selected = record.mode === "keep-local" ? candidate : record.mode === "keep-server" ? base : undefined;
+      if (
+        conflict === undefined || current === undefined || candidate === undefined || base === undefined
+        || conflict.documentId !== record.documentId || conflict.currentRevisionId !== record.currentRevisionId
+        || conflict.candidateRevisionId !== record.candidateRevisionId
+        || current.documentId !== record.documentId || candidate.documentId !== record.documentId || base.documentId !== record.documentId
+        || reviewed !== undefined && reviewed.documentId !== record.documentId
+        || record.reviewedLocalRevisionId !== "" && reviewed === undefined
+        || current.payload.kind !== candidate.payload.kind || base.payload.kind !== current.payload.kind || record.envelope.payload.kind !== current.payload.kind
+        || selected !== undefined && (
+          selected.title !== record.envelope.title
+          || selected.contentHash !== record.envelope.payload_sha256
+          || canonicalJson(selected.payload) !== record.canonicalPayload
+        )
+      ) throw authoredError("Resolution outbox does not match its immutable conflict sides", { outboxId: record.id, conflictId: record.conflictId });
+      continue;
+    }
     const revision = localRevisions.get(record.localRevisionId);
     if (
       revision === undefined || revision.documentId !== record.documentId || revision.deviceId !== record.envelope.device_id

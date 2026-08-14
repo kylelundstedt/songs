@@ -11,6 +11,7 @@ import { setListFromBootstrap } from "./setlists/bootstrap";
 import { duplicateSetList, initializeEditableSetList, randomStableId, validateSetList } from "./setlists";
 import { decodeCanonicalSetListSource } from "./setlists/codec";
 import type { SetList } from "./setlists/model";
+import { ConflictReviewPage } from "./conflicts/ConflictReviewPage";
 import { LeadSheetEditor } from "./leadsheets/LeadSheetEditor";
 import { createCanonicalLeadSheet, createLeadSheet, leadSheetFromBootstrap, validateLeadSheetLocally } from "./leadsheets";
 import type { WritableCapabilities } from "./sync/client";
@@ -274,7 +275,7 @@ function ThemeToggle() {
   return <button className="icon-button" type="button" onClick={() => setTheme(next)} aria-label={`Theme: ${theme}. Switch to ${next}.`}><span aria-hidden="true">{theme === "dark" ? "◐" : theme === "light" ? "☀" : "◒"}</span></button>;
 }
 
-function Header({ path, online, update, recoveryPending = false }: { readonly path: string; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly recoveryPending?: boolean }) {
+function Header({ path, online, update, recoveryPending = false, authoredRecovery = false }: { readonly path: string; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly recoveryPending?: boolean; readonly authoredRecovery?: boolean }) {
   const current = (prefix: string) => path === prefix || path.startsWith(`${prefix}/`);
   return <header className="site-header">
     <a className="skip-link" href="#main">Skip to content</a>
@@ -291,6 +292,7 @@ function Header({ path, online, update, recoveryPending = false }: { readonly pa
         <Link to="/" className={path === "/" ? "active" : undefined} ariaCurrent={path === "/" ? "page" : undefined}>Library</Link>
         <Link to="/songs" className={current("/songs") ? "active" : undefined} ariaCurrent={current("/songs") ? "page" : undefined}>Songs</Link>
         <Link to="/sets" className={current("/sets") ? "active" : undefined} ariaCurrent={current("/sets") ? "page" : undefined}>Set Lists</Link>
+        {authoredRecovery && <Link to="/conflicts" className={current("/conflicts") ? "active" : undefined} ariaCurrent={current("/conflicts") ? "page" : undefined}>Conflicts</Link>}
       </>}
       <Link to="/status" className={current("/status") ? "active" : undefined} ariaCurrent={current("/status") ? "page" : undefined}>Status</Link>
     </nav>
@@ -821,11 +823,11 @@ function WritableToolbar({ online, capabilities }: { readonly online: boolean; r
   const restoreState = async (file: File) => {
     setBusy(true);
     const storage = await openSongsStorage();
-    try { const result = await storage.restoreAuthoredState(JSON.parse(await file.text())); localStorage.setItem("songs-v2-authored-recovery-present", "1"); window.dispatchEvent(new Event(AUTHORED_CHANGE_EVENT)); setStatus(`Recovery restored · ${result.drafts} drafts · ${result.outbox} outbox operations.`); }
+    try { const result = await storage.restoreAuthoredState(JSON.parse(await file.text())); localStorage.setItem("songs-v2-authored-recovery-present", "1"); window.dispatchEvent(new Event(AUTHORED_CHANGE_EVENT)); setStatus(`Recovery restored · ${result.drafts} drafts · ${result.outbox} queued operations · ${result.conflicts} conflict records. Device credentials were not imported.`); }
     catch (error) { setStatus(error instanceof Error ? error.message : "Restore failed"); }
     finally { storage.close(); setBusy(false); }
   };
-  return <aside className="writable-toolbar" aria-label="Authored recovery and sync controls"><div><strong>Local authored work</strong><span role="status" aria-live="polite">{status}</span></div><div><button type="button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync now</button><button type="button" disabled={busy} onClick={() => void exportState()}>Export recovery</button><label className="file-button">Restore recovery<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
+  return <aside className="writable-toolbar" aria-label="Authored recovery and sync controls"><div><strong>Local authored work</strong><span role="status" aria-live="polite">{status}</span></div><div><a className="primary-button" href="#/conflicts">Review conflicts</a><button type="button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync now</button><button type="button" disabled={busy} onClick={() => void exportState()}>Export recovery</button><label className="file-button">Restore recovery<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
 }
 
 function usePublishedAuthoredSet(documentId: string | undefined): SetList | null | undefined {
@@ -871,6 +873,9 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   const localSetMatch = /^\/sets\/local\/([^/]+)\/(edit|live)$/.exec(path);
   const localSetID = localSetMatch === null ? undefined : decodedRouteSegment(localSetMatch[1]!);
   const localSetMode = localSetMatch?.[2] as "edit" | "live" | undefined;
+  const conflictMatch = /^\/conflicts\/([^/]+)$/.exec(path);
+  const conflictID = conflictMatch === null ? undefined : decodedRouteSegment(conflictMatch[1]!);
+  const conflictRoute = path === "/conflicts" || conflictID !== undefined;
   const setRoute = exactSetRoute(path);
   const routedSet = useMemo(() => index === null || setRoute === undefined ? null : index.setBySlug(setRoute.slug), [index, setRoute?.slug]);
   const publishedAuthoredSet = usePublishedAuthoredSet(localSetID ?? routedSet?.id);
@@ -884,6 +889,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   let page: ReactNode;
   let livePage: ReactNode = null;
   if (path === "/status") page = <StatusPage index={index} snapshot={snapshot} online={online} update={update} runtime={runtime} />;
+  else if (conflictRoute) page = <ConflictReviewPage {...(conflictID === undefined ? {} : { conflictId: conflictID })} setListWritable={writable} leadSheetWritable={leadWritable} />;
   else if (selectorsClosed || index === null) page = <InactiveSnapshotPage snapshot={snapshot} runtime={runtime} />;
   else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} />;
   else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} writable={leadWritable} />;
@@ -916,7 +922,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
     } else page = <SetListPage performanceSet={routedPerformanceSet} writable={writable} />;
   } else page = <NotFound />;
   if (livePage !== null) return <>{livePage}</>;
-  return <><Header path={path} online={online} update={update} recoveryPending={selectorsClosed} /><main id="main">
+  return <><Header path={path} online={online} update={update} recoveryPending={selectorsClosed} authoredRecovery={localStorage.getItem("songs-v2-authored-recovery-present") === "1"} /><main id="main">
     {active && (writable || leadWritable || localStorage.getItem("songs-v2-authored-recovery-present") === "1") && <WritableToolbar online={online} capabilities={capabilities} />}
     {active && !online && <div className="offline-banner" role="status">Offline — browse and search are local. {offlineReady ? "Using the active verified snapshot saved in IndexedDB." : "This active snapshot is not ready for offline restart."}</div>}
     {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}

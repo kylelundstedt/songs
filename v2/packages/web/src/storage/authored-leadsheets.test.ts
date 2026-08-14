@@ -192,6 +192,20 @@ describe("generic authored lead-sheet storage", () => {
     expect(await restored.readLeadSheetValidationReceipt("song-workspace-one", newer.sourceSha256)).toEqual(receipt);
   });
 
+  it("atomically projects a resolution into an unchanged lead-sheet workspace and preserves a newer workspace by CAS", async () => {
+    const storage = await openStorage();
+    const original = await buildLeadSheetWorkspaceRecord({ id: "song-workspace-resolution", path: "songs/Workspace-Resolution.md", source: "---\ntitle: \"Local\"\n---\n\n# Local\n" }, { updatedAt: at1 });
+    const resolved = await buildLeadSheetWorkspaceRecord({ id: "song-workspace-resolution", path: original.path, source: "---\ntitle: \"Server\"\n---\n\n# Server\n" }, { updatedAt: at2 });
+    await storage.saveLeadSheetWorkspace(original, { expectedSourceSha256: null });
+    const emptySync: AuthoredSyncStateRecord = { id: AUTHORED_SYNC_STATE_ID, schemaVersion: AUTHORED_SYNC_SCHEMA_VERSION, deviceId: "device-browser-one", cursor: 0, acknowledgedCursor: 0, documents: [], updatedAt: at2 };
+    await storage.commitAuthoredSync({ expectedCursor: 0, sync: emptySync, workspaces: [{ expectedSourceSha256: original.sourceSha256, workspace: resolved }] });
+    expect(await storage.readLeadSheetWorkspace(original.documentId)).toEqual(resolved);
+    const newer = await buildLeadSheetWorkspaceRecord({ id: original.documentId, path: original.path, source: `${resolved.source}\n### New local work\n` }, { updatedAt: at3 });
+    await storage.saveLeadSheetWorkspace(newer, { expectedSourceSha256: resolved.sourceSha256 });
+    await expect(storage.commitAuthoredSync({ expectedCursor: 0, sync: emptySync, workspaces: [{ expectedSourceSha256: resolved.sourceSha256, workspace: original }] })).rejects.toMatchObject({ code: "CAS_STALE" });
+    expect(await storage.readLeadSheetWorkspace(original.documentId)).toEqual(newer);
+  });
+
   it("builds a syncable envelope for an exact source near the one-MiB domain limit", async () => {
     const prefix = "---\ntitle: \"Large\"\nartist: \"Band\"\n---\n\n# Large\n\n### Verse 1\n";
     const source = prefix + "\\".repeat((1 << 20) - new TextEncoder().encode(prefix).byteLength);

@@ -454,18 +454,18 @@ func (s *Store) Resolve(envelope ResolveEnvelope) (Outcome, error) {
 	if err := tx.QueryRow(`SELECT document_id,current_revision_id,status FROM v2sync_conflicts WHERE owner_id=? AND conflict_id=?`, envelope.OwnerID, envelope.ConflictID).Scan(&document, &conflictCurrent, &status); err != nil {
 		return Outcome{}, ErrConflictCAS
 	}
-	if status != "open" || document != envelope.DocumentID || conflictCurrent != envelope.BaseRevisionID {
+	if status != "open" || document != envelope.DocumentID {
 		return Outcome{}, ErrConflictCAS
 	}
 	var documentCurrent string
-	if err := tx.QueryRow(`SELECT current_revision_id FROM v2sync_documents WHERE owner_id=? AND document_id=?`, envelope.OwnerID, document).Scan(&documentCurrent); err != nil || documentCurrent != conflictCurrent {
+	if err := tx.QueryRow(`SELECT current_revision_id FROM v2sync_documents WHERE owner_id=? AND document_id=?`, envelope.OwnerID, document).Scan(&documentCurrent); err != nil || documentCurrent != envelope.BaseRevisionID {
 		return Outcome{}, ErrConflictCAS
 	}
 	revision := resolutionRevisionID(envelope, payloadHash)
 	if _, err := tx.Exec(`INSERT INTO v2sync_revisions(owner_id,revision_id,document_id,device_id,operation_id,operation_kind,base_revision_id,title,payload,content_hash) VALUES(?,?,?,?,?,?,?,?,?,?)`, envelope.OwnerID, revision, document, envelope.DeviceID, envelope.OperationID, envelope.OperationKind, envelope.BaseRevisionID, envelope.Title, payload, payloadHash); err != nil {
 		return Outcome{}, err
 	}
-	result, err := tx.Exec(`UPDATE v2sync_documents SET title=?,current_revision_id=? WHERE owner_id=? AND document_id=? AND current_revision_id=?`, envelope.Title, revision, envelope.OwnerID, document, conflictCurrent)
+	result, err := tx.Exec(`UPDATE v2sync_documents SET title=?,current_revision_id=? WHERE owner_id=? AND document_id=? AND current_revision_id=?`, envelope.Title, revision, envelope.OwnerID, document, envelope.BaseRevisionID)
 	if err != nil {
 		return Outcome{}, err
 	}
@@ -750,6 +750,45 @@ func (s *Store) Revision(owner, device, revision string) (Revision, error) {
 }
 
 func bytesClone(raw []byte) []byte { return append([]byte(nil), raw...) }
+
+func (s *Store) ConflictDocumentKind(owner, device, conflict string) (string, error) {
+	if err := s.AuthenticateMetadataAccess(owner, device); err != nil {
+		return "", err
+	}
+	if !validConflict(conflict) {
+		return "", ErrInvalidEnvelope
+	}
+	var currentPayload, candidatePayload []byte
+	err := s.db.QueryRow(`SELECT current_revision.payload,candidate_revision.payload
+		FROM v2sync_conflicts AS conflict
+		JOIN v2sync_revisions AS current_revision ON current_revision.owner_id=conflict.owner_id AND current_revision.revision_id=conflict.current_revision_id
+		JOIN v2sync_revisions AS candidate_revision ON candidate_revision.owner_id=conflict.owner_id AND candidate_revision.revision_id=conflict.candidate_revision_id
+		WHERE conflict.owner_id=? AND conflict.conflict_id=?`, owner, conflict).Scan(&currentPayload, &candidatePayload)
+	if errors.Is(err, sql.ErrNoRows) {
+		return "", ErrNotFound
+	}
+	if err != nil {
+		return "", err
+	}
+	readKind := func(payload []byte) (string, error) {
+		var header struct {
+			Kind string `json:"kind"`
+		}
+		if err := json.Unmarshal(payload, &header); err != nil || (header.Kind != "set-list" && header.Kind != "lead-sheet") {
+			return "", ErrInvalidEnvelope
+		}
+		return header.Kind, nil
+	}
+	currentKind, err := readKind(currentPayload)
+	if err != nil {
+		return "", err
+	}
+	candidateKind, err := readKind(candidatePayload)
+	if err != nil || candidateKind != currentKind {
+		return "", ErrInvalidEnvelope
+	}
+	return currentKind, nil
+}
 
 func (s *Store) Conflict(owner, device, conflict string) (Conflict, error) {
 	if err := s.AuthenticateMetadataAccess(owner, device); err != nil {

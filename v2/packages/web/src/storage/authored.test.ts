@@ -12,11 +12,15 @@ import {
   type AuthoredConflictRecord,
   type AuthoredDraftRecord,
   type AuthoredMutation,
+  type AuthoredResolutionOutboxRecord,
   type AuthoredServerRevisionRecord,
   type AuthoredSyncStateRecord,
   type SongsStorage,
+  buildConflictResolutionOutbox,
+  buildResolvedDraftProjection,
   buildAuthoredMutation,
   openSongsStorage,
+  validateOutboxRecord,
 } from "./index";
 import { createSetList, executeSetListCommand, undoSetListRevision, type SetListRevision } from "../setlists";
 
@@ -159,6 +163,43 @@ function serverRevisions(authored: AuthoredMutation): readonly AuthoredServerRev
   ];
 }
 
+async function seedConflict(storage: SongsStorage): Promise<{ readonly authored: AuthoredMutation; readonly revisions: readonly AuthoredServerRevisionRecord[] }> {
+  const authored = await mutation(initialRevision(), at1);
+  const revisions = serverRevisions(authored);
+  await storage.commitAuthoredSync({
+    expectedCursor: 0,
+    sync: syncState(3, serverRevisionOne),
+    revisions,
+    conflicts: [conflict()],
+  });
+  return { authored, revisions };
+}
+
+async function resolutionRecord(
+  storage: SongsStorage,
+  mode: "keep-local" | "keep-server" | "manual" = "keep-local",
+  operationId = "operation-resolve-one",
+): Promise<AuthoredResolutionOutboxRecord> {
+  const state = await storage.readAuthoredState();
+  const current = state.revisions.find((record): record is AuthoredServerRevisionRecord => record.origin === "server" && record.id === serverRevisionOne)!;
+  const candidate = state.revisions.find((record): record is AuthoredServerRevisionRecord => record.origin === "server" && record.id === serverRevisionTwo)!;
+  const manualMutation = await mutation(nextRevision(initialRevision(), "Manually merged"), at3, serverRevisionOne, 3);
+  return buildConflictResolutionOutbox(conflict(), {
+    deviceId: "device-browser-one", operationId, mode, currentRevision: current, candidateRevision: candidate,
+    ...(mode === "manual" ? { manual: { title: "Manual merge", payload: manualMutation.outbox.envelope.payload } } : {}),
+    clientCursor: 3, createdAt: at3,
+  });
+}
+
+async function resolutionServerRevision(record: AuthoredResolutionOutboxRecord, id = "rev-333333333333333333333333"): Promise<AuthoredServerRevisionRecord> {
+  return {
+    id, schemaVersion: AUTHORED_REVISION_SCHEMA_VERSION, origin: "server", documentId: record.documentId,
+    deviceId: record.envelope.device_id, operationId: record.envelope.operation_id,
+    baseRevisionId: record.envelope.base_revision_id, title: record.envelope.title,
+    payload: record.envelope.payload as AuthoredServerRevisionRecord["payload"], contentHash: record.envelope.payload_sha256, receivedAt: at3,
+  };
+}
+
 afterEach(async () => {
   vi.restoreAllMocks();
   for (const connection of openConnections.splice(0)) connection.close();
@@ -270,6 +311,146 @@ describe("IndexedDB v3 authored Set List repository", () => {
     await expect(reopened.claimNextAuthoredOutbox({ attemptedAt: "2026-08-14T12:04:00.000Z" })).resolves.toMatchObject({ state: "sending", attempts: 2, envelope: { operation_id: "operation-local-one" } });
     await expect(reopened.claimNextAuthoredOutbox({ attemptedAt: "2026-08-14T12:05:00.000Z" })).resolves.toBeNull();
     await expect(reopened.claimNextAuthoredOutbox({ attemptedAt: "2026-08-14T12:06:00.000Z", reclaimSendingBefore: "2026-08-14T12:04:00.000Z" })).resolves.toMatchObject({ state: "sending", attempts: 3, envelope: { operation_id: "operation-local-one" } });
+  });
+
+  it("uses explicit lease cutoffs so forward or backward wall-clock skew cannot silently steal sending work", async () => {
+    const storage = await openStorage();
+    await storage.commitAuthoredMutation(await mutation(initialRevision(), at1));
+    const first = await storage.claimNextAuthoredOutbox({ attemptedAt: "2099-01-01T00:00:00.000Z" });
+    expect(first).toMatchObject({ state: "sending", attempts: 1 });
+    await expect(storage.claimNextAuthoredOutbox({ attemptedAt: "2020-01-01T00:00:00.000Z", reclaimSendingBefore: "2098-12-31T23:59:59.999Z" })).resolves.toBeNull();
+    const reclaimed = await storage.claimNextAuthoredOutbox({ attemptedAt: "2100-01-01T00:00:00.000Z", reclaimSendingBefore: "2099-01-01T00:00:00.000Z" });
+    expect(reclaimed).toMatchObject({ state: "sending", attempts: 2, lastAttemptAt: "2100-01-01T00:00:00.000Z" });
+    expect(reclaimed?.envelope).toEqual(first?.envelope);
+  });
+
+  it("builds typed keep-local, keep-server, and manual resolution envelopes with immutable conflict sides", async () => {
+    const storage = await openStorage();
+    await seedConflict(storage);
+    const local = await resolutionRecord(storage, "keep-local", "operation-resolve-local");
+    const server = await resolutionRecord(storage, "keep-server", "operation-resolve-server");
+    const manual = await resolutionRecord(storage, "manual", "operation-resolve-manual");
+
+    for (const record of [local, server, manual]) {
+      expect(record).toMatchObject({
+        recordType: "resolution", conflictId: conflict().id, documentId: "set-offline-gig",
+        currentRevisionId: serverRevisionOne, candidateRevisionId: serverRevisionTwo,
+        state: "pending", attempts: 0,
+        envelope: { operation_kind: "resolve-conflict", base_revision_id: serverRevisionOne, client_cursor: 3 },
+      });
+      expect(await validateOutboxRecord(record)).toEqual(record);
+      expect(JSON.parse(record.canonicalPayload)).toEqual(record.envelope.payload);
+    }
+    const candidateRevision = (await storage.listAuthoredRevisions()).find((record) => record.id === serverRevisionTwo);
+    const currentRevision = (await storage.listAuthoredRevisions()).find((record) => record.id === serverRevisionOne);
+    expect(candidateRevision?.origin).toBe("server");
+    expect(currentRevision?.origin).toBe("server");
+    expect(local.envelope.payload).toEqual((candidateRevision as AuthoredServerRevisionRecord).payload);
+    expect(server.envelope.payload).toEqual((currentRevision as AuthoredServerRevisionRecord).payload);
+    expect(manual.envelope.title).toBe("Manual merge");
+    expect(manual.envelope.payload.source).toContain("Manually merged");
+
+    await expect(validateOutboxRecord({ ...local, currentRevisionId: serverRevisionTwo })).rejects.toThrow(/current\/candidate identities/);
+    await expect(validateOutboxRecord({ ...local, envelope: { ...local.envelope, operation_kind: "set-list-put" } })).rejects.toThrow(/operation kind/);
+  });
+
+  it("projects keep-server or manual resolution bytes into a new local revision without queueing another operation", async () => {
+    const local = await mutation(initialRevision(), at1);
+    const targetMutation = await mutation(nextRevision(initialRevision(), "Server-selected note"), at2);
+    const accepted: AuthoredServerRevisionRecord = {
+      id: "rev-444444444444444444444444", schemaVersion: AUTHORED_REVISION_SCHEMA_VERSION, origin: "server",
+      documentId: local.draft.documentId, deviceId: "device-browser-two", operationId: "operation-resolution-winner",
+      baseRevisionId: serverRevisionOne, title: targetMutation.outbox.envelope.title,
+      payload: targetMutation.outbox.envelope.payload, contentHash: targetMutation.outbox.envelope.payload_sha256, receivedAt: at3,
+    };
+    const projected = await buildResolvedDraftProjection(local.draft, local.revision, accepted, at3);
+    expect(projected.draft).toMatchObject({ baseServerRevisionId: accepted.id, source: accepted.payload.source });
+    expect(projected.revision).toMatchObject({ parentRevisionId: local.revision.id, operationKind: "restore-set-list", source: accepted.payload.source });
+    expect(projected.draft.localRevisionId).toBe(projected.revision?.id);
+    expect(projected.revision?.operationId).toMatch(/^resolution-projection-/);
+  });
+
+  it("re-queues a reviewed resolution against a newer server head after a failed immutable CAS intent", async () => {
+    const storage = await openStorage();
+    const seeded = await seedConflict(storage);
+    const newest: AuthoredServerRevisionRecord = {
+      ...seeded.revisions[0]!, id: "rev-333333333333333333333333", operationId: "server-operation-three",
+      baseRevisionId: serverRevisionOne, title: "Newest server head", receivedAt: "2026-08-14T12:03:00.000Z",
+    };
+    await storage.commitAuthoredSync({ expectedCursor: 3, sync: syncState(4, newest.id), revisions: [newest] });
+    const renewed = await buildConflictResolutionOutbox(conflict(), {
+      deviceId: "device-browser-one", operationId: "operation-resolve-renewed", mode: "keep-server",
+      currentRevision: seeded.revisions[0]!, candidateRevision: seeded.revisions[1]!, baseRevision: newest,
+      clientCursor: 4, createdAt: "2026-08-14T12:04:00.000Z",
+    });
+    expect(renewed.envelope.base_revision_id).toBe(newest.id);
+    expect(renewed.envelope.title).toBe("Newest server head");
+    await storage.queueConflictResolution(renewed);
+    await storage.claimNextAuthoredOutbox({ recordType: "resolution", kind: "set-list", attemptedAt: "2026-08-14T12:05:00.000Z" });
+    await storage.failAuthoredOutbox(renewed.id, { failedAt: "2026-08-14T12:06:00.000Z", message: "CONFLICT_CAS_FAILED: head advanced" });
+    await storage.discardFailedConflictResolution(renewed.id);
+    expect(await storage.listAuthoredResolutionOutbox()).toEqual([]);
+    expect((await storage.readAuthoredState()).conflicts[0]).toMatchObject({ id: conflict().id, status: "open", currentRevisionId: serverRevisionOne, candidateRevisionId: serverRevisionTwo });
+  });
+
+  it("enqueues, claims, fails, exports, and restores resolution work without exposing it through TASK-019 apply lists", async () => {
+    const storage = await openStorage();
+    await seedConflict(storage);
+    const record = await resolutionRecord(storage);
+    await expect(storage.queueConflictResolution(record)).resolves.toMatchObject({ idempotent: false, conflictId: conflict().id });
+    await expect(storage.queueConflictResolution(record)).resolves.toMatchObject({ idempotent: true });
+    await expect(storage.queueConflictResolution(await resolutionRecord(storage, "keep-server", "operation-resolve-two"))).rejects.toMatchObject({ code: "CAS_STALE" });
+    await expect(storage.commitAuthoredSync({
+      expectedCursor: 3, sync: syncState(3, serverRevisionOne), removeConflictIds: [conflict().id],
+    })).rejects.toMatchObject({ code: "INVALID_INPUT" });
+    expect(await storage.listAuthoredOutbox()).toEqual([]);
+    expect(await storage.listLeadSheetOutbox()).toEqual([]);
+    expect(await storage.listAuthoredResolutionOutbox()).toEqual([record]);
+
+    const claimed = await storage.claimNextAuthoredOutbox({ recordType: "resolution", kind: "set-list", attemptedAt: at2 });
+    expect(claimed).toMatchObject({ recordType: "resolution", state: "sending", attempts: 1 });
+    expect(claimed?.envelope).toEqual(record.envelope);
+    const failed = await storage.failAuthoredOutbox(record.id, { failedAt: at3, message: "NETWORK_OFFLINE" });
+    expect(failed).toMatchObject({ recordType: "resolution", state: "failed", attempts: 1, lastError: "NETWORK_OFFLINE" });
+    await expect(storage.discardFailedConflictResolution(record.id)).rejects.toMatchObject({ code: "INVALID_INPUT" });
+    expect(failed.envelope).toEqual(record.envelope);
+    await expect(storage.queueConflictResolution(record)).resolves.toMatchObject({ idempotent: true });
+    expect(await storage.listAuthoredResolutionOutbox()).toEqual([failed]);
+
+    const archive = await storage.exportAuthoredState(at3);
+    expect(archive.records.outbox).toEqual([failed]);
+    forget(storage);
+    await eraseDatabase();
+    const restored = await openStorage();
+    await expect(restored.restoreAuthoredState(archive)).resolves.toMatchObject({ outbox: 1, conflicts: 1 });
+    expect(await restored.listAuthoredResolutionOutbox()).toEqual([failed]);
+    expect((await restored.readAuthoredState()).conflicts).toEqual([conflict()]);
+  });
+
+  it("requires the resolution revision and resolved conflict to become durable before deleting resolution outbox", async () => {
+    const storage = await openStorage();
+    await seedConflict(storage);
+    const record = await resolutionRecord(storage);
+    await storage.queueConflictResolution(record);
+    await storage.claimNextAuthoredOutbox({ recordType: "resolution", kind: "set-list", attemptedAt: at2 });
+    const revision = await resolutionServerRevision(record);
+    const resolved: AuthoredConflictRecord = { ...conflict(), status: "resolved", resolutionRevisionId: revision.id };
+    const resolvedState = syncState(3, revision.id);
+
+    await expect(storage.commitAuthoredSync({
+      expectedCursor: 3, sync: resolvedState, revisions: [revision], removeOutboxIds: [record.id],
+    })).rejects.toMatchObject({ code: "INVALID_INPUT" });
+    expect(await storage.listAuthoredResolutionOutbox()).toHaveLength(1);
+    expect((await storage.listAuthoredRevisions()).map((item) => item.id)).not.toContain(revision.id);
+    expect((await storage.readAuthoredState()).conflicts[0]?.status).toBe("open");
+
+    await storage.commitAuthoredSync({
+      expectedCursor: 3, sync: resolvedState, revisions: [revision], conflicts: [resolved], removeOutboxIds: [record.id],
+    });
+    expect(await storage.listAuthoredResolutionOutbox()).toEqual([]);
+    expect((await storage.listAuthoredRevisions()).map((item) => item.id)).toContain(revision.id);
+    expect((await storage.readAuthoredState()).conflicts).toEqual([resolved]);
+    expect((await storage.readAuthoredSyncState())?.documents[0]?.currentServerRevisionId).toBe(revision.id);
   });
 
   it("atomically persists sync cursor/conflicts and removes only acknowledged outbox work", async () => {

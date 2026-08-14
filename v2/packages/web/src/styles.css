@@ -382,3 +382,10 @@ footer { display: flex; justify-content: center; flex-wrap: wrap; gap: .7rem 1.4
 .candidate-review { margin-top:1rem; padding-top:1rem; border-top:1px solid var(--line); }
 @media (max-width: 760px) { .lead-editor-grid { grid-template-columns:1fr; } .lead-source-editor { min-height:24rem; } }
 .apex-draft-preview { width:100%; min-height:24rem; margin-top:1rem; border:1px solid var(--line); border-radius:.65rem; background:white; }
+
+.conflict-card { margin-block: 1rem; }
+.conflict-sides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.conflict-sides section { min-width: 0; }
+.conflict-sides pre { max-height: 24rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--surface); border: 1px solid var(--border); border-radius: .6rem; padding: .8rem; }
+.conflict-manual textarea { width: 100%; min-height: 18rem; margin-block: .5rem; font: .86rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+@media (max-width: 760px) { .conflict-sides { grid-template-columns: 1fr; } }

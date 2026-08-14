@@ -6,7 +6,7 @@
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 read-only checkpoint is complete; post-Phase-1 writable foundation is now active.
 - **Completed:** V2 proposal/control plane and TASK-001 through TASK-020.
-- **Current task:** TASK-021 writable conflict, recovery, and physical acceptance.
+- **Current task:** TASK-021 physical iPad writable acceptance and owner signoff; software implementation is complete.
 - **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
 - **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
 
@@ -266,7 +266,30 @@ TASK-020 completed offline writable lead-sheet authoring and enrichment:
   embedded release `shell-ffe70456e479eb1529d157f0` is the gated TASK-020 shell;
   the tracked service remains read-only.
 
+TASK-021 software conflict/recovery hardening is complete; physical acceptance
+remains pending:
+
+- open conflicts retain and display immutable current-server and local-candidate
+  revisions side by side;
+- keep-local, keep-server, and manual selections enter a durable typed resolution
+  outbox before network I/O, survive export/restore, and resolve through the
+  conflict-specific CAS endpoint;
+- mismatched outcomes, lost responses, conflict CAS failures, and stale compacted
+  cursors preserve queued work and both candidates; resnapshot never changes a
+  local apply base, so unseen remote movement remains conflict-producing;
+- status language separately identifies local, queued, acknowledged,
+  server/Apex-validated, published, and conflicted states;
+- the writable recovery runbook, two-device checklist, signoff template, and
+  deterministic evidence are under the TASK-021 docs and
+  `migration/v2/writable-conflict-recovery/`; evidence SHA-256 is
+  `9ed40bbebd7f51d122847daf2c1df92e20011f75a0e68d4385d0dd05b71fb85e`;
+- embedded release `shell-96ab0f5519cd6a1bff86220f` contains the gated
+  TASK-021 conflict/recovery UI;
+- physical iPad rows WRT-001–042 and inherited PHY-028, PHY-029, PHY-032,
+  PHY-037, and PHY-038 remain `PENDING`; writable pilot approval remains `NO`.
+
 ## Verification commands
+
 
 Run from `/home/exedev/songs-v2`:
 
@@ -308,6 +331,7 @@ make v2-sync-check
 make v2-publication-check
 make v2-writable-set-list-check
 make v2-writable-lead-sheet-check
+make v2-writable-conflict-recovery-check
 go test ./...
 go vet ./...
 git diff --check
@@ -315,7 +339,6 @@ git diff --check
 
 ## Next tasks
 
-1. Implement **TASK-021**: writable conflict/recovery hardening and physical-device acceptance.
-2. After the writable workflows function end to end, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
-3. Finish deferred blocking read-only G4 reliability checks as part of TASK-021 physical acceptance.
-4. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.
+1. Execute and sign off **TASK-021** physical iPad writable acceptance, including inherited PHY-028/029/032/037/038; keep writable pilot approval at `NO` until every blocking row passes.
+2. After TASK-021 physical acceptance, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
+3. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.

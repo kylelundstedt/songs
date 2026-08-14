@@ -295,6 +295,20 @@ func (h *Handler) resolve(w http.ResponseWriter, r *http.Request, owner, device,
 		writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "device ID does not match the authenticated device")
 		return
 	}
+	if h.enforceDocumentGates {
+		expectedKind, err := h.store.ConflictDocumentKind(owner, device, id)
+		if err != nil {
+			writeMappedError(w, err)
+			return
+		}
+		var header struct {
+			Kind string `json:"kind"`
+		}
+		if err := json.Unmarshal(in.Payload, &header); err != nil || header.Kind != expectedKind {
+			writeError(w, http.StatusBadRequest, "INVALID_ENVELOPE", "resolution payload kind does not match the conflict")
+			return
+		}
+	}
 	if !h.permitDocumentWrite(w, in.Payload) {
 		return
 	}

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { authoredReadiness } from "../authored/status";
 import type { LeadSheetDocument } from "../bootstrap/types";
 import { validateLeadSheetLocally } from "../leadsheets";
 import { openSongsStorage } from "../storage";
@@ -16,20 +17,22 @@ export function SetListEditor({ baseline, songs, onClose, initialize, liveHref }
     let active = true;
     void openSongsStorage().then(async (storage) => {
       try {
-        const [loaded, authoredLeadSheets, authoredSync, leadOutbox, authoredState] = await Promise.all([
+        const [loaded, authoredLeadSheets, authoredSync, authoredState] = await Promise.all([
           initialize === undefined ? loadEditableSetList(storage, stableBaseline) : initializeEditableSetList(storage, stableBaseline, initialize),
-          storage.listLeadSheetDrafts(), storage.readAuthoredSyncState(), storage.listLeadSheetOutbox(), storage.readAuthoredState(),
+          storage.listLeadSheetDrafts(), storage.readAuthoredSyncState(), storage.readAuthoredState(),
         ]);
         const authoredOptions = await Promise.all(authoredLeadSheets.map(async (draft) => {
           const validation = validateLeadSheetLocally(draft.document);
           if (!validation.valid || validation.title === undefined) return null;
           const receipt = await storage.readLeadSheetValidationReceipt(draft.documentId, draft.sourceSha256);
           const sync = authoredSync?.documents.find((item) => item.documentId === draft.documentId);
-          const queued = leadOutbox.some((item) => item.documentId === draft.documentId);
-          const conflicted = authoredState.conflicts.some((item) => item.documentId === draft.documentId && item.status === "open");
-          const published = !conflicted && !queued && draft.baseServerRevisionId !== "" && sync?.publishedRevisionId === draft.baseServerRevisionId;
-          const status = conflicted ? "conflict" : published ? "published" : receipt?.response.valid === true ? "server-validated" : draft.baseServerRevisionId === "" ? "local-stage-ready" : "sync-accepted";
-          return { id: draft.documentId, path: draft.document.path, title: validation.title, status };
+          const readiness = authoredReadiness({
+            documentId: draft.documentId, kind: "lead-sheet", baseServerRevisionId: draft.baseServerRevisionId,
+            localRevisionId: draft.localRevisionId, sourceSha256: draft.sourceSha256, sync,
+            acknowledgedCursor: authoredSync?.acknowledgedCursor ?? 0, cursor: authoredSync?.cursor ?? 0,
+            outbox: authoredState.outbox, conflicts: authoredState.conflicts, validationReceipt: receipt,
+          });
+          return { id: draft.documentId, path: draft.document.path, title: validation.title, status: readiness.label };
         }));
         if (active) {
           setState(loaded);
@@ -73,7 +76,7 @@ export function SetListEditor({ baseline, songs, onClose, initialize, liveHref }
     <nav className="breadcrumbs" aria-label="Breadcrumb"><button type="button" className="link-button" onClick={onClose}>Set List</button><span aria-hidden="true">/</span><span>Edit</span></nav>
     <header className="detail-header"><div><p className="eyebrow">Offline writable Set List</p><h1 data-page-heading tabIndex={-1}>{setList.title}</h1><p className="artist">Every change commits locally before entering the outbox.</p></div><div className="set-detail-actions">{liveHref !== undefined && <a className="primary-button" href={liveHref}>Open published Live</a>}<button type="button" onClick={() => void undo()} disabled={busy || state.revision?.inverse === null}>Undo</button><button type="button" className="primary-button" onClick={onClose}>Done</button></div></header>
     <p role="status" aria-live="polite" className="session-banner">{message}</p>
-    <ul className="editor-state-list" aria-label="Set List save state"><li>Local: saved durably</li><li>Server: {state.conflicts > 0 ? "conflict requires resolution" : state.queued > 0 ? "local changes waiting" : state.baseServerRevisionId === "" ? "not synchronized" : "accepted"}</li><li>Published: {state.publishedRevisionId === "" ? "not published" : state.queued === 0 && state.publishedRevisionId === state.baseServerRevisionId ? "current server revision" : "older protected Live revision"}</li></ul>
+    <ul className="editor-state-list" aria-label="Set List save state"><li>Local: committed durably</li><li>Queued: {state.queued > 0 ? `${state.queued} operation${state.queued === 1 ? "" : "s"} waiting or retrying` : "none"}</li><li>Acknowledged: {state.baseServerRevisionId === "" ? "no server revision accepted" : state.queued > 0 ? "an older server revision only" : "latest completed foreground sync"}</li><li>Conflicted: {state.conflicts > 0 ? <a href="#/conflicts">review both retained candidates</a> : "no open conflict"}</li><li>Published: {state.publishedRevisionId === "" ? "not published" : state.conflicts > 0 || state.queued > 0 || state.publishedRevisionId !== state.baseServerRevisionId ? "older protected Live revision" : "current acknowledged server revision"}</li></ul>
     <fieldset className="editor-fields" disabled={busy}><legend>Set List details</legend>
       <label>Title<input value={setList.title} onChange={(event) => void mutate({ kind: "update-details", title: event.target.value })} /></label>
       <label>Date<input value={setList.date} placeholder="YYYY-MM-DD" onChange={(event) => void mutate({ kind: "update-details", date: event.target.value })} /></label>

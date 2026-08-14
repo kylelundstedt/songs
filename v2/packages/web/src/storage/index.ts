@@ -8,6 +8,7 @@ import {
   LEAD_SHEET_VALIDATION_RECEIPT_SCHEMA_VERSION,
   LEAD_SHEET_WORKSPACE_SCHEMA_VERSION,
   type AnyAuthoredDraftRecord,
+  type AnyAuthoredApplyOutboxRecord,
   type AnyAuthoredLocalRevisionRecord,
   type AnyAuthoredMutation,
   type AnyAuthoredOutboxRecord,
@@ -19,6 +20,7 @@ import {
   type AuthoredLeadSheetOutboxRecord,
   type AuthoredMutation,
   type AuthoredOutboxRecord,
+  type AuthoredResolutionOutboxRecord,
   type AuthoredRevisionRecord,
   type AuthoredStateExport,
   type AuthoredSyncStateRecord,
@@ -32,6 +34,8 @@ import {
   encodeOpaqueStructuredClone,
   isLeadSheetAuthoredDraft,
   isSetListAuthoredDraft,
+  isAuthoredApplyOutboxRecord,
+  isAuthoredResolutionOutboxRecord,
   leadSheetValidationReceiptId,
   leadSheetWorkspaceId,
   validateAuthoredStateExport,
@@ -264,9 +268,23 @@ export interface ClaimAuthoredOutboxOptions {
   readonly includeFailed?: boolean;
   /** Defaults to TASK-019 Set List work; select lead-sheet explicitly. */
   readonly kind?: "set-list" | "lead-sheet";
+  /** Existing callers default to apply records; resolution callers opt in explicitly. */
+  readonly recordType?: "apply" | "resolution";
+  /** Select one exact durable operation after caller-side eligibility review. */
+  readonly outboxId?: string;
   /** Explicit lease cutoff for retrying a crash-interrupted sending record. */
   readonly reclaimSendingBefore?: string;
 }
+
+export interface QueueConflictResolutionResult {
+  readonly conflictId: string;
+  readonly operationId: string;
+  readonly outboxId: string;
+  readonly idempotent: boolean;
+}
+
+/** Compatibility alias for the early TASK-021 result name. */
+export type EnqueueAuthoredConflictResolutionResult = QueueConflictResolutionResult;
 
 export interface FailAuthoredOutboxOptions {
   readonly failedAt: string;
@@ -278,17 +296,23 @@ export interface AuthoredSyncDraftUpdate {
   readonly draft: AnyAuthoredDraftRecord;
 }
 
+export interface AuthoredSyncWorkspaceUpdate {
+  readonly expectedSourceSha256: string;
+  readonly workspace: LeadSheetWorkspaceRecord;
+}
+
 export interface AuthoredSyncCommit {
   /** Compare-and-swap against the currently durable pull cursor. */
   readonly expectedCursor: number;
   readonly sync: AuthoredSyncStateRecord;
   readonly revisions?: readonly AuthoredRevisionRecord[];
   readonly drafts?: readonly AuthoredSyncDraftUpdate[];
+  readonly workspaces?: readonly AuthoredSyncWorkspaceUpdate[];
   readonly conflicts?: readonly AuthoredConflictRecord[];
   readonly removeConflictIds?: readonly string[];
   readonly removeOutboxIds?: readonly string[];
-  /** Rebased records must never have entered `sending` with old envelope bytes. */
-  readonly replaceOutbox?: readonly AnyAuthoredOutboxRecord[];
+  /** Rebased apply records must never have entered `sending` with old envelope bytes. */
+  readonly replaceOutbox?: readonly AnyAuthoredApplyOutboxRecord[];
 }
 
 export interface AuthoredRestoreOptions {
@@ -573,6 +597,16 @@ function recordsEqual(left: unknown, right: unknown): boolean {
   }
 }
 
+function resolutionIntentEqual(left: AuthoredResolutionOutboxRecord, right: AuthoredResolutionOutboxRecord): boolean {
+  const immutable = (record: AuthoredResolutionOutboxRecord) => ({
+    id: record.id, schemaVersion: record.schemaVersion, recordType: record.recordType,
+    conflictId: record.conflictId, mode: record.mode, documentId: record.documentId,
+    currentRevisionId: record.currentRevisionId, candidateRevisionId: record.candidateRevisionId, reviewedLocalRevisionId: record.reviewedLocalRevisionId,
+    envelope: record.envelope, canonicalPayload: record.canonicalPayload, createdAt: record.createdAt,
+  });
+  return recordsEqual(immutable(left), immutable(right));
+}
+
 function authoredInputError(message: string, error: unknown): SongsStorageError {
   return storageError("INVALID_INPUT", message, { name: errorName(error), message: error instanceof Error ? error.message : String(error) });
 }
@@ -682,13 +716,16 @@ export class SongsStorage {
   async commitAuthoredMutation(mutation: AnyAuthoredMutation, options: CommitAuthoredMutationOptions = {}): Promise<CommitAuthoredMutationResult> {
     let draft: AnyAuthoredDraftRecord;
     let revision: AuthoredRevisionRecord;
-    let outbox: AnyAuthoredOutboxRecord;
+    let outbox: AnyAuthoredApplyOutboxRecord;
     try {
-      [draft, revision, outbox] = await Promise.all([
+      const validated = await Promise.all([
         validateDraftRecord(mutation.draft),
         validateRevisionRecord(mutation.revision),
         validateOutboxRecord(mutation.outbox),
-      ]);
+      ] as const);
+      [draft, revision] = validated;
+      if (!isAuthoredApplyOutboxRecord(validated[2])) throw new Error("A local authored mutation cannot contain a resolution record");
+      outbox = validated[2];
     } catch (error) {
       throw authoredInputError("Authored mutation failed validation", error);
     }
@@ -765,6 +802,7 @@ export class SongsStorage {
       const coalescedRecords = coalesce
         ? (allOutboxValues as unknown[])
           .filter(isAuthoredOutboxValue)
+          .filter(isAuthoredApplyOutboxRecord)
           .filter((record) => record.documentId === draft.documentId && record.id !== outbox.id && record.state === "pending" && record.attempts === 0)
           .sort((left, right) => left.id < right.id ? -1 : left.id > right.id ? 1 : 0)
         : [];
@@ -962,15 +1000,20 @@ export class SongsStorage {
     }
   }
 
-  /** TASK-019 compatibility: this list remains Set List-only. */
+  /** TASK-019 compatibility: this list remains Set List apply work only. */
   async listAuthoredOutbox(): Promise<readonly AuthoredOutboxRecord[]> {
     const records = await this.listAllAuthoredOutbox();
-    return Object.freeze(records.filter((record): record is AuthoredOutboxRecord => record.envelope.payload.kind === "set-list"));
+    return Object.freeze(records.filter(isAuthoredApplyOutboxRecord).filter((record): record is AuthoredOutboxRecord => record.envelope.payload.kind === "set-list"));
   }
 
   async listLeadSheetOutbox(): Promise<readonly AuthoredLeadSheetOutboxRecord[]> {
     const records = await this.listAllAuthoredOutbox();
-    return Object.freeze(records.filter((record): record is AuthoredLeadSheetOutboxRecord => record.envelope.payload.kind === "lead-sheet"));
+    return Object.freeze(records.filter(isAuthoredApplyOutboxRecord).filter((record): record is AuthoredLeadSheetOutboxRecord => record.envelope.payload.kind === "lead-sheet"));
+  }
+
+  async listAuthoredResolutionOutbox(): Promise<readonly AuthoredResolutionOutboxRecord[]> {
+    const records = await this.listAllAuthoredOutbox();
+    return Object.freeze(records.filter(isAuthoredResolutionOutboxRecord));
   }
 
   async listAllAuthoredOutbox(): Promise<readonly AnyAuthoredOutboxRecord[]> {
@@ -983,36 +1026,191 @@ export class SongsStorage {
     }
   }
 
+  /** Atomically queue one conflict resolution without altering either side. */
+  async queueConflictResolution(recordValue: AuthoredResolutionOutboxRecord): Promise<QueueConflictResolutionResult> {
+    let record: AuthoredResolutionOutboxRecord;
+    try {
+      const validated = await validateOutboxRecord(recordValue);
+      if (!isAuthoredResolutionOutboxRecord(validated)) throw new Error("record is not a conflict resolution");
+      record = validated;
+    } catch (error) {
+      throw authoredInputError("Conflict resolution outbox record failed validation", error);
+    }
+    const state = await this.readAuthoredState();
+    const existing = state.outbox.find((item) => item.id === record.id);
+    if (existing !== undefined) {
+      if (!isAuthoredResolutionOutboxRecord(existing) || !resolutionIntentEqual(existing, record)) {
+        throw storageError("INTEGRITY", "A device operation ID already contains different retry bytes", { outboxId: record.id });
+      }
+      return this.transaction(["outbox"], "readwrite", async (transaction) => {
+        const current = await requestResult(transaction.objectStore("outbox").get(record.id));
+        if (current === undefined) throw storageError("CAS_STALE", "Resolution operation disappeared before idempotent enqueue completed", { outboxId: record.id });
+        if (!isAuthoredOutboxValue(current) || !isAuthoredResolutionOutboxRecord(current) || !resolutionIntentEqual(current, record)) {
+          throw storageError("INTEGRITY", "Resolution operation changed before idempotent enqueue completed", { outboxId: record.id });
+        }
+        return Object.freeze({ conflictId: record.conflictId, operationId: record.envelope.operation_id, outboxId: record.id, idempotent: true });
+      });
+    }
+    const existingConflictResolution = state.outbox.find((item) => isAuthoredResolutionOutboxRecord(item) && item.conflictId === record.conflictId);
+    if (existingConflictResolution !== undefined) {
+      throw storageError("CAS_STALE", "Conflict already has a durable resolution operation", { conflictId: record.conflictId, outboxId: existingConflictResolution.id });
+    }
+    if (state.sync === null || state.sync.deviceId !== record.envelope.device_id) {
+      throw storageError("CAS_STALE", "Resolution device ID does not match durable sync state", { deviceId: record.envelope.device_id });
+    }
+    if (state.sync.cursor !== record.envelope.client_cursor) {
+      throw storageError("CAS_STALE", "Resolution cursor changed before enqueue", { expectedCursor: record.envelope.client_cursor, actualCursor: state.sync.cursor });
+    }
+    const reviewedDraft = state.drafts.find((item) => item.documentId === record.documentId);
+    if (record.reviewedLocalRevisionId === "" ? reviewedDraft !== undefined : reviewedDraft?.localRevisionId !== record.reviewedLocalRevisionId) {
+      throw storageError("CAS_STALE", "Local draft changed before conflict resolution enqueue", { conflictId: record.conflictId, reviewedLocalRevisionId: record.reviewedLocalRevisionId });
+    }
+    const conflict = state.conflicts.find((item) => item.id === record.conflictId);
+    if (
+      conflict === undefined || conflict.status !== "open" || conflict.resolutionRevisionId !== ""
+      || conflict.documentId !== record.documentId || conflict.currentRevisionId !== record.currentRevisionId
+      || conflict.candidateRevisionId !== record.candidateRevisionId
+    ) throw storageError("CAS_STALE", "Conflict changed before resolution enqueue", { conflictId: record.conflictId });
+    const document = state.sync.documents.find((item) => item.documentId === record.documentId);
+    if (document?.currentServerRevisionId !== record.envelope.base_revision_id) {
+      throw storageError("CAS_STALE", "Document head changed before resolution enqueue", { conflictId: record.conflictId, currentRevisionId: document?.currentServerRevisionId ?? "" });
+    }
+    if (state.revisions.some((revision) => revision.deviceId === record.envelope.device_id && revision.operationId === record.envelope.operation_id)) {
+      throw storageError("INTEGRITY", "Resolution operation identity is already bound to a durable revision", { operationId: record.envelope.operation_id });
+    }
+    try {
+      await validateStoredAuthoredState({
+        ...state,
+        outbox: [...state.outbox, record].sort((left, right) => compareStableText(left.id, right.id)),
+      });
+    } catch (error) {
+      throw authoredInputError("Conflict resolution does not match durable conflict state", error);
+    }
+    const detached = cloneValue(record);
+    const inserted = await this.transaction(["outbox", "conflicts", "revisions", "sync", "drafts"], "readwrite", async (transaction) => {
+      const outbox = transaction.objectStore("outbox");
+      const conflicts = transaction.objectStore("conflicts");
+      const revisions = transaction.objectStore("revisions");
+      const sync = transaction.objectStore("sync");
+      const drafts = transaction.objectStore("drafts");
+      const [currentOutbox, allOutbox, currentConflict, currentRevision, candidateRevision, baseRevision, currentSync, currentDraft] = await Promise.all([
+        requestResult(outbox.get(record.id)), requestResult(outbox.getAll()), requestResult(conflicts.get(record.conflictId)),
+        requestResult(revisions.get(record.currentRevisionId)), requestResult(revisions.get(record.candidateRevisionId)),
+        requestResult(revisions.get(record.envelope.base_revision_id)), requestResult(sync.get(AUTHORED_SYNC_STATE_ID)),
+        requestResult(drafts.get(record.documentId)),
+      ]);
+      if (currentOutbox !== undefined) {
+        if (!isAuthoredOutboxValue(currentOutbox) || !isAuthoredResolutionOutboxRecord(currentOutbox) || !resolutionIntentEqual(currentOutbox, record)) {
+          throw storageError("INTEGRITY", "Resolution operation ID changed during enqueue", { outboxId: record.id });
+        }
+        return false;
+      }
+      const competing = (allOutbox as unknown[])
+        .filter(isAuthoredOutboxValue)
+        .find((item) => isAuthoredResolutionOutboxRecord(item) && item.conflictId === record.conflictId);
+      if (competing !== undefined) throw storageError("CAS_STALE", "Conflict gained another durable resolution during enqueue", { conflictId: record.conflictId, outboxId: competing.id });
+      const expectedCurrent = state.revisions.find((item) => item.id === record.currentRevisionId);
+      const expectedCandidate = state.revisions.find((item) => item.id === record.candidateRevisionId);
+      const expectedBase = state.revisions.find((item) => item.id === record.envelope.base_revision_id);
+      const expectedDraft = state.drafts.find((item) => item.documentId === record.documentId);
+      const draftChanged = currentDraft === undefined || expectedDraft === undefined ? currentDraft !== expectedDraft : !recordsEqual(currentDraft, expectedDraft);
+      if (
+        !recordsEqual(currentConflict, conflict) || !recordsEqual(currentRevision, expectedCurrent)
+        || !recordsEqual(candidateRevision, expectedCandidate) || !recordsEqual(baseRevision, expectedBase) || !recordsEqual(currentSync, state.sync)
+        || draftChanged
+      ) throw storageError("CAS_STALE", "Conflict state changed while resolution was being enqueued", { conflictId: record.conflictId });
+      outbox.put(detached);
+      return true;
+    });
+    return Object.freeze({ conflictId: record.conflictId, operationId: record.envelope.operation_id, outboxId: record.id, idempotent: !inserted });
+  }
+
+  /** Compatibility alias for the early TASK-021 storage name. */
+  async enqueueAuthoredConflictResolution(record: AuthoredResolutionOutboxRecord): Promise<EnqueueAuthoredConflictResolutionResult> {
+    return this.queueConflictResolution(record);
+  }
+
+  /** Drop only a failed resolution intent so the user can re-review a newer server head. Conflict sides remain durable. */
+  async discardFailedConflictResolution(outboxId: string): Promise<void> {
+    const state = await this.readAuthoredState();
+    const record = state.outbox.find((item) => item.id === outboxId);
+    if (
+      record === undefined || !isAuthoredResolutionOutboxRecord(record) || record.state !== "failed"
+      || record.lastError === undefined || !(record.lastError.startsWith("CONFLICT_CAS_FAILED:") || record.lastError.startsWith("SUPERSEDED:"))
+    ) {
+      throw storageError("INVALID_INPUT", "Only definitively rejected or superseded conflict-resolution work can be discarded for renewed review", { outboxId });
+    }
+    if (state.revisions.some((revision) => revision.origin === "server" && revision.deviceId === record.envelope.device_id && revision.operationId === record.envelope.operation_id)) {
+      throw storageError("INTEGRITY", "Accepted conflict-resolution work cannot be discarded", { outboxId });
+    }
+    await this.transaction(["outbox", "conflicts"], "readwrite", async (transaction) => {
+      const outbox = transaction.objectStore("outbox");
+      const conflicts = transaction.objectStore("conflicts");
+      const [current, conflict] = await Promise.all([requestResult(outbox.get(outboxId)), requestResult(conflicts.get(record.conflictId))]);
+      if (!recordsEqual(current, record)) throw storageError("CAS_STALE", "Conflict-resolution work changed before renewed review", { outboxId });
+      if (conflict === undefined || !isAuthoredConflictValue(conflict)) {
+        throw storageError("CAS_STALE", "Conflict record is unavailable for renewed review", { conflictId: record.conflictId });
+      }
+      outbox.delete(outboxId);
+    });
+  }
+
+  /** Preserve a losing local intent as explicitly superseded after another resolution wins. */
+  async markConflictResolutionSuperseded(outboxId: string, resolutionRevisionId: string, markedAt: string): Promise<void> {
+    exactIsoTimestamp(markedAt, "markedAt");
+    const state = await this.readAuthoredState();
+    const record = state.outbox.find((item) => item.id === outboxId);
+    const conflict = record !== undefined && isAuthoredResolutionOutboxRecord(record) ? state.conflicts.find((item) => item.id === record.conflictId) : undefined;
+    if (
+      record === undefined || !isAuthoredResolutionOutboxRecord(record) || conflict === undefined || conflict.status !== "resolved"
+      || conflict.resolutionRevisionId !== resolutionRevisionId
+    ) throw storageError("INVALID_INPUT", "Resolution work cannot be marked superseded without a durable winning resolution", { outboxId, resolutionRevisionId });
+    if (state.revisions.some((revision) => revision.origin === "server" && revision.deviceId === record.envelope.device_id && revision.operationId === record.envelope.operation_id)) {
+      throw storageError("INTEGRITY", "An accepted local resolution must be acknowledged, not marked superseded", { outboxId });
+    }
+    await this.transaction(["outbox", "conflicts"], "readwrite", async (transaction) => {
+      const outbox = transaction.objectStore("outbox");
+      const conflicts = transaction.objectStore("conflicts");
+      const [current, currentConflict] = await Promise.all([requestResult(outbox.get(outboxId)), requestResult(conflicts.get(record.conflictId))]);
+      if (!recordsEqual(current, record) || !recordsEqual(currentConflict, conflict)) throw storageError("CAS_STALE", "Resolution state changed before supersession was recorded", { outboxId });
+      const superseded: AuthoredResolutionOutboxRecord = {
+        ...record, state: "failed", lastAttemptAt: markedAt,
+        lastError: `SUPERSEDED: conflict resolved by ${resolutionRevisionId}`,
+      };
+      outbox.put(superseded);
+    });
+  }
+
   /** Durably claim one immutable envelope before doing network I/O. */
+  async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions & { readonly recordType: "resolution" }): Promise<AuthoredResolutionOutboxRecord | null>;
   async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions & { readonly kind: "lead-sheet" }): Promise<AuthoredLeadSheetOutboxRecord | null>;
   async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions): Promise<AuthoredOutboxRecord | null>;
   async claimNextAuthoredOutbox(options: ClaimAuthoredOutboxOptions): Promise<AnyAuthoredOutboxRecord | null> {
     exactIsoTimestamp(options.attemptedAt, "attemptedAt");
     if (options.reclaimSendingBefore !== undefined) exactIsoTimestamp(options.reclaimSendingBefore, "reclaimSendingBefore");
+    if (options.outboxId !== undefined && options.outboxId.length === 0) throw storageError("INVALID_INPUT", "outboxId must not be empty");
     const includeFailed = options.includeFailed ?? true;
     const kind = options.kind ?? "set-list";
-    const queue = (await this.listAllAuthoredOutbox()).filter((record) => record.envelope.payload.kind === kind);
+    const recordType = options.recordType ?? "apply";
+    const queue = (await this.listAllAuthoredOutbox()).filter((record) => (
+      record.envelope.payload.kind === kind
+      && (options.outboxId === undefined || record.id === options.outboxId)
+      && (recordType === "resolution" ? isAuthoredResolutionOutboxRecord(record) : isAuthoredApplyOutboxRecord(record))
+    ));
     const candidate = queue[0];
     if (candidate === undefined) return null;
-    const eligible = candidate.state === "pending" || includeFailed && candidate.state === "failed" || (
+    const requiresReview = isAuthoredResolutionOutboxRecord(candidate) && candidate.state === "failed" && (candidate.lastError?.startsWith("CONFLICT_CAS_FAILED:") || candidate.lastError?.startsWith("SUPERSEDED:"));
+    const eligible = !requiresReview && (candidate.state === "pending" || includeFailed && candidate.state === "failed" || (
       candidate.state === "sending" && options.reclaimSendingBefore !== undefined
       && candidate.lastAttemptAt !== undefined && candidate.lastAttemptAt <= options.reclaimSendingBefore
-    );
+    ));
     if (!eligible) return null;
     const selected = await this.transaction(["outbox"], "readwrite", async (transaction) => {
       const store = transaction.objectStore("outbox");
       const current = await requestResult(store.get(candidate.id));
       if (!recordsEqual(current, candidate)) throw storageError("CAS_STALE", "Outbox changed before it could be claimed", { outboxId: candidate.id });
-      let claimed: AnyAuthoredOutboxRecord;
-      if (candidate.envelope.payload.kind === "set-list") {
-        const setListCandidate = candidate as AuthoredOutboxRecord;
-        claimed = { ...setListCandidate, state: "sending", attempts: setListCandidate.attempts + 1, lastAttemptAt: options.attemptedAt };
-        delete (claimed as { lastError?: string }).lastError;
-      } else {
-        const leadSheetCandidate = candidate as AuthoredLeadSheetOutboxRecord;
-        claimed = { ...leadSheetCandidate, state: "sending", attempts: leadSheetCandidate.attempts + 1, lastAttemptAt: options.attemptedAt };
-        delete (claimed as { lastError?: string }).lastError;
-      }
+      const claimed: AnyAuthoredOutboxRecord = { ...candidate, state: "sending", attempts: candidate.attempts + 1, lastAttemptAt: options.attemptedAt };
+      delete (claimed as { lastError?: string }).lastError;
       store.put(claimed);
       return claimed;
     });
@@ -1034,14 +1232,7 @@ export class SongsStorage {
       const store = transaction.objectStore("outbox");
       const current = await requestResult(store.get(outboxId));
       if (!recordsEqual(current, existing)) throw storageError("CAS_STALE", "Outbox changed before its failure was recorded", { outboxId });
-      let failed: AnyAuthoredOutboxRecord;
-      if (existing.envelope.payload.kind === "set-list") {
-        const setListExisting = existing as AuthoredOutboxRecord;
-        failed = { ...setListExisting, state: "failed", lastAttemptAt: options.failedAt, lastError: options.message };
-      } else {
-        const leadSheetExisting = existing as AuthoredLeadSheetOutboxRecord;
-        failed = { ...leadSheetExisting, state: "failed", lastAttemptAt: options.failedAt, lastError: options.message };
-      }
+      const failed: AnyAuthoredOutboxRecord = { ...existing, state: "failed", lastAttemptAt: options.failedAt, lastError: options.message };
       store.put(failed);
       return failed;
     });
@@ -1074,17 +1265,29 @@ export class SongsStorage {
     let sync: AuthoredSyncStateRecord;
     let revisions: readonly AuthoredRevisionRecord[];
     let draftUpdates: readonly Readonly<{ expectedLocalRevisionId: string; draft: AnyAuthoredDraftRecord }>[];
+    let workspaceUpdates: readonly (AuthoredSyncWorkspaceUpdate & { readonly observed: LeadSheetWorkspaceRecord })[];
     let conflicts: readonly AuthoredConflictRecord[];
-    let replacements: readonly AnyAuthoredOutboxRecord[];
+    let replacements: readonly AnyAuthoredApplyOutboxRecord[];
     try {
       sync = validateSyncStateRecord(update.sync);
-      [revisions, draftUpdates, replacements] = await Promise.all([
+      [revisions, draftUpdates, workspaceUpdates, replacements] = await Promise.all([
         Promise.all((update.revisions ?? []).map(validateRevisionRecord)),
         Promise.all((update.drafts ?? []).map(async (item) => {
           if (typeof item.expectedLocalRevisionId !== "string" || item.expectedLocalRevisionId.length === 0) throw new Error("draft sync CAS requires expectedLocalRevisionId");
           return Object.freeze({ expectedLocalRevisionId: item.expectedLocalRevisionId, draft: await validateDraftRecord(item.draft) });
         })),
-        Promise.all((update.replaceOutbox ?? []).map(validateOutboxRecord)),
+        Promise.all((update.workspaces ?? []).map(async (item) => {
+          if (!/^[a-f0-9]{64}$/u.test(item.expectedSourceSha256)) throw new Error("workspace sync CAS requires expectedSourceSha256");
+          const workspace = await validateLeadSheetWorkspaceRecord(item.workspace);
+          const observed = await this.readLeadSheetWorkspace(workspace.documentId);
+          if (observed === null) throw new Error("workspace sync CAS target disappeared");
+          return Object.freeze({ expectedSourceSha256: item.expectedSourceSha256, workspace, observed });
+        })),
+        Promise.all((update.replaceOutbox ?? []).map(async (record) => {
+          const validated = await validateOutboxRecord(record);
+          if (!isAuthoredApplyOutboxRecord(validated)) throw new Error("Resolution outbox records cannot be rebased");
+          return validated;
+        })),
       ]);
       conflicts = (update.conflicts ?? []).map(validateConflictRecord);
     } catch (error) {
@@ -1093,6 +1296,7 @@ export class SongsStorage {
     if (sync.cursor < update.expectedCursor) throw storageError("INVALID_INPUT", "Sync cursor cannot move backwards");
     uniqueStrings(revisions.map((record) => record.id), "revision IDs");
     uniqueStrings(draftUpdates.map((item) => item.draft.id), "draft IDs");
+    uniqueStrings(workspaceUpdates.map((item) => item.workspace.id), "workspace IDs");
     uniqueStrings(conflicts.map((record) => record.id), "conflict IDs");
     uniqueStrings(replacements.map((record) => record.id), "replacement outbox IDs");
     const removedOutbox = new Set(update.removeOutboxIds ?? []);
@@ -1163,20 +1367,46 @@ export class SongsStorage {
         await requireServerRevision(draft.baseServerRevisionId, "Sync draft", { documentId: draft.documentId, kind: draft.kind });
         draftStore.put(cloneValue(draft));
       }
+      for (const item of workspaceUpdates) {
+        const currentValue = await requestResult(draftStore.get(item.workspace.id));
+        if (currentValue === undefined || !isLeadSheetWorkspaceValue(currentValue)) {
+          throw storageError("CAS_STALE", "Lead-sheet workspace disappeared before resolution projection", { documentId: item.workspace.documentId });
+        }
+        if (item.observed.sourceSha256 !== item.expectedSourceSha256 || !recordsEqual(currentValue, item.observed)) {
+          throw storageError("CAS_STALE", "A newer lead-sheet workspace was preserved during resolution projection", {
+            documentId: item.workspace.documentId, expectedSourceSha256: item.expectedSourceSha256,
+          });
+        }
+        draftStore.put(cloneValue(item.workspace));
+      }
       const outboxStore = transaction.objectStore("outbox");
+      const conflictStore = transaction.objectStore("conflicts");
       for (const operationId of update.removeOutboxIds ?? []) {
         const existing = await requestResult(outboxStore.get(operationId));
         if (existing !== undefined && isAuthoredOutboxValue(existing)) {
           if (existing.state === "pending" && existing.attempts === 0) throw storageError("INVALID_INPUT", "Sync cannot remove an outbox operation that was never attempted", { outboxId: operationId });
-          const accepted = durableRevisionValues
+          const acceptedRevision = durableRevisionValues
             .filter(isAuthoredRevisionValue)
-            .some((revision) => revision.origin === "server"
+            .find((revision) => revision.origin === "server"
               && revision.deviceId === existing.envelope.device_id
               && revision.operationId === existing.envelope.operation_id
               && revision.documentId === existing.documentId
+              && revision.baseRevisionId === existing.envelope.base_revision_id
+              && revision.title === existing.envelope.title
               && revision.payload.kind === existing.envelope.payload.kind
               && revision.contentHash === existing.envelope.payload_sha256);
-          if (!accepted) throw storageError("INVALID_INPUT", "Sync cannot remove an outbox operation without its matching durable server revision", { outboxId: operationId });
+          if (acceptedRevision === undefined) throw storageError("INVALID_INPUT", "Sync cannot remove an outbox operation without its matching durable server revision", { outboxId: operationId });
+          if (isAuthoredResolutionOutboxRecord(existing)) {
+            const incomingConflict = conflicts.find((item) => item.id === existing.conflictId);
+            const storedConflict = incomingConflict ?? await requestResult(conflictStore.get(existing.conflictId));
+            if (
+              storedConflict === undefined || !isAuthoredConflictValue(storedConflict)
+              || storedConflict.status !== "resolved" || storedConflict.resolutionRevisionId !== acceptedRevision.id
+              || storedConflict.documentId !== existing.documentId
+              || storedConflict.currentRevisionId !== existing.currentRevisionId
+              || storedConflict.candidateRevisionId !== existing.candidateRevisionId
+            ) throw storageError("INVALID_INPUT", "Resolution outbox cannot be removed before its resolved conflict is durable", { outboxId: operationId, conflictId: existing.conflictId });
+          }
           outboxStore.delete(operationId);
         }
       }
@@ -1184,6 +1414,7 @@ export class SongsStorage {
         const existingValue = await requestResult(outboxStore.get(replacement.id)) as unknown;
         if (existingValue !== undefined && !isAuthoredOutboxValue(existingValue)) throw storageError("INTEGRITY", "A legacy outbox record was preserved instead of overwritten", { outboxId: replacement.id });
         const existing = existingValue as AnyAuthoredOutboxRecord | undefined;
+        if (existing !== undefined && !isAuthoredApplyOutboxRecord(existing)) throw storageError("INTEGRITY", "A resolution outbox record cannot be replaced by apply rebase", { operationId: replacement.id });
         if (existing !== undefined && (existing.state !== "pending" || existing.attempts !== 0) && !recordsEqual(existing, replacement)) {
           throw storageError("CAS_STALE", "An attempted envelope cannot be rebased or replaced", { operationId: replacement.id, state: existing.state, attempts: existing.attempts });
         }
@@ -1192,14 +1423,25 @@ export class SongsStorage {
         });
         outboxStore.put(cloneValue(replacement));
       }
-      const conflictStore = transaction.objectStore("conflicts");
       for (const conflictId of update.removeConflictIds ?? []) {
         const existing = await requestResult(conflictStore.get(conflictId));
-        if (existing !== undefined && isAuthoredConflictValue(existing)) conflictStore.delete(conflictId);
+        if (existing !== undefined && isAuthoredConflictValue(existing)) {
+          const outboxValues = await requestResult(outboxStore.getAll()) as unknown[];
+          const retainedResolution = outboxValues
+            .filter(isAuthoredOutboxValue)
+            .find((record) => isAuthoredResolutionOutboxRecord(record) && record.conflictId === conflictId && !(update.removeOutboxIds ?? []).includes(record.id));
+          if (retainedResolution !== undefined) throw storageError("INVALID_INPUT", "Sync cannot remove a conflict referenced by durable resolution work", { conflictId, outboxId: retainedResolution.id });
+          conflictStore.delete(conflictId);
+        }
       }
       for (const conflict of conflicts) {
         const existing = await requestResult(conflictStore.get(conflict.id));
         if (existing !== undefined && !isAuthoredConflictValue(existing)) throw storageError("INTEGRITY", "A legacy conflict was preserved instead of overwritten", { conflictId: conflict.id });
+        if (existing !== undefined && (
+          existing.documentId !== conflict.documentId || existing.currentRevisionId !== conflict.currentRevisionId
+          || existing.candidateRevisionId !== conflict.candidateRevisionId
+          || existing.status === "resolved" && (conflict.status !== "resolved" || existing.resolutionRevisionId !== conflict.resolutionRevisionId)
+        )) throw storageError("INTEGRITY", "Sync attempted to mutate immutable conflict identity or resolution", { conflictId: conflict.id });
         const current = await requireServerRevision(conflict.currentRevisionId, "Conflict current revision", { documentId: conflict.documentId });
         const candidate = await requireServerRevision(conflict.candidateRevisionId, "Conflict candidate revision", { documentId: conflict.documentId });
         const resolution = await requireServerRevision(conflict.resolutionRevisionId, "Conflict resolution revision", { documentId: conflict.documentId });

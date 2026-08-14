@@ -6,6 +6,7 @@ import {
   buildLeadSheetWorkspaceRecord,
   isLeadSheetAuthoredLocalRevision,
   type AuthoredLeadSheetLocalRevisionRecord,
+  type AuthoredLeadSheetServerRevisionRecord,
   type LeadSheetValidationResponse,
 } from "../storage/authored";
 import { sha256Hex } from "../setlists/codec";
@@ -43,6 +44,24 @@ export interface EditableLeadSheetState {
   readonly serverValidation: LeadSheetValidationResponse | null;
 }
 
+function matchingServerBaseline(
+  revisions: readonly Awaited<ReturnType<SongsStorage["listAuthoredRevisions"]>>[number][],
+  currentRevisionId: string | undefined,
+  baseline: LeadSheet,
+): AuthoredLeadSheetServerRevisionRecord | undefined {
+  const servers = new Map(revisions.filter((record): record is AuthoredLeadSheetServerRevisionRecord => record.origin === "server" && record.payload.kind === "lead-sheet").map((record) => [record.id, record]));
+  const visited = new Set<string>();
+  let id = currentRevisionId ?? "";
+  while (id !== "" && !visited.has(id)) {
+    visited.add(id);
+    const revision = servers.get(id);
+    if (revision === undefined) break;
+    if (revision.payload.path === baseline.path && revision.payload.source === baseline.source) return revision;
+    id = revision.baseRevisionId;
+  }
+  return undefined;
+}
+
 export async function loadEditableLeadSheet(storage: SongsStorage, baseline: LeadSheet): Promise<EditableLeadSheetState> {
   const [workspace, draft, outbox, sync, authored] = await Promise.all([
     storage.readLeadSheetWorkspace(baseline.id), storage.readLeadSheetDraft(baseline.id), storage.listLeadSheetOutbox(), storage.readAuthoredSyncState(), storage.readAuthoredState(),
@@ -50,18 +69,24 @@ export async function loadEditableLeadSheet(storage: SongsStorage, baseline: Lea
   const revisions = await storage.listAuthoredRevisions(baseline.id);
   const head = draft === null ? undefined : revisions.find((record): record is AuthoredLeadSheetLocalRevisionRecord => record.origin === "local" && record.id === draft.localRevisionId && isLeadSheetAuthoredLocalRevision(record));
   if (draft !== null && head === undefined) throw new Error("The durable lead-sheet draft head is missing");
-  const source = workspace?.source ?? draft?.source ?? baseline.source;
+  const documentSync = sync?.documents.find((item) => item.documentId === baseline.id);
+  const serverHead = revisions.find((record) => record.origin === "server" && record.id === documentSync?.currentServerRevisionId && record.payload.kind === "lead-sheet");
+  const serverBaseline = matchingServerBaseline(revisions, documentSync?.currentServerRevisionId, baseline);
+  const effectiveBaseline = draft === null && workspace === null && serverHead !== undefined && serverHead.origin === "server"
+    ? createLeadSheet({ id: baseline.id, path: serverHead.payload.path, source: serverHead.payload.source })
+    : baseline;
+  const source = workspace?.source ?? draft?.source ?? effectiveBaseline.source;
   let validation: LocalLeadSheetValidation;
   try { validation = validateLeadSheetLocally(createLeadSheet({ id: baseline.id, path: baseline.path, source })); }
   catch (error) { validation = Object.freeze({ authority: "local-only", valid: false, requiresServerValidation: true, requiresApexValidation: true, issues: Object.freeze([{ severity: "error" as const, code: "INVALID_SOURCE", message: error instanceof Error ? error.message : "Lead-sheet source is invalid" }]) }); }
   const sourceSha = await sha256Hex(source);
   const receipt = await storage.readLeadSheetValidationReceipt(baseline.id, sourceSha);
-  const documentSync = sync?.documents.find((item) => item.documentId === baseline.id);
+  const baseServerRevisionId = workspace !== null ? workspace.baseServerRevisionId ?? serverBaseline?.id ?? "" : draft?.baseServerRevisionId ?? documentSync?.currentServerRevisionId ?? "";
   return Object.freeze({
-    documentId: baseline.id, path: baseline.path, source, workspaceSourceSha256: workspace?.sourceSha256 ?? null,
-    revision: head === undefined ? null : asRevision(head), baseline, validation,
+    documentId: baseline.id, path: effectiveBaseline.path, source, workspaceSourceSha256: workspace?.sourceSha256 ?? null,
+    revision: head === undefined ? null : asRevision(head), baseline: effectiveBaseline, validation,
     queued: outbox.filter((item) => item.documentId === baseline.id).length,
-    baseServerRevisionId: draft?.baseServerRevisionId ?? documentSync?.currentServerRevisionId ?? "",
+    baseServerRevisionId,
     publishedRevisionId: documentSync?.publishedRevisionId ?? "",
     conflicts: authored.conflicts.filter((item) => item.documentId === baseline.id && item.status === "open").length,
     serverValidation: receipt?.response ?? null,
@@ -69,7 +94,7 @@ export async function loadEditableLeadSheet(storage: SongsStorage, baseline: Lea
 }
 
 export async function saveLeadSheetWorkspace(storage: SongsStorage, state: EditableLeadSheetState, source: string): Promise<EditableLeadSheetState> {
-  const workspace = await buildLeadSheetWorkspaceRecord({ id: state.documentId, path: state.path, source }, { updatedAt: new Date().toISOString() });
+  const workspace = await buildLeadSheetWorkspaceRecord({ id: state.documentId, path: state.path, source }, { updatedAt: new Date().toISOString(), baseServerRevisionId: state.baseServerRevisionId });
   await storage.saveLeadSheetWorkspace(workspace, { expectedSourceSha256: state.workspaceSourceSha256 });
   return loadEditableLeadSheet(storage, state.baseline);
 }

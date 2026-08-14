@@ -114,6 +114,29 @@ writable physical acceptance remain pending TASK-021. The owner-directed sequenc
 Deferred read-only G4 checks remain scheduled for a later session. Do not infer
 writable, rehearsal, gig, default-route, or V1-retirement readiness.
 
+## Writable conflict and recovery boundary
+
+TASK-021 represents a reviewed conflict selection as a typed durable outbox
+record, separate from ordinary apply operations but stored/exported through the
+same additive IndexedDB v3 boundary. The record freezes conflict ID, current and
+candidate revision IDs, resolution mode, exact canonical payload/hash, client
+cursor, and device/operation identity before network I/O. Keep-local,
+keep-server, and manual resolution all create a new server revision; neither
+retained conflict side is mutated or deleted.
+
+Foreground sync dispatches resolution records only to the conflict-specific CAS
+endpoint. It verifies the returned operation/conflict identity before making the
+resolution revision and resolved conflict durable and only then removes the
+outbox record. CAS failures and response mismatches remain failed/retryable with
+both candidates intact. A compacted cursor triggers a fresh snapshot without
+changing any local apply base or payload; unseen remote movement therefore
+remains conflict-producing rather than becoming a silent overwrite.
+
+The software evidence inventory, writable recovery runbook, and two-device
+physical checklist do not authorize a pilot. Physical iPad rows and inherited
+G4 checks remain an owner-executed gate, with V1 and read-only V2 available as
+fallback and all write capabilities disabled by default.
+
 ## Offline writable lead-sheet boundary
 
 TASK-020 keeps exact Markdown source as the lead-sheet authority. Reviewed files

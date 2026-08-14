@@ -402,6 +402,19 @@ func TestConflictResolutionCASPreservesConflictAfterHeadAdvances(t *testing.T) {
 	if err != nil || len(pull.Events) != 1 || pull.Events[0].RevisionID != advanced.RevisionID {
 		t.Fatalf("advanced head event missing: (%+v, %v)", pull, err)
 	}
+	renewed := testResolveEnvelope(t, testOwner, "device-a", "resolve-renewed", stale.ConflictID, "document-a", advanced.RevisionID, `{"v":4}`, 4)
+	resolved, err := store.Resolve(renewed)
+	if err != nil || resolved.Status != "resolved" || resolved.Sequence != 5 {
+		t.Fatalf("renewed resolution against latest head = (%+v, %v)", resolved, err)
+	}
+	resolvedConflict, err := store.Conflict(testOwner, "device-a", stale.ConflictID)
+	if err != nil || resolvedConflict.Status != "resolved" || resolvedConflict.ResolutionRevisionID != resolved.RevisionID {
+		t.Fatalf("renewed conflict result = (%+v, %v)", resolvedConflict, err)
+	}
+	resolvedRevision, err := store.Revision(testOwner, "device-a", resolved.RevisionID)
+	if err != nil || resolvedRevision.BaseRevisionID != advanced.RevisionID {
+		t.Fatalf("renewed resolution revision = (%+v, %v)", resolvedRevision, err)
+	}
 }
 
 func TestPullReturnsEventRevisionPayloadConflictMetadataAndIsReadOnly(t *testing.T) {

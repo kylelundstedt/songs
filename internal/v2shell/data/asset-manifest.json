@@ -4,18 +4,18 @@
   ],
   "assets": [
     {
-      "bytes": 27699,
+      "bytes": 28248,
       "cache_control": "private, max-age=31536000, immutable",
       "content_type": "text/css; charset=utf-8",
-      "path": "assets/index-D-cJfTK1.css",
-      "sha256": "5daec1d56ec1a0b4c109f7f89d322e0bb2b1a98792826fb62db65ef129594250"
+      "path": "assets/index-C8MRgAWs.css",
+      "sha256": "59db527177b0d60e36e95c9e0755d8713da833d94573a82b3a9c4f7f1091623a"
     },
     {
-      "bytes": 471846,
+      "bytes": 505950,
       "cache_control": "private, max-age=31536000, immutable",
       "content_type": "application/javascript; charset=utf-8",
-      "path": "assets/index-DBDAVZbj.js",
-      "sha256": "a775a691a439f593e8cf9eda9f7f4d7bba91c3051bfd15e5e4494412d34de2f4"
+      "path": "assets/index-myF8XHUN.js",
+      "sha256": "2a2f91c5543501207847fe9c05bb299b413b2e0a27f35b9601d3932b9bfe5287"
     },
     {
       "bytes": 540,
@@ -29,7 +29,7 @@
       "cache_control": "private, no-store",
       "content_type": "text/html; charset=utf-8",
       "path": "index.html",
-      "sha256": "f9f0835b42a76a98b6cee2b8a534809d62a81f7b0ad92c487a9d576311012c9b"
+      "sha256": "816442d1b42b393ec72134e423ab01fac2de9ebfea3613b5e4a6f5b5cce9aa33"
     },
     {
       "bytes": 388,
@@ -43,16 +43,16 @@
       "cache_control": "private, no-store",
       "content_type": "application/javascript; charset=utf-8",
       "path": "sw.js",
-      "sha256": "15bfd35594d800546f3a7ad4c7f20e5398f2481d1e3c4cc7a07ca70bb17a8a7a"
+      "sha256": "aaffe2ab51328a0a235bc78054c97045eaea0751d1bb521bbdb812be4f482a5f"
     }
   ],
   "bootstrap_manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
   "cache_prefix": "songs-v2-shell-",
   "indexeddb_name": "songs-v2",
   "kind": "songs-v2.shell.assets",
-  "release": "shell-ffe70456e479eb1529d157f0",
+  "release": "shell-96ab0f5519cd6a1bff86220f",
   "schema_version": "1",
   "verification": {
-    "output_sha256": "e370d8e2fc36f8d84ede2d302c7b4d6ec549082d571162d296165bc890821763"
+    "output_sha256": "a7e5b2e15a131eca2b6262ca26aa1fcbcd42e079bd56d43f9a907f6fbe4bd35f"
   }
 }
