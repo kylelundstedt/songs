@@ -3,7 +3,7 @@
 - **Priority:** P0
 - **Phase:** Post-Phase-1 writable foundation
 - **Program:** First writable V2 slice
-- **Status:** Next (August 13, 2026)
+- **Status:** Complete (August 13, 2026)
 - **Dependencies:** TASK-005 sync feasibility; TASK-009 identities; TASK-012 storage
 - **Estimate:** 7–11 focused engineering days
 

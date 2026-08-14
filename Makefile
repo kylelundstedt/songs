@@ -1,4 +1,4 @@
-.PHONY: build test run clean migrate validate v2-check v2-browser-check p1-009-check v2-api-build v2-api-run
+.PHONY: build test run clean migrate validate v2-check v2-browser-check p1-009-check v2-api-build v2-api-run v2-sync-check
 
 build:
 	go build -o srv/songs ./cmd/srv
@@ -33,6 +33,10 @@ p1-009-check: v2-browser-check
 
 v2-api-build:
 	go build -o srv/songs-v2-api ./cmd/v2api
+
+v2-sync-check:
+	go test -race ./internal/v2auth/... ./internal/v2sync/... ./internal/v2syncapi/... ./cmd/v2api
+	python3 scripts/build_v2_production_sync_evidence.py --check
 
 v2-api-run: v2-api-build
 	./srv/songs-v2-api -listen 127.0.0.1:8001

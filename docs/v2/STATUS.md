@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 read-only checkpoint is complete; post-Phase-1 writable foundation is now active.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-015; TASK-016 software package complete.
-- **Current task:** TASK-017 production authorization and durable sync foundation for the first writable V2 slice.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-017.
+- **Current task:** TASK-018 fenced publication, Git reconciliation, and recovery for the first writable V2 slice.
 - **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
 - **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
 
@@ -180,6 +180,24 @@ TASK-016 completed the P1-009 software checkpoint package; read-only physical ev
 - G6 rehearsal and G7 real-gig trials are optional, not planned, and not the next step while product/design work remains;
 - editing, sync, conflicts, import/export, publication, and all other writable behavior are unimplemented and untested in this slice.
 
+TASK-017 completed the production authorization and durable sync foundation:
+
+- exact trusted-proxy owner assertions and loopback ingress bind every request to
+  the configured owner; dedicated device credentials are persisted only as
+  SHA-256 digests and revoked devices fail closed;
+- SQLite WAL tables scope every durable device, document, revision, conflict,
+  operation, event, acknowledgement, and sequence row by owner;
+- canonical payload hashing, operation replay, stale-write conflict retention,
+  atomic conflict CAS resolution, content-bearing pull, explicit monotonic ack,
+  compaction/resnapshot, restart, integrity, and online backup/restore contracts
+  pass deterministic race-enabled tests;
+- strict JSON HTTP adapters expose registration, apply, conflict resolution,
+  pull, snapshot, acknowledgement, diagnostics, health, and self-revocation
+  without browser mutation controls or metadata/content leaks;
+- `cmd/v2api` mounts sync only when `-sync-enabled` and all required settings are
+  supplied; defaults and the tracked service unit remain read-only;
+- deterministic evidence is recorded under `migration/v2/production-sync/`.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -218,6 +236,7 @@ python3 scripts/build_v2_phase1_checkpoint.py --check
 make v2-api-build
 go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
+make v2-sync-check
 go test ./...
 go vet ./...
 git diff --check
@@ -225,8 +244,8 @@ git diff --check
 
 ## Next tasks
 
-1. Implement **TASK-017**: production owner/device authorization and durable idempotent sync foundation.
-2. Implement **TASK-018–021**: fenced publication/recovery, offline writable Set List and lead-sheet authoring, provider/Shelley draft workflows, conflicts, failure recovery, and writable physical acceptance.
+1. Implement **TASK-018**: fenced publication, Git reconciliation, validation, and durable recovery.
+2. Implement **TASK-019–021**: offline writable Set List and lead-sheet authoring, provider/Shelley draft workflows, conflicts, failure recovery, and writable physical acceptance.
 3. After the writable workflows function end to end, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
 4. Finish deferred blocking read-only G4 reliability checks later; they do not supersede the writable implementation priority.
 5. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.

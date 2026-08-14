@@ -1,0 +1,317 @@
+{
+  "schema_version": "1.0",
+  "task": "TASK-017",
+  "protocol_version": "1",
+  "execution": {
+    "temporary_databases": true,
+    "in_process_http_requests": true,
+    "canonical_json": true
+  },
+  "authorization": {
+    "spoof_attempts": [
+      {
+        "case": "missing-owner-assertion",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      },
+      {
+        "case": "forged-owner-assertion",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      },
+      {
+        "case": "forged-proxy-authority",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      },
+      {
+        "case": "insecure-forwarded-protocol",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      },
+      {
+        "case": "forwarded-address-cannot-mask-remote",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      }
+    ],
+    "body_owner_override": {
+      "status": 400,
+      "error_code": "UNKNOWN_FIELD"
+    },
+    "query_owner_override": {
+      "status": 400,
+      "error_code": "INVALID_QUERY"
+    },
+    "request_host_ignored": true
+  },
+  "registration": {
+    "first": {
+      "owner_id": "owner-main",
+      "device_id": "device-a",
+      "registration_id": "registration-a",
+      "name": "Primary tablet",
+      "status": "active"
+    },
+    "retry": {
+      "owner_id": "owner-main",
+      "device_id": "device-a",
+      "registration_id": "registration-a",
+      "name": "Primary tablet",
+      "status": "active"
+    },
+    "exact_response_replay": true,
+    "mismatch": {
+      "status": 409,
+      "error_code": "REGISTRATION_MISMATCH"
+    },
+    "durable_device_count": 2,
+    "credentials_not_emitted": true
+  },
+  "credential_boundary": {
+    "denials": [
+      {
+        "case": "missing-credential",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      },
+      {
+        "case": "wrong-credential",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      },
+      {
+        "case": "unknown-device",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      },
+      {
+        "case": "query-credential-ignored",
+        "status": 401,
+        "error_code": "UNAUTHENTICATED",
+        "same_public_response": true
+      }
+    ],
+    "body_device_spoof": {
+      "status": 400,
+      "error_code": "INVALID_ENVELOPE"
+    },
+    "diagnostics_nonleak": {
+      "status": 200,
+      "private_no_store": true,
+      "content_fields_absent": true,
+      "credential_absent": true
+    }
+  },
+  "apply_replay": {
+    "response_discarded_after_commit": true,
+    "durable_before_retry": true,
+    "retry_outcome": {
+      "operation_id": "op-seed",
+      "status": "applied",
+      "revision_id": "rev-7e44783e92c7e1642ee7cd7c",
+      "sequence": 1
+    },
+    "repeated_retry_exact": true,
+    "single_operation": true,
+    "single_event": true,
+    "reuse_mismatch": {
+      "status": 409,
+      "error_code": "OPERATION_REPLAY_MISMATCH"
+    }
+  },
+  "conflict_cas": {
+    "first_conflict": {
+      "operation_id": "op-stale-one",
+      "status": "conflict",
+      "revision_id": "rev-c1508e9cffe1c7995a15493b",
+      "conflict_id": "conf-10b5df895506c04e907c2ac1",
+      "sequence": 3
+    },
+    "advanced_revision": "rev-745f646c7d3c123f004ec7be",
+    "stale_resolution": {
+      "status": 409,
+      "error_code": "CONFLICT_CAS_FAILED"
+    },
+    "second_conflict": {
+      "operation_id": "op-stale-two",
+      "status": "conflict",
+      "revision_id": "rev-6bfcc06b813f97edcc7fcd97",
+      "conflict_id": "conf-852aa798d950f2e44bf4279d",
+      "sequence": 5
+    },
+    "resolved": {
+      "operation_id": "op-resolve",
+      "status": "resolved",
+      "revision_id": "rev-9520ceb844d5a793e605d620",
+      "conflict_id": "conf-852aa798d950f2e44bf4279d",
+      "sequence": 6
+    },
+    "stale_conflict_open": true,
+    "resolved_conflict_cas": true
+  },
+  "pull_acknowledgement": {
+    "cursor_before_pull": 0,
+    "pull_cursor": 6,
+    "event_count": 6,
+    "revisions_with_content": [
+      {
+        "revision_id": "rev-7e44783e92c7e1642ee7cd7c",
+        "document_id": "set-alpha",
+        "title": "First set",
+        "payload": {
+          "entries": [
+            {
+              "entry_id": "entry-a",
+              "song_id": "song-a"
+            }
+          ],
+          "version": "seed"
+        }
+      },
+      {
+        "revision_id": "rev-98ebc3b1da819df6f37334b4",
+        "document_id": "set-alpha",
+        "title": "Second set",
+        "payload": {
+          "entries": [
+            {
+              "entry_id": "entry-a",
+              "song_id": "song-b"
+            }
+          ],
+          "version": "edit"
+        }
+      },
+      {
+        "revision_id": "rev-c1508e9cffe1c7995a15493b",
+        "document_id": "set-alpha",
+        "title": "Stale candidate",
+        "payload": {
+          "entries": [
+            {
+              "entry_id": "entry-a",
+              "song_id": "song-c"
+            }
+          ],
+          "version": "candidate-one"
+        }
+      },
+      {
+        "revision_id": "rev-745f646c7d3c123f004ec7be",
+        "document_id": "set-alpha",
+        "title": "Advanced set",
+        "payload": {
+          "entries": [
+            {
+              "entry_id": "entry-a",
+              "song_id": "song-d"
+            }
+          ],
+          "version": "advance"
+        }
+      },
+      {
+        "revision_id": "rev-6bfcc06b813f97edcc7fcd97",
+        "document_id": "set-alpha",
+        "title": "Second candidate",
+        "payload": {
+          "entries": [
+            {
+              "entry_id": "entry-a",
+              "song_id": "song-e"
+            }
+          ],
+          "version": "candidate-two"
+        }
+      },
+      {
+        "revision_id": "rev-9520ceb844d5a793e605d620",
+        "document_id": "set-alpha",
+        "title": "Resolved set",
+        "payload": {
+          "entries": [
+            {
+              "entry_id": "entry-a",
+              "song_id": "song-f"
+            }
+          ],
+          "version": "resolved"
+        }
+      }
+    ],
+    "cursor_after_pull": 0,
+    "explicit_ack": {
+      "status": 200
+    },
+    "cursor_after_ack": 6,
+    "compaction_floor": 1,
+    "old_cursor": {
+      "status": 409,
+      "error_code": "RESNAPSHOT_REQUIRED"
+    }
+  },
+  "revocation": {
+    "revoke": {
+      "status": 200
+    },
+    "revoked_device": {
+      "status": 401,
+      "error_code": "UNAUTHENTICATED"
+    },
+    "active_device_status": 200,
+    "active_device_count": 1
+  },
+  "restart": {
+    "exact_semantic_snapshot": true,
+    "active_authorization_preserved": true,
+    "revocation_preserved": true,
+    "operation_replay_preserved": {
+      "operation_id": "op-seed",
+      "status": "applied",
+      "revision_id": "rev-7e44783e92c7e1642ee7cd7c",
+      "sequence": 1
+    },
+    "acknowledgement_preserved": 6
+  },
+  "backup_restore": {
+    "online_backup": true,
+    "exact_semantic_snapshot": true,
+    "active_authorization_exact": true,
+    "revocation_exact": true,
+    "source_integrity": true,
+    "restored_integrity": true
+  },
+  "final_diagnostics": {
+    "schema_version": "v2sync-1",
+    "device_count": 2,
+    "active_device_count": 1,
+    "document_count": 1,
+    "revision_count": 6,
+    "operation_count": 6,
+    "event_count": 6,
+    "open_conflict_count": 1,
+    "acknowledged_cursor": 6,
+    "compaction_floor": 1,
+    "current_sequence": 6
+  },
+  "deployment_guard": {
+    "checked_source": "cmd/v2api/main.go",
+    "disabled_by_default": true,
+    "explicit_enable_branch": true,
+    "configuration_rejected_if_off": true,
+    "required_configuration_when_on": true,
+    "restricted_key_file_permissions": true
+  },
+  "acceptance": {
+    "all_passed": true
+  }
+}

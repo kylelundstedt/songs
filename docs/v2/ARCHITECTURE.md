@@ -60,6 +60,15 @@ The August 9, 2026 exit review established the following measured conclusions an
 
 ## Current delivery decision
 
+TASK-017 is complete. The server now has an owner-scoped SQLite WAL ledger,
+strict trusted-proxy and device authorization, deterministic registration,
+idempotent canonical mutation envelopes, conflict-preserving CAS, content-bearing
+pull plus explicit acknowledgement, revocation, resnapshot, restart, integrity,
+and online backup/restore coverage. The HTTP adapter and `cmd/v2api` integration
+remain disabled by default; the tracked service unit still starts the read-only
+shell without sync flags. Deterministic evidence is under
+`migration/v2/production-sync/`. No browser mutation controls were added.
+
 The controlled rewrite remains approved. The strict Phase 0 exit is conditional because the frozen `v1` evidence no longer matches current `main`, and physical Safari/iPad validation remains open.
 
 TASK-008 is complete. Source tag `v2-phase1-content-2026-08-10` freezes canonical content/server behavior, while evidence tag `v2-phase1-evidence-2026-08-10` freezes the parity artifacts under `migration/v2/current/`. Together they are the only authorized inputs for Phase 1.

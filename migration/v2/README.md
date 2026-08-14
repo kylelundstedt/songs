@@ -69,6 +69,20 @@ TASK-005's isolated durable-operation, SQLite, and local-Git proof is in
 [`sync-spike/README.md`](sync-spike/README.md), with deterministic evidence in
 [`sync-spike/sync-spike-evidence.json`](sync-spike/sync-spike-evidence.json).
 
+## Production authorization and durable sync foundation
+
+TASK-017's production owner/device boundary, durable SQLite operation ledger,
+HTTP contracts, restart and backup/restore proof are documented in
+[`production-sync/README.md`](production-sync/README.md), with deterministic
+evidence in [`production-sync/production-sync-evidence.json`](production-sync/production-sync-evidence.json).
+The API is wired into `cmd/v2api` only behind `-sync-enabled`; all sync settings
+are empty by default and the tracked service unit does not enable mutation.
+Verify with:
+
+```sh
+make v2-sync-check
+```
+
 ## Production Phase 1 snapshot activation
 
 TASK-012's production IndexedDB/runtime evidence and reproducible native
