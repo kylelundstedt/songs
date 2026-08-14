@@ -83,6 +83,21 @@ Verify with:
 make v2-sync-check
 ```
 
+## Fenced publication and Git recovery foundation
+
+TASK-018's owner-bound publication ledger, multi-process fencing, isolated Git
+materialization, validation, crash recovery, external edit/delete/rename
+reconciliation, and coordinated backup/restore proof are documented in
+[`production-publication/README.md`](production-publication/README.md), with
+deterministic evidence in
+[`production-publication/production-publication-evidence.json`](production-publication/production-publication-evidence.json).
+The one-shot `cmd/v2publisher` process is disabled by default and no publisher
+service is installed. Verify with:
+
+```sh
+make v2-publication-check
+```
+
 ## Production Phase 1 snapshot activation
 
 TASK-012's production IndexedDB/runtime evidence and reproducible native

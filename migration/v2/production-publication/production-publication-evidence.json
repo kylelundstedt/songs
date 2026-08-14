@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0",
+  "task": "TASK-018",
+  "execution": {
+    "temporary_sqlite": true,
+    "isolated_bare_git": true,
+    "real_apex_valid_publication": true,
+    "canonical_json": true
+  },
+  "lease_fencing": {
+    "cross_instance_busy_code": "PUBLICATION_LEASE_BUSY",
+    "generation_advanced": true,
+    "stale_fence_code": "STALE_PUBLICATION_FENCE"
+  },
+  "intent_before_git": {
+    "failure_point": "after-intent",
+    "durable_state": "queued",
+    "expected_current_recorded": true,
+    "expected_base_recorded": true,
+    "prior_publication_recorded": true,
+    "commit_absent": true,
+    "worktree_absent": true,
+    "remote_commit_delta": 0
+  },
+  "validation": {
+    "cases": [
+      {
+        "case": "schema",
+        "error_code": "PUBLICATION_VALIDATION_FAILED",
+        "state": "validation_failed",
+        "remote_commit_delta": 0,
+        "commit_absent": true
+      },
+      {
+        "case": "identity",
+        "error_code": "PUBLICATION_VALIDATION_FAILED",
+        "state": "validation_failed",
+        "remote_commit_delta": 0,
+        "commit_absent": true
+      },
+      {
+        "case": "link",
+        "error_code": "PUBLICATION_VALIDATION_FAILED",
+        "state": "validation_failed",
+        "remote_commit_delta": 0,
+        "commit_absent": true
+      },
+      {
+        "case": "apex",
+        "error_code": "PUBLICATION_VALIDATION_FAILED",
+        "state": "validation_failed",
+        "remote_commit_delta": 0,
+        "commit_absent": true
+      }
+    ],
+    "valid_publication_state": "finalized",
+    "valid_remote_commit_delta": 1,
+    "real_apex_invoked": true
+  },
+  "client_acknowledgement": {
+    "publication_event_pulled": true,
+    "event_kind": "published",
+    "pull_did_not_acknowledge": true,
+    "explicit_ack_advanced": true,
+    "replay_did_not_duplicate": true
+  },
+  "deterministic_publication": {
+    "independent_commit_identity_equal": true,
+    "independent_tree_identity_equal": true,
+    "remote_commit_delta_each": 1,
+    "final_state_each": "finalized"
+  },
+  "crash_recovery": [
+    {
+      "failure_point": "after-commit",
+      "state_at_failure": "committed",
+      "remote_commit_delta_at_failure": 0,
+      "final_state": "finalized",
+      "remote_commit_delta_final": 1,
+      "same_commit_identity": true,
+      "repeated_retry_idempotent": true
+    },
+    {
+      "failure_point": "after-push",
+      "state_at_failure": "committed",
+      "remote_commit_delta_at_failure": 1,
+      "final_state": "finalized",
+      "remote_commit_delta_final": 1,
+      "same_commit_identity": true,
+      "repeated_retry_idempotent": true
+    },
+    {
+      "failure_point": "after-finalize",
+      "state_at_failure": "finalized",
+      "remote_commit_delta_at_failure": 1,
+      "final_state": "finalized",
+      "remote_commit_delta_final": 1,
+      "same_commit_identity": true,
+      "repeated_retry_idempotent": true
+    }
+  ],
+  "expected_base_cas": {
+    "external_change_accepted": true,
+    "initial_error_code": "PUBLICATION_PUSH_CAS_FAILED",
+    "state_after_observation": "remote_drift",
+    "publisher_did_not_overwrite": true,
+    "remote_commit_delta": 1
+  },
+  "external_reconciliation": {
+    "cases": [
+      {
+        "case": "edit",
+        "kind": "edit",
+        "candidate_path": "songs/Reconcile-Song.md",
+        "candidate_deleted": false,
+        "candidate_bytes": 32,
+        "candidate_preserved": true,
+        "sidecar_claims_ignored": true,
+        "status": "open",
+        "repeated_scan_idempotent": true
+      },
+      {
+        "case": "delete",
+        "kind": "delete",
+        "candidate_path": "songs/Reconcile-Song.md",
+        "candidate_deleted": true,
+        "candidate_bytes": 0,
+        "candidate_preserved": true,
+        "sidecar_claims_ignored": true,
+        "status": "open",
+        "repeated_scan_idempotent": true
+      },
+      {
+        "case": "rename",
+        "kind": "rename",
+        "candidate_path": "songs/Reconciled-Rename.md",
+        "candidate_deleted": false,
+        "candidate_bytes": 33,
+        "candidate_preserved": true,
+        "sidecar_claims_ignored": true,
+        "status": "open",
+        "repeated_scan_idempotent": true
+      }
+    ]
+  },
+  "unowned_addition": {
+    "error_code": "RECONCILIATION_REQUIRED",
+    "record_count": 1,
+    "candidate_path": "songs/Unowned-Song.md",
+    "candidate_bytes": 34,
+    "candidate_preserved": true,
+    "base_unchanged": true,
+    "publication_blocked": true
+  },
+  "backup_restore": {
+    "sync_online_backup": true,
+    "sync_backup_inside_publication_flock": true,
+    "publication_online_backup": true,
+    "git_bundle_verified": true,
+    "backup_skew_detected": true,
+    "restored_sync_equivalent": true,
+    "restored_integrity": true,
+    "unfinalized_state": "committed",
+    "recovered_state": "finalized",
+    "remote_commit_delta_during_recovery": 0,
+    "same_commit_identity": true
+  },
+  "handler_continuity": {
+    "v1_status": 200,
+    "v2_shell_status": 200,
+    "v2_manifest_status": 200,
+    "during_backup_flock": true
+  },
+  "deployment_guard": {
+    "checked_file": "cmd/v2publisher/main.go",
+    "enabled_default_false": true,
+    "operational_defaults_empty": true,
+    "disabled_configuration_rejected": true,
+    "one_shot_interface": true
+  },
+  "acceptance": {
+    "all_passed": true
+  }
+}

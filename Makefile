@@ -1,4 +1,4 @@
-.PHONY: build test run clean migrate validate v2-check v2-browser-check p1-009-check v2-api-build v2-api-run v2-sync-check
+.PHONY: build test run clean migrate validate v2-check v2-browser-check p1-009-check v2-api-build v2-api-run v2-sync-check v2-publication-check
 
 build:
 	go build -o srv/songs ./cmd/srv
@@ -37,6 +37,10 @@ v2-api-build:
 v2-sync-check:
 	go test -race ./internal/v2auth/... ./internal/v2sync/... ./internal/v2syncapi/... ./cmd/v2api
 	python3 scripts/build_v2_production_sync_evidence.py --check
+
+v2-publication-check:
+	go test -race ./internal/v2publish/... ./internal/v2sync/... ./cmd/v2publisher ./cmd/v2publication-evidence
+	python3 scripts/build_v2_production_publication_evidence.py --check
 
 v2-api-run: v2-api-build
 	./srv/songs-v2-api -listen 127.0.0.1:8001

@@ -3,7 +3,7 @@
 - **Priority:** P0
 - **Phase:** Post-Phase-1 writable foundation
 - **Program:** First writable V2 slice
-- **Status:** Planned after TASK-017
+- **Status:** Complete (August 14, 2026)
 - **Dependencies:** TASK-017; TASK-005 publication feasibility
 - **Estimate:** 7–11 focused engineering days
 

@@ -60,6 +60,15 @@ The August 9, 2026 exit review established the following measured conclusions an
 
 ## Current delivery decision
 
+TASK-018 is complete. Publication now runs as a separate, disabled-by-default
+one-shot process with an owner-bound SQLite intent/reconciliation ledger, an OS
+flock plus durable fencing generations, isolated deterministic Git workspaces,
+expected-base CAS pushes, schema/identity/link/Apex validation, crash recovery,
+and coordinated ledger/Git backup evidence. External edits, deletions, and
+renames are compared against durable published bytes and enter the ordinary sync
+operation/conflict path without trusting editable sidecar claims. The canonical
+checkout, V1 service, and read-only V2 shell remain untouched.
+
 TASK-017 is complete. The server now has an owner-scoped SQLite WAL ledger,
 strict trusted-proxy and device authorization, deterministic registration,
 idempotent canonical mutation envelopes, conflict-preserving CAS, content-bearing

@@ -21,18 +21,19 @@ const ProtocolVersion = "1"
 const SchemaVersion = "v2sync-1"
 
 var (
-	ErrUnauthorized       = &CodeError{"UNAUTHORIZED", "owner/device authorization failed", nil}
-	ErrRevoked            = &CodeError{"DEVICE_REVOKED", "device is revoked", nil}
-	ErrReplayMismatch     = &CodeError{"OPERATION_REPLAY_MISMATCH", "operation ID was reused with different canonical bytes", nil}
-	ErrUnknownBase        = &CodeError{"UNKNOWN_BASE", "base revision is unknown", nil}
-	ErrWrongDocument      = &CodeError{"WRONG_DOCUMENT", "base revision belongs to another document", nil}
-	ErrConflictCAS        = &CodeError{"CONFLICT_CAS_FAILED", "conflict compare-and-swap failed", nil}
-	ErrFutureCursor       = &CodeError{"FUTURE_CURSOR", "cursor is beyond the owner's event sequence", nil}
-	ErrResnapshotRequired = &CodeError{"RESNAPSHOT_REQUIRED", "cursor is below the compaction floor", nil}
-	ErrInvalidEnvelope    = &CodeError{"INVALID_ENVELOPE", "envelope is invalid", nil}
-	ErrPayloadHash        = &CodeError{"PAYLOAD_HASH_MISMATCH", "payload hash mismatch", nil}
-	ErrRegistration       = &CodeError{"REGISTRATION_MISMATCH", "device registration differs", nil}
-	ErrNotFound           = &CodeError{"NOT_FOUND", "resource not found", nil}
+	ErrUnauthorized        = &CodeError{"UNAUTHORIZED", "owner/device authorization failed", nil}
+	ErrRevoked             = &CodeError{"DEVICE_REVOKED", "device is revoked", nil}
+	ErrReplayMismatch      = &CodeError{"OPERATION_REPLAY_MISMATCH", "operation ID was reused with different canonical bytes", nil}
+	ErrUnknownBase         = &CodeError{"UNKNOWN_BASE", "base revision is unknown", nil}
+	ErrWrongDocument       = &CodeError{"WRONG_DOCUMENT", "base revision belongs to another document", nil}
+	ErrConflictCAS         = &CodeError{"CONFLICT_CAS_FAILED", "conflict compare-and-swap failed", nil}
+	ErrFutureCursor        = &CodeError{"FUTURE_CURSOR", "cursor is beyond the owner's event sequence", nil}
+	ErrResnapshotRequired  = &CodeError{"RESNAPSHOT_REQUIRED", "cursor is below the compaction floor", nil}
+	ErrInvalidEnvelope     = &CodeError{"INVALID_ENVELOPE", "envelope is invalid", nil}
+	ErrPayloadHash         = &CodeError{"PAYLOAD_HASH_MISMATCH", "payload hash mismatch", nil}
+	ErrRegistration        = &CodeError{"REGISTRATION_MISMATCH", "device registration differs", nil}
+	ErrPublicationReserved = &CodeError{"PUBLICATION_RESERVED", "document is reserved for publication", nil}
+	ErrNotFound            = &CodeError{"NOT_FOUND", "resource not found", nil}
 )
 
 type CodeError struct {

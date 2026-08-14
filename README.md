@@ -10,7 +10,7 @@ A private, Git-backed lead-sheet and set-list PWA for cover-band vocalists.
 
 The v1 application remains deployed and `main` continues to receive canonical content updates. Tag `v1` at `546f59b` is the permanent rollback/regression point.
 
-V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, TASK-010 produced the reviewed bootstrap API, TASK-011 delivered the isolated verified React/Vite shell, TASK-012 atomically activates and cold-restarts the snapshot from IndexedDB, TASK-013 provides deterministic active-generation offline library/search/status behavior, TASK-014 runs complete locked Set List performances offline, TASK-015 hardens the integrated slice across current-release Chromium routes, accessibility, worker updates, pointer races, and failure recovery, and TASK-016 packages the software checkpoint plus physical-device runbook/checklist. The checkpoint is **software PASS / physical PENDING**; V2 remains opt-in and read-only, while stage readiness, writable V2, cutover, and v1 retirement remain blocked.
+V2 Phase 0 completed its architecture evidence review on August 9, 2026 with a **conditional go** for an isolated read-only PWA. TASK-008 froze the current baseline, TASK-009 projected all 373 documents and 1,076 Set Entries losslessly, TASK-010 produced the reviewed bootstrap API, TASK-011 delivered the isolated verified React/Vite shell, TASK-012 atomically activates and cold-restarts the snapshot from IndexedDB, TASK-013 provides deterministic active-generation offline library/search/status behavior, TASK-014 runs complete locked Set List performances offline, TASK-015 hardens the integrated slice across current-release Chromium routes, accessibility, worker updates, pointer races, and failure recovery, and TASK-016 packages the software checkpoint plus physical-device runbook/checklist. TASK-017 and TASK-018 now provide the disabled-by-default production owner/device sync ledger and fenced Git publication/recovery foundation. The checkpoint is **software PASS / physical PENDING**; V2 remains opt-in and read-only, while browser authoring, cutover, and v1 retirement remain blocked.
 
 The following bullets describe the historical August 6, 2026 v1 Phases 0–1 implementation:
 
@@ -42,6 +42,10 @@ make build
 # Verify the Phase 1 TypeScript read model and bootstrap payload
 npm --prefix v2 ci
 make v2-check
+
+# Verify the disabled-by-default writable foundations
+make v2-sync-check
+make v2-publication-check
 
 # Run the isolated read-only V2 shell and API on port 8001
 make v2-api-run

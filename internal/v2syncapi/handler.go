@@ -562,6 +562,8 @@ func writeMappedError(w http.ResponseWriter, err error) {
 		status, code, message = http.StatusConflict, "OPERATION_REPLAY_MISMATCH", "operation ID was reused with different canonical bytes"
 	case errors.Is(err, v2sync.ErrConflictCAS):
 		status, code, message = http.StatusConflict, "CONFLICT_CAS_FAILED", "conflict compare-and-swap failed"
+	case errors.Is(err, v2sync.ErrPublicationReserved):
+		status, code, message = http.StatusConflict, "PUBLICATION_RESERVED", "document is reserved for publication"
 	case errors.Is(err, v2sync.ErrUnknownBase):
 		status, code, message = http.StatusConflict, "UNKNOWN_BASE", "base revision is unknown"
 	case errors.Is(err, v2sync.ErrWrongDocument):

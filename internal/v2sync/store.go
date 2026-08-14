@@ -149,6 +149,15 @@ CREATE TABLE IF NOT EXISTS v2sync_acks(
   PRIMARY KEY(owner_id,device_id),
   FOREIGN KEY(owner_id,device_id) REFERENCES v2sync_devices(owner_id,device_id)
 );
+CREATE TABLE IF NOT EXISTS v2sync_publication_reservations(
+  owner_id TEXT NOT NULL,
+  document_id TEXT NOT NULL,
+  revision_id TEXT NOT NULL,
+  claim_id TEXT NOT NULL,
+  PRIMARY KEY(owner_id,document_id),
+  FOREIGN KEY(owner_id,document_id) REFERENCES v2sync_documents(owner_id,document_id),
+  FOREIGN KEY(owner_id,revision_id) REFERENCES v2sync_revisions(owner_id,revision_id)
+);
 CREATE TABLE IF NOT EXISTS v2sync_metadata(
   owner_id TEXT PRIMARY KEY,
   current_sequence INTEGER NOT NULL DEFAULT 0,
@@ -323,6 +332,9 @@ func (s *Store) Apply(envelope ApplyEnvelope) (Outcome, error) {
 	if err := authorize(tx, envelope.OwnerID, envelope.DeviceID); err != nil {
 		return Outcome{}, err
 	}
+	if err := publicationReservation(tx, envelope.OwnerID, envelope.DocumentID); err != nil {
+		return Outcome{}, err
+	}
 	if err := checkClientCursor(tx, envelope.OwnerID, envelope.ClientCursor); err != nil {
 		return Outcome{}, err
 	}
@@ -416,6 +428,9 @@ func (s *Store) Resolve(envelope ResolveEnvelope) (Outcome, error) {
 	}
 	defer tx.Rollback()
 	if err := authorize(tx, envelope.OwnerID, envelope.DeviceID); err != nil {
+		return Outcome{}, err
+	}
+	if err := publicationReservation(tx, envelope.OwnerID, envelope.DocumentID); err != nil {
 		return Outcome{}, err
 	}
 	if err := checkClientCursor(tx, envelope.OwnerID, envelope.ClientCursor); err != nil {

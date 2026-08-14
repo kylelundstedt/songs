@@ -608,6 +608,17 @@ func TestWrongMethodsQueriesAndPaths(t *testing.T) {
 	assertError(t, f.request(http.MethodGet, PathPrefix+"/snapshot?after=0", nil, &device), http.StatusBadRequest, "INVALID_QUERY")
 }
 
+func TestApplyReportsPublicationReservation(t *testing.T) {
+	f := newFixture(t)
+	device := f.register("device-1", "registration-1", "Device")
+	initial := apply(t, f, device, applyBody(t, device.ID, "operation-1", "replace", "document-1", "", "Initial", json.RawMessage(`{"body":"one"}`), 0))
+	if err := f.store.ReservePublication(f.owner, device.ID, "document-1", initial.RevisionID, "pub-test-claim"); err != nil {
+		t.Fatal(err)
+	}
+	body := applyBody(t, device.ID, "operation-2", "replace", "document-1", initial.RevisionID, "Edited", json.RawMessage(`{"body":"two"}`), initial.Sequence)
+	assertError(t, f.request(http.MethodPost, PathPrefix+"/operations/apply", body, &device), http.StatusConflict, "PUBLICATION_RESERVED")
+}
+
 func TestApplyReplayMismatchHashUnknownBaseWrongDocumentAndStaleConflict(t *testing.T) {
 	f := newFixture(t)
 	first := f.register("device-1", "registration-1", "First")

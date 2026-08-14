@@ -5,8 +5,8 @@
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
 - **Phase:** Phase 1 read-only checkpoint is complete; post-Phase-1 writable foundation is now active.
-- **Completed:** V2 proposal/control plane and TASK-001 through TASK-017.
-- **Current task:** TASK-018 fenced publication, Git reconciliation, and recovery for the first writable V2 slice.
+- **Completed:** V2 proposal/control plane and TASK-001 through TASK-018.
+- **Current task:** TASK-019 offline writable Set List editor and outbox.
 - **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
 - **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
 
@@ -198,6 +198,28 @@ TASK-017 completed the production authorization and durable sync foundation:
   supplied; defaults and the tracked service unit remain read-only;
 - deterministic evidence is recorded under `migration/v2/production-sync/`.
 
+TASK-018 completed the fenced publication, Git reconciliation, and recovery foundation:
+
+- a separate owner-bound publication ledger persists immutable intents with the
+  expected current revision, prior published revision, and Git base before any
+  materialization or validation work;
+- a permanent OS flock plus durable epoch/generation/holder tokens fence
+  independent processes across Git side effects, and expected-base Git CAS
+  prevents stale workers from overwriting external changes;
+- isolated workspaces, strict typed Markdown projections, identity sidecars,
+  corpus/link checks, and Apex validation gate deterministic commits before
+  push; unowned canonical paths fail closed;
+- commit-created, remote-accepted, and finalization-loss retries converge to one
+  remote commit, while reconciliation first repairs known application commits;
+- external edits, deletions, and renames enter the ordinary TASK-017 operation,
+  event, and conflict path; editable sidecar hash/revision claims are ignored;
+- online sync/publication ledger backups plus a verified Git bundle recover the
+  tested skew states without touching the canonical checkout;
+- `cmd/v2publisher` is a one-shot process with empty, disabled defaults; no
+  publisher service or browser mutation controls are enabled;
+- deterministic evidence is recorded under
+  `migration/v2/production-publication/`.
+
 ## Verification commands
 
 Run from `/home/exedev/songs-v2`:
@@ -237,6 +259,7 @@ make v2-api-build
 go test ./internal/syncspike/...
 go test -race ./internal/v2bootstrap/... ./internal/v2shell/...
 make v2-sync-check
+make v2-publication-check
 go test ./...
 go vet ./...
 git diff --check
@@ -244,8 +267,8 @@ git diff --check
 
 ## Next tasks
 
-1. Implement **TASK-018**: fenced publication, Git reconciliation, validation, and durable recovery.
-2. Implement **TASK-019–021**: offline writable Set List and lead-sheet authoring, provider/Shelley draft workflows, conflicts, failure recovery, and writable physical acceptance.
+1. Implement **TASK-019**: offline writable Set List editor, durable outbox, and recovery.
+2. Implement **TASK-020–021**: offline writable lead-sheet authoring, provider/Shelley draft workflows, conflicts, failure recovery, and writable physical acceptance.
 3. After the writable workflows function end to end, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
 4. Finish deferred blocking read-only G4 reliability checks later; they do not supersede the writable implementation priority.
 5. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.
