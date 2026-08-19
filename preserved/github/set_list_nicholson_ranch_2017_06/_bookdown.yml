@@ -1,0 +1,19 @@
+book_filename: "20171102 Nicholson"
+rmd_files: [
+
+	"lead_sheets/Under-The-Bridge.md",
+	"lead_sheets/Times-Like-These.md",
+	"lead_sheets/Ramble-On.md",
+	"lead_sheets/Interstate-Love-Song.md",
+	"lead_sheets/Superstition-Single-Version.md",
+	"lead_sheets/Kryptonite.md",
+	"lead_sheets/Short-Skirt.md",
+	"lead_sheets/Faith.md",
+	"lead_sheets/The-Middle.md",
+	"lead_sheets/Jolene.md",
+	"lead_sheets/Come-Together.md",
+	"lead_sheets/Shine.md",
+	"lead_sheets/1979.md",
+
+]
+output_dir: docs
