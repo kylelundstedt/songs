@@ -85,6 +85,7 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 
 - [V2 Phase 1 software checkpoint](migration/v2/phase1/checkpoint/README.md)
 - [V2 install/upgrade/rollback runbook](docs/v2/runbooks/P1-009-install-upgrade-rollback.md)
+- [VM rebuild and restore runbook](docs/v2/runbooks/vm-rebuild-restore.md)
 - [Physical iPad/Safari acceptance checklist](docs/v2/acceptance/P1-009-ipad-safari-checklist.md)
 - [Physical acceptance signoff template](docs/v2/acceptance/P1-009-signoff-template.md)
 - [Historical v1 Phase 0–1 implementation report](docs/PHASES-0-1.md)
