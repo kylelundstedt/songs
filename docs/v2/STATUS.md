@@ -296,8 +296,8 @@ remains pending:
 
 ## Active writable Set List pilot
 
-- release `writable-compact-bd90a02c9065c083` serves shell
-  `shell-e538fc0fbcd4a61ce69cfe1a` on the compact loopback port-8003 origin;
+- release `writable-editor-46e1724073304dc5` serves shell
+  `shell-41ec1db581b5fd30cb68eb45` on the compact loopback port-8003 origin;
   the stale port-8001 and port-8002 pilot services are disabled;
 - Set List authoring and foreground sync are enabled; lead-sheet authoring,
   lyrics providers, and Shelley suggestions are disabled;

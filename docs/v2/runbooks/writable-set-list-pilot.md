@@ -19,10 +19,10 @@
 
 ## Runtime
 
-- API release: `var/releases/writable-compact-bd90a02c9065c083/songs-v2-api`
-- API SHA-256: `bd90a02c9065c0834d5361b9782601ce6743cde8d71827ce1a5ed59e9ef19542`
+- API release: `var/releases/writable-editor-46e1724073304dc5/songs-v2-api`
+- API SHA-256: `46e1724073304dc5198e3f7ba837ba8b06adf0c5906a14dc51917cc79f93ed40`
 - Publisher SHA-256: `3c26ba4bb8e84e847867fe191fbf77b49a5e8704145d6294fce44673806540fa`
-- Shell release: `shell-e538fc0fbcd4a61ce69cfe1a`
+- Shell release: `shell-41ec1db581b5fd30cb68eb45`
 - Sync ledger: `var/writable/sync.sqlite3`
 - Publication ledger: `var/writable/publication.sqlite3`
 - Master key: `var/writable/sync-master-key`, mode `0600`; never commit or copy

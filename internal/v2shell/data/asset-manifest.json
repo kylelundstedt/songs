@@ -4,18 +4,18 @@
   ],
   "assets": [
     {
-      "bytes": 509091,
-      "cache_control": "private, max-age=31536000, immutable",
-      "content_type": "application/javascript; charset=utf-8",
-      "path": "assets/index--VFoBbld.js",
-      "sha256": "e8d02f51bcf6a7c27b5491b91216367f2b929acf0e0ecfcf1c2de9ea4409887e"
-    },
-    {
-      "bytes": 35569,
+      "bytes": 36611,
       "cache_control": "private, max-age=31536000, immutable",
       "content_type": "text/css; charset=utf-8",
-      "path": "assets/index-DVWVaxL6.css",
-      "sha256": "c8323c4113289dcf63dd9d639b4b2cd8ad19c376198956391295998a8505aa14"
+      "path": "assets/index-DKXyELkH.css",
+      "sha256": "d77f535c5198eb6331f37d5dd9026d76cbdfe07f9b385eef6328d2b525d09a07"
+    },
+    {
+      "bytes": 513457,
+      "cache_control": "private, max-age=31536000, immutable",
+      "content_type": "application/javascript; charset=utf-8",
+      "path": "assets/index-vMErzNwF.js",
+      "sha256": "1c6ea0095e10a8d8872f5dac9f69c913c31da8b5ec5d28510fbfb9900b34dacc"
     },
     {
       "bytes": 540,
@@ -29,7 +29,7 @@
       "cache_control": "private, no-store",
       "content_type": "text/html; charset=utf-8",
       "path": "index.html",
-      "sha256": "ce01190b3a39564abebc36f0cd631ed1af291a1eaa41590229b7243c763fea96"
+      "sha256": "2be62ede05472eb8e2abf9805fd338153f940d4a9f0c07e70e22d01174807481"
     },
     {
       "bytes": 386,
@@ -43,16 +43,16 @@
       "cache_control": "private, no-store",
       "content_type": "application/javascript; charset=utf-8",
       "path": "sw.js",
-      "sha256": "b1d09d9c49d6aef050a30b0d12a9c995118c380d7746a159bb6af459e4b16a82"
+      "sha256": "13be00be9f3e89ca4118727c4e43cfcdf1d199a63aed0c0ecddc0c48daa50031"
     }
   ],
   "bootstrap_manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
   "cache_prefix": "songs-v2-shell-",
   "indexeddb_name": "songs-v2",
   "kind": "songs-v2.shell.assets",
-  "release": "shell-e538fc0fbcd4a61ce69cfe1a",
+  "release": "shell-41ec1db581b5fd30cb68eb45",
   "schema_version": "1",
   "verification": {
-    "output_sha256": "b503670e7d79ee3b3c7dffa5369681daca7090fd709e46acab8906329a80ad00"
+    "output_sha256": "cccff31c32ac693b3f14ab068421140492276ae7423a6cfe4db9d3bfeecf3644"
   }
 }
