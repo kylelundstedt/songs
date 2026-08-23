@@ -53,10 +53,9 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 29. [You Wreck Me](../songs/You-Wreck-Me.md)
 <!-- column-break -->
 ## Set 3 - Fast
-30. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
-31. [Just Like Heaven](../songs/Just-Like-Heaven.md)
-32. [Melt With You](../songs/Melt-With-You.md)
-33. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
-34. [Born To Run](../songs/Born-To-Run.md)
-35. [American Girl](../songs/american-girl.md)
-36. [The Middle](../songs/The-Middle.md)
+30. [Just Like Heaven](../songs/Just-Like-Heaven.md)
+31. [Melt With You](../songs/Melt-With-You.md)
+32. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
+33. [Born To Run](../songs/Born-To-Run.md)
+34. [American Girl](../songs/american-girl.md)
+35. [The Middle](../songs/The-Middle.md)
