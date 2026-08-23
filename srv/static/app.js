@@ -656,6 +656,11 @@
     textarea.addEventListener('keydown',event=>{
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase()==='s') { event.preventDefault(); form.requestSubmit(); }
     });
+    textarea.addEventListener('input',()=>{
+      if (saving || textarea.disabled) return;
+      save.disabled=textarea.value===initialMarkdown;
+      if (!save.disabled && status.textContent==='No changes to save.') status.textContent='';
+    });
     triggers.forEach(button=>button.addEventListener('click',async()=>{
       const version=++loadVersion;
       const editingSet=button.dataset.markdownKind==='set';
@@ -671,7 +676,7 @@
         if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to load Markdown');
         const data = await response.json();
         if (version !== loadVersion || !dialog.open) return;
-        expectedHash=data.hash; textarea.value=data.markdown; initialMarkdown=textarea.value; textarea.disabled=false; save.disabled=false; status.textContent='';
+        expectedHash=data.hash; textarea.value=data.markdown; initialMarkdown=textarea.value; textarea.disabled=false; save.disabled=true; status.textContent='';
         setTimeout(()=>textarea.focus(),0);
       } catch (error) { status.textContent=error.message; }
     }));
@@ -679,10 +684,11 @@
       event.preventDefault();
       if (saved) { location.reload(); return; }
       if (!resourceID || !expectedHash || textarea.disabled) return;
+      if (textarea.value===initialMarkdown) { status.textContent='No changes to save.'; save.disabled=true; return; }
       saving=true; textarea.disabled=true; save.disabled=true; cancel.disabled=true; close.disabled=true; status.textContent='Validating and saving Markdown…';
       try {
         const response = await fetch(`/api/${resourceKind}/${encodeURIComponent(resourceID)}/markdown`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({markdown:textarea.value,expected_hash:expectedHash})});
-        if (!response.ok) throw new Error((await response.text()).trim() || 'Unable to save Markdown');
+        if (!response.ok) { const error=new Error((await response.text()).trim() || 'Unable to save Markdown'); error.status=response.status; throw error; }
         const result = await response.json();
         initialMarkdown=textarea.value; saved=true; saving=false; status.textContent=result.warning || 'Markdown saved. Reloading…';
         try {
@@ -691,7 +697,8 @@
         } catch {}
         location.reload();
       } catch (error) {
-        saving=false; textarea.disabled=false; save.disabled=false; cancel.disabled=false; close.disabled=false; status.textContent=error.message;
+        saving=false; textarea.disabled=false; save.disabled=textarea.value===initialMarkdown; cancel.disabled=false; close.disabled=false;
+        status.textContent=error.status===409?'This Set List changed after the editor opened. Copy any draft changes, close the editor, reload this page, and reopen Edit Markdown.':error.message;
       }
     });
   }
