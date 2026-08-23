@@ -49,12 +49,10 @@ status: draft
 17. [Kryptonite](../songs/Kryptonite.md)
 <!-- songs-v2-entry id="entry-a5d59a81-4eb2-5524-9e44-5ee7058c9de0" lead-sheet-id="song-de173b47-f65b-51d2-afe3-6dcc50a0b658" -->
 18. [Breakdown](../songs/Breakdown.md)
-<!-- songs-v2-entry id="entry-8548ee50-4c91-5b30-97d4-c7e5024a6075" lead-sheet-id="fire-woman" -->
-19. [Fire Woman](../songs/fire-woman.md)
-<!-- songs-v2-entry id="entry-975bb77f-d1bd-5a94-ba50-c4036d92232c" lead-sheet-id="song-2eae5c91-3dee-5d5d-9f7e-545c6f3bf06e" -->
-20. [She Sells Sanctuary](../songs/She-Sells-Sanctuary.md)
+<!-- songs-v2-entry id="entry-8548ee50-4c91-5b30-97d4-c7e5024a6075" lead-sheet-id="fire-woman-she-sells" -->
+19. [Fire Woman/She Sells](../songs/fire-woman-she-sells.md)
 <!-- songs-v2-entry id="entry-c8ec62d5-699b-5b1e-a6fb-2765a8401ee0" lead-sheet-id="song-6b81bd96-7a4d-55f3-8e1b-5fd7fd8ef222" -->
-21. [Demons](../songs/Demons.md)
+20. [Demons](../songs/Demons.md)
 
 <!-- column-break -->
 
