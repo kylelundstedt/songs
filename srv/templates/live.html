@@ -8,12 +8,12 @@
 <section class="live-set-panel{{if .Unresolved}} live-unresolved-panel{{end}}" data-live-panel{{if .Song}} data-song-id="{{.Song.ID}}"{{end}}>
 {{if .Song}}
   <article class="lead-sheet-panel live" data-lead-sheet>
-    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1>{{if .Note}}<p class="live-performance-note">{{.Note}}</p>{{end}}</div><dl class="song-facts" aria-label="Song details"><div><dt>Key</dt><dd>{{if .EffectiveKey}}{{.EffectiveKey}}{{else}}—{{end}}</dd></div><div><dt>BPM</dt><dd>{{if .DisplayBPM}}{{.DisplayBPM}}{{else}}—{{end}}</dd></div><div class="singer-fact"><dt>Singer</dt><dd>{{if .Singer}}{{.Singer}}{{else}}—{{end}}</dd></div><div class="artist-fact"><dt>Artist</dt><dd>{{if .Song.Artist}}{{.Song.Artist}}{{else}}—{{end}}</dd></div></dl></header>
+    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1>{{if .Note}}<p class="live-performance-note">{{.Note}}</p>{{end}}</div><dl class="song-facts" aria-label="Song details"><div><dt>Key</dt><dd>{{if .EffectiveKey}}{{.EffectiveKey}}{{else}}—{{end}}</dd></div><div><dt>bpm</dt><dd>{{if .DisplayBPM}}{{.DisplayBPM}}{{else}}—{{end}}</dd></div><div class="singer-fact"><dt>Singer</dt><dd>{{if .Singer}}{{.Singer}}{{else}}—{{end}}</dd></div><div class="artist-fact"><dt>Artist</dt><dd>{{if .Song.Artist}}{{.Song.Artist}}{{else}}—{{end}}</dd></div></dl></header>
     <div class="sheet-viewport" data-sheet-viewport><div class="apex-source" data-apex-source>{{.Song.HTML}}</div><div class="live-columns" data-live-columns></div></div>
   </article>
 {{else}}
   <article class="lead-sheet-panel live unresolved-sheet" aria-label="Unresolved song">
-    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Label}}</h1></div><dl class="song-facts" aria-label="Imported song details"><div><dt>Key</dt><dd>{{if .EffectiveKey}}{{.EffectiveKey}}{{else}}—{{end}}</dd></div><div><dt>BPM</dt><dd>{{if .DisplayBPM}}{{.DisplayBPM}}{{else}}—{{end}}</dd></div><div class="singer-fact"><dt>Singer</dt><dd>{{if .Singer}}{{.Singer}}{{else}}—{{end}}</dd></div><div><dt>Status</dt><dd>Lead sheet needed</dd></div></dl></header>
+    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Label}}</h1></div><dl class="song-facts" aria-label="Imported song details"><div><dt>Key</dt><dd>{{if .EffectiveKey}}{{.EffectiveKey}}{{else}}—{{end}}</dd></div><div><dt>bpm</dt><dd>{{if .DisplayBPM}}{{.DisplayBPM}}{{else}}—{{end}}</dd></div><div class="singer-fact"><dt>Singer</dt><dd>{{if .Singer}}{{.Singer}}{{else}}—{{end}}</dd></div><div><dt>Status</dt><dd>Lead sheet needed</dd></div></dl></header>
     <div class="unresolved-sheet-message"><strong>Lead sheet unavailable</strong><p>This imported Set List item is preserved for ordering and review.</p>{{if .Note}}<p>{{.Note}}</p>{{end}}</div>
   </article>
 {{end}}

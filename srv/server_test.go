@@ -287,7 +287,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatalf("set status=%d body=%s", setResponse.Code, setResponse.Body.String())
 	}
 	setBody := setResponse.Body.String()
-	if !strings.Contains(setBody, "(Alex · D · 133 BPM)") || !strings.Contains(setBody, "<small>Count in</small>") {
+	if !strings.Contains(setBody, "(Alex · D · 133 bpm)") || !strings.Contains(setBody, "<small>Count in</small>") {
 		t.Fatalf("set performance details or note missing: %s", setBody)
 	}
 
@@ -299,7 +299,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatalf("live status=%d body=%s", liveResponse.Code, liveResponse.Body.String())
 	}
 	liveBody := liveResponse.Body.String()
-	for _, want := range []string{"<dt>Key</dt><dd>D</dd>", "<dt>BPM</dt><dd>133</dd>", `<p class="live-performance-note">Count in</p>`} {
+	for _, want := range []string{"<dt>Key</dt><dd>D</dd>", "<dt>bpm</dt><dd>133</dd>", `<p class="live-performance-note">Count in</p>`} {
 		if !strings.Contains(liveBody, want) {
 			t.Fatalf("live performance detail missing %q: %s", want, liveBody)
 		}
@@ -323,8 +323,8 @@ func TestMetadataPlaceholdersRemainVisible(t *testing.T) {
 		id      string
 		fields  []string
 	}{
-		{path: "/song/test-song", handler: server.HandleSong, id: "test-song", fields: []string{"Key", "BPM", "Artist", "Lyrics", "Original key", "Original BPM"}},
-		{path: "/sets/test-set/live", handler: server.HandleLiveSet, id: "test-set", fields: []string{"Key", "BPM", "Artist"}},
+		{path: "/song/test-song", handler: server.HandleSong, id: "test-song", fields: []string{"Key", "bpm", "Artist", "Lyrics", "Original key", "Original bpm"}},
+		{path: "/sets/test-set/live", handler: server.HandleLiveSet, id: "test-set", fields: []string{"Key", "bpm", "Artist"}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.path, func(t *testing.T) {
