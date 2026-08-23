@@ -29,15 +29,20 @@
 - Publication workspace/lock: `var/writable/git-work` and
   `var/writable/publication.lock`.
 
-The bootstrap contains 373 documents and 373 published baseline mappings. The
-owner's browser registers its own device on first writable use. Every edit is
-committed locally before foreground sync.
+The reviewed bootstrap contains 373 documents and 373 published baseline
+mappings. Before opening the pilot, the existing `Kashmir` lead sheet from
+canonical `main` was imported through the durable revision/publication path.
+The active server therefore contains 374 documents, 374 published mappings,
+and zero open conflicts. The owner's browser registers its own device on first
+writable use. Every edit is committed locally before foreground sync.
 
 ## Owner activation
 
 Close every existing V2 Safari tab and Home Screen instance so the waiting
-service worker can activate. Reopen V2 online, then confirm that a Set List has
-an **Edit Set List** action and that the recovery/sync toolbar is visible.
+service worker can activate. Reopen V2 online, confirm that a Set List has an
+**Edit Set List** action and that the recovery/sync toolbar is visible, then run
+**Sync now** once before editing. This initial pull makes the published
+`Kashmir` lead sheet available to the Set List editor.
 
 Before material browser cleanup or device replacement, use **Export recovery**.
 Keep the exported JSON until the edit is acknowledged and published.

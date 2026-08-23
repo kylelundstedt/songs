@@ -300,8 +300,10 @@ remains pending:
   `shell-96ab0f5519cd6a1bff86220f` on loopback port 8001;
 - Set List authoring and foreground sync are enabled; lead-sheet authoring,
   lyrics providers, and Shelley suggestions are disabled;
-- the durable sync/publication baseline contains 373 documents and 373
-  publication mappings with zero open conflicts at activation;
+- the reviewed durable baseline contains 373 documents/publication mappings;
+  the canonical `Kashmir` lead sheet was then imported and published through the
+  fenced path, bringing active state to 374 documents and 374 publication
+  mappings with zero open conflicts;
 - fenced publication targets `refs/heads/v2-published`, not `main`, until later
   reconciliation/cutover review;
 - V1 remains enabled, active, and default on port 8000;
