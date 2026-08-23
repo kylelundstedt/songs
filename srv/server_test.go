@@ -69,7 +69,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 	if len(server.sets) != 1 || len(server.sets[0].Items) != 1 {
 		t.Fatalf("sets=%#v", server.sets)
 	}
-	if item := server.sets[0].Items[0]; item.Singer != "Alex" || item.Note != "Count in" {
+	if item := server.sets[0].Items[0]; item.Singer != "Alex" || item.Note != "Count in" || item.EffectiveKey() != "A" || item.EffectiveBPM() != "124" {
 		t.Fatalf("set item metadata=%#v", item)
 	}
 
@@ -105,6 +105,52 @@ func TestCatalogAndRoutes(t *testing.T) {
 				t.Fatalf("set heading is not rendered as a standalone row before the first song: %s", w.Body.String())
 			}
 		})
+	}
+}
+
+func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
+	server := fixtureServer(t)
+	setPath := filepath.Join(server.RepoRoot, "sets", "test-set.md")
+	body, err := os.ReadFile(setPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	body = []byte(strings.Replace(string(body), "— singer: Alex — note: Count in", "— singer: Alex — key: D — bpm: 132 BPM — note: Count in", 1))
+	if err := os.WriteFile(setPath, body, 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := server.Reindex(); err != nil {
+		t.Fatal(err)
+	}
+	item := server.sets[0].Items[0]
+	if item.PerformanceKey != "D" || item.PerformanceBPM != "132" || item.Note != "Count in" {
+		t.Fatalf("parsed set performance details=%#v", item)
+	}
+
+	setRequest := httptest.NewRequest(http.MethodGet, "/sets/test-set", nil)
+	setRequest.SetPathValue("id", "test-set")
+	setResponse := httptest.NewRecorder()
+	server.HandleSet(setResponse, setRequest)
+	if setResponse.Code != http.StatusOK {
+		t.Fatalf("set status=%d body=%s", setResponse.Code, setResponse.Body.String())
+	}
+	setBody := setResponse.Body.String()
+	if !strings.Contains(setBody, "(Alex · D · 132 BPM)") || !strings.Contains(setBody, "<small>Count in</small>") {
+		t.Fatalf("set performance details or note missing: %s", setBody)
+	}
+
+	liveRequest := httptest.NewRequest(http.MethodGet, "/sets/test-set/live", nil)
+	liveRequest.SetPathValue("id", "test-set")
+	liveResponse := httptest.NewRecorder()
+	server.HandleLiveSet(liveResponse, liveRequest)
+	if liveResponse.Code != http.StatusOK {
+		t.Fatalf("live status=%d body=%s", liveResponse.Code, liveResponse.Body.String())
+	}
+	liveBody := liveResponse.Body.String()
+	for _, want := range []string{"<dt>Key</dt><dd>D</dd>", "<dt>BPM</dt><dd>132</dd>", "<strong>Count in</strong>"} {
+		if !strings.Contains(liveBody, want) {
+			t.Fatalf("live performance detail missing %q: %s", want, liveBody)
+		}
 	}
 }
 
@@ -149,33 +195,46 @@ func TestMetadataPlaceholdersRemainVisible(t *testing.T) {
 
 func TestParseSetItemDetails(t *testing.T) {
 	tests := []struct {
-		raw, singer, note string
+		raw, singer, key, bpm, note string
 	}{
-		{"— singer: Kyle — note: short count-in", "Kyle", "short count-in"},
-		{"singer: Kiana", "Kiana", ""},
-		{"Watch the ending", "", "Watch the ending"},
-		{"— note: First — extra detail", "", "First — extra detail"},
+		{"— singer: Kyle — key: D — bpm: 132 — note: short count-in", "Kyle", "D", "132", "short count-in"},
+		{"singer: Kiana", "Kiana", "", "", ""},
+		{"— bpm: 128 BPM", "", "", "128", ""},
+		{"Watch the ending", "", "", "", "Watch the ending"},
+		{"— note: First — extra detail", "", "", "", "First — extra detail"},
 	}
 	for _, tt := range tests {
-		singer, note := parseSetItemDetails(tt.raw)
-		if singer != tt.singer || note != tt.note {
-			t.Errorf("parseSetItemDetails(%q)=(%q,%q), want (%q,%q)", tt.raw, singer, note, tt.singer, tt.note)
+		singer, key, bpm, note := parseSetItemDetails(tt.raw)
+		if singer != tt.singer || key != tt.key || bpm != tt.bpm || note != tt.note {
+			t.Errorf("parseSetItemDetails(%q)=(%q,%q,%q,%q), want (%q,%q,%q,%q)", tt.raw, singer, key, bpm, note, tt.singer, tt.key, tt.bpm, tt.note)
 		}
+	}
+}
+
+func TestSetItemPerformanceDetailsOverrideSongMetadata(t *testing.T) {
+	item := SetItem{Singer: "Kyle", Song: &Song{Key: "A", BPM: "124 BPM"}}
+	if item.EffectiveKey() != "A" || item.EffectiveBPM() != "124" {
+		t.Fatalf("lead-sheet fallback failed: key=%q bpm=%q", item.EffectiveKey(), item.EffectiveBPM())
+	}
+	item.PerformanceKey = "D"
+	item.PerformanceBPM = "132"
+	if item.EffectiveKey() != "D" || item.EffectiveBPM() != "132" {
+		t.Fatalf("set-list override failed: key=%q bpm=%q", item.EffectiveKey(), item.EffectiveBPM())
 	}
 }
 
 func TestReorderSetMarkdownPreservesItemDetailsAndBreaks(t *testing.T) {
 	set := &SetList{Items: []SetItem{
 		{Position: 1, Label: "One", Target: "../songs/one.md", Suffix: "— singer: Kyle", ColumnHeading: "Set 1 — Slow"},
-		{Position: 2, Label: "Two", Target: "../songs/two.md", Suffix: "— singer: Kiana — note: Count in"},
+		{Position: 2, Label: "Two", Target: "../songs/two.md", Suffix: "— singer: Kiana — key: Bb — bpm: 110 — note: Count in"},
 		{Position: 3, Label: "Three", Target: "../songs/three.md", ColumnBreakBefore: true, ColumnHeading: "Set 2 — Fast"},
 	}}
-	current := "---\ntitle: Test\n---\n\n# Test\n\n## Set 1 — Slow\n1. [One](../songs/one.md) — singer: Kyle\n2. [Two](../songs/two.md) — singer: Kiana — note: Count in\n<!-- column-break -->\n## Set 2 — Fast\n3. [Three](../songs/three.md)\n"
+	current := "---\ntitle: Test\n---\n\n# Test\n\n## Set 1 — Slow\n1. [One](../songs/one.md) — singer: Kyle\n2. [Two](../songs/two.md) — singer: Kiana — key: Bb — bpm: 110 — note: Count in\n<!-- column-break -->\n## Set 2 — Fast\n3. [Three](../songs/three.md)\n"
 	updated, err := reorderSetMarkdown(current, set, []int{2, 1, 3}, []int{2})
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := "## Set 1 — Slow\n1. [Two](../songs/two.md) — singer: Kiana — note: Count in\n2. [One](../songs/one.md) — singer: Kyle\n<!-- column-break -->\n## Set 2 — Fast\n3. [Three](../songs/three.md)"
+	want := "## Set 1 — Slow\n1. [Two](../songs/two.md) — singer: Kiana — key: Bb — bpm: 110 — note: Count in\n2. [One](../songs/one.md) — singer: Kyle\n<!-- column-break -->\n## Set 2 — Fast\n3. [Three](../songs/three.md)"
 	if !strings.Contains(updated, want) {
 		t.Fatalf("updated markdown missing reordered list:\n%s", updated)
 	}
@@ -480,7 +539,7 @@ func TestSetOrderWorkflow(t *testing.T) {
 	}
 
 	set = server.setsByID["test-set"]
-	addPayload, _ := json.Marshal(setItemAddRequest{ExpectedHash: set.Hash, SongID: "test-song", Singer: "Guest", Note: "Added in UI", Column: 1})
+	addPayload, _ := json.Marshal(setItemAddRequest{ExpectedHash: set.Hash, SongID: "test-song", Singer: "Guest", PerformanceKey: "Bb", PerformanceBPM: "110 BPM", Note: "Added in UI", Column: 1})
 	addRequest := httptest.NewRequest(http.MethodPost, "/api/sets/test-set/items", strings.NewReader(string(addPayload)))
 	addRequest.SetPathValue("id", "test-set")
 	addRequest.Header.Set("X-ExeDev-UserID", "test-user")
@@ -494,7 +553,7 @@ func TestSetOrderWorkflow(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	addedLine := "2. [Test Song](../songs/Test-Song.md) — singer: Guest — note: Added in UI\n<!-- column-break -->"
+	addedLine := "2. [Test Song](../songs/Test-Song.md) — singer: Guest — key: Bb — bpm: 110 — note: Added in UI\n<!-- column-break -->"
 	if !strings.Contains(string(added), addedLine) {
 		t.Fatalf("added song missing from set markdown:\n%s", added)
 	}

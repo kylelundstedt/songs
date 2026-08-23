@@ -51,11 +51,33 @@ type SetItem struct {
 	Target            string
 	Suffix            string
 	Singer            string
+	PerformanceKey    string
+	PerformanceBPM    string
 	Note              string
 	Unresolved        bool
 	ColumnBreakBefore bool
 	ColumnHeading     string
 	Song              *Song
+}
+
+func (item SetItem) EffectiveKey() string {
+	if item.PerformanceKey != "" {
+		return item.PerformanceKey
+	}
+	if item.Song != nil {
+		return item.Song.Key
+	}
+	return ""
+}
+
+func (item SetItem) EffectiveBPM() string {
+	if item.PerformanceBPM != "" {
+		return normalizePerformanceBPM(item.PerformanceBPM)
+	}
+	if item.Song != nil {
+		return normalizePerformanceBPM(item.Song.BPM)
+	}
+	return ""
 }
 
 type SetList struct {
@@ -152,11 +174,13 @@ type setOrderRequest struct {
 }
 
 type setItemAddRequest struct {
-	ExpectedHash string `json:"expected_hash"`
-	SongID       string `json:"song_id"`
-	Singer       string `json:"singer"`
-	Note         string `json:"note"`
-	Column       int    `json:"column"`
+	ExpectedHash   string `json:"expected_hash"`
+	SongID         string `json:"song_id"`
+	Singer         string `json:"singer"`
+	PerformanceKey string `json:"key"`
+	PerformanceBPM string `json:"bpm"`
+	Note           string `json:"note"`
+	Column         int    `json:"column"`
 }
 
 type setItemDeleteRequest struct {
@@ -194,10 +218,18 @@ var (
 	setItemPattern    = regexp.MustCompile(`^\s*\d+\.\s+\[([^]]+)\]\(([^)]+)\)\s*(.*)$`)
 )
 
-func parseSetItemDetails(raw string) (singer, note string) {
+func normalizePerformanceBPM(value string) string {
+	value = strings.TrimSpace(value)
+	if len(value) >= 3 && strings.EqualFold(value[len(value)-3:], "bpm") {
+		value = strings.TrimSpace(value[:len(value)-3])
+	}
+	return value
+}
+
+func parseSetItemDetails(raw string) (singer, performanceKey, performanceBPM, note string) {
 	raw = strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(raw), "—–"))
 	if raw == "" {
-		return "", ""
+		return "", "", "", ""
 	}
 	var notes []string
 	for _, segment := range strings.Split(raw, "—") {
@@ -211,6 +243,12 @@ func parseSetItemDetails(raw string) (singer, note string) {
 			case "singer":
 				singer = strings.TrimSpace(value)
 				continue
+			case "key":
+				performanceKey = strings.TrimSpace(value)
+				continue
+			case "bpm":
+				performanceBPM = normalizePerformanceBPM(value)
+				continue
 			case "note":
 				if value = strings.TrimSpace(value); value != "" {
 					notes = append(notes, value)
@@ -220,7 +258,7 @@ func parseSetItemDetails(raw string) (singer, note string) {
 		}
 		notes = append(notes, segment)
 	}
-	return singer, strings.Join(notes, " — ")
+	return singer, performanceKey, performanceBPM, strings.Join(notes, " — ")
 }
 
 func New(dbPath, hostname, repoRoot string) (*Server, error) {
@@ -432,7 +470,7 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 					return fmt.Errorf("set %s references missing song %s", rel, target)
 				}
 			}
-			singer, note := parseSetItemDetails(m[3])
+			singer, performanceKey, performanceBPM, note := parseSetItemDetails(m[3])
 			if pendingColumnBreak {
 				columnBreakCount++
 				if columnBreakCount > 2 {
@@ -442,7 +480,7 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 			if unresolved {
 				set.UnresolvedCount++
 			}
-			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Target: targetRef, Suffix: strings.TrimSpace(m[3]), Singer: singer, Note: note, Unresolved: unresolved, ColumnBreakBefore: pendingColumnBreak, ColumnHeading: pendingColumnHeading, Song: song})
+			set.Items = append(set.Items, SetItem{Position: len(set.Items) + 1, Label: m[1], Target: targetRef, Suffix: strings.TrimSpace(m[3]), Singer: singer, PerformanceKey: performanceKey, PerformanceBPM: performanceBPM, Note: note, Unresolved: unresolved, ColumnBreakBefore: pendingColumnBreak, ColumnHeading: pendingColumnHeading, Song: song})
 			pendingColumnBreak = false
 			pendingColumnHeading = ""
 		}
@@ -1501,7 +1539,7 @@ func rewriteSetItemsMarkdown(current string, items []canonicalSetItem, breaks []
 		if trimmed == "" || setItemPattern.MatchString(line) || setHeadingPattern.MatchString(line) || strings.EqualFold(trimmed, "<!-- column-break -->") {
 			continue
 		}
-		return "", errors.New("set list contains unsupported Markdown between songs; replace it with singer/note fields or column-break comments before editing songs")
+		return "", errors.New("set list contains unsupported Markdown between songs; replace it with singer/key/bpm/note fields or column-break comments before editing songs")
 	}
 	updated := append([]string{}, lines[:first]...)
 	updated = append(updated, replacement...)
@@ -1527,10 +1565,13 @@ func reorderSetMarkdown(current string, set *SetList, order, breaks []int) (stri
 	return rewriteSetItemsMarkdown(current, items, breaks)
 }
 
-func addSetItemMarkdown(current string, set *SetList, song *Song, singer, note string, column int) (string, error) {
-	singer, note = strings.TrimSpace(singer), strings.TrimSpace(note)
-	if strings.ContainsAny(singer+note, "\r\n") || len(singer) > 120 || len(note) > 500 {
-		return "", errors.New("singer or note is too long or contains a line break")
+func addSetItemMarkdown(current string, set *SetList, song *Song, singer, performanceKey, performanceBPM, note string, column int) (string, error) {
+	singer = strings.TrimSpace(singer)
+	performanceKey = strings.TrimSpace(performanceKey)
+	performanceBPM = normalizePerformanceBPM(performanceBPM)
+	note = strings.TrimSpace(note)
+	if strings.ContainsAny(singer+performanceKey+performanceBPM+note, "\r\n") || strings.Contains(singer+performanceKey+performanceBPM+note, "—") || len(singer) > 120 || len(performanceKey) > 40 || len(performanceBPM) > 40 || len(note) > 500 {
+		return "", errors.New("singer, performance key, BPM, or note is too long or contains a line break or field separator")
 	}
 	breaks := setColumnBreakOffsets(set)
 	columns := len(breaks) + 1
@@ -1543,15 +1584,22 @@ func addSetItemMarkdown(current string, set *SetList, song *Song, singer, note s
 	if err != nil {
 		return "", err
 	}
-	suffix := ""
+	var details []string
 	if singer != "" {
-		suffix = "— singer: " + singer
+		details = append(details, "singer: "+singer)
+	}
+	if performanceKey != "" {
+		details = append(details, "key: "+performanceKey)
+	}
+	if performanceBPM != "" {
+		details = append(details, "bpm: "+performanceBPM)
 	}
 	if note != "" {
-		if suffix != "" {
-			suffix += " "
-		}
-		suffix += "— note: " + note
+		details = append(details, "note: "+note)
+	}
+	suffix := ""
+	if len(details) > 0 {
+		suffix = "— " + strings.Join(details, " — ")
 	}
 	items := canonicalSetItems(set)
 	item := canonicalSetItem{Label: song.Title, Target: filepath.ToSlash(target), Suffix: suffix}
@@ -1691,7 +1739,7 @@ func (s *Server) HandleAddSetItem(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), status)
 		return
 	}
-	updated, err := addSetItemMarkdown(string(current), set, song, request.Singer, request.Note, request.Column)
+	updated, err := addSetItemMarkdown(string(current), set, song, request.Singer, request.PerformanceKey, request.PerformanceBPM, request.Note, request.Column)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
