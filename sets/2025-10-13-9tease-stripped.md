@@ -47,18 +47,17 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 23. [Wanted Dead or Alive](../songs/Wanted-Dead-Or-Alive.md)
 24. [Fire Woman into She Sells Sanctuary](../songs/fire-woman.md)
 25. [1979](../songs/1979.md)
-26. [Simple Man](../songs/Simple-Man.md)
-27. [Everlong](../songs/Everlong.md)
-28. [Santeria](../songs/Santeria.md)
-29. [Wicked Garden](../songs/Wicked-Garden.md)
-30. [You Wreck Me](../songs/You-Wreck-Me.md)
-31. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
+26. [Everlong](../songs/Everlong.md)
+27. [Santeria](../songs/Santeria.md)
+28. [Wicked Garden](../songs/Wicked-Garden.md)
+29. [You Wreck Me](../songs/You-Wreck-Me.md)
+30. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
 <!-- column-break -->
 ## Set 3 - Fast
-32. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
-33. [Just Like Heaven](../songs/Just-Like-Heaven.md)
-34. [Melt With You](../songs/Melt-With-You.md)
-35. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
-36. [Born To Run](../songs/Born-To-Run.md)
-37. [American Girl](../songs/american-girl.md)
-38. [The Middle](../songs/The-Middle.md)
+31. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
+32. [Just Like Heaven](../songs/Just-Like-Heaven.md)
+33. [Melt With You](../songs/Melt-With-You.md)
+34. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
+35. [Born To Run](../songs/Born-To-Run.md)
+36. [American Girl](../songs/american-girl.md)
+37. [The Middle](../songs/The-Middle.md)
