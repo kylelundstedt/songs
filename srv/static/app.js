@@ -427,6 +427,10 @@
     });
   }
 
+  function setupSetPrint() {
+    document.querySelector('[data-set-print]')?.addEventListener('click',()=>window.print());
+  }
+
   function setupSetItemEditing() {
     const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),removeMode=panel?.querySelector('[data-set-remove-mode]'),pageStatus=panel?.querySelector('[data-offline-status]');
     if(!panel||!list||!add||!removeMode)return;
@@ -855,7 +859,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupSetItemEditing(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupSetPrint(); setupSetItemEditing(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();
