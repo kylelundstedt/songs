@@ -3,9 +3,9 @@ import { afterEach, describe, expect, it } from "vitest";
 import { createCanonicalLeadSheet } from "../leadsheets";
 import { buildLeadSheetPublicationPayload } from "../leadsheets/codec";
 import { loadEditableLeadSheet, saveLeadSheetWorkspace } from "../leadsheets/repository";
-import { buildSetListPublicationPayload, canonicalJson, sha256Hex } from "../setlists/codec";
+import { buildSetListPublicationPayload, canonicalJson, decodeCanonicalSetListSource, sha256Hex } from "../setlists/codec";
 import { createSetList } from "../setlists/model";
-import { loadEditableSetList } from "../setlists/repository";
+import { commitSetListCommand, loadEditableSetList } from "../setlists/repository";
 import { openSongsStorage, SONGS_STORAGE_NAME } from "../storage";
 import { AUTHORED_REVISION_SCHEMA_VERSION, AUTHORED_SYNC_SCHEMA_VERSION, AUTHORED_SYNC_STATE_ID, buildLeadSheetWorkspaceRecord, type AnyAuthoredServerRevisionRecord } from "../storage/authored";
 
@@ -26,6 +26,27 @@ describe("editor projection from synchronized server heads", () => {
     const loaded = await loadEditableSetList(storage, baseline);
     expect(loaded.document.title).toBe("Accepted R2");
     expect(loaded.baseServerRevisionId).toBe(revision.id);
+    storage.close();
+  });
+
+  it("opens a reviewed bootstrap Set List from its typed projection instead of decoding legacy Markdown", async () => {
+    const baseline = createSetList({ id: "set-reviewed-legacy", path: "sets/Reviewed-Legacy.md", title: "Reviewed legacy", sections: [{ id: "section-main", heading: "Set 1", entries: [] }] });
+    const legacyPayload = { schema_version: "v2publish-1", kind: "set-list", path: baseline.path, source: "---\nid: reviewed-legacy\ntitle: Reviewed legacy\n---\n\n# Reviewed legacy\n", deleted: false } as const;
+    const revision = await serverRevision("rev-444444444444444444444444", baseline.id, "baseline-bootstrap", baseline.title, legacyPayload);
+    const storage = await openSongsStorage();
+    await storage.commitAuthoredSync({ expectedCursor: 0, sync: { id: AUTHORED_SYNC_STATE_ID, schemaVersion: AUTHORED_SYNC_SCHEMA_VERSION, deviceId: "device-browser", cursor: 0, acknowledgedCursor: 0, documents: [{ documentId: baseline.id, currentServerRevisionId: revision.id, publishedRevisionId: revision.id }], updatedAt: "2026-08-23T19:40:00.000Z" }, revisions: [revision] });
+    const loaded = await loadEditableSetList(storage, baseline);
+    expect(loaded.document).toEqual(baseline);
+    expect(loaded.revision).toBeNull();
+    expect(loaded.baseServerRevisionId).toBe(revision.id);
+
+    const edited = await commitSetListCommand(storage, loaded, { kind: "update-details", title: "Reviewed legacy edited" });
+    const draft = await storage.readAuthoredDraft(baseline.id);
+    expect(draft).not.toBeNull();
+    expect(decodeCanonicalSetListSource(draft!.source, draft!.document.path).title).toBe("Reviewed legacy edited");
+    expect(draft!.source).toContain(`<!-- songs-v2-section id="${baseline.sections[0]!.id}" -->`);
+    expect((await storage.listAuthoredOutbox()).filter((item) => item.documentId === baseline.id).every((item) => item.envelope.base_revision_id === revision.id)).toBe(true);
+    expect(edited.document.title).toBe("Reviewed legacy edited");
     storage.close();
   });
 

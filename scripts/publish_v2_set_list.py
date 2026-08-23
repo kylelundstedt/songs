@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / "var" / "writable"
-RELEASE = ROOT / "var" / "releases" / "writable-clean-b1cf0f6785c1fd7f"
+RELEASE = ROOT / "var" / "releases" / "writable-compact-16cc93bd99a78dac"
 OWNER = "klundstedt@industryvault.com"
 PUBLISHER_DEVICE = "device-v2-publisher"
 BRANCH = "refs/heads/v2-published"

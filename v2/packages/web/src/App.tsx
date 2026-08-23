@@ -277,27 +277,26 @@ function ThemeToggle() {
 
 function Header({ path, online, update, writable, recoveryPending = false, authoredRecovery = false }: { readonly path: string; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly writable: boolean; readonly recoveryPending?: boolean; readonly authoredRecovery?: boolean }) {
   const current = (prefix: string) => path === prefix || path.startsWith(`${prefix}/`);
-  const subtitle = writable ? "Set List editing V2" : "Verified read-only V2";
-  return <header className="site-header">
+  const subtitle = writable ? "Set List editing" : "Read only";
+  return <header className={`site-header${writable ? " writable" : ""}`}>
     <a className="skip-link" href="#main">Skip to content</a>
     <div className="brand-row">
       {recoveryPending ? <span className="brand" aria-label="Songs, recovery pending"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>{subtitle}</small></span></span> : <Link to="/" className="brand"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>{subtitle}</small></span></Link>}
+      <nav aria-label="Primary">
+        {!recoveryPending && <>
+          <Link to="/songs" className={current("/songs") ? "active" : undefined} ariaCurrent={current("/songs") ? "page" : undefined}>Songs</Link>
+          <Link to="/sets" className={current("/sets") ? "active" : undefined} ariaCurrent={current("/sets") ? "page" : undefined}>Set Lists</Link>
+          {authoredRecovery && <Link to="/conflicts" className={current("/conflicts") ? "active" : undefined} ariaCurrent={current("/conflicts") ? "page" : undefined}>Conflicts</Link>}
+        </>}
+        <Link to="/status" className={current("/status") ? "active" : undefined} ariaCurrent={current("/status") ? "page" : undefined}>Status</Link>
+      </nav>
       <div className="header-actions">
-        <span className={`connection ${online ? "online" : "offline"}`} aria-label={online ? "Online — browser connectivity hint" : "Offline — browser connectivity hint"}><span aria-hidden="true">●</span>{online ? "Online · browser connectivity hint" : "Offline · browser connectivity hint"}</span>
-        {update.state === "update-available" && <button type="button" className="update-button" onClick={update.apply} disabled={!update.canApply} title={update.canApply ? "Activate the compatible verified shell update" : "Waiting for a compatible active snapshot"}>{update.canApply ? "Update ready" : "Update waiting for compatible snapshot"}</button>}
+        <span className={`connection ${online ? "online" : "offline"}`} aria-label={online ? "Online" : "Offline"}><span aria-hidden="true">●</span>{online ? "Online" : "Offline"}</span>
+        {update.state === "update-available" && <button type="button" className="update-button" onClick={update.apply} disabled={!update.canApply} title={update.canApply ? "Activate the compatible verified shell update" : "Close all V2 windows to activate the update"}>{update.canApply ? "Update" : "Update waiting"}</button>}
         <ThemeToggle />
       </div>
     </div>
-    <nav aria-label="Primary">
-      {!recoveryPending && <>
-        <Link to="/" className={path === "/" ? "active" : undefined} ariaCurrent={path === "/" ? "page" : undefined}>Library</Link>
-        <Link to="/songs" className={current("/songs") ? "active" : undefined} ariaCurrent={current("/songs") ? "page" : undefined}>Songs</Link>
-        <Link to="/sets" className={current("/sets") ? "active" : undefined} ariaCurrent={current("/sets") ? "page" : undefined}>Set Lists</Link>
-        {authoredRecovery && <Link to="/conflicts" className={current("/conflicts") ? "active" : undefined} ariaCurrent={current("/conflicts") ? "page" : undefined}>Conflicts</Link>}
-      </>}
-      <Link to="/status" className={current("/status") ? "active" : undefined} ariaCurrent={current("/status") ? "page" : undefined}>Status</Link>
-    </nav>
-    {update.message && <p className="update-message" role="status">{update.message}</p>}
+    {update.message && <p className="update-message" role="status">Update ready after all V2 windows close.</p>}
   </header>;
 }
 
@@ -395,6 +394,11 @@ function SetRow({ setList, snapshot, matchedFields }: { readonly setList: Librar
   return <li><Link to={`/sets/${setList.slug}`}><span><strong>{setList.title}</strong><small>{metadata || "Date and location not listed"}</small>{matchedFields !== undefined && <small className="matched-fields" aria-label={matched ? `Matched fields: ${matched}` : "No specific matched fields; showing the local verified snapshot"}>{matched ? `Matched fields: ${matched}` : "Local verified snapshot"}</small>}</span><span className="entry-count" aria-label={`${setList.document.projection.entries.length} songs`}>{setList.document.projection.entries.length}</span></Link></li>;
 }
 
+function SetGridCard({ setList }: { readonly setList: LibrarySet }) {
+  const metadata = [setList.date, setList.location].filter(Boolean).join(" · ");
+  return <li><Link to={`/sets/${setList.slug}`}><span><strong>{setList.title}</strong><small>{metadata || "Date and location not listed"}</small></span><span className="entry-count" aria-label={`${setList.document.projection.entries.length} songs`}>{setList.document.projection.entries.length}</span></Link></li>;
+}
+
 function SearchControls({ id, label, value, onChange, placeholder, clearLabel }: { readonly id: string; readonly label: string; readonly value: string; readonly onChange: (value: string) => void; readonly placeholder: string; readonly clearLabel: string }) {
   const input = useRef<HTMLInputElement>(null);
   const clear = () => {
@@ -445,16 +449,32 @@ function SongsPage({ index, snapshot, writable }: { readonly index: LibraryIndex
   </>;
 }
 
-function SetsPage({ index, snapshot, writable }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot; readonly writable: boolean }) {
+function SetsPage({ index, writable }: { readonly index: LibraryIndex; readonly writable: boolean }) {
   const [filter, setFilter] = useState("");
-  const results = useMemo(() => index.searchSets(filter), [filter, index]);
+  const [sortBy, setSortBy] = useState<"date" | "title">("date");
+  const [order, setOrder] = useState<"reverse" | "forward">("reverse");
+  const results = useMemo(() => {
+    const direction = order === "reverse" ? -1 : 1;
+    return [...index.searchSets(filter)].sort((left, right) => {
+      const a = sortBy === "date" ? left.set.date : left.set.title;
+      const b = sortBy === "date" ? right.set.date : right.set.title;
+      return direction * (a.localeCompare(b) || left.set.title.localeCompare(right.set.title));
+    });
+  }, [filter, index, order, sortBy]);
   const query = filter.trim();
-  return <>
-    <PageHeading eyebrow="Performance archive" title="Set Lists"><p>Search title, slug, date, location, band, and status in the active verified snapshot locally.</p>{writable && <Link to="/sets/new/edit" className="primary-button">Create Set List</Link>}</PageHeading>
-    <SearchControls id="set-search" label="Search Set Lists in this local verified snapshot" value={filter} onChange={setFilter} placeholder="Title, date, location, band, status" clearLabel="Clear Set List search" />
-    <p className="result-count" role="status">{query === "" ? `Showing all ${results.length} Set Lists from the local verified snapshot.` : `Showing ${results.length} of ${index.sets.length} Set Lists for “${query}”.`}</p>
-    {results.length === 0 ? <section className="panel no-results" aria-live="polite"><h2>No Set Lists found</h2><p>No Set Lists matched “{query}” in this local verified snapshot.</p></section> : <ul className="document-list panel" aria-label="Set List search results">{results.map((result) => <SetRow key={result.set.id} setList={result.set} snapshot={snapshot} matchedFields={result.matchedFields} />)}</ul>}
-  </>;
+  return <section className="sets-page">
+    <header className="compact-page-header">
+      <h1 data-page-heading tabIndex={-1}>Set Lists <span>{index.sets.length}</span></h1>
+      {writable && <Link to="/sets/new/edit" className="compact-primary-button">New Set List</Link>}
+    </header>
+    <div className="set-list-tools">
+      <label className="compact-search"><span className="visually-hidden">Search Set Lists</span><input type="search" value={filter} onChange={(event) => setFilter(event.target.value)} placeholder="Search Set Lists" /></label>
+      <label><span>Sort by</span><select value={sortBy} onChange={(event) => setSortBy(event.target.value as "date" | "title")}><option value="date">Date</option><option value="title">Title</option></select></label>
+      <label><span>Order</span><select value={order} onChange={(event) => setOrder(event.target.value as "reverse" | "forward")}><option value="reverse">Reverse</option><option value="forward">Forward</option></select></label>
+    </div>
+    {query !== "" && <p className="result-count" role="status">Showing {results.length} of {index.sets.length} Set Lists for “{query}”.</p>}
+    {results.length === 0 ? <section className="panel no-results" aria-live="polite"><h2>No Set Lists found</h2><p>No Set Lists matched “{query}”.</p></section> : <ul className="set-card-grid" aria-label="Set Lists">{results.map((result) => <SetGridCard key={result.set.id} setList={result.set} />)}</ul>}
+  </section>;
 }
 
 function MetaItem({ label, value }: { readonly label: string; readonly value?: string | undefined }) {
@@ -526,7 +546,7 @@ function LeadSheetPage({ song, snapshot, writable }: { readonly song: LeadSheetD
 function SetListPage({ performanceSet, writable }: { readonly performanceSet: PerformanceSet; readonly writable: boolean }) {
   const setList = performanceSet.document;
   const entryById = new Map(performanceSet.entries.map((entry) => [entry.entryId, entry]));
-  return <article className="detail-page">
+  return <article className="detail-page set-list-detail">
     <nav className="breadcrumbs" aria-label="Breadcrumb"><Link to="/sets">Set Lists</Link><span aria-hidden="true">/</span><span>{setList.projection.title}</span></nav>
     <header className="detail-header"><div><p className="eyebrow">{writable ? "Set List · server/published Live protected" : "Read-only Set List"}</p><h1 tabIndex={-1} data-page-heading>{setList.projection.title}</h1><p className="artist">{[setList.projection.metadata.date, setList.projection.metadata.location].filter(Boolean).join(" · ")}</p></div><div className="set-detail-actions"><span className="set-total">{performanceSet.entries.length} songs</span>{writable && <button type="button" onClick={() => {
       const source = setListFromBootstrap(setList); const id = randomStableId("set"); const copy = duplicateSetList(source, { setListId: id, path: `sets/Copy-${id.slice(-12)}.md`, sectionIds: source.sections.map(() => randomStableId("section")), entryIds: source.sections.flatMap((section) => section.entries.map(() => randomStableId("entry"))) }, { title: `Copy of ${source.title}` });
@@ -534,7 +554,7 @@ function SetListPage({ performanceSet, writable }: { readonly performanceSet: Pe
     }}>Duplicate</button>}{writable && <Link to={`/sets/${performanceSet.slug}/edit`} className="primary-button">Edit offline</Link>}<Link to={`/sets/${performanceSet.slug}/live`} className="primary-button live-launch">Open locked Live</Link></div></header>
     {setList.projection.metadata.reviewRequired && <p className="warning-banner">This frozen Set List is marked review required.</p>}
     {performanceSet.warningOccurrences.length > 0 && <p className="warning-banner">{performanceSet.warningOccurrences.length} occurrence{performanceSet.warningOccurrences.length === 1 ? " has" : "s have"} an explicit iPad landscape fit warning. Live mode remains readable at the 16px floor with scrolling.</p>}
-    <div className="set-sections">{setList.projection.sections.map((section) => <section key={section.projectionKey} className="set-section"><h2>{section.heading || `Set ${section.ordinal}`}</h2><ol>{section.entryIds.map((entryId) => {
+    <div className={`set-sections ${setList.projection.sections.length === 1 ? "single-section" : "multi-section"}`}>{setList.projection.sections.map((section) => <section key={section.projectionKey} className="set-section"><h2>{section.heading || `Set ${section.ordinal}`}</h2><ol>{section.entryIds.map((entryId) => {
       const entry = entryById.get(entryId);
       if (entry === undefined) return <li key={entryId} className="missing-entry">Missing frozen entry {entryId}</li>;
       return <li key={entry.entryId} data-entry-id={entry.entryId} className={entry.columnBreakBefore ? "column-break" : undefined}><span className="ordinal">{entry.ordinal}</span><div><strong><Link to={`/songs/${entry.song.slug}`}>{entry.label}</Link></strong>{entry.singer && <span className="entry-detail"><b>Singer</b> {entry.singer}</span>}{entry.note && <span className="entry-detail"><b>Note</b> {entry.note}</span>}{entry.landscapeWarning && <span className="entry-detail live-fit-warning"><b>Fit</b> iPad landscape needs scrolling at the 16px floor</span>}</div></li>;
@@ -828,7 +848,7 @@ function WritableToolbar({ online, capabilities }: { readonly online: boolean; r
     catch (error) { setStatus(error instanceof Error ? error.message : "Restore failed"); }
     finally { storage.close(); setBusy(false); }
   };
-  return <aside className="writable-toolbar" aria-label="Set List editing and sync"><div className="writable-status"><strong>Set List editing</strong><span role="status" aria-live="polite">{status}</span></div><div className="writable-actions"><button type="button" className="sync-button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync now</button><a href="#/conflicts">Conflicts</a><button type="button" disabled={busy} onClick={() => void exportState()}>Export backup</button><label className="file-button">Restore backup<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
+  return <aside className="writable-toolbar" aria-label="Set List editing and sync"><div className="writable-status"><strong>Set List editing</strong><span role="status" aria-live="polite">{status}</span></div><div className="writable-actions"><button type="button" className="sync-button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync</button><a href="#/conflicts">Conflicts</a><details className="backup-menu"><summary>Backup</summary><div><button type="button" disabled={busy} onClick={() => void exportState()}>Export</button><label className="file-button">Restore<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></details></div></aside>;
 }
 
 function usePublishedAuthoredSet(documentId: string | undefined): SetList | null | undefined {
@@ -896,7 +916,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} writable={leadWritable} />;
   else if (path === "/songs/new/edit") page = leadWritable ? <NewLeadSheetEditorPage capabilities={capabilities} online={online} /> : <NotFound />;
   else if (localSongID !== undefined) page = leadWritable ? <LocalLeadSheetEditorPage documentId={localSongID} capabilities={capabilities} online={online} /> : <LocalLeadSheetRecoveryPage documentId={localSongID} />;
-  else if (path === "/sets") page = <SetsPage index={index} snapshot={snapshot} writable={writable} />;
+  else if (path === "/sets") page = <SetsPage index={index} writable={writable} />;
   else if (path === "/sets/new/edit") page = writable ? <NewSetListEditorPage songs={snapshot.leadSheets} /> : <NotFound />;
   else if (localSetID !== undefined && localSetMode === "live") {
     if (publishedPerformanceSet === undefined) page = <section className="state-card" role="status"><h1>Checking published Live revision…</h1></section>;
@@ -923,8 +943,9 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
     } else page = <SetListPage performanceSet={routedPerformanceSet} writable={writable} />;
   } else page = <NotFound />;
   if (livePage !== null) return <>{livePage}</>;
+  const showWritableToolbar = conflictRoute || path === "/sets/new/edit" || path === "/songs/new/edit" || setRoute?.mode === "edit" || localSetMode === "edit" || songRoute?.mode === "edit" || localSongID !== undefined;
   return <><Header path={path} online={online} update={update} writable={writable || leadWritable} recoveryPending={selectorsClosed} authoredRecovery={localStorage.getItem("songs-v2-authored-recovery-present") === "1"} /><main id="main">
-    {active && (writable || leadWritable || localStorage.getItem("songs-v2-authored-recovery-present") === "1") && <WritableToolbar online={online} capabilities={capabilities} />}
+    {active && showWritableToolbar && (writable || leadWritable || localStorage.getItem("songs-v2-authored-recovery-present") === "1") && <WritableToolbar online={online} capabilities={capabilities} />}
     {active && !online && <div className="offline-banner" role="status">Offline — browse and search are local. {offlineReady ? "Using the active verified snapshot saved in IndexedDB." : "This active snapshot is not ready for offline restart."}</div>}
     {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}
     {active && runtime.update === "failed-retained" && <div className="update-warning-banner" role="status">Update failed; the active verified snapshot was retained. Browsing and local search remain available.</div>}

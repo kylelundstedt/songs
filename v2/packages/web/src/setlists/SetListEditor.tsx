@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { authoredReadiness } from "../authored/status";
 import type { LeadSheetDocument } from "../bootstrap/types";
-import { validateLeadSheetLocally } from "../leadsheets";
+import { createLeadSheet, validateLeadSheetLocally } from "../leadsheets";
 import { openSongsStorage } from "../storage";
 import { commitSetListCommand, initializeEditableSetList, loadEditableSetList, undoEditableSetList, type EditableSetListState } from "./repository";
 import { randomStableId, type SetList } from "./model";
@@ -17,9 +17,9 @@ export function SetListEditor({ baseline, songs, onClose, initialize, liveHref }
     let active = true;
     void openSongsStorage().then(async (storage) => {
       try {
-        const [loaded, authoredLeadSheets, authoredSync, authoredState] = await Promise.all([
+        const [loaded, authoredLeadSheets, authoredSync, authoredState, authoredRevisions] = await Promise.all([
           initialize === undefined ? loadEditableSetList(storage, stableBaseline) : initializeEditableSetList(storage, stableBaseline, initialize),
-          storage.listLeadSheetDrafts(), storage.readAuthoredSyncState(), storage.readAuthoredState(),
+          storage.listLeadSheetDrafts(), storage.readAuthoredSyncState(), storage.readAuthoredState(), storage.listAuthoredRevisions(),
         ]);
         const authoredOptions = await Promise.all(authoredLeadSheets.map(async (draft) => {
           const validation = validateLeadSheetLocally(draft.document);
@@ -34,9 +34,21 @@ export function SetListEditor({ baseline, songs, onClose, initialize, liveHref }
           });
           return { id: draft.documentId, path: draft.document.path, title: validation.title, status: readiness.label };
         }));
+        const reviewedSongIDs = new Set(songs.map((song) => song.id));
+        const serverOptions = (authoredSync?.documents ?? []).flatMap((sync) => {
+          if (reviewedSongIDs.has(sync.documentId)) return [];
+          const revision = authoredRevisions.find((item) => item.origin === "server" && item.id === sync.currentServerRevisionId && item.payload.kind === "lead-sheet");
+          if (revision === undefined || revision.origin !== "server" || revision.payload.kind !== "lead-sheet") return [];
+          const document = createLeadSheet({ id: sync.documentId, path: revision.payload.path, source: revision.payload.source });
+          const validation = validateLeadSheetLocally(document);
+          if (!validation.valid || validation.title === undefined) return [];
+          return [{ id: sync.documentId, path: document.path, title: validation.title, status: sync.publishedRevisionId === sync.currentServerRevisionId ? "published" : "sync accepted" }];
+        });
         if (active) {
+          const byID = new Map(serverOptions.map((song) => [song.id, song]));
+          for (const song of authoredOptions) if (song !== null) byID.set(song.id, song);
           setState(loaded);
-          setLocalSongs(authoredOptions.filter((item): item is NonNullable<typeof item> => item !== null));
+          setLocalSongs([...byID.values()].sort((left, right) => left.title.localeCompare(right.title) || left.id.localeCompare(right.id)));
           setMessage(loaded.queued > 0 ? `${loaded.queued} local operation${loaded.queued === 1 ? "" : "s"} waiting for foreground sync.` : "No local changes queued.");
         }
       }
@@ -44,7 +56,7 @@ export function SetListEditor({ baseline, songs, onClose, initialize, liveHref }
       finally { storage.close(); }
     });
     return () => { active = false; };
-  }, [stableBaseline, initialize]);
+  }, [stableBaseline, initialize, songs]);
 
   const mutate = async (command: Parameters<typeof commitSetListCommand>[2]) => {
     if (state === undefined || busy) return;
@@ -74,19 +86,19 @@ export function SetListEditor({ baseline, songs, onClose, initialize, liveHref }
   ];
   return <article className="detail-page set-editor" aria-busy={busy}>
     <nav className="breadcrumbs" aria-label="Breadcrumb"><button type="button" className="link-button" onClick={onClose}>Set List</button><span aria-hidden="true">/</span><span>Edit</span></nav>
-    <header className="detail-header"><div><p className="eyebrow">Offline writable Set List</p><h1 data-page-heading tabIndex={-1}>{setList.title}</h1><p className="artist">Every change commits locally before entering the outbox.</p></div><div className="set-detail-actions">{liveHref !== undefined && <a className="primary-button" href={liveHref}>Open published Live</a>}<button type="button" onClick={() => void undo()} disabled={busy || state.revision?.inverse === null}>Undo</button><button type="button" className="primary-button" onClick={onClose}>Done</button></div></header>
-    <p role="status" aria-live="polite" className="session-banner">{message}</p>
-    <ul className="editor-state-list" aria-label="Set List save state"><li>Local: committed durably</li><li>Queued: {state.queued > 0 ? `${state.queued} operation${state.queued === 1 ? "" : "s"} waiting or retrying` : "none"}</li><li>Acknowledged: {state.baseServerRevisionId === "" ? "no server revision accepted" : state.queued > 0 ? "an older server revision only" : "latest completed foreground sync"}</li><li>Conflicted: {state.conflicts > 0 ? <a href="#/conflicts">review both retained candidates</a> : "no open conflict"}</li><li>Published: {state.publishedRevisionId === "" ? "not published" : state.conflicts > 0 || state.queued > 0 || state.publishedRevisionId !== state.baseServerRevisionId ? "older protected Live revision" : "current acknowledged server revision"}</li></ul>
+    <header className="detail-header"><div><h1 data-page-heading tabIndex={-1}>{setList.title}</h1><p className="artist">{setList.date}{setList.location ? ` · ${setList.location}` : ""}</p></div><div className="set-detail-actions">{liveHref !== undefined && <a className="compact-primary-button" href={liveHref}>Live</a>}<button type="button" onClick={() => void undo()} disabled={busy || state.revision?.inverse === null}>Undo</button><button type="button" className="sync-button" onClick={onClose}>Done</button></div></header>
+    <p role="status" aria-live="polite" className="editor-message">{message}</p>
+    <ul className="editor-state-list" aria-label="Set List save state"><li>Local saved</li><li>{state.queued} queued</li><li>{state.conflicts} conflicts</li><li>{state.publishedRevisionId === state.baseServerRevisionId && state.queued === 0 ? "Published" : "Live uses last published version"}</li></ul>
     <fieldset className="editor-fields" disabled={busy}><legend>Set List details</legend>
       <label>Title<input value={setList.title} onChange={(event) => void mutate({ kind: "update-details", title: event.target.value })} /></label>
       <label>Date<input value={setList.date} placeholder="YYYY-MM-DD" onChange={(event) => void mutate({ kind: "update-details", date: event.target.value })} /></label>
       <label>Location<input value={setList.location} onChange={(event) => void mutate({ kind: "update-details", location: event.target.value })} /></label>
       <label>Band<input value={setList.band} onChange={(event) => void mutate({ kind: "update-details", band: event.target.value })} /></label>
     </fieldset>
-    <section className="panel editor-add"><h2>Add lead sheet</h2><p>Local-stage-ready and sync-accepted songs are labeled explicitly; locked Live still requires a published revision.</p><select aria-label="Lead sheet" defaultValue="" onChange={(event) => {
+    <section className="panel editor-add"><label><strong>Add song</strong><select aria-label="Lead sheet" defaultValue="" onChange={(event) => {
       const song = songOptions.find((candidate) => candidate.id === event.target.value); if (song === undefined) return;
       void mutate({ kind: "add-entry", sectionId: firstSection.id, entry: { id: randomStableId("entry"), leadSheetId: song.id, targetPath: song.path, label: song.title } }); event.target.value = "";
-    }}><option value="">Choose a song…</option>{songOptions.map((song) => <option key={song.id} value={song.id}>{song.title} · {song.status}</option>)}</select></section>
-    <div className="set-sections">{setList.sections.map((section) => <section key={section.id} className="set-section"><h2>{section.heading}</h2><ol>{section.entries.map((entry, index) => <li key={entry.id} data-entry-id={entry.id}><span className="ordinal">{index + 1}</span><div className="editor-entry"><strong>{entry.label}</strong><label>Performance note<input value={entry.note} onChange={(event) => void mutate({ kind: "update-entry-note", entryId: entry.id, note: event.target.value })} /></label><div className="editor-entry-actions"><button type="button" disabled={busy || index === 0} onClick={() => void mutate({ kind: "move-entry", entryId: entry.id, toSectionId: section.id, beforeEntryId: section.entries[index - 1]!.id })}>Move up</button><button type="button" disabled={busy || index === section.entries.length - 1} onClick={() => void mutate({ kind: "move-entry", entryId: entry.id, toSectionId: section.id, ...(section.entries[index + 2] === undefined ? {} : { beforeEntryId: section.entries[index + 2]!.id }) })}>Move down</button><button type="button" disabled={busy} onClick={() => void mutate({ kind: "remove-entry", entryId: entry.id })}>Remove</button></div></div></li>)}</ol></section>)}</div>
+    }}><option value="">Choose a song…</option>{songOptions.map((song) => <option key={song.id} value={song.id}>{song.title} · {song.status}</option>)}</select></label></section>
+    <div className={`set-sections editor-sections ${setList.sections.length === 1 ? "single-section" : "multi-section"}`}>{setList.sections.map((section) => <section key={section.id} className="set-section"><h2>{section.heading}</h2><ol>{section.entries.map((entry, index) => <li key={entry.id} data-entry-id={entry.id}><span className="ordinal">{index + 1}</span><div className="editor-entry"><div className="editor-entry-main"><strong>{entry.label}</strong><input aria-label={`Performance note for ${entry.label}`} placeholder="Performance note" value={entry.note} onChange={(event) => void mutate({ kind: "update-entry-note", entryId: entry.id, note: event.target.value })} /></div><div className="editor-entry-actions"><button type="button" aria-label={`Move ${entry.label} up`} title="Move up" disabled={busy || index === 0} onClick={() => void mutate({ kind: "move-entry", entryId: entry.id, toSectionId: section.id, beforeEntryId: section.entries[index - 1]!.id })}>↑</button><button type="button" aria-label={`Move ${entry.label} down`} title="Move down" disabled={busy || index === section.entries.length - 1} onClick={() => void mutate({ kind: "move-entry", entryId: entry.id, toSectionId: section.id, ...(section.entries[index + 2] === undefined ? {} : { beforeEntryId: section.entries[index + 2]!.id }) })}>↓</button><button type="button" aria-label={`Remove ${entry.label}`} title="Remove" disabled={busy} onClick={() => void mutate({ kind: "remove-entry", entryId: entry.id })}>×</button></div></div></li>)}</ol></section>)}</div>
   </article>;
 }
