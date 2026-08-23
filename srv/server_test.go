@@ -115,7 +115,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	body = []byte(strings.Replace(string(body), "— singer: Alex — note: Count in", "— singer: Alex — key: D — bpm: 132 BPM — note: Count in", 1))
+	body = []byte(strings.Replace(string(body), "— singer: Alex — note: Count in", "— singer: Alex — key: D — bpm: 132.6 BPM — note: Count in", 1))
 	if err := os.WriteFile(setPath, body, 0o644); err != nil {
 		t.Fatal(err)
 	}
@@ -123,7 +123,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatal(err)
 	}
 	item := server.sets[0].Items[0]
-	if item.PerformanceKey != "D" || item.PerformanceBPM != "132" || item.Note != "Count in" {
+	if item.PerformanceKey != "D" || item.PerformanceBPM != "132.6" || item.Note != "Count in" {
 		t.Fatalf("parsed set performance details=%#v", item)
 	}
 
@@ -135,7 +135,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatalf("set status=%d body=%s", setResponse.Code, setResponse.Body.String())
 	}
 	setBody := setResponse.Body.String()
-	if !strings.Contains(setBody, "(Alex · D · 132 BPM)") || !strings.Contains(setBody, "<small>Count in</small>") {
+	if !strings.Contains(setBody, "(Alex · D · 133 BPM)") || !strings.Contains(setBody, "<small>Count in</small>") {
 		t.Fatalf("set performance details or note missing: %s", setBody)
 	}
 
@@ -147,7 +147,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatalf("live status=%d body=%s", liveResponse.Code, liveResponse.Body.String())
 	}
 	liveBody := liveResponse.Body.String()
-	for _, want := range []string{"<dt>Key</dt><dd>D</dd>", "<dt>BPM</dt><dd>132</dd>", "<strong>Count in</strong>"} {
+	for _, want := range []string{"<dt>Key</dt><dd>D</dd>", "<dt>BPM</dt><dd>133</dd>", "<strong>Count in</strong>"} {
 		if !strings.Contains(liveBody, want) {
 			t.Fatalf("live performance detail missing %q: %s", want, liveBody)
 		}
@@ -212,14 +212,18 @@ func TestParseSetItemDetails(t *testing.T) {
 }
 
 func TestSetItemPerformanceDetailsOverrideSongMetadata(t *testing.T) {
-	item := SetItem{Singer: "Kyle", Song: &Song{Key: "A", BPM: "124 BPM"}}
-	if item.EffectiveKey() != "A" || item.EffectiveBPM() != "124" {
-		t.Fatalf("lead-sheet fallback failed: key=%q bpm=%q", item.EffectiveKey(), item.EffectiveBPM())
+	item := SetItem{Singer: "Kyle", Song: &Song{Key: "A", BPM: "124.6 BPM"}}
+	if item.EffectiveKey() != "A" || item.EffectiveBPM() != "124.6" || item.DisplayBPM() != "125" {
+		t.Fatalf("lead-sheet fallback failed: key=%q bpm=%q display=%q", item.EffectiveKey(), item.EffectiveBPM(), item.DisplayBPM())
 	}
 	item.PerformanceKey = "D"
-	item.PerformanceBPM = "132"
-	if item.EffectiveKey() != "D" || item.EffectiveBPM() != "132" {
-		t.Fatalf("set-list override failed: key=%q bpm=%q", item.EffectiveKey(), item.EffectiveBPM())
+	item.PerformanceBPM = "132.4"
+	if item.EffectiveKey() != "D" || item.EffectiveBPM() != "132.4" || item.DisplayBPM() != "132" {
+		t.Fatalf("set-list override failed: key=%q bpm=%q display=%q", item.EffectiveKey(), item.EffectiveBPM(), item.DisplayBPM())
+	}
+	item.PerformanceBPM = "120-124"
+	if item.DisplayBPM() != "120-124" {
+		t.Fatalf("non-numeric BPM should be preserved, got %q", item.DisplayBPM())
 	}
 }
 

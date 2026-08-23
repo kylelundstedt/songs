@@ -12,6 +12,7 @@ import (
 	"html/template"
 	"io"
 	"log/slog"
+	"math"
 	"net/http"
 	"net/url"
 	"os"
@@ -78,6 +79,18 @@ func (item SetItem) EffectiveBPM() string {
 		return normalizePerformanceBPM(item.Song.BPM)
 	}
 	return ""
+}
+
+func (item SetItem) DisplayBPM() string {
+	value := item.EffectiveBPM()
+	if value == "" {
+		return ""
+	}
+	numeric, err := strconv.ParseFloat(value, 64)
+	if err != nil {
+		return value
+	}
+	return strconv.FormatInt(int64(math.Round(numeric)), 10)
 }
 
 type SetList struct {
