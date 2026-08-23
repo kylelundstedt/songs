@@ -57,11 +57,10 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 33. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
 <!-- column-break -->
 ## Set 3 - Fast
-34. [Sex on Fire](../songs/Sex-on-Fire.md)
-35. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
-36. [Just Like Heaven](../songs/Just-Like-Heaven.md)
-37. [Melt With You](../songs/Melt-With-You.md)
-38. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
-39. [Born To Run](../songs/Born-To-Run.md)
-40. [American Girl](../songs/american-girl.md)
-41. [The Middle](../songs/The-Middle.md)
+34. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
+35. [Just Like Heaven](../songs/Just-Like-Heaven.md)
+36. [Melt With You](../songs/Melt-With-You.md)
+37. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
+38. [Born To Run](../songs/Born-To-Run.md)
+39. [American Girl](../songs/american-girl.md)
+40. [The Middle](../songs/The-Middle.md)
