@@ -28,7 +28,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 6. [Drive](../songs/Drive.md) — singer: Kyle
 7. [Rebel Yell](../songs/Rebel-Yell.md) — singer: Dave
 8. [Ramble On](../songs/Ramble-On.md) — singer: Kyle
-9. [Melissa](../songs/Melissa.md) — singer: Dave
+9. [Melissa](../songs/Melissa.md) — singer: Dave — bpm: 95
 10. [Under The Bridge](../songs/Under-The-Bridge.md) — singer: Kyle
 11. [Interstate Love Song](../songs/Interstate-Love-Song.md) — singer: Dave
 12. [Miss You](../songs/Miss-You.md) — singer: Dave

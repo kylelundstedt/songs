@@ -72,13 +72,7 @@ func (item SetItem) EffectiveKey() string {
 }
 
 func (item SetItem) EffectiveBPM() string {
-	if item.PerformanceBPM != "" {
-		return normalizePerformanceBPM(item.PerformanceBPM)
-	}
-	if item.Song != nil {
-		return normalizePerformanceBPM(item.Song.BPM)
-	}
-	return ""
+	return normalizePerformanceBPM(item.PerformanceBPM)
 }
 
 func (item SetItem) DisplayBPM() string {

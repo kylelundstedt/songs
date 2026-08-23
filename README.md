@@ -20,7 +20,7 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 - iPad/tablet live sheets use exactly two columns and fit to one viewport at a 16px readability floor.
 - iPhone uses exactly one 20px column with vertical scrolling when required.
 - A standalone `<!-- column-break -->` comment starts the next tablet column in lead sheets and set lists; it is ignored in one-column phone layouts.
-- Set-list entries support gig-specific `— singer: Name — key: D — bpm: 132 — note: Details` fields. Key and BPM fall back to the lead sheet when omitted, so the same song can use different performance details on different dates.
+- Set-list entries support gig-specific `— singer: Name — key: D — bpm: 132 — note: Details` fields. Key falls back to the lead sheet when omitted; BPM appears only when explicitly reviewed for that performance.
 - A Set-column heading uses `## Set 1 — Slow` immediately before its first song; later headings follow a standalone `<!-- column-break -->`.
 - Individual Set Lists can be edited as canonical Markdown or maintained with Add song, Remove songs, and drag-to-reorder controls; every save validates, commits, pushes, and reindexes.
 

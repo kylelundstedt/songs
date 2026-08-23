@@ -69,7 +69,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 	if len(server.sets) != 1 || len(server.sets[0].Items) != 1 {
 		t.Fatalf("sets=%#v", server.sets)
 	}
-	if item := server.sets[0].Items[0]; item.Singer != "Alex" || item.Note != "Count in" || item.EffectiveKey() != "A" || item.EffectiveBPM() != "124" {
+	if item := server.sets[0].Items[0]; item.Singer != "Alex" || item.Note != "Count in" || item.EffectiveKey() != "A" || item.EffectiveBPM() != "" {
 		t.Fatalf("set item metadata=%#v", item)
 	}
 
@@ -213,8 +213,8 @@ func TestParseSetItemDetails(t *testing.T) {
 
 func TestSetItemPerformanceDetailsOverrideSongMetadata(t *testing.T) {
 	item := SetItem{Singer: "Kyle", Song: &Song{Key: "A", BPM: "124.6 BPM"}}
-	if item.EffectiveKey() != "A" || item.EffectiveBPM() != "124.6" || item.DisplayBPM() != "125" {
-		t.Fatalf("lead-sheet fallback failed: key=%q bpm=%q display=%q", item.EffectiveKey(), item.EffectiveBPM(), item.DisplayBPM())
+	if item.EffectiveKey() != "A" || item.EffectiveBPM() != "" || item.DisplayBPM() != "" {
+		t.Fatalf("unreviewed lead-sheet BPM should not become performance BPM: key=%q bpm=%q display=%q", item.EffectiveKey(), item.EffectiveBPM(), item.DisplayBPM())
 	}
 	item.PerformanceKey = "D"
 	item.PerformanceBPM = "132.4"
