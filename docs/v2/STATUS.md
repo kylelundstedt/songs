@@ -4,11 +4,11 @@
 - **Phase 1 content source:** annotated tag `v2-phase1-content-2026-08-10` at `17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5` (`17c326c`).
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
-- **Phase:** Phase 1 read-only checkpoint is complete; post-Phase-1 writable foundation is now active.
+- **Phase:** Owner-authorized writable Set List pilot is active on the isolated V2 origin; V1 remains default.
 - **Completed:** V2 proposal/control plane and TASK-001 through TASK-020.
-- **Current task:** TASK-021 physical iPad writable acceptance and owner signoff; software implementation is complete.
+- **Current task:** Operate the Set List-only pilot while completing TASK-021 physical iPad writable acceptance and owner signoff.
 - **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
-- **Checkpoint status:** Software PASS; G1–G3 pass on the approved iPad, G4 has deferred blocking checks, and G5 operational checks pass with optional VoiceOver not required. G6/G7 are optional and not planned. Not writable or cutover-approved.
+- **Pilot status:** Set List authoring and foreground sync enabled August 23, 2026; lead-sheet authoring/enrichment disabled. Formal TASK-021 acceptance and cutover remain pending.
 
 ## Completed evidence
 
@@ -160,25 +160,28 @@ TASK-015 completed P1-008 browser, accessibility, route, update, and failure har
 - 95 web tests pass, including active-pointer epoch closure and post-read races, typed IndexedDB failures, safely deferred replacement-worker decisions, routes, accessibility, storage recovery, and fitting;
 - release `shell-39849548e3b7192a1c76aa6e` and evidence are recorded under `migration/v2/phase1/hardening/`; physical Safari/iPad acceptance remains pending and mandatory.
 
-TASK-016 completed the P1-009 software checkpoint package; read-only physical evaluation remains in progress because deferred blocking G4 checks are open:
+TASK-016 completed the historical P1-009 software checkpoint package; deferred blocking G4 checks remain open:
 
-- deterministic checkpoint status is `SOFTWARE_PASS_PHYSICAL_PENDING`; stage readiness, writable work, default-route change, cutover, and v1 retirement remain false/no-go;
+- the archived checkpoint status remains `SOFTWARE_PASS_PHYSICAL_PENDING`; it did not authorize default-route change, cutover, or V1 retirement;
 - frozen rollback/source/evidence refs, bootstrap generation, shell release, supporting evidence summaries, release binary, service unit, and package documents are hash-bound in `migration/v2/phase1/checkpoint/checkpoint-summary.json`;
-- the V2 binary builds from two independent clean exports at SHA-256
+- the archived V2 checkpoint binary built at SHA-256
   `4e2e34972ee92164fd6f6a670fdd5eee96a18ef089d4b31232ed44880a3664cc`
-  using `-trimpath -buildvcs=false` and matches the deployed checkpoint binary;
-  installed and tracked V2 unit bytes also match;
+  using `-trimpath -buildvcs=false`; the active owner-authorized writable release
+  supersedes that deployed binary while preserving the checkpoint for rollback;
 - V1 and V2 services remain enabled and active, with V1 default on port 8000 and V2 opt-in/loopback-only on port 8001;
 - public port-8001 TLS/private-login behavior is recorded, while authorized owner-side reachability remains a physical-session confirmation;
 - the install/upgrade/recovery/rollback runbook preserves V1 as immediate fallback and documents replacement-worker, diagnostics, storage, and controlled V2-origin cleanup behavior;
 - 18 software matrix items pass; the baseline 57-item physical matrix remains
   available for sessions, with G1–G5 blocking read-only checks, optional
   nonblocking PHY-044, and optional/not-planned G6/G7 operational trials;
-- the read-only release has no user-facing export/import or authored V2 user data; browser export/recovery remains mandatory before writable operation;
+- the archived read-only release had no user-facing export/import or authored
+  data; the active writable Set List pilot includes hashed browser export/restore;
 - an August 13 physical session on iPad Pro 13-inch (M5), iPadOS 26.6 records G1–G3 PASS, the replacement-worker drill PASS, operational G5 checks PASS, and deferred blocking G4 checks for later;
 - VoiceOver is optional/nonblocking for that device contract and no VoiceOver support is claimed;
 - G6 rehearsal and G7 real-gig trials are optional, not planned, and not the next step while product/design work remains;
-- editing, sync, conflicts, import/export, publication, and all other writable behavior are unimplemented and untested in this slice.
+- editing, sync, conflicts, import/export, and publication were intentionally
+  absent from that checkpoint slice; later TASK-017–021 releases add them behind
+  independent gates.
 
 TASK-017 completed the production authorization and durable sync foundation:
 
@@ -195,7 +198,8 @@ TASK-017 completed the production authorization and durable sync foundation:
   pull, snapshot, acknowledgement, diagnostics, health, and self-revocation
   without browser mutation controls or metadata/content leaks;
 - `cmd/v2api` mounts sync only when `-sync-enabled` and all required settings are
-  supplied; defaults and the tracked service unit remain read-only;
+  supplied; defaults remain read-only, while the active tracked unit explicitly
+  enables sync and Set List writing for the owner-authorized pilot;
 - deterministic evidence is recorded under `migration/v2/production-sync/`.
 
 TASK-018 completed the fenced publication, Git reconciliation, and recovery foundation:
@@ -241,7 +245,7 @@ TASK-019 completed the offline writable Set List editor and outbox:
   `migration/v2/writable-set-lists/` at SHA-256
   `39d6b8443391a6933330d20880ec006b5948cb35e229c093ff12e96eb6e64a33`;
   embedded release `shell-3ec4dfcfddc7fd8b5d1c1904` is the gated TASK-019 shell;
-  the tracked service remains read-only.
+  the active pilot now enables only this Set List capability.
 
 TASK-020 completed offline writable lead-sheet authoring and enrichment:
 
@@ -264,7 +268,7 @@ TASK-020 completed offline writable lead-sheet authoring and enrichment:
   `migration/v2/writable-lead-sheets/` at SHA-256
   `1743d4bebde58de9165525259b47dc2399b651a2a6e742768e8bbccb2a51ece6`;
   embedded release `shell-ffe70456e479eb1529d157f0` is the gated TASK-020 shell;
-  the tracked service remains read-only.
+  lead-sheet writing and enrichment remain disabled in the active pilot.
 
 TASK-021 software conflict/recovery hardening is complete; physical acceptance
 remains pending:
@@ -286,7 +290,23 @@ remains pending:
 - embedded release `shell-96ab0f5519cd6a1bff86220f` contains the gated
   TASK-021 conflict/recovery UI;
 - physical iPad rows WRT-001–042 and inherited PHY-028, PHY-029, PHY-032,
-  PHY-037, and PHY-038 remain `PENDING`; writable pilot approval remains `NO`.
+  PHY-037, and PHY-038 remain `PENDING`; formal TASK-021 signoff is still open,
+  although the owner explicitly authorized the isolated Set List-only pilot on
+  August 23, 2026.
+
+## Active writable Set List pilot
+
+- release `writable-set-lists-1ef0cf2e0b8aa7f6` serves shell
+  `shell-96ab0f5519cd6a1bff86220f` on loopback port 8001;
+- Set List authoring and foreground sync are enabled; lead-sheet authoring,
+  lyrics providers, and Shelley suggestions are disabled;
+- the durable sync/publication baseline contains 373 documents and 373
+  publication mappings with zero open conflicts at activation;
+- fenced publication targets `refs/heads/v2-published`, not `main`, until later
+  reconciliation/cutover review;
+- V1 remains enabled, active, and default on port 8000;
+- operational details and rollback are in
+  `docs/v2/runbooks/writable-set-list-pilot.md`.
 
 ## Verification commands
 
@@ -339,6 +359,7 @@ git diff --check
 
 ## Next tasks
 
-1. Execute and sign off **TASK-021** physical iPad writable acceptance, including inherited PHY-028/029/032/037/038; keep writable pilot approval at `NO` until every blocking row passes.
-2. After TASK-021 physical acceptance, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
-3. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.
+1. Run the owner-authorized Set List pilot with recovery exports and explicit manual publication; complete and sign off **TASK-021** physical iPad acceptance, including inherited PHY-028/029/032/037/038.
+2. Reconcile accepted pilot content from `v2-published` into the canonical archive only through the fenced review path; do not merge it silently into `main`.
+3. After TASK-021 physical acceptance, execute **TASK-022**, an owner-led product-wide web design overhaul. The current evidence-oriented UI is not accepted as the target design.
+4. Keep **TASK-023/024** printing and spreadsheet export deferred until writable workflows and the design overhaul are complete. Do not schedule G6/G7 unless separately requested.

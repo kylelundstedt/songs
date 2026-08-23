@@ -42,6 +42,7 @@ type apiConfig struct {
 	Ledger     string
 	Sync       string
 	Repository string
+	Branch     string
 	WorkRoot   string
 	Owner      string
 	Device     string
@@ -134,7 +135,7 @@ func (livePublicationAPI) BootstrapOnce(ctx context.Context, cfg apiConfig) erro
 		return fmt.Errorf("open sync ledger: %w", err)
 	}
 	defer syncStore.Close()
-	publisher, err := v2publish.Open(v2publish.Options{LedgerPath: cfg.Ledger, LockPath: cfg.Lock, Remote: cfg.Repository, WorkRoot: cfg.WorkRoot, Sync: syncStore, BootstrapManifestSHA256: manifestHash, ValidatorOptions: v2publish.ValidatorOptions{ApexPath: cfg.Apex}})
+	publisher, err := v2publish.Open(v2publish.Options{LedgerPath: cfg.Ledger, LockPath: cfg.Lock, Remote: cfg.Repository, Branch: cfg.Branch, WorkRoot: cfg.WorkRoot, Sync: syncStore, BootstrapManifestSHA256: manifestHash, ValidatorOptions: v2publish.ValidatorOptions{ApexPath: cfg.Apex}})
 	if err != nil {
 		return err
 	}
@@ -192,7 +193,7 @@ func openPublisher(cfg apiConfig) (*v2publish.Publisher, *v2sync.Store, error) {
 		return nil, nil, fmt.Errorf("open sync ledger: %w", err)
 	}
 	publisher, err := v2publish.Open(v2publish.Options{
-		LedgerPath: cfg.Ledger, LockPath: cfg.Lock, Remote: cfg.Repository,
+		LedgerPath: cfg.Ledger, LockPath: cfg.Lock, Remote: cfg.Repository, Branch: cfg.Branch,
 		WorkRoot: cfg.WorkRoot, Sync: syncStore,
 		ValidatorOptions: v2publish.ValidatorOptions{ApexPath: cfg.Apex},
 	})
@@ -256,6 +257,7 @@ func parseConfig(args []string) (config, error) {
 	flags.StringVar(&cfg.api.Ledger, "ledger", "", "publication ledger configuration (required when enabled)")
 	flags.StringVar(&cfg.api.Sync, "sync", "", "durable sync configuration (required when enabled)")
 	flags.StringVar(&cfg.api.Repository, "repository", "", "Git remote configuration (required when enabled)")
+	flags.StringVar(&cfg.api.Branch, "branch", "", "exact Git branch ref used for publication (defaults to refs/heads/main)")
 	flags.StringVar(&cfg.api.WorkRoot, "work-root", "", "isolated Git workspace root (required when enabled)")
 	flags.StringVar(&cfg.api.Owner, "owner", "", "owner identity (required when enabled)")
 	flags.StringVar(&cfg.api.Device, "device", "", "publisher device identity (required when enabled)")
@@ -330,6 +332,7 @@ func validateConfig(cfg config) error {
 		{"-ledger", cfg.api.Ledger},
 		{"-sync", cfg.api.Sync},
 		{"-repository", cfg.api.Repository},
+		{"-branch", cfg.api.Branch},
 		{"-work-root", cfg.api.WorkRoot},
 		{"-owner", cfg.api.Owner},
 		{"-device", cfg.api.Device},
@@ -357,6 +360,7 @@ func configuredFields(cfg config) []string {
 		{"-ledger", cfg.api.Ledger},
 		{"-sync", cfg.api.Sync},
 		{"-repository", cfg.api.Repository},
+		{"-branch", cfg.api.Branch},
 		{"-work-root", cfg.api.WorkRoot},
 		{"-owner", cfg.api.Owner},
 		{"-device", cfg.api.Device},

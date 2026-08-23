@@ -85,6 +85,17 @@ func completeConfig(mode string) config {
 	return result
 }
 
+func TestExplicitPublicationBranchIsPassedToAdapter(t *testing.T) {
+	api := &recordingAPI{}
+	args := append(completeArgs(modeBootstrap), "-branch=refs/heads/v2-published")
+	if err := run(context.Background(), args, &bytes.Buffer{}, api); err != nil {
+		t.Fatal(err)
+	}
+	if api.bootstrapCalls != 1 || api.got.Branch != "refs/heads/v2-published" {
+		t.Fatalf("bootstrap branch = %q, calls = %d", api.got.Branch, api.bootstrapCalls)
+	}
+}
+
 func TestDefaultsAreDisabledAndUnconfigured(t *testing.T) {
 	cfg, err := parseConfig(nil)
 	if err != nil {
