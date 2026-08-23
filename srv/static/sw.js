@@ -1,5 +1,5 @@
-const CACHE = 'songs-shell-v35';
-const SHELL = ['/', '/static/style.css', '/static/style.css?v=20260823-6', '/static/app.js', '/static/app.js?v=20260823-5', '/static/icon.svg', '/manifest.webmanifest'];
+const CACHE = 'songs-shell-v36';
+const SHELL = ['/', '/static/style.css', '/static/style.css?v=20260823-8', '/static/app.js', '/static/app.js?v=20260823-8', '/static/icon.svg', '/manifest.webmanifest'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(Promise.all([
   self.clients.claim(),

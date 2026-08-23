@@ -160,7 +160,7 @@ h1,h2,h3,p { margin-top:0; }
 .set-entry-with-heading { padding-top:.45em; }
 .set-entry-title { min-width:0; font-weight:850; }
 .set-entry-title a { text-decoration:none; }
-.set-entry-singer { color:var(--muted); font-size:.78em; font-weight:700; }
+.set-entry-singer { color:var(--muted); font-weight:700; }
 .set-entry small { display:block; min-height:1.1em; margin-top:.12em; overflow:hidden; color:var(--muted); font-size:.72em; line-height:1.15; text-overflow:ellipsis; white-space:nowrap; }
 .set-sheet-footer { min-height:38px; display:flex; align-items:center; gap:.7rem 1rem; border-top:1px solid var(--line); padding-top:5px; color:var(--muted); font-size:.72rem; }
 .set-sheet-footer > a { white-space:nowrap; }

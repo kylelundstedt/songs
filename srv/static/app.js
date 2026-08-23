@@ -278,13 +278,19 @@
     if(form==='phone') {
       applySetTypography(panel,18,3); panel.dataset.fitStatus='scrollable'; return;
     }
-    for(let px=30;px>=11;px--) {
-      const pad=px>=17?5:px>=14?4:2;
+    let low=11,high=Math.max(12,viewport.clientHeight),best=null;
+    for(let attempt=0;attempt<12;attempt++) {
+      const px=(low+high)/2,pad=px>=17?5:px>=14?4:2;
       applySetTypography(panel,px,pad);
       if(list.scrollHeight<=viewport.clientHeight+1&&list.scrollWidth<=viewport.clientWidth+1) {
-        panel.dataset.fitStatus='fit'; return;
-      }
+        best={px,pad};low=px;
+      } else high=px;
     }
+    if(best) {
+      applySetTypography(panel,Math.floor(best.px*10)/10,best.pad);
+      panel.dataset.fitStatus='fit';return;
+    }
+    applySetTypography(panel,11,2);
     panel.dataset.fitStatus='needs-editing';
   }
 
