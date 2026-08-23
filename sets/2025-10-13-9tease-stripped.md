@@ -27,7 +27,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 5. [Cumbersome](../songs/Cumbersome.md) — singer: Dave — bpm: 81
 6. [Higher](../songs/Higher.md) — singer: Kyle — bpm: 156
 7. [Elderly Woman](../songs/Elderly-Woman.md) — singer: Dave — bpm: 91
-8. [Fire Woman / She Sells Sanctuary](../songs/fire-woman.md) — singer: Dustin — bpm: 132/139 — note: Medley
+8. [Fire Woman / She Sells Sanctuary](../songs/fire-woman.md) — singer: Dustin — bpm: 132/139
 9. [Everlong](../songs/Everlong.md) — singer: Dave — bpm: 158
 10. [Ramble On](../songs/Ramble-On.md) — singer: Kyle — bpm: 99
 11. [If You Could Only See](../songs/if-you-could-only-see.md) — singer: Dave — bpm: 96
