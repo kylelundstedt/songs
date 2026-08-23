@@ -851,6 +851,24 @@ function WritableToolbar({ online, capabilities }: { readonly online: boolean; r
   return <aside className="writable-toolbar" aria-label="Set List editing and sync"><div className="writable-status"><strong>Set List editing</strong><span role="status" aria-live="polite">{status}</span></div><div className="writable-actions"><button type="button" className="sync-button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync</button><a href="#/conflicts">Conflicts</a><details className="backup-menu"><summary>Backup</summary><div><button type="button" disabled={busy} onClick={() => void exportState()}>Export</button><label className="file-button">Restore<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></details></div></aside>;
 }
 
+function useInitialWritableSync(online: boolean, capabilities: WritableCapabilities): Readonly<{ status: "ready" | "syncing" | "failed"; message: string; retry: () => void }> {
+  const enabled = capabilities.foreground_sync && (capabilities.set_list_authoring || capabilities.lead_sheet_authoring);
+  const [attempt, setAttempt] = useState(0);
+  const [result, setResult] = useState<Readonly<{ status: "ready" | "syncing" | "failed"; message: string }>>({ status: enabled && online ? "syncing" : "ready", message: "" });
+  useEffect(() => {
+    if (!enabled || !online) { setResult({ status: "ready", message: "" }); return; }
+    let active = true;
+    setResult({ status: "syncing", message: "Loading current writable Set Lists…" });
+    void runForegroundSync({ setListWrites: capabilities.set_list_authoring, leadSheetWrites: capabilities.lead_sheet_authoring }).then((sync) => {
+      if (active) setResult({ status: "ready", message: `Current · ${sync.pending} pending` });
+    }).catch((error: unknown) => {
+      if (active) setResult({ status: "failed", message: error instanceof Error ? error.message : "Initial sync failed" });
+    });
+    return () => { active = false; };
+  }, [attempt, capabilities.foreground_sync, capabilities.lead_sheet_authoring, capabilities.set_list_authoring, enabled, online]);
+  return Object.freeze({ ...result, retry: () => setAttempt((value) => value + 1) });
+}
+
 function usePublishedAuthoredSet(documentId: string | undefined): SetList | null | undefined {
   const [published, setPublished] = useState<SetList | null | undefined>(undefined);
   useEffect(() => {
@@ -884,6 +902,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   const capabilities = useWritableCapabilities(online);
   const writable = capabilities.set_list_authoring && capabilities.foreground_sync;
   const leadWritable = capabilities.lead_sheet_authoring && capabilities.foreground_sync;
+  const initialWritableSync = useInitialWritableSync(online, capabilities);
   const active = activeSnapshotFor(snapshot, runtime);
   const index = useMemo(() => active ? buildLibraryIndex(snapshot) : null, [active, snapshot]);
   const selectorsClosed = !active;
@@ -897,6 +916,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   const conflictMatch = /^\/conflicts\/([^/]+)$/.exec(path);
   const conflictID = conflictMatch === null ? undefined : decodedRouteSegment(conflictMatch[1]!);
   const conflictRoute = path === "/conflicts" || conflictID !== undefined;
+  const editorRequested = path === "/sets/new/edit" || path === "/songs/new/edit" || localSetMode === "edit" || localSongID !== undefined || /\/edit$/.test(path);
   const setRoute = exactSetRoute(path);
   const routedSet = useMemo(() => index === null || setRoute === undefined ? null : index.setBySlug(setRoute.slug), [index, setRoute?.slug]);
   const publishedAuthoredSet = usePublishedAuthoredSet(localSetID ?? routedSet?.id);
@@ -909,7 +929,8 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   useEffect(() => { document.querySelector<HTMLElement>("[data-page-heading]")?.focus(); window.scrollTo({ top: 0, behavior: "auto" }); }, [path]);
   let page: ReactNode;
   let livePage: ReactNode = null;
-  if (path === "/status") page = <StatusPage index={index} snapshot={snapshot} online={online} update={update} runtime={runtime} />;
+  if (editorRequested && initialWritableSync.status !== "ready") page = <section className="state-card initial-sync-state" role={initialWritableSync.status === "failed" ? "alert" : "status"}><h1>{initialWritableSync.status === "syncing" ? "Loading current Set List" : "Unable to load current Set List"}</h1><p>{initialWritableSync.message}</p>{initialWritableSync.status === "failed" && <button type="button" className="compact-primary-button" onClick={initialWritableSync.retry}>Try again</button>}</section>;
+  else if (path === "/status") page = <StatusPage index={index} snapshot={snapshot} online={online} update={update} runtime={runtime} />;
   else if (conflictRoute) page = <ConflictReviewPage {...(conflictID === undefined ? {} : { conflictId: conflictID })} setListWritable={writable} leadSheetWritable={leadWritable} />;
   else if (selectorsClosed || index === null) page = <InactiveSnapshotPage snapshot={snapshot} runtime={runtime} />;
   else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} writable={writable} />;
