@@ -58,12 +58,11 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 34. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
 <!-- column-break -->
 ## Set 3 - Fast
-35. [Killing in The Name](../songs/Killing-In-The-Name.md)
-36. [Sex on Fire](../songs/Sex-on-Fire.md)
-37. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
-38. [Just Like Heaven](../songs/Just-Like-Heaven.md)
-39. [Melt With You](../songs/Melt-With-You.md)
-40. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
-41. [Born To Run](../songs/Born-To-Run.md)
-42. [American Girl](../songs/american-girl.md)
-43. [The Middle](../songs/The-Middle.md)
+35. [Sex on Fire](../songs/Sex-on-Fire.md)
+36. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
+37. [Just Like Heaven](../songs/Just-Like-Heaven.md)
+38. [Melt With You](../songs/Melt-With-You.md)
+39. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
+40. [Born To Run](../songs/Born-To-Run.md)
+41. [American Girl](../songs/american-girl.md)
+42. [The Middle](../songs/The-Middle.md)
