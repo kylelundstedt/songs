@@ -133,7 +133,7 @@ h1,h2,h3,p { margin-top:0; }
 .set-sheet-panel { height:100%; min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr) auto; gap:8px; border:1px solid var(--line); border-radius:12px; background:var(--panel); padding:12px 16px 9px; overflow:hidden; }
 .set-sheet-header { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:1rem; border-bottom:2px solid var(--line); padding-bottom:7px; }
 .set-sheet-header .eyebrow { margin-bottom:.15rem; }
-.set-sheet-header h1 { max-width:100%; margin:0; overflow:hidden; font-size:.9rem; font-weight:850; line-height:1.1; letter-spacing:0; text-overflow:ellipsis; white-space:nowrap; }
+.set-sheet-header h1 { max-width:100%; margin:0; overflow:hidden; font-size:var(--set-font,18px); font-weight:850; line-height:1.1; letter-spacing:0; text-overflow:ellipsis; white-space:nowrap; }
 .set-facts { display:flex; align-items:end; gap:.8rem; margin:0; min-width:0; }
 .set-facts div { display:grid; grid-template-columns:auto auto; align-items:baseline; gap:.3rem; white-space:nowrap; }
 .set-facts dt { color:var(--muted); font-size:.64rem; font-weight:850; letter-spacing:.07em; text-transform:uppercase; }
@@ -315,7 +315,7 @@ h1,h2,h3,p { margin-top:0; }
   body.set-page .single-set-shell { width:100%!important; height:auto!important; min-height:0!important; padding:0!important; }
   body.set-page .set-sheet-panel { width:100%!important; height:auto!important; min-height:0!important; gap:6pt!important; border:0!important; border-radius:0!important; padding:0!important; overflow:visible!important; background:#fff!important; }
   body.set-page .set-sheet-header { break-inside:avoid; padding-bottom:4pt; border-bottom:1.5pt solid #555; }
-  body.set-page .set-sheet-header h1 { color:#000!important; }
+  body.set-page .set-sheet-header h1 { color:#000!important; font-size:11pt!important; }
   body.set-page .set-facts dt,body.set-page .set-facts dd { color:#000!important; }
   body.set-page .set-sheet-viewport { overflow:visible!important; }
   body.set-page .set-entry-list { font-size:11pt!important; line-height:1.08!important; color:#000!important; }
