@@ -1,0 +1,25 @@
+[Unit]
+Description=Songs V2 clean-origin writable Set List pilot
+After=network-online.target
+
+[Service]
+Type=simple
+User=exedev
+Group=exedev
+WorkingDirectory=/home/exedev/songs-v2
+UMask=0077
+ExecStart=/home/exedev/songs-v2/var/releases/writable-clean-6d89f23f437668f8/songs-v2-api \
+  -listen 127.0.0.1:8002 \
+  -sync-enabled \
+  -sync-db /home/exedev/songs-v2/var/writable/sync.sqlite3 \
+  -sync-owner klundstedt@industryvault.com \
+  -sync-forwarded-host kgl-songs.exe.xyz:8002 \
+  -sync-master-key-file /home/exedev/songs-v2/var/writable/sync-master-key \
+  -writable-enabled
+Restart=always
+RestartSec=3
+Environment=HOME=/home/exedev
+Environment=USER=exedev
+
+[Install]
+WantedBy=multi-user.target

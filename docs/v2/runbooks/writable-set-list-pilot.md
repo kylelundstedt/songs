@@ -4,12 +4,12 @@
 
 **Owner authorization:** explicit request to enable Set List writing
 
-**Origin:** `https://kgl-songs.exe.xyz:8001/#/`
+**Origin:** `https://kgl-songs.exe.xyz:8002/#/`
 
 ## Active boundary
 
 - V1 remains the default/fallback on port 8000.
-- V2 Set List authoring and foreground sync are enabled on port 8001.
+- V2 Set List authoring and foreground sync are enabled on clean origin port 8002.
 - Lead-sheet authoring, lyrics providers, and Shelley suggestions remain disabled.
 - Formal TASK-021 physical acceptance, default-route cutover, and V1 retirement remain pending.
 - The writable archive uses remote branch `refs/heads/v2-published`, seeded from
@@ -18,10 +18,10 @@
 
 ## Runtime
 
-- API release: `var/releases/writable-set-lists-a793fb7f83a0942b/songs-v2-api`
-- API SHA-256: `a793fb7f83a0942b1225ac85bd46fa0ed5295f23362e7f93f5f02fbc0af32230`
+- API release: `var/releases/writable-clean-6d89f23f437668f8/songs-v2-api`
+- API SHA-256: `6d89f23f437668f854ca248861abda12045ddde83fc272e7250699d62658eb97`
 - Publisher SHA-256: `3c26ba4bb8e84e847867fe191fbf77b49a5e8704145d6294fce44673806540fa`
-- Shell release: `shell-2b2dcc40632cff7f3e62adac`
+- Shell release: `shell-fecfc403989d8709b5401b13`
 - Sync ledger: `var/writable/sync.sqlite3`
 - Publication ledger: `var/writable/publication.sqlite3`
 - Master key: `var/writable/sync-master-key`, mode `0600`; never commit or copy
@@ -73,8 +73,8 @@ systemctl is-active songs.service songs-v2-api.service
 curl -fsS \
   -H 'X-ExeDev-Email: klundstedt@industryvault.com' \
   -H 'X-Forwarded-Proto: https' \
-  -H 'X-Forwarded-Host: kgl-songs.exe.xyz:8001' \
-  http://127.0.0.1:8001/api/v2/writable-capabilities
+  -H 'X-Forwarded-Host: kgl-songs.exe.xyz:8002' \
+  http://127.0.0.1:8002/api/v2/writable-capabilities
 ```
 
 Expected capability state: Set List authoring and foreground sync `true`; every

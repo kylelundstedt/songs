@@ -99,6 +99,7 @@ code { overflow-wrap: anywhere; font-family: ui-monospace, SFMono-Regular, Menlo
 main { width: min(1200px, 100%); min-height: calc(100vh - 190px); margin: 0 auto; padding: clamp(1.4rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) 4rem; }
 .page-heading { max-width: 760px; margin-bottom: 1.7rem; }
 .page-heading h1, .state-card h1, .detail-header h1 { margin: .12rem 0 .55rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5vw, 3.9rem); font-weight: 650; line-height: .99; letter-spacing: -.035em; }
+.page-heading h1:focus, .detail-header h1:focus { outline: none; }
 .page-heading p:last-child, .state-card > p, .artist { color: var(--muted); font-size: clamp(1rem, 2vw, 1.16rem); line-height: 1.6; }
 .eyebrow { margin: 0 0 .32rem; color: var(--accent); font-size: .75rem !important; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 .panel, .state-card { border: 1px solid var(--border); border-radius: var(--radius); background: color-mix(in srgb, var(--surface) 96%, transparent); box-shadow: var(--shadow); }

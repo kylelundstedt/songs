@@ -296,8 +296,8 @@ remains pending:
 
 ## Active writable Set List pilot
 
-- release `writable-set-lists-a793fb7f83a0942b` serves shell
-  `shell-2b2dcc40632cff7f3e62adac` on loopback port 8001;
+- release `writable-clean-6d89f23f437668f8` serves shell
+  `shell-fecfc403989d8709b5401b13` on the clean loopback port-8002 origin;
 - Set List authoring and foreground sync are enabled; lead-sheet authoring,
   lyrics providers, and Shelley suggestions are disabled;
 - the reviewed durable baseline contains 373 documents/publication mappings;
