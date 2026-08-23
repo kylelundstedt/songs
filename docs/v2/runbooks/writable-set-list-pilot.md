@@ -19,8 +19,8 @@
 
 ## Runtime
 
-- API release: `var/releases/writable-clean-6d89f23f437668f8/songs-v2-api`
-- API SHA-256: `6d89f23f437668f854ca248861abda12045ddde83fc272e7250699d62658eb97`
+- API release: `var/releases/writable-clean-b1cf0f6785c1fd7f/songs-v2-api`
+- API SHA-256: `b1cf0f6785c1fd7f4981121c876553ca4f585c79b636b9a7560d9e494f7c2aff`
 - Publisher SHA-256: `3c26ba4bb8e84e847867fe191fbf77b49a5e8704145d6294fce44673806540fa`
 - Shell release: `shell-fecfc403989d8709b5401b13`
 - Sync ledger: `var/writable/sync.sqlite3`

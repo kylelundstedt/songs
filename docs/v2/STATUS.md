@@ -296,7 +296,7 @@ remains pending:
 
 ## Active writable Set List pilot
 
-- release `writable-clean-6d89f23f437668f8` serves shell
+- release `writable-clean-b1cf0f6785c1fd7f` serves shell
   `shell-fecfc403989d8709b5401b13` on the clean loopback port-8002 origin;
   the stale port-8001 pilot service is disabled;
 - Set List authoring and foreground sync are enabled; lead-sheet authoring,

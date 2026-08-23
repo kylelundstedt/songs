@@ -787,12 +787,29 @@ func TestPullReturnsCanonicalContentRevisionsAndConflicts(t *testing.T) {
 	if none.Cursor != 3 || len(none.Events) != 0 || len(none.Revisions) != 0 || len(none.Conflicts) != 0 {
 		t.Fatalf("empty pull=%+v", none)
 	}
+	for _, field := range []string{`"events":[]`, `"revisions":[]`, `"conflicts":[]`} {
+		if !bytes.Contains(empty.Body.Bytes(), []byte(field)) {
+			t.Fatalf("empty pull encoded %s as null: %s", field, empty.Body.String())
+		}
+	}
 
 	assertError(t, f.request(http.MethodGet, PathPrefix+"/pull?after=4", nil, &first), http.StatusConflict, "FUTURE_CURSOR")
 	if err := f.store.SetCompactionFloor(testOwner, 2); err != nil {
 		t.Fatal(err)
 	}
 	assertError(t, f.request(http.MethodGet, PathPrefix+"/pull?after=1", nil, &first), http.StatusConflict, "RESNAPSHOT_REQUIRED")
+}
+
+func TestSnapshotUsesArraysForEmptyCollections(t *testing.T) {
+	f := newFixture(t)
+	device := f.register("device-1", "registration-1", "First")
+	w := f.request(http.MethodGet, PathPrefix+"/snapshot", nil, &device)
+	assertStatus(t, w, http.StatusOK)
+	for _, field := range []string{`"documents":[]`, `"revisions":[]`, `"conflicts":[]`, `"publications":[]`} {
+		if !bytes.Contains(w.Body.Bytes(), []byte(field)) {
+			t.Fatalf("snapshot encoded %s as null: %s", field, w.Body.String())
+		}
+	}
 }
 
 func TestSnapshotReturnsAllRevisionsAndConflictsAtCurrentCursor(t *testing.T) {

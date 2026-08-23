@@ -542,7 +542,7 @@ func (s *Store) Pull(owner, device string, after int64, limit int) (PullResult, 
 		return PullResult{}, err
 	}
 	defer rows.Close()
-	result := PullResult{Cursor: after, Floor: floor}
+	result := PullResult{Events: []Event{}, Revisions: []Revision{}, Conflicts: []Conflict{}, Cursor: after, Floor: floor}
 	for rows.Next() {
 		var event Event
 		if err := rows.Scan(&event.Sequence, &event.Kind, &event.OperationID, &event.DocumentID, &event.RevisionID, &event.ConflictID); err != nil {
@@ -594,8 +594,13 @@ func (s *Store) Snapshot(owner, device string) (SyncSnapshot, error) {
 	if err := authorize(tx, owner, device); err != nil {
 		return SyncSnapshot{}, err
 	}
-	var result SyncSnapshot
-	result.ProtocolVersion = ProtocolVersion
+	result := SyncSnapshot{
+		ProtocolVersion: ProtocolVersion,
+		Documents:       []DocumentMapping{},
+		Revisions:       []Revision{},
+		Conflicts:       []Conflict{},
+		Publications:    []PublicationMapping{},
+	}
 	if err := tx.QueryRow(`SELECT current_sequence,compaction_floor FROM v2sync_metadata WHERE owner_id=?`, owner).Scan(&result.Cursor, &result.Floor); err != nil {
 		return SyncSnapshot{}, err
 	}

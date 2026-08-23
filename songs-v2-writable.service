@@ -8,7 +8,7 @@ User=exedev
 Group=exedev
 WorkingDirectory=/home/exedev/songs-v2
 UMask=0077
-ExecStart=/home/exedev/songs-v2/var/releases/writable-clean-6d89f23f437668f8/songs-v2-api \
+ExecStart=/home/exedev/songs-v2/var/releases/writable-clean-b1cf0f6785c1fd7f/songs-v2-api \
   -listen 127.0.0.1:8002 \
   -sync-enabled \
   -sync-db /home/exedev/songs-v2/var/writable/sync.sqlite3 \
