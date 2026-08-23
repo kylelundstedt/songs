@@ -35,12 +35,6 @@ Lord, have mercy
 Come on little sister; Come on and shake it
 
 ### Chorus
-
-### Bridge
-I was thinking; What I've been missing  
-I'll tell you truthfully, well; She's coming close now  
-Oh, I can feel her; She's getting close to me; And I never, yeah
-
 ### Chorus
 
 ### She Sells Guitar Intro 8x
