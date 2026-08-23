@@ -42,7 +42,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 18. [Times Like These](../songs/Times-Like-These.md) — singer: Kyle — bpm: 145
 19. [Seven Nation Army](../songs/Seven-Nation-Army.md) — singer: Dave — bpm: 124
 20. [Wanted Dead or Alive](../songs/Wanted-Dead-Or-Alive.md) — singer: Dustin — bpm: 150
-21. [Shine](../songs/Shine.md) — singer: Dave — bpm: 75
+21. [Shine](../songs/Shine.md) — singer: Kyle — bpm: 75
 22. [Under The Bridge](../songs/Under-The-Bridge.md) — singer: Kyle — bpm: 84
 23. [Thank You](../songs/Thank-You.md) — singer: Dave — bpm: 76
 24. [Wicked Garden](../songs/Wicked-Garden.md) — singer: Kyle — bpm: 155
