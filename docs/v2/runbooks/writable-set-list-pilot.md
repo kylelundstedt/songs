@@ -18,10 +18,10 @@
 
 ## Runtime
 
-- API release: `var/releases/writable-set-lists-1ef0cf2e0b8aa7f6/songs-v2-api`
-- API SHA-256: `1ef0cf2e0b8aa7f604b3cf771ef3e4b8d5e33017a6a1289a28ff1121b82cff73`
+- API release: `var/releases/writable-set-lists-a793fb7f83a0942b/songs-v2-api`
+- API SHA-256: `a793fb7f83a0942b1225ac85bd46fa0ed5295f23362e7f93f5f02fbc0af32230`
 - Publisher SHA-256: `3c26ba4bb8e84e847867fe191fbf77b49a5e8704145d6294fce44673806540fa`
-- Shell release: `shell-96ab0f5519cd6a1bff86220f`
+- Shell release: `shell-2b2dcc40632cff7f3e62adac`
 - Sync ledger: `var/writable/sync.sqlite3`
 - Publication ledger: `var/writable/publication.sqlite3`
 - Master key: `var/writable/sync-master-key`, mode `0600`; never commit or copy
@@ -71,7 +71,7 @@ publication mapping, and emits the sync publication event. The browser must run
 ```sh
 systemctl is-active songs.service songs-v2-api.service
 curl -fsS \
-  -H 'X-ExeDev-UserID: klundstedt@industryvault.com' \
+  -H 'X-ExeDev-Email: klundstedt@industryvault.com' \
   -H 'X-Forwarded-Proto: https' \
   -H 'X-Forwarded-Host: kgl-songs.exe.xyz:8001' \
   http://127.0.0.1:8001/api/v2/writable-capabilities

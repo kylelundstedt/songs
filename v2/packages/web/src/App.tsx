@@ -275,12 +275,13 @@ function ThemeToggle() {
   return <button className="icon-button" type="button" onClick={() => setTheme(next)} aria-label={`Theme: ${theme}. Switch to ${next}.`}><span aria-hidden="true">{theme === "dark" ? "◐" : theme === "light" ? "☀" : "◒"}</span></button>;
 }
 
-function Header({ path, online, update, recoveryPending = false, authoredRecovery = false }: { readonly path: string; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly recoveryPending?: boolean; readonly authoredRecovery?: boolean }) {
+function Header({ path, online, update, writable, recoveryPending = false, authoredRecovery = false }: { readonly path: string; readonly online: boolean; readonly update: ReturnType<typeof useServiceWorker>; readonly writable: boolean; readonly recoveryPending?: boolean; readonly authoredRecovery?: boolean }) {
   const current = (prefix: string) => path === prefix || path.startsWith(`${prefix}/`);
+  const subtitle = writable ? "Set List editing V2" : "Verified read-only V2";
   return <header className="site-header">
     <a className="skip-link" href="#main">Skip to content</a>
     <div className="brand-row">
-      {recoveryPending ? <span className="brand" aria-label="Songs, recovery pending"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>Verified read-only V2</small></span></span> : <Link to="/" className="brand"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>Verified read-only V2</small></span></Link>}
+      {recoveryPending ? <span className="brand" aria-label="Songs, recovery pending"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>{subtitle}</small></span></span> : <Link to="/" className="brand"><span className="brand-mark" aria-hidden="true">KGL</span><span><strong>Songs</strong><small>{subtitle}</small></span></Link>}
       <div className="header-actions">
         <span className={`connection ${online ? "online" : "offline"}`} aria-label={online ? "Online — browser connectivity hint" : "Offline — browser connectivity hint"}><span aria-hidden="true">●</span>{online ? "Online · browser connectivity hint" : "Offline · browser connectivity hint"}</span>
         {update.state === "update-available" && <button type="button" className="update-button" onClick={update.apply} disabled={!update.canApply} title={update.canApply ? "Activate the compatible verified shell update" : "Waiting for a compatible active snapshot"}>{update.canApply ? "Update ready" : "Update waiting for compatible snapshot"}</button>}
@@ -355,14 +356,14 @@ function matchedFieldLabels(fields: readonly string[], labels: Readonly<Record<s
   return fields.map((field) => labels[field] ?? field).join(", ");
 }
 
-function LibraryPage({ index, snapshot, runtime }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus }) {
+function LibraryPage({ index, snapshot, runtime, writable }: { readonly index: LibraryIndex; readonly snapshot: VerifiedSnapshot; readonly runtime: BootstrapRuntimeStatus; readonly writable: boolean }) {
   const recentSets = index.recentSets.slice(0, 6);
   const songHighlights = index.songs.slice(0, 12);
   const activeSelection = index.activeSetSelection(null);
   const diagnostics = index.diagnostics;
   const activeSet = activeSelection.set;
   return <>
-    <PageHeading eyebrow="Reviewed snapshot" title="Your gig book, without the edit controls"><p>{diagnostics.documents.songs} songs and {diagnostics.documents.sets} Set Lists are loaded only after full verification.</p></PageHeading>
+    <PageHeading eyebrow={writable ? "Set List workspace" : "Reviewed snapshot"} title="Your gig book"><p>{writable ? "Browse songs, build Set Lists, and keep changes available offline." : `${diagnostics.documents.songs} songs and ${diagnostics.documents.sets} Set Lists are loaded only after full verification.`}</p></PageHeading>
     <section className="metric-grid" aria-label="Snapshot summary">
       <div><strong>{diagnostics.documents.songs}</strong><span>Lead sheets</span></div>
       <div><strong>{diagnostics.documents.sets}</strong><span>Set Lists</span></div>
@@ -370,7 +371,7 @@ function LibraryPage({ index, snapshot, runtime }: { readonly index: LibraryInde
       <div><strong>{runtime.chunks.completed}/{runtime.chunks.total}</strong><span>Chunks verified</span></div>
     </section>
     <section className="panel active-set-card" aria-labelledby="active-set-title">
-      <div className="section-title"><div><p className="eyebrow">Read-only selection</p><h2 id="active-set-title">Active Set List</h2></div><span className="readonly-label">No mutation controls</span></div>
+      <div className="section-title"><div><p className="eyebrow">Current selection</p><h2 id="active-set-title">Active Set List</h2></div><span className="readonly-label">{writable ? "Editing available" : "Read only"}</span></div>
       <p className="active-set-explanation">No reviewed pin is configured. The latest-date Set List is shown as the active selection automatically.</p>
       {activeSet === null ? <p className="no-results">No dated Set List is available in this snapshot.</p> : <ul className="document-list compact"><SetRow setList={activeSet} snapshot={snapshot} /></ul>}
     </section>
@@ -802,7 +803,7 @@ function LocalSetListEditorPage({ documentId, songs }: { readonly documentId: st
 }
 
 function WritableToolbar({ online, capabilities }: { readonly online: boolean; readonly capabilities: WritableCapabilities }) {
-  const [status, setStatus] = useState("Local changes are durable before sync.");
+  const [status, setStatus] = useState("Set List editing is ready.");
   const [busy, setBusy] = useState(false);
   const sync = async () => {
     setBusy(true); setStatus("Foreground sync in progress…");
@@ -827,7 +828,7 @@ function WritableToolbar({ online, capabilities }: { readonly online: boolean; r
     catch (error) { setStatus(error instanceof Error ? error.message : "Restore failed"); }
     finally { storage.close(); setBusy(false); }
   };
-  return <aside className="writable-toolbar" aria-label="Authored recovery and sync controls"><div><strong>Local authored work</strong><span role="status" aria-live="polite">{status}</span></div><div><a className="primary-button" href="#/conflicts">Review conflicts</a><button type="button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync now</button><button type="button" disabled={busy} onClick={() => void exportState()}>Export recovery</button><label className="file-button">Restore recovery<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
+  return <aside className="writable-toolbar" aria-label="Set List editing and sync"><div className="writable-status"><strong>Set List editing</strong><span role="status" aria-live="polite">{status}</span></div><div className="writable-actions"><button type="button" className="sync-button" disabled={!capabilities.foreground_sync || !online || busy} onClick={() => void sync()}>Sync now</button><a href="#/conflicts">Conflicts</a><button type="button" disabled={busy} onClick={() => void exportState()}>Export backup</button><label className="file-button">Restore backup<input type="file" accept="application/json" disabled={busy} onChange={(event) => { const file = event.target.files?.[0]; if (file !== undefined) void restoreState(file); event.target.value = ""; }} /></label></div></aside>;
 }
 
 function usePublishedAuthoredSet(documentId: string | undefined): SetList | null | undefined {
@@ -891,7 +892,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
   if (path === "/status") page = <StatusPage index={index} snapshot={snapshot} online={online} update={update} runtime={runtime} />;
   else if (conflictRoute) page = <ConflictReviewPage {...(conflictID === undefined ? {} : { conflictId: conflictID })} setListWritable={writable} leadSheetWritable={leadWritable} />;
   else if (selectorsClosed || index === null) page = <InactiveSnapshotPage snapshot={snapshot} runtime={runtime} />;
-  else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} />;
+  else if (path === "/") page = <LibraryPage index={index} snapshot={snapshot} runtime={runtime} writable={writable} />;
   else if (path === "/songs") page = <SongsPage index={index} snapshot={snapshot} writable={leadWritable} />;
   else if (path === "/songs/new/edit") page = leadWritable ? <NewLeadSheetEditorPage capabilities={capabilities} online={online} /> : <NotFound />;
   else if (localSongID !== undefined) page = leadWritable ? <LocalLeadSheetEditorPage documentId={localSongID} capabilities={capabilities} online={online} /> : <LocalLeadSheetRecoveryPage documentId={localSongID} />;
@@ -922,7 +923,7 @@ export function ReadyApp({ snapshot, online, update, runtime, inspectActiveGener
     } else page = <SetListPage performanceSet={routedPerformanceSet} writable={writable} />;
   } else page = <NotFound />;
   if (livePage !== null) return <>{livePage}</>;
-  return <><Header path={path} online={online} update={update} recoveryPending={selectorsClosed} authoredRecovery={localStorage.getItem("songs-v2-authored-recovery-present") === "1"} /><main id="main">
+  return <><Header path={path} online={online} update={update} writable={writable || leadWritable} recoveryPending={selectorsClosed} authoredRecovery={localStorage.getItem("songs-v2-authored-recovery-present") === "1"} /><main id="main">
     {active && (writable || leadWritable || localStorage.getItem("songs-v2-authored-recovery-present") === "1") && <WritableToolbar online={online} capabilities={capabilities} />}
     {active && !online && <div className="offline-banner" role="status">Offline — browse and search are local. {offlineReady ? "Using the active verified snapshot saved in IndexedDB." : "This active snapshot is not ready for offline restart."}</div>}
     {!active && <div className="session-banner" role="status">Verified snapshot — catalog selectors are unavailable until this generation becomes the active IndexedDB pointer.</div>}
@@ -1039,5 +1040,5 @@ export function App() {
     return () => { alive = false; controller.abort(); };
   }, [attempt]);
   if (state.status === "ready") return <ActivePointerBoundary snapshot={state.snapshot} runtime={state.runtime} onDrift={() => setAttempt((value) => value + 1)}><ReadyApp snapshot={state.snapshot} online={online} update={update} runtime={state.runtime} /></ActivePointerBoundary>;
-  return <><Header path="/" online={online} update={update} /><main id="main">{state.status === "loading" ? <Loading progress={state.progress} /> : <ErrorState error={state.error} retry={() => setAttempt((value) => value + 1)} />}</main></>;
+  return <><Header path="/" online={online} update={update} writable={false} /><main id="main">{state.status === "loading" ? <Loading progress={state.progress} /> : <ErrorState error={state.error} retry={() => setAttempt((value) => value + 1)} />}</main></>;
 }

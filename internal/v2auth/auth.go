@@ -17,6 +17,7 @@ import (
 
 const (
 	UserHeader           = "X-ExeDev-UserID"
+	EmailHeader          = "X-ExeDev-Email"
 	ForwardedHostHeader  = "X-Forwarded-Host"
 	ForwardedProtoHeader = "X-Forwarded-Proto"
 	DeviceIDHeader       = "X-Songs-V2-Device-ID"
@@ -57,6 +58,14 @@ type Config struct {
 	ForwardedHost string
 }
 
+func forwardedHostMatches(actual, configured string) bool {
+	if actual == configured {
+		return true
+	}
+	host, _, err := net.SplitHostPort(configured)
+	return err == nil && actual == host
+}
+
 // ExtractPrincipal validates the local-proxy boundary and returns the configured
 // owner. Identity in JSON, query parameters, X-Forwarded-For, or Host is ignored.
 func ExtractPrincipal(r *http.Request, cfg Config) (Principal, error) {
@@ -66,10 +75,12 @@ func ExtractPrincipal(r *http.Request, cfg Config) (Principal, error) {
 	if !loopbackRemote(r.RemoteAddr) {
 		return Principal{}, authError("UNAUTHENTICATED", http.StatusUnauthorized, ErrUnauthenticated)
 	}
-	if r.Header.Get(ForwardedProtoHeader) != "https" || r.Header.Get(ForwardedHostHeader) != cfg.ForwardedHost {
+	if r.Header.Get(ForwardedProtoHeader) != "https" || !forwardedHostMatches(r.Header.Get(ForwardedHostHeader), cfg.ForwardedHost) {
 		return Principal{}, authError("UNAUTHENTICATED", http.StatusUnauthorized, ErrUnauthenticated)
 	}
-	if r.Header.Get(UserHeader) != cfg.OwnerID {
+	userMatches := r.Header.Get(UserHeader) == cfg.OwnerID
+	emailMatches := r.Header.Get(EmailHeader) == cfg.OwnerID
+	if !userMatches && !emailMatches {
 		return Principal{}, authError("UNAUTHENTICATED", http.StatusUnauthorized, ErrUnauthenticated)
 	}
 	return Principal{OwnerID: cfg.OwnerID}, nil

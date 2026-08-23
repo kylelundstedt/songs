@@ -49,6 +49,19 @@ func TestExtractPrincipalTrustedBoundary(t *testing.T) {
 	}
 }
 
+func TestExtractPrincipalAcceptsConfiguredProxyEmail(t *testing.T) {
+	for _, forwardedHost := range []string{"v2.example.test:443", "v2.example.test"} {
+		r := request()
+		r.Header.Set(UserHeader, "stable-user-id")
+		r.Header.Set(EmailHeader, "owner@example.com")
+		r.Header.Set(ForwardedHostHeader, forwardedHost)
+		got, err := ExtractPrincipal(r, Config{OwnerID: "owner@example.com", ForwardedHost: "v2.example.test:443"})
+		if err != nil || got.OwnerID != "owner@example.com" {
+			t.Fatalf("host %q success=(%+v,%v)", forwardedHost, got, err)
+		}
+	}
+}
+
 func TestStableDeviceID(t *testing.T) {
 	valid := []string{"a", "1device", "device-1", "a0-foo", "z" + string(make([]byte, 0))}
 	for _, id := range valid {

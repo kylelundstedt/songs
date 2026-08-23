@@ -65,7 +65,7 @@ describe("read-only shell", () => {
     expect(screen.getByRole("navigation", { name: "Primary" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Library" })).toHaveAttribute("aria-current", "page");
     expect(screen.getByRole("main")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Your gig book, without the edit controls" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Your gig book" })).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /edit|save|add|delete|publish|sync/i })).not.toBeInTheDocument();
     const results = await axe.run(container);
     expect(results.violations).toEqual([]);

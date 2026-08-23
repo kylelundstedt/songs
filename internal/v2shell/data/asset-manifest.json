@@ -4,18 +4,18 @@
   ],
   "assets": [
     {
-      "bytes": 28248,
-      "cache_control": "private, max-age=31536000, immutable",
-      "content_type": "text/css; charset=utf-8",
-      "path": "assets/index-C8MRgAWs.css",
-      "sha256": "59db527177b0d60e36e95c9e0755d8713da833d94573a82b3a9c4f7f1091623a"
-    },
-    {
-      "bytes": 505950,
+      "bytes": 506107,
       "cache_control": "private, max-age=31536000, immutable",
       "content_type": "application/javascript; charset=utf-8",
-      "path": "assets/index-myF8XHUN.js",
-      "sha256": "2a2f91c5543501207847fe9c05bb299b413b2e0a27f35b9601d3932b9bfe5287"
+      "path": "assets/index-DSsR87-S.js",
+      "sha256": "7b3e01e3b6e2f5af6c6002d3e287565112c717978131e5040cc814c3c71bc4b3"
+    },
+    {
+      "bytes": 28738,
+      "cache_control": "private, max-age=31536000, immutable",
+      "content_type": "text/css; charset=utf-8",
+      "path": "assets/index-DgXHGaTv.css",
+      "sha256": "3b6438ff3543ca0d5a36dbf0533bd50e99e764df62a62c064c3edf185ce86b3d"
     },
     {
       "bytes": 540,
@@ -25,34 +25,34 @@
       "sha256": "d6ac2e6ad2a8bd18c4e1433ffb0f8736c3e806cdf9c459945e9f8cc997d2d216"
     },
     {
-      "bytes": 818,
+      "bytes": 816,
       "cache_control": "private, no-store",
       "content_type": "text/html; charset=utf-8",
       "path": "index.html",
-      "sha256": "816442d1b42b393ec72134e423ab01fac2de9ebfea3613b5e4a6f5b5cce9aa33"
+      "sha256": "7d262a46e98a7e30c3ab9ed5a640194b5e8b7fb3c5df728f1160207390ceb5d2"
     },
     {
-      "bytes": 388,
+      "bytes": 386,
       "cache_control": "private, no-store",
       "content_type": "application/manifest+json",
       "path": "manifest.webmanifest",
-      "sha256": "70b3cffe0c056adde1706e2e373328490f72517a6a66a41d6ace1f57b38dad51"
+      "sha256": "d8244f5efa9a95e4051161c0c7afc0e7e1289193a0fe9892727a11f9bd278169"
     },
     {
       "bytes": 1873,
       "cache_control": "private, no-store",
       "content_type": "application/javascript; charset=utf-8",
       "path": "sw.js",
-      "sha256": "aaffe2ab51328a0a235bc78054c97045eaea0751d1bb521bbdb812be4f482a5f"
+      "sha256": "69dd7e94d38b743b9e78d18c1d39e3143aa6610e80c7478404ac7a9ffeccbf4d"
     }
   ],
   "bootstrap_manifest_sha256": "a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f",
   "cache_prefix": "songs-v2-shell-",
   "indexeddb_name": "songs-v2",
   "kind": "songs-v2.shell.assets",
-  "release": "shell-96ab0f5519cd6a1bff86220f",
+  "release": "shell-2b2dcc40632cff7f3e62adac",
   "schema_version": "1",
   "verification": {
-    "output_sha256": "a7e5b2e15a131eca2b6262ca26aa1fcbcd42e079bd56d43f9a907f6fbe4bd35f"
+    "output_sha256": "18fad769a3c9edc687142c0a151471fe9033bf3455b913b7ce71d4f947f1d467"
   }
 }

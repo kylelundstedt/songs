@@ -1,7 +1,7 @@
 {
   "name": "KGL Songs V2",
   "short_name": "KGL V2",
-  "description": "Verified read-only lead sheets and Set Lists.",
+  "description": "Offline lead sheets and writable Set Lists.",
   "start_url": "/#/",
   "scope": "/",
   "display": "standalone",
