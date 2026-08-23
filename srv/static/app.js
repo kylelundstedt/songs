@@ -276,9 +276,9 @@
     const entries=[...list.querySelectorAll('.set-entry')],form=document.documentElement.dataset.formFactor||detectFormFactor();
     layoutSetEntries(panel,list,entries,form);
     if(form==='phone') {
-      applySetTypography(panel,16,3); panel.dataset.fitStatus='scrollable'; return;
+      applySetTypography(panel,18,3); panel.dataset.fitStatus='scrollable'; return;
     }
-    for(let px=21;px>=11;px--) {
+    for(let px=23;px>=11;px--) {
       const pad=px>=17?5:px>=14?4:2;
       applySetTypography(panel,px,pad);
       if(list.scrollHeight<=viewport.clientHeight+1&&list.scrollWidth<=viewport.clientWidth+1) {
