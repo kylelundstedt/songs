@@ -68,5 +68,4 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 42. [Born To Run](../songs/Born-To-Run.md)
 43. [American Girl](../songs/american-girl.md)
 44. [The Middle](../songs/The-Middle.md)
-45. [Lonely Is the Night](../songs/Lonely-Is-the-Night.md)
-46. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
+45. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
