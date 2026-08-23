@@ -380,8 +380,8 @@
   }
 
   function setupSetArrangement() {
-    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),removeMode=panel?.querySelector('[data-set-remove-mode]'),arrange=panel?.querySelector('[data-set-arrange]'),cancel=panel?.querySelector('[data-set-cancel]'),save=panel?.querySelector('[data-set-save]'),status=panel?.querySelector('[data-offline-status]');
-    if(!panel||!list||!arrange||!cancel||!save)return;
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=document.querySelector('[data-set-add]'),removeMode=document.querySelector('[data-set-remove-mode]'),arrange=document.querySelector('[data-set-arrange]'),cancel=document.querySelector('[data-set-cancel]'),save=document.querySelector('[data-set-save]'),status=document.querySelector('[data-offline-status]');
+    if(!panel||!list||!arrange||!cancel||!save||!status)return;
     let original=[],dragging=null,layoutFrame=0;
     const entries=()=>[...list.querySelectorAll('[data-set-item]')];
     const renumber=()=>entries().forEach((entry,index)=>entry.querySelector('.set-entry-position').textContent=String(index+1));
@@ -427,13 +427,23 @@
     });
   }
 
+  function setupActionMenu() {
+    const menu=document.querySelector('[data-action-menu]');
+    if(!menu)return;
+    menu.addEventListener('click',event=>{
+      if(event.target.closest('a,button'))requestAnimationFrame(()=>{menu.open=false;});
+    });
+    document.addEventListener('pointerdown',event=>{if(menu.open&&!menu.contains(event.target))menu.open=false;});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape')menu.open=false;});
+  }
+
   function setupSetPrint() {
     document.querySelector('[data-set-print]')?.addEventListener('click',()=>window.print());
   }
 
   function setupSetItemEditing() {
-    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=panel?.querySelector('[data-set-add]'),removeMode=panel?.querySelector('[data-set-remove-mode]'),pageStatus=panel?.querySelector('[data-offline-status]');
-    if(!panel||!list||!add||!removeMode)return;
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=document.querySelector('[data-set-add]'),removeMode=document.querySelector('[data-set-remove-mode]'),pageStatus=document.querySelector('[data-offline-status]');
+    if(!panel||!list||!add||!removeMode||!pageStatus)return;
     let catalog=null,expectedHash='';
     const dialog=document.createElement('dialog');
     dialog.className='shelley-dialog set-item-dialog';
@@ -866,7 +876,7 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupSetPrint(); setupSetItemEditing(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupActionMenu(); setupSetPrint(); setupSetItemEditing(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();
