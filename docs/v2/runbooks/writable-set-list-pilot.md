@@ -10,6 +10,7 @@
 
 - V1 remains the default/fallback on port 8000.
 - V2 Set List authoring and foreground sync are enabled on clean origin port 8002.
+- The stale port-8001 pilot service is disabled so old cached shells cannot be mistaken for the active writable app.
 - Lead-sheet authoring, lyrics providers, and Shelley suggestions remain disabled.
 - Formal TASK-021 physical acceptance, default-route cutover, and V1 retirement remain pending.
 - The writable archive uses remote branch `refs/heads/v2-published`, seeded from
