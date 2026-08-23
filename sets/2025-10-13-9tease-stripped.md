@@ -47,5 +47,5 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 23. [The Middle](../songs/The-Middle.md) — singer: Kyle — bpm: 162
 24. [Thank You](../songs/Thank-You.md) — singer: Dave — bpm: 76
 25. [Wicked Garden](../songs/Wicked-Garden.md) — singer: Kyle — bpm: 155
-26. [Fire Woman/She Sells](../songs/fire-woman-she-sells.md) — singer: Dustin — bpm: 132/139
+26. [Fire Woman/She Sells](../songs/fire-woman-she-sells.md) — singer: Dustin — bpm: 132
 27. [Rebel Yell](../songs/Rebel-Yell.md) — singer: Dave — bpm: 166
