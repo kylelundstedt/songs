@@ -111,6 +111,16 @@ func TestCatalogAndRoutes(t *testing.T) {
 					}
 				}
 			}
+			if tt.name == "live" {
+				for _, unwanted := range []string{`data-live-prev`, `data-live-next`, `class="source-facts"`} {
+					if strings.Contains(w.Body.String(), unwanted) {
+						t.Fatalf("live page still contains %q: %s", unwanted, w.Body.String())
+					}
+				}
+				if !strings.Contains(w.Body.String(), `<p class="live-performance-note">Count in</p>`) {
+					t.Fatalf("live page lost the performance note: %s", w.Body.String())
+				}
+			}
 		})
 	}
 }
@@ -154,7 +164,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatalf("live status=%d body=%s", liveResponse.Code, liveResponse.Body.String())
 	}
 	liveBody := liveResponse.Body.String()
-	for _, want := range []string{"<dt>Key</dt><dd>D</dd>", "<dt>BPM</dt><dd>133</dd>", "<strong>Count in</strong>"} {
+	for _, want := range []string{"<dt>Key</dt><dd>D</dd>", "<dt>BPM</dt><dd>133</dd>", `<p class="live-performance-note">Count in</p>`} {
 		if !strings.Contains(liveBody, want) {
 			t.Fatalf("live performance detail missing %q: %s", want, liveBody)
 		}
@@ -176,9 +186,10 @@ func TestMetadataPlaceholdersRemainVisible(t *testing.T) {
 		path    string
 		handler http.HandlerFunc
 		id      string
+		fields  []string
 	}{
-		{path: "/song/test-song", handler: server.HandleSong, id: "test-song"},
-		{path: "/sets/test-set/live", handler: server.HandleLiveSet, id: "test-set"},
+		{path: "/song/test-song", handler: server.HandleSong, id: "test-song", fields: []string{"Key", "BPM", "Artist", "Lyrics", "Original key", "Original BPM"}},
+		{path: "/sets/test-set/live", handler: server.HandleLiveSet, id: "test-set", fields: []string{"Key", "BPM", "Artist"}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.path, func(t *testing.T) {
@@ -190,7 +201,7 @@ func TestMetadataPlaceholdersRemainVisible(t *testing.T) {
 				t.Fatalf("status=%d body=%s", w.Code, w.Body.String())
 			}
 			body := w.Body.String()
-			for _, field := range []string{"Key", "BPM", "Artist", "Lyrics", "Original key", "Original BPM"} {
+			for _, field := range tt.fields {
 				want := "<dt>" + field + "</dt><dd>—</dd>"
 				if !strings.Contains(body, want) {
 					t.Errorf("body missing visible placeholder %q", want)

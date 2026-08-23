@@ -185,6 +185,8 @@ h1,h2,h3,p { margin-top:0; }
 .sync-status { color:var(--accent); }
 .single-song-shell { height:calc(100dvh - 64px); padding:max(10px,var(--safe-top)) max(12px,var(--safe-right)) max(10px,var(--safe-bottom)) max(12px,var(--safe-left)); }
 .lead-sheet-panel { height:100%; min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr) auto; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 16px 9px; overflow:hidden; }
+.lead-sheet-panel.live { grid-template-rows:auto minmax(0,1fr); }
+.live-performance-note { max-width:48ch; margin:.18rem 0 0; overflow:hidden; color:var(--accent); font-size:.72rem; font-weight:850; line-height:1.15; text-overflow:ellipsis; white-space:nowrap; }
 .sheet-header { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:1rem; border-bottom:2px solid var(--line); padding-bottom:7px; }
 .sheet-header h1 { max-width:100%; margin:0; overflow:hidden; font-size:var(--sheet-font,20px); font-weight:850; line-height:1.1; letter-spacing:0; text-overflow:ellipsis; white-space:nowrap; }
 .song-facts { display:flex; align-items:end; gap:.8rem; margin:0; min-width:0; }
@@ -223,9 +225,6 @@ h1,h2,h3,p { margin-top:0; }
 .unresolved-sheet-message strong { display:block; margin-bottom:.6rem; color:#9a5900; font-size:clamp(1.4rem,4vw,2.5rem); }
 [data-theme="dark"] .unresolved-sheet-message strong { color:#ffe0a0; }
 .unresolved-sheet-message p { margin:.45rem 0; }
-.live-controls { position:fixed; z-index:30; right:max(16px,var(--safe-right)); bottom:max(14px,var(--safe-bottom)); display:flex; gap:.45rem; opacity:.2; transition:opacity .15s; }
-.live-controls:hover, .live-controls:focus-within { opacity:1; }
-.live-controls button { font-size:.75rem; }
 .font-controls { display:flex; align-items:stretch; overflow:hidden; border:1px solid var(--line); border-radius:999px; background:var(--panel); opacity:1; }
 .font-controls:hover, .font-controls:focus-within { opacity:1; }
 .font-controls button { min-width:2.7rem; min-height:2.5rem; border:0; border-radius:0; border-right:1px solid var(--line); padding:.4rem .55rem; background:transparent; font-size:.78rem; font-weight:900; }

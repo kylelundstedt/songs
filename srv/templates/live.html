@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css?v=20260823-13"><title>{{.Set.Title}} · Live</title></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css?v=20260823-20"><title>{{.Set.Title}} · Live</title></head>
 <body class="live-set-page" data-live-set>
 <nav class="live-nav"><a href="/sets/{{.Set.ID}}" aria-label="Exit live mode">←</a><strong>{{.Set.Title}}</strong><span data-live-progress>1 / {{len .Set.Items}}</span><div class="font-controls live-font-controls" data-font-controls role="group" aria-label="Lead-sheet font size"><button type="button" data-font-decrease aria-label="Decrease font size" title="Decrease font size">A−</button><button type="button" data-font-reset aria-label="Return to automatic font size"><span class="font-size-value"><span data-font-size>21</span><small>px</small></span></button><button type="button" data-font-increase aria-label="Increase font size" title="Increase font size">A+</button></div><button class="button markdown-edit" type="button" data-markdown-edit aria-label="Edit Markdown" title="Edit Markdown"><span class="markdown-edit-full">Edit Markdown</span><span class="markdown-edit-short" aria-hidden="true">MD</span></button><button class="button shelley-edit" type="button" data-shelley-edit aria-label="Edit with Shelley" title="Edit with Shelley"><span class="shelley-edit-full">Edit with Shelley</span><span class="shelley-edit-short" aria-hidden="true">AI</span></button><button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></nav>
 <main class="live-set" data-live-scroller>
@@ -8,9 +8,8 @@
 <section class="live-set-panel{{if .Unresolved}} live-unresolved-panel{{end}}" data-live-panel{{if .Song}} data-song-id="{{.Song.ID}}"{{end}}>
 {{if .Song}}
   <article class="lead-sheet-panel live" data-lead-sheet>
-    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1></div><dl class="song-facts" aria-label="Song details"><div><dt>Key</dt><dd>{{if .EffectiveKey}}{{.EffectiveKey}}{{else}}—{{end}}</dd></div><div><dt>BPM</dt><dd>{{if .DisplayBPM}}{{.DisplayBPM}}{{else}}—{{end}}</dd></div><div class="singer-fact"><dt>Singer</dt><dd>{{if .Singer}}{{.Singer}}{{else}}—{{end}}</dd></div><div class="artist-fact"><dt>Artist</dt><dd>{{if .Song.Artist}}{{.Song.Artist}}{{else}}—{{end}}</dd></div></dl></header>
+    <header class="sheet-header"><div><p class="eyebrow">{{.Position}} · {{$.Set.Title}}</p><h1>{{.Song.Title}}</h1>{{if .Note}}<p class="live-performance-note">{{.Note}}</p>{{end}}</div><dl class="song-facts" aria-label="Song details"><div><dt>Key</dt><dd>{{if .EffectiveKey}}{{.EffectiveKey}}{{else}}—{{end}}</dd></div><div><dt>BPM</dt><dd>{{if .DisplayBPM}}{{.DisplayBPM}}{{else}}—{{end}}</dd></div><div class="singer-fact"><dt>Singer</dt><dd>{{if .Singer}}{{.Singer}}{{else}}—{{end}}</dd></div><div class="artist-fact"><dt>Artist</dt><dd>{{if .Song.Artist}}{{.Song.Artist}}{{else}}—{{end}}</dd></div></dl></header>
     <div class="sheet-viewport" data-sheet-viewport><div class="apex-source" data-apex-source>{{.Song.HTML}}</div><div class="live-columns" data-live-columns></div></div>
-    <footer class="sheet-footer">{{if .Note}}<strong>{{.Note}}</strong>{{end}}<dl class="source-facts" aria-label="Original recording details"><div><dt>Lyrics</dt><dd>{{if .Song.SourceURL}}<a href="{{.Song.SourceURL}}" target="_blank" rel="noopener noreferrer">{{if .Song.SourceProvider}}{{.Song.SourceProvider}}{{else}}Source{{end}} ↗</a>{{else}}—{{end}}</dd></div><div><dt>Original key</dt><dd>{{if .Song.OriginalKey}}{{.Song.OriginalKey}}{{else}}—{{end}}</dd></div><div><dt>Original BPM</dt><dd>{{if .Song.OriginalBPM}}{{.Song.OriginalBPM}}{{else}}—{{end}}</dd></div></dl></footer>
   </article>
 {{else}}
   <article class="lead-sheet-panel live unresolved-sheet" aria-label="Unresolved song">
@@ -21,6 +20,5 @@
 </section>
 {{end}}
 </main>
-<div class="live-controls"><button type="button" data-live-prev>Previous</button><button type="button" data-live-next>Next</button></div>
 <script src="/static/app.js" defer></script>
 </body></html>
