@@ -71,6 +71,17 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 - [Legacy repository audit](docs/research/legacy-audit.md)
 - [Environment record](docs/ENVIRONMENT.md)
 
+## Read-only sharing
+
+V1 uses exe.dev authentication headers for a single owner/viewer boundary. The
+address in `SONGS_OWNER_EMAIL` is the only account allowed to create, edit,
+reorder, import, invoke Shelley changes, or reindex. Other authenticated
+exe.dev Web-share users can browse, print, use Live mode, and prepare sets for
+offline use; mutation and editor endpoints return `403 Forbidden`.
+
+The production service binds to loopback so authenticated exe.dev HTTPS is the
+only external entry point.
+
 ## Security note
 
 The old `loosely-covered/set-lists` repository contains a tracked plaintext Snowflake credential and a workflow step that can expose a secret in logs. Rotate/revoke affected credentials and remove them from current content and Git history. No secret values are copied into this repository.

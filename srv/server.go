@@ -30,6 +30,8 @@ import (
 	"songs.exe.dev/db"
 )
 
+const defaultOwnerEmail = "klundstedt@industryvault.com"
+
 type Song struct {
 	ID             string        `json:"id"`
 	Path           string        `json:"path"`
@@ -115,6 +117,7 @@ type Server struct {
 	DeezerBaseURL  string
 	LLMBaseURL     string
 	LeadSheetModel string
+	OwnerEmail     string
 
 	mu          sync.RWMutex
 	writeMu     sync.Mutex
@@ -131,6 +134,7 @@ type Server struct {
 type pageData struct {
 	Title               string
 	UserEmail           string
+	CanWrite            bool
 	Songs               []*Song
 	Sets                []*SetList
 	Song                *Song
@@ -283,6 +287,10 @@ func New(dbPath, hostname, repoRoot string) (*Server, error) {
 		_ = wdb.Close()
 		return nil, err
 	}
+	ownerEmail := strings.ToLower(strings.TrimSpace(os.Getenv("SONGS_OWNER_EMAIL")))
+	if ownerEmail == "" {
+		ownerEmail = defaultOwnerEmail
+	}
 	s := &Server{
 		DB: wdb, Hostname: hostname, RepoRoot: repoRoot,
 		TemplatesDir: filepath.Join(baseDir, "templates"), StaticDir: filepath.Join(baseDir, "static"), ApexPath: apexPath,
@@ -292,6 +300,7 @@ func New(dbPath, hostname, repoRoot string) (*Server, error) {
 		DeezerBaseURL:  "https://api.deezer.com",
 		LLMBaseURL:     "https://llm.int.exe.xyz",
 		LeadSheetModel: "openai/gpt-5.6-luna",
+		OwnerEmail:     ownerEmail,
 		lyricsSem:      make(chan struct{}, 4),
 		shelleySem:     make(chan struct{}, 1),
 		shelleyJobs:    map[string]*shelleyEditJob{},
@@ -552,6 +561,9 @@ func (s *Server) HandleSetLists(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleNewSong(w http.ResponseWriter, r *http.Request) {
+	if !s.requireWriteAccess(w, r) {
+		return
+	}
 	title := strings.TrimSpace(r.URL.Query().Get("title"))
 	body := ""
 	if title != "" {
@@ -561,8 +573,7 @@ func (s *Server) HandleNewSong(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleCreateSong(w http.ResponseWriter, r *http.Request) {
-	if strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) == "" {
-		http.Error(w, "Sign in through exe.dev to add a song", http.StatusUnauthorized)
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if origin := strings.TrimSpace(r.Header.Get("Origin")); origin != "" {
@@ -690,7 +701,7 @@ func (s *Server) createSongFile(id, markdown string) error {
 }
 
 func (s *Server) HandleLyricsSearch(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !s.acquireLyricsRequest(w) {
@@ -818,7 +829,7 @@ func (s *Server) searchLyricsOvh(query string) ([]lyricsChoice, error) {
 }
 
 func (s *Server) HandleLyricsImport(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !s.acquireLyricsRequest(w) {
@@ -992,6 +1003,25 @@ func sameOriginMutation(r *http.Request) bool {
 		}
 	}
 	return strings.EqualFold(u.Scheme, scheme)
+}
+
+func requestEmail(r *http.Request) string {
+	return strings.ToLower(strings.TrimSpace(r.Header.Get("X-ExeDev-Email")))
+}
+
+func (s *Server) canWrite(r *http.Request) bool {
+	return strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) != "" && requestEmail(r) != "" && strings.EqualFold(requestEmail(r), s.OwnerEmail)
+}
+
+func (s *Server) requireWriteAccess(w http.ResponseWriter, r *http.Request) bool {
+	if !authenticatedRequest(w, r) {
+		return false
+	}
+	if !s.canWrite(r) {
+		http.Error(w, "This account has read-only access", http.StatusForbidden)
+		return false
+	}
+	return true
 }
 
 func authenticatedRequest(w http.ResponseWriter, r *http.Request) bool {
@@ -1368,7 +1398,7 @@ func (s *Server) HandleSet(w http.ResponseWriter, r *http.Request) {
 func (s *Server) HandleSetMarkdown(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "no-store")
 	w.Header().Add("Vary", "X-ExeDev-UserID")
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	s.mu.RLock()
@@ -1387,7 +1417,7 @@ func (s *Server) HandleSetMarkdown(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleUpdateSetMarkdown(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !sameOriginMutation(r) {
@@ -1659,7 +1689,7 @@ func (s *Server) readSetMarkdownForStructuredEdit(set *SetList, expectedHash str
 }
 
 func (s *Server) HandleUpdateSetOrder(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !sameOriginMutation(r) {
@@ -1710,7 +1740,7 @@ func (s *Server) HandleUpdateSetOrder(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleAddSetItem(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !sameOriginMutation(r) {
@@ -1764,7 +1794,7 @@ func (s *Server) HandleAddSetItem(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleDeleteSetItem(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !sameOriginMutation(r) {
@@ -1839,7 +1869,7 @@ func (s *Server) HandleSongJSON(w http.ResponseWriter, r *http.Request) {
 func (s *Server) HandleSongMarkdown(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "no-store")
 	w.Header().Add("Vary", "X-ExeDev-UserID")
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	s.mu.RLock()
@@ -1858,7 +1888,7 @@ func (s *Server) HandleSongMarkdown(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleUpdateSongMarkdown(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !sameOriginMutation(r) {
@@ -1924,7 +1954,7 @@ func (s *Server) HandleOfflineManifest(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, map[string]any{"set": set.ID, "hash": set.Hash, "urls": urls})
 }
 func (s *Server) HandleShelleyEdit(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if !sameOriginMutation(r) {
@@ -1975,7 +2005,7 @@ func (s *Server) HandleShelleyEdit(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) HandleShelleyJob(w http.ResponseWriter, r *http.Request) {
-	if !authenticatedRequest(w, r) {
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	owner := strings.TrimSpace(r.Header.Get("X-ExeDev-UserID"))
@@ -2348,8 +2378,7 @@ func (s *Server) updateShelleyJob(id, status, message string) {
 }
 
 func (s *Server) HandleReindex(w http.ResponseWriter, r *http.Request) {
-	if strings.TrimSpace(r.Header.Get("X-ExeDev-UserID")) == "" {
-		http.Error(w, "authentication required", http.StatusUnauthorized)
+	if !s.requireWriteAccess(w, r) {
 		return
 	}
 	if err := s.Reindex(); err != nil {
@@ -2367,8 +2396,13 @@ func (s *Server) renderStatus(w http.ResponseWriter, r *http.Request, name strin
 	s.mu.RLock()
 	data.SongCount = len(s.songs)
 	data.SetCount = len(s.sets)
+	data.UserEmail = strings.TrimSpace(r.Header.Get("X-ExeDev-Email"))
+	data.CanWrite = s.canWrite(r)
 	data.ShelleyURL = shelleyNewConversationURL(s.Hostname)
 	s.mu.RUnlock()
+	w.Header().Add("Vary", "X-ExeDev-Email")
+	w.Header().Add("Vary", "X-ExeDev-UserID")
+	w.Header().Set("Cache-Control", "private")
 	setSecurityHeaders(w)
 	path := filepath.Join(s.TemplatesDir, name)
 	tmpl, err := template.ParseFiles(path)

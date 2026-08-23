@@ -14,6 +14,16 @@ import (
 	"time"
 )
 
+func setOwnerHeaders(req *http.Request) {
+	req.Header.Set("X-ExeDev-UserID", "test-owner")
+	req.Header.Set("X-ExeDev-Email", defaultOwnerEmail)
+}
+
+func setViewerHeaders(req *http.Request) {
+	req.Header.Set("X-ExeDev-UserID", "test-viewer")
+	req.Header.Set("X-ExeDev-Email", "viewer@example.com")
+}
+
 func fixtureServer(t *testing.T) *Server {
 	t.Helper()
 	root := t.TempDir()
@@ -54,6 +64,7 @@ func fixtureServer(t *testing.T) *Server {
 		t.Fatal(err)
 	}
 	server.LLMBaseURL = ""
+	server.OwnerEmail = defaultOwnerEmail
 	t.Cleanup(func() { server.DB.Close() })
 	return server
 }
@@ -87,6 +98,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			req := httptest.NewRequest(http.MethodGet, tt.path, nil)
+			setOwnerHeaders(req)
 			if strings.Contains(tt.path, "/song/") {
 				req.SetPathValue("id", "test-song")
 			}
@@ -122,6 +134,129 @@ func TestCatalogAndRoutes(t *testing.T) {
 				}
 			}
 		})
+	}
+}
+
+func TestOwnerViewerBoundary(t *testing.T) {
+	server := fixtureServer(t)
+
+	ownerRequest := httptest.NewRequest(http.MethodGet, "/sets/test-set", nil)
+	ownerRequest.SetPathValue("id", "test-set")
+	setOwnerHeaders(ownerRequest)
+	ownerResponse := httptest.NewRecorder()
+	server.HandleSet(ownerResponse, ownerRequest)
+	if ownerResponse.Code != http.StatusOK || !strings.Contains(ownerResponse.Body.String(), `data-set-add`) || !strings.Contains(ownerResponse.Body.String(), `data-markdown-edit`) {
+		t.Fatalf("owner controls missing: status=%d body=%s", ownerResponse.Code, ownerResponse.Body.String())
+	}
+
+	viewerRequest := httptest.NewRequest(http.MethodGet, "/sets/test-set", nil)
+	viewerRequest.SetPathValue("id", "test-set")
+	setViewerHeaders(viewerRequest)
+	viewerResponse := httptest.NewRecorder()
+	server.HandleSet(viewerResponse, viewerRequest)
+	if viewerResponse.Code != http.StatusOK {
+		t.Fatalf("viewer set status=%d body=%s", viewerResponse.Code, viewerResponse.Body.String())
+	}
+	vary := strings.Join(viewerResponse.Header().Values("Vary"), ",")
+	if !strings.Contains(vary, "X-ExeDev-Email") || !strings.Contains(vary, "X-ExeDev-UserID") || viewerResponse.Header().Get("Cache-Control") != "private" {
+		t.Fatalf("viewer response cache boundary missing: vary=%q cache=%q", vary, viewerResponse.Header().Get("Cache-Control"))
+	}
+	viewerBody := viewerResponse.Body.String()
+	for _, forbidden := range []string{`data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-markdown-edit`, `Edit with Shelley`} {
+		if strings.Contains(viewerBody, forbidden) {
+			t.Fatalf("viewer sees write control %q: %s", forbidden, viewerBody)
+		}
+	}
+	for _, allowed := range []string{`data-set-print`, `data-offline-set`, `Open live set`} {
+		if !strings.Contains(viewerBody, allowed) {
+			t.Fatalf("viewer is missing read-only action %q: %s", allowed, viewerBody)
+		}
+	}
+
+	for _, page := range []struct {
+		path      string
+		id        string
+		handler   http.HandlerFunc
+		forbidden []string
+	}{
+		{path: "/", handler: server.HandleHome, forbidden: []string{"/songs/new", "Edit with Shelley"}},
+		{path: "/song/test-song", id: "test-song", handler: server.HandleSong, forbidden: []string{`data-markdown-edit`, `data-shelley-edit`}},
+		{path: "/sets/test-set/live", id: "test-set", handler: server.HandleLiveSet, forbidden: []string{`data-markdown-edit`, `data-shelley-edit`}},
+	} {
+		req := httptest.NewRequest(http.MethodGet, page.path, nil)
+		if page.id != "" {
+			req.SetPathValue("id", page.id)
+		}
+		setViewerHeaders(req)
+		w := httptest.NewRecorder()
+		page.handler(w, req)
+		if w.Code != http.StatusOK {
+			t.Fatalf("viewer page %s status=%d body=%s", page.path, w.Code, w.Body.String())
+		}
+		for _, forbidden := range page.forbidden {
+			if strings.Contains(w.Body.String(), forbidden) {
+				t.Fatalf("viewer page %s contains %q", page.path, forbidden)
+			}
+		}
+	}
+
+	newSong := httptest.NewRequest(http.MethodGet, "/songs/new", nil)
+	setViewerHeaders(newSong)
+	newSongResponse := httptest.NewRecorder()
+	server.HandleNewSong(newSongResponse, newSong)
+	if newSongResponse.Code != http.StatusForbidden {
+		t.Fatalf("viewer new-song status=%d body=%s", newSongResponse.Code, newSongResponse.Body.String())
+	}
+
+	mutations := []struct {
+		method  string
+		path    string
+		handler http.HandlerFunc
+	}{
+		{http.MethodGet, "/api/lyrics/search", server.HandleLyricsSearch},
+		{http.MethodGet, "/api/sets/test-set/markdown", server.HandleSetMarkdown},
+		{http.MethodGet, "/api/songs/test-song/markdown", server.HandleSongMarkdown},
+		{http.MethodPost, "/songs", server.HandleCreateSong},
+		{http.MethodPost, "/api/lyrics/import", server.HandleLyricsImport},
+		{http.MethodPut, "/api/sets/test-set/markdown", server.HandleUpdateSetMarkdown},
+		{http.MethodPut, "/api/sets/test-set/order", server.HandleUpdateSetOrder},
+		{http.MethodPost, "/api/sets/test-set/items", server.HandleAddSetItem},
+		{http.MethodDelete, "/api/sets/test-set/items/1", server.HandleDeleteSetItem},
+		{http.MethodPut, "/api/songs/test-song/markdown", server.HandleUpdateSongMarkdown},
+		{http.MethodPost, "/api/shelley/edit", server.HandleShelleyEdit},
+		{http.MethodGet, "/api/shelley/jobs/example", server.HandleShelleyJob},
+		{http.MethodPost, "/api/reindex", server.HandleReindex},
+	}
+	for _, mutation := range mutations {
+		req := httptest.NewRequest(mutation.method, mutation.path, strings.NewReader(`{}`))
+		setViewerHeaders(req)
+		w := httptest.NewRecorder()
+		mutation.handler(w, req)
+		if w.Code != http.StatusForbidden || !strings.Contains(w.Body.String(), "read-only") {
+			t.Fatalf("viewer mutation %s %s status=%d body=%s", mutation.method, mutation.path, w.Code, w.Body.String())
+		}
+	}
+
+	unauthenticated := httptest.NewRequest(http.MethodPost, "/api/reindex", nil)
+	unauthenticatedResponse := httptest.NewRecorder()
+	server.HandleReindex(unauthenticatedResponse, unauthenticated)
+	if unauthenticatedResponse.Code != http.StatusUnauthorized {
+		t.Fatalf("unauthenticated mutation status=%d body=%s", unauthenticatedResponse.Code, unauthenticatedResponse.Body.String())
+	}
+
+	missingEmail := httptest.NewRequest(http.MethodPost, "/api/reindex", nil)
+	missingEmail.Header.Set("X-ExeDev-UserID", "test-owner")
+	missingEmailResponse := httptest.NewRecorder()
+	server.HandleReindex(missingEmailResponse, missingEmail)
+	if missingEmailResponse.Code != http.StatusForbidden {
+		t.Fatalf("missing-email mutation status=%d body=%s", missingEmailResponse.Code, missingEmailResponse.Body.String())
+	}
+
+	caseInsensitive := httptest.NewRequest(http.MethodGet, "/", nil)
+	caseInsensitive.Header.Set("X-ExeDev-UserID", "test-owner")
+	caseInsensitive.Header.Set("X-ExeDev-Email", strings.ToUpper(defaultOwnerEmail))
+	if !server.canWrite(caseInsensitive) {
+		t.Fatal("owner email comparison should be case-insensitive")
 	}
 }
 
@@ -388,7 +523,7 @@ func TestCreateSongWorkflow(t *testing.T) {
 	}
 	req := httptest.NewRequest(http.MethodPost, "/songs", strings.NewReader(form.Encode()))
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(req)
 	w := httptest.NewRecorder()
 	server.HandleCreateSong(w, req)
 	if w.Code != http.StatusSeeOther {
@@ -413,7 +548,7 @@ func TestDirectMarkdownEditWorkflow(t *testing.T) {
 	server := fixtureServer(t)
 	get := httptest.NewRequest(http.MethodGet, "/api/songs/test-song/markdown", nil)
 	get.SetPathValue("id", "test-song")
-	get.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(get)
 	getW := httptest.NewRecorder()
 	server.HandleSongMarkdown(getW, get)
 	if getW.Code != http.StatusOK || getW.Header().Get("Cache-Control") != "no-store" {
@@ -430,7 +565,7 @@ func TestDirectMarkdownEditWorkflow(t *testing.T) {
 	payload, _ := json.Marshal(markdownUpdateRequest{Markdown: revised, ExpectedHash: source.Hash})
 	put := httptest.NewRequest(http.MethodPut, "/api/songs/test-song/markdown", strings.NewReader(string(payload)))
 	put.SetPathValue("id", "test-song")
-	put.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(put)
 	put.Header.Set("Content-Type", "application/json")
 	putW := httptest.NewRecorder()
 	server.HandleUpdateSongMarkdown(putW, put)
@@ -448,7 +583,7 @@ func TestDirectMarkdownEditWorkflow(t *testing.T) {
 	stalePayload, _ := json.Marshal(markdownUpdateRequest{Markdown: strings.Replace(revised, "14x", "12x", 1), ExpectedHash: source.Hash})
 	stale := httptest.NewRequest(http.MethodPut, "/api/songs/test-song/markdown", strings.NewReader(string(stalePayload)))
 	stale.SetPathValue("id", "test-song")
-	stale.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(stale)
 	staleW := httptest.NewRecorder()
 	server.HandleUpdateSongMarkdown(staleW, stale)
 	if staleW.Code != http.StatusConflict {
@@ -460,7 +595,7 @@ func TestDirectSetMarkdownEditWorkflow(t *testing.T) {
 	server := fixtureServer(t)
 	get := httptest.NewRequest(http.MethodGet, "/api/sets/test-set/markdown", nil)
 	get.SetPathValue("id", "test-set")
-	get.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(get)
 	getW := httptest.NewRecorder()
 	server.HandleSetMarkdown(getW, get)
 	if getW.Code != http.StatusOK || getW.Header().Get("Cache-Control") != "no-store" {
@@ -477,7 +612,7 @@ func TestDirectSetMarkdownEditWorkflow(t *testing.T) {
 	payload, _ := json.Marshal(markdownUpdateRequest{Markdown: revised, ExpectedHash: source.Hash})
 	put := httptest.NewRequest(http.MethodPut, "/api/sets/test-set/markdown", strings.NewReader(string(payload)))
 	put.SetPathValue("id", "test-set")
-	put.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(put)
 	put.Header.Set("Content-Type", "application/json")
 	putW := httptest.NewRecorder()
 	server.HandleUpdateSetMarkdown(putW, put)
@@ -503,7 +638,7 @@ func TestStructuredSetEditRejectsDiskNewerThanCatalog(t *testing.T) {
 	payload, _ := json.Marshal(setItemAddRequest{ExpectedHash: hashBytes([]byte(external)), SongID: "test-song", Column: 1})
 	request := httptest.NewRequest(http.MethodPost, "/api/sets/test-set/items", strings.NewReader(string(payload)))
 	request.SetPathValue("id", "test-set")
-	request.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(request)
 	request.Header.Set("Content-Type", "application/json")
 	w := httptest.NewRecorder()
 	server.HandleAddSetItem(w, request)
@@ -544,7 +679,7 @@ func TestSetOrderWorkflow(t *testing.T) {
 	payload, _ := json.Marshal(setOrderRequest{ExpectedHash: set.Hash, Order: []int{2, 1}, Breaks: []int{1}})
 	req := httptest.NewRequest(http.MethodPut, "/api/sets/test-set/order", strings.NewReader(string(payload)))
 	req.SetPathValue("id", "test-set")
-	req.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(req)
 	req.Header.Set("Content-Type", "application/json")
 	w := httptest.NewRecorder()
 	server.HandleUpdateSetOrder(w, req)
@@ -564,7 +699,7 @@ func TestSetOrderWorkflow(t *testing.T) {
 	addPayload, _ := json.Marshal(setItemAddRequest{ExpectedHash: set.Hash, SongID: "test-song", Singer: "Guest", PerformanceKey: "Bb", PerformanceBPM: "110 BPM", Note: "Added in UI", Column: 1})
 	addRequest := httptest.NewRequest(http.MethodPost, "/api/sets/test-set/items", strings.NewReader(string(addPayload)))
 	addRequest.SetPathValue("id", "test-set")
-	addRequest.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(addRequest)
 	addRequest.Header.Set("Content-Type", "application/json")
 	addW := httptest.NewRecorder()
 	server.HandleAddSetItem(addW, addRequest)
@@ -585,7 +720,7 @@ func TestSetOrderWorkflow(t *testing.T) {
 	deleteRequest := httptest.NewRequest(http.MethodDelete, "/api/sets/test-set/items/2", strings.NewReader(string(deletePayload)))
 	deleteRequest.SetPathValue("id", "test-set")
 	deleteRequest.SetPathValue("position", "2")
-	deleteRequest.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(deleteRequest)
 	deleteRequest.Header.Set("Content-Type", "application/json")
 	deleteW := httptest.NewRecorder()
 	server.HandleDeleteSetItem(deleteW, deleteRequest)
@@ -625,7 +760,7 @@ func TestLyricsProviderWorkflow(t *testing.T) {
 	server.DeezerBaseURL = provider.URL
 
 	searchReq := httptest.NewRequest(http.MethodGet, "/api/lyrics/search?q=Rebel+Yell", nil)
-	searchReq.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(searchReq)
 	searchW := httptest.NewRecorder()
 	server.HandleLyricsSearch(searchW, searchReq)
 	if searchW.Code != http.StatusOK || !strings.Contains(searchW.Body.String(), `"provider":"LRCLIB"`) || strings.Contains(searchW.Body.String(), "not returned to browser") {
@@ -634,7 +769,7 @@ func TestLyricsProviderWorkflow(t *testing.T) {
 
 	selection := `{"provider":"LRCLIB","id":"1","title":"Rebel Yell","artist":"Billy Idol"}`
 	importReq := httptest.NewRequest(http.MethodPost, "/api/lyrics/import", strings.NewReader(selection))
-	importReq.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(importReq)
 	importW := httptest.NewRecorder()
 	server.HandleLyricsImport(importW, importReq)
 	if importW.Code != http.StatusOK {
@@ -657,7 +792,7 @@ func TestShelleyEditJob(t *testing.T) {
 	server.LLMBaseURL = model.URL
 	server.LeadSheetModel = "test-model"
 	request := httptest.NewRequest(http.MethodPost, "/api/shelley/edit", strings.NewReader(`{"prompt":"The verse is actually 14 bars","song_id":"test-song","path":"/song/test-song"}`))
-	request.Header.Set("X-ExeDev-UserID", "test-user")
+	setOwnerHeaders(request)
 	w := httptest.NewRecorder()
 	server.HandleShelleyEdit(w, request)
 	if w.Code != http.StatusAccepted {
