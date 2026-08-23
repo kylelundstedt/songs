@@ -61,19 +61,18 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 37. [You Wreck Me](../songs/You-Wreck-Me.md)
 38. [American Idiot](../songs/American-Idiot.md)
 39. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
-40. [If You Could Only See](../songs/if-you-could-only-see.md)
 <!-- column-break -->
 ## Set 3 - Fast
-41. [Killing in The Name](../songs/Killing-In-The-Name.md)
-42. [Sex on Fire](../songs/Sex-on-Fire.md)
-43. [Iris](../songs/iris.md)
-44. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
-45. [Just Like Heaven](../songs/Just-Like-Heaven.md)
-46. [Melt With You](../songs/Melt-With-You.md)
-47. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
-48. [Born To Run](../songs/Born-To-Run.md)
-49. [American Girl](../songs/american-girl.md)
-50. [The Middle](../songs/The-Middle.md)
-51. [Lonely Is the Night](../songs/Lonely-Is-the-Night.md)
-52. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
-53. [Californication](../songs/Californication.md)
+40. [Killing in The Name](../songs/Killing-In-The-Name.md)
+41. [Sex on Fire](../songs/Sex-on-Fire.md)
+42. [Iris](../songs/iris.md)
+43. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
+44. [Just Like Heaven](../songs/Just-Like-Heaven.md)
+45. [Melt With You](../songs/Melt-With-You.md)
+46. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
+47. [Born To Run](../songs/Born-To-Run.md)
+48. [American Girl](../songs/american-girl.md)
+49. [The Middle](../songs/The-Middle.md)
+50. [Lonely Is the Night](../songs/Lonely-Is-the-Night.md)
+51. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
+52. [Californication](../songs/Californication.md)
