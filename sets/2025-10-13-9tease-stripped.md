@@ -57,5 +57,4 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 31. [Melt With You](../songs/Melt-With-You.md)
 32. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
 33. [Born To Run](../songs/Born-To-Run.md)
-34. [American Girl](../songs/american-girl.md)
-35. [The Middle](../songs/The-Middle.md)
+34. [The Middle](../songs/The-Middle.md)
