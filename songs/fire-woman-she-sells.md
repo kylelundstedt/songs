@@ -39,28 +39,21 @@ Come on little sister; Come on and shake it
 ### Chorus
 
 ### She Sells Guitar Intro 8x
-### Verse 1 8x
 
+### Verse 1  16x
 Oh, the heads that turn; Make my back burn  
 And that heads that turn; Make my back, make my back burn  
-
-### Verse 2 8x
 The sparkle in your eyes; Keeps me alive  
 And the sparkle in your eyes; Keeps me alive, keeps me alive  
 
-### Chorus 8x
-
+### Chorus  8x
 The world; And the world turns around  
 The world and the world yeah; The world drags me down  
 
-### Verse 1 8x
-
-### Verse 3 8x
-Hey yeah hey, yeah hey; The fire in your eyes keeps me alive  
-And the fire in your eyes keeps me alive  
+### Verse 1  16x
+(the fire in your eyes) 
 
 ### Vamp 8x
-
 I'm sure in her you'll find the sanctuary  
 I'm sure in her you'll find the sanctuary  
 
