@@ -1,6 +1,7 @@
 ---
 artist: "Lenny Kravitz"
 performance_key: "E"
+bpm: "85"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.819"

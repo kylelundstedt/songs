@@ -1,7 +1,7 @@
 ---
 artist: "No Doubt"
 performance_key: "D"
-bpm: "107.9"
+bpm: "108"
 original_key: "D"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

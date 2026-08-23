@@ -1,6 +1,7 @@
 ---
 artist: "Imagine Dragons"
 performance_key: "Eb"
+bpm: "90"
 original_key: "Eb"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.98"

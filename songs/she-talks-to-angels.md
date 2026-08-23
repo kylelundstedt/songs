@@ -3,6 +3,7 @@ schema_version: 1
 id: "she-talks-to-angels"
 title: "She Talks to Angels"
 artist: "The Black Crowes"
+bpm: "156"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/20233703"

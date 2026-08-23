@@ -3,6 +3,7 @@ schema_version: 1
 id: "flagpole-sitta"
 title: "Flagpole Sitta"
 artist: "Harvey Danger"
+bpm: "145"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/36722958"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "pump-it-up"
 title: "Pump It Up"
 artist: "Elvis Costello \u0026 The Attractions"
+bpm: "140"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/6683350"

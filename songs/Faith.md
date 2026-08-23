@@ -1,6 +1,6 @@
 ---
 artist: "George Michael"
-bpm: "191.4"
+bpm: "96"
 original_bpm: "191.4"
 reference_title: "Faith"
 reference_artist: "George Michael"

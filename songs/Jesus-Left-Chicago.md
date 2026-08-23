@@ -1,5 +1,6 @@
 ---
 artist: "ZZ Top"
+bpm: "69"
 reference_title: "Jesus Left Chicago"
 reference_artist: "ZZ Top"
 reference_album: "I Love My Automobile"

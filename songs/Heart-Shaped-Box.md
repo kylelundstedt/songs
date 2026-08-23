@@ -1,7 +1,7 @@
 ---
 artist: "Nirvana"
 performance_key: "C#"
-bpm: "99.9"
+bpm: "102"
 original_key: "C#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.811"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "the-one-i-love"
 title: "The One I Love"
 artist: "R.E.M."
+bpm: "128"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/36535825"

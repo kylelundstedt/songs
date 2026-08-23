@@ -1,6 +1,7 @@
 ---
 artist: "Tom Petty"
 performance_key: "F"
+bpm: "115"
 original_key: "F"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.907"

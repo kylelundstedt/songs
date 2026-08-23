@@ -1,6 +1,7 @@
 ---
 artist: "Johnny Cash"
 performance_key: "E"
+bpm: "110"
 reference_title: "Folsom Prison Blues"
 reference_artist: "Johnny Cash & The Tennessee Two"
 reference_album: "Dim Lights, Thick Smoke & Hillbilly Music: Country & Western Hit Parade - 1956"

@@ -1,6 +1,7 @@
 ---
 artist: "Radiohead"
 performance_key: "G"
+bpm: "92"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.884"

@@ -1,5 +1,6 @@
 ---
 artist: "AC/DC"
+bpm: "123"
 reference_title: "Touch Too Much"
 reference_artist: "AC⚡DC"
 reference_album: "Highway To Hell (1995 RM)"

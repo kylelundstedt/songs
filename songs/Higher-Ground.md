@@ -1,6 +1,7 @@
 ---
 artist: "Red Hot Chili Peppers"
 performance_key: "E"
+bpm: "140"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.873"

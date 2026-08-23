@@ -1,6 +1,7 @@
 ---
 artist: "Bob Marley & The Wailers"
 performance_key: "F#m"
+bpm: "96"
 original_key: "F#m"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.849"

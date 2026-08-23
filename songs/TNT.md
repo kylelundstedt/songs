@@ -1,6 +1,6 @@
 ---
 artist: "AC/DC"
-bpm: "126.8"
+bpm: "126"
 original_bpm: "126.8"
 reference_title: "TNT"
 reference_artist: "ACDC"

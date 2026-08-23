@@ -1,7 +1,7 @@
 ---
 artist: "Joss Stone"
 performance_key: "C"
-bpm: "103.88"
+bpm: "104"
 original_bpm: "103.88"
 reference_title: "Some Kind Of Wonderful"
 reference_artist: "Joss Stone"

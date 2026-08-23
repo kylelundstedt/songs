@@ -1,7 +1,7 @@
 ---
 artist: "U2"
 performance_key: "A"
-bpm: "140.2"
+bpm: "144"
 original_key: "A"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.879"

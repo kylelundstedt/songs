@@ -1,7 +1,7 @@
 ---
 artist: "Alanis Morissette"
 performance_key: "F#m"
-bpm: "105.2"
+bpm: "105"
 original_key: "F#m"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.819"

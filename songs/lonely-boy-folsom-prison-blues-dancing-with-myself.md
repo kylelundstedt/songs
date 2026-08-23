@@ -3,6 +3,7 @@ schema_version: 1
 id: "lonely-boy-folsom-prison-blues-dancing-with-myself"
 title: "Lonely Boy / Folsom Prison Blues / Dancing With Myself"
 artist: "The Black Keys / Johnny Cash / Billy Idol"
+bpm: "166/102/177"
 provenance_status: user-supplied
 arrangement_status: proposed-pending-review
 ---

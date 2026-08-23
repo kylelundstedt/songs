@@ -1,6 +1,7 @@
 ---
 artist: "Pharrell Williams"
 performance_key: "Fm"
+bpm: "80"
 original_key: "Fm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.898"

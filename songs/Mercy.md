@@ -1,6 +1,7 @@
 ---
 artist: "Duffy"
 performance_key: "G"
+bpm: "130"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.842"

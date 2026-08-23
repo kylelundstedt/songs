@@ -1,5 +1,6 @@
 ---
 artist: "Daft Punk"
+bpm: "116"
 reference_title: "Get Lucky"
 reference_artist: "Daft Punk"
 reference_album: "Random Access Memories (10th Annyversary)"

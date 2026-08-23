@@ -1,6 +1,7 @@
 ---
 artist: "Alice in Chains"
 performance_key: "Ebm"
+bpm: "108"
 original_key: "Ebm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.829"

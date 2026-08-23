@@ -3,6 +3,7 @@ schema_version: 1
 id: "about-damn-time"
 title: "About Damn Time"
 artist: "Lizzo"
+bpm: "109"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/4554251"

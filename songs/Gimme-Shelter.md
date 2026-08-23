@@ -1,7 +1,7 @@
 ---
 artist: "The Rolling Stones"
 performance_key: "C#m"
-bpm: "118.5"
+bpm: "119"
 original_key: "C#m"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.89"

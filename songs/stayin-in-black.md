@@ -3,6 +3,7 @@ schema_version: 1
 id: "stayin-in-black"
 title: "Stayin' in Black"
 artist: "Bee Gees / AC/DC"
+bpm: "104/94"
 provenance_status: user-supplied
 arrangement_status: proposed-pending-review
 ---

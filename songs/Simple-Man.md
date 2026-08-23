@@ -1,5 +1,6 @@
 ---
 artist: "Lynyrd Skynyrd"
+bpm: "60"
 reference_title: "Simple Man"
 reference_artist: "Lynyrd Skynyrd"
 reference_album: "Best Of (2013)"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "liza-jane"
 title: "Liza Jane"
 artist: "Vince Gill"
+bpm: "181"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/37033538"

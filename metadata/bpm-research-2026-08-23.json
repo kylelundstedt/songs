@@ -1,0 +1,3424 @@
+{
+  "schema_version": "bpm-research-1",
+  "generated_at": "2026-08-23",
+  "method": "Low-cost subagents performed direct title-and-artist web BPM lookups; ambiguous results received a second review. Values are rounded practical counts; medleys retain component BPMs. Owner-confirmed values override lookup results.",
+  "song_count": 341,
+  "changed_file_count": 335,
+  "confidence_counts": {
+    "high": 291,
+    "medium": 50,
+    "low": 0
+  },
+  "entries": [
+    {
+      "path": "songs/1979.md",
+      "title": "1979",
+      "artist": "The Smashing Pumpkins",
+      "previous_bpm": null,
+      "bpm": "127",
+      "source_domain": "yousician.com",
+      "confidence": "high",
+      "note": "practical quarter-note tempo"
+    },
+    {
+      "path": "songs/3-am.md",
+      "title": "3 AM",
+      "artist": "Matchbox Twenty",
+      "previous_bpm": "108",
+      "bpm": "108",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "common studio tempo"
+    },
+    {
+      "path": "songs/6th-Avenue-Heartache.md",
+      "title": "6th Avenue Heartache",
+      "artist": "The Wallflowers",
+      "previous_bpm": null,
+      "bpm": "152",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "Search result reports 150; database reports 152."
+    },
+    {
+      "path": "songs/777.md",
+      "title": "777",
+      "artist": "Silk Sonic",
+      "previous_bpm": null,
+      "bpm": "102",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/8675309.md",
+      "title": "867-5309",
+      "artist": "Tommy Tutone",
+      "previous_bpm": "137.81",
+      "bpm": "138",
+      "source_domain": "12notez.in",
+      "confidence": "high",
+      "note": "Direct listing; practical quarter-note count."
+    },
+    {
+      "path": "songs/Across-The-Universe.md",
+      "title": "Across The Universe",
+      "artist": "Fiona Apple",
+      "previous_bpm": "130",
+      "bpm": "130",
+      "source_domain": "tencymusic.com",
+      "confidence": "high",
+      "note": "Matches recording tempo; 65 is half-time listing."
+    },
+    {
+      "path": "songs/All-About-That-Bass.md",
+      "title": "All About That Bass",
+      "artist": "Meghan Trainor",
+      "previous_bpm": "133.8",
+      "bpm": "134",
+      "source_domain": "hooktheory.com",
+      "confidence": "high",
+      "note": "published tempo"
+    },
+    {
+      "path": "songs/All-Summer-Long.md",
+      "title": "All Summer Long",
+      "artist": "Kid Rock",
+      "previous_bpm": "102.8",
+      "bpm": "103",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "practical count; alternate database gives 121"
+    },
+    {
+      "path": "songs/All-These-Things-That-I-ve-Done.md",
+      "title": "All These Things That I've Done {short=\"All These Things\"}",
+      "artist": "The Killers",
+      "previous_bpm": "118.12",
+      "bpm": "118",
+      "source_domain": "songdata.io",
+      "confidence": "high",
+      "note": "118.2 rounded"
+    },
+    {
+      "path": "songs/Allison.md",
+      "title": "Allison",
+      "artist": "Elvis Costello & The Attractions",
+      "previous_bpm": null,
+      "bpm": "148",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct Elvis Costello and The Attractions lookup; quarter-note feel."
+    },
+    {
+      "path": "songs/Always-On-The-Run.md",
+      "title": "Always On The Run",
+      "artist": "Lenny Kravitz",
+      "previous_bpm": null,
+      "bpm": "85",
+      "source_domain": "tencymusic.com",
+      "confidence": "high",
+      "note": "practical half-time count"
+    },
+    {
+      "path": "songs/Amber.md",
+      "title": "Amber",
+      "artist": "311",
+      "previous_bpm": "166",
+      "bpm": "83",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "half-time normalization from 166"
+    },
+    {
+      "path": "songs/American-Idiot.md",
+      "title": "American Idiot",
+      "artist": "Green Day",
+      "previous_bpm": null,
+      "bpm": "186",
+      "source_domain": "drumstheword.com",
+      "confidence": "high",
+      "note": "quarter-note tempo"
+    },
+    {
+      "path": "songs/Angel-From-Montgomery.md",
+      "title": "Angel from Montgomery {short=\"Angel ... Montgomery\"}",
+      "artist": "John Prine",
+      "previous_bpm": "132.5",
+      "bpm": "133",
+      "source_domain": "12notez.in",
+      "confidence": "high",
+      "note": "practical count; rounded"
+    },
+    {
+      "path": "songs/Animal.md",
+      "title": "Animal",
+      "artist": "Neon Trees",
+      "previous_bpm": null,
+      "bpm": "148",
+      "source_domain": "trackify.am",
+      "confidence": "high",
+      "note": "Direct result reports 148 BPM."
+    },
+    {
+      "path": "songs/Any-Way-You-Want-It.md",
+      "title": "Any Way You Want It",
+      "artist": "Journey",
+      "previous_bpm": "149.8",
+      "bpm": "138",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Are-You-Gonna-Be-My-Girl.md",
+      "title": "Are You Gonna Be My Girl {short=\"Are U Be My Girl\"}",
+      "artist": "Jet",
+      "previous_bpm": "104.93",
+      "bpm": "105",
+      "source_domain": "phml.fr",
+      "confidence": "high",
+      "note": "Direct chart listing."
+    },
+    {
+      "path": "songs/Are-You-Gonna-Go-My-Way.md",
+      "title": "Are You Gonna Go My Way {short=\"Are U ... Go My Way\"}",
+      "artist": "Lenny Kravitz",
+      "previous_bpm": null,
+      "bpm": "125",
+      "source_domain": "hooktheory.com",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/Baby-I-Love-You.md",
+      "title": "Baby I Love You",
+      "artist": "Aretha Franklin",
+      "previous_bpm": "91.3",
+      "bpm": "91",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "exact tempo"
+    },
+    {
+      "path": "songs/Back-In-Black.md",
+      "title": "Back In Black",
+      "artist": "AC/DC",
+      "previous_bpm": null,
+      "bpm": "92",
+      "source_domain": "drumeoblog.s3.amazonaws.com",
+      "confidence": "high",
+      "note": "published score tempo 93"
+    },
+    {
+      "path": "songs/Bad-Romance.md",
+      "title": "Bad Romance",
+      "artist": "Lady Gaga",
+      "previous_bpm": "118.8",
+      "bpm": "119",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Lady Gaga track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/Bad-Things.md",
+      "title": "Bad Things",
+      "artist": "Jace Everett",
+      "previous_bpm": "130.8",
+      "bpm": "131",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Matches direct tempo result and existing 130.8."
+    },
+    {
+      "path": "songs/Badfish.md",
+      "title": "Badfish",
+      "artist": "Sublime",
+      "previous_bpm": null,
+      "bpm": "93",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "standard count"
+    },
+    {
+      "path": "songs/Bang-a-Gong-Get-It-On.md",
+      "title": "Bang a Gong Get It On {short=\"Bang a Gong\"}",
+      "artist": "T. Rex",
+      "previous_bpm": null,
+      "bpm": "120",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct T. Rex track lookup; practical quarter-note feel."
+    },
+    {
+      "path": "songs/Beer-Drinkers-n-Hell-Raisers.md",
+      "title": "Beer Drinkers n Hell Raisers {short=\"Beer Drinkers\"}",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "142",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct track lookup; practical straight-rock quarter-note count."
+    },
+    {
+      "path": "songs/Behind-Blue-Eyes.md",
+      "title": "Behind Blue Eyes",
+      "artist": "The Who",
+      "previous_bpm": null,
+      "bpm": "129",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct original-version lookup; corrected from 127."
+    },
+    {
+      "path": "songs/Bent.md",
+      "title": "Bent",
+      "artist": "Matchbox Twenty",
+      "previous_bpm": "191.4",
+      "bpm": "95",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "191.4 existing value normalized to half-time."
+    },
+    {
+      "path": "songs/Betterman.md",
+      "title": "Betterman",
+      "artist": "Pearl Jam",
+      "previous_bpm": null,
+      "bpm": "125",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Pearl Jam lookup; corrected from 126."
+    },
+    {
+      "path": "songs/Billie-Jean.md",
+      "title": "Billie Jean",
+      "artist": "Michael Jackson",
+      "previous_bpm": null,
+      "bpm": "117",
+      "source_domain": "12notez.in",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/Black-Hole-Sun.md",
+      "title": "Black Hole Sun",
+      "artist": "Soundgarden",
+      "previous_bpm": null,
+      "bpm": "105",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Soundgarden track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/Black.md",
+      "title": "Black",
+      "artist": "Pearl Jam",
+      "previous_bpm": null,
+      "bpm": "106",
+      "source_domain": "songdata.io",
+      "confidence": "high",
+      "note": "track analysis"
+    },
+    {
+      "path": "songs/Blister-In-The-Sun.md",
+      "title": "Blister In The Sun",
+      "artist": "Violent Femmes",
+      "previous_bpm": null,
+      "bpm": "98",
+      "source_domain": "mixgraph.io",
+      "confidence": "high",
+      "note": "around 98; alternate chart gives 97"
+    },
+    {
+      "path": "songs/Blue-Monday.md",
+      "title": "Blue Monday",
+      "artist": "New Order",
+      "previous_bpm": null,
+      "bpm": "133",
+      "source_domain": "musicnoteslib.com",
+      "confidence": "high",
+      "note": "132.999 rounded"
+    },
+    {
+      "path": "songs/Born-To-Run.md",
+      "title": "Born To Run",
+      "artist": "Bruce Springsteen",
+      "previous_bpm": null,
+      "bpm": "146",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Bruce Springsteen track lookup; proposed value confirmed/rounded."
+    },
+    {
+      "path": "songs/Boys-Don-t-Cry.md",
+      "title": "Boys Don t Cry",
+      "artist": "The Cure",
+      "previous_bpm": null,
+      "bpm": "168",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "standard count"
+    },
+    {
+      "path": "songs/Breakdown.md",
+      "title": "Breakdown",
+      "artist": "Tom Petty & the Heartbreakers",
+      "previous_bpm": "114.53",
+      "bpm": "114",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "matches 114 BPM result"
+    },
+    {
+      "path": "songs/Brick-House.md",
+      "title": "Brick House",
+      "artist": "The Commodores",
+      "previous_bpm": null,
+      "bpm": "108",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "funk quarter-note tempo"
+    },
+    {
+      "path": "songs/Brown-Eyed-Girl.md",
+      "title": "Brown Eyed Girl",
+      "artist": "Van Morrison",
+      "previous_bpm": "149.8",
+      "bpm": "150",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "existing 149.8 rounded"
+    },
+    {
+      "path": "songs/Budapest.md",
+      "title": "Budapest",
+      "artist": "George Ezra",
+      "previous_bpm": null,
+      "bpm": "128",
+      "source_domain": "wikipedia.org",
+      "confidence": "high",
+      "note": "Published tempo is 128 BPM."
+    },
+    {
+      "path": "songs/Californication.md",
+      "title": "Californication",
+      "artist": "Red Hot Chili Peppers",
+      "previous_bpm": "96.8",
+      "bpm": "96",
+      "source_domain": "songparts.com",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Can-t-Stop.md",
+      "title": "Can't Stop",
+      "artist": "Red Hot Chili Peppers",
+      "previous_bpm": "182.9",
+      "bpm": "91",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Normalized existing double-time value."
+    },
+    {
+      "path": "songs/Can-t-You-See.md",
+      "title": "Can't You See",
+      "artist": "The Marshall Tucker Band",
+      "previous_bpm": null,
+      "bpm": "82",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "SFR lists 82; SongBPM 164 is double-time."
+    },
+    {
+      "path": "songs/Chasing-Cars.md",
+      "title": "Chasing Cars",
+      "artist": "Snow Patrol",
+      "previous_bpm": "103.88",
+      "bpm": "104",
+      "source_domain": "bellandcomusic.com",
+      "confidence": "high",
+      "note": "published tempo"
+    },
+    {
+      "path": "songs/Cheap-Sunglasses.md",
+      "title": "Cheap Sunglasses",
+      "artist": "ZZ Top",
+      "previous_bpm": "191.41",
+      "bpm": "94",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "normalized half-time from existing 191"
+    },
+    {
+      "path": "songs/Closer-To-Fine.md",
+      "title": "Closer To Fine",
+      "artist": "Indigo Girls",
+      "previous_bpm": "196.9",
+      "bpm": "98",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "consistent listings"
+    },
+    {
+      "path": "songs/Closing-Time.md",
+      "title": "Closing Time",
+      "artist": "Semisonic",
+      "previous_bpm": "184.57",
+      "bpm": "92",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing gives 92; corrected half-time interpretation is practical."
+    },
+    {
+      "path": "songs/Cold-Hard-Bitch.md",
+      "title": "Cold Hard Bitch",
+      "artist": "Jet",
+      "previous_bpm": null,
+      "bpm": "130",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "standard count"
+    },
+    {
+      "path": "songs/Come-As-You-Are.md",
+      "title": "Come As You Are",
+      "artist": "Nirvana",
+      "previous_bpm": null,
+      "bpm": "120",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "steady quarter-note feel"
+    },
+    {
+      "path": "songs/Come-Together.md",
+      "title": "Come Together",
+      "artist": "The Beatles",
+      "previous_bpm": null,
+      "bpm": "84",
+      "source_domain": "curdt.home.hdm-stuttgart.de",
+      "confidence": "high",
+      "note": "practical count; some databases double to 165"
+    },
+    {
+      "path": "songs/Counting-Blue-Cars.md",
+      "title": "Counting Blue Cars",
+      "artist": "Dishwalla",
+      "previous_bpm": null,
+      "bpm": "100",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "listed tempo"
+    },
+    {
+      "path": "songs/Crash.md",
+      "title": "Crash",
+      "artist": "Dave Matthews Band",
+      "previous_bpm": null,
+      "bpm": "101",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Lead sheet lyrics are Crash Into Me; exact Dave Matthews Band listing gives 101 BPM."
+    },
+    {
+      "path": "songs/Crawling-Back-To-You.md",
+      "title": "Crawling Back To You",
+      "artist": "Tom Petty",
+      "previous_bpm": null,
+      "bpm": "115",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Crazy-Bitch.md",
+      "title": "Crazy Bitch",
+      "artist": "Buckcherry",
+      "previous_bpm": "98",
+      "bpm": "98",
+      "source_domain": "tencymusic.com",
+      "confidence": "high",
+      "note": "Direct original-tempo listing."
+    },
+    {
+      "path": "songs/Crazy.md",
+      "title": "Crazy",
+      "artist": "Gnarls Barkley",
+      "previous_bpm": null,
+      "bpm": "112",
+      "source_domain": "mixgraph.io",
+      "confidence": "high",
+      "note": "Direct tempo listing; consistent with other analyses."
+    },
+    {
+      "path": "songs/Creep.md",
+      "title": "Creep",
+      "artist": "Radiohead",
+      "previous_bpm": null,
+      "bpm": "92",
+      "source_domain": "drumeoblog.com",
+      "confidence": "high",
+      "note": "sheet tempo"
+    },
+    {
+      "path": "songs/Criminal.md",
+      "title": "Criminal",
+      "artist": "Fiona Apple",
+      "previous_bpm": "179.8",
+      "bpm": "90",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "practical count; published as 89-90"
+    },
+    {
+      "path": "songs/Cumbersome.md",
+      "title": "Cumbersome",
+      "artist": "Seven Mary Three",
+      "previous_bpm": "162.1",
+      "bpm": "81",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "86-87 readings are alternate double/feel; musician count 81"
+    },
+    {
+      "path": "songs/Dancing-With-Myself.md",
+      "title": "Dancing With Myself",
+      "artist": "Billy Idol",
+      "previous_bpm": null,
+      "bpm": "176",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "medium",
+      "note": "Original recording practical fast count; database also lists remix at 88."
+    },
+    {
+      "path": "songs/Dani-California.md",
+      "title": "Dani California",
+      "artist": "Red Hot Chili Peppers",
+      "previous_bpm": "95.9",
+      "bpm": "96",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "matches existing"
+    },
+    {
+      "path": "songs/Dark-Necessities.md",
+      "title": "Dark Necessities",
+      "artist": "Red Hot Chili Peppers",
+      "previous_bpm": null,
+      "bpm": "92",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Red Hot Chili Peppers track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/Darling-Nikki.md",
+      "title": "Darling Nikki",
+      "artist": "Prince & The Revolution",
+      "previous_bpm": null,
+      "bpm": "78",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Prince track lookup; corrected proposed 117."
+    },
+    {
+      "path": "songs/Daughter.md",
+      "title": "Daughter",
+      "artist": "Pearl Jam",
+      "previous_bpm": null,
+      "bpm": "96",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "listed album tempo"
+    },
+    {
+      "path": "songs/Demons.md",
+      "title": "Demons",
+      "artist": "Imagine Dragons",
+      "previous_bpm": null,
+      "bpm": "90",
+      "source_domain": "tencymusic.com",
+      "confidence": "high",
+      "note": "Direct result reports original tempo 90 BPM."
+    },
+    {
+      "path": "songs/Dock-Of-The-Bay.md",
+      "title": "Dock of the Bay",
+      "artist": "Otis Redding",
+      "previous_bpm": null,
+      "bpm": "103",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Doin-Time.md",
+      "title": "Doin Time",
+      "artist": "Sublime",
+      "previous_bpm": null,
+      "bpm": "80",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Sublime lookup; corrected from 81."
+    },
+    {
+      "path": "songs/Don-t-Go-Back-To-Rockville.md",
+      "title": "Don't Go Back To Rockville {short=\"Back to Rockville\"}",
+      "artist": "R.E.M.",
+      "previous_bpm": null,
+      "bpm": "152",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct R.E.M. listing; corrected from 170."
+    },
+    {
+      "path": "songs/Drive.md",
+      "title": "Drive",
+      "artist": "Incubus",
+      "previous_bpm": null,
+      "bpm": "90",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Incubus album lookup; corrected from 91."
+    },
+    {
+      "path": "songs/Elderly-Woman.md",
+      "title": "Elderly Woman",
+      "artist": "Pearl Jam",
+      "previous_bpm": null,
+      "bpm": "127",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Pearl Jam lookup; practical rounded count."
+    },
+    {
+      "path": "songs/Enter-Sandman.md",
+      "title": "Enter Sandman",
+      "artist": "Metallica",
+      "previous_bpm": "124.53",
+      "bpm": "125",
+      "source_domain": "playdrumsnow.com",
+      "confidence": "high",
+      "note": "standard chart tempo"
+    },
+    {
+      "path": "songs/Even-Flow.md",
+      "title": "Even Flow",
+      "artist": "Pearl Jam",
+      "previous_bpm": null,
+      "bpm": "104",
+      "source_domain": "audiokeychain.com",
+      "confidence": "high",
+      "note": "Cross-checks cluster around 103–105."
+    },
+    {
+      "path": "songs/Everlong.md",
+      "title": "Everlong",
+      "artist": "Foo Fighters",
+      "previous_bpm": "157.8",
+      "bpm": "158",
+      "source_domain": "12notez.in",
+      "confidence": "high",
+      "note": "matches existing rounded"
+    },
+    {
+      "path": "songs/Every-Mother-s-Son.md",
+      "title": "Every Mother s Son",
+      "artist": "Lynyrd Skynyrd",
+      "previous_bpm": "106.3",
+      "bpm": "106",
+      "source_domain": "songsterr.com",
+      "confidence": "high",
+      "note": "matches existing practical tempo"
+    },
+    {
+      "path": "songs/Exs-And-Ohs.md",
+      "title": "Exs And Ohs",
+      "artist": "Elle King",
+      "previous_bpm": "140.2",
+      "bpm": "140",
+      "source_domain": "bellandcomusic.com",
+      "confidence": "high",
+      "note": "matches existing rounded value"
+    },
+    {
+      "path": "songs/Face-In-The-Crowd.md",
+      "title": "Face In The Crowd",
+      "artist": "Tom Petty & The Heartbreakers",
+      "previous_bpm": null,
+      "bpm": "105",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "listed tempo"
+    },
+    {
+      "path": "songs/Faith.md",
+      "title": "Faith",
+      "artist": "George Michael",
+      "previous_bpm": "191.4",
+      "bpm": "96",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "191.4 existing value normalized to half-time."
+    },
+    {
+      "path": "songs/Fast-As-You.md",
+      "title": "Fast As You",
+      "artist": "Dwight Yoakam",
+      "previous_bpm": "126.05",
+      "bpm": "125",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Corrected from 126: direct Dwight Yoakam album track result is 125 BPM."
+    },
+    {
+      "path": "songs/Feeling-Alright.md",
+      "title": "Feeling Alright",
+      "artist": "Joe Cocker",
+      "previous_bpm": null,
+      "bpm": "132",
+      "source_domain": "jog.fm",
+      "confidence": "medium",
+      "note": "Direct Joe Cocker lookup; practical musician count."
+    },
+    {
+      "path": "songs/Feels-Sheriff.md",
+      "title": "Feels-Sheriff",
+      "artist": "Calvin Harris feat. Pharrell Williams, Katy Perry & Big Sean / Bob Marley & The Wailers",
+      "previous_bpm": null,
+      "bpm": "101",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "Lookup applies to Feels recording; medley file also contains Sheriff, so no single BPM."
+    },
+    {
+      "path": "songs/Feels.md",
+      "title": "Feels",
+      "artist": "Calvin Harris",
+      "previous_bpm": null,
+      "bpm": "99",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "track tempo"
+    },
+    {
+      "path": "songs/Find-Yourself.md",
+      "title": "Find Yourself",
+      "artist": "Lukas Nelson and Promise of the Real",
+      "previous_bpm": "133.37",
+      "bpm": "134",
+      "source_domain": "tunebat.com",
+      "confidence": "medium",
+      "note": "Direct Lukas Nelson and Promise of the Real lookup; 134 BPM."
+    },
+    {
+      "path": "songs/Fire-On-The-Mountain.md",
+      "title": "Fire On The Mountain",
+      "artist": "Grateful Dead",
+      "previous_bpm": null,
+      "bpm": "76",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Studio listing gives 76; live versions vary, so practical rounded count."
+    },
+    {
+      "path": "songs/Fly-Away.md",
+      "title": "Fly Away",
+      "artist": "Lenny Kravitz",
+      "previous_bpm": null,
+      "bpm": "160",
+      "source_domain": "mixgraph.io",
+      "confidence": "high",
+      "note": "Direct match; 160 BPM."
+    },
+    {
+      "path": "songs/Follow-Me.md",
+      "title": "Follow Me",
+      "artist": "Uncle Kracker",
+      "previous_bpm": "104.9",
+      "bpm": "105",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "matches existing rounded"
+    },
+    {
+      "path": "songs/Folsom-Prison-Blues.md",
+      "title": "Folsom Prison Blues",
+      "artist": "Johnny Cash",
+      "previous_bpm": null,
+      "bpm": "110",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Johnny Cash listing consistently gives 110."
+    },
+    {
+      "path": "songs/Free-Fallin.md",
+      "title": "Free Fallin",
+      "artist": "Tom Petty",
+      "previous_bpm": null,
+      "bpm": "84",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "practical count; some databases double to 169"
+    },
+    {
+      "path": "songs/Fuck-You.md",
+      "title": "Fuck You",
+      "artist": "Cee Lo Green",
+      "previous_bpm": null,
+      "bpm": "127",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Cee Lo Green track lookup; practical quarter-note count."
+    },
+    {
+      "path": "songs/Get-Lucky.md",
+      "title": "Get Lucky",
+      "artist": "Daft Punk",
+      "previous_bpm": null,
+      "bpm": "116",
+      "source_domain": "wikipedia.org",
+      "confidence": "high",
+      "note": "Published tempo is 116 BPM."
+    },
+    {
+      "path": "songs/Gimme-All-Your-Lovin.md",
+      "title": "Gimme All Your Lovin",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "120",
+      "source_domain": "mixgraph.io",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Gimme-Shelter.md",
+      "title": "Gimme Shelter",
+      "artist": "The Rolling Stones",
+      "previous_bpm": "118.5",
+      "bpm": "119",
+      "source_domain": "bpm-database.tokyo",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/Gimme-Three-Steps.md",
+      "title": "Gimme Three Steps",
+      "artist": "Lynyrd Skynyrd",
+      "previous_bpm": null,
+      "bpm": "133",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/Give-Me-One-Reason.md",
+      "title": "Give Me One Reason",
+      "artist": "Tracy Chapman",
+      "previous_bpm": "100.6",
+      "bpm": "100",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "nearby sources 96-103; practical count 100"
+    },
+    {
+      "path": "songs/Givin-The-Dog-A-Bone.md",
+      "title": "Givin The Dog A Bone",
+      "artist": "AC/DC",
+      "previous_bpm": "132.5",
+      "bpm": "133",
+      "source_domain": "drumeoblog.s3.amazonaws.com",
+      "confidence": "high",
+      "note": "published score tempo 133"
+    },
+    {
+      "path": "songs/Glycerine.md",
+      "title": "Glycerine",
+      "artist": "Bush",
+      "previous_bpm": null,
+      "bpm": "114",
+      "source_domain": "12notez.in",
+      "confidence": "high",
+      "note": "Direct remastered-track listing at 114 BPM."
+    },
+    {
+      "path": "songs/God-Of-Wine.md",
+      "title": "God of Wine",
+      "artist": "Third Eye Blind",
+      "previous_bpm": "150.3",
+      "bpm": "150",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Matches existing 150.3."
+    },
+    {
+      "path": "songs/Going-Down-The-Road-Feeling-Bad.md",
+      "title": "Going Down The Road Feeling Bad {short=\"Going Down The Road\"}",
+      "artist": "Grateful Dead",
+      "previous_bpm": null,
+      "bpm": "116",
+      "source_domain": "dead.net",
+      "confidence": "medium",
+      "note": "Variable live/traditional performance; retain practical musician count."
+    },
+    {
+      "path": "songs/Gone-Gone-Gone.md",
+      "title": "Gone Gone Gone",
+      "artist": "Phillip Phillips",
+      "previous_bpm": "118.1",
+      "bpm": "118",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "matches existing practical tempo"
+    },
+    {
+      "path": "songs/Gone-Shootin.md",
+      "title": "Gone Shootin",
+      "artist": "AC/DC",
+      "previous_bpm": "122.7",
+      "bpm": "122",
+      "source_domain": "audiokeychain.com",
+      "confidence": "high",
+      "note": "matches existing rounded value"
+    },
+    {
+      "path": "songs/Good-Times-Bad-Times.md",
+      "title": "Good Times Bad Times",
+      "artist": "Led Zeppelin",
+      "previous_bpm": null,
+      "bpm": "96",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "listed tempo"
+    },
+    {
+      "path": "songs/Gravity.md",
+      "title": "Gravity",
+      "artist": "John Mayer",
+      "previous_bpm": null,
+      "bpm": "122",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct John Mayer lookup; 3/4 database pulse, not half-time 62."
+    },
+    {
+      "path": "songs/Guitars-and-Cadillacs.md",
+      "title": "Guitars and Cadillacs",
+      "artist": "Dwight Yoakam",
+      "previous_bpm": null,
+      "bpm": "172",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Dwight Yoakam track lookup; corrected proposed 142 to the database quarter-note tempo (half-time option is 86)."
+    },
+    {
+      "path": "songs/Hang-You-From-The-Heavens.md",
+      "title": "Hang You From The Heavens {short=\"Hang You ... Heavens\"}",
+      "artist": "The Dead Weather",
+      "previous_bpm": "127.2",
+      "bpm": "127",
+      "source_domain": "shazam.com",
+      "confidence": "high",
+      "note": "Direct BPM listing."
+    },
+    {
+      "path": "songs/Happy.md",
+      "title": "Happy",
+      "artist": "Pharrell Williams",
+      "previous_bpm": null,
+      "bpm": "80",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "Direct original/pop-edit listings are 80; corrected from guessed double-time 160."
+    },
+    {
+      "path": "songs/Hard-To-Handle.md",
+      "title": "Hard To Handle",
+      "artist": "Grateful Dead",
+      "previous_bpm": null,
+      "bpm": "96",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Grateful Dead track lookup; practical performance count."
+    },
+    {
+      "path": "songs/Hash-Pipe.md",
+      "title": "Hash Pipe",
+      "artist": "Weezer",
+      "previous_bpm": "125.7",
+      "bpm": "128",
+      "source_domain": "wikipedia.org",
+      "confidence": "high",
+      "note": "published tempo 128"
+    },
+    {
+      "path": "songs/Have-A-Drink-On-Me.md",
+      "title": "Have A Drink On",
+      "artist": "AC/DC",
+      "previous_bpm": null,
+      "bpm": "123",
+      "source_domain": "drumeoblog.s3.amazonaws.com",
+      "confidence": "high",
+      "note": "chart says 123"
+    },
+    {
+      "path": "songs/Heard-It-In-A-Love-Song.md",
+      "title": "Heard It In A Love Song {short=\"Heard It ... Love Song\"}",
+      "artist": "The Marshall Tucker Band",
+      "previous_bpm": null,
+      "bpm": "153",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Matches independent 152–153 listings."
+    },
+    {
+      "path": "songs/Heart-Shaped-Box.md",
+      "title": "Heart Shaped Box",
+      "artist": "Nirvana",
+      "previous_bpm": "99.9",
+      "bpm": "102",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct listings show 101/203 depending remaster/time interpretation; practical half-time rounded to 102."
+    },
+    {
+      "path": "songs/Higher-Ground.md",
+      "title": "Higher Ground",
+      "artist": "Red Hot Chili Peppers",
+      "previous_bpm": null,
+      "bpm": "140",
+      "source_domain": "cloudfront.net",
+      "confidence": "medium",
+      "note": "Source listing is 167 BPM; 140 is retained as practical band count for this arrangement."
+    },
+    {
+      "path": "songs/Higher.md",
+      "title": "Higher",
+      "artist": "Creed",
+      "previous_bpm": null,
+      "bpm": "156",
+      "source_domain": "deeprelease.com",
+      "confidence": "high",
+      "note": "quarter-note tempo"
+    },
+    {
+      "path": "songs/Highway-To-Hell.md",
+      "title": "Highway To Hell",
+      "artist": "AC/DC",
+      "previous_bpm": null,
+      "bpm": "117",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "listed album tempo"
+    },
+    {
+      "path": "songs/Hit-Me-With-Your-Best-Shot.md",
+      "title": "Hit Me With Your Best Shot {short=\"Hit Me ... Best Shot\"}",
+      "artist": "Pat Benatar",
+      "previous_bpm": null,
+      "bpm": "128",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "Direct database result reports 128 BPM."
+    },
+    {
+      "path": "songs/Hold-My-Hand.md",
+      "title": "Hold My Hand",
+      "artist": "Hootie & the Blowfish",
+      "previous_bpm": "173.7",
+      "bpm": "85",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing is 170; corrected to practical half-time count."
+    },
+    {
+      "path": "songs/Home-Live.md",
+      "title": "Home Live",
+      "artist": "Phillip Phillips",
+      "previous_bpm": null,
+      "bpm": "120",
+      "source_domain": "shazam.com",
+      "confidence": "high",
+      "note": "Live-version direct BPM listing."
+    },
+    {
+      "path": "songs/Home.md",
+      "title": "Home",
+      "artist": "Daughtry",
+      "previous_bpm": null,
+      "bpm": "75",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Daughtry lookup; practical slow count, avoiding double-time."
+    },
+    {
+      "path": "songs/Hunger-Strike.md",
+      "title": "Hunger Strike",
+      "artist": "Temple of the Dog",
+      "previous_bpm": null,
+      "bpm": "69",
+      "source_domain": "12notez.in",
+      "confidence": "high",
+      "note": "138 source is double-time; practical half-time count"
+    },
+    {
+      "path": "songs/I-Don-t-Wanna-Be.md",
+      "title": "I Don t Wanna Be",
+      "artist": "Gavin DeGraw",
+      "previous_bpm": null,
+      "bpm": "105",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Exact Gavin DeGraw title/artist match retained at 105 BPM; direct database search was sparse."
+    },
+    {
+      "path": "songs/I-Kissed-a-Girl.md",
+      "title": "I Kissed a Girl",
+      "artist": "Katy Perry",
+      "previous_bpm": "130",
+      "bpm": "130",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "listed 130"
+    },
+    {
+      "path": "songs/I-Shot-The-Sheriff.md",
+      "title": "I Shot The Sheriff",
+      "artist": "Bob Marley & The Wailers",
+      "previous_bpm": null,
+      "bpm": "96",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Bob Marley version lookup; normalized practical reggae count."
+    },
+    {
+      "path": "songs/I-Want-You-Back.md",
+      "title": "I Want You Back",
+      "artist": "The Jackson 5",
+      "previous_bpm": null,
+      "bpm": "98",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Jackson 5 album/song lookup; corrected from 103 alternate listing."
+    },
+    {
+      "path": "songs/I-Want-You-To.md",
+      "title": "I Want You To",
+      "artist": "Weezer",
+      "previous_bpm": null,
+      "bpm": "110",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Exact Weezer title match is the full title (If You're Wondering If I Want You To) I Want You To, listed at 110 BPM."
+    },
+    {
+      "path": "songs/I-Will-Survive.md",
+      "title": "I Will Survive",
+      "artist": "Cake",
+      "previous_bpm": null,
+      "bpm": "96",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "Cake version"
+    },
+    {
+      "path": "songs/I-Wish.md",
+      "title": "I Wish",
+      "artist": "Stevie Wonder",
+      "previous_bpm": null,
+      "bpm": "106",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Stevie Wonder track lookup; corrected proposed 99."
+    },
+    {
+      "path": "songs/I-m-Bad-I-m-Nationwide.md",
+      "title": "I'm Bad I'm Nationwide {short=\"I'm Nationwide\"}",
+      "artist": "ZZ Top",
+      "previous_bpm": "103.36",
+      "bpm": "103",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "206 search result normalized to half-time; existing 103.36 agrees."
+    },
+    {
+      "path": "songs/In-The-Midnight-Hour.md",
+      "title": "In The Midnight Hour",
+      "artist": "Wilson Pickett",
+      "previous_bpm": "111.4",
+      "bpm": "112",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct listing at 112 BPM."
+    },
+    {
+      "path": "songs/In-Your-Eyes.md",
+      "title": "In Your Eyes",
+      "artist": "Peter Gabriel",
+      "previous_bpm": null,
+      "bpm": "89",
+      "source_domain": "songdata.io",
+      "confidence": "high",
+      "note": "Direct listing; alternate sources 89-92."
+    },
+    {
+      "path": "songs/Inside-Out.md",
+      "title": "Inside Out",
+      "artist": "Eve 6",
+      "previous_bpm": "175.9",
+      "bpm": "88",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "Normalizes supplied 175.9 to half-time practical count."
+    },
+    {
+      "path": "songs/Interstate-Love-Song.md",
+      "title": "Interstate Love Song",
+      "artist": "Stone Temple Pilots",
+      "previous_bpm": "168.8",
+      "bpm": "86",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Stone Temple Pilots lookup; corrected 84 to rounded half-time musician count."
+    },
+    {
+      "path": "songs/Jailbreak.md",
+      "title": "Jailbreak",
+      "artist": "Thin Lizzy",
+      "previous_bpm": null,
+      "bpm": "145",
+      "source_domain": "bpm-database.tokyo",
+      "confidence": "high",
+      "note": "album version 145"
+    },
+    {
+      "path": "songs/Jesus-Left-Chicago.md",
+      "title": "Jesus Left Chicago",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "69",
+      "source_domain": "youtube.com",
+      "confidence": "medium",
+      "note": "Exact ZZ Top backing-track search gives 69 BPM; practical chart count is 69."
+    },
+    {
+      "path": "songs/Jolene.md",
+      "title": "Jolene",
+      "artist": "Dolly Parton",
+      "previous_bpm": null,
+      "bpm": "112",
+      "source_domain": "moselele.co.uk",
+      "confidence": "medium",
+      "note": "Direct Dolly Parton lookup; rounded practical count around 111–113 BPM."
+    },
+    {
+      "path": "songs/Juice-Dance.md",
+      "title": "Juice-Dance",
+      "artist": "Lizzo / David Bowie",
+      "previous_bpm": null,
+      "bpm": "120/115",
+      "source_domain": "acousticbrainz.org/songbpm.com",
+      "confidence": "high",
+      "note": "Custom medley components: Lizzo Juice 120 BPM / David Bowie Let's Dance 115 BPM."
+    },
+    {
+      "path": "songs/Juice.md",
+      "title": "Juice",
+      "artist": "Lizzo",
+      "previous_bpm": "119.84",
+      "bpm": "120",
+      "source_domain": "acousticbrainz.org",
+      "confidence": "high",
+      "note": "matches practical count"
+    },
+    {
+      "path": "songs/Juicebox.md",
+      "title": "Juicebox",
+      "artist": "The Strokes",
+      "previous_bpm": "154.8",
+      "bpm": "155",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches existing rounded value"
+    },
+    {
+      "path": "songs/Jump-Jive-Wail.md",
+      "title": "Jump Jive Wail",
+      "artist": "The Brian Setzer Orchestra",
+      "previous_bpm": null,
+      "bpm": "200",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing for Brian Setzer Orchestra; 184 proposal was low."
+    },
+    {
+      "path": "songs/Jump.md",
+      "title": "Jump",
+      "artist": "Van Halen",
+      "previous_bpm": null,
+      "bpm": "131",
+      "source_domain": "drumstheword.com",
+      "confidence": "high",
+      "note": "Drum chart reports 131 BPM."
+    },
+    {
+      "path": "songs/Just-A-Girl.md",
+      "title": "Just A Girl",
+      "artist": "No Doubt",
+      "previous_bpm": "107.9",
+      "bpm": "108",
+      "source_domain": "songdata.io",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Just-Got-Paid.md",
+      "title": "Just Got Paid",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "100",
+      "source_domain": "bpm-database.tokyo",
+      "confidence": "high",
+      "note": "Direct listing; practical whole number."
+    },
+    {
+      "path": "songs/Just-Like-Heaven.md",
+      "title": "Just Like Heaven",
+      "artist": "The Cure",
+      "previous_bpm": "150.34",
+      "bpm": "152",
+      "source_domain": "theaudiodb.com",
+      "confidence": "high",
+      "note": "Matches supplied 150.34 and other listings."
+    },
+    {
+      "path": "songs/Just-What-I-Needed.md",
+      "title": "Just What I Needed",
+      "artist": "The Cars",
+      "previous_bpm": "128.4",
+      "bpm": "126",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "nearby sources 124-129"
+    },
+    {
+      "path": "songs/Killing-In-The-Name.md",
+      "title": "Killing In The Name",
+      "artist": "Rage Against the Machine",
+      "previous_bpm": null,
+      "bpm": "88",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "album BPM listing 88"
+    },
+    {
+      "path": "songs/Kiss.md",
+      "title": "Kiss",
+      "artist": "Prince",
+      "previous_bpm": null,
+      "bpm": "111",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Prince lookup; practical groove count."
+    },
+    {
+      "path": "songs/Kryptonite.md",
+      "title": "Kryptonite",
+      "artist": "3 Doors Down",
+      "previous_bpm": null,
+      "bpm": "100",
+      "source_domain": "wikipedia.org",
+      "confidence": "high",
+      "note": "Normalized double-time/alternate 198 to conventional 100."
+    },
+    {
+      "path": "songs/La-Grange.md",
+      "title": "La Grange",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "162",
+      "source_domain": "melodymonkey.app",
+      "confidence": "high",
+      "note": "shuffle count"
+    },
+    {
+      "path": "songs/Last-Nite.md",
+      "title": "Last Nite",
+      "artist": "The Strokes",
+      "previous_bpm": null,
+      "bpm": "104",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "double-time listings normalized to 104"
+    },
+    {
+      "path": "songs/Let-Me-Put-My-Love-Into-You.md",
+      "title": "Let Me Put My Love Into You  {short=\"Let Me Put ... You\"}",
+      "artist": "AC/DC",
+      "previous_bpm": null,
+      "bpm": "106",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "practical count"
+    },
+    {
+      "path": "songs/Let-s-Get-It-On.md",
+      "title": "Let's Get It On",
+      "artist": "Marvin Gaye",
+      "previous_bpm": "167.38",
+      "bpm": "83",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "83 preferred over double-time 167"
+    },
+    {
+      "path": "songs/Let-s-Go-Crazy.md",
+      "title": "Let's Go Crazy",
+      "artist": "Prince",
+      "previous_bpm": null,
+      "bpm": "98",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Corrected from 99: direct Prince result gives 98 BPM; 196 is double-time."
+    },
+    {
+      "path": "songs/Lets-Dance.md",
+      "title": "Lets Dance",
+      "artist": "David Bowie",
+      "previous_bpm": null,
+      "bpm": "114",
+      "source_domain": "andrewrooneydrums.com",
+      "confidence": "high",
+      "note": "Direct drum-chart tempo."
+    },
+    {
+      "path": "songs/Life-During-Wartime.md",
+      "title": "Life During Wartime",
+      "artist": "Talking Heads",
+      "previous_bpm": "132.9",
+      "bpm": "133",
+      "source_domain": "runhund.com",
+      "confidence": "high",
+      "note": "Direct listing; normalized near-133 readings."
+    },
+    {
+      "path": "songs/Lightning-Crashes.md",
+      "title": "Lightning Crashes",
+      "artist": "Live",
+      "previous_bpm": null,
+      "bpm": "90",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Corrected from 80: direct Live result is 90 BPM."
+    },
+    {
+      "path": "songs/Like-A-Stone.md",
+      "title": "Like A Stone",
+      "artist": "Audioslave",
+      "previous_bpm": "107.7",
+      "bpm": "108",
+      "source_domain": "drumstheword.com",
+      "confidence": "high",
+      "note": "published drum tempo"
+    },
+    {
+      "path": "songs/Little-Less-Conversation.md",
+      "title": "Little Less Conversation {short=\"Lil' Less Conversation\"}",
+      "artist": "Elvis Presley",
+      "previous_bpm": null,
+      "bpm": "82",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Elvis recording commonly appears near double-time; retained practical half-time count."
+    },
+    {
+      "path": "songs/Little-Lover.md",
+      "title": "Little Lover",
+      "artist": "AC/DC",
+      "previous_bpm": "106",
+      "bpm": "106",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "listed 106"
+    },
+    {
+      "path": "songs/Little-Sister.md",
+      "title": "Little Sister",
+      "artist": "Elvis Presley",
+      "previous_bpm": "139.7",
+      "bpm": "140",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Matches existing 139.7."
+    },
+    {
+      "path": "songs/Livin-After-Midnight.md",
+      "title": "Livin After Midnight",
+      "artist": "Judas Priest",
+      "previous_bpm": null,
+      "bpm": "130",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct Judas Priest title/artist lookup; standard quarter-note count."
+    },
+    {
+      "path": "songs/Locked-Out-Of-Heaven.md",
+      "title": "Locked Out Of Heaven",
+      "artist": "Bruno Mars",
+      "previous_bpm": null,
+      "bpm": "144",
+      "source_domain": "music.toolstud.io",
+      "confidence": "high",
+      "note": "tempo listing and chart agree"
+    },
+    {
+      "path": "songs/Lonely-Is-the-Night.md",
+      "title": "Lonely Is the Night",
+      "artist": "Billy Squier",
+      "previous_bpm": null,
+      "bpm": "85",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing; practical half-time count (double-time analyses near 170)."
+    },
+    {
+      "path": "songs/Long-Train-Runnin.md",
+      "title": "Long Train Runnin",
+      "artist": "The Doobie Brothers",
+      "previous_bpm": "118.5",
+      "bpm": "117",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "117 preferred over existing 118.5"
+    },
+    {
+      "path": "songs/Love-Rollercoaster.md",
+      "title": "Love Rollercoaster",
+      "artist": "Ohio Players",
+      "previous_bpm": "117.12",
+      "bpm": "115",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Existing 117.12 rounded; direct result reports 115."
+    },
+    {
+      "path": "songs/Love-Shack.md",
+      "title": "Love Shack",
+      "artist": "The B-52's",
+      "previous_bpm": null,
+      "bpm": "134",
+      "source_domain": "songdata.io",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Love-Train.md",
+      "title": "Love Train",
+      "artist": "Wolfmother",
+      "previous_bpm": "182.1",
+      "bpm": "91",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Normalized existing double-time value."
+    },
+    {
+      "path": "songs/Lovesong.md",
+      "title": "Lovesong",
+      "artist": "The Cure",
+      "previous_bpm": null,
+      "bpm": "140",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Cure track lookup; proposed value confirmed as practical quarter-note count."
+    },
+    {
+      "path": "songs/Low.md",
+      "title": "Low",
+      "artist": "Cracker",
+      "previous_bpm": null,
+      "bpm": "87",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "exact tempo"
+    },
+    {
+      "path": "songs/Major-Tom.md",
+      "title": "Major Tom",
+      "artist": "Peter Schilling",
+      "previous_bpm": null,
+      "bpm": "82",
+      "source_domain": "12notez.in",
+      "confidence": "high",
+      "note": "normalized half-time from 164"
+    },
+    {
+      "path": "songs/Man-In-The-Box.md",
+      "title": "Man In The Box",
+      "artist": "Alice in Chains",
+      "previous_bpm": null,
+      "bpm": "108",
+      "source_domain": "scribd.com",
+      "confidence": "medium",
+      "note": "Direct drum-chart tempo reference; practical count."
+    },
+    {
+      "path": "songs/Margaritaville.md",
+      "title": "Margaritaville",
+      "artist": "Jimmy Buffett",
+      "previous_bpm": null,
+      "bpm": "125",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Jimmy Buffett track lookup; corrected proposed 107."
+    },
+    {
+      "path": "songs/Mary-Had-A-Little-Lamb.md",
+      "title": "Mary Had A Little Lamb {short=\"Mary Had A ... Lamb\"}",
+      "artist": "Stevie Ray Vaughan",
+      "previous_bpm": null,
+      "bpm": "61",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct studio listing gives 61; live version is faster."
+    },
+    {
+      "path": "songs/Mary-Jane-s-Last-Dance.md",
+      "title": "Mary Jane's Last Dance",
+      "artist": "Tom Petty",
+      "previous_bpm": null,
+      "bpm": "85",
+      "source_domain": "alison.com",
+      "confidence": "high",
+      "note": "double-time 170 normalized to 85"
+    },
+    {
+      "path": "songs/Melissa.md",
+      "title": "Melissa",
+      "artist": "The Allman Brothers Band",
+      "previous_bpm": "166.04",
+      "bpm": "95",
+      "source_domain": "owner confirmation",
+      "confidence": "high",
+      "note": "Owner-confirmed performance BPM on 2026-08-23."
+    },
+    {
+      "path": "songs/Melt-With-You.md",
+      "title": "Melt With You",
+      "artist": "Modern English",
+      "previous_bpm": null,
+      "bpm": "155",
+      "source_domain": "easysong.com",
+      "confidence": "medium",
+      "note": "Direct lookup lists 155 BPM for the original recording."
+    },
+    {
+      "path": "songs/Mercy.md",
+      "title": "Mercy",
+      "artist": "Duffy",
+      "previous_bpm": null,
+      "bpm": "130",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Duffy track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/Miss-You.md",
+      "title": "Miss You",
+      "artist": "The Rolling Stones",
+      "previous_bpm": null,
+      "bpm": "110",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Moves-Like-Jagger.md",
+      "title": "Moves Like Jagger",
+      "artist": "Maroon 5 feat. Christina Aguilera",
+      "previous_bpm": null,
+      "bpm": "128",
+      "source_domain": "klang.io",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/Mustang-Sally.md",
+      "title": "Mustang Sally",
+      "artist": "Wilson Pickett",
+      "previous_bpm": null,
+      "bpm": "110",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/My-Hero.md",
+      "title": "My Hero",
+      "artist": "Foo Fighters",
+      "previous_bpm": "154.27",
+      "bpm": "154",
+      "source_domain": "drumeoblog.com",
+      "confidence": "high",
+      "note": "published drum tempo"
+    },
+    {
+      "path": "songs/My-Own-Worst-Enemy.md",
+      "title": "My Own Worst Enemy {short=\"Own Worst Enemy\"}",
+      "artist": "Lit",
+      "previous_bpm": "103.4",
+      "bpm": "103",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches existing"
+    },
+    {
+      "path": "songs/Mysterious-Ways.md",
+      "title": "Mysterious Ways",
+      "artist": "U2",
+      "previous_bpm": null,
+      "bpm": "100",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct U2 track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/Never-Let-You-Go.md",
+      "title": "Never Let You Go",
+      "artist": "Third Eye Blind",
+      "previous_bpm": "113.6",
+      "bpm": "113",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "Matches existing 113.6."
+    },
+    {
+      "path": "songs/New-Year-s-Day.md",
+      "title": "New Year's Day",
+      "artist": "U2",
+      "previous_bpm": null,
+      "bpm": "133",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "standard count"
+    },
+    {
+      "path": "songs/No-One-Knows.md",
+      "title": "No One Knows",
+      "artist": "Queens of the Stone Age",
+      "previous_bpm": null,
+      "bpm": "170",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches common tempo listings"
+    },
+    {
+      "path": "songs/No-Rain.md",
+      "title": "No Rain",
+      "artist": "Blind Melon",
+      "previous_bpm": null,
+      "bpm": "152",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "practical count; 91 is alternate pulse reading"
+    },
+    {
+      "path": "songs/No-Woman-No-Cry.md",
+      "title": "No, Woman, No Cry",
+      "artist": "Bob Marley & The Wailers",
+      "previous_bpm": null,
+      "bpm": "78",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "studio tempo; live variants differ"
+    },
+    {
+      "path": "songs/Nothing-Compares-2-U.md",
+      "title": "Nothing Compares 2 U",
+      "artist": "Chris Cornell",
+      "previous_bpm": null,
+      "bpm": "85",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Chris Cornell version; retained direct-search value, distinct from Prince listing."
+    },
+    {
+      "path": "songs/Numb.md",
+      "title": "Numb",
+      "artist": "Linkin Park",
+      "previous_bpm": null,
+      "bpm": "56",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Linkin Park lookup; database gives slow pulse, practical musician count."
+    },
+    {
+      "path": "songs/One.md",
+      "title": "One",
+      "artist": "U2",
+      "previous_bpm": null,
+      "bpm": "91",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "Direct U2 track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/Outshined.md",
+      "title": "Outshined",
+      "artist": "Soundgarden",
+      "previous_bpm": null,
+      "bpm": "95",
+      "source_domain": "musiciwant.com",
+      "confidence": "high",
+      "note": "Matches Soundgarden BPM listing."
+    },
+    {
+      "path": "songs/Outside.md",
+      "title": "Outside",
+      "artist": "Staind",
+      "previous_bpm": "145.6",
+      "bpm": "76",
+      "source_domain": "maths.lapagept.com",
+      "confidence": "high",
+      "note": "145-147 sources are double-time"
+    },
+    {
+      "path": "songs/Overkill.md",
+      "title": "Overkill",
+      "artist": "Men at Work",
+      "previous_bpm": null,
+      "bpm": "140",
+      "source_domain": "tunebat.com",
+      "confidence": "high",
+      "note": "139-144 sources converge near 140"
+    },
+    {
+      "path": "songs/Panama.md",
+      "title": "Panama",
+      "artist": "Van Halen",
+      "previous_bpm": null,
+      "bpm": "141",
+      "source_domain": "cloudfront.net",
+      "confidence": "high",
+      "note": "chart says 141"
+    },
+    {
+      "path": "songs/Paradise-City.md",
+      "title": "Paradise City",
+      "artist": "Guns N' Roses",
+      "previous_bpm": "100.11",
+      "bpm": "100",
+      "source_domain": "beatsource.com",
+      "confidence": "high",
+      "note": "Matches existing 100.11."
+    },
+    {
+      "path": "songs/Paralyzer.md",
+      "title": "Paralyzer",
+      "artist": "Finger Eleven",
+      "previous_bpm": null,
+      "bpm": "106",
+      "source_domain": "deeprelease.com",
+      "confidence": "high",
+      "note": "matches sheet-music marking"
+    },
+    {
+      "path": "songs/Patience.md",
+      "title": "Patience",
+      "artist": "Guns N' Roses",
+      "previous_bpm": "118.8",
+      "bpm": "60",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "slow ballad count"
+    },
+    {
+      "path": "songs/Peaceful-Easy-Feelin.md",
+      "title": "Peaceful Easy Feelin",
+      "artist": "Eagles",
+      "previous_bpm": null,
+      "bpm": "144",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct lookup lists 144 BPM; corrected obvious half-time proposal."
+    },
+    {
+      "path": "songs/Play-That-Funky-Music.md",
+      "title": "Play That Funky Music {short=\"Play That Funky\"}",
+      "artist": "Wild Cherry",
+      "previous_bpm": null,
+      "bpm": "108",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct match; corrected from 110."
+    },
+    {
+      "path": "songs/Plush.md",
+      "title": "Plush",
+      "artist": "Stone Temple Pilots",
+      "previous_bpm": null,
+      "bpm": "144",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct result reports 144 BPM."
+    },
+    {
+      "path": "songs/Pompeii.md",
+      "title": "Pompeii",
+      "artist": "Bastille",
+      "previous_bpm": "127.6",
+      "bpm": "128",
+      "source_domain": "radiomonitor.fr",
+      "confidence": "high",
+      "note": "Rounded from 127.6"
+    },
+    {
+      "path": "songs/Possum-Kingdom.md",
+      "title": "Possum Kingdom",
+      "artist": "Toadies",
+      "previous_bpm": null,
+      "bpm": "100",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Toadies listing; corrected from 120."
+    },
+    {
+      "path": "songs/Pride.md",
+      "title": "Pride",
+      "artist": "U2",
+      "previous_bpm": null,
+      "bpm": "108",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "Direct tempo listing; 150 appears to be an alternate count."
+    },
+    {
+      "path": "songs/Psycho-Killer.md",
+      "title": "Psycho Killer",
+      "artist": "Talking Heads",
+      "previous_bpm": null,
+      "bpm": "123",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "track tempo"
+    },
+    {
+      "path": "songs/Purple-Rain.md",
+      "title": "Purple Rain",
+      "artist": "Prince & The Revolution",
+      "previous_bpm": null,
+      "bpm": "58",
+      "source_domain": "jamzone.musicwill.org",
+      "confidence": "high",
+      "note": "sheet tempo 58"
+    },
+    {
+      "path": "songs/Radioactive.md",
+      "title": "Radioactive",
+      "artist": "Imagine Dragons",
+      "previous_bpm": null,
+      "bpm": "132",
+      "source_domain": "wikipedia.org",
+      "confidence": "high",
+      "note": "sheet-music tempo 132"
+    },
+    {
+      "path": "songs/Ramble-On.md",
+      "title": "Ramble On",
+      "artist": "Led Zeppelin",
+      "previous_bpm": null,
+      "bpm": "98",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct database reports 51, but musician-practical counted pulse is rounded to 98."
+    },
+    {
+      "path": "songs/Rebel-Yell.md",
+      "title": "Rebel Yell",
+      "artist": "Billy Idol",
+      "previous_bpm": null,
+      "bpm": "166",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "standard count"
+    },
+    {
+      "path": "songs/Redemption-Song-Live.md",
+      "title": "Redemption Song",
+      "artist": "Ziggy Marley & Lauryn Hill",
+      "previous_bpm": null,
+      "bpm": "84",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct title/artist lookup; practical rounded live count."
+    },
+    {
+      "path": "songs/Ride-On.md",
+      "title": "Ride On",
+      "artist": "AC/DC",
+      "previous_bpm": "105.7",
+      "bpm": "106",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches existing rounded value"
+    },
+    {
+      "path": "songs/Ring-Of-Fire.md",
+      "title": "Ring Of Fire",
+      "artist": "Social Distortion",
+      "previous_bpm": "179.8",
+      "bpm": "180",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct title/artist lookup; practical rounded punk count."
+    },
+    {
+      "path": "songs/Roadhouse-Blues.md",
+      "title": "Roadhouse Blues",
+      "artist": "The Doors",
+      "previous_bpm": "123.78",
+      "bpm": "124",
+      "source_domain": "guitarprotablatures.com",
+      "confidence": "high",
+      "note": "118-126 results; practical count rounded to 124."
+    },
+    {
+      "path": "songs/Rock-and-Roll-Ain-t-Noise-Pollution.md",
+      "title": "Rock n Roll Ain t Noise Pollution {short=\"Rock ... Pollution\"}",
+      "artist": "AC/DC",
+      "previous_bpm": null,
+      "bpm": "94",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct AC/DC track lookup; practical quarter-note count."
+    },
+    {
+      "path": "songs/Rock-n-Roll.md",
+      "title": "Rock n Roll",
+      "artist": "Led Zeppelin",
+      "previous_bpm": null,
+      "bpm": "170",
+      "source_domain": "musicstax.com",
+      "confidence": "medium",
+      "note": "Practical fast-rock count; proposal appears musically plausible."
+    },
+    {
+      "path": "songs/Rooster.md",
+      "title": "Rooster",
+      "artist": "Alice in Chains",
+      "previous_bpm": null,
+      "bpm": "72",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing; corrected from 76."
+    },
+    {
+      "path": "songs/Runnin-With-The-Devil.md",
+      "title": "Runnin With The Devil",
+      "artist": "Van Halen",
+      "previous_bpm": "95.7",
+      "bpm": "96",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "album track tempo"
+    },
+    {
+      "path": "songs/Santeria.md",
+      "title": "Santeria",
+      "artist": "Sublime",
+      "previous_bpm": "181.33",
+      "bpm": "90",
+      "source_domain": "hooktheory.com",
+      "confidence": "high",
+      "note": "normalized half-time from existing 181"
+    },
+    {
+      "path": "songs/Say-It-Ain-t-So.md",
+      "title": "Say It Ain t So",
+      "artist": "Weezer",
+      "previous_bpm": null,
+      "bpm": "76",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct Weezer listing gives 76."
+    },
+    {
+      "path": "songs/Seven-Nation-Army.md",
+      "title": "Seven Nation Army",
+      "artist": "The White Stripes",
+      "previous_bpm": null,
+      "bpm": "123",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "Matches independent 123–125 listings."
+    },
+    {
+      "path": "songs/Sex-And-Candy.md",
+      "title": "Sex and Candy",
+      "artist": "Marcy Playground",
+      "previous_bpm": null,
+      "bpm": "81",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "standard count"
+    },
+    {
+      "path": "songs/Sex-on-Fire.md",
+      "title": "Sex on Fire",
+      "artist": "Kings of Leon",
+      "previous_bpm": null,
+      "bpm": "153",
+      "source_domain": "wikipedia.org",
+      "confidence": "high",
+      "note": "published tempo 153 BPM"
+    },
+    {
+      "path": "songs/Shake-Shake-Shake.md",
+      "title": "Shake Shake Shake",
+      "artist": "KC & the Sunshine Band",
+      "previous_bpm": null,
+      "bpm": "112",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct match; proposed 128 was wrong track/tempo."
+    },
+    {
+      "path": "songs/Sharp-Dressed-Man.md",
+      "title": "Sharp Dressed Man",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "123",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Corrected from 125: direct ZZ Top album/track result is 123 BPM."
+    },
+    {
+      "path": "songs/She-Sells-Sanctuary.md",
+      "title": "She Sells Sanctuary",
+      "artist": "The Cult",
+      "previous_bpm": null,
+      "bpm": "139",
+      "source_domain": "cs.uwaterloo.ca",
+      "confidence": "high",
+      "note": "Direct result reports 139.2 BPM."
+    },
+    {
+      "path": "songs/Shine.md",
+      "title": "Shine",
+      "artist": "Collective Soul",
+      "previous_bpm": null,
+      "bpm": "150",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Collective Soul track lookup; corrected proposed 92 (half-time reading)."
+    },
+    {
+      "path": "songs/Shining-Star.md",
+      "title": "Shining Star",
+      "artist": "Earth, Wind & Fire",
+      "previous_bpm": "102.3",
+      "bpm": "103",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/Short-Skirt.md",
+      "title": "Short Skirt",
+      "artist": "CAKE",
+      "previous_bpm": "125.3",
+      "bpm": "125",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct listing for Short Skirt/Long Jacket at 125 BPM."
+    },
+    {
+      "path": "songs/Simple-Man.md",
+      "title": "Simple Man",
+      "artist": "Lynyrd Skynyrd",
+      "previous_bpm": null,
+      "bpm": "60",
+      "source_domain": "guitaralliance.org",
+      "confidence": "high",
+      "note": "121 source is double-time; practical half-time count"
+    },
+    {
+      "path": "songs/Sittin-On-The-Dock-Of-The-Bay.md",
+      "title": "Sittin On The Dock Of The Bay {short=\"Sittin On The Dock\"}",
+      "artist": "Otis Redding",
+      "previous_bpm": null,
+      "bpm": "104",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "normalized from erroneous 206 result"
+    },
+    {
+      "path": "songs/Smells-Like-Teen-Spirit.md",
+      "title": "Smells Like Teen Spirit",
+      "artist": "Nirvana",
+      "previous_bpm": null,
+      "bpm": "117",
+      "source_domain": "mixgraph.io",
+      "confidence": "high",
+      "note": "116-118 consensus"
+    },
+    {
+      "path": "songs/So-Lonely.md",
+      "title": "So Lonely",
+      "artist": "The Police",
+      "previous_bpm": null,
+      "bpm": "77",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct practical half-time listing at 77 BPM; 155-177 values are double-time."
+    },
+    {
+      "path": "songs/Some-Kind-Of-Wonderful.md",
+      "title": "Some Kind Of Wonderful",
+      "artist": "Joss Stone",
+      "previous_bpm": "103.88",
+      "bpm": "104",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches existing rounded"
+    },
+    {
+      "path": "songs/Song-2.md",
+      "title": "Song 2",
+      "artist": "Blur",
+      "previous_bpm": null,
+      "bpm": "130",
+      "source_domain": "acousticbrainz.org",
+      "confidence": "high",
+      "note": "chart analyses give 129-130"
+    },
+    {
+      "path": "songs/Soulshine.md",
+      "title": "Soulshine",
+      "artist": "The Allman Brothers Band",
+      "previous_bpm": "135.1",
+      "bpm": "135",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches existing rounded value"
+    },
+    {
+      "path": "songs/Stayin-Alive.md",
+      "title": "Stayin Alive",
+      "artist": "Bee Gees",
+      "previous_bpm": null,
+      "bpm": "104",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Bee Gees track lookup; practical quarter-note count."
+    },
+    {
+      "path": "songs/Steady-As-She-Goes.md",
+      "title": "Steady As She Goes",
+      "artist": "The Raconteurs",
+      "previous_bpm": null,
+      "bpm": "124",
+      "source_domain": "acousticbrainz.org",
+      "confidence": "high",
+      "note": "Direct recording result reports 124 BPM."
+    },
+    {
+      "path": "songs/Sullivan-Street.md",
+      "title": "Sullivan Street",
+      "artist": "Counting Crows",
+      "previous_bpm": "156",
+      "bpm": "80",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing and album tracklist both give 80."
+    },
+    {
+      "path": "songs/Superstition-Single-Version.md",
+      "title": "Superstition",
+      "artist": "Stevie Wonder",
+      "previous_bpm": null,
+      "bpm": "101",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/Sweet-Emotion.md",
+      "title": "Sweet Emotion",
+      "artist": "Aerosmith",
+      "previous_bpm": null,
+      "bpm": "100",
+      "source_domain": "acousticbrainz.org",
+      "confidence": "high",
+      "note": "Matches multiple tempo references."
+    },
+    {
+      "path": "songs/Sweet-Home-Alabama.md",
+      "title": "Sweet Home Alabama",
+      "artist": "Lynyrd Skynyrd",
+      "previous_bpm": null,
+      "bpm": "98",
+      "source_domain": "tunebat.com",
+      "confidence": "high",
+      "note": "track tempo"
+    },
+    {
+      "path": "songs/TNT.md",
+      "title": "TNT",
+      "artist": "AC/DC",
+      "previous_bpm": "126.8",
+      "bpm": "126",
+      "source_domain": "songparts.com",
+      "confidence": "medium",
+      "note": "Corrected to direct listing around 126 BPM."
+    },
+    {
+      "path": "songs/Take-Me-Out.md",
+      "title": "Take Me Out",
+      "artist": "Franz Ferdinand",
+      "previous_bpm": null,
+      "bpm": "104",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct listing at 104 BPM; song has an intro feel change."
+    },
+    {
+      "path": "songs/Tennessee-Whiskey.md",
+      "title": "Tennessee Whiskey",
+      "artist": "Chris Stapleton",
+      "previous_bpm": null,
+      "bpm": "51",
+      "source_domain": "copperknob.co.uk",
+      "confidence": "high",
+      "note": "Direct dance-sheet count 51; corrected from too-fast 102."
+    },
+    {
+      "path": "songs/Thank-You-Falettinme-Be-Mice-Elf-Agin.md",
+      "title": "Thank You Falettinme",
+      "artist": "Sly & the Family Stone",
+      "previous_bpm": "106",
+      "bpm": "106",
+      "source_domain": "theory.esm.rochester.edu",
+      "confidence": "high",
+      "note": "Direct corpus listing at 106 BPM."
+    },
+    {
+      "path": "songs/Thank-You.md",
+      "title": "Thank You",
+      "artist": "Led Zeppelin",
+      "previous_bpm": null,
+      "bpm": "92",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Led Zeppelin track lookup; practical quarter-note count."
+    },
+    {
+      "path": "songs/That-s-The-Way-I-Like-It.md",
+      "title": "That's The Way I Like It {short=\"That's The Way\"}",
+      "artist": "KC & the Sunshine Band",
+      "previous_bpm": null,
+      "bpm": "129",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "disco quarter-note tempo"
+    },
+    {
+      "path": "songs/The-Big-Bang.md",
+      "title": "The Big Bang",
+      "artist": "Katy Tiz",
+      "previous_bpm": "95.9",
+      "bpm": "96",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "Exact Katy Tiz title/artist listing gives 96 BPM."
+    },
+    {
+      "path": "songs/The-Distance.md",
+      "title": "The Distance",
+      "artist": "CAKE",
+      "previous_bpm": null,
+      "bpm": "92",
+      "source_domain": "musx",
+      "confidence": "medium",
+      "note": "Direct chart listing at 92 BPM; half-time musician count retained."
+    },
+    {
+      "path": "songs/The-Middle.md",
+      "title": "The Middle",
+      "artist": "Jimmy Eat World",
+      "previous_bpm": "162.13",
+      "bpm": "162",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct listing at 162 BPM."
+    },
+    {
+      "path": "songs/The-Scientist.md",
+      "title": "The Scientist",
+      "artist": "Coldplay",
+      "previous_bpm": null,
+      "bpm": "73",
+      "source_domain": "music.toolstud.io",
+      "confidence": "high",
+      "note": "Direct listing 146.3 explicitly notes half-time 73.1; ballad pulse."
+    },
+    {
+      "path": "songs/Thinking-Out-Loud.md",
+      "title": "Thinking Out Loud",
+      "artist": "Ed Sheeran",
+      "previous_bpm": null,
+      "bpm": "80",
+      "source_domain": "musicwill.org",
+      "confidence": "high",
+      "note": "Direct chart tempo listing."
+    },
+    {
+      "path": "songs/This-Is-How-You-Remind-Me.md",
+      "title": "This Is How You Remind Me {short=\"This ... Remind Me\"}",
+      "artist": "Nickelback",
+      "previous_bpm": null,
+      "bpm": "86",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Nickelback lookup supports the proposed standard-recording count."
+    },
+    {
+      "path": "songs/Times-Like-These.md",
+      "title": "Times Like These",
+      "artist": "Foo Fighters",
+      "previous_bpm": null,
+      "bpm": "145",
+      "source_domain": "wikipedia.org",
+      "confidence": "high",
+      "note": "published tempo 145"
+    },
+    {
+      "path": "songs/Tom-Sawyer.md",
+      "title": "Tom Sawyer",
+      "artist": "Rush",
+      "previous_bpm": null,
+      "bpm": "88",
+      "source_domain": "durrellbowman.com",
+      "confidence": "high",
+      "note": "cut-time half-note pulse"
+    },
+    {
+      "path": "songs/Touch-Too-Much.md",
+      "title": "Touch Too Much",
+      "artist": "AC/DC",
+      "previous_bpm": null,
+      "bpm": "123",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Matches 12NOTEZ at 123."
+    },
+    {
+      "path": "songs/TroubleMaker.md",
+      "title": "TroubleMaker",
+      "artist": "Weezer",
+      "previous_bpm": null,
+      "bpm": "131",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct match; corrected from 150."
+    },
+    {
+      "path": "songs/Turn-The-Page.md",
+      "title": "Turn The Page",
+      "artist": "Bob Seger & the Silver Bullet Band",
+      "previous_bpm": null,
+      "bpm": "77",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Bob Seger track lookup; corrected proposed 75."
+    },
+    {
+      "path": "songs/Tush.md",
+      "title": "Tush",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "129",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "practical rock count"
+    },
+    {
+      "path": "songs/Under-The-Bridge.md",
+      "title": "Under The Bridge",
+      "artist": "Red Hot Chili Peppers",
+      "previous_bpm": null,
+      "bpm": "85",
+      "source_domain": "songdata.io",
+      "confidence": "high",
+      "note": "Direct lookup lists 85 BPM; practical quarter-note count."
+    },
+    {
+      "path": "songs/Uptown-Funk.md",
+      "title": "Uptown Funk",
+      "artist": "Mark Ronson feat. Bruno Mars",
+      "previous_bpm": null,
+      "bpm": "115",
+      "source_domain": "acousticbrainz.org",
+      "confidence": "high",
+      "note": "Direct recording result reports 115 BPM."
+    },
+    {
+      "path": "songs/Use-Me.md",
+      "title": "Use Me",
+      "artist": "Bill Withers",
+      "previous_bpm": null,
+      "bpm": "78",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct listing is 155; musician count uses practical half-time feel."
+    },
+    {
+      "path": "songs/Use-Somebody.md",
+      "title": "Use Somebody",
+      "artist": "Kings of Leon",
+      "previous_bpm": "139.7",
+      "bpm": "138",
+      "source_domain": "acousticbrainz.org",
+      "confidence": "high",
+      "note": "Direct recording BPM; practical count."
+    },
+    {
+      "path": "songs/Valerie.md",
+      "title": "Valerie",
+      "artist": "Amy Winehouse",
+      "previous_bpm": "96.4",
+      "bpm": "96",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "Matches supplied 96.4."
+    },
+    {
+      "path": "songs/Vasoline.md",
+      "title": "Vasoline",
+      "artist": "Stone Temple Pilots",
+      "previous_bpm": "168.1",
+      "bpm": "169",
+      "source_domain": "12notez.in",
+      "confidence": "medium",
+      "note": "Rounded direct remaster listing at 169 BPM."
+    },
+    {
+      "path": "songs/Vertigo.md",
+      "title": "Vertigo",
+      "artist": "U2",
+      "previous_bpm": "140.2",
+      "bpm": "144",
+      "source_domain": "sfrbeats.com",
+      "confidence": "medium",
+      "note": "Exact U2 title/artist listing gives 144 BPM; replaces the prior 140 estimate."
+    },
+    {
+      "path": "songs/Wagon-Wheel.md",
+      "title": "Wagon Wheel",
+      "artist": "Darius Rucker",
+      "previous_bpm": null,
+      "bpm": "148",
+      "source_domain": "deeprelease.com",
+      "confidence": "high",
+      "note": "Darius Rucker recording; 74 is half-time"
+    },
+    {
+      "path": "songs/Waitin-for-the-Bus.md",
+      "title": "Waitin for the Bus",
+      "artist": "ZZ Top",
+      "previous_bpm": null,
+      "bpm": "100",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct ZZ Top lookup; practical rounded count."
+    },
+    {
+      "path": "songs/Walk-This-Way.md",
+      "title": "Walk This Way",
+      "artist": "Aerosmith",
+      "previous_bpm": null,
+      "bpm": "109",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Aerosmith lookup; practical rounded rock count."
+    },
+    {
+      "path": "songs/Walk.md",
+      "title": "Walk",
+      "artist": "Foo Fighters",
+      "previous_bpm": "140.1",
+      "bpm": "133",
+      "source_domain": "drumeoblog.s3.amazonaws.com",
+      "confidence": "high",
+      "note": "drum transcription marks 133"
+    },
+    {
+      "path": "songs/Wanted-Dead-Or-Alive.md",
+      "title": "Wanted Dead Or Alive",
+      "artist": "Bon Jovi",
+      "previous_bpm": "150.89",
+      "bpm": "150",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct title/artist lookup; practical rounded count retained."
+    },
+    {
+      "path": "songs/Welcome-To-The-Jungle.md",
+      "title": "Welcome To The Jungle {short=\"Welcome 2 Jungle\"}",
+      "artist": "Guns N' Roses",
+      "previous_bpm": "123.05",
+      "bpm": "123",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct match; rounded from 123.05."
+    },
+    {
+      "path": "songs/What-I-Got.md",
+      "title": "What I Got",
+      "artist": "Sublime",
+      "previous_bpm": "95.7",
+      "bpm": "96",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Existing 95.7 rounded; direct result reports 96 BPM."
+    },
+    {
+      "path": "songs/Wheels.md",
+      "title": "Wheels",
+      "artist": "Foo Fighters",
+      "previous_bpm": null,
+      "bpm": "126",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct title/artist lookup; practical rounded count retained."
+    },
+    {
+      "path": "songs/When-I-Come-Around.md",
+      "title": "When I Come Around",
+      "artist": "Green Day",
+      "previous_bpm": "193.2",
+      "bpm": "98",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "Normalized existing near-double-time value."
+    },
+    {
+      "path": "songs/When-I-m-Gone.md",
+      "title": "When I'm Gone",
+      "artist": "3 Doors Down",
+      "previous_bpm": null,
+      "bpm": "74",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "Practical count; 148 BPM is double-time."
+    },
+    {
+      "path": "songs/Whenever-You-Come-Around.md",
+      "title": "Whenever You Come Around {short=\"Whenever ... Around\"}",
+      "artist": "Vince Gill",
+      "previous_bpm": null,
+      "bpm": "115",
+      "source_domain": "tencymusic.com",
+      "confidence": "high",
+      "note": "57 source is half-time; practical count 115"
+    },
+    {
+      "path": "songs/Where-the-Streets-Have-No-Names.md",
+      "title": "Where the Streets Have No Names {short=\"Where the Streets\"}",
+      "artist": "U2",
+      "previous_bpm": "125.66",
+      "bpm": "126",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct U2 lookup; short-title variant resolved to original song."
+    },
+    {
+      "path": "songs/White-Wedding.md",
+      "title": "White Wedding",
+      "artist": "Billy Idol",
+      "previous_bpm": null,
+      "bpm": "147",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "listed 147"
+    },
+    {
+      "path": "songs/Wicked-Game.md",
+      "title": "Wicked Game",
+      "artist": "Chris Isaak",
+      "previous_bpm": null,
+      "bpm": "112",
+      "source_domain": "music.toolstud.io",
+      "confidence": "high",
+      "note": "Matches 112–113 cross-check."
+    },
+    {
+      "path": "songs/Wicked-Garden.md",
+      "title": "Wicked Garden",
+      "artist": "Stone Temple Pilots",
+      "previous_bpm": "152.6",
+      "bpm": "153",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct Stone Temple Pilots lookup; practical rounded count."
+    },
+    {
+      "path": "songs/Wine-Wine-Wine.md",
+      "title": "Wine Wine Wine",
+      "artist": "The Nightcaps",
+      "previous_bpm": null,
+      "bpm": "164",
+      "source_domain": "shazam.com",
+      "confidence": "medium",
+      "note": "Exact The Nightcaps recording listing gives 164 BPM; SongBPM reports 175, likely alternate beat interpretation."
+    },
+    {
+      "path": "songs/With-Arms-Wide-Open.md",
+      "title": "With Arms Wide Open",
+      "artist": "Creed",
+      "previous_bpm": "138.7",
+      "bpm": "139",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "matches existing rounded value"
+    },
+    {
+      "path": "songs/With-Or-Without-You.md",
+      "title": "With Or Without You",
+      "artist": "U2",
+      "previous_bpm": null,
+      "bpm": "112",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct U2 album/song lookup; corrected from 110."
+    },
+    {
+      "path": "songs/Woman.md",
+      "title": "Woman",
+      "artist": "Wolfmother",
+      "previous_bpm": null,
+      "bpm": "161",
+      "source_domain": "songdata.io",
+      "confidence": "medium",
+      "note": "Direct Wolfmother match; version listings vary 161/174, practical original-track count retained near proposed."
+    },
+    {
+      "path": "songs/Wonderwall.md",
+      "title": "Wonderwall",
+      "artist": "Oasis",
+      "previous_bpm": null,
+      "bpm": "87",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Recorded tempo"
+    },
+    {
+      "path": "songs/Word-Up.md",
+      "title": "Word Up",
+      "artist": "Gun",
+      "previous_bpm": "117.8",
+      "bpm": "112",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct Gun version lookup; practical rounded count."
+    },
+    {
+      "path": "songs/Yellow-Ledbetter.md",
+      "title": "Yellow Ledbetter",
+      "artist": "Pearl Jam",
+      "previous_bpm": "140.6",
+      "bpm": "71",
+      "source_domain": "hooktheory.com",
+      "confidence": "high",
+      "note": "Matches supplied 140.6 normalized to half-time."
+    },
+    {
+      "path": "songs/You-Found-Me.md",
+      "title": "You Found Me",
+      "artist": "The Fray",
+      "previous_bpm": "152",
+      "bpm": "76",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "152 source is double-time; practical half-time count"
+    },
+    {
+      "path": "songs/You-Oughta-Know.md",
+      "title": "You Oughta Know",
+      "artist": "Alanis Morissette",
+      "previous_bpm": "105.2",
+      "bpm": "105",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches existing"
+    },
+    {
+      "path": "songs/You-Shook-Me-All-Night-Long.md",
+      "title": "You Shook Me All Night Long {short=\"You Shook Me\"}",
+      "artist": "AC/DC",
+      "previous_bpm": "129.2",
+      "bpm": "127",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "listed 127"
+    },
+    {
+      "path": "songs/You-Wreck-Me.md",
+      "title": "You Wreck Me",
+      "artist": "Tom Petty",
+      "previous_bpm": "164.1",
+      "bpm": "164",
+      "source_domain": "trackify.am",
+      "confidence": "high",
+      "note": "Matches existing 164.1."
+    },
+    {
+      "path": "songs/about-damn-time.md",
+      "title": "About Damn Time",
+      "artist": "Lizzo",
+      "previous_bpm": null,
+      "bpm": "109",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Lizzo track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/american-girl.md",
+      "title": "American Girl",
+      "artist": "Tom Petty",
+      "previous_bpm": null,
+      "bpm": "114",
+      "source_domain": "tencymusic.com",
+      "confidence": "high",
+      "note": "around 114 BPM"
+    },
+    {
+      "path": "songs/baby-one-more-time.md",
+      "title": "...Baby One More Time",
+      "artist": "Britney Spears",
+      "previous_bpm": null,
+      "bpm": "93",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Britney Spears track result is 93 BPM; avoid 186 double-time."
+    },
+    {
+      "path": "songs/ball-and-chain.md",
+      "title": "Ball and Chain",
+      "artist": "Social Distortion",
+      "previous_bpm": null,
+      "bpm": "134",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Corrected from 120: direct Social Distortion track result is 134 BPM."
+    },
+    {
+      "path": "songs/blue-suede-shoes.md",
+      "title": "Blue Suede Shoes",
+      "artist": "Elvis Presley",
+      "previous_bpm": null,
+      "bpm": "95",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "188.86/190 results normalized to half-time; 95 direct result."
+    },
+    {
+      "path": "songs/born-to-be-wild.md",
+      "title": "Born to Be Wild",
+      "artist": "Steppenwolf",
+      "previous_bpm": null,
+      "bpm": "146",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Steppenwolf track result is 146 BPM."
+    },
+    {
+      "path": "songs/bright-lights.md",
+      "title": "Bright Lights",
+      "artist": "Matchbox Twenty",
+      "previous_bpm": null,
+      "bpm": "80",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/brown-sugar.md",
+      "title": "Brown Sugar",
+      "artist": "The Rolling Stones",
+      "previous_bpm": null,
+      "bpm": "129",
+      "source_domain": "acousticbrainz.org",
+      "confidence": "high",
+      "note": "Matches direct recording analysis."
+    },
+    {
+      "path": "songs/call-me-the-breeze.md",
+      "title": "Call Me the Breeze",
+      "artist": "Lynyrd Skynyrd",
+      "previous_bpm": null,
+      "bpm": "93",
+      "source_domain": "songdata.io",
+      "confidence": "medium",
+      "note": "Direct listing 186; corrected to practical half-time musician count."
+    },
+    {
+      "path": "songs/crash-into-me.md",
+      "title": "Crash Into Me",
+      "artist": "Dave Matthews Band",
+      "previous_bpm": null,
+      "bpm": "101",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "101 BPM"
+    },
+    {
+      "path": "songs/don-t-you-forget-about-me.md",
+      "title": "Don't You (Forget About Me)",
+      "artist": "Simple Minds",
+      "previous_bpm": null,
+      "bpm": "111",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "listed 111"
+    },
+    {
+      "path": "songs/father-of-mine.md",
+      "title": "Father of Mine",
+      "artist": "Everclear",
+      "previous_bpm": null,
+      "bpm": "98",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct Everclear lookup; cluster supports 98 BPM."
+    },
+    {
+      "path": "songs/fire-woman-she-sells.md",
+      "title": "Fire Woman/She Sells",
+      "artist": "The Cult",
+      "previous_bpm": null,
+      "bpm": "132/139",
+      "source_domain": "songbpm.com; cs.uwaterloo.ca",
+      "confidence": "high",
+      "note": "Fire Woman / She Sells Sanctuary; direct recording BPM lookups."
+    },
+    {
+      "path": "songs/fire-woman.md",
+      "title": "Fire Woman",
+      "artist": "The Cult",
+      "previous_bpm": null,
+      "bpm": "132",
+      "source_domain": "bpmdatabase.com",
+      "confidence": "high",
+      "note": "matches multiple analyses"
+    },
+    {
+      "path": "songs/flagpole-sitta.md",
+      "title": "Flagpole Sitta",
+      "artist": "Harvey Danger",
+      "previous_bpm": null,
+      "bpm": "145",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Harvey Danger track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/fortunate-son.md",
+      "title": "Fortunate Son",
+      "artist": "Creedence Clearwater Revival",
+      "previous_bpm": null,
+      "bpm": "132",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "common studio tempo"
+    },
+    {
+      "path": "songs/get-back.md",
+      "title": "Get Back",
+      "artist": "The Beatles",
+      "previous_bpm": null,
+      "bpm": "120",
+      "source_domain": "guitaralliance.com",
+      "confidence": "high",
+      "note": "Chart reports 120 BPM, official about 121."
+    },
+    {
+      "path": "songs/gin-and-juice.md",
+      "title": "Gin and Juice",
+      "artist": "The Gourds",
+      "previous_bpm": null,
+      "bpm": "120",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Gourds cover lookup; corrected proposed 96."
+    },
+    {
+      "path": "songs/hollywood-nights.md",
+      "title": "Hollywood Nights",
+      "artist": "Bob Seger \\u0026 The Silver Bullet Band",
+      "previous_bpm": null,
+      "bpm": "150",
+      "source_domain": "trackify.am",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/if-you-could-only-see.md",
+      "title": "If You Could Only See",
+      "artist": "Tonic",
+      "previous_bpm": "190.5",
+      "bpm": "96",
+      "source_domain": "audiokeychain.com",
+      "confidence": "high",
+      "note": "Direct tempo listing; supplied 190.5 normalized to half-time."
+    },
+    {
+      "path": "songs/iris.md",
+      "title": "Iris",
+      "artist": "Goo Goo Dolls, The",
+      "previous_bpm": null,
+      "bpm": "78",
+      "source_domain": "clvaw-cdnwnd.com",
+      "confidence": "high",
+      "note": "published sheet tempo"
+    },
+    {
+      "path": "songs/kashmir.md",
+      "title": "Kashmir",
+      "artist": "Led Zeppelin",
+      "previous_bpm": null,
+      "bpm": "81",
+      "source_domain": "drumeoblog.s3.amazonaws.com",
+      "confidence": "high",
+      "note": "published drum tempo 81"
+    },
+    {
+      "path": "songs/keep-your-hands-to-yourself.md",
+      "title": "Keep Your Hands to Yourself",
+      "artist": "The Georgia Satellites",
+      "previous_bpm": null,
+      "bpm": "114",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "listed 114"
+    },
+    {
+      "path": "songs/levitating.md",
+      "title": "Levitating",
+      "artist": "Dua Lipa",
+      "previous_bpm": null,
+      "bpm": "103",
+      "source_domain": "tencymusic.com",
+      "confidence": "high",
+      "note": "Direct tempo result and sheet music agree."
+    },
+    {
+      "path": "songs/listen-to-the-music.md",
+      "title": "Listen To The Music",
+      "artist": "The Doobie Brothers",
+      "previous_bpm": "105.7",
+      "bpm": "106",
+      "source_domain": "musicstax.com",
+      "confidence": "high",
+      "note": "Direct listing at 106 BPM."
+    },
+    {
+      "path": "songs/liza-jane.md",
+      "title": "Liza Jane",
+      "artist": "Vince Gill",
+      "previous_bpm": null,
+      "bpm": "181",
+      "source_domain": "shazam.com",
+      "confidence": "high",
+      "note": "Shazam lists 181 BPM"
+    },
+    {
+      "path": "songs/lonely-boy-folsom-prison-blues-dancing-with-myself.md",
+      "title": "Lonely Boy / Folsom Prison Blues / Dancing With Myself",
+      "artist": "The Black Keys / Johnny Cash / Billy Idol",
+      "previous_bpm": null,
+      "bpm": "166/102/177",
+      "source_domain": "getsongbpm.com; songbpm.com; songdata.io",
+      "confidence": "high",
+      "note": "Lonely Boy / Folsom Prison Blues / Dancing With Myself; direct recording BPM lookups."
+    },
+    {
+      "path": "songs/lonely-boy.md",
+      "title": "Lonely Boy",
+      "artist": "The Black Keys",
+      "previous_bpm": null,
+      "bpm": "166",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Black Keys track lookup; proposed value confirmed."
+    },
+    {
+      "path": "songs/louie-louie.md",
+      "title": "Louie Louie",
+      "artist": "The Kingsmen",
+      "previous_bpm": null,
+      "bpm": "122",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "Direct artist result reports 122 BPM; 61 result is half-time."
+    },
+    {
+      "path": "songs/move-it-on-over.md",
+      "title": "Move It on Over",
+      "artist": "George Thorogood \\u0026 The Destroyers",
+      "previous_bpm": null,
+      "bpm": "146",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing; corrected from 134."
+    },
+    {
+      "path": "songs/one-way-out.md",
+      "title": "One Way Out",
+      "artist": "The Allman Brothers Band",
+      "previous_bpm": null,
+      "bpm": "106",
+      "source_domain": "getsongbpm.com",
+      "confidence": "medium",
+      "note": "Direct result reports 212 BPM, interpreted as double-time; practical count is 106."
+    },
+    {
+      "path": "songs/pump-it-up.md",
+      "title": "Pump It Up",
+      "artist": "Elvis Costello \\u0026 The Attractions",
+      "previous_bpm": null,
+      "bpm": "140",
+      "source_domain": "audiokeychain.com",
+      "confidence": "high",
+      "note": "Direct match; 140 BPM."
+    },
+    {
+      "path": "songs/remedy.md",
+      "title": "Remedy",
+      "artist": "The Black Crowes",
+      "previous_bpm": null,
+      "bpm": "161",
+      "source_domain": "sfrbeats.com",
+      "confidence": "high",
+      "note": "track tempo"
+    },
+    {
+      "path": "songs/save-tonight.md",
+      "title": "Save Tonight",
+      "artist": "Eagle-Eye Cherry",
+      "previous_bpm": null,
+      "bpm": "119",
+      "source_domain": "supersimplepiano.com",
+      "confidence": "medium",
+      "note": "Rounded practical count from direct track tempo analyses around 119 BPM."
+    },
+    {
+      "path": "songs/shallow.md",
+      "title": "Shallow",
+      "artist": "Lady Gaga \\u0026 Bradley Cooper",
+      "previous_bpm": null,
+      "bpm": "96",
+      "source_domain": "musicwill.org",
+      "confidence": "high",
+      "note": "Direct chart listing 96 BPM."
+    },
+    {
+      "path": "songs/she-talks-to-angels.md",
+      "title": "She Talks to Angels",
+      "artist": "The Black Crowes",
+      "previous_bpm": null,
+      "bpm": "156",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Black Crowes track lookup; practical quarter-note count, corrected proposed 155 only by rounding."
+    },
+    {
+      "path": "songs/stayin-in-black.md",
+      "title": "Stayin' in Black",
+      "artist": "Bee Gees / AC/DC",
+      "previous_bpm": null,
+      "bpm": "104/94",
+      "source_domain": "songbpm.com; songbpm.com",
+      "confidence": "high",
+      "note": "Stayin' Alive / Back in Black; direct recording BPM lookups."
+    },
+    {
+      "path": "songs/stop-draggin-my-heart-around.md",
+      "title": "Stop Draggin' My Heart Around",
+      "artist": "Stevie Nicks feat. Tom Petty and the Heartbreakers",
+      "previous_bpm": null,
+      "bpm": "107",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "matches backing-track tempo"
+    },
+    {
+      "path": "songs/stray-cat-strut.md",
+      "title": "Stray Cat Strut",
+      "artist": "Stray Cats",
+      "previous_bpm": null,
+      "bpm": "133",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct lookup lists 133 BPM; corrected from inflated practical count."
+    },
+    {
+      "path": "songs/stuck-in-a-moment-you-can-t-get-out-of.md",
+      "title": "Stuck in a Moment You Can't Get Out Of",
+      "artist": "U2",
+      "previous_bpm": null,
+      "bpm": "79",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "Direct listing is 158; corrected to practical half-time count."
+    },
+    {
+      "path": "songs/tell-me-something-good.md",
+      "title": "Tell Me Something Good",
+      "artist": "Chaka Khan",
+      "previous_bpm": "173.7",
+      "bpm": "87",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "173.8 existing value normalized to half-time."
+    },
+    {
+      "path": "songs/that-s-the-way-shake-shake-shake-get-lucky.md",
+      "title": "That's the Way / Shake, Shake, Shake / Get Lucky",
+      "artist": "KC and the Sunshine Band / Daft Punk",
+      "previous_bpm": null,
+      "bpm": "109/124/116",
+      "source_domain": "songbpm.com; songbpm.com; wikipedia.org",
+      "confidence": "high",
+      "note": "That's the Way (I Like It) / Shake, Shake, Shake / Get Lucky; direct recording BPM lookups."
+    },
+    {
+      "path": "songs/the-living-years.md",
+      "title": "The Living Years",
+      "artist": "Mike + The Mechanics",
+      "previous_bpm": null,
+      "bpm": "98",
+      "source_domain": "trackify.am",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/the-one-i-love.md",
+      "title": "The One I Love",
+      "artist": "R.E.M.",
+      "previous_bpm": null,
+      "bpm": "128",
+      "source_domain": "trackify.am",
+      "confidence": "high",
+      "note": "Direct tempo listing."
+    },
+    {
+      "path": "songs/torn.md",
+      "title": "Torn",
+      "artist": "Natalie Imbruglia",
+      "previous_bpm": null,
+      "bpm": "96",
+      "source_domain": "drumstheword.com",
+      "confidence": "high",
+      "note": "published drum tempo"
+    },
+    {
+      "path": "songs/two-tickets-to-paradise.md",
+      "title": "Two Tickets to Paradise",
+      "artist": "Eddie Money",
+      "previous_bpm": null,
+      "bpm": "129",
+      "source_domain": "getsongbpm.com",
+      "confidence": "high",
+      "note": "129 BPM"
+    },
+    {
+      "path": "songs/under-the-bridge-californication.md",
+      "title": "Under the Bridge / Californication",
+      "artist": "Red Hot Chili Peppers",
+      "previous_bpm": null,
+      "bpm": "84/97",
+      "source_domain": "hooktheory.com; songparts.com",
+      "confidence": "medium",
+      "note": "Under the Bridge / Californication; direct lookups report 84 and 96-97 BPM, using 84/97 for the referenced recordings."
+    },
+    {
+      "path": "songs/walls.md",
+      "title": "Walls",
+      "artist": "Tom Petty and the Heartbreakers",
+      "previous_bpm": null,
+      "bpm": "101",
+      "source_domain": "cs.uwaterloo.ca",
+      "confidence": "high",
+      "note": "Exact Tom Petty and the Heartbreakers Walls entry measures 101.2/100.5 BPM, rounded to 101."
+    },
+    {
+      "path": "songs/what-i-got-folsom-prison-blues.md",
+      "title": "What I Got / Folsom Prison Blues",
+      "artist": "Sublime / Johnny Cash",
+      "previous_bpm": null,
+      "bpm": "96/102",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "What I Got / Folsom Prison Blues; direct recording BPM lookups."
+    },
+    {
+      "path": "songs/what-i-got-in-the-midnight-hour.md",
+      "title": "What I Got / In the Midnight Hour",
+      "artist": "Sublime / Wilson Pickett",
+      "previous_bpm": null,
+      "bpm": "96/112",
+      "source_domain": "songbpm.com; beatsource.com",
+      "confidence": "high",
+      "note": "What I Got / In the Midnight Hour; direct recording BPM lookups."
+    },
+    {
+      "path": "songs/when-you-get-back.md",
+      "title": "When You Get Back",
+      "artist": "Jon Cleary \\u0026 The Absolute Monster Gentlemen",
+      "previous_bpm": null,
+      "bpm": "108",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct match for Jon Cleary; rounded quarter-note count."
+    },
+    {
+      "path": "songs/you-ain-t-seen-nothing-yet.md",
+      "title": "You Ain't Seen Nothing Yet",
+      "artist": "Bachman-Turner Overdrive",
+      "previous_bpm": null,
+      "bpm": "121",
+      "source_domain": "cs.uwaterloo.ca",
+      "confidence": "medium",
+      "note": "Corrected from 125 to direct Mixmeister listing at 121 BPM."
+    },
+    {
+      "path": "songs/you-don-t-know-how-it-feels.md",
+      "title": "You Don't Know How It Feels",
+      "artist": "Tom Petty",
+      "previous_bpm": null,
+      "bpm": "72",
+      "source_domain": "runhundred.com",
+      "confidence": "high",
+      "note": "144.2 search result normalized to half-time; direct result reports 72."
+    },
+    {
+      "path": "songs/you-re-so-bad.md",
+      "title": "You're So Bad",
+      "artist": "Tom Petty",
+      "previous_bpm": null,
+      "bpm": "92",
+      "source_domain": "songbpm.com",
+      "confidence": "medium",
+      "note": "Direct-title lookup; practical rounded count."
+    },
+    {
+      "path": "songs/you-really-got-me.md",
+      "title": "You Really Got Me",
+      "artist": "Van Halen",
+      "previous_bpm": null,
+      "bpm": "138",
+      "source_domain": "songbpm.com",
+      "confidence": "high",
+      "note": "Direct Van Halen version listing."
+    }
+  ]
+}

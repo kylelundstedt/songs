@@ -1,6 +1,7 @@
 ---
 artist: "The Beatles"
 performance_key: "D"
+bpm: "84"
 original_key: "Dm"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.95"

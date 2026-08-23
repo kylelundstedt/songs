@@ -1,6 +1,7 @@
 ---
 artist: "The Cure"
 performance_key: "Am"
+bpm: "140"
 original_key: "Am"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.836"

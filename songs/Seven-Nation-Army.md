@@ -1,6 +1,7 @@
 ---
 artist: "The White Stripes"
 performance_key: "E"
+bpm: "123"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.786"

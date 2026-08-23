@@ -3,6 +3,7 @@ schema_version: 1
 id: "that-s-the-way-shake-shake-shake-get-lucky"
 title: "That's the Way / Shake, Shake, Shake / Get Lucky"
 artist: "KC and the Sunshine Band / Daft Punk"
+bpm: "109/124/116"
 provenance_status: user-supplied
 arrangement_status: proposed-pending-review
 ---

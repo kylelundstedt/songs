@@ -1,6 +1,7 @@
 ---
 artist: "Bob Marley & The Wailers"
 performance_key: "C#"
+bpm: "78"
 original_key: "C#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.82"

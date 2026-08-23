@@ -1,6 +1,7 @@
 ---
 artist: "Weezer"
 performance_key: "Ab"
+bpm: "131"
 original_key: "Ab"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.895"

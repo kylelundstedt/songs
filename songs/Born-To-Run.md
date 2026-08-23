@@ -1,6 +1,7 @@
 ---
 artist: "Bruce Springsteen"
 performance_key: "E"
+bpm: "146"
 original_key: "E"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.912"

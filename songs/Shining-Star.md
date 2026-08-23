@@ -1,7 +1,7 @@
 ---
 artist: "Earth, Wind & Fire"
 performance_key: "Em"
-bpm: "102.3"
+bpm: "103"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.885"

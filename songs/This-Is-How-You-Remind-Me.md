@@ -1,5 +1,6 @@
 ---
 artist: "Nickelback"
+bpm: "86"
 provenance_status: "legacy-imported"
 legacy_source_commit: "6cfbda8e4d8a99e8fbe2762d7e4a5add89b5f659"
 legacy_source_path: "lead-sheet/This-Is-How-You-Remind-Me.md"

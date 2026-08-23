@@ -1,6 +1,7 @@
 ---
 artist: "The Jackson 5"
 performance_key: "G"
+bpm: "98"
 reference_title: "I Want You Back"
 reference_artist: "The Jackson 5"
 reference_album: "Billboard Top Rock’n’Roll Hits: 1970"

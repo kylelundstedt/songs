@@ -1,6 +1,7 @@
 ---
 artist: "Rush"
 performance_key: "Bm"
+bpm: "88"
 original_key: "Bm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.829"

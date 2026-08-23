@@ -1,7 +1,7 @@
 ---
 artist: "Lynyrd Skynyrd"
 performance_key: "G"
-bpm: "106.3"
+bpm: "106"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.906"

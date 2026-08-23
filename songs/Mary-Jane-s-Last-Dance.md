@@ -1,6 +1,7 @@
 ---
 artist: "Tom Petty"
 performance_key: "Am"
+bpm: "85"
 reference_title: "Mary Jane's Last Dance"
 reference_artist: "Tom Petty"
 reference_album: "Tom Petty Songs"

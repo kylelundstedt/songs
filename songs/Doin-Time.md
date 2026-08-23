@@ -1,6 +1,7 @@
 ---
 artist: "Sublime"
 performance_key: "Gm"
+bpm: "80"
 original_key: "Gm"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.96"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "shallow"
 title: "Shallow"
 artist: "Lady Gaga \u0026 Bradley Cooper"
+bpm: "96"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/3204998"

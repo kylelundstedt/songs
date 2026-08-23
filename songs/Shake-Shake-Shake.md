@@ -1,5 +1,6 @@
 ---
 artist: "KC & the Sunshine Band"
+bpm: "112"
 reference_title: "(Shake, Shake, Shake) Shake Y"
 reference_artist: "Kc & the Sunshine Band"
 reference_album: "Seventies Complete Volume 2"

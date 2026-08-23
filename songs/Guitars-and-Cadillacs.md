@@ -1,6 +1,7 @@
 ---
 artist: "Dwight Yoakam"
 performance_key: "A"
+bpm: "172"
 reference_title: "Guitars And Cadillacs"
 reference_artist: "Dwight Yoakam"
 reference_album: "MP3's"

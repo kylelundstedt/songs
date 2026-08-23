@@ -1,6 +1,7 @@
 ---
 artist: "The Marshall Tucker Band"
 performance_key: "D"
+bpm: "153"
 original_key: "D"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.917"

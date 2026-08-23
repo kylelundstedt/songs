@@ -3,6 +3,7 @@ schema_version: 1
 id: "kashmir"
 title: "Kashmir"
 artist: "Led Zeppelin"
+bpm: "81"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/19074979"

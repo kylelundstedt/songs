@@ -3,6 +3,7 @@ schema_version: 1
 id: "two-tickets-to-paradise"
 title: "Two Tickets to Paradise"
 artist: "Eddie Money"
+bpm: "129"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/37151980"

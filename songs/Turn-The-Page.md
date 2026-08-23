@@ -1,6 +1,7 @@
 ---
 artist: "Bob Seger & the Silver Bullet Band"
 performance_key: "Em"
+bpm: "77"
 original_key: "A"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.89"

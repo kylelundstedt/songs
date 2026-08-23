@@ -1,6 +1,7 @@
 ---
 artist: "Jimmy Buffett"
 performance_key: "D"
+bpm: "125"
 original_key: "D"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.916"

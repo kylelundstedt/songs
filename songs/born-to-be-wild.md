@@ -3,6 +3,7 @@ schema_version: 1
 id: "born-to-be-wild"
 title: "Born to Be Wild"
 artist: "Steppenwolf"
+bpm: "146"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/33462954"

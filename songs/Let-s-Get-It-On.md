@@ -1,7 +1,7 @@
 ---
 artist: "Marvin Gaye"
 performance_key: "E"
-bpm: "167.38"
+bpm: "83"
 original_key: "Eb"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.904"

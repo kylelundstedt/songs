@@ -3,7 +3,7 @@ schema_version: 1
 id: "if-you-could-only-see"
 title: "If You Could Only See"
 artist: "Tonic"
-bpm: "190.5"
+bpm: "96"
 original_bpm: "190.5"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"

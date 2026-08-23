@@ -3,6 +3,7 @@ schema_version: 1
 id: "don-t-you-forget-about-me"
 title: "Don't You (Forget About Me)"
 artist: "Simple Minds"
+bpm: "111"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/1018322"

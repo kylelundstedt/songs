@@ -1,6 +1,7 @@
 ---
 artist: "David Bowie"
 performance_key: "Ab"
+bpm: "114"
 original_key: "Ab"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.913"

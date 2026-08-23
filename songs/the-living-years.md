@@ -3,6 +3,7 @@ schema_version: 1
 id: "the-living-years"
 title: "The Living Years"
 artist: "Mike + The Mechanics"
+bpm: "98"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/20257225"

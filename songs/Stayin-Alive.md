@@ -1,5 +1,6 @@
 ---
 artist: "Bee Gees"
+bpm: "104"
 reference_title: "Stayin Alive"
 reference_artist: "The Bee Gees"
 reference_album: "Top 500 Songs RS"

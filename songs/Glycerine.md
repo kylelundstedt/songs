@@ -1,6 +1,7 @@
 ---
 artist: "Bush"
 performance_key: "F"
+bpm: "114"
 original_key: "F"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.923"

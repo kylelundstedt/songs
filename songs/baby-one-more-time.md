@@ -3,6 +3,7 @@ schema_version: 1
 id: "baby-one-more-time"
 title: "...Baby One More Time"
 artist: "Britney Spears"
+bpm: "93"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/24204605"

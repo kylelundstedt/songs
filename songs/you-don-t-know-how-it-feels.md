@@ -3,6 +3,7 @@ schema_version: 1
 id: "you-don-t-know-how-it-feels"
 title: "You Don't Know How It Feels"
 artist: "Tom Petty"
+bpm: "72"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/18830938"

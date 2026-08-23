@@ -1,6 +1,7 @@
 ---
 artist: "R.E.M."
 performance_key: "E"
+bpm: "152"
 original_key: "E"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.83"

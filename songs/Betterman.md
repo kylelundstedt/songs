@@ -1,5 +1,6 @@
 ---
 artist: "Pearl Jam"
+bpm: "125"
 reference_title: "Betterman"
 reference_artist: "Pearl Jam"
 reference_album: "Rearviewmirror (Greatest Hits 1991-2003) [44.1-16 CD]"

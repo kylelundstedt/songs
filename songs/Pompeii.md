@@ -1,7 +1,7 @@
 ---
 artist: "Bastille"
 performance_key: "A"
-bpm: "127.6"
+bpm: "128"
 original_key: "A"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

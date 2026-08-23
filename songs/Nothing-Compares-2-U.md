@@ -1,6 +1,7 @@
 ---
 artist: "Chris Cornell"
 performance_key: "C"
+bpm: "85"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.907"

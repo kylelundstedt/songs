@@ -3,6 +3,7 @@ schema_version: 1
 id: "you-re-so-bad"
 title: "You're So Bad"
 artist: "Tom Petty"
+bpm: "92"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/21142849"

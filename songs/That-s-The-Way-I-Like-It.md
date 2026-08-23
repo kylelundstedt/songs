@@ -1,6 +1,7 @@
 ---
 artist: "KC & the Sunshine Band"
 performance_key: "Cm"
+bpm: "129"
 original_key: "Cm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.85"

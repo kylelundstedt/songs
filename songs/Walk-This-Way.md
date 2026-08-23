@@ -1,6 +1,7 @@
 ---
 artist: "Aerosmith"
 performance_key: "F"
+bpm: "109"
 original_key: "F"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.847"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "father-of-mine"
 title: "Father of Mine"
 artist: "Everclear"
+bpm: "98"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/36375960"

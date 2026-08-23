@@ -1,5 +1,6 @@
 ---
 artist: "Gavin DeGraw"
+bpm: "105"
 reference_title: "I Don't Wanna Be"
 reference_artist: "Gavin DeGraw"
 reference_album: "Unknown"

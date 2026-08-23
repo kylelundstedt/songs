@@ -1,7 +1,7 @@
 ---
 artist: "The Strokes"
 performance_key: "F"
-bpm: "154.8"
+bpm: "155"
 original_key: "F"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.905"

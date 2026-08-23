@@ -1,6 +1,7 @@
 ---
 artist: "Foo Fighters"
 performance_key: "D"
+bpm: "145"
 original_key: "D"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.97"

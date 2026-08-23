@@ -3,6 +3,7 @@ schema_version: 1
 id: "under-the-bridge-californication"
 title: "Under the Bridge / Californication"
 artist: "Red Hot Chili Peppers"
+bpm: "84/97"
 provenance_status: user-supplied
 arrangement_status: proposed-pending-review
 ---

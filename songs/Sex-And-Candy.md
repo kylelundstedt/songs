@@ -1,6 +1,7 @@
 ---
 artist: "Marcy Playground"
 performance_key: "Bm"
+bpm: "81"
 original_key: "Bm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.83"

@@ -4,6 +4,7 @@ id: "fire-woman-she-sells"
 title: "Fire Woman/She Sells"
 artist: "The Cult"
 performance_key: "C, C#"
+bpm: "132/139"
 provenance_status: "user-supplied"
 arrangement_status: "confirmed"
 ---

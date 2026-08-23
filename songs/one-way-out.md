@@ -3,6 +3,7 @@ schema_version: 1
 id: "one-way-out"
 title: "One Way Out"
 artist: "The Allman Brothers Band"
+bpm: "106"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/1124139"

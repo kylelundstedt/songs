@@ -1,6 +1,7 @@
 ---
 artist: "Incubus"
 performance_key: "Em"
+bpm: "90"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.836"

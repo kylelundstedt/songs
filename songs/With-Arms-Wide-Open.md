@@ -1,7 +1,7 @@
 ---
 artist: "Creed"
 performance_key: "C"
-bpm: "138.7"
+bpm: "139"
 original_key: "C"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.902"

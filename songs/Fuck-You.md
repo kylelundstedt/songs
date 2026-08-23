@@ -1,6 +1,7 @@
 ---
 artist: "Cee Lo Green"
 performance_key: "C"
+bpm: "127"
 reference_title: "Fuck You"
 reference_artist: "Cee-Lo Green"
 reference_album: "2010! Songs of the Year"

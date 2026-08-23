@@ -1,6 +1,7 @@
 ---
 artist: "Dolly Parton"
 performance_key: "C#m"
+bpm: "112"
 original_key: "C#m"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.843"

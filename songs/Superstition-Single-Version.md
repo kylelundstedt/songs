@@ -1,6 +1,7 @@
 ---
 artist: "Stevie Wonder"
 performance_key: "E"
+bpm: "101"
 original_key: "Ebm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.82"

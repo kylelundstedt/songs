@@ -1,7 +1,7 @@
 ---
 artist: "Sublime"
 performance_key: "E"
-bpm: "181.33"
+bpm: "90"
 original_key: "E"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

@@ -1,5 +1,6 @@
 ---
 artist: "Calvin Harris"
+bpm: "99"
 reference_title: "Feels"
 reference_artist: "Calvin Harris Pharrell Williams Katy Perry Big Sean"
 reference_album: "Feels (feat Pharrell Williams Katy Perry & Big Sean)"

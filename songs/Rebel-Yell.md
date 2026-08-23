@@ -1,6 +1,7 @@
 ---
 artist: "Billy Idol"
 performance_key: "Bm"
+bpm: "166"
 original_key: "Bm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.836"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "bright-lights"
 title: "Bright Lights"
 artist: "Matchbox Twenty"
+bpm: "80"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/1123269"

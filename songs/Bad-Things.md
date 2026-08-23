@@ -1,7 +1,7 @@
 ---
 artist: "Jace Everett"
 performance_key: "E"
-bpm: "130.8"
+bpm: "131"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.916"

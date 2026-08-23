@@ -3,6 +3,7 @@ schema_version: 1
 id: "american-girl"
 title: "American Girl"
 artist: "Tom Petty"
+bpm: "114"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/12937563"

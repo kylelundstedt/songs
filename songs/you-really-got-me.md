@@ -3,6 +3,7 @@ schema_version: 1
 id: "you-really-got-me"
 title: "You Really Got Me"
 artist: "Van Halen"
+bpm: "138"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/19282184"

@@ -1,6 +1,6 @@
 ---
 artist: "Talking Heads"
-bpm: "132.9"
+bpm: "133"
 original_bpm: "132.9"
 reference_title: "Life During Wartime"
 reference_artist: "Talking Heads"

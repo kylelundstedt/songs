@@ -3,7 +3,7 @@ schema_version: 1
 id: "listen-to-the-music"
 title: "Listen To The Music"
 artist: "The Doobie Brothers"
-bpm: "105.7"
+bpm: "106"
 original_bpm: "105.7"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"

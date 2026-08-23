@@ -1,5 +1,6 @@
 ---
 artist: "Ed Sheeran"
+bpm: "80"
 reference_title: "Thinking Out Loud"
 reference_artist: "Ed Sheeran"
 reference_album: "The Official Uk Top 40 Singles Chart 17-08-2014"

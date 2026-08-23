@@ -1,5 +1,6 @@
 ---
 artist: "U2"
+bpm: "108"
 reference_title: "Pride"
 reference_artist: "U2"
 reference_album: "The Best Of U2 1980-2005"

@@ -1,6 +1,7 @@
 ---
 artist: "Van Halen"
 performance_key: "C"
+bpm: "131"
 original_key: "C"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.917"

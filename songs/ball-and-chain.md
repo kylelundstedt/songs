@@ -3,6 +3,7 @@ schema_version: 1
 id: "ball-and-chain"
 title: "Ball and Chain"
 artist: "Social Distortion"
+bpm: "134"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/28341291"

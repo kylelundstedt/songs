@@ -1,5 +1,6 @@
 ---
 artist: "The Brian Setzer Orchestra"
+bpm: "200"
 reference_title: "Jump, jive,  & wail"
 reference_artist: "Brian Setzer Orchestra"
 reference_album: "The Dirty Boogie"

@@ -1,6 +1,6 @@
 ---
 artist: "Lizzo"
-bpm: "119.84"
+bpm: "120"
 original_bpm: "119.84"
 reference_title: "Juice"
 reference_artist: "Lizzo"

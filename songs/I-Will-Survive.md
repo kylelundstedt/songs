@@ -1,6 +1,7 @@
 ---
 artist: "Cake"
 performance_key: "Am"
+bpm: "96"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.9"

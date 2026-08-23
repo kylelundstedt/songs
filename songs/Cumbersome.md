@@ -1,7 +1,7 @@
 ---
 artist: "Seven Mary Three"
 performance_key: "F#"
-bpm: "162.1"
+bpm: "81"
 original_bpm: "162.1"
 reference_title: "Cumbersome"
 reference_artist: "Seven Mary Three"

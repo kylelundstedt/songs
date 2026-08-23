@@ -3,6 +3,7 @@ schema_version: 1
 id: "fortunate-son"
 title: "Fortunate Son"
 artist: "Creedence Clearwater Revival"
+bpm: "132"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/35903914"

@@ -1,6 +1,7 @@
 ---
 artist: "Elvis Costello & The Attractions"
 performance_key: "E"
+bpm: "148"
 reference_title: "Allison"
 reference_artist: "Elvis Costello & The Attractions"
 reference_album: "My Aim Is True"

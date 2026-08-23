@@ -3,6 +3,7 @@ schema_version: 1
 id: "walls"
 title: "Walls"
 artist: "Tom Petty and the Heartbreakers"
+bpm: "101"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/29062727"

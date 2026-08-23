@@ -3,6 +3,7 @@ schema_version: 1
 id: "stop-draggin-my-heart-around"
 title: "Stop Draggin' My Heart Around"
 artist: "Stevie Nicks feat. Tom Petty and the Heartbreakers"
+bpm: "107"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/9228061"

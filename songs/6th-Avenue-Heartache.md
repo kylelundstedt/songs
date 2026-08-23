@@ -1,6 +1,7 @@
 ---
 artist: "The Wallflowers"
 performance_key: "F"
+bpm: "152"
 original_key: "F"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.904"

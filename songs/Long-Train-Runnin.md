@@ -1,7 +1,7 @@
 ---
 artist: "The Doobie Brothers"
 performance_key: "Gm"
-bpm: "118.5"
+bpm: "117"
 original_key: "Gm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.906"

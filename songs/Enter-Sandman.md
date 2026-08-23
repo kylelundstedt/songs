@@ -1,7 +1,7 @@
 ---
 artist: "Metallica"
 performance_key: "Em"
-bpm: "124.53"
+bpm: "125"
 original_key: "Em"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.96"

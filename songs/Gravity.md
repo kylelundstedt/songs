@@ -1,6 +1,7 @@
 ---
 artist: "John Mayer"
 performance_key: "G"
+bpm: "122"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.887"

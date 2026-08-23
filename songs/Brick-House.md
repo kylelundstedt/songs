@@ -1,5 +1,6 @@
 ---
 artist: "The Commodores"
+bpm: "108"
 reference_title: "Brick House"
 reference_artist: "The Commodores"
 reference_album: "20 #1’s: Disco"

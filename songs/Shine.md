@@ -1,6 +1,7 @@
 ---
 artist: "Collective Soul"
 performance_key: "D"
+bpm: "150"
 original_key: "C#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.97"

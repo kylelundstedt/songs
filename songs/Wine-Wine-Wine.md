@@ -1,6 +1,7 @@
 ---
 artist: "The Nightcaps"
 performance_key: "A"
+bpm: "164"
 original_key: "A"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.923"

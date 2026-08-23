@@ -1,6 +1,7 @@
 ---
 artist: "Dave Matthews Band"
 performance_key: "E"
+bpm: "101"
 original_key: "E"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.98"

@@ -1,7 +1,7 @@
 ---
 artist: "AC/DC"
 performance_key: "A"
-bpm: "132.5"
+bpm: "133"
 original_key: "A"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

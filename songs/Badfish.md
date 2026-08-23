@@ -1,6 +1,7 @@
 ---
 artist: "Sublime"
 performance_key: "D"
+bpm: "93"
 reference_title: "Badfish"
 reference_artist: "Sublime (2)"
 reference_album: "40 Oz. To Freedom"

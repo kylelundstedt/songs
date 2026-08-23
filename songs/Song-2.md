@@ -1,6 +1,7 @@
 ---
 artist: "Blur"
 performance_key: "Fm"
+bpm: "130"
 original_key: "Fm"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.93"

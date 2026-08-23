@@ -1,5 +1,6 @@
 ---
 artist: "Prince & The Revolution"
+bpm: "78"
 reference_title: "Darling Nikki"
 reference_artist: "Prince & The Revolution"
 reference_album: "Purple Rain (Deluxe Expanded Edition) [2015 Paisley Park Remaster]"

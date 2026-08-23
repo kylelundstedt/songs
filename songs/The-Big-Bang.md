@@ -1,7 +1,7 @@
 ---
 artist: "Katy Tiz"
 performance_key: "Gm"
-bpm: "95.9"
+bpm: "96"
 original_key: "Gm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.903"

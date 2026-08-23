@@ -3,6 +3,7 @@ schema_version: 1
 id: "call-me-the-breeze"
 title: "Call Me the Breeze"
 artist: "Lynyrd Skynyrd"
+bpm: "93"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/23491292"

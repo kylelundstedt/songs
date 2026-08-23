@@ -1,5 +1,6 @@
 ---
 artist: "Joe Cocker"
+bpm: "132"
 reference_title: "Feeling Alright"
 reference_artist: "Joe Cocker"
 reference_album: "With A Little Help From My Friends"

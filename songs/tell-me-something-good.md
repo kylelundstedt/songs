@@ -3,7 +3,7 @@ schema_version: 1
 id: "tell-me-something-good"
 title: "Tell Me Something Good"
 artist: "Chaka Khan"
-bpm: "173.7"
+bpm: "87"
 original_bpm: "173.7"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"

@@ -1,6 +1,7 @@
 ---
 artist: "Mark Ronson feat. Bruno Mars"
 performance_key: "D"
+bpm: "115"
 reference_title: "Uptown Funk"
 reference_artist: "Mark Ronson, Bruno Mars"
 reference_album: "Gracies Party!"

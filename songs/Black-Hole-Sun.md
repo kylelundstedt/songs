@@ -1,6 +1,7 @@
 ---
 artist: "Soundgarden"
 performance_key: "G"
+bpm: "105"
 original_key: "G"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.95"

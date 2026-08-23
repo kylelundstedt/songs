@@ -1,7 +1,7 @@
 ---
 artist: "Stone Temple Pilots"
 performance_key: "A"
-bpm: "152.6"
+bpm: "153"
 original_bpm: "152.6"
 reference_title: "Wicked Garden"
 reference_artist: "Stone Temple Pilots"

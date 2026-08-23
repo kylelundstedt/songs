@@ -1,6 +1,7 @@
 ---
 artist: "The Who"
 performance_key: "E"
+bpm: "129"
 original_key: "Em"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.98"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "get-back"
 title: "Get Back"
 artist: "The Beatles"
+bpm: "120"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/28856886"

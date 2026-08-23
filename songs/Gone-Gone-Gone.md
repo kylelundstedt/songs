@@ -1,7 +1,7 @@
 ---
 artist: "Phillip Phillips"
 performance_key: "F#"
-bpm: "118.1"
+bpm: "118"
 original_key: "F#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.905"

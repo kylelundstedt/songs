@@ -1,7 +1,7 @@
 ---
 artist: "311"
 performance_key: "C"
-bpm: "166"
+bpm: "83"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.826"

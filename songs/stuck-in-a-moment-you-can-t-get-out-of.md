@@ -3,6 +3,7 @@ schema_version: 1
 id: "stuck-in-a-moment-you-can-t-get-out-of"
 title: "Stuck in a Moment You Can't Get Out Of"
 artist: "U2"
+bpm: "79"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/35242939"

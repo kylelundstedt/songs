@@ -1,5 +1,6 @@
 ---
 artist: "The Raconteurs"
+bpm: "124"
 reference_title: "Steady as She Goes"
 reference_artist: "The Raconteurs"
 reference_album: "100% Alternative (disc 4)"

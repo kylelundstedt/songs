@@ -1,6 +1,7 @@
 ---
 artist: "Bill Withers"
 performance_key: "E"
+bpm: "78"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.843"

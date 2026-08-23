@@ -1,6 +1,7 @@
 ---
 artist: "Linkin Park"
 performance_key: "F#m"
+bpm: "56"
 original_key: "F#m"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.98"

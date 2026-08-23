@@ -1,7 +1,7 @@
 ---
 artist: "Dwight Yoakam"
 performance_key: "A"
-bpm: "126.05"
+bpm: "125"
 original_key: "A"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.906"

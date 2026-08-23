@@ -1,7 +1,7 @@
 ---
 artist: "Van Morrison"
 performance_key: "G"
-bpm: "149.8"
+bpm: "150"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.924"

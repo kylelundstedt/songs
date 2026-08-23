@@ -1,6 +1,7 @@
 ---
 artist: "George Ezra"
 performance_key: "F"
+bpm: "128"
 original_key: "F"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.925"

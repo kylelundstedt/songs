@@ -1,6 +1,7 @@
 ---
 artist: "Green Day"
 performance_key: "Ab"
+bpm: "186"
 original_key: "Ab"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.898"

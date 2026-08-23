@@ -1,6 +1,7 @@
 ---
 artist: "The B-52's"
 performance_key: "C"
+bpm: "134"
 original_key: "C"
 original_key_kind: "expert-reviewed-estimate"
 original_key_confidence: "0.88"

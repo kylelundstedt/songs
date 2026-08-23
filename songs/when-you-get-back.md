@@ -3,6 +3,7 @@ schema_version: 1
 id: "when-you-get-back"
 title: "When You Get Back"
 artist: "Jon Cleary \u0026 The Absolute Monster Gentlemen"
+bpm: "108"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/14765419"

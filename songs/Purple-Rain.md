@@ -1,6 +1,7 @@
 ---
 artist: "Prince & The Revolution"
 performance_key: "Bb"
+bpm: "58"
 reference_title: "Purple Rain"
 reference_artist: "Prince & The Revolution"
 reference_album: "#000 Rolling Stone Magazine's 500 Greatest Songs Of All Time"

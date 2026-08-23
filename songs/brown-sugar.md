@@ -3,6 +3,7 @@ schema_version: 1
 id: "brown-sugar"
 title: "Brown Sugar"
 artist: "The Rolling Stones"
+bpm: "129"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/20273060"

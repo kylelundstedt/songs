@@ -3,6 +3,7 @@ schema_version: 1
 id: "move-it-on-over"
 title: "Move It on Over"
 artist: "George Thorogood \u0026 The Destroyers"
+bpm: "146"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/19918935"

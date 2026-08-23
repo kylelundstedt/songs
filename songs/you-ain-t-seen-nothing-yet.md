@@ -3,6 +3,7 @@ schema_version: 1
 id: "you-ain-t-seen-nothing-yet"
 title: "You Ain't Seen Nothing Yet"
 artist: "Bachman-Turner Overdrive"
+bpm: "121"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/37169668"

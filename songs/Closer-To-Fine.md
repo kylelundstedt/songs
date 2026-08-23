@@ -1,7 +1,7 @@
 ---
 artist: "Indigo Girls"
 performance_key: "A"
-bpm: "196.9"
+bpm: "98"
 original_key: "A"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.913"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "levitating"
 title: "Levitating"
 artist: "Dua Lipa"
+bpm: "103"
 provenance_status: provider-imported-pending-review
 source_provider: "Lyrics.ovh"
 source_url: "https://api.lyrics.ovh/v1/Dua%20Lipa/Levitating"

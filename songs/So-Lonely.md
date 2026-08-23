@@ -1,6 +1,7 @@
 ---
 artist: "The Police"
 performance_key: "C"
+bpm: "77"
 original_key: "C"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.92"

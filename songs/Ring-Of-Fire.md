@@ -1,7 +1,7 @@
 ---
 artist: "Social Distortion"
 performance_key: "Bb"
-bpm: "179.8"
+bpm: "180"
 original_key: "Bb"
 original_key_kind: "analysis-consensus"
 original_key_confidence: "0.98"

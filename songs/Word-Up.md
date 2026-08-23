@@ -1,7 +1,7 @@
 ---
 artist: "Gun"
 performance_key: "F#"
-bpm: "117.8"
+bpm: "112"
 original_key: "F#m"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.836"

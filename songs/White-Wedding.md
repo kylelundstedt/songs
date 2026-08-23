@@ -1,6 +1,7 @@
 ---
 artist: "Billy Idol"
 performance_key: "Bm"
+bpm: "147"
 reference_title: "White Wedding"
 reference_artist: "Billy Idol"
 reference_album: "Greatest Hits 2001"

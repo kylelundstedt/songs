@@ -3,6 +3,7 @@ schema_version: 1
 id: "lonely-boy"
 title: "Lonely Boy"
 artist: "The Black Keys"
+bpm: "166"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/4455067"

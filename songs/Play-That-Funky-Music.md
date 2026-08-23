@@ -1,6 +1,7 @@
 ---
 artist: "Wild Cherry"
 performance_key: "Em"
+bpm: "108"
 original_key: "Em"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.81"

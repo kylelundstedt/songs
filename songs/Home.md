@@ -1,6 +1,7 @@
 ---
 artist: "Daughtry"
 performance_key: "F#"
+bpm: "75"
 original_key: "F#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.91"

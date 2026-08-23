@@ -1,5 +1,6 @@
 ---
 artist: "Eagles"
+bpm: "144"
 reference_title: "Peaceful Easy Feelin'"
 reference_artist: "Eagles"
 reference_album: "Eagles"

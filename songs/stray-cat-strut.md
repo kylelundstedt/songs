@@ -3,6 +3,7 @@ schema_version: 1
 id: "stray-cat-strut"
 title: "Stray Cat Strut"
 artist: "Stray Cats"
+bpm: "133"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/34966456"

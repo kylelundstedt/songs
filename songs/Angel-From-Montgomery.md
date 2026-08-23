@@ -1,7 +1,7 @@
 ---
 artist: "John Prine"
 performance_key: "D"
-bpm: "132.5"
+bpm: "133"
 original_key: "G"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.856"

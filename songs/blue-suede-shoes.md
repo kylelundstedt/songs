@@ -3,6 +3,7 @@ schema_version: 1
 id: "blue-suede-shoes"
 title: "Blue Suede Shoes"
 artist: "Elvis Presley"
+bpm: "95"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/23790388"

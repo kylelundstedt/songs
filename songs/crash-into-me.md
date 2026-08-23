@@ -3,6 +3,7 @@ schema_version: 1
 id: "crash-into-me"
 title: "Crash Into Me"
 artist: "Dave Matthews Band"
+bpm: "101"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/37140707"

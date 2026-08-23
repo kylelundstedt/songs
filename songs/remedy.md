@@ -3,6 +3,7 @@ schema_version: 1
 id: "remedy"
 title: "Remedy"
 artist: "The Black Crowes"
+bpm: "161"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/28129075"

@@ -3,6 +3,7 @@ schema_version: 1
 id: "gin-and-juice"
 title: "Gin and Juice"
 artist: "The Gourds"
+bpm: "120"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/26936377"

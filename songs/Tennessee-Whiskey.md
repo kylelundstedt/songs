@@ -1,5 +1,6 @@
 ---
 artist: "Chris Stapleton"
+bpm: "51"
 reference_title: "Tennessee Whiskey"
 reference_artist: "Chris Stapelton"
 reference_album: "Traveller"

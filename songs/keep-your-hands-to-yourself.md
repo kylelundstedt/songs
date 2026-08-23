@@ -3,6 +3,7 @@ schema_version: 1
 id: "keep-your-hands-to-yourself"
 title: "Keep Your Hands to Yourself"
 artist: "The Georgia Satellites"
+bpm: "114"
 provenance_status: provider-imported-pending-review
 source_provider: "LRCLIB"
 source_url: "https://lrclib.net/api/get/15468808"

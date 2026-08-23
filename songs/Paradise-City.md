@@ -1,7 +1,7 @@
 ---
 artist: "Guns N' Roses"
 performance_key: "F#"
-bpm: "100.11"
+bpm: "100"
 original_key: "F#"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.837"

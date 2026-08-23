@@ -1,6 +1,7 @@
 ---
 artist: "3 Doors Down"
 performance_key: "Bm"
+bpm: "100"
 original_key: "Bm"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.846"

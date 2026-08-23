@@ -1,5 +1,6 @@
 ---
 artist: "Judas Priest"
+bpm: "130"
 reference_title: "Livin’ After Midnight"
 reference_artist: "Judas Priest"
 reference_album: "British Steel"

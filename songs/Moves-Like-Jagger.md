@@ -1,5 +1,6 @@
 ---
 artist: "Maroon 5 feat. Christina Aguilera"
+bpm: "128"
 reference_title: "Moves Like Jagger"
 reference_artist: "Maroon 5 featt. Christina Aguilera"
 reference_album: "German Top 100 Single Charts 03.10.2011"

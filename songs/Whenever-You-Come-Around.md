@@ -1,6 +1,7 @@
 ---
 artist: "Vince Gill"
 performance_key: "B"
+bpm: "115"
 original_key: "B"
 original_key_kind: "preview-analysis-estimate"
 original_key_confidence: "0.912"

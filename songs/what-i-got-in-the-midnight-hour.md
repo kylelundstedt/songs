@@ -3,6 +3,7 @@ schema_version: 1
 id: "what-i-got-in-the-midnight-hour"
 title: "What I Got / In the Midnight Hour"
 artist: "Sublime / Wilson Pickett"
+bpm: "96/112"
 provenance_status: user-supplied
 arrangement_status: proposed-pending-review
 ---
