@@ -55,24 +55,23 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 31. [Everlong](../songs/Everlong.md)
 32. [Santeria](../songs/Santeria.md)
 33. [Psycho Killer](../songs/Psycho-Killer.md)
-34. [Wagon Wheel](../songs/Wagon-Wheel.md)
-35. [Wicked Garden](../songs/Wicked-Garden.md)
-36. [Can’t Stop](../songs/Can-t-Stop.md) — match: normalized?
-37. [You Wreck Me](../songs/You-Wreck-Me.md)
-38. [American Idiot](../songs/American-Idiot.md)
-39. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
+34. [Wicked Garden](../songs/Wicked-Garden.md)
+35. [Can’t Stop](../songs/Can-t-Stop.md) — match: normalized?
+36. [You Wreck Me](../songs/You-Wreck-Me.md)
+37. [American Idiot](../songs/American-Idiot.md)
+38. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md)
 <!-- column-break -->
 ## Set 3 - Fast
-40. [Killing in The Name](../songs/Killing-In-The-Name.md)
-41. [Sex on Fire](../songs/Sex-on-Fire.md)
-42. [Iris](../songs/iris.md)
-43. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
-44. [Just Like Heaven](../songs/Just-Like-Heaven.md)
-45. [Melt With You](../songs/Melt-With-You.md)
-46. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
-47. [Born To Run](../songs/Born-To-Run.md)
-48. [American Girl](../songs/american-girl.md)
-49. [The Middle](../songs/The-Middle.md)
-50. [Lonely Is the Night](../songs/Lonely-Is-the-Night.md)
-51. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
-52. [Californication](../songs/Californication.md)
+39. [Killing in The Name](../songs/Killing-In-The-Name.md)
+40. [Sex on Fire](../songs/Sex-on-Fire.md)
+41. [Iris](../songs/iris.md)
+42. [Long Train Runnin’](../songs/Long-Train-Runnin.md) — match: normalized?
+43. [Just Like Heaven](../songs/Just-Like-Heaven.md)
+44. [Melt With You](../songs/Melt-With-You.md)
+45. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — match: normalized?
+46. [Born To Run](../songs/Born-To-Run.md)
+47. [American Girl](../songs/american-girl.md)
+48. [The Middle](../songs/The-Middle.md)
+49. [Lonely Is the Night](../songs/Lonely-Is-the-Night.md)
+50. [Livin' After Midnight](../songs/Livin-After-Midnight.md) — match: normalized?
+51. [Californication](../songs/Californication.md)
