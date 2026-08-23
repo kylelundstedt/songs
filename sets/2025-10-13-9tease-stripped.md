@@ -3,7 +3,7 @@ schema_version: 1
 id: "2025-10-13-9tease-stripped"
 title: "9Tease Stripped"
 gig_name: ""
-date: "2026-08-05"
+date: "2026-08-25"
 date_precision: "day"
 location: "Castello Golightly"
 band: "9Tease Stripped"
