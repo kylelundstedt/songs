@@ -19,7 +19,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 ---
 
 # 9Tease Stripped  
-## Set 1 - Slow
+## Set 1
 1. [Plush](../songs/Plush.md)
 2. [Wicked Game](../songs/Wicked-Game.md)
 3. [Times Like These](../songs/Times-Like-These.md)
@@ -38,7 +38,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 16. [Demons](../songs/Demons.md)
 17. [Kashmir](../songs/kashmir.md)
 <!-- column-break -->
-## Set 2 - Medium
+## Set 2  
 18. [Mary Jane's Last Dance](../songs/Mary-Jane-s-Last-Dance.md)
 19. [Cumbersome](../songs/Cumbersome.md)
 20. [Black Hole Sun](../songs/Black-Hole-Sun.md)
@@ -51,8 +51,6 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 27. [Santeria](../songs/Santeria.md)
 28. [Wicked Garden](../songs/Wicked-Garden.md)
 29. [You Wreck Me](../songs/You-Wreck-Me.md)
-<!-- column-break -->
-## Set 3 - Fast
 30. [Just Like Heaven](../songs/Just-Like-Heaven.md)
 31. [Melt With You](../songs/Melt-With-You.md)
 32. [Born To Run](../songs/Born-To-Run.md)
