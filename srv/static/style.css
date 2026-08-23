@@ -308,3 +308,21 @@ h1,h2,h3,p { margin-top:0; }
   .live-font-controls [data-font-reset] small { display:none; }
 }
 @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }
+
+@media print {
+  @page { size:landscape; margin:.35in; }
+  html,body,body.set-page { width:auto!important; height:auto!important; overflow:visible!important; background:#fff!important; color:#000!important; }
+  body.set-page > .app-header { display:none!important; }
+  body.set-page .single-set-shell { width:100%!important; height:auto!important; min-height:0!important; padding:0!important; }
+  body.set-page .set-sheet-panel { width:100%!important; height:auto!important; min-height:0!important; gap:6pt!important; border:0!important; border-radius:0!important; padding:0!important; overflow:visible!important; background:#fff!important; }
+  body.set-page .set-sheet-header { break-inside:avoid; padding-bottom:4pt; border-bottom:1.5pt solid #555; }
+  body.set-page .set-sheet-header h1 { color:#000!important; }
+  body.set-page .set-facts dt,body.set-page .set-facts dd { color:#000!important; }
+  body.set-page .set-sheet-viewport { overflow:visible!important; }
+  body.set-page .set-entry-list { font-size:11pt!important; line-height:1.08!important; color:#000!important; }
+  body.set-page .set-entry { break-inside:avoid; padding:2.5pt 4pt!important; border-color:#999!important; }
+  body.set-page .set-column-heading { margin:0 0 3pt!important; color:#000!important; border-color:#777!important; }
+  body.set-page .set-entry-position,body.set-page .set-entry-singer,body.set-page .set-entry small { color:#000!important; }
+  body.set-page .set-entry a { color:#000!important; text-decoration:none!important; }
+  body.set-page .set-sheet-footer,body.set-page .set-drag-handle,body.set-page .set-delete { display:none!important; }
+}

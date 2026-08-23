@@ -104,6 +104,9 @@ func TestCatalogAndRoutes(t *testing.T) {
 			if tt.name == "set" && !strings.Contains(w.Body.String(), `<h2 class="set-column-heading">Set 1 — Slow</h2><button class="set-drag-handle"`) {
 				t.Fatalf("set heading is not rendered as a standalone row before the first song: %s", w.Body.String())
 			}
+			if tt.name == "set" && !strings.Contains(w.Body.String(), `data-set-print onclick="window.print()"`) {
+				t.Fatalf("set page is missing the print-only Set List action: %s", w.Body.String())
+			}
 		})
 	}
 }
