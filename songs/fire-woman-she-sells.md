@@ -38,10 +38,8 @@ Come on little sister; Come on and shake it
 
 ### Bridge
 I was thinking; What I've been missing  
-I'll tell you truthfully, well  
-She's coming close now  
-Oh, I can feel her; She's getting close to me  
-And I never, yeah
+I'll tell you truthfully, well; She's coming close now  
+Oh, I can feel her; She's getting close to me; And I never, yeah
 
 ### Chorus
 
