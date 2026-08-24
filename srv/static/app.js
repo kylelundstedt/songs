@@ -218,12 +218,12 @@
 
     const gap = parseFloat(getComputedStyle(container).columnGap || getComputedStyle(container).gap) || 24;
     const width = (viewport.clientWidth-gap)/2;
-    const height = viewport.clientHeight;
     const forcedSplit = forcedColumnSplit(sections);
     let bestFailure = null;
-    for (let px=PREFERRED_PX; px>=MIN_PX; px--) {
+    for (let px=MANUAL_MAX_PX; px>=MIN_PX; px--) {
       for (const line of [1.24,1.20,1.16,1.12]) {
         applyTypography(panel, px, line);
+        const height = viewport.clientHeight;
         const heights = measureSections(sections,width,panel,px,line);
         const split = forcedSplit || bestSplit(heights);
         const leftHeight = heights.slice(0,split).reduce((a,b)=>a+b,0);
