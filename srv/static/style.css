@@ -189,8 +189,7 @@ h1,h2,h3,p { margin-top:0; }
 .set-sheet-footer .button { padding:.48rem .65rem; white-space:nowrap; font-size:.75rem; }
 .sync-status { color:var(--accent); }
 .single-song-shell { height:calc(100dvh - 64px); padding:max(10px,var(--safe-top)) max(12px,var(--safe-right)) max(10px,var(--safe-bottom)) max(12px,var(--safe-left)); }
-.lead-sheet-panel { height:100%; min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr) auto; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 16px 9px; overflow:hidden; }
-.lead-sheet-panel.live { grid-template-rows:auto minmax(0,1fr); }
+.lead-sheet-panel { height:100%; min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr); gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 16px 9px; overflow:hidden; }
 .live-performance-note { max-width:48ch; margin:.18rem 0 0; overflow:hidden; color:var(--accent); font-size:.72rem; font-weight:850; line-height:1.15; text-overflow:ellipsis; white-space:nowrap; }
 .sheet-header { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:1rem; border-bottom:2px solid var(--line); padding-bottom:7px; }
 .sheet-header h1 { max-width:100%; margin:0; overflow:hidden; font-size:var(--sheet-font,20px); font-weight:850; line-height:1.1; letter-spacing:0; text-overflow:ellipsis; white-space:nowrap; }
@@ -213,11 +212,6 @@ h1,h2,h3,p { margin-top:0; }
 .live-columns p { margin:0 0 .28em; }
 .live-columns ul, .live-columns ol { margin:.15em 0 .45em; padding-left:1.25em; }
 .live-columns a { text-decoration-thickness:1px; }
-.sheet-footer { min-height:22px; display:flex; align-items:center; justify-content:space-between; gap:.35rem 1rem; flex-wrap:wrap; color:var(--muted); border-top:1px solid var(--line); padding-top:5px; font-size:.72rem; }
-.source-facts { display:flex; align-items:baseline; justify-content:flex-end; gap:.35rem .7rem; min-width:0; margin:0; flex-wrap:wrap; }
-.source-facts div { display:flex; gap:.25rem; white-space:nowrap; }
-.source-facts dt { text-transform:uppercase; letter-spacing:.05em; font-size:.78em; font-weight:850; }
-.source-facts dd { margin:0; color:var(--text); font-weight:750; }
 .measure-host { position:fixed; left:-100000px; top:0; visibility:hidden; pointer-events:none; contain:layout style; }
 .live-set-page { overflow:hidden; }
 .live-nav { height:52px; padding:max(7px,var(--safe-top)) max(12px,var(--safe-right)) 7px max(12px,var(--safe-left)); display:grid; grid-template-columns:auto minmax(0,1fr) auto auto auto auto auto; align-items:center; gap:.8rem; border-bottom:1px solid var(--line); }
@@ -280,7 +274,6 @@ h1,h2,h3,p { margin-top:0; }
   .live-nav strong { visibility:hidden; }
   .single-song-shell { padding:8px; }
   .lead-sheet-panel { border-radius:8px; padding:10px; }
-  .sheet-footer { font-size:.68rem; }
   .hero h1 { font-size:3rem; }
   .song-list, .set-grid { grid-template-columns:1fr; }
   .set-tools { justify-content:stretch; }

@@ -113,6 +113,13 @@ func TestCatalogAndRoutes(t *testing.T) {
 			if !strings.Contains(w.Body.String(), tt.contains) {
 				t.Fatalf("body missing %q", tt.contains)
 			}
+			if tt.name == "song" {
+				for _, unwanted := range []string{`class="sheet-footer"`, `class="source-facts"`} {
+					if strings.Contains(w.Body.String(), unwanted) {
+						t.Fatalf("song page still contains %q: %s", unwanted, w.Body.String())
+					}
+				}
+			}
 			if tt.name == "set" && !strings.Contains(w.Body.String(), `<h2 class="set-column-heading">Set 1 — Slow</h2><button class="set-drag-handle"`) {
 				t.Fatalf("set heading is not rendered as a standalone row before the first song: %s", w.Body.String())
 			}
@@ -324,7 +331,7 @@ func TestMetadataPlaceholdersRemainVisible(t *testing.T) {
 		id      string
 		fields  []string
 	}{
-		{path: "/song/test-song", handler: server.HandleSong, id: "test-song", fields: []string{"Key", "bpm", "Artist", "Lyrics", "Original key", "Original bpm"}},
+		{path: "/song/test-song", handler: server.HandleSong, id: "test-song", fields: []string{"Key", "bpm", "Artist"}},
 		{path: "/sets/test-set/live", handler: server.HandleLiveSet, id: "test-set", fields: []string{"Key", "bpm", "Artist"}},
 	}
 	for _, tt := range tests {
