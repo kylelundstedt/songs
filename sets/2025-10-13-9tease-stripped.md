@@ -20,7 +20,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 
 # 9Tease Stripped  
 ## Set 1
-1. [Black](../songs/Black.md) — singer: Dave — bpm: 77 — note: test
+1. [Black](../songs/Black.md) — singer: Dave — bpm: 77
 2. [1979](../songs/1979.md) — singer: Kyle — bpm: 127
 3. [Cheap Sunglasses](../songs/Cheap-Sunglasses.md) — singer: Dave — bpm: 94
 4. [Drive](../songs/Drive.md) — singer: Kyle — bpm: 91
