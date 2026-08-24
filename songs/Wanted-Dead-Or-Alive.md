@@ -102,10 +102,7 @@ I still drive
 Dead or alive. 
 
 ### Outro Chorus  4x
-Dead or alive.  
-Dead or alive.  
-Dead or alive.  
-Dead or alive.
+Dead or alive. x4  
 
 ### Intro Vamp  4x
 _retard 4th bar_
