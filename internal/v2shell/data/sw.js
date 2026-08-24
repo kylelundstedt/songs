@@ -1,10 +1,10 @@
 const CACHE_PREFIX = "songs-v2-shell-";
-const CACHE_NAME = CACHE_PREFIX + "41ec1db581b5fd30cb68eb45";
-const RELEASE = "shell-41ec1db581b5fd30cb68eb45";
+const CACHE_NAME = CACHE_PREFIX + "c9f7a346b089bb849b1ba8ba";
+const RELEASE = "shell-c9f7a346b089bb849b1ba8ba";
 const ACCEPTED_BOOTSTRAP_MANIFESTS = ["a81aafbdef0de15e192c960ed32703f2c6216f3c4eb531a86d5e0cb1d7411c5f"];
 const PRECACHE = [
+  "/assets/index-DDZsh6LV.js",
   "/assets/index-DKXyELkH.css",
-  "/assets/index-vMErzNwF.js",
   "/icon.svg",
   "/index.html",
   "/manifest.webmanifest"

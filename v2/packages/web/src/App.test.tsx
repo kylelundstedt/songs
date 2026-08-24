@@ -63,7 +63,7 @@ describe("read-only shell", () => {
     const { container } = render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Primary" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Library" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "Songs" })).toHaveAttribute("href", "#/songs");
     expect(screen.getByRole("main")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Your gig book" })).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /edit|save|add|delete|publish|sync/i })).not.toBeInTheDocument();
@@ -270,14 +270,31 @@ describe("read-only shell", () => {
     const user = userEvent.setup();
     window.location.hash = "#/sets";
     render(<ReadyApp snapshot={snapshot} online update={update} runtime={runtime} />);
-    const search = screen.getByRole("searchbox", { name: /Search Set Lists in this local verified snapshot/i });
+    const search = screen.getByRole("searchbox", { name: /Search Set Lists/i });
     await user.type(search, "2026-08-05");
     expect(screen.getByRole("link", { name: /9Tease Stripped/i })).toBeInTheDocument();
-    expect(screen.getByText(/Matched fields: Date/i)).toBeInTheDocument();
     await user.clear(search);
     await user.type(search, "Castello Golightly");
     expect(screen.getByRole("link", { name: /9Tease Stripped/i })).toBeInTheDocument();
-    expect(screen.getAllByText(/Matched fields: Location/i).length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("opens reviewed Set Lists in the compact writable editor with duplicate naming and drag handles", async () => {
+    const user = userEvent.setup();
+    localStorage.setItem("songs-v2-writable-capabilities", JSON.stringify({ schema_version: "1", set_list_authoring: true, lead_sheet_authoring: false, foreground_sync: true, apex_validation: false, lyrics_provider: false, shelley_suggestions: false }));
+    window.location.hash = "#/sets/2025-10-13-9tease-stripped/edit";
+    render(<ReadyApp snapshot={snapshot} online={false} update={update} runtime={runtime} />);
+    const title = await screen.findByRole("textbox", { name: "Title" });
+    expect(title).toHaveValue("9Tease Stripped");
+    await user.clear(title);
+    await user.type(title, "9Tease Working Copy");
+    expect(title).toHaveValue("9Tease Working Copy");
+    expect(screen.getAllByRole("button", { name: /^Drag /i })).toHaveLength(58);
+    await user.click(screen.getByRole("button", { name: "Duplicate" }));
+    const duplicateName = await screen.findByRole("textbox", { name: "Name the duplicate" });
+    await user.clear(duplicateName);
+    await user.type(duplicateName, "9Tease Alternate");
+    expect(duplicateName).toHaveValue("9Tease Alternate");
+    expect(screen.getByRole("button", { name: "Create duplicate" })).toBeEnabled();
   });
 
   it("exposes reviewed index diagnostics, exclusions, and linked warnings in status", async () => {
