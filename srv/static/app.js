@@ -445,6 +445,7 @@
     const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),add=document.querySelector('[data-set-add]'),removeMode=document.querySelector('[data-set-remove-mode]'),pageStatus=document.querySelector('[data-offline-status]');
     if(!panel||!list||!add||!removeMode||!pageStatus)return;
     let catalog=null,expectedHash='';
+    const setNoteButtonsDisabled=disabled=>list.querySelectorAll('[data-set-note-edit]').forEach(noteButton=>{noteButton.disabled=disabled;});
     const dialog=document.createElement('dialog');
     dialog.className='shelley-dialog set-item-dialog';
     dialog.innerHTML=`<form method="dialog"><header><div><p class="eyebrow">Set List</p><h2>Add song</h2></div><button class="dialog-close" type="button" aria-label="Close">×</button></header><label><span>Find a song</span><input type="search" data-set-song-search placeholder="Title or artist" autocomplete="off"></label><label><span>Song</span><select data-set-song-options size="8" required aria-label="Song"></select></label><div class="set-item-fields"><label><span>Singer</span><input name="singer" maxlength="120" autocomplete="off"></label><label><span>Performance key</span><input name="key" maxlength="40" placeholder="Uses lead sheet" autocomplete="off"></label><label><span>Performance bpm</span><input name="bpm" maxlength="40" inputmode="decimal" placeholder="Optional" autocomplete="off"></label><label><span>Destination</span><select name="column" data-set-column required></select></label></div><label><span>Note</span><input name="note" maxlength="500" autocomplete="off"></label><p class="shelley-job-status" data-set-item-status aria-live="polite"></p><div class="dialog-actions"><button class="button" type="button" data-set-item-cancel>Cancel</button><button class="button primary" type="submit" data-set-item-save>Add song</button></div></form>`;
@@ -482,6 +483,44 @@
         if(!response.ok)throw new Error((await response.text()).trim()||'Unable to add song');const result=await response.json();
         try{if(result.warning)sessionStorage.setItem('songs-flash-warning',result.warning);}catch{} location.reload();
       } catch(error){status.textContent=error.message;save.disabled=false;cancel.disabled=false;close.disabled=false;}
+    });
+    list.addEventListener('click',event=>{
+      const button=event.target.closest('[data-set-note-edit]');
+      if(!button||panel.dataset.arranging==='true'||panel.dataset.removing==='true')return;
+      const entry=button.closest('[data-set-item]'),content=entry.querySelector('.set-entry-content');
+      const existingInput=content.querySelector('.set-note-input');
+      if(existingInput){existingInput.focus();return;}
+      let noteElement=content.querySelector('[data-set-note]');
+      let placeholder=content.querySelector('[data-set-placeholder]');
+      const initial=noteElement?.textContent.trim()||'';
+      const input=document.createElement('input');
+      input.className='set-note-input';input.type='text';input.maxLength=160;input.value=initial;input.autocomplete='off';input.setAttribute('aria-label','Short performance note');
+      if(noteElement)noteElement.hidden=true;if(placeholder)placeholder.hidden=true;content.append(input);input.focus();input.select();
+      let finished=false,saving=false;
+      const restore=async()=>{if(finished)return;finished=true;input.remove();if(noteElement)noteElement.hidden=false;if(placeholder)placeholder.hidden=false;button.disabled=false;await fitSetSheet(panel);};
+      const saveNote=async()=>{
+        if(finished||saving)return;
+        const note=input.value.trim();if(note===initial){await restore();return;}
+        saving=true;input.disabled=true;setNoteButtonsDisabled(true);pageStatus.textContent='Saving note…';
+        try {
+          const response=await fetch(`/api/sets/${encodeURIComponent(panel.dataset.setId)}/items/${encodeURIComponent(entry.dataset.originalPosition)}`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_hash:panel.dataset.setHash,note})});
+          if(!response.ok){const error=new Error((await response.text()).trim()||'Unable to save note');error.status=response.status;throw error;}
+          const result=await response.json();panel.dataset.setHash=result.hash;
+          if(note){
+            if(!noteElement){noteElement=document.createElement('small');noteElement.dataset.setNote='';content.append(noteElement);}
+            noteElement.textContent=note;noteElement.hidden=false;if(placeholder)placeholder.hidden=true;
+          } else {
+            noteElement?.remove();noteElement=null;
+            if(entry.classList.contains('set-entry-unresolved')){
+              if(!placeholder){placeholder=document.createElement('small');placeholder.dataset.setPlaceholder='';placeholder.textContent='Unresolved imported song';content.append(placeholder);}
+              placeholder.hidden=false;
+            }
+          }
+          finished=true;input.remove();setNoteButtonsDisabled(false);pageStatus.textContent=result.warning||'Note saved.';setTimeout(()=>{if(pageStatus.textContent==='Note saved.')pageStatus.textContent='';},1600);await fitSetSheet(panel);
+        } catch(error){saving=false;input.disabled=false;setNoteButtonsDisabled(false);pageStatus.textContent=error.status===409?'Set List changed elsewhere. Reload before saving this note.':error.message;input.focus();}
+      };
+      input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();saveNote();}else if(event.key==='Escape'){event.preventDefault();restore();}});
+      input.addEventListener('blur',saveNote);
     });
     list.addEventListener('click',async event=>{
       const button=event.target.closest('[data-set-delete]');if(!button||panel.dataset.arranging==='true'||panel.dataset.removing!=='true')return;

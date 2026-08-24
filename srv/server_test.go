@@ -117,7 +117,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 				t.Fatalf("set heading is not rendered as a standalone row before the first song: %s", w.Body.String())
 			}
 			if tt.name == "set" {
-				for _, action := range []string{`data-action-menu`, `data-markdown-edit`, `data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-print`, `data-offline-set`, `data-theme-toggle`} {
+				for _, action := range []string{`data-action-menu`, `data-markdown-edit`, `data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-print`, `data-offline-set`, `data-theme-toggle`, `data-set-note-edit`} {
 					if !strings.Contains(w.Body.String(), action) {
 						t.Fatalf("set page action menu is missing %q: %s", action, w.Body.String())
 					}
@@ -162,7 +162,7 @@ func TestOwnerViewerBoundary(t *testing.T) {
 		t.Fatalf("viewer response cache boundary missing: vary=%q cache=%q", vary, viewerResponse.Header().Get("Cache-Control"))
 	}
 	viewerBody := viewerResponse.Body.String()
-	for _, forbidden := range []string{`data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-markdown-edit`, `Edit with Shelley`} {
+	for _, forbidden := range []string{`data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-note-edit`, `data-markdown-edit`, `Edit with Shelley`} {
 		if strings.Contains(viewerBody, forbidden) {
 			t.Fatalf("viewer sees write control %q: %s", forbidden, viewerBody)
 		}
@@ -221,6 +221,7 @@ func TestOwnerViewerBoundary(t *testing.T) {
 		{http.MethodPut, "/api/sets/test-set/markdown", server.HandleUpdateSetMarkdown},
 		{http.MethodPut, "/api/sets/test-set/order", server.HandleUpdateSetOrder},
 		{http.MethodPost, "/api/sets/test-set/items", server.HandleAddSetItem},
+		{http.MethodPut, "/api/sets/test-set/items/1", server.HandleUpdateSetItemNote},
 		{http.MethodDelete, "/api/sets/test-set/items/1", server.HandleDeleteSetItem},
 		{http.MethodPut, "/api/songs/test-song/markdown", server.HandleUpdateSongMarkdown},
 		{http.MethodPost, "/api/shelley/edit", server.HandleShelleyEdit},
@@ -287,7 +288,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatalf("set status=%d body=%s", setResponse.Code, setResponse.Body.String())
 	}
 	setBody := setResponse.Body.String()
-	if !strings.Contains(setBody, "(Alex · D · 133 bpm)") || !strings.Contains(setBody, "<small>Count in</small>") {
+	if !strings.Contains(setBody, "(Alex · D · 133 bpm)") || !strings.Contains(setBody, "<small data-set-note>Count in</small>") {
 		t.Fatalf("set performance details or note missing: %s", setBody)
 	}
 
@@ -402,6 +403,31 @@ func TestReorderSetMarkdownPreservesItemDetailsAndBreaks(t *testing.T) {
 	unsafe := strings.Replace(current, "<!-- column-break -->", "Band announcement", 1)
 	if _, err := reorderSetMarkdown(unsafe, set, []int{1, 2, 3}, nil); err == nil {
 		t.Fatal("expected inter-entry Markdown to block reordering")
+	}
+}
+
+func TestUpdateSetItemNoteMarkdownPreservesOtherDetails(t *testing.T) {
+	set := &SetList{Items: []SetItem{{Position: 1, Label: "One", Target: "../songs/one.md", Suffix: "— singer: Kyle — key: D — bpm: 120 — note: Old note — extra detail", Note: "Old note — extra detail", ColumnHeading: "Set 1"}}}
+	current := "---\ntitle: Test\n---\n\n# Test\n\n## Set 1\n1. [One](../songs/one.md) — singer: Kyle — key: D — bpm: 120 — note: Old note — extra detail\n"
+	updated, err := updateSetItemNoteMarkdown(current, set, 1, "Quiet ending")
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := "1. [One](../songs/one.md) — singer: Kyle — key: D — bpm: 120 — note: Quiet ending"
+	if !strings.Contains(updated, want) {
+		t.Fatalf("updated note lost item details:\n%s", updated)
+	}
+	set.Items[0].Suffix = "— singer: Kyle — key: D — bpm: 120 — note: Quiet ending"
+	set.Items[0].Note = "Quiet ending"
+	cleared, err := updateSetItemNoteMarkdown(updated, set, 1, "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(cleared, "1. [One](../songs/one.md) — singer: Kyle — key: D — bpm: 120") || strings.Contains(cleared, "note:") {
+		t.Fatalf("clearing note damaged item details:\n%s", cleared)
+	}
+	if _, err := updateSetItemNoteMarkdown(current, set, 1, "Bad — separator"); err == nil {
+		t.Fatal("expected note field separator to be rejected")
 	}
 }
 
@@ -713,6 +739,30 @@ func TestSetOrderWorkflow(t *testing.T) {
 	addedLine := "2. [Test Song](../songs/Test-Song.md) — singer: Guest — key: Bb — bpm: 110 — note: Added in UI\n<!-- column-break -->"
 	if !strings.Contains(string(added), addedLine) {
 		t.Fatalf("added song missing from set markdown:\n%s", added)
+	}
+
+	set = server.setsByID["test-set"]
+	notePayload, _ := json.Marshal(setItemNoteRequest{ExpectedHash: set.Hash, Note: "Quiet ending"})
+	noteRequest := httptest.NewRequest(http.MethodPut, "/api/sets/test-set/items/2", strings.NewReader(string(notePayload)))
+	noteRequest.SetPathValue("id", "test-set")
+	noteRequest.SetPathValue("position", "2")
+	setOwnerHeaders(noteRequest)
+	noteRequest.Header.Set("Content-Type", "application/json")
+	noteW := httptest.NewRecorder()
+	server.HandleUpdateSetItemNote(noteW, noteRequest)
+	if noteW.Code != http.StatusOK {
+		t.Fatalf("note status=%d body=%s", noteW.Code, noteW.Body.String())
+	}
+	var noteResult struct {
+		Hash string `json:"hash"`
+		Note string `json:"note"`
+	}
+	if err := json.Unmarshal(noteW.Body.Bytes(), &noteResult); err != nil || noteResult.Hash == "" || noteResult.Note != "Quiet ending" {
+		t.Fatalf("note result=%#v err=%v", noteResult, err)
+	}
+	noted, err := os.ReadFile(setPath)
+	if err != nil || !strings.Contains(string(noted), "— singer: Guest — key: Bb — bpm: 110 — note: Quiet ending") {
+		t.Fatalf("note update did not preserve details: err=%v\n%s", err, noted)
 	}
 
 	set = server.setsByID["test-set"]

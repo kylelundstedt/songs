@@ -34,7 +34,7 @@ func TestSetOmitsEmptyDetailRows(t *testing.T) {
 	if strings.Contains(response, "<small>—</small>") {
 		t.Fatal("set list rendered a redundant empty detail row")
 	}
-	if !strings.Contains(response, "<small>Count in</small>") {
+	if !strings.Contains(response, "<small data-set-note>Count in</small>") {
 		t.Fatal("set list omitted a real item note")
 	}
 }

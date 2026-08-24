@@ -194,6 +194,11 @@ type setItemAddRequest struct {
 	Column         int    `json:"column"`
 }
 
+type setItemNoteRequest struct {
+	ExpectedHash string `json:"expected_hash"`
+	Note         string `json:"note"`
+}
+
 type setItemDeleteRequest struct {
 	ExpectedHash string `json:"expected_hash"`
 }
@@ -1651,6 +1656,51 @@ func addSetItemMarkdown(current string, set *SetList, song *Song, singer, perfor
 	return rewriteSetItemsMarkdown(current, items, breaks)
 }
 
+func setItemSuffixWithNote(suffix, note string) string {
+	raw := strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(suffix), "—–"))
+	var details []string
+	removingNote := false
+	for _, segment := range strings.Split(raw, "—") {
+		segment = strings.TrimSpace(segment)
+		if segment == "" {
+			continue
+		}
+		field, _, labeled := strings.Cut(segment, ":")
+		if labeled {
+			removingNote = strings.EqualFold(strings.TrimSpace(field), "note")
+			if removingNote {
+				continue
+			}
+		} else if removingNote {
+			continue
+		}
+		details = append(details, segment)
+	}
+	if note != "" {
+		details = append(details, "note: "+note)
+	}
+	if len(details) == 0 {
+		return ""
+	}
+	return "— " + strings.Join(details, " — ")
+}
+
+func updateSetItemNoteMarkdown(current string, set *SetList, position int, note string) (string, error) {
+	note = strings.TrimSpace(note)
+	if position < 1 || position > len(set.Items) {
+		return "", errors.New("invalid Set List song")
+	}
+	if strings.ContainsAny(note, "\r\n") || strings.Contains(note, "—") || len(note) > 160 {
+		return "", errors.New("note must be 160 characters or fewer and cannot contain a line break or field separator")
+	}
+	if strings.TrimSpace(set.Items[position-1].Note) == note {
+		return current, nil
+	}
+	items := canonicalSetItems(set)
+	items[position-1].Suffix = setItemSuffixWithNote(items[position-1].Suffix, note)
+	return rewriteSetItemsMarkdown(current, items, setColumnBreakOffsets(set))
+}
+
 func deleteSetItemMarkdown(current string, set *SetList, position int) (string, error) {
 	if position < 1 || position > len(set.Items) {
 		return "", errors.New("invalid Set List song")
@@ -1791,6 +1841,72 @@ func (s *Server) HandleAddSetItem(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	writeJSON(w, map[string]any{"ok": true, "warning": warning})
+}
+
+func (s *Server) HandleUpdateSetItemNote(w http.ResponseWriter, r *http.Request) {
+	if !s.requireWriteAccess(w, r) {
+		return
+	}
+	if !sameOriginMutation(r) {
+		http.Error(w, "Cross-site set edits are not allowed", http.StatusForbidden)
+		return
+	}
+	s.mu.RLock()
+	set := s.setsByID[r.PathValue("id")]
+	s.mu.RUnlock()
+	if set == nil {
+		http.NotFound(w, r)
+		return
+	}
+	position, err := strconv.Atoi(r.PathValue("position"))
+	if err != nil {
+		http.Error(w, "Invalid Set List song", http.StatusBadRequest)
+		return
+	}
+	r.Body = http.MaxBytesReader(w, r.Body, 16<<10)
+	var request setItemNoteRequest
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil || request.ExpectedHash == "" {
+		http.Error(w, "Invalid Set List note", http.StatusBadRequest)
+		return
+	}
+	current, err := s.readSetMarkdownForStructuredEdit(set, request.ExpectedHash)
+	if err != nil {
+		status := http.StatusInternalServerError
+		if errors.Is(err, errSongChanged) {
+			status = http.StatusConflict
+		}
+		http.Error(w, err.Error(), status)
+		return
+	}
+	updated, err := updateSetItemNoteMarkdown(string(current), set, position, request.Note)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	warning := ""
+	if updated != string(current) {
+		warning, err = s.publishSetRevision(set.Path, request.ExpectedHash, updated, set.Title)
+		if err != nil {
+			status := http.StatusInternalServerError
+			if errors.Is(err, errSongChanged) {
+				status = http.StatusConflict
+			} else if errors.Is(err, errSongUnchanged) {
+				status = http.StatusOK
+			}
+			if status != http.StatusOK {
+				http.Error(w, err.Error(), status)
+				return
+			}
+		}
+	}
+	s.mu.RLock()
+	refreshed := s.setsByID[set.ID]
+	hash := request.ExpectedHash
+	if refreshed != nil {
+		hash = refreshed.Hash
+	}
+	s.mu.RUnlock()
+	writeJSON(w, map[string]any{"ok": true, "hash": hash, "note": strings.TrimSpace(request.Note), "warning": warning})
 }
 
 func (s *Server) HandleDeleteSetItem(w http.ResponseWriter, r *http.Request) {
@@ -2431,6 +2547,7 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("PUT /api/sets/{id}/markdown", s.HandleUpdateSetMarkdown)
 	mux.HandleFunc("PUT /api/sets/{id}/order", s.HandleUpdateSetOrder)
 	mux.HandleFunc("POST /api/sets/{id}/items", s.HandleAddSetItem)
+	mux.HandleFunc("PUT /api/sets/{id}/items/{position}", s.HandleUpdateSetItemNote)
 	mux.HandleFunc("DELETE /api/sets/{id}/items/{position}", s.HandleDeleteSetItem)
 	mux.HandleFunc("GET /sets/{id}/live", s.HandleLiveSet)
 	mux.HandleFunc("GET /api/lyrics/search", s.HandleLyricsSearch)

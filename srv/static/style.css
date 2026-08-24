@@ -176,6 +176,11 @@ h1,h2,h3,p { margin-top:0; }
 .set-entry-title { min-width:0; font-weight:850; }
 .set-entry-title a { text-decoration:none; }
 .set-entry-singer { color:var(--muted); font-weight:700; }
+.set-note-edit { min-width:0; min-height:0; margin-left:.22em; border:0; border-radius:.25em; padding:.02em .18em; background:transparent; color:var(--muted); font-size:.58em; line-height:1.2; vertical-align:.16em; opacity:.5; }
+.set-note-edit:hover,.set-note-edit:focus-visible { background:var(--panel-2); color:var(--accent); opacity:1; outline:1px solid var(--line); }
+.set-note-input { display:block; width:100%; margin-top:.12em; border:1px solid var(--line); border-radius:.3em; padding:.12em .3em; background:var(--bg); color:var(--text); font:inherit; font-size:.72em; line-height:1.15; }
+.set-note-input:focus { border-color:var(--accent); outline:2px solid color-mix(in srgb,var(--accent) 35%,transparent); }
+[data-arranging="true"] .set-note-edit,[data-removing="true"] .set-note-edit { display:none; }
 .set-entry small { display:block; min-height:1.1em; margin-top:.12em; overflow:hidden; color:var(--muted); font-size:.72em; line-height:1.15; text-overflow:ellipsis; white-space:nowrap; }
 .set-sheet-footer { min-height:38px; display:flex; align-items:center; gap:.7rem 1rem; border-top:1px solid var(--line); padding-top:5px; color:var(--muted); font-size:.72rem; }
 .set-sheet-footer > a { white-space:nowrap; }
@@ -340,5 +345,5 @@ h1,h2,h3,p { margin-top:0; }
   body.set-page .set-column-heading { margin:0 0 3pt!important; color:#000!important; border-color:#777!important; }
   body.set-page .set-entry-position,body.set-page .set-entry-singer,body.set-page .set-entry small { color:#000!important; }
   body.set-page .set-entry a { color:#000!important; text-decoration:none!important; }
-  body.set-page .set-sheet-footer,body.set-page .set-page-status,body.set-page .set-drag-handle,body.set-page .set-delete { display:none!important; }
+  body.set-page .set-sheet-footer,body.set-page .set-page-status,body.set-page .set-drag-handle,body.set-page .set-delete,body.set-page .set-note-edit,body.set-page .set-note-input { display:none!important; }
 }
