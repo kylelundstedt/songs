@@ -30,14 +30,14 @@ metadata_review_status: "reviewed"
 ### Intro Vamp  8x
 
 ### Verse  8x  
-It's all the same
-Only the names will change
-Everyday ..
+It's all the same  
+Only the names will change  
+Everyday ..  
 it seems were wasting away.  
 
-Another place
+Another place  
 where the faces are so cold  
-I drive all night
+I drive all night  
 just to get back home.  
 
 ### Chorus  6x
