@@ -198,6 +198,14 @@ h1,h2,h3,p { margin-top:0; }
 .song-facts dt { color:var(--muted); font-size:.64rem; font-weight:850; letter-spacing:.07em; text-transform:uppercase; }
 .song-facts dd { margin:0; font-size:.9rem; font-weight:850; font-variant-numeric:tabular-nums; }
 .song-facts .artist-fact dd { max-width:18ch; overflow:hidden; text-overflow:ellipsis; }
+.listen-fact dd { overflow:visible; }
+.listen-menu { position:relative; z-index:12; }
+.listen-menu > summary { width:1.65rem; height:1.65rem; display:grid; place-items:center; border:1px solid var(--line); border-radius:999px; background:var(--panel-2); color:var(--text); cursor:pointer; list-style:none; font-size:.9rem; line-height:1; }
+.listen-menu > summary::-webkit-details-marker { display:none; }
+.listen-menu[open] > summary { border-color:var(--accent); color:var(--accent); }
+.listen-menu-popover { position:absolute; top:calc(100% + .35rem); right:0; width:9rem; display:grid; gap:2px; border:1px solid var(--line); border-radius:.6rem; padding:.35rem; background:var(--panel); box-shadow:0 14px 40px #0006; }
+.listen-menu-popover a { border-radius:.35rem; padding:.45rem .55rem; color:var(--text); font-size:.78rem; font-weight:800; text-decoration:none; }
+.listen-menu-popover a:hover,.listen-menu-popover a:focus-visible { background:var(--panel-2); color:var(--accent); outline:none; }
 [data-fit-status="needs-editing"] { border-color:var(--danger); }
 .sheet-viewport { min-height:0; min-width:0; position:relative; overflow:hidden; }
 .apex-source { display:none; }

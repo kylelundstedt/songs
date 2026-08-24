@@ -30,7 +30,10 @@ import (
 	"songs.exe.dev/db"
 )
 
-const defaultOwnerEmail = "klundstedt@industryvault.com"
+const (
+	defaultOwnerEmail         = "klundstedt@industryvault.com"
+	listenLinkPrototypeSongID = "fire-woman-she-sells"
+)
 
 type Song struct {
 	ID             string        `json:"id"`
@@ -145,6 +148,8 @@ type pageData struct {
 	SongCount           int
 	SetCount            int
 	ShelleyURL          string
+	AppleMusicURL       string
+	SpotifyURL          string
 	DraftTitle          string
 	DraftArtist         string
 	DraftKey            string
@@ -275,6 +280,17 @@ func parseSetItemDetails(raw string) (singer, performanceKey, performanceBPM, no
 		notes = append(notes, segment)
 	}
 	return singer, performanceKey, performanceBPM, strings.Join(notes, " — ")
+}
+
+func listenLinksForSong(song *Song) (spotifyURL, appleMusicURL string) {
+	if song == nil || song.ID != listenLinkPrototypeSongID {
+		return "", ""
+	}
+	query := strings.TrimSpace(strings.Join([]string{song.Title, song.Artist}, " "))
+	if query == "" {
+		return "", ""
+	}
+	return "https://open.spotify.com/search/" + url.PathEscape(query), "https://music.apple.com/us/search?term=" + url.QueryEscape(query)
 }
 
 func New(dbPath, hostname, repoRoot string) (*Server, error) {
@@ -1388,7 +1404,8 @@ func (s *Server) HandleSong(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	s.render(w, r, "song.html", pageData{Title: song.Title, Song: song, PreviousSong: previous, NextSong: next, UserEmail: r.Header.Get("X-ExeDev-Email")})
+	spotifyURL, appleMusicURL := listenLinksForSong(song)
+	s.render(w, r, "song.html", pageData{Title: song.Title, Song: song, PreviousSong: previous, NextSong: next, UserEmail: r.Header.Get("X-ExeDev-Email"), SpotifyURL: spotifyURL, AppleMusicURL: appleMusicURL})
 }
 func (s *Server) HandleSet(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()

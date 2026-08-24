@@ -144,6 +144,35 @@ func TestCatalogAndRoutes(t *testing.T) {
 	}
 }
 
+func TestListenLinkPrototype(t *testing.T) {
+	server := fixtureServer(t)
+	song := server.songs[0]
+	delete(server.songsByID, song.ID)
+	song.ID = listenLinkPrototypeSongID
+	song.Title = "Fire Woman/She Sells"
+	song.Artist = "The Cult"
+	server.songsByID[song.ID] = song
+
+	spotifyURL, appleMusicURL := listenLinksForSong(song)
+	if spotifyURL != "https://open.spotify.com/search/Fire%20Woman%2FShe%20Sells%20The%20Cult" {
+		t.Fatalf("spotify URL=%q", spotifyURL)
+	}
+	if appleMusicURL != "https://music.apple.com/us/search?term=Fire+Woman%2FShe+Sells+The+Cult" {
+		t.Fatalf("Apple Music URL=%q", appleMusicURL)
+	}
+	if spotify, apple := listenLinksForSong(&Song{ID: "another-song", Title: "Another", Artist: "Artist"}); spotify != "" || apple != "" {
+		t.Fatalf("non-prototype song received links: spotify=%q apple=%q", spotify, apple)
+	}
+
+	req := httptest.NewRequest(http.MethodGet, "/song/"+song.ID, nil)
+	req.SetPathValue("id", song.ID)
+	w := httptest.NewRecorder()
+	server.HandleSong(w, req)
+	if w.Code != http.StatusOK || !strings.Contains(w.Body.String(), ">Spotify</a>") || !strings.Contains(w.Body.String(), ">Apple Music</a>") {
+		t.Fatalf("prototype links missing: status=%d body=%s", w.Code, w.Body.String())
+	}
+}
+
 func TestOwnerViewerBoundary(t *testing.T) {
 	server := fixtureServer(t)
 
