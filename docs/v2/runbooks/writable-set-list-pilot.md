@@ -4,13 +4,13 @@
 
 **Owner authorization:** explicit request to enable Set List writing
 
-**Origin:** `https://kgl-songs.exe.xyz:8003/#/`
+**Origin:** `https://kgl-songs.exe.xyz:8004/#/`
 
 ## Active boundary
 
 - V1 remains the default/fallback on port 8000.
-- V2 Set List authoring and foreground sync are enabled on compact origin port 8003.
-- The stale port-8001 and port-8002 pilot services are disabled so cached test shells cannot be mistaken for the active writable app.
+- V2 Set List authoring and foreground sync are enabled on compact origin port 8004.
+- The stale port-8001, port-8002, and port-8003 pilot services are disabled so cached test shells cannot be mistaken for the active writable app.
 - Lead-sheet authoring, lyrics providers, and Shelley suggestions remain disabled.
 - Formal TASK-021 physical acceptance, default-route cutover, and V1 retirement remain pending.
 - The writable archive uses remote branch `refs/heads/v2-published`, seeded from
@@ -74,8 +74,8 @@ systemctl is-active songs.service songs-v2-api.service
 curl -fsS \
   -H 'X-ExeDev-Email: klundstedt@industryvault.com' \
   -H 'X-Forwarded-Proto: https' \
-  -H 'X-Forwarded-Host: kgl-songs.exe.xyz:8003' \
-  http://127.0.0.1:8003/api/v2/writable-capabilities
+  -H 'X-Forwarded-Host: kgl-songs.exe.xyz:8004' \
+  http://127.0.0.1:8004/api/v2/writable-capabilities
 ```
 
 Expected capability state: Set List authoring and foreground sync `true`; every

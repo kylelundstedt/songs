@@ -297,8 +297,8 @@ remains pending:
 ## Active writable Set List pilot
 
 - release `writable-editor-e67feecd20fe1333` serves shell
-  `shell-c9f7a346b089bb849b1ba8ba` on the compact loopback port-8003 origin;
-  the stale port-8001 and port-8002 pilot services are disabled;
+  `shell-c9f7a346b089bb849b1ba8ba` on the compact loopback port-8004 origin;
+  the stale port-8001, port-8002, and port-8003 pilot services are disabled;
 - Set List authoring and foreground sync are enabled; lead-sheet authoring,
   lyrics providers, and Shelley suggestions are disabled;
 - the reviewed durable baseline contains 373 documents/publication mappings;
