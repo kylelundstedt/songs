@@ -30,7 +30,7 @@ metadata_review_status: "reviewed"
 ### Intro Vamp  8x
 
 ### Verse  8x  
-I'ts all the same
+It's all the same
 Only the names will change
 Everyday ..
 it seems were wasting away.  
