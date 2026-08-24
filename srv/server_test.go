@@ -288,7 +288,7 @@ func TestSetPerformanceDetailsRenderAndKeepNotes(t *testing.T) {
 		t.Fatalf("set status=%d body=%s", setResponse.Code, setResponse.Body.String())
 	}
 	setBody := setResponse.Body.String()
-	if !strings.Contains(setBody, "(Alex · D · 133 bpm)") || !strings.Contains(setBody, "<small data-set-note>Count in</small>") {
+	if !strings.Contains(setBody, "(Alex·D·133 bpm)") || !strings.Contains(setBody, "<small data-set-note>Count in</small>") {
 		t.Fatalf("set performance details or note missing: %s", setBody)
 	}
 
