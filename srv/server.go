@@ -30,10 +30,7 @@ import (
 	"songs.exe.dev/db"
 )
 
-const (
-	defaultOwnerEmail         = "klundstedt@industryvault.com"
-	listenLinkPrototypeSongID = "fire-woman-she-sells"
-)
+const defaultOwnerEmail = "klundstedt@industryvault.com"
 
 type Song struct {
 	ID             string        `json:"id"`
@@ -283,7 +280,7 @@ func parseSetItemDetails(raw string) (singer, performanceKey, performanceBPM, no
 }
 
 func listenLinksForSong(song *Song) (spotifyURL, appleMusicURL string) {
-	if song == nil || song.ID != listenLinkPrototypeSongID {
+	if song == nil {
 		return "", ""
 	}
 	query := strings.TrimSpace(strings.Join([]string{song.Title, song.Artist}, " "))
