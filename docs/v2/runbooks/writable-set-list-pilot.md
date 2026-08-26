@@ -1,23 +1,21 @@
-# Writable Set List pilot
+# Writable Set List pilot — disabled
 
 **Activated:** August 23, 2026
 
-**Owner authorization:** explicit request to enable Set List writing
+**Owner no-go:** August 26, 2026
 
-**Origin:** `https://kgl-songs.exe.xyz:8004/#/`
+**Origin:** disabled; no V2 service is listening
 
-## Active boundary
+## Final boundary
 
-- V1 remains the default/fallback on port 8000.
-- V2 Set List authoring and foreground sync are enabled on compact origin port 8004.
-- The stale port-8001, port-8002, and port-8003 pilot services are disabled so cached test shells cannot be mistaken for the active writable app.
-- Lead-sheet authoring, lyrics providers, and Shelley suggestions remain disabled.
-- Formal TASK-021 physical acceptance, default-route cutover, and V1 retirement remain pending.
-- The writable archive uses remote branch `refs/heads/v2-published`, seeded from
-  `v2-phase1-content-2026-08-10` at `17c326c` so the reviewed bootstrap and Git
-  bytes match exactly. It does not publish directly to `main`.
+- V1 is the only operational application on port 8000.
+- `songs-v2-writable.service` is disabled and inactive.
+- No V2 writable, cutover, or V1-retirement claim is authorized.
+- Preserved state is under `var/deploy-backups/20260826T190609Z-v2-no-go/`.
+- The writable archive remains on remote branch `refs/heads/v2-published`; it was not merged into `main`.
+- Do not reactivate this pilot without a fresh owner-approved plan grounded in V1's accepted UI and workflows.
 
-## Runtime
+## Historical runtime
 
 - API release: `var/releases/writable-editor-e67feecd20fe1333/songs-v2-api`
 - API SHA-256: `e67feecd20fe13339fae1a0f942b42d027f262a6cdf443073ca42e6bad0d615a`

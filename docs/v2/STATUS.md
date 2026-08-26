@@ -4,11 +4,11 @@
 - **Phase 1 content source:** annotated tag `v2-phase1-content-2026-08-10` at `17c326c8957ac2fbe623b2de0fe91a4eb0a1b4c5` (`17c326c`).
 - **Phase 1 evidence package:** annotated tag `v2-phase1-evidence-2026-08-10` at the TASK-008 completion commit.
 - **Branch/worktree:** branch `v2`, worktree `/home/exedev/songs-v2`.
-- **Phase:** Owner-authorized writable Set List pilot is active on the isolated V2 origin; V1 remains default.
+- **Phase:** V2 no-go; service disabled and state preserved. V1 is the only operational application.
 - **Completed:** V2 proposal/control plane and TASK-001 through TASK-020.
-- **Current task:** Operate the Set List-only pilot while completing TASK-021 physical iPad writable acceptance and owner signoff.
-- **Product sequence:** writable functionality (TASK-017–021), then owner-led web design overhaul (TASK-022), then deferred print/export (TASK-023/024).
-- **Pilot status:** Set List authoring and foreground sync enabled August 23, 2026; lead-sheet authoring/enrichment disabled. Formal TASK-021 acceptance and cutover remain pending.
+- **Current task:** None. Do not resume the existing V2 pilot without a fresh owner-approved plan.
+- **Product sequence:** Frozen. Any future rewrite must start from V1's accepted UI/workflows and new acceptance criteria.
+- **Pilot status:** Disabled August 26, 2026 after repeated shell, sync, editor, and interface failures. No writable, cutover, or V1-retirement claim is authorized.
 
 ## Completed evidence
 
@@ -294,22 +294,19 @@ remains pending:
   although the owner explicitly authorized the isolated Set List-only pilot on
   August 23, 2026.
 
-## Active writable Set List pilot
+## Disabled writable Set List pilot
 
-- release `writable-editor-e67feecd20fe1333` serves shell
-  `shell-c9f7a346b089bb849b1ba8ba` on the compact loopback port-8004 origin;
-  the stale port-8001, port-8002, and port-8003 pilot services are disabled;
-- Set List authoring and foreground sync are enabled; lead-sheet authoring,
-  lyrics providers, and Shelley suggestions are disabled;
-- the reviewed durable baseline contains 373 documents/publication mappings;
-  the canonical `Kashmir` lead sheet was then imported and published through the
-  fenced path, bringing active state to 374 documents and 374 publication
-  mappings with zero open conflicts;
-- fenced publication targets `refs/heads/v2-published`, not `main`, until later
-  reconciliation/cutover review;
-- V1 remains enabled, active, and default on port 8000;
-- operational details and rollback are in
-  `docs/v2/runbooks/writable-set-list-pilot.md`.
+- The owner declared the current V2 product a no-go on August 26, 2026.
+- `songs-v2-writable.service` is disabled and inactive; no V2 port is listening.
+- V1 remains enabled, active, and healthy on port 8000.
+- The final server state was preserved under
+  `var/deploy-backups/20260826T190609Z-v2-no-go/` with checksummed sync and
+  publication SQLite backups, the master key, and a `v2-published` Git bundle.
+- No browser data, server ledger, publication history, or remote
+  `refs/heads/v2-published` content was deleted.
+- The existing V2 implementation must not be reactivated or incrementally
+  patched as a pilot. Any future work requires a new owner-approved plan based
+  on V1's accepted interface and workflows.
 
 ## Verification commands
 
