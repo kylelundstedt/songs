@@ -28,7 +28,7 @@ source_id: "28b46aa1-262b-804d-b4c3-ea5e7766d7ec"
 6. [Higher](../songs/Higher.md) — singer: Kyle — bpm: 156
 7. [Elderly Woman](../songs/Elderly-Woman.md) — singer: Dave — bpm: 91
 8. [Ramble On](../songs/Ramble-On.md) — singer: Kyle — bpm: 99
-9. [If You Could Only See](../songs/if-you-could-only-see.md) — singer: Dave — bpm: 96
+9. [If You Could Only See](../songs/if-you-could-only-see.md) — singer: Dave — bpm: 96 — note: fix structure
 10. [Santeria](../songs/Santeria.md) — singer: Kyle — bpm: 90
 11. [Wicked Game](../songs/Wicked-Game.md) — singer: Dave — bpm: 112
 12. [Say It Ain't So](../songs/Say-It-Ain-t-So.md) — singer: Kyle — bpm: 76
