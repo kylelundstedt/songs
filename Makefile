@@ -5,6 +5,7 @@ build:
 
 test:
 	go test ./...
+	node srv/static/sw_test.js
 
 run: build
 	./srv/songs -listen :8000 -repo .

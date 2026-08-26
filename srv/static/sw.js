@@ -4,7 +4,7 @@ const META_CACHE = `songs-meta-v${CACHE_SCHEMA}`;
 const LIBRARY_PREFIX = `songs-library-v${CACHE_SCHEMA}-`;
 const ACTIVE_KEY = '/__songs_offline__/active';
 const OFFLINE_PAGE = '/static/offline.html';
-const ASSET_VERSION = '20260826-01';
+const ASSET_VERSION = '20260826-02';
 const SHELL = [
   OFFLINE_PAGE,
   `/static/style.css?v=${ASSET_VERSION}`,
@@ -55,11 +55,12 @@ function validateManifest(manifest) {
   }
   const seen = new Set();
   const allowed = pathname => pathname === '/' || pathname === '/songs' || pathname === '/set-lists' || pathname === '/about' || pathname === '/api/catalog' || pathname === '/manifest.webmanifest' || pathname.startsWith('/song/') || pathname.startsWith('/sets/') || pathname.startsWith('/static/');
+  const allowedSource = pathname => allowed(pathname) || pathname === '/api/offline/resource';
   for (const resource of manifest.resources) {
     if (!resource || typeof resource.url !== 'string' || typeof resource.fingerprint !== 'string' || !resource.fingerprint || seen.has(resource.url)) throw new Error('Invalid offline library resource');
     const canonical = new URL(resource.url, self.location.origin);
     const source = new URL(resource.fetch_url || resource.url, self.location.origin);
-    if (canonical.origin !== self.location.origin || source.origin !== self.location.origin || !allowed(canonical.pathname) || !allowed(source.pathname)) throw new Error('Offline manifest contains an unsupported URL');
+    if (canonical.origin !== self.location.origin || source.origin !== self.location.origin || !allowed(canonical.pathname) || !allowedSource(source.pathname)) throw new Error('Offline manifest contains an unsupported URL');
     seen.add(resource.url);
   }
 }
