@@ -173,6 +173,67 @@ func TestListenLinksForAllSongs(t *testing.T) {
 	}
 }
 
+func TestOfflineLibraryManifest(t *testing.T) {
+	server := fixtureServer(t)
+	first, err := server.buildOfflineLibraryManifest()
+	if err != nil {
+		t.Fatal(err)
+	}
+	second, err := server.buildOfflineLibraryManifest()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if first.Schema != offlineManifestSchema || first.SnapshotID == "" || first.SnapshotID != second.SnapshotID {
+		t.Fatalf("manifest is not deterministic: first=%+v second=%+v", first, second)
+	}
+	if first.ResourceCount != len(first.Resources) || first.ResourceCount != 12 {
+		t.Fatalf("resource count=%d resources=%d", first.ResourceCount, len(first.Resources))
+	}
+	resources := map[string]offlineResource{}
+	previous := ""
+	for _, resource := range first.Resources {
+		if resource.URL <= previous || resource.Fingerprint == "" {
+			t.Fatalf("resources are not sorted and fingerprinted: previous=%q resource=%+v", previous, resource)
+		}
+		previous = resource.URL
+		resources[resource.URL] = resource
+	}
+	for _, route := range []string{"/", "/songs", "/set-lists", "/about", "/api/catalog", "/song/test-song", "/sets/test-set", "/sets/test-set/live", "/static/style.css?v=" + offlineAssetVersion, "/static/app.js?v=" + offlineAssetVersion, "/static/icon.svg", "/manifest.webmanifest"} {
+		if _, ok := resources[route]; !ok {
+			t.Fatalf("offline manifest omitted %s", route)
+		}
+	}
+	if resources["/song/test-song"].FetchURL != "/song/test-song?offline=1" || resources["/api/catalog"].FetchURL != "" {
+		t.Fatalf("unexpected fetch URLs: song=%+v catalog=%+v", resources["/song/test-song"], resources["/api/catalog"])
+	}
+
+	beforeSong := resources["/song/test-song"].Fingerprint
+	beforeSet := resources["/sets/test-set"].Fingerprint
+	beforeLive := resources["/sets/test-set/live"].Fingerprint
+	server.songs[0].Hash = "changed-song-hash"
+	changed, err := server.buildOfflineLibraryManifest()
+	if err != nil {
+		t.Fatal(err)
+	}
+	changedResources := map[string]offlineResource{}
+	for _, resource := range changed.Resources {
+		changedResources[resource.URL] = resource
+	}
+	if changed.SnapshotID == first.SnapshotID || changedResources["/song/test-song"].Fingerprint == beforeSong || changedResources["/sets/test-set"].Fingerprint == beforeSet || changedResources["/sets/test-set/live"].Fingerprint == beforeLive {
+		t.Fatalf("song dependency did not invalidate snapshot resources")
+	}
+
+	req := httptest.NewRequest(http.MethodGet, "/song/test-song?offline=1", nil)
+	req.SetPathValue("id", "test-song")
+	setOwnerHeaders(req)
+	w := httptest.NewRecorder()
+	server.HandleSong(w, req)
+	body := w.Body.String()
+	if w.Code != http.StatusOK || strings.Contains(body, `data-markdown-edit`) || strings.Contains(body, `>Spotify</a>`) || strings.Contains(body, `>Apple Music</a>`) {
+		t.Fatalf("offline snapshot is not read-only: status=%d body=%s", w.Code, body)
+	}
+}
+
 func TestOwnerViewerBoundary(t *testing.T) {
 	server := fixtureServer(t)
 

@@ -30,7 +30,25 @@ import (
 	"songs.exe.dev/db"
 )
 
-const defaultOwnerEmail = "klundstedt@industryvault.com"
+const (
+	defaultOwnerEmail      = "klundstedt@industryvault.com"
+	offlineManifestSchema  = 1
+	offlineRendererVersion = "20260826-01"
+	offlineAssetVersion    = "20260826-01"
+)
+
+type offlineResource struct {
+	URL         string `json:"url"`
+	FetchURL    string `json:"fetch_url,omitempty"`
+	Fingerprint string `json:"fingerprint"`
+}
+
+type offlineLibraryManifest struct {
+	Schema        int               `json:"schema"`
+	SnapshotID    string            `json:"snapshot_id"`
+	ResourceCount int               `json:"resource_count"`
+	Resources     []offlineResource `json:"resources"`
+}
 
 type Song struct {
 	ID             string        `json:"id"`
@@ -288,6 +306,165 @@ func listenLinksForSong(song *Song) (spotifyURL, appleMusicURL string) {
 		return "", ""
 	}
 	return "https://open.spotify.com/search/" + url.PathEscape(query), "https://music.apple.com/us/search?term=" + url.QueryEscape(query)
+}
+
+func offlineFingerprint(parts ...string) string {
+	hash := sha256.New()
+	for _, part := range parts {
+		_, _ = fmt.Fprintf(hash, "%d:", len(part))
+		_, _ = io.WriteString(hash, part)
+		_, _ = hash.Write([]byte{0})
+	}
+	return hex.EncodeToString(hash.Sum(nil))
+}
+
+func offlineFileFingerprint(path string) (string, error) {
+	body, err := os.ReadFile(path)
+	if err != nil {
+		return "", err
+	}
+	return offlineFingerprint(string(body)), nil
+}
+
+func offlineHTMLResource(route, fingerprint string) offlineResource {
+	fetchURL := route + "?offline=1"
+	if route == "/" {
+		fetchURL = "/?offline=1"
+	}
+	return offlineResource{URL: route, FetchURL: fetchURL, Fingerprint: fingerprint}
+}
+
+func offlineSnapshotID(resources []offlineResource) string {
+	parts := []string{strconv.Itoa(offlineManifestSchema)}
+	for _, resource := range resources {
+		parts = append(parts, resource.URL, resource.FetchURL, resource.Fingerprint)
+	}
+	return offlineFingerprint(parts...)
+}
+
+func (s *Server) buildOfflineLibraryManifest() (offlineLibraryManifest, error) {
+	s.mu.RLock()
+	songs := append([]*Song(nil), s.songs...)
+	sets := append([]*SetList(nil), s.sets...)
+	s.mu.RUnlock()
+
+	templateHashes := map[string]string{}
+	for _, name := range []string{"home.html", "sets.html", "about.html", "song.html", "set.html", "live.html"} {
+		fingerprint, err := offlineFileFingerprint(filepath.Join(s.TemplatesDir, name))
+		if err != nil {
+			return offlineLibraryManifest{}, err
+		}
+		templateHashes[name] = fingerprint
+	}
+
+	resourcesByURL := map[string]offlineResource{}
+	add := func(resource offlineResource) error {
+		if existing, ok := resourcesByURL[resource.URL]; ok {
+			if existing != resource {
+				return fmt.Errorf("conflicting offline resource %s", resource.URL)
+			}
+			return nil
+		}
+		resourcesByURL[resource.URL] = resource
+		return nil
+	}
+	addFile := func(route, path string) error {
+		fingerprint, err := offlineFileFingerprint(path)
+		if err != nil {
+			return err
+		}
+		return add(offlineResource{URL: route, Fingerprint: offlineFingerprint(route, fingerprint)})
+	}
+
+	styleURL := "/static/style.css?v=" + offlineAssetVersion
+	appURL := "/static/app.js?v=" + offlineAssetVersion
+	for _, file := range []struct {
+		url  string
+		path string
+	}{
+		{styleURL, filepath.Join(s.StaticDir, "style.css")},
+		{appURL, filepath.Join(s.StaticDir, "app.js")},
+		{"/static/icon.svg", filepath.Join(s.StaticDir, "icon.svg")},
+		{"/manifest.webmanifest", filepath.Join(s.StaticDir, "manifest.webmanifest")},
+	} {
+		if err := addFile(file.url, file.path); err != nil {
+			return offlineLibraryManifest{}, err
+		}
+	}
+
+	counts := fmt.Sprintf("songs=%d;sets=%d", len(songs), len(sets))
+	songCatalogParts := []string{offlineRendererVersion, counts}
+	for _, song := range songs {
+		songCatalogParts = append(songCatalogParts, song.ID, song.Hash)
+	}
+	setCatalogParts := []string{offlineRendererVersion, counts}
+	for _, set := range sets {
+		setCatalogParts = append(setCatalogParts, set.ID, set.Hash)
+	}
+
+	homeFingerprint := offlineFingerprint(append([]string{templateHashes["home.html"]}, songCatalogParts...)...)
+	if err := add(offlineHTMLResource("/", homeFingerprint)); err != nil {
+		return offlineLibraryManifest{}, err
+	}
+	if err := add(offlineHTMLResource("/songs", homeFingerprint)); err != nil {
+		return offlineLibraryManifest{}, err
+	}
+	setsFingerprint := offlineFingerprint(append([]string{templateHashes["sets.html"]}, setCatalogParts...)...)
+	if err := add(offlineHTMLResource("/set-lists", setsFingerprint)); err != nil {
+		return offlineLibraryManifest{}, err
+	}
+	if err := add(offlineHTMLResource("/about", offlineFingerprint(templateHashes["about.html"], offlineRendererVersion, counts))); err != nil {
+		return offlineLibraryManifest{}, err
+	}
+
+	catalogJSON, err := json.Marshal(songs)
+	if err != nil {
+		return offlineLibraryManifest{}, err
+	}
+	if err := add(offlineResource{URL: "/api/catalog", Fingerprint: offlineFingerprint(string(catalogJSON))}); err != nil {
+		return offlineLibraryManifest{}, err
+	}
+
+	for index, song := range songs {
+		previousID, nextID := "", ""
+		if index > 0 {
+			previousID = songs[index-1].ID
+		}
+		if index+1 < len(songs) {
+			nextID = songs[index+1].ID
+		}
+		fingerprint := offlineFingerprint(templateHashes["song.html"], offlineRendererVersion, counts, song.ID, song.Hash, previousID, nextID)
+		if err := add(offlineHTMLResource("/song/"+song.ID, fingerprint)); err != nil {
+			return offlineLibraryManifest{}, err
+		}
+	}
+
+	for _, set := range sets {
+		dependencies := []string{offlineRendererVersion, counts, set.ID, set.Hash}
+		for _, item := range set.Items {
+			if item.Song != nil {
+				dependencies = append(dependencies, item.Song.ID, item.Song.Hash)
+			}
+		}
+		if err := add(offlineHTMLResource("/sets/"+set.ID, offlineFingerprint(append([]string{templateHashes["set.html"]}, dependencies...)...))); err != nil {
+			return offlineLibraryManifest{}, err
+		}
+		if err := add(offlineHTMLResource("/sets/"+set.ID+"/live", offlineFingerprint(append([]string{templateHashes["live.html"]}, dependencies...)...))); err != nil {
+			return offlineLibraryManifest{}, err
+		}
+	}
+
+	resources := make([]offlineResource, 0, len(resourcesByURL))
+	for _, resource := range resourcesByURL {
+		resources = append(resources, resource)
+	}
+	sort.Slice(resources, func(i, j int) bool { return resources[i].URL < resources[j].URL })
+	return offlineLibraryManifest{
+		Schema:        offlineManifestSchema,
+		SnapshotID:    offlineSnapshotID(resources),
+		ResourceCount: len(resources),
+		Resources:     resources,
+	}, nil
 }
 
 func New(dbPath, hostname, repoRoot string) (*Server, error) {
@@ -1402,6 +1579,9 @@ func (s *Server) HandleSong(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	spotifyURL, appleMusicURL := listenLinksForSong(song)
+	if r.URL.Query().Get("offline") == "1" {
+		spotifyURL, appleMusicURL = "", ""
+	}
 	s.render(w, r, "song.html", pageData{Title: song.Title, Song: song, PreviousSong: previous, NextSong: next, UserEmail: r.Header.Get("X-ExeDev-Email"), SpotifyURL: spotifyURL, AppleMusicURL: appleMusicURL})
 }
 func (s *Server) HandleSet(w http.ResponseWriter, r *http.Request) {
@@ -2067,6 +2247,17 @@ func (s *Server) HandleCatalog(w http.ResponseWriter, r *http.Request) {
 	s.mu.RUnlock()
 	writeJSON(w, songs)
 }
+func (s *Server) HandleOfflineLibraryManifest(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-store")
+	manifest, err := s.buildOfflineLibraryManifest()
+	if err != nil {
+		http.Error(w, "Unable to build offline library manifest", http.StatusInternalServerError)
+		slog.Error("build offline library manifest", "error", err)
+		return
+	}
+	writeJSON(w, manifest)
+}
+
 func (s *Server) HandleOfflineManifest(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	set := s.setsByID[r.PathValue("id")]
@@ -2527,7 +2718,7 @@ func (s *Server) renderStatus(w http.ResponseWriter, r *http.Request, name strin
 	data.SongCount = len(s.songs)
 	data.SetCount = len(s.sets)
 	data.UserEmail = strings.TrimSpace(r.Header.Get("X-ExeDev-Email"))
-	data.CanWrite = s.canWrite(r)
+	data.CanWrite = s.canWrite(r) && r.URL.Query().Get("offline") != "1"
 	data.ShelleyURL = shelleyNewConversationURL(s.Hostname)
 	s.mu.RUnlock()
 	w.Header().Add("Vary", "X-ExeDev-Email")
@@ -2570,6 +2761,7 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("GET /api/songs/{id}", s.HandleSongJSON)
 	mux.HandleFunc("GET /api/songs/{id}/markdown", s.HandleSongMarkdown)
 	mux.HandleFunc("PUT /api/songs/{id}/markdown", s.HandleUpdateSongMarkdown)
+	mux.HandleFunc("GET /api/offline/library", s.HandleOfflineLibraryManifest)
 	mux.HandleFunc("GET /api/offline/sets/{id}", s.HandleOfflineManifest)
 	mux.HandleFunc("POST /api/shelley/edit", s.HandleShelleyEdit)
 	mux.HandleFunc("GET /api/shelley/jobs/{id}", s.HandleShelleyJob)
