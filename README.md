@@ -15,7 +15,7 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 - 293 API-visible Notion lead sheets exported as review-only Markdown candidates under `migration/notion-candidates/`.
 - Apex 1.1.14 renders every canonical song and every Notion candidate.
 - Searchable read-only song library and set-list views.
-- Offline PWA snapshots for complete sets.
+- Automatic full-library offline snapshots keep every song, Set List, and Live page available after a verified download; updates are staged atomically so a failed refresh preserves the previous complete snapshot.
 - Stage-dark and bright-outdoor themes.
 - iPad/tablet live sheets use exactly two columns and fit to one viewport at a 16px readability floor.
 - iPhone uses exactly one 20px column with vertical scrolling when required.
@@ -76,8 +76,8 @@ python3 scripts/export_notion_lead_sheet_candidates.py --validate-apex
 V1 uses exe.dev authentication headers for a single owner/viewer boundary. The
 address in `SONGS_OWNER_EMAIL` is the only account allowed to create, edit,
 reorder, import, invoke Shelley changes, or reindex. Other authenticated
-exe.dev Web-share users can browse, print, use Live mode, and prepare sets for
-offline use; mutation and editor endpoints return `403 Forbidden`.
+exe.dev Web-share users can browse, print, use Live mode, and use the automatically
+prepared full offline library; mutation and editor endpoints return `403 Forbidden`.
 
 The production service binds to loopback so authenticated exe.dev HTTPS is the
 only external entry point.
