@@ -78,7 +78,7 @@ async function dispatchMessage(data) {
 
   const aboutBody='<html>new about</html>';
   bodies.set('/about',aboutBody);
-  manifest={schema:1,snapshot_id:'new',resource_count:2,resources:[oldResource,{url:'/about',fetch_url:'/api/offline/resource?snapshot=new&url=%2Fabout',fingerprint:sha256(aboutBody)}]};
+  manifest={schema:1,snapshot_id:'new',resource_count:2,byte_size:oldBody.length+aboutBody.length,resources:[oldResource,{url:'/about',fetch_url:'/api/offline/resource?snapshot=new&url=%2Fabout',fingerprint:sha256(aboutBody)}]};
   failURL='/about';
   const failed=await dispatchMessage({type:'UPDATE_LIBRARY',job_id:'failed-update'});
   const afterFailure=await (await meta.match('/__songs_offline__/active')).json();

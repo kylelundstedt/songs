@@ -34,8 +34,8 @@ import (
 const (
 	defaultOwnerEmail      = "klundstedt@industryvault.com"
 	offlineManifestSchema  = 1
-	offlineRendererVersion = "20260826-02"
-	offlineAssetVersion    = "20260826-02"
+	offlineRendererVersion = "20260826-04"
+	offlineAssetVersion    = "20260826-04"
 )
 
 type offlineResource struct {
@@ -48,6 +48,7 @@ type offlineLibraryManifest struct {
 	Schema        int               `json:"schema"`
 	SnapshotID    string            `json:"snapshot_id"`
 	ResourceCount int               `json:"resource_count"`
+	ByteSize      int64             `json:"byte_size"`
 	Resources     []offlineResource `json:"resources"`
 }
 
@@ -171,6 +172,7 @@ type Server struct {
 	LLMBaseURL     string
 	LeadSheetModel string
 	OwnerEmail     string
+	ReleaseID      string
 
 	mu              sync.RWMutex
 	writeMu         sync.Mutex
@@ -493,14 +495,16 @@ func (s *Server) buildOfflineLibrarySnapshot() (*offlineServerSnapshot, error) {
 	}
 	sort.Strings(urls)
 	resources := make([]offlineResource, 0, len(urls))
+	var byteSize int64
 	for _, route := range urls {
+		byteSize += int64(len(bodies[route].Body))
 		resources = append(resources, offlineResource{URL: route, Fingerprint: hashBytes(bodies[route].Body)})
 	}
 	snapshotID := offlineSnapshotID(resources)
 	for index := range resources {
 		resources[index].FetchURL = "/api/offline/resource?snapshot=" + url.QueryEscape(snapshotID) + "&url=" + url.QueryEscape(resources[index].URL)
 	}
-	manifest := offlineLibraryManifest{Schema: offlineManifestSchema, SnapshotID: snapshotID, ResourceCount: len(resources), Resources: resources}
+	manifest := offlineLibraryManifest{Schema: offlineManifestSchema, SnapshotID: snapshotID, ResourceCount: len(resources), ByteSize: byteSize, Resources: resources}
 	snapshot := &offlineServerSnapshot{SourceVersion: sourceVersion, Manifest: manifest, Bodies: bodies}
 	s.offlineMu.Lock()
 	s.offlineSnapshot = snapshot
@@ -535,9 +539,27 @@ func New(dbPath, hostname, repoRoot string) (*Server, error) {
 	if ownerEmail == "" {
 		ownerEmail = defaultOwnerEmail
 	}
+	assetRoot := strings.TrimSpace(os.Getenv("SONGS_ASSET_ROOT"))
+	if assetRoot == "" {
+		assetRoot = baseDir
+	}
+	assetRoot, err = filepath.EvalSymlinks(assetRoot)
+	if err != nil {
+		_ = wdb.Close()
+		return nil, fmt.Errorf("resolve asset root: %w", err)
+	}
+	releaseID := strings.TrimSpace(os.Getenv("SONGS_RELEASE_ID"))
+	if releaseID == "" {
+		if body, readErr := os.ReadFile(filepath.Join(assetRoot, "COMMIT")); readErr == nil {
+			releaseID = strings.TrimSpace(string(body))
+		}
+	}
+	if releaseID == "" {
+		releaseID = "development"
+	}
 	s := &Server{
 		DB: wdb, Hostname: hostname, RepoRoot: repoRoot,
-		TemplatesDir: filepath.Join(baseDir, "templates"), StaticDir: filepath.Join(baseDir, "static"), ApexPath: apexPath,
+		TemplatesDir: filepath.Join(assetRoot, "templates"), StaticDir: filepath.Join(assetRoot, "static"), ApexPath: apexPath,
 		HTTPClient:     &http.Client{Timeout: 15 * time.Second, CheckRedirect: func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }},
 		LRCLIBBaseURL:  "https://lrclib.net",
 		LyricsOvhURL:   "https://api.lyrics.ovh",
@@ -545,6 +567,7 @@ func New(dbPath, hostname, repoRoot string) (*Server, error) {
 		LLMBaseURL:     "https://llm.int.exe.xyz",
 		LeadSheetModel: "openai/gpt-5.6-luna",
 		OwnerEmail:     ownerEmail,
+		ReleaseID:      releaseID,
 		lyricsSem:      make(chan struct{}, 4),
 		shelleySem:     make(chan struct{}, 1),
 		shelleyJobs:    map[string]*shelleyEditJob{},
@@ -2301,6 +2324,76 @@ func (s *Server) HandleUpdateSongMarkdown(w http.ResponseWriter, r *http.Request
 	writeJSON(w, map[string]any{"ok": true, "id": song.ID, "title": title, "warning": warning})
 }
 
+func (s *Server) HandleHealth(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-store")
+	w.Header().Set("Content-Type", "application/json")
+	s.mu.RLock()
+	songCount, setCount := len(s.songs), len(s.sets)
+	s.mu.RUnlock()
+
+	errorsFound := []string{}
+	if songCount == 0 {
+		errorsFound = append(errorsFound, "song catalog is empty")
+	}
+	if setCount == 0 {
+		errorsFound = append(errorsFound, "Set List catalog is empty")
+	}
+	for _, path := range []string{
+		filepath.Join(s.TemplatesDir, "home.html"),
+		filepath.Join(s.TemplatesDir, "sets.html"),
+		filepath.Join(s.TemplatesDir, "about.html"),
+		filepath.Join(s.TemplatesDir, "song.html"),
+		filepath.Join(s.TemplatesDir, "set.html"),
+		filepath.Join(s.TemplatesDir, "live.html"),
+		filepath.Join(s.TemplatesDir, "new_song.html"),
+		filepath.Join(s.StaticDir, "app.js"),
+		filepath.Join(s.StaticDir, "style.css"),
+		filepath.Join(s.StaticDir, "sw.js"),
+		filepath.Join(s.StaticDir, "offline.html"),
+		filepath.Join(s.StaticDir, "manifest.webmanifest"),
+		filepath.Join(s.StaticDir, "icon.svg"),
+	} {
+		if info, err := os.Stat(path); err != nil || info.IsDir() {
+			errorsFound = append(errorsFound, "missing "+filepath.Base(path))
+		}
+	}
+
+	if err := s.DB.PingContext(r.Context()); err != nil {
+		errorsFound = append(errorsFound, "database unavailable")
+	}
+
+	commit := ""
+	if output, err := exec.Command("git", "-C", s.RepoRoot, "rev-parse", "--short=12", "HEAD").Output(); err == nil {
+		commit = strings.TrimSpace(string(output))
+	} else {
+		errorsFound = append(errorsFound, "Git revision unavailable")
+	}
+
+	response := map[string]any{
+		"ok":      len(errorsFound) == 0,
+		"songs":   songCount,
+		"sets":    setCount,
+		"commit":  commit,
+		"release": s.ReleaseID,
+	}
+	if r.URL.Query().Get("deep") == "1" && len(errorsFound) == 0 {
+		manifest, err := s.buildOfflineLibraryManifest()
+		if err != nil {
+			errorsFound = append(errorsFound, "offline snapshot failed")
+		} else {
+			response["offline_snapshot"] = manifest.SnapshotID
+			response["offline_resources"] = manifest.ResourceCount
+			response["offline_bytes"] = manifest.ByteSize
+		}
+	}
+	if len(errorsFound) > 0 {
+		response["ok"] = false
+		response["errors"] = errorsFound
+		w.WriteHeader(http.StatusServiceUnavailable)
+	}
+	_ = json.NewEncoder(w).Encode(response)
+}
+
 func (s *Server) HandleCatalog(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	songs := append([]*Song(nil), s.songs...)
@@ -2844,6 +2937,7 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("GET /sets/{id}/live", s.HandleLiveSet)
 	mux.HandleFunc("GET /api/lyrics/search", s.HandleLyricsSearch)
 	mux.HandleFunc("POST /api/lyrics/import", s.HandleLyricsImport)
+	mux.HandleFunc("GET /healthz", s.HandleHealth)
 	mux.HandleFunc("GET /api/catalog", s.HandleCatalog)
 	mux.HandleFunc("GET /api/songs/{id}", s.HandleSongJSON)
 	mux.HandleFunc("GET /api/songs/{id}/markdown", s.HandleSongMarkdown)

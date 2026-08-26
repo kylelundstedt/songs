@@ -1,0 +1,14 @@
+[Unit]
+Description=Verify Songs Git backup and restore path
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=exedev
+Group=exedev
+WorkingDirectory=/home/exedev/songs
+Environment=HOME=/home/exedev
+Environment=USER=exedev
+Environment=PATH=/usr/local/go/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/exedev/songs/scripts/restore-drill.sh

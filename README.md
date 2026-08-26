@@ -16,6 +16,8 @@ Phases 0 and 1 are implemented as of August 6, 2026:
 - Apex 1.1.14 renders every canonical song and every Notion candidate.
 - Searchable read-only song library and set-list views.
 - Automatic full-library offline snapshots keep every song, Set List, and Live page available after a verified download; updates are staged atomically so a failed refresh preserves the previous complete snapshot.
+- Offline status on About reports snapshot revision, resource count, size, refresh time, and browser-persistence state.
+- Song search includes artist names; Set Lists can be searched by title, date, or location.
 - Stage-dark and bright-outdoor themes.
 - iPad/tablet live sheets use exactly two columns and fit to one viewport at a 16px readability floor.
 - iPhone uses exactly one 20px column with vertical scrolling when required.
@@ -35,6 +37,24 @@ make build
 ```
 
 The service expects Apex on `PATH` and stores its rebuildable SQLite index under `var/`. Markdown in Git remains canonical.
+
+## Operations
+
+```sh
+# Verify the running service, representative pages, and an offline resource hash
+./scripts/smoke-test.sh
+
+# Build an immutable release, preflight it on a separate port, switch atomically,
+# and restore the previous release automatically if production checks fail
+./scripts/deploy-v1.sh
+
+# Clone origin/main into a temporary directory, rebuild SQLite, launch it, and smoke-test it
+./scripts/restore-drill.sh
+```
+
+Production serves the binary, templates, and static assets from the immutable
+`var/current-release` symlink. `songs-restore-drill.timer` runs the remote
+restore drill weekly after it is installed and enabled.
 
 ## Repository layout
 

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="stylesheet" href="/static/style.css?v=20260826-02">
+  <link rel="stylesheet" href="/static/style.css?v=20260826-04">
   <title>Songs</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
     {{if .CanWrite}}<a class="button primary" href="/songs/new" data-add-song>Add a Song</a>{{end}}
   </section>
   <div class="song-list" id="song-list">
-    {{range .Songs}}<a class="song-row" href="/song/{{.ID}}" data-search="{{.Title}} {{.ID}}"><span>{{.Title}}</span></a>{{end}}
+    {{range .Songs}}<a class="song-row" href="/song/{{.ID}}" data-search="{{.Title}} {{.Artist}} {{.ID}}"><span>{{.Title}}</span></a>{{end}}
   </div>
   <section class="empty-state no-results-card" id="no-results" hidden>
     <h2>No matching song</h2>
@@ -30,5 +30,5 @@
     {{if .CanWrite}}<a class="button primary" href="/songs/new" data-add-missing-song>Add this Song</a>{{end}}
   </section>
 </main>
-<script src="/static/app.js?v=20260826-02" defer></script>
+<script src="/static/app.js?v=20260826-04" defer></script>
 </body></html>

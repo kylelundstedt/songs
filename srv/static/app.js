@@ -332,10 +332,10 @@
     const addSong=document.querySelector('[data-add-song]');
     const update=()=>{
       const raw=input.value.trim();
-      const q=raw.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'');
+      const q=raw.toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]+/gu,'');
       let shown=0;
       rows.forEach(row=>{
-        const hay=row.dataset.search.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'');
+        const hay=row.dataset.search.toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]+/gu,'');
         const match=!q||hay.includes(q);
         row.hidden=!match;
         if(match)shown++;
@@ -359,24 +359,29 @@
   }
 
   function setupSetSorting() {
-    const list=document.querySelector('[data-set-list]'),sort=document.querySelector('[data-set-sort]'),order=document.querySelector('[data-set-order]');
+    const list=document.querySelector('[data-set-list]'),sort=document.querySelector('[data-set-sort]'),order=document.querySelector('[data-set-order]'),search=document.querySelector('[data-set-search]'),empty=document.querySelector('[data-set-no-results]'),resultStatus=document.querySelector('[data-set-result-status]');
     if(!list||!sort||!order)return;
     try {
       if(['date','title'].includes(localStorage.getItem('songs-set-sort')))sort.value=localStorage.getItem('songs-set-sort');
       if(['asc','desc'].includes(localStorage.getItem('songs-set-order')))order.value=localStorage.getItem('songs-set-order');
     } catch {}
     const collator=new Intl.Collator(undefined,{sensitivity:'base',numeric:true});
+    const normalize=value=>(value||'').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}]+/gu,'');
     const update=()=>{
-      const rows=[...list.querySelectorAll('.set-row')],field=sort.value,direction=order.value==='asc'?1:-1;
+      const rows=[...list.querySelectorAll('.set-row')],field=sort.value,direction=order.value==='asc'?1:-1,q=normalize(search?.value.trim());let shown=0;
       rows.sort((a,b)=>{
         const av=(field==='date'?a.dataset.setDate:a.dataset.setTitle)||'',bv=(field==='date'?b.dataset.setDate:b.dataset.setTitle)||'';
-        if(!av||!bv)return av? -1 : bv? 1 : 0;
+        if(!av||!bv)return !av&&!bv?0:!av?1:-1;
         return collator.compare(av,bv)*direction;
       });
-      rows.forEach(row=>list.append(row));
+      rows.forEach(row=>{row.hidden=!!q&&!normalize(row.dataset.setSearch).includes(q);if(!row.hidden)shown++;list.append(row);});
+      if(empty)empty.hidden=shown!==0;
+      if(resultStatus)resultStatus.textContent=`${shown} Set List${shown===1?'':'s'}`;
       try { localStorage.setItem('songs-set-sort',field); localStorage.setItem('songs-set-order',order.value); } catch {}
     };
-    sort.addEventListener('change',update); order.addEventListener('change',update); update();
+    sort.addEventListener('change',update);order.addEventListener('change',update);search?.addEventListener('input',update);search?.addEventListener('keydown',event=>{if(event.key==='Escape'){search.value='';update();search.focus();}if(event.key==='Enter'){const visible=[...list.querySelectorAll('.set-row:not([hidden])')];if(visible.length===1){event.preventDefault();location.href=visible[0].href;}}});
+    addEventListener('keydown',event=>{if(search&&event.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement?.tagName)){event.preventDefault();search.focus();}});
+    update();
   }
 
   function setupSetArrangement() {
@@ -858,7 +863,25 @@
     const detail=document.querySelector('[data-offline-library-detail]');
     const updateButton=document.querySelector('[data-offline-library-update]');
     const removeButton=document.querySelector('[data-offline-library-remove]');
+    const snapshotDetail=document.querySelector('[data-offline-snapshot]');
+    const contentsDetail=document.querySelector('[data-offline-contents]');
+    const sizeDetail=document.querySelector('[data-offline-size]');
+    const persistenceDetail=document.querySelector('[data-offline-persistence]');
+    const updatedDetail=document.querySelector('[data-offline-updated]');
     let libraryReady=false,activeJob=null,hideTimer=0;
+    const formatBytes=value=>{if(!Number.isFinite(value)||value<1)return '—';if(value<1024)return `${value} B`;if(value<1048576)return `${(value/1024).toFixed(1)} KB`;return `${(value/1048576).toFixed(1)} MB`;};
+    const updateDiagnostics=async status=>{
+      const ready=!!status?.ready||!!status?.snapshot_id;
+      if(snapshotDetail)snapshotDetail.textContent=ready?String(status.snapshot_id).slice(0,12):'—';
+      if(contentsDetail){const count=status?.resource_count??status?.total;contentsDetail.textContent=ready&&Number.isFinite(count)?`${count} resources`:'—';}
+      if(sizeDetail)sizeDetail.textContent=ready?formatBytes(status?.byte_size):'—';
+      if(updatedDetail){const date=status?.updated_at?new Date(status.updated_at):null;updatedDetail.textContent=date&&!Number.isNaN(date.valueOf())?date.toLocaleString():'—';}
+      if(persistenceDetail){
+        let persisted=null,usage=null;
+        try { persisted=await navigator.storage?.persisted?.();usage=(await navigator.storage?.estimate?.())?.usage; } catch {}
+        persistenceDetail.textContent=persisted===true?`Persistent${Number.isFinite(usage)?` · ${formatBytes(usage)} used`:''}`:persisted===false?`Browser managed${Number.isFinite(usage)?` · ${formatBytes(usage)} used`:''}`:'Unavailable';
+      }
+    };
     const newJobID=()=>globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(16).slice(2)}`;
     const show=(message,state='working',sticky=false)=>{
       clearTimeout(hideTimer);notice.textContent=message;notice.dataset.state=state;notice.hidden=false;if(detail)detail.textContent=message;
@@ -887,7 +910,7 @@
     });
     const readStatus=async()=>{
       const status=await requestWorker('GET_LIBRARY_STATUS',['LIBRARY_CACHE_STATUS'],15000);
-      libraryReady=!!status.ready;setControls(false);return status;
+      libraryReady=!!status.ready;setControls(false);await updateDiagnostics(status);return status;
     };
     const updateLibrary=async(manual=false)=>{
       if(activeJob)return activeJob;
@@ -898,9 +921,10 @@
           const result=await requestWorker('UPDATE_LIBRARY',['LIBRARY_CACHE_COMPLETE']);
           libraryReady=true;setControls(false);
           try { sessionStorage.setItem('songs-offline-last-check',String(Date.now())); } catch {}
+          try { await navigator.storage?.persist?.(); } catch {}
+          await updateDiagnostics({ready:true,resource_count:result.total,...result});
           const message=result.unchanged?formatReady(result.updated_at):`Offline library ready · ${result.total} resources saved.`;
           show(message,'ready',manual);
-          try { await navigator.storage?.persist?.(); } catch {}
         } catch(error) {
           setControls(false);
           show(error.preserved?'Offline update failed · previous library preserved.':error.message,'error',true);
@@ -923,7 +947,7 @@
     removeButton?.addEventListener('click',async()=>{
       if(!libraryReady||!confirm('Remove the downloaded offline library from this device?'))return;
       setControls(true);
-      try { await requestWorker('REMOVE_LIBRARY',['LIBRARY_CACHE_REMOVED'],60000);libraryReady=false;show('Offline library removed.','ready',true); }
+      try { await requestWorker('REMOVE_LIBRARY',['LIBRARY_CACHE_REMOVED'],60000);libraryReady=false;await updateDiagnostics({ready:false});show('Offline library removed.','ready',true); }
       catch(error){show(error.message,'error',true);} finally{setControls(false);}
     });
     addEventListener('offline',updateNetworkState);
@@ -932,6 +956,7 @@
       const status=await readStatus();
       let checkedRecently=false;
       try { checkedRecently=Date.now()-Number(sessionStorage.getItem('songs-offline-last-check')||0)<300000; } catch {}
+      if(!Number.isFinite(status.byte_size))checkedRecently=false;
       if(!navigator.onLine)show(status.ready?formatReady(status.updated_at):'Offline · no saved library available.','offline',true);
       else if(!status.ready||!checkedRecently)await updateLibrary(false);
       else show(formatReady(status.updated_at),'ready');

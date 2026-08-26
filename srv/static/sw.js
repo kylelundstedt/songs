@@ -4,7 +4,7 @@ const META_CACHE = `songs-meta-v${CACHE_SCHEMA}`;
 const LIBRARY_PREFIX = `songs-library-v${CACHE_SCHEMA}-`;
 const ACTIVE_KEY = '/__songs_offline__/active';
 const OFFLINE_PAGE = '/static/offline.html';
-const ASSET_VERSION = '20260826-02';
+const ASSET_VERSION = '20260826-04';
 const SHELL = [
   OFFLINE_PAGE,
   `/static/style.css?v=${ASSET_VERSION}`,
@@ -121,7 +121,7 @@ async function updateLibrary(client, jobId) {
 
   const oldPointer = await readActiveSnapshot(true);
   if (oldPointer?.snapshot_id === manifest.snapshot_id && await snapshotComplete(oldPointer)) {
-    post(client, 'LIBRARY_CACHE_COMPLETE', {job_id:jobId, snapshot_id:manifest.snapshot_id, total:manifest.resource_count, reused:manifest.resource_count, downloaded:0, unchanged:true, updated_at:oldPointer.updated_at});
+    post(client, 'LIBRARY_CACHE_COMPLETE', {job_id:jobId, snapshot_id:manifest.snapshot_id, total:manifest.resource_count, byte_size:manifest.byte_size, reused:manifest.resource_count, downloaded:0, unchanged:true, updated_at:oldPointer.updated_at});
     return;
   }
 
@@ -163,6 +163,7 @@ async function updateLibrary(client, jobId) {
       snapshot_id:manifest.snapshot_id,
       cache_name:cacheName,
       resource_count:manifest.resource_count,
+      byte_size:manifest.byte_size,
       resources:manifest.resources,
       updated_at:new Date().toISOString()
     };
@@ -170,7 +171,7 @@ async function updateLibrary(client, jobId) {
     await meta.put(ACTIVE_KEY, jsonResponse(pointer));
     committed = true;
     activeSnapshot = pointer;
-    post(client, 'LIBRARY_CACHE_COMPLETE', {job_id:jobId, snapshot_id:pointer.snapshot_id, total:pointer.resource_count, reused, downloaded, unchanged:false, updated_at:pointer.updated_at});
+    post(client, 'LIBRARY_CACHE_COMPLETE', {job_id:jobId, snapshot_id:pointer.snapshot_id, total:pointer.resource_count, byte_size:pointer.byte_size, reused, downloaded, unchanged:false, updated_at:pointer.updated_at});
     await cleanupAfterCommit(cacheName).catch(() => {});
   } catch (error) {
     if (!committed) await caches.delete(cacheName).catch(() => {});
@@ -191,7 +192,7 @@ async function removeLibrary() {
 async function libraryStatus() {
   const pointer = await readActiveSnapshot(true);
   if (!pointer || !(await snapshotComplete(pointer))) return {ready:false};
-  return {ready:true, snapshot_id:pointer.snapshot_id, resource_count:pointer.resource_count, updated_at:pointer.updated_at};
+  return {ready:true, snapshot_id:pointer.snapshot_id, resource_count:pointer.resource_count, byte_size:pointer.byte_size, updated_at:pointer.updated_at};
 }
 
 async function matchLibrary(request, navigation = false) {

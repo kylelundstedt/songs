@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the Songs remote restore drill weekly
+
+[Timer]
+OnCalendar=Sun *-*-* 06:15:00 UTC
+Persistent=true
+RandomizedDelaySec=30m
+Unit=songs-restore-drill.service
+
+[Install]
+WantedBy=timers.target

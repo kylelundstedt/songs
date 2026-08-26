@@ -1,4 +1,4 @@
-.PHONY: build test run clean migrate validate
+.PHONY: build test run clean migrate validate smoke deploy restore-drill
 
 build:
 	go build -o srv/songs ./cmd/srv
@@ -19,3 +19,12 @@ migrate:
 validate: build
 	go test ./...
 	./srv/songs -repo . -db /tmp/songs-validate.sqlite3 -listen 127.0.0.1:0 >/dev/null 2>&1 & pid=$$!; sleep 1; kill $$pid 2>/dev/null || true
+
+smoke:
+	./scripts/smoke-test.sh
+
+deploy:
+	./scripts/deploy-v1.sh
+
+restore-drill:
+	./scripts/restore-drill.sh

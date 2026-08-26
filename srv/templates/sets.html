@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css?v=20260826-02"><title>Set Lists · Songs</title>
+  <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css?v=20260826-04"><title>Set Lists · Songs</title>
 </head>
 <body>
 <header class="app-header">
@@ -10,12 +10,14 @@
   <div class="header-actions">{{if .CanWrite}}<a class="button shelley-edit" href="{{.ShelleyURL}}" target="_blank" rel="noopener"><span class="shelley-edit-full">Edit with Shelley</span><span class="shelley-edit-short">Open Shelley</span></a>{{end}}<button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch color mode" title="Switch color mode"><span aria-hidden="true">◐</span></button></div>
 </header>
 <main class="library-shell sets-screen">
-  <section class="set-tools" aria-label="Set-list sorting">
+  <section class="set-tools" aria-label="Set-list search and sorting">
     <h1 class="sr-only">Set Lists</h1>
+    <label class="set-search"><span class="sr-only">Find a Set List</span><input type="search" data-set-search autocomplete="off" placeholder="Find a Set List…"></label>
     <label><span>Sort by</span><select data-set-sort><option value="date" selected>Date</option><option value="title">Title</option></select></label>
     <label><span>Order</span><select data-set-order><option value="desc" selected>Reverse</option><option value="asc">Forward</option></select></label>
   </section>
-  {{if .Sets}}<div class="set-grid" data-set-list>{{range .Sets}}<a class="set-row" href="/sets/{{.ID}}" data-set-title="{{.Title}}" data-set-date="{{.Date}}"><strong>{{.Title}}</strong><span class="set-row-meta"><time datetime="{{.Date}}">{{if .Date}}{{.Date}}{{else}}Undated{{end}}</time>{{if .UnresolvedCount}}<span class="set-warning-badge">{{.UnresolvedCount}} unresolved</span>{{end}}</span></a>{{end}}</div>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
+  <p class="sr-only" data-set-result-status aria-live="polite">{{len .Sets}} Set Lists</p>
+  {{if .Sets}}<div class="set-grid" data-set-list>{{range .Sets}}<a class="set-row" href="/sets/{{.ID}}" data-set-title="{{.Title}}" data-set-date="{{.Date}}" data-set-search="{{.Title}} {{.Date}} {{.Location}}"><strong>{{.Title}}</strong><span class="set-row-meta"><time datetime="{{.Date}}">{{if .Date}}{{.Date}}{{else}}Undated{{end}}</time>{{if .UnresolvedCount}}<span class="set-warning-badge">{{.UnresolvedCount}} unresolved</span>{{end}}</span></a>{{end}}</div><p class="empty-state" data-set-no-results hidden>No matching Set List.</p>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
 </main>
-<script src="/static/app.js?v=20260826-02" defer></script>
+<script src="/static/app.js?v=20260826-04" defer></script>
 </body></html>

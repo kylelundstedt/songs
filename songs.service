@@ -7,12 +7,14 @@ Type=simple
 User=exedev
 Group=exedev
 WorkingDirectory=/home/exedev/songs
-ExecStart=/home/exedev/songs/srv/songs -listen 127.0.0.1:8000 -repo /home/exedev/songs
+ExecStart=/home/exedev/songs/var/current-release/songs -listen 127.0.0.1:8000 -repo /home/exedev/songs
 Restart=always
 RestartSec=3
+UMask=0077
 Environment=HOME=/home/exedev
 Environment=USER=exedev
 Environment=SONGS_OWNER_EMAIL=klundstedt@industryvault.com
+Environment=SONGS_ASSET_ROOT=/home/exedev/songs/var/current-release
 
 [Install]
 WantedBy=multi-user.target

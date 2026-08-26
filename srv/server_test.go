@@ -90,6 +90,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 		contains   string
 	}{
 		{"home", "/", server.HandleHome, "Test Song"},
+		{"set-lists", "/set-lists", server.HandleSetLists, `data-set-search="Test Set 2026-08-06 Test Room"`},
 		{"song", "/song/test-song", server.HandleSong, "Two lines"},
 		{"set", "/sets/test-set", server.HandleSet, "Alex"},
 		{"live", "/sets/test-set/live", server.HandleLiveSet, "Alex"},
@@ -112,6 +113,9 @@ func TestCatalogAndRoutes(t *testing.T) {
 			}
 			if !strings.Contains(w.Body.String(), tt.contains) {
 				t.Fatalf("body missing %q", tt.contains)
+			}
+			if tt.name == "home" && !strings.Contains(w.Body.String(), `data-search="Test Song Example Artist test-song"`) {
+				t.Fatalf("song search index omitted artist: %s", w.Body.String())
 			}
 			if tt.name == "song" {
 				for _, unwanted := range []string{`class="sheet-footer"`, `class="source-facts"`} {
@@ -183,7 +187,7 @@ func TestOfflineLibraryManifest(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if first.Schema != offlineManifestSchema || first.SnapshotID == "" || first.SnapshotID != second.SnapshotID {
+	if first.Schema != offlineManifestSchema || first.SnapshotID == "" || first.SnapshotID != second.SnapshotID || first.ByteSize <= 0 {
 		t.Fatalf("manifest is not deterministic: first=%+v second=%+v", first, second)
 	}
 	if first.ResourceCount != len(first.Resources) || first.ResourceCount != 12 {
@@ -268,6 +272,28 @@ func TestOfflineLibraryManifest(t *testing.T) {
 	for _, forbidden := range []string{`data-markdown-edit`, `data-set-add`, `data-set-delete`, `data-set-note-edit`, `Edit with Shelley`} {
 		if strings.Contains(setResponse.Body.String(), forbidden) {
 			t.Fatalf("offline set contains %q: %s", forbidden, setResponse.Body.String())
+		}
+	}
+}
+
+func TestHealth(t *testing.T) {
+	server := fixtureServer(t)
+	for _, path := range []string{"/healthz", "/healthz?deep=1"} {
+		req := httptest.NewRequest(http.MethodGet, path, nil)
+		w := httptest.NewRecorder()
+		server.HandleHealth(w, req)
+		if w.Code != http.StatusOK || w.Header().Get("Cache-Control") != "no-store" {
+			t.Fatalf("health %s status=%d cache=%q body=%s", path, w.Code, w.Header().Get("Cache-Control"), w.Body.String())
+		}
+		var result map[string]any
+		if err := json.Unmarshal(w.Body.Bytes(), &result); err != nil {
+			t.Fatal(err)
+		}
+		if result["ok"] != true || result["songs"] != float64(1) || result["sets"] != float64(1) || result["commit"] == "" || result["release"] != "development" {
+			t.Fatalf("unexpected health response: %#v", result)
+		}
+		if strings.Contains(path, "deep=1") && (result["offline_snapshot"] == "" || result["offline_resources"] != float64(12) || result["offline_bytes"].(float64) <= 0) {
+			t.Fatalf("deep health omitted offline diagnostics: %#v", result)
 		}
 	}
 }
