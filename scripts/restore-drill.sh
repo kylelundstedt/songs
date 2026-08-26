@@ -13,7 +13,7 @@ cleanup() {
 trap cleanup EXIT
 
 cd "$ROOT"
-git fsck --full
+git fsck --full --no-dangling
 git fetch origin main --quiet
 local_head="$(git rev-parse HEAD)"
 remote_head="$(git rev-parse origin/main)"
