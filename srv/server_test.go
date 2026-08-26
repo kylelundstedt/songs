@@ -124,7 +124,7 @@ func TestCatalogAndRoutes(t *testing.T) {
 				t.Fatalf("set heading is not rendered as a standalone row before the first song: %s", w.Body.String())
 			}
 			if tt.name == "set" {
-				for _, action := range []string{`data-action-menu`, `data-markdown-edit`, `data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-print`, `data-offline-set`, `data-theme-toggle`, `data-set-note-edit`} {
+				for _, action := range []string{`data-action-menu`, `data-markdown-edit`, `data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-print`, `data-theme-toggle`, `data-set-note-edit`} {
 					if !strings.Contains(w.Body.String(), action) {
 						t.Fatalf("set page action menu is missing %q: %s", action, w.Body.String())
 					}
@@ -203,14 +203,41 @@ func TestOfflineLibraryManifest(t *testing.T) {
 			t.Fatalf("offline manifest omitted %s", route)
 		}
 	}
-	if resources["/song/test-song"].FetchURL != "/song/test-song?offline=1" || resources["/api/catalog"].FetchURL != "" {
+	if !strings.HasPrefix(resources["/song/test-song"].FetchURL, "/api/offline/resource?snapshot=") || !strings.Contains(resources["/song/test-song"].FetchURL, "url=%2Fsong%2Ftest-song") || !strings.HasPrefix(resources["/api/catalog"].FetchURL, "/api/offline/resource?snapshot=") {
 		t.Fatalf("unexpected fetch URLs: song=%+v catalog=%+v", resources["/song/test-song"], resources["/api/catalog"])
+	}
+
+	request := httptest.NewRequest(http.MethodGet, "/api/offline/library", nil)
+	response := httptest.NewRecorder()
+	server.HandleOfflineLibraryManifest(response, request)
+	if response.Code != http.StatusOK || response.Header().Get("Cache-Control") != "no-store" || !strings.Contains(response.Body.String(), first.SnapshotID) {
+		t.Fatalf("offline manifest endpoint status=%d cache=%q body=%s", response.Code, response.Header().Get("Cache-Control"), response.Body.String())
+	}
+	for _, templatePath := range []string{"home.html", "sets.html", "about.html", "song.html", "set.html", "live.html", "new_song.html"} {
+		body, err := os.ReadFile(filepath.Join(server.TemplatesDir, templatePath))
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !strings.Contains(string(body), "/static/style.css?v="+offlineAssetVersion) || !strings.Contains(string(body), "/static/app.js?v="+offlineAssetVersion) {
+			t.Fatalf("%s does not use offline asset version %s", templatePath, offlineAssetVersion)
+		}
+	}
+
+	resourceRequest := httptest.NewRequest(http.MethodGet, resources["/song/test-song"].FetchURL, nil)
+	resourceResponse := httptest.NewRecorder()
+	server.HandleOfflineLibraryResource(resourceResponse, resourceRequest)
+	if resourceResponse.Code != http.StatusOK || hashBytes(resourceResponse.Body.Bytes()) != resources["/song/test-song"].Fingerprint || !strings.Contains(resourceResponse.Header().Get("Content-Type"), "text/html") {
+		t.Fatalf("offline snapshot resource mismatch: status=%d type=%q", resourceResponse.Code, resourceResponse.Header().Get("Content-Type"))
+	}
+	if strings.Contains(resourceResponse.Body.String(), `data-markdown-edit`) || strings.Contains(resourceResponse.Body.String(), `data-set-delete`) || strings.Contains(resourceResponse.Body.String(), `>Spotify</a>`) {
+		t.Fatalf("offline snapshot resource is not read-only: %s", resourceResponse.Body.String())
 	}
 
 	beforeSong := resources["/song/test-song"].Fingerprint
 	beforeSet := resources["/sets/test-set"].Fingerprint
 	beforeLive := resources["/sets/test-set/live"].Fingerprint
 	server.songs[0].Hash = "changed-song-hash"
+	server.songs[0].Title = "Changed Song"
 	changed, err := server.buildOfflineLibraryManifest()
 	if err != nil {
 		t.Fatal(err)
@@ -231,6 +258,17 @@ func TestOfflineLibraryManifest(t *testing.T) {
 	body := w.Body.String()
 	if w.Code != http.StatusOK || strings.Contains(body, `data-markdown-edit`) || strings.Contains(body, `>Spotify</a>`) || strings.Contains(body, `>Apple Music</a>`) {
 		t.Fatalf("offline snapshot is not read-only: status=%d body=%s", w.Code, body)
+	}
+
+	setRequest := httptest.NewRequest(http.MethodGet, "/sets/test-set?offline=1", nil)
+	setRequest.SetPathValue("id", "test-set")
+	setOwnerHeaders(setRequest)
+	setResponse := httptest.NewRecorder()
+	server.HandleSet(setResponse, setRequest)
+	for _, forbidden := range []string{`data-markdown-edit`, `data-set-add`, `data-set-delete`, `data-set-note-edit`, `Edit with Shelley`} {
+		if strings.Contains(setResponse.Body.String(), forbidden) {
+			t.Fatalf("offline set contains %q: %s", forbidden, setResponse.Body.String())
+		}
 	}
 }
 
@@ -259,12 +297,12 @@ func TestOwnerViewerBoundary(t *testing.T) {
 		t.Fatalf("viewer response cache boundary missing: vary=%q cache=%q", vary, viewerResponse.Header().Get("Cache-Control"))
 	}
 	viewerBody := viewerResponse.Body.String()
-	for _, forbidden := range []string{`data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-note-edit`, `data-markdown-edit`, `Edit with Shelley`} {
+	for _, forbidden := range []string{`data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-note-edit`, `data-markdown-edit`, `data-offline-set`, `Edit with Shelley`} {
 		if strings.Contains(viewerBody, forbidden) {
 			t.Fatalf("viewer sees write control %q: %s", forbidden, viewerBody)
 		}
 	}
-	for _, allowed := range []string{`data-set-print`, `data-offline-set`, `Open live set`} {
+	for _, allowed := range []string{`data-set-print`, `Open live set`} {
 		if !strings.Contains(viewerBody, allowed) {
 			t.Fatalf("viewer is missing read-only action %q: %s", allowed, viewerBody)
 		}

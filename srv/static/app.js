@@ -752,30 +752,6 @@
     });
   }
 
-  async function verifySetFits(setID) {
-    const ids = [...document.querySelectorAll('.set-entry-list a[href^="/song/"]')].map(link => link.getAttribute('href').split('/').pop());
-    if (!ids.length) throw new Error('Set list contains no songs');
-    const panel = document.createElement('article');
-    panel.className = 'lead-sheet-panel';
-    panel.dataset.leadSheet = '';
-    panel.style.cssText = 'position:fixed;left:-10000px;top:0;width:calc(100vw - 24px);height:calc(100dvh - 72px);visibility:hidden';
-    panel.innerHTML = '<header class="sheet-header"><h1>Song</h1></header><div class="sheet-viewport" data-sheet-viewport><div class="apex-source" data-apex-source></div><div class="live-columns" data-live-columns></div></div>';
-    document.body.append(panel);
-    const failures = [];
-    try {
-      for (const id of ids) {
-        const data = await fetch(`/api/songs/${id}`).then(response => { if (!response.ok) throw new Error(`Unable to load ${id}`); return response.json(); });
-        panel.querySelector('[data-apex-source]').innerHTML = data.html;
-        panel.querySelector('h1').textContent = data.title;
-        await fitSheet(panel);
-        if (panel.dataset.fitStatus === 'needs-editing') failures.push(id);
-      }
-    } finally {
-      panel.remove();
-    }
-    return {failed: failures, checked: ids.length, set: setID};
-  }
-
   function setupLyricsPicker() {
     const searchButton = document.querySelector('[data-lyrics-search]');
     const results = document.querySelector('[data-lyrics-results]');
@@ -866,20 +842,101 @@
   }
 
   async function setupOffline() {
-    if ('serviceWorker' in navigator) await navigator.serviceWorker.register('/sw.js');
-    const button=document.querySelector('[data-offline-set]'); if(!button)return;
-    const status=document.querySelector('[data-offline-status]');
-    button.addEventListener('click',async()=>{
-      button.disabled=true; status.textContent='Preparing offline set…';
-      try {
-        const fit = await verifySetFits(button.dataset.offlineSet);
-        if (fit.failed?.length) throw new Error(`${fit.failed.length} lead sheet${fit.failed.length === 1 ? '' : 's'} need editing for this viewport before offline use.`);
-        const data=await fetch(`/api/offline/sets/${button.dataset.offlineSet}`).then(r=>{if(!r.ok)throw new Error('Unable to build offline manifest');return r.json();});
-        const reg=await navigator.serviceWorker.ready; const worker=reg.active||reg.waiting||reg.installing;
-        const done=new Promise((resolve,reject)=>{const handler=e=>{if(e.data?.type==='CACHE_COMPLETE'){navigator.serviceWorker.removeEventListener('message',handler);resolve();}if(e.data?.type==='CACHE_ERROR'){navigator.serviceWorker.removeEventListener('message',handler);reject(new Error(e.data.message));}};navigator.serviceWorker.addEventListener('message',handler);setTimeout(()=>reject(new Error('Offline preparation timed out')),45000);});
-        worker.postMessage({type:'CACHE_URLS',urls:data.urls,set:data.set}); await done; status.textContent='Available offline on this device.';
-      } catch(error){status.textContent=error.message;} finally{button.disabled=false;}
+    if (!('serviceWorker' in navigator)) return;
+    const registration=await navigator.serviceWorker.register('/sw.js');
+    const candidate=registration.installing||registration.waiting;
+    if(candidate&&candidate.state!=='activated')await new Promise(resolve=>{
+      const timeout=setTimeout(resolve,15000);
+      candidate.addEventListener('statechange',()=>{if(candidate.state==='activated'||candidate.state==='redundant'){clearTimeout(timeout);resolve();}});
     });
+    const ready=await navigator.serviceWorker.ready;
+    const worker=ready.active||registration.active;
+    if(!worker)return;
+
+    const notice=document.createElement('div');
+    notice.className='offline-library-notice';notice.hidden=true;notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');document.body.append(notice);
+    const detail=document.querySelector('[data-offline-library-detail]');
+    const updateButton=document.querySelector('[data-offline-library-update]');
+    const removeButton=document.querySelector('[data-offline-library-remove]');
+    let libraryReady=false,activeJob=null,hideTimer=0;
+    const newJobID=()=>globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const show=(message,state='working',sticky=false)=>{
+      clearTimeout(hideTimer);notice.textContent=message;notice.dataset.state=state;notice.hidden=false;if(detail)detail.textContent=message;
+      if(!sticky&&state==='ready'&&navigator.onLine)hideTimer=setTimeout(()=>{notice.hidden=true;},4500);
+    };
+    const formatReady=updatedAt=>{
+      if(!updatedAt)return 'Offline library ready.';
+      const date=new Date(updatedAt);return Number.isNaN(date.valueOf())?'Offline library ready.':`Offline library ready · updated ${date.toLocaleDateString()}.`;
+    };
+    const setControls=busy=>{if(updateButton)updateButton.disabled=busy||!navigator.onLine;if(removeButton)removeButton.disabled=busy||!libraryReady;};
+    const requestWorker=(type,terminalTypes,timeout=600000)=>new Promise((resolve,reject)=>{
+      const jobID=newJobID();let finished=false;
+      const finish=callback=>{if(finished)return;finished=true;clearTimeout(timer);navigator.serviceWorker.removeEventListener('message',onMessage);callback();};
+      const onMessage=event=>{
+        const data=event.data||{};if(data.job_id!==jobID)return;
+        if(data.type==='LIBRARY_CACHE_PROGRESS'){
+          if(data.phase==='manifest')show('Checking offline library…','working',true);
+          if(data.phase==='resources')show(`Preparing offline library… ${data.completed}/${data.total}`,'working',true);
+          return;
+        }
+        if(data.type==='LIBRARY_CACHE_ERROR')finish(()=>reject(Object.assign(new Error(data.message||'Unable to prepare offline library'),{preserved:data.preserved_active_snapshot})));
+        else if(terminalTypes.includes(data.type))finish(()=>resolve(data));
+      };
+      const timer=setTimeout(()=>finish(()=>reject(new Error('Offline library operation timed out'))),timeout);
+      navigator.serviceWorker.addEventListener('message',onMessage);worker.postMessage({type,job_id:jobID});
+    });
+    const readStatus=async()=>{
+      const status=await requestWorker('GET_LIBRARY_STATUS',['LIBRARY_CACHE_STATUS'],15000);
+      libraryReady=!!status.ready;setControls(false);return status;
+    };
+    const updateLibrary=async(manual=false)=>{
+      if(activeJob)return activeJob;
+      if(!navigator.onLine){show(libraryReady?'Offline · saved library available.':'Offline library has not been downloaded.','offline',true);return;}
+      setControls(true);
+      activeJob=(async()=>{
+        try {
+          const result=await requestWorker('UPDATE_LIBRARY',['LIBRARY_CACHE_COMPLETE']);
+          libraryReady=true;setControls(false);
+          try { sessionStorage.setItem('songs-offline-last-check',String(Date.now())); } catch {}
+          const message=result.unchanged?formatReady(result.updated_at):`Offline library ready · ${result.total} resources saved.`;
+          show(message,'ready',manual);
+          try { await navigator.storage?.persist?.(); } catch {}
+        } catch(error) {
+          setControls(false);
+          show(error.preserved?'Offline update failed · previous library preserved.':error.message,'error',true);
+        } finally { activeJob=null; }
+      })();
+      return activeJob;
+    };
+    const updateNetworkState=()=>{
+      document.documentElement.dataset.network=navigator.onLine?'online':'offline';
+      setControls(!!activeJob);
+      if(!navigator.onLine)show(libraryReady?'Offline · saved library available.':'Offline · no saved library available.','offline',true);
+      else if(libraryReady)show(formatReady(),'ready');
+    };
+    document.addEventListener('click',event=>{
+      if(navigator.onLine)return;
+      const target=event.target.closest('[data-markdown-edit],[data-shelley-edit],[data-set-add],[data-set-remove-mode],[data-set-arrange],[data-set-save],[data-set-delete],[data-set-note-edit],[data-add-song],[data-add-missing-song],.listen-menu a');
+      if(!target)return;event.preventDefault();show('This action requires an internet connection.','offline',true);
+    },true);
+    updateButton?.addEventListener('click',()=>updateLibrary(true));
+    removeButton?.addEventListener('click',async()=>{
+      if(!libraryReady||!confirm('Remove the downloaded offline library from this device?'))return;
+      setControls(true);
+      try { await requestWorker('REMOVE_LIBRARY',['LIBRARY_CACHE_REMOVED'],60000);libraryReady=false;show('Offline library removed.','ready',true); }
+      catch(error){show(error.message,'error',true);} finally{setControls(false);}
+    });
+    addEventListener('offline',updateNetworkState);
+    addEventListener('online',()=>{updateNetworkState();updateLibrary(false);});
+    try {
+      const status=await readStatus();
+      let checkedRecently=false;
+      try { checkedRecently=Date.now()-Number(sessionStorage.getItem('songs-offline-last-check')||0)<300000; } catch {}
+      if(!navigator.onLine)show(status.ready?formatReady(status.updated_at):'Offline · no saved library available.','offline',true);
+      else if(!status.ready||!checkedRecently)await updateLibrary(false);
+      else show(formatReady(status.updated_at),'ready');
+    } catch(error) { show(error.message,'error',true); }
+    updateNetworkState();
   }
 
   function setupSongNavigation() {
@@ -915,7 +972,9 @@
   window.SongsApp = { fitSheet, fitAll, detectFormFactor, setFormFactor };
 
   document.addEventListener('DOMContentLoaded',async()=>{
-    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupActionMenu(); setupSetPrint(); setupSetItemEditing(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation(); await setupOffline(); await fitAll();
+    setFormFactor(); setupFlashMessage(); setupTheme(); setupSearch(); setupSetSorting(); setupSetArrangement(); setupActionMenu(); setupSetPrint(); setupSetItemEditing(); setupFontControls(); setupShelleyEditor(); setupMarkdownEditor(); setupLyricsPicker(); setupSongNavigation(); setupLiveNavigation();
+    setupOffline().catch(error=>console.error('Offline library setup failed',error));
+    await fitAll();
     new ResizeObserver(scheduleFit).observe(document.documentElement); window.visualViewport?.addEventListener('resize',scheduleFit); addEventListener('orientationchange',scheduleFit);
   });
 })();

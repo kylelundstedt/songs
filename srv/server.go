@@ -2,6 +2,7 @@ package srv
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"crypto/sha256"
 	"database/sql"
@@ -48,6 +49,40 @@ type offlineLibraryManifest struct {
 	SnapshotID    string            `json:"snapshot_id"`
 	ResourceCount int               `json:"resource_count"`
 	Resources     []offlineResource `json:"resources"`
+}
+
+type offlineSnapshotBody struct {
+	Body        []byte
+	ContentType string
+}
+
+type offlineServerSnapshot struct {
+	SourceVersion string
+	Manifest      offlineLibraryManifest
+	Bodies        map[string]offlineSnapshotBody
+}
+
+type offlineResponseCapture struct {
+	header http.Header
+	status int
+	body   bytes.Buffer
+}
+
+func (capture *offlineResponseCapture) Header() http.Header {
+	return capture.header
+}
+
+func (capture *offlineResponseCapture) WriteHeader(status int) {
+	if capture.status == 0 {
+		capture.status = status
+	}
+}
+
+func (capture *offlineResponseCapture) Write(body []byte) (int, error) {
+	if capture.status == 0 {
+		capture.status = http.StatusOK
+	}
+	return capture.body.Write(body)
 }
 
 type Song struct {
@@ -137,16 +172,18 @@ type Server struct {
 	LeadSheetModel string
 	OwnerEmail     string
 
-	mu          sync.RWMutex
-	writeMu     sync.Mutex
-	songs       []*Song
-	songsByID   map[string]*Song
-	songsByPath map[string]*Song
-	sets        []*SetList
-	setsByID    map[string]*SetList
-	lyricsSem   chan struct{}
-	shelleySem  chan struct{}
-	shelleyJobs map[string]*shelleyEditJob
+	mu              sync.RWMutex
+	writeMu         sync.Mutex
+	offlineMu       sync.RWMutex
+	offlineSnapshot *offlineServerSnapshot
+	songs           []*Song
+	songsByID       map[string]*Song
+	songsByPath     map[string]*Song
+	sets            []*SetList
+	setsByID        map[string]*SetList
+	lyricsSem       chan struct{}
+	shelleySem      chan struct{}
+	shelleyJobs     map[string]*shelleyEditJob
 }
 
 type pageData struct {
@@ -318,153 +355,165 @@ func offlineFingerprint(parts ...string) string {
 	return hex.EncodeToString(hash.Sum(nil))
 }
 
-func offlineFileFingerprint(path string) (string, error) {
-	body, err := os.ReadFile(path)
-	if err != nil {
-		return "", err
-	}
-	return offlineFingerprint(string(body)), nil
-}
-
-func offlineHTMLResource(route, fingerprint string) offlineResource {
-	fetchURL := route + "?offline=1"
-	if route == "/" {
-		fetchURL = "/?offline=1"
-	}
-	return offlineResource{URL: route, FetchURL: fetchURL, Fingerprint: fingerprint}
-}
-
 func offlineSnapshotID(resources []offlineResource) string {
 	parts := []string{strconv.Itoa(offlineManifestSchema)}
 	for _, resource := range resources {
-		parts = append(parts, resource.URL, resource.FetchURL, resource.Fingerprint)
+		parts = append(parts, resource.URL, resource.Fingerprint)
 	}
 	return offlineFingerprint(parts...)
 }
 
-func (s *Server) buildOfflineLibraryManifest() (offlineLibraryManifest, error) {
+func (s *Server) offlineSourceVersion(songs []*Song, sets []*SetList) (string, error) {
+	parts := []string{offlineRendererVersion, offlineAssetVersion}
+	for _, name := range []string{"home.html", "sets.html", "about.html", "song.html", "set.html", "live.html"} {
+		body, err := os.ReadFile(filepath.Join(s.TemplatesDir, name))
+		if err != nil {
+			return "", err
+		}
+		parts = append(parts, name, string(body))
+	}
+	for _, name := range []string{"style.css", "app.js", "icon.svg", "manifest.webmanifest"} {
+		body, err := os.ReadFile(filepath.Join(s.StaticDir, name))
+		if err != nil {
+			return "", err
+		}
+		parts = append(parts, name, string(body))
+	}
+	for _, song := range songs {
+		parts = append(parts, song.ID, song.Hash, song.Modified.UTC().Format(time.RFC3339Nano))
+	}
+	for _, set := range sets {
+		parts = append(parts, set.ID, set.Hash)
+	}
+	return offlineFingerprint(parts...), nil
+}
+
+func (s *Server) captureOfflineResponse(route, id string, handler http.HandlerFunc) (offlineSnapshotBody, error) {
+	target := "http://offline.local" + route
+	if strings.Contains(target, "?") {
+		target += "&offline=1"
+	} else {
+		target += "?offline=1"
+	}
+	request, err := http.NewRequest(http.MethodGet, target, nil)
+	if err != nil {
+		return offlineSnapshotBody{}, err
+	}
+	if id != "" {
+		request.SetPathValue("id", id)
+	}
+	capture := &offlineResponseCapture{header: make(http.Header)}
+	handler(capture, request)
+	if capture.status != http.StatusOK {
+		return offlineSnapshotBody{}, fmt.Errorf("render offline resource %s: status %d", route, capture.status)
+	}
+	contentType := capture.header.Get("Content-Type")
+	if contentType == "" {
+		contentType = http.DetectContentType(capture.body.Bytes())
+	}
+	return offlineSnapshotBody{Body: append([]byte(nil), capture.body.Bytes()...), ContentType: contentType}, nil
+}
+
+func (s *Server) buildOfflineLibrarySnapshot() (*offlineServerSnapshot, error) {
+	s.writeMu.Lock()
+	defer s.writeMu.Unlock()
+
 	s.mu.RLock()
 	songs := append([]*Song(nil), s.songs...)
 	sets := append([]*SetList(nil), s.sets...)
 	s.mu.RUnlock()
 
-	templateHashes := map[string]string{}
-	for _, name := range []string{"home.html", "sets.html", "about.html", "song.html", "set.html", "live.html"} {
-		fingerprint, err := offlineFileFingerprint(filepath.Join(s.TemplatesDir, name))
-		if err != nil {
-			return offlineLibraryManifest{}, err
-		}
-		templateHashes[name] = fingerprint
+	sourceVersion, err := s.offlineSourceVersion(songs, sets)
+	if err != nil {
+		return nil, err
+	}
+	s.offlineMu.RLock()
+	cached := s.offlineSnapshot
+	s.offlineMu.RUnlock()
+	if cached != nil && cached.SourceVersion == sourceVersion {
+		return cached, nil
 	}
 
-	resourcesByURL := map[string]offlineResource{}
-	add := func(resource offlineResource) error {
-		if existing, ok := resourcesByURL[resource.URL]; ok {
-			if existing != resource {
-				return fmt.Errorf("conflicting offline resource %s", resource.URL)
-			}
-			return nil
-		}
-		resourcesByURL[resource.URL] = resource
-		return nil
-	}
-	addFile := func(route, path string) error {
-		fingerprint, err := offlineFileFingerprint(path)
+	bodies := map[string]offlineSnapshotBody{}
+	addCaptured := func(route, id string, handler http.HandlerFunc) error {
+		body, err := s.captureOfflineResponse(route, id, handler)
 		if err != nil {
 			return err
 		}
-		return add(offlineResource{URL: route, Fingerprint: offlineFingerprint(route, fingerprint)})
+		bodies[route] = body
+		return nil
 	}
-
-	styleURL := "/static/style.css?v=" + offlineAssetVersion
-	appURL := "/static/app.js?v=" + offlineAssetVersion
-	for _, file := range []struct {
-		url  string
-		path string
+	for _, page := range []struct {
+		route   string
+		handler http.HandlerFunc
 	}{
-		{styleURL, filepath.Join(s.StaticDir, "style.css")},
-		{appURL, filepath.Join(s.StaticDir, "app.js")},
-		{"/static/icon.svg", filepath.Join(s.StaticDir, "icon.svg")},
-		{"/manifest.webmanifest", filepath.Join(s.StaticDir, "manifest.webmanifest")},
+		{"/", s.HandleHome},
+		{"/songs", s.HandleHome},
+		{"/set-lists", s.HandleSetLists},
+		{"/about", s.HandleAbout},
+		{"/api/catalog", s.HandleCatalog},
 	} {
-		if err := addFile(file.url, file.path); err != nil {
-			return offlineLibraryManifest{}, err
+		if err := addCaptured(page.route, "", page.handler); err != nil {
+			return nil, err
 		}
 	}
-
-	counts := fmt.Sprintf("songs=%d;sets=%d", len(songs), len(sets))
-	songCatalogParts := []string{offlineRendererVersion, counts}
 	for _, song := range songs {
-		songCatalogParts = append(songCatalogParts, song.ID, song.Hash)
+		if err := addCaptured("/song/"+song.ID, song.ID, s.HandleSong); err != nil {
+			return nil, err
+		}
 	}
-	setCatalogParts := []string{offlineRendererVersion, counts}
 	for _, set := range sets {
-		setCatalogParts = append(setCatalogParts, set.ID, set.Hash)
+		if err := addCaptured("/sets/"+set.ID, set.ID, s.HandleSet); err != nil {
+			return nil, err
+		}
+		if err := addCaptured("/sets/"+set.ID+"/live", set.ID, s.HandleLiveSet); err != nil {
+			return nil, err
+		}
+	}
+	for _, file := range []struct {
+		route       string
+		name        string
+		contentType string
+	}{
+		{"/static/style.css?v=" + offlineAssetVersion, "style.css", "text/css; charset=utf-8"},
+		{"/static/app.js?v=" + offlineAssetVersion, "app.js", "application/javascript"},
+		{"/static/icon.svg", "icon.svg", "image/svg+xml"},
+		{"/manifest.webmanifest", "manifest.webmanifest", "application/manifest+json"},
+	} {
+		body, err := os.ReadFile(filepath.Join(s.StaticDir, file.name))
+		if err != nil {
+			return nil, err
+		}
+		bodies[file.route] = offlineSnapshotBody{Body: body, ContentType: file.contentType}
 	}
 
-	homeFingerprint := offlineFingerprint(append([]string{templateHashes["home.html"]}, songCatalogParts...)...)
-	if err := add(offlineHTMLResource("/", homeFingerprint)); err != nil {
-		return offlineLibraryManifest{}, err
+	urls := make([]string, 0, len(bodies))
+	for route := range bodies {
+		urls = append(urls, route)
 	}
-	if err := add(offlineHTMLResource("/songs", homeFingerprint)); err != nil {
-		return offlineLibraryManifest{}, err
+	sort.Strings(urls)
+	resources := make([]offlineResource, 0, len(urls))
+	for _, route := range urls {
+		resources = append(resources, offlineResource{URL: route, Fingerprint: hashBytes(bodies[route].Body)})
 	}
-	setsFingerprint := offlineFingerprint(append([]string{templateHashes["sets.html"]}, setCatalogParts...)...)
-	if err := add(offlineHTMLResource("/set-lists", setsFingerprint)); err != nil {
-		return offlineLibraryManifest{}, err
+	snapshotID := offlineSnapshotID(resources)
+	for index := range resources {
+		resources[index].FetchURL = "/api/offline/resource?snapshot=" + url.QueryEscape(snapshotID) + "&url=" + url.QueryEscape(resources[index].URL)
 	}
-	if err := add(offlineHTMLResource("/about", offlineFingerprint(templateHashes["about.html"], offlineRendererVersion, counts))); err != nil {
-		return offlineLibraryManifest{}, err
-	}
+	manifest := offlineLibraryManifest{Schema: offlineManifestSchema, SnapshotID: snapshotID, ResourceCount: len(resources), Resources: resources}
+	snapshot := &offlineServerSnapshot{SourceVersion: sourceVersion, Manifest: manifest, Bodies: bodies}
+	s.offlineMu.Lock()
+	s.offlineSnapshot = snapshot
+	s.offlineMu.Unlock()
+	return snapshot, nil
+}
 
-	catalogJSON, err := json.Marshal(songs)
+func (s *Server) buildOfflineLibraryManifest() (offlineLibraryManifest, error) {
+	snapshot, err := s.buildOfflineLibrarySnapshot()
 	if err != nil {
 		return offlineLibraryManifest{}, err
 	}
-	if err := add(offlineResource{URL: "/api/catalog", Fingerprint: offlineFingerprint(string(catalogJSON))}); err != nil {
-		return offlineLibraryManifest{}, err
-	}
-
-	for index, song := range songs {
-		previousID, nextID := "", ""
-		if index > 0 {
-			previousID = songs[index-1].ID
-		}
-		if index+1 < len(songs) {
-			nextID = songs[index+1].ID
-		}
-		fingerprint := offlineFingerprint(templateHashes["song.html"], offlineRendererVersion, counts, song.ID, song.Hash, previousID, nextID)
-		if err := add(offlineHTMLResource("/song/"+song.ID, fingerprint)); err != nil {
-			return offlineLibraryManifest{}, err
-		}
-	}
-
-	for _, set := range sets {
-		dependencies := []string{offlineRendererVersion, counts, set.ID, set.Hash}
-		for _, item := range set.Items {
-			if item.Song != nil {
-				dependencies = append(dependencies, item.Song.ID, item.Song.Hash)
-			}
-		}
-		if err := add(offlineHTMLResource("/sets/"+set.ID, offlineFingerprint(append([]string{templateHashes["set.html"]}, dependencies...)...))); err != nil {
-			return offlineLibraryManifest{}, err
-		}
-		if err := add(offlineHTMLResource("/sets/"+set.ID+"/live", offlineFingerprint(append([]string{templateHashes["live.html"]}, dependencies...)...))); err != nil {
-			return offlineLibraryManifest{}, err
-		}
-	}
-
-	resources := make([]offlineResource, 0, len(resourcesByURL))
-	for _, resource := range resourcesByURL {
-		resources = append(resources, resource)
-	}
-	sort.Slice(resources, func(i, j int) bool { return resources[i].URL < resources[j].URL })
-	return offlineLibraryManifest{
-		Schema:        offlineManifestSchema,
-		SnapshotID:    offlineSnapshotID(resources),
-		ResourceCount: len(resources),
-		Resources:     resources,
-	}, nil
+	return snapshot.Manifest, nil
 }
 
 func New(dbPath, hostname, repoRoot string) (*Server, error) {
@@ -588,7 +637,13 @@ func (s *Server) loadSongs() ([]*Song, map[string]*Song, map[string]*Song, error
 	if err != nil {
 		return nil, nil, nil, err
 	}
-	sort.Slice(songs, func(i, j int) bool { return strings.ToLower(songs[i].Title) < strings.ToLower(songs[j].Title) })
+	sort.Slice(songs, func(i, j int) bool {
+		left, right := strings.ToLower(songs[i].Title), strings.ToLower(songs[j].Title)
+		if left == right {
+			return songs[i].ID < songs[j].ID
+		}
+		return left < right
+	})
 	return songs, byID, byPath, nil
 }
 
@@ -708,7 +763,12 @@ func (s *Server) loadSets(songsByPath map[string]*Song) ([]*SetList, map[string]
 	if err != nil {
 		return nil, nil, err
 	}
-	sort.Slice(sets, func(i, j int) bool { return sets[i].Date > sets[j].Date })
+	sort.Slice(sets, func(i, j int) bool {
+		if sets[i].Date == sets[j].Date {
+			return sets[i].ID < sets[j].ID
+		}
+		return sets[i].Date > sets[j].Date
+	})
 	return sets, byID, nil
 }
 
@@ -2258,6 +2318,31 @@ func (s *Server) HandleOfflineLibraryManifest(w http.ResponseWriter, r *http.Req
 	writeJSON(w, manifest)
 }
 
+func (s *Server) HandleOfflineLibraryResource(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-store")
+	snapshotID := strings.TrimSpace(r.URL.Query().Get("snapshot"))
+	route := r.URL.Query().Get("url")
+	s.offlineMu.RLock()
+	snapshot := s.offlineSnapshot
+	if snapshot == nil || snapshot.Manifest.SnapshotID != snapshotID {
+		s.offlineMu.RUnlock()
+		http.Error(w, "Offline snapshot is no longer available", http.StatusConflict)
+		return
+	}
+	body, ok := snapshot.Bodies[route]
+	if !ok {
+		s.offlineMu.RUnlock()
+		http.NotFound(w, r)
+		return
+	}
+	responseBody := append([]byte(nil), body.Body...)
+	contentType := body.ContentType
+	s.offlineMu.RUnlock()
+	w.Header().Set("Content-Type", contentType)
+	w.Header().Set("ETag", `"`+hashBytes(responseBody)+`"`)
+	_, _ = w.Write(responseBody)
+}
+
 func (s *Server) HandleOfflineManifest(w http.ResponseWriter, r *http.Request) {
 	s.mu.RLock()
 	set := s.setsByID[r.PathValue("id")]
@@ -2702,6 +2787,8 @@ func (s *Server) HandleReindex(w http.ResponseWriter, r *http.Request) {
 	if !s.requireWriteAccess(w, r) {
 		return
 	}
+	s.writeMu.Lock()
+	defer s.writeMu.Unlock()
 	if err := s.Reindex(); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -2762,6 +2849,7 @@ func (s *Server) Serve(addr string) error {
 	mux.HandleFunc("GET /api/songs/{id}/markdown", s.HandleSongMarkdown)
 	mux.HandleFunc("PUT /api/songs/{id}/markdown", s.HandleUpdateSongMarkdown)
 	mux.HandleFunc("GET /api/offline/library", s.HandleOfflineLibraryManifest)
+	mux.HandleFunc("GET /api/offline/resource", s.HandleOfflineLibraryResource)
 	mux.HandleFunc("GET /api/offline/sets/{id}", s.HandleOfflineManifest)
 	mux.HandleFunc("POST /api/shelley/edit", s.HandleShelleyEdit)
 	mux.HandleFunc("GET /api/shelley/jobs/{id}", s.HandleShelleyJob)
@@ -2772,6 +2860,7 @@ func (s *Server) Serve(addr string) error {
 	})
 	mux.HandleFunc("GET /sw.js", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/javascript")
+		w.Header().Set("Cache-Control", "no-cache")
 		w.Header().Set("Service-Worker-Allowed", "/")
 		http.ServeFile(w, r, filepath.Join(s.StaticDir, "sw.js"))
 	})

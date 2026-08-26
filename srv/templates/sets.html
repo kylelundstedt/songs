@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css?v=20260823-15"><title>Set Lists · Songs</title>
+  <meta name="theme-color" content="#10151c" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/static/style.css?v=20260826-01"><title>Set Lists · Songs</title>
 </head>
 <body>
 <header class="app-header">
@@ -17,5 +17,5 @@
   </section>
   {{if .Sets}}<div class="set-grid" data-set-list>{{range .Sets}}<a class="set-row" href="/sets/{{.ID}}" data-set-title="{{.Title}}" data-set-date="{{.Date}}"><strong>{{.Title}}</strong><span class="set-row-meta"><time datetime="{{.Date}}">{{if .Date}}{{.Date}}{{else}}Undated{{end}}</time>{{if .UnresolvedCount}}<span class="set-warning-badge">{{.UnresolvedCount}} unresolved</span>{{end}}</span></a>{{end}}</div>{{else}}<p class="empty-state">No set lists yet.</p>{{end}}
 </main>
-<script src="/static/app.js" defer></script>
+<script src="/static/app.js?v=20260826-01" defer></script>
 </body></html>
