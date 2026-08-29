@@ -4,7 +4,7 @@ const META_CACHE = `songs-meta-v${CACHE_SCHEMA}`;
 const LIBRARY_PREFIX = `songs-library-v${CACHE_SCHEMA}-`;
 const ACTIVE_KEY = '/__songs_offline__/active';
 const OFFLINE_PAGE = '/static/offline.html';
-const ASSET_VERSION = '20260826-04';
+const ASSET_VERSION = '20260829-05';
 const SHELL = [
   OFFLINE_PAGE,
   `/static/style.css?v=${ASSET_VERSION}`,

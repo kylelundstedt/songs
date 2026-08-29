@@ -444,6 +444,34 @@
 
   function setupSetPrint() {
     document.querySelector('[data-set-print]')?.addEventListener('click',()=>window.print());
+    const panel=document.querySelector('[data-set-sheet]'),list=panel?.querySelector('[data-set-entries]'),copyButton=document.querySelector('[data-set-copy-sheets]'),csvButton=document.querySelector('[data-set-download-csv]'),status=document.querySelector('[data-offline-status]');
+    if(!panel||!list||(!copyButton&&!csvButton))return;
+    const columns=['Set','#','Song','Artist','Singer','Key','BPM','Note'];
+    const clean=value=>String(value||'').replace(/[\t\r\n]+/g,' ').trim();
+    const rows=()=>{
+      let heading='Set 1';
+      return [...list.querySelectorAll('[data-set-item]')].map((entry,index)=>{
+        if(entry.dataset.exportHeading)heading=entry.dataset.exportHeading;
+        return [heading,entry.querySelector('.set-entry-position')?.textContent.trim()||String(index+1),entry.dataset.exportTitle,entry.dataset.exportArtist,entry.dataset.exportSinger,entry.dataset.exportKey,entry.dataset.exportBpm,entry.dataset.exportNote].map(clean);
+      });
+    };
+    const closeMenu=()=>{const menu=document.querySelector('[data-action-menu]');if(menu)menu.open=false;};
+    const showStatus=message=>{if(!status)return;status.textContent=message;setTimeout(()=>{if(status.textContent===message)status.textContent='';},2400);};
+    const copyText=async text=>{
+      if(navigator.clipboard?.writeText){try{await navigator.clipboard.writeText(text);return;}catch{}}
+      const textarea=document.createElement('textarea');textarea.value=text;textarea.style.cssText='position:fixed;left:-10000px;top:0;opacity:0';document.body.append(textarea);textarea.focus();textarea.select();const copied=document.execCommand('copy');textarea.remove();if(!copied)throw new Error('Clipboard access was unavailable');
+    };
+    copyButton?.addEventListener('click',async()=>{
+      copyButton.disabled=true;
+      try {const data=[columns,...rows()].map(row=>row.join('\t')).join('\n');await copyText(data);showStatus(`${data.split('\n').length-1} songs copied for Google Sheets.`);closeMenu();}
+      catch(error){showStatus(error.message||'Unable to copy this Set List.');}
+      finally{copyButton.disabled=false;}
+    });
+    csvButton?.addEventListener('click',()=>{
+      const quote=value=>`"${String(value).replaceAll('"','""')}"`;
+      const csv='\ufeff'+[columns,...rows()].map(row=>row.map(quote).join(',')).join('\r\n');
+      const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));link.download=`${panel.dataset.setId||'set-list'}.csv`;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(link.href),0);showStatus('CSV downloaded.');closeMenu();
+    });
   }
 
   function setupSetItemEditing() {

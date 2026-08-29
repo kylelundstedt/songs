@@ -34,8 +34,8 @@ import (
 const (
 	defaultOwnerEmail      = "klundstedt@industryvault.com"
 	offlineManifestSchema  = 1
-	offlineRendererVersion = "20260826-04"
-	offlineAssetVersion    = "20260826-04"
+	offlineRendererVersion = "20260829-05"
+	offlineAssetVersion    = "20260829-05"
 )
 
 type offlineResource struct {

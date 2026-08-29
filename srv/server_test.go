@@ -127,8 +127,11 @@ func TestCatalogAndRoutes(t *testing.T) {
 			if tt.name == "set" && !strings.Contains(w.Body.String(), `<h2 class="set-column-heading">Set 1 — Slow</h2><button class="set-drag-handle"`) {
 				t.Fatalf("set heading is not rendered as a standalone row before the first song: %s", w.Body.String())
 			}
+			if tt.name == "set" && !strings.Contains(w.Body.String(), `data-export-title="Test Song" data-export-artist="Example Artist" data-export-singer="Alex" data-export-key="A"`) {
+				t.Fatalf("set export metadata is missing: %s", w.Body.String())
+			}
 			if tt.name == "set" {
-				for _, action := range []string{`data-action-menu`, `data-markdown-edit`, `data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-print`, `data-theme-toggle`, `data-set-note-edit`} {
+				for _, action := range []string{`data-action-menu`, `data-markdown-edit`, `data-set-add`, `data-set-remove-mode`, `data-set-arrange`, `data-set-copy-sheets`, `data-set-download-csv`, `data-set-print`, `data-theme-toggle`, `data-set-note-edit`} {
 					if !strings.Contains(w.Body.String(), action) {
 						t.Fatalf("set page action menu is missing %q: %s", action, w.Body.String())
 					}
@@ -328,7 +331,7 @@ func TestOwnerViewerBoundary(t *testing.T) {
 			t.Fatalf("viewer sees write control %q: %s", forbidden, viewerBody)
 		}
 	}
-	for _, allowed := range []string{`data-set-print`, `Open live set`} {
+	for _, allowed := range []string{`data-set-copy-sheets`, `data-set-download-csv`, `data-set-print`, `Open live set`} {
 		if !strings.Contains(viewerBody, allowed) {
 			t.Fatalf("viewer is missing read-only action %q: %s", allowed, viewerBody)
 		}
